@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>WeaponProf.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.bonustokens</a> &gt; <span class="el_source">WeaponProf.java</span></div><h1>WeaponProf.java</h1><pre class="source lang-java linenums">/*
+ * WeaponProf.java
+ * Copyright 2002 (C) Greg Bingleman &lt;byngl@hotmail.com&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package plugin.bonustokens;
+
+import pcgen.cdom.util.CControl;
+import pcgen.cdom.util.ControlUtilities;
+import pcgen.core.bonus.MultiTagBonusObj;
+import pcgen.rules.context.LoadContext;
+import pcgen.util.Logging;
+
+/**
+ * Handles the BONUS:WEAPONPROF= token.
+ */
+<span class="nc" id="L30">public final class WeaponProf extends MultiTagBonusObj</span>
+{
+<span class="nc" id="L32">	private static final String[] BONUS_TAGS =</span>
+			{&quot;CRITMULTADD&quot;, &quot;CRITRANGEADD&quot;, &quot;CRITRANGEDOUBLE&quot;, &quot;DAMAGE&quot;, &quot;DAMAGE-SHORTRANGE&quot;, &quot;DAMAGESIZE&quot;, &quot;PCSIZE&quot;,
+				&quot;REACH&quot;, &quot;TOHIT&quot;, &quot;TOHIT-SHORTRANGE&quot;, &quot;TOHITOVERSIZE&quot;, &quot;WEAPONBAB&quot;, &quot;WIELDCATEGORY&quot;, &quot;STATDAMAGE&quot;};
+
+	/**
+	 * Return the bonus tag handled by this class.
+	 * @return The bonus handled by this class.
+	 */
+	@Override
+	public String getBonusHandled()
+	{
+<span class="nc" id="L43">		return &quot;WEAPONPROF=&quot;;</span>
+	}
+
+	/**
+	 * Get by index, an individual weapon proficiency attribute that may be bonused.
+	 * @param tagNumber the index of the weapon proficiency attribute.
+	 * @return The weapon proficiency attribute.
+	 */
+	@Override
+	protected String getBonusTag(final int tagNumber)
+	{
+<span class="nc" id="L54">		return BONUS_TAGS[tagNumber];</span>
+	}
+
+	/**
+	 * Get the number of weapon proficiency attributes that may be bonused.
+	 * @return The number of weapon proficiency attributes.
+	 */
+	@Override
+	protected int getBonusTagLength()
+	{
+<span class="nc" id="L64">		return BONUS_TAGS.length;</span>
+	}
+
+	@Override
+	protected boolean parseToken(LoadContext context, String token)
+	{
+<span class="nc bnc" id="L70" title="All 2 branches missed.">		if (ControlUtilities.hasControlToken(context, CControl.CRITRANGE))</span>
+		{
+<span class="nc bnc" id="L72" title="All 2 branches missed.">			if (&quot;CRITRANGEADD&quot;.equals(token))</span>
+			{
+<span class="nc" id="L74">				Logging.errorPrint(&quot;BONUS:WEAPONPROF|CRITRANGEADD is disabled when CRITRANGE control is used: &quot; + token,</span>
+					context);
+<span class="nc" id="L76">				return false;</span>
+			}
+<span class="nc bnc" id="L78" title="All 2 branches missed.">			if (&quot;CRITRANGEDOUBLE&quot;.equals(token))</span>
+			{
+<span class="nc" id="L80">				Logging.errorPrint(</span>
+					&quot;BONUS:WEAPONPROF|CRITRANGEDOUBLE is disabled when CRITRANGE control is used: &quot; + token, context);
+<span class="nc" id="L82">				return false;</span>
+			}
+		}
+<span class="nc bnc" id="L85" title="All 2 branches missed.">		if (ControlUtilities.hasControlToken(context, CControl.CRITMULT))</span>
+		{
+<span class="nc bnc" id="L87" title="All 2 branches missed.">			if (&quot;CRITMULTADD&quot;.equals(token))</span>
+			{
+<span class="nc" id="L89">				Logging.errorPrint(&quot;BONUS:WEAPONPROF|CRITMULTADD is disabled when CRITMULT control is used: &quot; + token,</span>
+					context);
+<span class="nc" id="L91">				return false;</span>
+			}
+		}
+<span class="nc bnc" id="L94" title="All 2 branches missed.">		if (ControlUtilities.hasControlToken(context, CControl.EQREACH))</span>
+		{
+<span class="nc bnc" id="L96" title="All 2 branches missed.">			if (&quot;REACH&quot;.equals(token))</span>
+			{
+<span class="nc" id="L98">				Logging.errorPrint(&quot;BONUS:WEAPONPROF|REACH is disabled when EQREACH control is used: &quot; + token,</span>
+					context);
+<span class="nc" id="L100">				return false;</span>
+			}
+		}
+<span class="nc" id="L103">		return super.parseToken(context, token);</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DataValue.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.core.namegen</a> &gt; <span class="el_source">DataValue.java</span></div><h1>DataValue.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2003 (C) Devon Jones
+ * Copyright 2026 Vest &lt;Vest@users.noreply.github.com&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ */
+package pcgen.core.namegen;
+
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+public class DataValue
+{
+	private final String value;
+	private Map&lt;String, String&gt; subValues;
+
+	public DataValue(String value)
+<span class="fc" id="L26">	{</span>
+<span class="fc" id="L27">		this.value = value;</span>
+<span class="fc" id="L28">	}</span>
+
+	public String getSubValue(String key)
+	{
+<span class="fc bfc" id="L32" title="All 2 branches covered.">		return subValues == null ? null : subValues.get(key);</span>
+	}
+
+	public String getValue()
+	{
+<span class="fc" id="L37">		return value;</span>
+	}
+
+	public void addSubValue(String key, String subValue)
+	{
+<span class="fc bfc" id="L42" title="All 2 branches covered.">		if (subValues == null)</span>
+		{
+<span class="fc" id="L44">			subValues = new LinkedHashMap&lt;&gt;(2);</span>
+		}
+<span class="fc" id="L46">		subValues.putIfAbsent(key, subValue);</span>
+<span class="fc" id="L47">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

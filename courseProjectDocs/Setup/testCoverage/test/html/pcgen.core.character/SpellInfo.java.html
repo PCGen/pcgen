@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SpellInfo.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.core.character</a> &gt; <span class="el_source">SpellInfo.java</span></div><h1>SpellInfo.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2002 (C) Bryan McRoberts &lt;merton_monk@yahoo.com&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.core.character;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+import pcgen.core.Ability;
+import pcgen.core.Globals;
+
+/**
+ * {@code SpellInfo}
+ * this is a helper-class for CharacterSpell
+ * meant to contain the book, whether or not this spell
+ * is in the specialtySlot for characters which have them,
+ * and the list of meta-magic feats which have been applied.
+ */
+public final class SpellInfo implements Comparable&lt;SpellInfo&gt;
+{
+	/** The special value for number of times per unit for 'At Will' spells. */
+	public static final int TIMES_AT_WILL = -1;
+
+	private CharacterSpell owner;
+	private List&lt;Ability&gt; featList; // a List of Feat objects
+<span class="nc" id="L41">	private String book = Globals.getDefaultSpellBook(); // name of book</span>
+	private final int origLevel;
+	private final int actualLevel;
+	private int times; // times the spell is in this list
+	private String timeUnit; // the timeunit the times is for (day, week etc)
+<span class="nc" id="L46">	private int actualPPCost = -1;</span>
+<span class="nc" id="L47">	private int numPages = 0;</span>
+<span class="nc" id="L48">	private String fixedDC = null;</span>
+
+	SpellInfo(final CharacterSpell owner, final int originalLevel, final int actualLevel, final int times,
+		final String book)
+<span class="nc" id="L52">	{</span>
+<span class="nc" id="L53">		this.owner = owner;</span>
+<span class="nc" id="L54">		this.actualLevel = actualLevel;</span>
+<span class="nc" id="L55">		this.origLevel = originalLevel;</span>
+<span class="nc" id="L56">		this.times = times;</span>
+
+		//
+		// use the default book
+		//
+<span class="nc bnc" id="L61" title="All 2 branches missed.">		if (book != null)</span>
+		{
+<span class="nc" id="L63">			this.book = book;</span>
+		}
+<span class="nc" id="L65">	}</span>
+
+	public int getActualLevel()
+	{
+<span class="nc" id="L69">		return actualLevel;</span>
+	}
+
+	public int getOriginalLevel()
+	{
+<span class="nc" id="L74">		return origLevel;</span>
+	}
+
+	public void setActualPPCost(final int argActualPPCost)
+	{
+<span class="nc" id="L79">		actualPPCost = argActualPPCost;</span>
+<span class="nc" id="L80">	}</span>
+
+	public int getActualPPCost()
+	{
+<span class="nc" id="L84">		return actualPPCost;</span>
+	}
+
+	public String getBook()
+	{
+<span class="nc" id="L89">		return book;</span>
+	}
+
+	public List&lt;Ability&gt; getFeatList()
+	{
+<span class="nc" id="L94">		return featList;</span>
+	}
+
+	public CharacterSpell getOwner()
+	{
+<span class="nc" id="L99">		return owner;</span>
+	}
+
+	public void setTimes(final int times)
+	{
+<span class="nc" id="L104">		this.times = times;</span>
+<span class="nc" id="L105">	}</span>
+
+	public int getTimes()
+	{
+<span class="nc" id="L109">		return times;</span>
+	}
+
+	/**
+	 * @return the timeUnit
+	 */
+	public String getTimeUnit()
+	{
+<span class="nc" id="L117">		return timeUnit;</span>
+	}
+
+	/**
+	 * @param timeUnit the timeUnit to set
+	 */
+	public void setTimeUnit(String timeUnit)
+	{
+<span class="nc" id="L125">		this.timeUnit = timeUnit;</span>
+<span class="nc" id="L126">	}</span>
+
+	public int getNumPages()
+	{
+<span class="nc" id="L130">		return numPages;</span>
+	}
+
+	public void setNumPages(int numPages)
+	{
+<span class="nc" id="L135">		this.numPages = numPages;</span>
+<span class="nc" id="L136">	}</span>
+
+	public void addFeatsToList(final Collection&lt;Ability&gt; aList)
+	{
+<span class="nc bnc" id="L140" title="All 2 branches missed.">		if (featList == null)</span>
+		{
+<span class="nc" id="L142">			featList = new ArrayList&lt;&gt;(aList.size());</span>
+		}
+
+<span class="nc" id="L145">		featList.addAll(aList);</span>
+<span class="nc" id="L146">	}</span>
+
+	@Override
+	public String toString()
+	{
+<span class="nc bnc" id="L151" title="All 4 branches missed.">		if (featList == null || featList.isEmpty())</span>
+		{
+<span class="nc" id="L153">			return &quot;&quot;;</span>
+		}
+
+<span class="nc" id="L156">		final StringBuilder aBuf = new StringBuilder(&quot; [&quot; + featList.get(0));</span>
+
+<span class="nc bnc" id="L158" title="All 2 branches missed.">		for (int i = 1; i &lt; featList.size(); i++)</span>
+		{
+<span class="nc" id="L160">			aBuf.append(&quot;, &quot;).append(featList.get(i));</span>
+		}
+
+<span class="nc" id="L163">		aBuf.append(&quot;] &quot;);</span>
+
+<span class="nc" id="L165">		return aBuf.toString();</span>
+	}
+
+	/**
+	 * @return Returns the fixedDC.
+	 */
+	public String getFixedDC()
+	{
+<span class="nc" id="L173">		return fixedDC;</span>
+	}
+
+	/**
+	 * @param fixedDC The fixedDC to set.
+	 */
+	public void setFixedDC(final String fixedDC)
+	{
+<span class="nc" id="L181">		this.fixedDC = fixedDC;</span>
+<span class="nc" id="L182">	}</span>
+
+	@Override
+	public int compareTo(SpellInfo other)
+	{
+		//We can't compare based on owner since that would be infinite loop
+<span class="nc" id="L188">		int compare = book.compareTo(other.book);</span>
+<span class="nc bnc" id="L189" title="All 2 branches missed.">		if (compare == 0)</span>
+		{
+<span class="nc bnc" id="L191" title="All 2 branches missed.">			if (origLevel &lt; other.origLevel)</span>
+			{
+<span class="nc" id="L193">				compare = -1;</span>
+			}
+<span class="nc bnc" id="L195" title="All 2 branches missed.">			else if (origLevel &gt; other.origLevel)</span>
+			{
+<span class="nc" id="L197">				compare = 1;</span>
+			}
+		}
+<span class="nc bnc" id="L200" title="All 2 branches missed.">		if (compare == 0)</span>
+		{
+<span class="nc bnc" id="L202" title="All 2 branches missed.">			if (actualLevel &lt; other.actualLevel)</span>
+			{
+<span class="nc" id="L204">				compare = -1;</span>
+			}
+<span class="nc bnc" id="L206" title="All 2 branches missed.">			else if (actualLevel &gt; other.actualLevel)</span>
+			{
+<span class="nc" id="L208">				compare = 1;</span>
+			}
+		}
+<span class="nc bnc" id="L211" title="All 2 branches missed.">		if (compare == 0)</span>
+		{
+<span class="nc bnc" id="L213" title="All 2 branches missed.">			if (times &lt; other.times)</span>
+			{
+<span class="nc" id="L215">				compare = -1;</span>
+			}
+<span class="nc bnc" id="L217" title="All 2 branches missed.">			else if (times &gt; other.times)</span>
+			{
+<span class="nc" id="L219">				compare = 1;</span>
+			}
+		}
+<span class="nc bnc" id="L222" title="All 2 branches missed.">		if (compare == 0)</span>
+		{
+<span class="nc bnc" id="L224" title="All 2 branches missed.">			if (timeUnit == null)</span>
+			{
+<span class="nc bnc" id="L226" title="All 2 branches missed.">				if (other.timeUnit != null)</span>
+				{
+<span class="nc" id="L228">					compare = -1;</span>
+				}
+			}
+<span class="nc bnc" id="L231" title="All 2 branches missed.">			else if (other.timeUnit == null)</span>
+			{
+<span class="nc" id="L233">				compare = 1;</span>
+			}
+			else
+			{
+<span class="nc" id="L237">				compare = timeUnit.compareTo(other.timeUnit);</span>
+			}
+		}
+<span class="nc bnc" id="L240" title="All 2 branches missed.">		if (compare == 0)</span>
+		{
+<span class="nc bnc" id="L242" title="All 2 branches missed.">			if (actualPPCost &lt; other.actualPPCost)</span>
+			{
+<span class="nc" id="L244">				compare = -1;</span>
+			}
+<span class="nc bnc" id="L246" title="All 2 branches missed.">			else if (actualPPCost &gt; other.actualPPCost)</span>
+			{
+<span class="nc" id="L248">				compare = 1;</span>
+			}
+		}
+<span class="nc bnc" id="L251" title="All 2 branches missed.">		if (compare == 0)</span>
+		{
+<span class="nc bnc" id="L253" title="All 2 branches missed.">			if (numPages &lt; other.numPages)</span>
+			{
+<span class="nc" id="L255">				compare = -1;</span>
+			}
+<span class="nc bnc" id="L257" title="All 2 branches missed.">			else if (numPages &gt; other.numPages)</span>
+			{
+<span class="nc" id="L259">				compare = 1;</span>
+			}
+		}
+<span class="nc bnc" id="L262" title="All 2 branches missed.">		if (compare == 0)</span>
+		{
+<span class="nc bnc" id="L264" title="All 2 branches missed.">			if (fixedDC == null)</span>
+			{
+<span class="nc bnc" id="L266" title="All 2 branches missed.">				if (other.fixedDC != null)</span>
+				{
+<span class="nc" id="L268">					compare = -1;</span>
+				}
+			}
+<span class="nc bnc" id="L271" title="All 2 branches missed.">			else if (other.fixedDC == null)</span>
+			{
+<span class="nc" id="L273">				compare = 1;</span>
+			}
+			else
+			{
+<span class="nc" id="L277">				compare = fixedDC.compareTo(other.fixedDC);</span>
+			}
+		}
+<span class="nc bnc" id="L280" title="All 2 branches missed.">		if (compare == 0)</span>
+		{
+<span class="nc bnc" id="L282" title="All 2 branches missed.">			if (featList == null)</span>
+			{
+<span class="nc bnc" id="L284" title="All 2 branches missed.">				if (other.featList != null)</span>
+				{
+<span class="nc" id="L286">					compare = -1;</span>
+				}
+			}
+<span class="nc bnc" id="L289" title="All 2 branches missed.">			else if (other.featList == null)</span>
+			{
+<span class="nc" id="L291">				compare = 1;</span>
+			}
+			else
+			{
+<span class="nc" id="L295">				int thisILsize = featList.size();</span>
+<span class="nc" id="L296">				int otherILsize = other.featList.size();</span>
+<span class="nc bnc" id="L297" title="All 2 branches missed.">				if (thisILsize &lt; otherILsize)</span>
+				{
+<span class="nc" id="L299">					compare = -1;</span>
+				}
+<span class="nc bnc" id="L301" title="All 2 branches missed.">				else if (thisILsize &gt; otherILsize)</span>
+				{
+<span class="nc" id="L303">					compare = 1;</span>
+				}
+				else
+				{
+					//compare contents...
+<span class="nc bnc" id="L308" title="All 2 branches missed.">					for (int i = 0; i &lt; thisILsize; i++)</span>
+					{
+<span class="nc" id="L310">						compare = featList.get(i).compareTo(other.featList.get(i));</span>
+<span class="nc bnc" id="L311" title="All 2 branches missed.">						if (compare != 0)</span>
+						{
+<span class="nc" id="L313">							break;</span>
+						}
+					}
+				}
+			}
+		}
+<span class="nc" id="L319">		return compare;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

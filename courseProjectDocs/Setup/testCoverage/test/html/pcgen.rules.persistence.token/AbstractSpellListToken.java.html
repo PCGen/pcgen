@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AbstractSpellListToken.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.rules.persistence.token</a> &gt; <span class="el_source">AbstractSpellListToken.java</span></div><h1>AbstractSpellListToken.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2008 (C) James Dempsey
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ *
+ */
+
+package pcgen.rules.persistence.token;
+
+import java.util.Collection;
+import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
+
+import pcgen.base.util.MapToList;
+import pcgen.base.util.TripleKeyMapToList;
+import pcgen.cdom.base.AssociatedPrereqObject;
+import pcgen.cdom.base.CDOMList;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.AssociationKey;
+import pcgen.core.spell.Spell;
+import pcgen.rules.context.AssociatedChanges;
+import pcgen.rules.context.LoadContext;
+
+/**
+ * The Class {@code AbstractSpellListToken} ...
+ *
+ *
+ */
+<span class="fc" id="L45">public abstract class AbstractSpellListToken extends AbstractTokenWithSeparator&lt;CDOMObject&gt;</span>
+{
+	@Override
+	protected char separator()
+	{
+<span class="fc" id="L50">		return '|';</span>
+	}
+
+	/**
+	 * Gets the map.
+	 *
+	 * @param context the context
+	 * @param obj the obj
+	 * @param changedLists the changed lists
+	 * @param knownSpells Should this scan be for known spells
+	 * @return the map
+	 */
+	protected TripleKeyMapToList&lt;String, Integer, CDOMReference&lt;? extends CDOMList&lt;?&gt;&gt;, CDOMReference&lt;Spell&gt;&gt; getMap(
+		LoadContext context, CDOMObject obj, Collection&lt;CDOMReference&lt;? extends CDOMList&lt;?&gt;&gt;&gt; changedLists,
+		boolean knownSpells)
+	{
+<span class="fc" id="L66">		TripleKeyMapToList&lt;String, Integer, CDOMReference&lt;? extends CDOMList&lt;?&gt;&gt;, CDOMReference&lt;Spell&gt;&gt; map =</span>
+				new TripleKeyMapToList&lt;&gt;();
+
+<span class="fc bfc" id="L69" title="All 2 branches covered.">		for (CDOMReference listRef : changedLists)</span>
+		{
+<span class="fc" id="L71">			AssociatedChanges&lt;CDOMReference&lt;Spell&gt;&gt; changes =</span>
+<span class="fc" id="L72">					context.getListContext().getChangesInList(getTokenName(), obj, listRef);</span>
+<span class="fc" id="L73">			Collection&lt;?&gt; removedItems = changes.getRemoved();</span>
+<span class="pc bpc" id="L74" title="3 of 6 branches missed.">			if (removedItems != null &amp;&amp; !removedItems.isEmpty() || changes.includesGlobalClear())</span>
+			{
+<span class="nc" id="L76">				context.addWriteMessage(getTokenName() + &quot; does not support .CLEAR&quot;);</span>
+<span class="nc" id="L77">				return null;</span>
+			}
+<span class="fc" id="L79">			MapToList&lt;CDOMReference&lt;Spell&gt;, AssociatedPrereqObject&gt; mtl = changes.getAddedAssociations();</span>
+<span class="pc bpc" id="L80" title="2 of 4 branches missed.">			if (mtl == null || mtl.isEmpty())</span>
+			{
+				// Zero indicates no Token
+				// TODO Error message - unexpected?
+<span class="nc" id="L84">				continue;</span>
+			}
+<span class="fc bfc" id="L86" title="All 2 branches covered.">			for (CDOMReference&lt;Spell&gt; added : mtl.getKeySet())</span>
+			{
+<span class="fc bfc" id="L88" title="All 2 branches covered.">				for (AssociatedPrereqObject assoc : mtl.getListFor(added))</span>
+				{
+<span class="fc" id="L90">					Integer lvl = assoc.getAssociation(AssociationKey.SPELL_LEVEL);</span>
+<span class="fc" id="L91">					String prereqString = getPrerequisiteString(context, assoc.getPrerequisiteList());</span>
+<span class="fc" id="L92">					Boolean known = assoc.getAssociation(AssociationKey.KNOWN);</span>
+<span class="pc bpc" id="L93" title="1 of 4 branches missed.">					boolean isKnown = known != null &amp;&amp; known;</span>
+<span class="pc bpc" id="L94" title="1 of 2 branches missed.">					if (knownSpells == isKnown)</span>
+					{
+<span class="fc" id="L96">						map.addToListFor(prereqString, lvl, listRef, added);</span>
+					}
+<span class="fc" id="L98">				}</span>
+<span class="fc" id="L99">			}</span>
+<span class="fc" id="L100">		}</span>
+<span class="fc" id="L101">		return map;</span>
+	}
+
+	/**
+	 * Process unparse.
+	 *
+	 * @param type the type
+	 * @param domainMap the domain map
+	 * @param prereqs the prereqs
+	 *
+	 * @return the string builder
+	 */
+	protected StringBuilder processUnparse(String type,
+		TripleKeyMapToList&lt;String, Integer, CDOMReference&lt;? extends CDOMList&lt;?&gt;&gt;, CDOMReference&lt;Spell&gt;&gt; domainMap,
+		String prereqs)
+	{
+<span class="fc" id="L117">		StringBuilder sb = new StringBuilder(type);</span>
+<span class="fc" id="L118">		Set&lt;Integer&gt; levels = domainMap.getSecondaryKeySet(prereqs);</span>
+<span class="fc bfc" id="L119" title="All 2 branches covered.">		for (Integer level : new TreeSet&lt;&gt;(levels))</span>
+		{
+<span class="fc bfc" id="L121" title="All 2 branches covered.">			for (CDOMReference&lt;? extends CDOMList&lt;?&gt;&gt; list : domainMap.getTertiaryKeySet(prereqs, level))</span>
+			{
+<span class="fc" id="L123">				sb.append(Constants.PIPE);</span>
+<span class="fc" id="L124">				String lsts = list.getLSTformat(false);</span>
+<span class="fc bfc" id="L125" title="All 2 branches covered.">				if (lsts.startsWith(&quot;TYPE=&quot;))</span>
+				{
+<span class="fc" id="L127">					lsts = &quot;SPELLCASTER.&quot; + lsts.substring(5);</span>
+				}
+<span class="fc" id="L129">				sb.append(lsts);</span>
+<span class="fc" id="L130">				sb.append(Constants.EQUALS);</span>
+<span class="fc" id="L131">				sb.append(level);</span>
+<span class="fc" id="L132">				sb.append(Constants.PIPE);</span>
+<span class="fc" id="L133">				List&lt;CDOMReference&lt;Spell&gt;&gt; refs = domainMap.getListFor(prereqs, level, list);</span>
+<span class="fc" id="L134">				boolean first = true;</span>
+<span class="fc bfc" id="L135" title="All 2 branches covered.">				for (CDOMReference&lt;Spell&gt; lw : refs)</span>
+				{
+<span class="fc bfc" id="L137" title="All 2 branches covered.">					if (!first)</span>
+					{
+<span class="fc" id="L139">						sb.append(',');</span>
+					}
+<span class="fc" id="L141">					first = false;</span>
+<span class="fc" id="L142">					sb.append(lw.getLSTformat(false));</span>
+<span class="fc" id="L143">				}</span>
+<span class="fc" id="L144">			}</span>
+<span class="fc" id="L145">		}</span>
+<span class="fc bfc" id="L146" title="All 2 branches covered.">		if (prereqs != null)</span>
+		{
+<span class="fc" id="L148">			sb.append(Constants.PIPE);</span>
+<span class="fc" id="L149">			sb.append(prereqs);</span>
+		}
+<span class="fc" id="L151">		return sb;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

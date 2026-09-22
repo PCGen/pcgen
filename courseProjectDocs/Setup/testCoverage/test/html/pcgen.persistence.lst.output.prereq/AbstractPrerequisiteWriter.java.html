@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AbstractPrerequisiteWriter.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.persistence.lst.output.prereq</a> &gt; <span class="el_source">AbstractPrerequisiteWriter.java</span></div><h1>AbstractPrerequisiteWriter.java</h1><pre class="source lang-java linenums">/*
+ *
+ * Copyright 2004 (C) Frugal &lt;frugal@purplewombat.co.uk&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.       See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ *
+ *
+ *
+ *
+ */
+
+package pcgen.persistence.lst.output.prereq;
+
+import java.io.IOException;
+import java.io.Writer;
+
+import pcgen.core.prereq.Prerequisite;
+import pcgen.core.prereq.PrerequisiteOperator;
+import pcgen.persistence.PersistenceLayerException;
+
+/**
+ * This class handles writing pre reqs for LST Tokens
+ */
+<span class="fc" id="L37">public class AbstractPrerequisiteWriter</span>
+{
+
+	protected void checkValidOperator(Prerequisite prereq, PrerequisiteOperator[] comparators)
+		throws PersistenceLayerException
+	{
+<span class="fc" id="L43">		StringBuilder comparatorString = new StringBuilder(25);</span>
+<span class="pc bpc" id="L44" title="1 of 2 branches missed.">		for (int i = 0; i &lt; comparators.length; i++)</span>
+		{
+<span class="fc" id="L46">			PrerequisiteOperator comparator = comparators[i];</span>
+<span class="fc bfc" id="L47" title="All 2 branches covered.">			if (prereq.getOperator().equals(comparators[i]))</span>
+			{
+<span class="fc" id="L49">				return;</span>
+			}
+<span class="fc bfc" id="L51" title="All 2 branches covered.">			if (i &gt; 0)</span>
+			{
+<span class="fc" id="L53">				comparatorString.append(&quot;, &quot;);</span>
+			}
+<span class="fc" id="L55">			comparatorString.append(comparator);</span>
+		}
+
+<span class="nc" id="L58">		String kind = prereq.getKind();</span>
+<span class="nc bnc" id="L59" title="All 2 branches missed.">		if (kind == null)</span>
+		{
+<span class="nc" id="L61">			kind = &quot;&lt;NULL&gt;&quot;;</span>
+		}
+<span class="nc" id="L63">		throw new PersistenceLayerException(&quot;Cannot write token: LST syntax only supports &quot;</span>
+<span class="nc" id="L64">			+ comparatorString.toString() + &quot; operators for PRE&quot; + kind.toUpperCase() + &quot;: &quot; + prereq.toString());</span>
+	}
+
+	/**
+	 * Meant to be over-ridden
+	 * TODO  Does this and its overriding methods need to throw IOException?
+	 * 
+	 * @param writer
+	 * @param prereq
+	 * @return false if not over ridden
+	 * @throws IOException  if IO errors occur
+	 */
+	public boolean specialCase(Writer writer, Prerequisite prereq) throws IOException
+	{
+<span class="fc" id="L78">		return false;</span>
+	}
+
+	protected PrerequisiteOperator getConsolidateMethod(String handled, Prerequisite prereq, boolean ranked)
+	{
+		// If this is NOT a PREMULT... fail
+<span class="pc bpc" id="L84" title="1 of 2 branches missed.">		if (prereq.getKind() != null)</span>
+		{
+<span class="nc" id="L86">			return null;</span>
+		}
+<span class="fc" id="L88">		PrerequisiteOperator oper = null;</span>
+<span class="fc bfc" id="L89" title="All 2 branches covered.">		for (Prerequisite p : prereq.getPrerequisites())</span>
+		{
+			//
+			// ...testing one item...
+			//
+<span class="pc bpc" id="L94" title="1 of 4 branches missed.">			if (!ranked &amp;&amp; !&quot;1&quot;.equals(p.getOperand()))</span>
+			{
+<span class="nc" id="L96">				return null;</span>
+			}
+			//
+			// ...with all PREARMORTYPE entries...
+			//
+<span class="pc bpc" id="L101" title="1 of 2 branches missed.">			if (!handled.equalsIgnoreCase(p.getKind()))</span>
+			{
+<span class="nc" id="L103">				return null;</span>
+			}
+			//
+			// ...and the same operator...
+			//
+<span class="fc bfc" id="L108" title="All 2 branches covered.">			if (oper == null)</span>
+			{
+<span class="fc" id="L110">				oper = p.getOperator();</span>
+			}
+			else
+			{
+<span class="fc bfc" id="L114" title="All 2 branches covered.">				if (!oper.equals(p.getOperator()))</span>
+				{
+<span class="fc" id="L116">					return null;</span>
+				}
+			}
+<span class="fc" id="L119">		}</span>
+<span class="fc" id="L120">		String count = prereq.getOperand();</span>
+<span class="fc bfc" id="L121" title="All 2 branches covered.">		if (PrerequisiteOperator.LT.equals(oper))</span>
+		{
+			try
+			{
+<span class="fc" id="L125">				int i = Integer.parseInt(count);</span>
+<span class="fc bfc" id="L126" title="All 2 branches covered.">				if (prereq.getPrerequisiteCount() != i)</span>
+				{
+<span class="fc" id="L128">					return null;</span>
+				}
+			}
+<span class="nc" id="L131">			catch (NumberFormatException e)</span>
+			{
+<span class="nc" id="L133">				return null;</span>
+<span class="fc" id="L134">			}</span>
+		}
+<span class="pc bpc" id="L136" title="1 of 2 branches missed.">		else if (!PrerequisiteOperator.GTEQ.equals(oper))</span>
+		{
+			// TODO Not sure whether these can be consolidated...
+<span class="nc" id="L139">			return null;</span>
+		}
+<span class="fc" id="L141">		return oper;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BonusSkillRankChangeFacet.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.facet</a> &gt; <span class="el_source">BonusSkillRankChangeFacet.java</span></div><h1>BonusSkillRankChangeFacet.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) Thomas Parker, 2014.
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package pcgen.cdom.facet;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.Type;
+import pcgen.cdom.facet.base.AbstractStorageFacet;
+import pcgen.core.Globals;
+import pcgen.core.Skill;
+
+/**
+ * SkillRankChangeFacet tracks changes to Bonus SKILLRANK values on a
+ * PlayerCharacter and allows other classes to listen to such changes on a
+ * Player Character.
+ * 
+ */
+<span class="fc" id="L37">public class BonusSkillRankChangeFacet extends AbstractStorageFacet&lt;CharID&gt;</span>
+{
+	/**
+	 * The SkillRankChangeSupport object that manages the listeners that receive
+	 * SkillRankChangeEvents from this SkillRankChangeFacet.
+	 */
+<span class="fc" id="L43">	private final SkillRankChangeSupport support = new SkillRankChangeSupport();</span>
+
+	private BonusCheckingFacet bonusCheckingFacet;
+
+	/**
+	 * Performs a check against the previously known values of the bonuses for
+	 * the Player Character identified by the given CharID. If any Bonus values
+	 * have changed, then this will throw a SkillRankChangeEvent to any
+	 * SkillRankChangeListener objects which have subscribed to receive updates
+	 * when values change.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character for which the
+	 *            check for changes in bonus skillrank values should be
+	 *            performed
+	 */
+	public void reset(CharID id)
+	{
+<span class="fc" id="L61">		Map&lt;Skill, Double&gt; map = getConstructingInfo(id);</span>
+<span class="fc bfc" id="L62" title="All 2 branches covered.">		for (Skill s : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Skill.class))</span>
+		{
+<span class="fc" id="L64">			double newValue = bonusCheckingFacet.getBonus(id, &quot;SKILLRANK&quot;, s.getKeyName());</span>
+
+<span class="fc bfc" id="L66" title="All 2 branches covered.">			for (Type singleType : s.getTrueTypeList(false))</span>
+			{
+<span class="fc" id="L68">				newValue += bonusCheckingFacet.getBonus(id, &quot;SKILLRANK&quot;, &quot;TYPE.&quot; + singleType);</span>
+<span class="fc" id="L69">			}</span>
+
+<span class="fc" id="L71">			Double oldValue = map.get(s);</span>
+<span class="fc bfc" id="L72" title="All 4 branches covered.">			if ((oldValue == null) || (Double.compare(newValue, oldValue) != 0))</span>
+			{
+<span class="fc" id="L74">				map.put(s, newValue);</span>
+<span class="fc" id="L75">				support.fireSkillRankChange(id, s, oldValue, newValue);</span>
+			}
+<span class="fc" id="L77">		}</span>
+<span class="fc" id="L78">	}</span>
+
+	/**
+	 * Returns a HashMap of SkillRank Bonus values for this SkillRankChangeFacet
+	 * and the PlayerCharacter represented by the given CharID. Will create a
+	 * new empty HashMap for the PlayerCharacter represented by the given CharID
+	 * if no information has been set in this SkillRankChangeFacet for the given
+	 * CharID. Will not return null.
+	 * 
+	 * Note that this method SHOULD NOT be public. The HashMap object is owned
+	 * by SkillRankChangeFacet, and since it can be modified, a reference to
+	 * that HashMap should not be exposed to any object other than
+	 * SkillRankChangeFacet.
+	 * 
+	 * @param id
+	 *            The CharID for which the HashMap of bonus values should be
+	 *            returned
+	 * @return The HashMap of SkillRank Bonus values for the Player Character
+	 *         represented by the given CharID
+	 */
+	private HashMap&lt;Skill, Double&gt; getConstructingInfo(CharID id)
+	{
+<span class="fc" id="L100">		HashMap&lt;Skill, Double&gt; map = getInfo(id);</span>
+<span class="fc bfc" id="L101" title="All 2 branches covered.">		if (map == null)</span>
+		{
+<span class="fc" id="L103">			map = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L104">			setCache(id, map);</span>
+		}
+<span class="fc" id="L106">		return map;</span>
+	}
+
+	/**
+	 * Returns a HashMap of Bonus values for this SkillRankChangeFacet and the
+	 * PlayerCharacter represented by the given CharID. May return null if no
+	 * information has been set in this SkillRankChangeFacet for the given
+	 * CharID.
+	 * 
+	 * Note that this method SHOULD NOT be public. The HashMap object is owned
+	 * by SkillRankChangeFacet, and since it can be modified, a reference to
+	 * that HashMap should not be exposed to any object other than
+	 * SkillRankChangeFacet.
+	 * 
+	 * @param id
+	 *            The CharID for which the HashMap of bonus values should be
+	 *            returned
+	 * @return The HashMap of SkillRank Bonus values for the Player Character
+	 *         represented by the given CharID
+	 */
+	private HashMap&lt;Skill, Double&gt; getInfo(CharID id)
+	{
+<span class="fc" id="L128">		return (HashMap&lt;Skill, Double&gt;) getCache(id);</span>
+	}
+
+	/**
+	 * SkillRankChangeListener is the interface that must be implemented by a
+	 * class for it to receive SkillRankChangeEvents from the
+	 * SkillRankChangeFacet when a SkillRank Bonus value has changed for a
+	 * Player Character.
+	 * 
+	 */
+	@FunctionalInterface
+	public interface SkillRankChangeListener
+	{
+
+		/**
+		 * Method called when a SkillRank Bonus value has changed on a Player
+		 * Character. The SkillRankChangeEvent contains the relevant details of
+		 * the SkillRank Bonus value change.
+		 * 
+		 * @param srce
+		 *            The SkillRankChangeEvent containing the details of the
+		 *            SkillRank Bonus value change for a Player Character
+		 */
+		void bonusChange(SkillRankChangeEvent srce);
+
+	}
+
+	/**
+	 * SkillRankChangeEvent is an event sent to a SkillRankChangeListener when a
+	 * SkillRank Bonus value changes on a Player Character.
+	 * 
+	 */
+	public static class SkillRankChangeEvent
+	{
+
+		/**
+		 * The CharID identifying the Player Character on which the Bonus value
+		 * change took place.
+		 */
+		private final CharID charID;
+
+		/**
+		 * The Skill for which the SkillRank Bonus value changed on the Player
+		 * Character.
+		 */
+		private final Skill skill;
+
+		/**
+		 * The previous value of the Bonus value
+		 */
+		private final Number oldVal;
+
+		/**
+		 * The new value of the Bonus value
+		 */
+		private final Number newVal;
+
+		/**
+		 * Constructs a new SkillRankChangeEvent indicating a Bonus value change
+		 * took place on the Player Character identified by the given CharId.
+		 * The Bonus name, type, old value, and new value are provided.
+		 * 
+		 * @param id
+		 *            The CharID indicating the Player Character on which the
+		 *            Bonus value change took place
+		 * @param sk
+		 *            The Skill for the SkillRank Bonus value that changed
+		 * @param oldValue
+		 *            The previous value of the Bonus value
+		 * @param newValue
+		 *            The new value of the Bonus value
+		 */
+		public SkillRankChangeEvent(CharID id, Skill sk, Number oldValue, Number newValue)
+<span class="fc" id="L201">		{</span>
+<span class="fc" id="L202">			charID = id;</span>
+<span class="fc" id="L203">			skill = sk;</span>
+<span class="fc" id="L204">			oldVal = oldValue;</span>
+<span class="fc" id="L205">			newVal = newValue;</span>
+<span class="fc" id="L206">		}</span>
+
+		public CharID getCharID()
+		{
+<span class="fc" id="L210">			return charID;</span>
+		}
+
+		public Skill getSkill()
+		{
+<span class="fc" id="L215">			return skill;</span>
+		}
+
+		public Number getOldVal()
+		{
+<span class="fc" id="L220">			return oldVal;</span>
+		}
+
+		public Number getNewVal()
+		{
+<span class="fc" id="L225">			return newVal;</span>
+		}
+
+	}
+
+	/**
+	 * SkillRankChangeSupport is a support class that provides the actual
+	 * structure for adding and removing listeners to a class that can provide
+	 * updates for changes to SkillRank Bonus values on a Player Character.
+	 * 
+	 */
+<span class="fc" id="L236">	public static class SkillRankChangeSupport</span>
+	{
+<span class="fc" id="L238">		private List&lt;SkillRankChangeListener&gt; listeners = new ArrayList&lt;&gt;();</span>
+
+		/**
+		 * Adds a new SkillRankChangeListener to receive SkillRankChangeEventas
+		 * from the change source. The given SkillRankChangeListener is
+		 * subscribed to all SkillRank Bonus value changes.
+		 * 
+		 * Note that the SkillRankChangeListeners are a list, meaning a given
+		 * SkillRankChangeListener can be added more than once, and if that
+		 * occurs, it must be removed an equivalent number of times in order to
+		 * no longer receive events from this SkillRankChangeSupport.
+		 * 
+		 * @param listener
+		 *            The SkillRankChangeListener to receive
+		 *            SkillRankChangeEvents from this SkillRankChangeSupport
+		 */
+		public synchronized void addSkillRankChangeListener(SkillRankChangeListener listener)
+		{
+<span class="fc" id="L256">			listeners.add(listener);</span>
+<span class="fc" id="L257">		}</span>
+
+		/**
+		 * Removes a SkillRankChangeListener so that it will no longer receive
+		 * SkillRankChangeEvents from the source DataFacet.
+		 * 
+		 * @param listener
+		 *            The SkillRankChangeListener to be removed
+		 */
+		public synchronized void removeSkillRankChangeListener(SkillRankChangeListener listener)
+		{
+<span class="nc" id="L268">			listeners.remove(listener);</span>
+<span class="nc" id="L269">		}</span>
+
+		public synchronized SkillRankChangeListener[] getSkillRankChangeListeners()
+		{
+<span class="nc" id="L273">			return (listeners.toArray(new SkillRankChangeListener[0]));</span>
+		}
+
+		/**
+		 * Sends a SkillRankChangeEvent to the SkillRankChangeListeners that are
+		 * receiving SkillRankChangeEvents from the change source.
+		 * 
+		 * @param id
+		 *            The CharID identifying the Player Character to which the
+		 *            SkillRankChangeEvent relates.
+		 * @param skill
+		 *            The skill for which the SkillRank Bonus value changed
+		 * @param oldValue
+		 *            The previous value of the Bonus value
+		 * @param newValue
+		 *            The new value of the Bonus value
+		 */
+		public void fireSkillRankChange(CharID id, Skill skill, Number oldValue, Number newValue)
+		{
+<span class="fc" id="L292">			SkillRankChangeEvent bce = new SkillRankChangeEvent(id, skill, oldValue, newValue);</span>
+
+<span class="fc bfc" id="L294" title="All 2 branches covered.">			for (SkillRankChangeListener target : listeners)</span>
+			{
+<span class="fc" id="L296">				target.bonusChange(bce);</span>
+<span class="fc" id="L297">			}</span>
+<span class="fc" id="L298">		}</span>
+	}
+
+	/**
+	 * Adds a new SkillRankChangeListener to receive SkillRankChangeEvents from
+	 * SkillRankChangeFacet. The given SkillRankChangeListener subscribed to all
+	 * SkillRank Bonus changes.
+	 * 
+	 * Note that the SkillRankChangeListeners are a list, meaning a given
+	 * SkillRankChangeListener can be added more than once, and if that occurs,
+	 * it must be removed an equivalent number of times in order to no longer
+	 * receive events from this SkillRankChangeFacet.
+	 * 
+	 * @param listener
+	 *            The SkillRankChangeListener to receive SkillRankChangeEvents
+	 *            from this SkillRankChangeFacet
+	 */
+	public void addSkillRankChangeListener(SkillRankChangeListener listener)
+	{
+<span class="fc" id="L317">		support.addSkillRankChangeListener(listener);</span>
+<span class="fc" id="L318">	}</span>
+
+	/**
+	 * Removes a SkillRankChangeListener so that it will no longer receive
+	 * SkillRankChangeEvents from SkillRankChangeFacet.
+	 * 
+	 * @param listener
+	 *            The SkillRankChangeListener to be removed
+	 */
+	public void removeSkillRankChangeListener(SkillRankChangeListener listener)
+	{
+<span class="nc" id="L329">		support.removeSkillRankChangeListener(listener);</span>
+<span class="nc" id="L330">	}</span>
+
+	public void setBonusCheckingFacet(BonusCheckingFacet bonusCheckingFacet)
+	{
+<span class="fc" id="L334">		this.bonusCheckingFacet = bonusCheckingFacet;</span>
+<span class="fc" id="L335">	}</span>
+
+	/**
+	 * Copies the contents of the SkillRankChangeFacet from one Player Character
+	 * to another Player Character, based on the given CharIDs representing
+	 * those Player Characters.
+	 * 
+	 * This is a method in SkillRankChangeFacet in order to avoid exposing the
+	 * mutable HashMap object to other classes. This should not be inlined, as
+	 * the HashMap is internal information to SkillRankChangeFacet and should
+	 * not be exposed to other classes.
+	 * 
+	 * Note also the copy is a one-time event and no references are maintained
+	 * between the Player Characters represented by the given CharIDs (meaning
+	 * once this copy takes place, any change to the SkillRankChangeFacet of one
+	 * Player Character will only impact the Player Character where the
+	 * SkillRankChangeFacet was changed).
+	 * 
+	 * @param source
+	 *            The CharID representing the Player Character from which the
+	 *            information should be copied
+	 * @param copy
+	 *            The CharID representing the Player Character to which the
+	 *            information should be copied
+	 */
+	@Override
+	public void copyContents(CharID source, CharID copy)
+	{
+<span class="nc" id="L363">		Map&lt;Skill, Double&gt; map = getInfo(source);</span>
+<span class="nc bnc" id="L364" title="All 2 branches missed.">		if (map != null)</span>
+		{
+<span class="nc" id="L366">			getConstructingInfo(copy).putAll(map);</span>
+		}
+<span class="nc" id="L368">	}</span>
+
+	public double getRank(CharID id, Skill skill)
+	{
+<span class="nc" id="L372">		Map&lt;Skill, Double&gt; map = getInfo(id);</span>
+<span class="nc bnc" id="L373" title="All 2 branches missed.">		if (map != null)</span>
+		{
+<span class="nc" id="L375">			Double rank = map.get(skill);</span>
+<span class="nc bnc" id="L376" title="All 2 branches missed.">			if (rank != null)</span>
+			{
+<span class="nc" id="L378">				return rank;</span>
+			}
+		}
+<span class="nc" id="L381">		return 0.0;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

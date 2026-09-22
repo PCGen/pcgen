@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PreVariableTester.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.pretokens.test</a> &gt; <span class="el_source">PreVariableTester.java</span></div><h1>PreVariableTester.java</h1><pre class="source lang-java linenums">/*
+ *
+ * Copyright 2003 (C) Chris Ward &lt;frugal@purplewombat.co.uk&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.	   See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package plugin.pretokens.test;
+
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Constants;
+import pcgen.core.Equipment;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.prereq.AbstractPrerequisiteTest;
+import pcgen.core.prereq.Prerequisite;
+import pcgen.core.prereq.PrerequisiteException;
+import pcgen.core.prereq.PrerequisiteTest;
+import pcgen.core.prereq.PrerequisiteTestFactory;
+import pcgen.core.utils.CoreUtility;
+
+/**
+ * Prerequisite test for the presence of a variable.
+ */
+<span class="nc" id="L35">public class PreVariableTester extends AbstractPrerequisiteTest</span>
+{
+
+	/**
+	 * Get the type of prerequisite handled by this token.
+	 * @return the type of prerequisite handled by this token.
+	 */
+	@Override
+	public String kindHandled()
+	{
+<span class="nc" id="L45">		return &quot;VAR&quot;; //$NON-NLS-1$</span>
+	}
+
+	@Override
+	public int passes(final Prerequisite prereq, final Equipment equipment, PlayerCharacter aPC)
+		throws PrerequisiteException
+	{
+<span class="nc bnc" id="L52" title="All 2 branches missed.">		if (aPC == null)</span>
+		{
+<span class="nc" id="L54">			return 0;</span>
+		}
+<span class="nc" id="L56">		final String eqVar = &quot;EQ:&quot; + equipment.getNonHeadedName(); //$NON-NLS-1$</span>
+<span class="nc" id="L57">		final float aVar = equipment.getVariableValue(prereq.getKey(), eqVar, aPC);</span>
+<span class="nc" id="L58">		final float aTarget = equipment.getVariableValue(prereq.getOperand(), eqVar, aPC);</span>
+
+<span class="nc" id="L60">		float runningTotal = prereq.getOperator().compare(aVar, aTarget);</span>
+<span class="nc bnc" id="L61" title="All 2 branches missed.">		if (CoreUtility.doublesEqual(runningTotal, 0.0))</span>
+		{
+<span class="nc" id="L63">			return 0;</span>
+		}
+<span class="nc bnc" id="L65" title="All 2 branches missed.">		for (Prerequisite element : prereq.getPrerequisites())</span>
+		{
+<span class="nc" id="L67">			final PrerequisiteTestFactory factory = PrerequisiteTestFactory.getInstance();</span>
+<span class="nc" id="L68">			final PrerequisiteTest test = factory.getTest(element.getKind());</span>
+<span class="nc bnc" id="L69" title="All 2 branches missed.">			if (test != null)</span>
+			{
+				// all of the tests must pass, so just
+				// assign the value here, don't add
+<span class="nc" id="L73">				runningTotal = test.passes(element, equipment, aPC);</span>
+<span class="nc bnc" id="L74" title="All 2 branches missed.">				if (CoreUtility.doublesEqual(runningTotal, 0.0))</span>
+				{
+<span class="nc" id="L76">					return 0;</span>
+				}
+			}
+<span class="nc" id="L79">		}</span>
+		// The test has passed, but only pass 1 rather than the runningTotal 
+		// as the total could be negative, and isn't running...
+<span class="nc" id="L82">		return countedTotal(prereq, 1);</span>
+	}
+
+	@Override
+	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
+		throws PrerequisiteException
+	{
+<span class="nc bnc" id="L89" title="All 2 branches missed.">		String src = (source == null) ? Constants.EMPTY_STRING : source.getQualifiedKey();</span>
+<span class="nc" id="L90">		final float aVar = character.getVariableValue(prereq.getKey(), src);</span>
+<span class="nc" id="L91">		final float aTarget = character.getVariableValue(prereq.getOperand(), src);</span>
+
+<span class="nc" id="L93">		float runningTotal = prereq.getOperator().compare(aVar, aTarget);</span>
+<span class="nc bnc" id="L94" title="All 2 branches missed.">		if (CoreUtility.doublesEqual(runningTotal, 0.0))</span>
+		{
+<span class="nc" id="L96">			return 0;</span>
+		}
+<span class="nc bnc" id="L98" title="All 2 branches missed.">		for (Prerequisite element : prereq.getPrerequisites())</span>
+		{
+<span class="nc" id="L100">			final PrerequisiteTestFactory factory = PrerequisiteTestFactory.getInstance();</span>
+<span class="nc" id="L101">			final PrerequisiteTest test = factory.getTest(element.getKind());</span>
+
+<span class="nc bnc" id="L103" title="All 2 branches missed.">			if (test != null)</span>
+			{
+				// all of the tests must pass, so just
+				// assign the value here, don't add
+<span class="nc" id="L107">				runningTotal = test.passes(element, character, source);</span>
+<span class="nc bnc" id="L108" title="All 2 branches missed.">				if (CoreUtility.doublesEqual(runningTotal, 0.0))</span>
+				{
+<span class="nc" id="L110">					return 0;</span>
+				}
+			}
+<span class="nc" id="L113">		}</span>
+
+		// The test has passed, but only pass 1 rather than the runningTotal 
+		// as the total could be negative, and isn't running...
+<span class="nc" id="L117">		return countedTotal(prereq, 1);</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

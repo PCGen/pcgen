@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - testInvalidInputNotQualifierTypeEmpty()</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<div class="breadcrumbs">
+<a class="breadcrumb" href="../index.html">all</a> &gt; 
+<a class="breadcrumb" href="index.html">plugin.qualifier.pcclass.PCQualifierTokenTest</a> &gt; 
+<span class="breadcrumb">testInvalidInputNotQualifierTypeEmpty()</span>
+</div>
+<div class="tab-container">
+<ul class="tabLinks">
+<li>
+<a class="successGroup" href="#">Gradle Test Run :test</a>
+</li>
+</ul>
+<div class="tab">
+<h2>Gradle Test Run :test</h2>
+<h1>testInvalidInputNotQualifierTypeEmpty()</h1>
+<div class="tab-container">
+<ul class="tabLinks">
+<li>
+<a class="" href="#">summary</a>
+</li>
+<li>
+<a class="" href="#">error output</a>
+</li>
+</ul>
+<div class="tab">
+<h2>summary</h2>
+<div>
+<div class="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox">
+<div class="counter">1</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox">
+<div class="counter">0</div>
+<p>skipped</p>
+</div>
+</td>
+<td>
+<div class="infoBox duration">
+<div class="counter">0.010s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="tab">
+<h2>error output</h2>
+<span class="code">
+<pre id="root-0-test-stderr-testInvalidInputNotQualifierTypeEmpty()">2026-09-22T11:12:28.648 SEVERE Test worker#3 ChoiceSetLoadUtilities:239 Found error in Primitive Choice: TYPE= has equals but no target value
+2026-09-22T11:12:28.648 SEVERE Test worker#3 ChoiceSetLoadUtilities:323 Didn't expect tokRestriction on !PC here: TYPE=
+2026-09-22T11:12:28.650 LSTERROR Test worker#3 AbstractTokenTestCase:246 Choice argument was not valid: TYPE=
+2026-09-22T11:12:28.650 LSTERROR Test worker#3 AbstractTokenTestCase:246 Failed in parsing typeStr: PC[TestWP3|TYPE=]
+2026-09-22T11:12:28.650 LSTERROR Test worker#3 AbstractTokenTestCase:246 Choice argument was not valid: PC[TestWP3|TYPE=]
+2026-09-22T11:12:28.650 LSTERROR Test worker#3 AbstractTokenTestCase:246 Internal error. (Source: file:/TESTCASE )
+2026-09-22T11:12:28.650 LSTERROR Test worker#3 AbstractTokenTestCase:246 Failed in parsing subtoken: CLASS of PC[TestWP3|TYPE=] (Source: file:/TESTCASE )
+2026-09-22T11:12:28.650 LSTERROR Test worker#3 AbstractTokenTestCase:246 Illegal CHOOSE subtoken 'CLASS' 'PC[TestWP3|TYPE=]' for pcgen.core.Race TestObj (Source: file:/TESTCASE )
+2026-09-22T11:12:28.651 LSTERROR Test worker#3 AbstractTokenTestCase:246 Choice argument was not valid: !PC[]
+2026-09-22T11:12:28.651 LSTERROR Test worker#3 AbstractTokenTestCase:246 Internal error. (Source: file:/TESTCASE )
+2026-09-22T11:12:28.651 LSTERROR Test worker#3 AbstractTokenTestCase:246 Failed in parsing subtoken: CLASS of !PC[] (Source: file:/TESTCASE )
+2026-09-22T11:12:28.651 LSTERROR Test worker#3 AbstractTokenTestCase:246 Illegal CHOOSE subtoken 'CLASS' '!PC[]' for pcgen.core.Race TestObj (Source: file:/TESTCASE )
+2026-09-22T11:12:28.651 LSTERROR Test worker#3 AbstractTokenTestCase:246 Choice argument was not valid: !PC[TYPE=Foo]TestWP1
+2026-09-22T11:12:28.651 LSTERROR Test worker#3 AbstractTokenTestCase:246 Internal error. (Source: file:/TESTCASE )
+2026-09-22T11:12:28.651 LSTERROR Test worker#3 AbstractTokenTestCase:246 Failed in parsing subtoken: CLASS of !PC[TYPE=Foo]TestWP1,TYPE=Bar (Source: file:/TESTCASE )
+2026-09-22T11:12:28.651 LSTERROR Test worker#3 AbstractTokenTestCase:246 Illegal CHOOSE subtoken 'CLASS' '!PC[TYPE=Foo]TestWP1,TYPE=Bar' for pcgen.core.Race TestObj (Source: file:/TESTCASE )
+2026-09-22T11:12:28.652 LSTERROR Test worker#3 AbstractTokenTestCase:246 Choice arguments may not start with | : |TestWP1
+2026-09-22T11:12:28.652 LSTERROR Test worker#3 AbstractTokenTestCase:246 Failed in parsing typeStr: PC[|TestWP1]
+2026-09-22T11:12:28.652 LSTERROR Test worker#3 AbstractTokenTestCase:246 Choice argument was not valid: PC[|TestWP1]
+2026-09-22T11:12:28.653 LSTERROR Test worker#3 AbstractTokenTestCase:246 Internal error. (Source: file:/TESTCASE )
+2026-09-22T11:12:28.653 LSTERROR Test worker#3 AbstractTokenTestCase:246 Failed in parsing subtoken: CLASS of PC[|TestWP1] (Source: file:/TESTCASE )
+2026-09-22T11:12:28.653 LSTERROR Test worker#3 AbstractTokenTestCase:246 Illegal CHOOSE subtoken 'CLASS' 'PC[|TestWP1]' for pcgen.core.Race TestObj (Source: file:/TESTCASE )
+2026-09-22T11:12:28.653 LSTERROR Test worker#3 AbstractTokenTestCase:246 Choice argument was not valid: !TYPE=One.
+2026-09-22T11:12:28.653 LSTERROR Test worker#3 AbstractTokenTestCase:246 Failed in parsing typeStr: !PC[!TYPE=One.]
+2026-09-22T11:12:28.653 LSTERROR Test worker#3 AbstractTokenTestCase:246 Choice argument was not valid: !PC[!TYPE=One.]
+2026-09-22T11:12:28.653 LSTERROR Test worker#3 AbstractTokenTestCase:246 Internal error. (Source: file:/TESTCASE )
+2026-09-22T11:12:28.653 LSTERROR Test worker#3 AbstractTokenTestCase:246 Failed in parsing subtoken: CLASS of !PC[!TYPE=One.] (Source: file:/TESTCASE )
+2026-09-22T11:12:28.653 LSTERROR Test worker#3 AbstractTokenTestCase:246 Illegal CHOOSE subtoken 'CLASS' '!PC[!TYPE=One.]' for pcgen.core.Race TestObj (Source: file:/TESTCASE )
+2026-09-22T11:12:28.653 LSTERROR Test worker#3 AbstractTokenTestCase:246 Choice argument was not valid: TYPE=
+2026-09-22T11:12:28.653 LSTERROR Test worker#3 AbstractTokenTestCase:246 Failed in parsing typeStr: !PC[TYPE=]
+2026-09-22T11:12:28.653 LSTERROR Test worker#3 AbstractTokenTestCase:246 Choice argument was not valid: !PC[TYPE=]
+2026-09-22T11:12:28.654 LSTERROR Test worker#3 AbstractTokenTestCase:246 Internal error. (Source: file:/TESTCASE )
+2026-09-22T11:12:28.654 LSTERROR Test worker#3 AbstractTokenTestCase:246 Failed in parsing subtoken: CLASS of !PC[TYPE=] (Source: file:/TESTCASE )
+2026-09-22T11:12:28.654 LSTERROR Test worker#3 AbstractTokenTestCase:246 Illegal CHOOSE subtoken 'CLASS' '!PC[TYPE=]' for pcgen.core.Race TestObj (Source: file:/TESTCASE )
+</pre>
+<button class="clipboard-copy-btn" aria-label="Copy to clipboard" data-copy-element-id="root-0-test-stderr-testInvalidInputNotQualifierTypeEmpty()">Copy</button>
+</span>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="https://www.gradle.org">Gradle 9.7.1</a> at Sep 22, 2026, 11:12:45 AM</p>
+</div>
+</div>
+</body>
+</html>

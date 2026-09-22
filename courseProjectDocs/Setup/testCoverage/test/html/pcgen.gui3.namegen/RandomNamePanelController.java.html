@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RandomNamePanelController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.gui3.namegen</a> &gt; <span class="el_source">RandomNamePanelController.java</span></div><h1>RandomNamePanelController.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2026 Vest &lt;Vest@users.noreply.github.com&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ */
+package pcgen.gui3.namegen;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.List;
+import java.util.Objects;
+
+import pcgen.core.SettingsHandler;
+import pcgen.core.namegen.GeneratedName;
+import pcgen.core.namegen.NameGenerator;
+import pcgen.core.namegen.Rule;
+import pcgen.core.namegen.RuleSet;
+import pcgen.system.LanguageBundle;
+import pcgen.util.Logging;
+
+import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextField;
+import javafx.scene.control.Toggle;
+import javafx.scene.control.ToggleGroup;
+
+/**
+ * JavaFX controller behind the random-name dialog. Drives two cascading
+ * combo boxes (Category → Title) and a gender radio group with sticky
+ * fallback, then asks the headless {@link NameGenerator} for names.
+ */
+<span class="fc" id="L45">public final class RandomNamePanelController</span>
+{
+	@FXML
+	private ComboBox&lt;String&gt; categoryCombo;
+	@FXML
+	private ComboBox&lt;String&gt; titleCombo;
+	@FXML
+	private ToggleGroup genderGroup;
+	@FXML
+	private RadioButton genderFemale;
+	@FXML
+	private RadioButton genderMale;
+	@FXML
+	private RadioButton genderOther;
+	@FXML
+	private TextField generatedNameLabel;
+	@FXML
+	private Label meaningLabel;
+	@FXML
+	private Label pronunciationLabel;
+	@FXML
+	private CheckBox randomStructureCheck;
+	@FXML
+	private ComboBox&lt;Rule&gt; structureCombo;
+
+	private NameGenerator nameGenerator;
+<span class="fc" id="L71">	private String chosenName = &quot;&quot;;</span>
+<span class="fc" id="L72">	private String chosenGender = &quot;&quot;;</span>
+<span class="fc" id="L73">	private boolean cancelled = true;</span>
+	private String preferredGender;
+	private Runnable closeAction;
+
+	@FXML
+	void initialize()
+	{
+		try
+		{
+<span class="fc" id="L82">			nameGenerator = new NameGenerator(new File(getDataDir()));</span>
+		}
+<span class="nc" id="L84">		catch (IOException e)</span>
+		{
+<span class="nc" id="L86">			Logging.errorPrint(&quot;failed to load random-name data&quot;, e);</span>
+<span class="nc" id="L87">			generatedNameLabel.setText(LanguageBundle.getString(&quot;in_rndNmDefault&quot;));</span>
+<span class="nc" id="L88">			return;</span>
+<span class="fc" id="L89">		}</span>
+
+<span class="fc" id="L91">		categoryCombo.setItems(FXCollections.observableArrayList(nameGenerator.getCategories()));</span>
+<span class="fc" id="L92">		categoryCombo.valueProperty().addListener((obs, old, val) -&gt; onCategoryChanged(val));</span>
+<span class="fc" id="L93">		titleCombo.valueProperty().addListener((obs, old, val) -&gt; onTitleChanged(val));</span>
+<span class="fc" id="L94">		genderGroup.selectedToggleProperty().addListener((obs, old, val) -&gt; onGenderChanged(val));</span>
+<span class="pc" id="L95">		randomStructureCheck.selectedProperty().addListener((obs, old, val) -&gt; onRandomStructureChanged(val));</span>
+<span class="fc" id="L96">		structureCombo.setDisable(true);</span>
+<span class="fc" id="L97">		setOptionalLabel(meaningLabel, &quot;in_rndNameMeaning&quot;, &quot;&quot;, &quot;&quot;);</span>
+<span class="fc" id="L98">		setOptionalLabel(pronunciationLabel, &quot;in_rndNmPronounciation&quot;, &quot;&quot;, &quot;&quot;);</span>
+
+<span class="pc bpc" id="L100" title="1 of 2 branches missed.">		if (!categoryCombo.getItems().isEmpty())</span>
+		{
+<span class="fc" id="L102">			categoryCombo.getSelectionModel().selectFirst();</span>
+		}
+<span class="fc" id="L104">	}</span>
+
+	/**
+	 * Called by {@link RandomNameDialog} before showing, to pre-select a
+	 * gender if the character already has one. Must be invoked on the FX
+	 * thread, after the FXML has loaded.
+	 */
+	public void setInitialGender(String gender)
+	{
+<span class="nc" id="L113">		preferredGender = gender;</span>
+<span class="nc bnc" id="L114" title="All 6 branches missed.">		if (gender != null &amp;&amp; !gender.isEmpty() &amp;&amp; titleCombo.getValue() != null)</span>
+		{
+<span class="nc" id="L116">			selectGender(gender);</span>
+		}
+<span class="nc" id="L118">	}</span>
+
+	/**
+	 * Hook supplied by {@link RandomNameDialog} so OK/Cancel can dispose
+	 * the hosting Swing dialog without the controller knowing about it.
+	 */
+	public void setCloseAction(Runnable closeAction)
+	{
+<span class="nc" id="L126">		this.closeAction = closeAction;</span>
+<span class="nc" id="L127">	}</span>
+
+	private void onCategoryChanged(String category)
+	{
+<span class="pc bpc" id="L131" title="1 of 2 branches missed.">		if (category == null)</span>
+		{
+<span class="nc" id="L133">			titleCombo.setItems(FXCollections.emptyObservableList());</span>
+<span class="nc" id="L134">			return;</span>
+		}
+<span class="fc" id="L136">		List&lt;String&gt; titles = nameGenerator.getTitlesFor(category);</span>
+<span class="fc" id="L137">		titleCombo.setItems(FXCollections.observableArrayList(titles));</span>
+<span class="pc bpc" id="L138" title="1 of 2 branches missed.">		if (!titles.isEmpty())</span>
+		{
+<span class="fc" id="L140">			titleCombo.getSelectionModel().selectFirst();</span>
+		}
+<span class="fc" id="L142">	}</span>
+
+	private void onTitleChanged(String title)
+	{
+<span class="fc" id="L146">		String category = categoryCombo.getValue();</span>
+<span class="pc bpc" id="L147" title="2 of 4 branches missed.">		if (category == null || title == null)</span>
+		{
+<span class="nc" id="L149">			disableAllGenders();</span>
+<span class="nc" id="L150">			return;</span>
+		}
+<span class="fc" id="L152">		List&lt;String&gt; available = nameGenerator.getGendersFor(category, title);</span>
+<span class="pc bpc" id="L153" title="1 of 2 branches missed.">		genderFemale.setDisable(!available.contains(&quot;Female&quot;));</span>
+<span class="pc bpc" id="L154" title="1 of 2 branches missed.">		genderMale.setDisable(!available.contains(&quot;Male&quot;));</span>
+<span class="pc bpc" id="L155" title="1 of 2 branches missed.">		genderOther.setDisable(!available.contains(&quot;Other&quot;));</span>
+
+<span class="fc" id="L157">		String previous = currentGender();</span>
+<span class="fc" id="L158">		String target = chooseStickyGender(available, previous);</span>
+<span class="fc" id="L159">		selectGender(target);</span>
+		// If the sticky gender is unchanged, the toggle listener won't fire,
+		// so refresh the structure combo here too — the catalog is keyed on
+		// (category, title, gender) and title just changed.
+<span class="fc" id="L163">		refreshStructureCombo();</span>
+<span class="fc" id="L164">	}</span>
+
+	private void onGenderChanged(Toggle selected)
+	{
+		// Cleared selection happens transiently while we swap toggles —
+		// don't react until a button is actually selected.
+<span class="pc bpc" id="L170" title="1 of 2 branches missed.">		if (selected == null)</span>
+		{
+<span class="nc" id="L172">			return;</span>
+		}
+<span class="fc" id="L174">		refreshStructureCombo();</span>
+<span class="fc" id="L175">		clearOutput();</span>
+<span class="fc" id="L176">	}</span>
+
+	private void onRandomStructureChanged(boolean random)
+	{
+<span class="nc" id="L180">		structureCombo.setDisable(random);</span>
+<span class="nc" id="L181">	}</span>
+
+	private void refreshStructureCombo()
+	{
+<span class="fc" id="L185">		RuleSet catalog = currentCatalog();</span>
+<span class="pc bpc" id="L186" title="1 of 2 branches missed.">		if (catalog == null)</span>
+		{
+<span class="nc" id="L188">			structureCombo.setItems(FXCollections.emptyObservableList());</span>
+<span class="nc" id="L189">			return;</span>
+		}
+<span class="fc" id="L191">		structureCombo.setItems(FXCollections.observableArrayList(nameGenerator.getRulesFor(catalog)));</span>
+<span class="pc bpc" id="L192" title="1 of 2 branches missed.">		if (!structureCombo.getItems().isEmpty())</span>
+		{
+<span class="fc" id="L194">			structureCombo.getSelectionModel().selectFirst();</span>
+		}
+<span class="fc" id="L196">	}</span>
+
+	@FXML
+	void onGenerate(ActionEvent event)
+	{
+<span class="nc" id="L201">		RuleSet catalog = currentCatalog();</span>
+<span class="nc bnc" id="L202" title="All 2 branches missed.">		if (catalog == null)</span>
+		{
+<span class="nc" id="L204">			return;</span>
+		}
+		try
+		{
+<span class="nc bnc" id="L208" title="All 2 branches missed.">			GeneratedName result = useForcedRule()</span>
+<span class="nc" id="L209">					? nameGenerator.generateWithRule(structureCombo.getValue())</span>
+<span class="nc" id="L210">					: nameGenerator.generate(catalog);</span>
+<span class="nc" id="L211">			generatedNameLabel.setText(result.name());</span>
+<span class="nc" id="L212">			setOptionalLabel(meaningLabel, &quot;in_rndNameMeaning&quot;, result.meaning(), result.name());</span>
+<span class="nc" id="L213">			setOptionalLabel(pronunciationLabel, &quot;in_rndNmPronounciation&quot;, result.pronunciation(), result.name());</span>
+		}
+<span class="nc" id="L215">		catch (Exception e)</span>
+		{
+<span class="nc" id="L217">			Logging.errorPrint(&quot;failed to generate random name&quot;, e);</span>
+<span class="nc" id="L218">			generatedNameLabel.setText(LanguageBundle.getString(&quot;in_rndNmDefault&quot;));</span>
+<span class="nc" id="L219">			setOptionalLabel(meaningLabel, &quot;in_rndNameMeaning&quot;, &quot;&quot;, &quot;&quot;);</span>
+<span class="nc" id="L220">			setOptionalLabel(pronunciationLabel, &quot;in_rndNmPronounciation&quot;, &quot;&quot;, &quot;&quot;);</span>
+<span class="nc" id="L221">		}</span>
+<span class="nc" id="L222">	}</span>
+
+	private boolean useForcedRule()
+	{
+<span class="nc bnc" id="L226" title="All 4 branches missed.">		return !randomStructureCheck.isSelected() &amp;&amp; structureCombo.getValue() != null;</span>
+	}
+
+	@FXML
+	void onOk(ActionEvent event)
+	{
+<span class="nc" id="L232">		String text = generatedNameLabel.getText();</span>
+<span class="nc" id="L233">		String defaultLabel = LanguageBundle.getString(&quot;in_rndNmDefault&quot;);</span>
+		// If the user clicks OK without ever generating, treat as cancel.
+<span class="nc bnc" id="L235" title="All 6 branches missed.">		if (text == null || text.isEmpty() || text.equals(defaultLabel))</span>
+		{
+<span class="nc" id="L237">			cancelled = true;</span>
+		}
+		else
+		{
+<span class="nc" id="L241">			cancelled = false;</span>
+<span class="nc" id="L242">			chosenName = text;</span>
+<span class="nc" id="L243">			chosenGender = currentGender();</span>
+		}
+<span class="nc" id="L245">		fireClose();</span>
+<span class="nc" id="L246">	}</span>
+
+	@FXML
+	void onCancel(ActionEvent event)
+	{
+<span class="nc" id="L251">		cancelled = true;</span>
+<span class="nc" id="L252">		fireClose();</span>
+<span class="nc" id="L253">	}</span>
+
+	public String getChosenName()
+	{
+<span class="nc bnc" id="L257" title="All 2 branches missed.">		return cancelled ? &quot;&quot; : chosenName;</span>
+	}
+
+	public String getGender()
+	{
+<span class="nc bnc" id="L262" title="All 2 branches missed.">		return cancelled ? &quot;&quot; : chosenGender;</span>
+	}
+
+	private RuleSet currentCatalog()
+	{
+<span class="fc" id="L267">		String category = categoryCombo.getValue();</span>
+<span class="fc" id="L268">		String title = titleCombo.getValue();</span>
+<span class="fc" id="L269">		String gender = currentGender();</span>
+<span class="pc bpc" id="L270" title="3 of 6 branches missed.">		if (category == null || title == null || gender.isEmpty())</span>
+		{
+<span class="nc" id="L272">			return null;</span>
+		}
+<span class="fc" id="L274">		return nameGenerator.getCatalog(category, title, gender);</span>
+	}
+
+	private String currentGender()
+	{
+<span class="fc" id="L279">		Toggle selected = genderGroup.getSelectedToggle();</span>
+<span class="fc bfc" id="L280" title="All 2 branches covered.">		if (selected instanceof RadioButton rb)</span>
+		{
+<span class="fc" id="L282">			return rb.getText();</span>
+		}
+<span class="fc" id="L284">		return &quot;&quot;;</span>
+	}
+
+	private String chooseStickyGender(List&lt;String&gt; available, String previous)
+	{
+<span class="fc" id="L289">		return GenderSelection.chooseSticky(available, previous, preferredGender);</span>
+	}
+
+	private void selectGender(String gender)
+	{
+<span class="pc bpc" id="L294" title="3 of 4 branches missed.">		RadioButton target = switch (gender)</span>
+		{
+<span class="fc" id="L296">			case &quot;Female&quot; -&gt; genderFemale;</span>
+<span class="nc" id="L297">			case &quot;Male&quot; -&gt; genderMale;</span>
+<span class="nc" id="L298">			case &quot;Other&quot; -&gt; genderOther;</span>
+<span class="nc" id="L299">			default -&gt; null;</span>
+		};
+<span class="pc bpc" id="L301" title="2 of 4 branches missed.">		if (target != null &amp;&amp; !target.isDisable())</span>
+		{
+<span class="fc" id="L303">			target.setSelected(true);</span>
+		}
+		else
+		{
+<span class="nc" id="L307">			genderGroup.selectToggle(null);</span>
+		}
+<span class="fc" id="L309">	}</span>
+
+	private void disableAllGenders()
+	{
+<span class="nc" id="L313">		genderFemale.setDisable(true);</span>
+<span class="nc" id="L314">		genderMale.setDisable(true);</span>
+<span class="nc" id="L315">		genderOther.setDisable(true);</span>
+<span class="nc" id="L316">		genderGroup.selectToggle(null);</span>
+<span class="nc" id="L317">	}</span>
+
+	private void clearOutput()
+	{
+<span class="fc" id="L321">		generatedNameLabel.setText(LanguageBundle.getString(&quot;in_rndNmDefault&quot;));</span>
+<span class="fc" id="L322">		setOptionalLabel(meaningLabel, &quot;in_rndNameMeaning&quot;, &quot;&quot;, &quot;&quot;);</span>
+<span class="fc" id="L323">		setOptionalLabel(pronunciationLabel, &quot;in_rndNmPronounciation&quot;, &quot;&quot;, &quot;&quot;);</span>
+<span class="fc" id="L324">	}</span>
+
+	private static void setOptionalLabel(Label label, String prefixKey, String value, String generatedName)
+	{
+<span class="pc bpc" id="L328" title="4 of 6 branches missed.">		boolean hasValue = value != null &amp;&amp; !value.isEmpty() &amp;&amp; !value.equals(generatedName);</span>
+<span class="pc bpc" id="L329" title="1 of 2 branches missed.">		String shown = hasValue ? value : &quot;-&quot;;</span>
+<span class="fc" id="L330">		label.setText(LanguageBundle.getString(prefixKey) + &quot; &quot; + shown);</span>
+<span class="fc" id="L331">	}</span>
+
+	private void fireClose()
+	{
+<span class="nc bnc" id="L335" title="All 2 branches missed.">		if (closeAction != null)</span>
+		{
+<span class="nc" id="L337">			closeAction.run();</span>
+		}
+<span class="nc" id="L339">	}</span>
+
+	private static String getDataDir()
+	{
+<span class="fc" id="L343">		return Objects.requireNonNull(SettingsHandler.getGmgenPluginDir()).toString()</span>
+				+ File.separator + &quot;Random Names&quot;;
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

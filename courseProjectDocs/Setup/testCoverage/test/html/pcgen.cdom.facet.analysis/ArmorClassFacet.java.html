@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ArmorClassFacet.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.facet.analysis</a> &gt; <span class="el_source">ArmorClassFacet.java</span></div><h1>ArmorClassFacet.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) 2010 Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package pcgen.cdom.facet.analysis;
+
+import java.util.List;
+
+import pcgen.cdom.content.ACControl;
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.PlayerCharacterTrackingFacet;
+import pcgen.cdom.facet.PrerequisiteFacet;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.SettingsHandler;
+import pcgen.io.exporttoken.BonusToken;
+import pcgen.util.Logging;
+
+/**
+ * ArmorClassFacet calculates the Armor Class (actually types of armor class,
+ * such as defense against a touch attack) of a Player Character.
+ * 
+ */
+<span class="fc" id="L36">public class ArmorClassFacet</span>
+{
+
+	/**
+	 * Facet used to calculate Prerequisites
+	 */
+	private PrerequisiteFacet prerequisiteFacet;
+
+<span class="fc" id="L44">	private PlayerCharacterTrackingFacet trackingFacet = FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);</span>
+
+	/**
+	 * Calculates the Armor Class of a certain type. These types are defined in
+	 * the game mode; there are no hardcoded Armor Class types here - (and none
+	 * should be added!)
+	 * 
+	 * @param id
+	 *            The CharId identifying the Player Character for which a
+	 *            specific type of Armor Class should be calculated
+	 * @param type
+	 *            The type of the Armor Class to be calculated. Defined in the
+	 *            Game Mode files
+	 * @return The armor class of the given type for the Player Character
+	 *         identified by the given CharID
+	 */
+	@Deprecated
+	public int calcACOfType(CharID id, String type)
+	{
+		/*
+		 * CONSIDER should AC types be a type safe list?
+		 */
+<span class="nc" id="L66">		final List&lt;ACControl&gt; addList = SettingsHandler.getGameAsProperty().get().getACTypeAddString(type);</span>
+<span class="nc" id="L67">		final List&lt;ACControl&gt; removeList = SettingsHandler.getGameAsProperty().get().getACTypeRemoveString(type);</span>
+
+<span class="nc bnc" id="L69" title="All 4 branches missed.">		if ((addList == null) &amp;&amp; (removeList == null))</span>
+		{
+<span class="nc" id="L71">			Logging.errorPrint(&quot;Invalid ACType: &quot; + type);</span>
+<span class="nc" id="L72">			return 0;</span>
+		}
+
+<span class="nc" id="L75">		int armorClass = 0;</span>
+
+<span class="nc bnc" id="L77" title="All 2 branches missed.">		if (addList != null)</span>
+		{
+<span class="nc" id="L79">			PlayerCharacter pc = trackingFacet.getPC(id);</span>
+<span class="nc bnc" id="L80" title="All 2 branches missed.">			for (ACControl acc : addList)</span>
+			{
+<span class="nc bnc" id="L82" title="All 2 branches missed.">				if (prerequisiteFacet.qualifies(id, acc, null))</span>
+				{
+<span class="nc" id="L84">					armorClass += Integer.parseInt(BonusToken.getBonusToken(&quot;BONUS.COMBAT.AC.&quot; + acc.getType(), pc));</span>
+				}
+<span class="nc" id="L86">			}</span>
+		}
+
+<span class="nc bnc" id="L89" title="All 2 branches missed.">		if (removeList != null)</span>
+		{
+<span class="nc" id="L91">			PlayerCharacter pc = trackingFacet.getPC(id);</span>
+<span class="nc bnc" id="L92" title="All 2 branches missed.">			for (ACControl acc : removeList)</span>
+			{
+<span class="nc bnc" id="L94" title="All 2 branches missed.">				if (prerequisiteFacet.qualifies(id, acc, null))</span>
+				{
+<span class="nc" id="L96">					armorClass -= Integer.parseInt(BonusToken.getBonusToken(&quot;BONUS.COMBAT.AC.&quot; + acc.getType(), pc));</span>
+				}
+<span class="nc" id="L98">			}</span>
+		}
+
+<span class="nc" id="L101">		return armorClass;</span>
+	}
+
+	public void setPrerequisiteFacet(PrerequisiteFacet prerequisiteFacet)
+	{
+<span class="fc" id="L106">		this.prerequisiteFacet = prerequisiteFacet;</span>
+<span class="fc" id="L107">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

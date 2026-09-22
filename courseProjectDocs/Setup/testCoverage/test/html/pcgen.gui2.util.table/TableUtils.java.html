@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TableUtils.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.gui2.util.table</a> &gt; <span class="el_source">TableUtils.java</span></div><h1>TableUtils.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2011 Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ * 
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ * 
+ */
+package pcgen.gui2.util.table;
+
+import java.awt.Dimension;
+
+import javax.swing.JCheckBox;
+import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JToggleButton;
+import javax.swing.table.TableColumn;
+
+public final class TableUtils
+{
+
+	private TableUtils()
+	{
+	}
+
+	public static JTable createDefaultTable()
+	{
+<span class="nc" id="L39">		JTable table = new JTable();</span>
+<span class="nc" id="L40">		table.setFillsViewportHeight(true);</span>
+<span class="nc" id="L41">		return table;</span>
+	}
+
+	/**
+	 * This configures a scroll pane such that a set of checkboxes will reside along the
+	 * scroll pane's row header.
+	 * @param table
+	 * @param rowheaderTable
+	 * @return the toggle button selection pane
+	 */
+	public static JScrollPane createCheckBoxSelectionPane(JTable table, JTable rowheaderTable)
+	{
+<span class="nc" id="L53">		return createToggleButtonSelectionPane(table, rowheaderTable, new JCheckBox());</span>
+	}
+
+	public static JScrollPane createRadioBoxSelectionPane(JTable table, JTable rowheaderTable)
+	{
+<span class="nc" id="L58">		rowheaderTable.setDefaultEditor(Boolean.class, new TableCellUtilities.RadioButtonEditor());</span>
+<span class="nc" id="L59">		return createToggleButtonSelectionPane(table, rowheaderTable, new JRadioButton());</span>
+	}
+
+	private static JScrollPane createToggleButtonSelectionPane(JTable table, JTable rowheaderTable,
+		JToggleButton button)
+	{
+<span class="nc" id="L65">		rowheaderTable.setAutoCreateColumnsFromModel(false);</span>
+		// force the tables to share models
+<span class="nc" id="L67">		rowheaderTable.setModel(table.getModel());</span>
+<span class="nc" id="L68">		rowheaderTable.setSelectionModel(table.getSelectionModel());</span>
+<span class="nc" id="L69">		rowheaderTable.setRowHeight(table.getRowHeight());</span>
+<span class="nc" id="L70">		rowheaderTable.setIntercellSpacing(table.getIntercellSpacing());</span>
+<span class="nc" id="L71">		rowheaderTable.setShowGrid(false);</span>
+<span class="nc" id="L72">		rowheaderTable.setFocusable(false);</span>
+
+<span class="nc" id="L74">		TableColumn column = new TableColumn(-1);</span>
+<span class="nc" id="L75">		column.setHeaderValue(new Object());</span>
+<span class="nc" id="L76">		column.setCellRenderer(new TableCellUtilities.ToggleButtonRenderer(button));</span>
+<span class="nc" id="L77">		rowheaderTable.addColumn(column);</span>
+<span class="nc" id="L78">		rowheaderTable.setPreferredScrollableViewportSize(new Dimension(20, 0));</span>
+
+<span class="nc" id="L80">		JScrollPane scrollPane = new JScrollPane();</span>
+<span class="nc" id="L81">		scrollPane.setViewportView(table);</span>
+<span class="nc" id="L82">		scrollPane.setRowHeaderView(rowheaderTable);</span>
+<span class="nc" id="L83">		return scrollPane;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

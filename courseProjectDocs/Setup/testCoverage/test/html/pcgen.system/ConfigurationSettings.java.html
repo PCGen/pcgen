@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ConfigurationSettings.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.system</a> &gt; <span class="el_source">ConfigurationSettings.java</span></div><h1>ConfigurationSettings.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2009 Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ */
+package pcgen.system;
+
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.stream.Stream;
+
+import org.apache.commons.lang3.SystemUtils;
+
+public final class ConfigurationSettings extends PropertyContext
+{
+	private static final String USER_LANGUAGE = &quot;language&quot;;
+	private static final String USER_COUNTRY = &quot;country&quot;;
+	public static final String SETTINGS_FILES_PATH = &quot;settingsPath&quot;;
+	public static final String SYSTEMS_DIR = &quot;systemsPath&quot;;
+	public static final String OUTPUT_SHEETS_DIR = &quot;osPath&quot;;
+	private static final String PLUGINS_DIR = &quot;pluginsPath&quot;;
+	public static final String PREVIEW_DIR = &quot;previewPath&quot;;
+	public static final String VENDOR_DATA_DIR = &quot;vendordataPath&quot;;
+	public static final String HOMEBREW_DATA_DIR = &quot;homebrewdataPath&quot;;
+	public static final String DOCS_DIR = &quot;docsPath&quot;;
+	public static final String PCC_FILES_DIR = &quot;pccFilesPath&quot;;
+	public static final String CUSTOM_DATA_DIR = &quot;customPath&quot;;
+<span class="fc" id="L45">	private static ConfigurationSettings instance = null;</span>
+	/** APPLICATION directory name, used in &lt;em&gt;~/.&amp;lt;APPLICATION&amp;gt;&lt;/em&gt;, etc. */
+	private static final String APPLICATION = &quot;pcgen&quot;; // $NON-NLS-1$
+
+	/**
+	 * Directory jpackage places beside {@code runtime} to hold the bundled
+	 * application resources.
+	 */
+	private static final String BUNDLE_APP_DIR = &quot;app&quot;; // $NON-NLS-1$
+
+	/**
+	 * How many directory levels the install-root search climbs, counting
+	 * java.home itself. Four covers the deepest supported layout (macOS
+	 * {@code Contents/runtime/Contents/Home}); the rest is headroom for
+	 * dev checkouts.
+	 */
+	private static final int MAX_ANCESTORS = 6;
+
+	/** Memoised install root; java.home is fixed for the life of the JVM. */
+	private static volatile Path installRoot;
+
+	private ConfigurationSettings(String configFileName)
+	{
+<span class="fc" id="L68">		super(configFileName);</span>
+		//Initialize defaults
+<span class="fc" id="L70">		setProperty(USER_LANGUAGE, SystemUtils.USER_LANGUAGE);</span>
+<span class="fc" id="L71">		setProperty(USER_COUNTRY, SystemUtils.USER_COUNTRY);</span>
+<span class="fc" id="L72">		setProperty(SYSTEMS_DIR, &quot;@system&quot;);</span>
+<span class="fc" id="L73">		setProperty(OUTPUT_SHEETS_DIR, &quot;@outputsheets&quot;);</span>
+<span class="fc" id="L74">		setProperty(PLUGINS_DIR, &quot;@plugins&quot;);</span>
+<span class="fc" id="L75">		setProperty(PREVIEW_DIR, &quot;@preview&quot;);</span>
+<span class="fc" id="L76">		setProperty(DOCS_DIR, &quot;@docs&quot;);</span>
+<span class="fc" id="L77">		setProperty(PCC_FILES_DIR, &quot;@data&quot;);</span>
+<span class="fc" id="L78">	}</span>
+
+	@Override
+	protected void beforePropertiesSaved()
+	{
+<span class="nc" id="L83">		relativize(SYSTEMS_DIR);</span>
+<span class="nc" id="L84">		relativize(OUTPUT_SHEETS_DIR);</span>
+<span class="nc" id="L85">		relativize(PLUGINS_DIR);</span>
+<span class="nc" id="L86">		relativize(PREVIEW_DIR);</span>
+<span class="nc" id="L87">		relativize(DOCS_DIR);</span>
+<span class="nc" id="L88">		relativize(PCC_FILES_DIR);</span>
+<span class="nc" id="L89">	}</span>
+
+	public static String getLanguage()
+	{
+<span class="nc" id="L93">		return getSystemProperty(USER_LANGUAGE);</span>
+	}
+
+	public static void setLanguage(String language)
+	{
+<span class="nc" id="L98">		setSystemProperty(USER_LANGUAGE, language);</span>
+<span class="nc" id="L99">	}</span>
+
+	static String getCountry()
+	{
+<span class="nc" id="L103">		return getSystemProperty(USER_COUNTRY);</span>
+	}
+
+	public static void setCountry(String country)
+	{
+<span class="nc" id="L108">		setSystemProperty(USER_COUNTRY, country);</span>
+<span class="nc" id="L109">	}</span>
+
+	/**
+	 * @return the current user directory
+	 */
+	public static String getUserDir()
+	{
+<span class="fc" id="L116">		return SystemUtils.USER_DIR;</span>
+	}
+
+	public static ConfigurationSettings getInstance()
+	{
+<span class="fc" id="L121">		return getInstance(null);</span>
+	}
+
+	public static ConfigurationSettings getInstance(String configFileName)
+	{
+<span class="fc bfc" id="L126" title="All 2 branches covered.">		if (instance == null)</span>
+		{
+<span class="pc bpc" id="L128" title="1 of 2 branches missed.">			instance = new ConfigurationSettings(configFileName == null ? &quot;config.ini&quot; : configFileName);</span>
+		}
+<span class="fc" id="L130">		return instance;</span>
+	}
+
+	public static String getSystemsDir()
+	{
+<span class="fc" id="L135">		return getDirectory(SYSTEMS_DIR);</span>
+	}
+
+	public static String getOutputSheetsDir()
+	{
+<span class="nc" id="L140">		return getDirectory(OUTPUT_SHEETS_DIR);</span>
+	}
+
+	static String getPluginsDir()
+	{
+<span class="nc" id="L145">		return getDirectory(PLUGINS_DIR);</span>
+	}
+
+	public static String getPreviewDir()
+	{
+<span class="nc" id="L150">		return getDirectory(PREVIEW_DIR);</span>
+	}
+
+	public static String getDocsDir()
+	{
+<span class="nc" id="L155">		return getDirectory(DOCS_DIR);</span>
+	}
+
+	public static String getPccFilesDir()
+	{
+<span class="fc" id="L160">		return getDirectory(PCC_FILES_DIR);</span>
+	}
+
+	public static String getSettingsDir()
+	{
+<span class="nc" id="L165">		return getDirectory(SETTINGS_FILES_PATH);</span>
+	}
+
+	public static String getSystemProperty(String key)
+	{
+<span class="fc" id="L170">		return getInstance().getProperty(key);</span>
+	}
+
+	public static void setSystemProperty(String key, String value)
+	{
+<span class="nc" id="L175">		getInstance().setProperty(key, value);</span>
+<span class="nc" id="L176">	}</span>
+
+	private static String getDirectory(String key)
+	{
+<span class="pc bpc" id="L180" title="1 of 2 branches missed.">		if (SETTINGS_FILES_PATH.equals(key))</span>
+		{
+<span class="nc" id="L182">			return getSettingsDirFromFilePath(getSystemProperty(key));</span>
+		}
+<span class="fc" id="L184">		return expandRelativePath(getSystemProperty(key));</span>
+	}
+
+	/**
+	 * The directory PCGen's bundled data (@data, @plugins, …) is resolved against,
+	 * found via {@link #findInstallRoot} from java.home rather than the process
+	 * working directory (a packaged/Finder launch gives user.dir=/).
+	 */
+	private static String getInstallRoot()
+	{
+<span class="fc" id="L194">		return installRootPath().toString();</span>
+	}
+
+	/** The resolved install-root directory (java.home walk, else user.dir). */
+	private static Path installRootPath()
+	{
+		// java.home cannot change while the JVM runs, so resolve once: the walk
+		// hits the filesystem and every @-prefixed path expansion asks for it.
+<span class="fc" id="L202">		Path resolved = installRoot;</span>
+<span class="fc bfc" id="L203" title="All 2 branches covered.">		if (resolved == null)</span>
+		{
+<span class="fc" id="L205">			resolved = findInstallRoot(SystemUtils.JAVA_HOME)</span>
+<span class="fc" id="L206">					.orElseGet(() -&gt; Path.of(SystemUtils.USER_DIR));</span>
+<span class="fc" id="L207">			installRoot = resolved;</span>
+		}
+<span class="fc" id="L209">		return resolved;</span>
+	}
+
+	/**
+	 * Whether the install root is writable — true for a portable/dev copy, false
+	 * for an installed app (read-only DMG or a sealed bundle in /Applications).
+	 * Disables the &quot;PCGen Dir&quot; settings option, which would otherwise fail silently
+	 * at save time (mkdirs under a read-only root).
+	 */
+	public static boolean isInstallRootWritable()
+	{
+<span class="nc" id="L220">		return isWritableDir(installRootPath());</span>
+	}
+
+	/** Package-private seam so the writability check can be unit-tested. */
+	static boolean isWritableDir(Path dir)
+	{
+<span class="pc bpc" id="L226" title="1 of 6 branches missed.">		return (dir != null) &amp;&amp; Files.isDirectory(dir) &amp;&amp; Files.isWritable(dir);</span>
+	}
+
+	/**
+	 * The nearest existing directory at or above {@code path}, or empty if none
+	 * exists up the chain. Lets a directory chooser start at a real directory
+	 * when the prefilled path does not exist yet.
+	 */
+	public static Optional&lt;Path&gt; nearestExistingDir(String path)
+	{
+<span class="fc bfc" id="L236" title="All 2 branches covered.">		Path dir = (path == null) ? null : Path.of(path);</span>
+<span class="fc bfc" id="L237" title="All 4 branches covered.">		while ((dir != null) &amp;&amp; !Files.isDirectory(dir))</span>
+		{
+<span class="fc" id="L239">			dir = dir.getParent();</span>
+		}
+<span class="fc" id="L241">		return Optional.ofNullable(dir);</span>
+	}
+
+	/**
+	 * Walk up from {@code javaHome} and return the first ancestor — or that
+	 * ancestor's {@code app} subdirectory — that holds PCGen's bundled data (the
+	 * &quot;data&quot; + &quot;system&quot; folders), or empty if none is found (the caller then
+	 * falls back to user.dir). Package-private and parameterised on
+	 * {@code javaHome} so it can be exercised without touching real system
+	 * properties.
+	 * &lt;p&gt;
+	 * Only the {@code app} sibling is considered, because that is the directory
+	 * jpackage creates next to {@code runtime}. Scanning every child of every
+	 * ancestor instead would climb to the filesystem root and adopt any unrelated
+	 * directory that happened to contain {@code data} and {@code system} — a
+	 * stray checkout under {@code /tmp} was enough to hijack the result. The
+	 * climb is bounded for the same reason, so the search can never reach
+	 * {@code /usr} or {@code /} from a deeply nested java.home.
+	 *
+	 * @param javaHome the runtime's home directory, or null
+	 * @return the install root, or empty when it cannot be located
+	 */
+	static Optional&lt;Path&gt; findInstallRoot(String javaHome)
+	{
+<span class="fc bfc" id="L265" title="All 2 branches covered.">		if (javaHome == null)</span>
+		{
+<span class="fc" id="L267">			return Optional.empty();</span>
+		}
+<span class="fc" id="L269">		return Stream.iterate(canonicalize(Path.of(javaHome)), Objects::nonNull, Path::getParent)</span>
+<span class="fc" id="L270">				.limit(MAX_ANCESTORS)</span>
+<span class="fc" id="L271">				.flatMap(dir -&gt; Stream.of(dir, dir.resolve(BUNDLE_APP_DIR)))</span>
+<span class="fc" id="L272">				.filter(ConfigurationSettings::looksLikeInstallRoot)</span>
+<span class="fc" id="L273">				.findFirst();</span>
+	}
+
+	/**
+	 * Resolves symlinks so the ancestor walk climbs the real directory tree.
+	 * {@link Path#getParent()} is purely lexical, so a symlinked java.home would
+	 * otherwise yield the link's textual ancestors rather than the actual ones.
+	 *
+	 * @param path the path to canonicalize
+	 * @return the real path, or the normalized absolute path if it cannot be resolved
+	 */
+	private static Path canonicalize(Path path)
+	{
+		try
+		{
+<span class="fc" id="L288">			return path.toRealPath();</span>
+		}
+<span class="nc" id="L290">		catch (IOException _)</span>
+		{
+<span class="nc" id="L292">			return path.toAbsolutePath().normalize();</span>
+		}
+	}
+
+	private static boolean looksLikeInstallRoot(Path dir)
+	{
+<span class="fc bfc" id="L298" title="All 4 branches covered.">		return Files.isDirectory(dir.resolve(&quot;data&quot;)) &amp;&amp; Files.isDirectory(dir.resolve(&quot;system&quot;));</span>
+	}
+
+	private static String expandRelativePath(String path)
+	{
+<span class="pc bpc" id="L303" title="1 of 2 branches missed.">		if (path.startsWith(&quot;@&quot;))</span>
+		{
+<span class="fc" id="L305">			path = getInstallRoot() + File.separator + path.substring(1);</span>
+		}
+<span class="fc" id="L307">		return path;</span>
+	}
+
+	private static String unexpandRelativePath(String path)
+	{
+<span class="nc" id="L312">		String root = getInstallRoot();</span>
+<span class="nc bnc" id="L313" title="All 2 branches missed.">		if (path.startsWith(root + File.separator))</span>
+		{
+<span class="nc" id="L315">			path = '@' + path.substring(root.length() + 1);</span>
+		}
+<span class="nc" id="L317">		return path;</span>
+	}
+
+	private static void relativize(String property)
+	{
+<span class="nc" id="L322">		setSystemProperty(property, unexpandRelativePath(getSystemProperty(property)));</span>
+<span class="nc" id="L323">	}</span>
+
+<span class="nc" id="L325">	public enum SettingsFilesPath</span>
+	{
+
+		/** User Directory */
+<span class="nc" id="L329">		user,</span>
+		/** Indicates PCGen directory */
+<span class="nc" id="L331">		pcgen,</span>
+		/** Freedesktop configuration directories */
+<span class="nc" id="L333">		FD_USER,</span>
+		/** Indicate MAC specific directories */
+<span class="nc" id="L335">		mac_user;</span>
+
+		public String getSettingsDir()
+		{
+<span class="nc bnc" id="L339" title="All 5 branches missed.">			switch (this)</span>
+			{
+				case user:
+<span class="nc" id="L342">					return SystemUtils.USER_HOME + File.separator + '.' + APPLICATION; // $NON-NLS-1$</span>
+				case pcgen:
+					// Install dir, resolved from java.home like @-paths — not user.dir,
+					// which is / for a packaged/Finder launch (gave &quot;//settings&quot;).
+<span class="nc" id="L346">					return getInstallRoot() + File.separator + &quot;settings&quot;; // $NON-NLS-1$</span>
+				case mac_user:
+<span class="nc" id="L348">					return SystemUtils.USER_HOME + &quot;/Library/Preferences/&quot; + APPLICATION; // $NON-NLS-1$</span>
+				case FD_USER:
+<span class="nc" id="L350">					String config = System.getenv(&quot;XDG_CONFIG_HOME&quot;); // $NON-NLS-1$</span>
+<span class="nc bnc" id="L351" title="All 4 branches missed.">					if ((config == null) || config.isEmpty())</span>
+					{
+<span class="nc" id="L353">						config = SystemUtils.USER_HOME + File.separator + &quot;.config&quot;; // $NON-NLS-1$</span>
+					}
+<span class="nc" id="L355">					return config + File.separator + APPLICATION;</span>
+				default:
+<span class="nc" id="L357">					throw new InternalError();</span>
+			}
+		}
+	}
+
+	public static String getSettingsDirFromFilePath(String fType)
+	{
+<span class="nc bnc" id="L364" title="All 4 branches missed.">		if ((fType == null) || fType.isEmpty())</span>
+		{
+			// make sure we have a default
+<span class="nc" id="L367">			fType = getDefaultSettingsFilesPath();</span>
+		}
+		String path;
+		try
+		{
+			//Check to see if this path is one of the standard path types
+<span class="nc" id="L373">			path = SettingsFilesPath.valueOf(fType).getSettingsDir();</span>
+		}
+<span class="nc" id="L375">		catch (IllegalArgumentException _)</span>
+		{
+			//It must be a custom filepath
+<span class="nc" id="L378">			path = fType;</span>
+<span class="nc" id="L379">		}</span>
+<span class="nc" id="L380">		return path;</span>
+	}
+
+	/**
+	 * @return A default Settings Files Path value.
+	 */
+	public static String getDefaultSettingsFilesPath()
+	{
+		String fType;
+<span class="nc bnc" id="L389" title="All 2 branches missed.">		if (SystemUtils.IS_OS_MAC_OSX)</span>
+		{
+<span class="nc" id="L391">			fType = SettingsFilesPath.mac_user.name();</span>
+		}
+<span class="nc bnc" id="L393" title="All 2 branches missed.">		else if (SystemUtils.IS_OS_UNIX)</span>
+		{
+<span class="nc" id="L395">			fType = SettingsFilesPath.FD_USER.name();</span>
+		}
+		else
+		{
+<span class="nc" id="L399">			fType = SettingsFilesPath.user.name();</span>
+		}
+<span class="nc" id="L401">		return fType;</span>
+	}
+
+	/**
+	 * @return &quot;User Dir&quot; dir Settings Files Path value.
+	 */
+	public static String getUserSettingsDirFromFilePath()
+	{
+<span class="nc" id="L409">		return getSettingsDirFromFilePath(getDefaultSettingsFilesPath());</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

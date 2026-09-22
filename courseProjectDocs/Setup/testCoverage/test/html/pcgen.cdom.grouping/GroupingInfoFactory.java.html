@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GroupingInfoFactory.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.grouping</a> &gt; <span class="el_source">GroupingInfoFactory.java</span></div><h1>GroupingInfoFactory.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2018 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or modify it under the terms
+ * of the GNU Lesser General Public License as published by the Free Software Foundation;
+ * either version 2.1 of the License, or (at your option) any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT ANY
+ * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+ * PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License along with
+ * this library; if not, write to the Free Software Foundation, Inc., 59 Temple Place,
+ * Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.cdom.grouping;
+
+import java.util.Arrays;
+import java.util.Stack;
+
+import pcgen.cdom.formula.scope.PCGenScope;
+
+/**
+ * A GroupingInfoFactory is designed to construct GroupingInfo objects given a PCGenScope
+ * and the String of instructions for the grouping information.
+ * 
+ * Warning: A GroupingInfoFactory is very much NOT thread safe.
+ */
+<span class="fc" id="L29">public class GroupingInfoFactory</span>
+{
+	/**
+	 * Any characters expected in the future parsing of the instructions.
+	 */
+<span class="fc" id="L34">	private final Stack&lt;String&gt; expected = new Stack&lt;&gt;();</span>
+
+	/**
+	 * The current depth of grouping for the instructions being analyzed.
+	 */
+	private int depth;
+
+	/**
+	 * The scope name for the instructions being analyzed.
+	 */
+	private String[] scopeName;
+
+	/**
+	 * The GroupingTokenizer that will be used to separate the instructions.
+	 */
+	private GroupingTokenizer fullTokenizer;
+
+	/**
+	 * The Active GroupingInfo for the instructions being analyzed.
+	 */
+	private GroupingInfo&lt;?&gt; activeInfo;
+
+	/**
+	 * Processes the given scope and instructions to generate a GroupingInfo.
+	 * 
+	 * @param scope
+	 *            The PCGenScope in which the instructions will be analyzed
+	 * @param instructions
+	 *            The instructions for producing a GroupingInfo
+	 * @return A GroupingInfo derived from the given scope and instructions
+	 * @throws GroupingStateException
+	 *             If there is a problem in analysis of the scope and/or instructions
+	 */
+	public GroupingInfo&lt;?&gt; process(PCGenScope scope, String instructions) throws GroupingStateException
+	{
+<span class="fc" id="L69">		String fullScopeName = scope.getName();</span>
+<span class="fc" id="L70">		this.scopeName = fullScopeName.split(&quot;\\.&quot;);</span>
+<span class="fc" id="L71">		depth = 0;</span>
+<span class="fc" id="L72">		expected.clear();</span>
+<span class="fc" id="L73">		fullTokenizer = new GroupingTokenizer(instructions);</span>
+<span class="fc" id="L74">		GroupingInfo&lt;?&gt; topInfo = new GroupingInfo&lt;&gt;();</span>
+<span class="fc" id="L75">		topInfo.setScope(scope);</span>
+<span class="fc" id="L76">		activeInfo = topInfo;</span>
+<span class="fc" id="L77">		consumeGrouping();</span>
+<span class="pc bpc" id="L78" title="1 of 2 branches missed.">		if (fullTokenizer.hasNext())</span>
+		{
+<span class="nc" id="L80">			throw new GroupingStateException(&quot;After &quot; + fullTokenizer.getConsumed()</span>
+<span class="nc" id="L81">				+ &quot; expected end of string, but had additional content: &quot; + fullTokenizer.next());</span>
+		}
+<span class="fc" id="L83">		return topInfo;</span>
+	}
+
+	//Consumes a grouping (with potential child)
+	private void consumeGrouping() throws GroupingStateException
+	{
+<span class="pc bpc" id="L89" title="1 of 2 branches missed.">		if (!fullTokenizer.hasNext())</span>
+		{
+<span class="nc" id="L91">			throw new GroupingStateException(&quot;Expected a Grouping, but string ended: &quot; + fullTokenizer.getConsumed());</span>
+		}
+<span class="fc" id="L93">		String item = fullTokenizer.next();</span>
+<span class="pc bpc" id="L94" title="1 of 2 branches missed.">		if (isSeparator(item))</span>
+		{
+<span class="nc" id="L96">			throw new GroupingStateException(</span>
+<span class="nc" id="L97">				&quot;Expected text, but &quot; + item + &quot; was found: &quot; + fullTokenizer.getConsumed());</span>
+		}
+<span class="fc bfc" id="L99" title="All 2 branches covered.">		if (fullTokenizer.hasNext())</span>
+		{
+<span class="fc" id="L101">			String next = fullTokenizer.peek();</span>
+<span class="pc bpc" id="L102" title="1 of 2 branches missed.">			if (&quot;=&quot;.equals(next))</span>
+			{
+<span class="fc" id="L104">				activeInfo.setCharacteristic(item);</span>
+				//Skip the Equals
+<span class="fc" id="L106">				fullTokenizer.next();</span>
+<span class="fc" id="L107">				consumeTarget();</span>
+<span class="fc" id="L108">				allowChild();</span>
+			}
+<span class="nc bnc" id="L110" title="All 2 branches missed.">			else if (&quot;[&quot;.equals(next))</span>
+			{
+<span class="nc" id="L112">				activeInfo.setValue(item);</span>
+<span class="nc" id="L113">				allowChild();</span>
+			}
+<span class="nc bnc" id="L115" title="All 2 branches missed.">			else if (&quot;]&quot;.equals(next))</span>
+			{
+<span class="nc" id="L117">				consumeCloseBracket();</span>
+			}
+			else
+			{
+<span class="nc bnc" id="L121" title="All 2 branches missed.">				if (expected.isEmpty())</span>
+				{
+<span class="nc" id="L123">					throw new GroupingStateException(</span>
+<span class="nc" id="L124">						&quot;Expected '=' or '[', but &quot; + item + &quot; was found: &quot; + fullTokenizer.getConsumed());</span>
+				}
+				else
+				{
+<span class="nc" id="L128">					throw new GroupingStateException(</span>
+<span class="nc" id="L129">						&quot;Expected '=' or '[' or ']', but &quot; + item + &quot; was found: &quot; + fullTokenizer.getConsumed());</span>
+				}
+			}
+<span class="fc" id="L132">		}</span>
+		else
+		{
+			//Could be simply &quot;ALL&quot; (so no additional tokens)
+<span class="fc" id="L136">			activeInfo.setValue(item);</span>
+		}
+<span class="fc" id="L138">	}</span>
+
+	//Consumes a target (item after '=')
+	private void consumeTarget() throws GroupingStateException
+	{
+<span class="pc bpc" id="L143" title="1 of 2 branches missed.">		if (!fullTokenizer.hasNext())</span>
+		{
+<span class="nc" id="L145">			throw new GroupingStateException(</span>
+<span class="nc" id="L146">				&quot;Expected target after '=', but string ended: &quot; + fullTokenizer.getConsumed());</span>
+		}
+<span class="fc" id="L148">		String expectedTarget = fullTokenizer.next();</span>
+<span class="pc bpc" id="L149" title="1 of 2 branches missed.">		if (isSeparator(expectedTarget))</span>
+		{
+<span class="nc" id="L151">			throw new GroupingStateException(</span>
+<span class="nc" id="L152">				&quot;Expected target type, but &quot; + expectedTarget + &quot; was found: &quot; + fullTokenizer.getConsumed());</span>
+		}
+<span class="fc" id="L154">		activeInfo.setValue(expectedTarget);</span>
+<span class="fc" id="L155">	}</span>
+
+	//Allows and consumes a child, if present (is not required)
+	private void allowChild() throws GroupingStateException
+	{
+<span class="pc bpc" id="L160" title="1 of 2 branches missed.">		if (!fullTokenizer.hasNext())</span>
+		{
+			//This is allow, not require
+<span class="fc" id="L163">			return;</span>
+		}
+<span class="nc" id="L165">		String expectedOpenBracket = fullTokenizer.next();</span>
+<span class="nc bnc" id="L166" title="All 2 branches missed.">		if (!&quot;[&quot;.equals(expectedOpenBracket))</span>
+		{
+<span class="nc" id="L168">			throw new GroupingMismatchException(&quot;Expected '[' to start a child but found: &quot; + expectedOpenBracket</span>
+<span class="nc" id="L169">				+ &quot; in &quot; + fullTokenizer.getConsumed());</span>
+		}
+<span class="nc" id="L171">		expected.push(&quot;]&quot;);</span>
+<span class="nc" id="L172">		consumeChild();</span>
+<span class="nc" id="L173">	}</span>
+
+	//Consumes the child
+	private void consumeChild() throws GroupingStateException
+	{
+<span class="nc bnc" id="L178" title="All 2 branches missed.">		if (scopeName.length &lt;= depth)</span>
+		{
+<span class="nc" id="L180">			throw new GroupingStateException(</span>
+<span class="nc" id="L181">				&quot;Encountered a Child, but didn't have sufficient format: &quot; + Arrays.asList(scopeName));</span>
+		}
+<span class="nc" id="L183">		String expectedType = scopeName[depth++];</span>
+<span class="nc" id="L184">		GroupingInfo&lt;?&gt; newInfo = new GroupingInfo&lt;&gt;();</span>
+<span class="nc" id="L185">		activeInfo.setChild(newInfo);</span>
+<span class="nc" id="L186">		newInfo.setObjectType(expectedType);</span>
+<span class="nc" id="L187">		activeInfo = newInfo;</span>
+<span class="nc" id="L188">		consumeGrouping();</span>
+<span class="nc" id="L189">	}</span>
+
+	//Consumes the close bracket at the end of a grouping
+	private void consumeCloseBracket() throws GroupingStateException
+	{
+<span class="nc bnc" id="L194" title="All 2 branches missed.">		if (!fullTokenizer.hasNext())</span>
+		{
+<span class="nc" id="L196">			throw new GroupingStateException(&quot;Expected a ']', but string ended: &quot; + fullTokenizer.getConsumed());</span>
+		}
+<span class="nc" id="L198">		String expectedCloseBracket = fullTokenizer.next();</span>
+<span class="nc bnc" id="L199" title="All 2 branches missed.">		if (!&quot;]&quot;.equals(expectedCloseBracket))</span>
+		{
+<span class="nc" id="L201">			throw new GroupingMismatchException(</span>
+<span class="nc" id="L202">				&quot;Expected ']' but found: &quot; + expectedCloseBracket + &quot; in &quot; + fullTokenizer.getConsumed());</span>
+		}
+<span class="nc bnc" id="L204" title="All 2 branches missed.">		if (expected.isEmpty())</span>
+		{
+<span class="nc" id="L206">			throw new GroupingMismatchException(</span>
+<span class="nc" id="L207">				&quot;Did not have an open bracket before close: &quot; + fullTokenizer.getConsumed());</span>
+		}
+<span class="nc" id="L209">		String nextExpected = expected.pop();</span>
+<span class="nc bnc" id="L210" title="All 2 branches missed.">		if (!&quot;]&quot;.equals(nextExpected))</span>
+		{
+<span class="nc" id="L212">			throw new GroupingMismatchException(</span>
+<span class="nc" id="L213">				&quot;Expected &quot; + nextExpected + &quot; but did not have matching brackets: &quot; + fullTokenizer.getConsumed());</span>
+		}
+<span class="nc bnc" id="L215" title="All 2 branches missed.">		if (!expected.isEmpty())</span>
+		{
+<span class="nc" id="L217">			consumeCloseBracket();</span>
+		}
+<span class="nc" id="L219">	}</span>
+
+	//Indicates key separator characters in a grouping
+	private boolean isSeparator(String item)
+	{
+<span class="pc bpc" id="L224" title="3 of 6 branches missed.">		return &quot;=&quot;.equals(item) || &quot;[&quot;.equals(item) || &quot;]&quot;.equals(item);</span>
+	}
+
+	/**
+	 * An Exception indicating a problem in analyzing the instructions
+	 */
+	public static class GroupingStateException extends Exception
+	{
+
+		/**
+		 * Constructs a new GroupingStateException with the given error message.
+		 * 
+		 * @param message
+		 *            The message for the GroupingStateException
+		 */
+		public GroupingStateException(String message)
+		{
+<span class="nc" id="L241">			super(message);</span>
+<span class="nc" id="L242">		}</span>
+
+	}
+
+	/**
+	 * A GroupingMismatchException is a specific form of GroupingStateException that
+	 * indicates a mismatch in brackets when parsing the instructions.
+	 */
+	public static class GroupingMismatchException extends GroupingStateException
+	{
+
+		/**
+		 * Constructs a new GroupingMismatchException with the given error message.
+		 * 
+		 * @param message
+		 *            The message for the GroupingMismatchException
+		 */
+		public GroupingMismatchException(String message)
+		{
+<span class="nc" id="L261">			super(message);</span>
+<span class="nc" id="L262">		}</span>
+
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GoldToken.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.exporttokens.deprecated</a> &gt; <span class="el_source">GoldToken.java</span></div><h1>GoldToken.java</h1><pre class="source lang-java linenums">/*
+ * GoldToken.java
+ * Copyright 2003 (C) Devon Jones &lt;soulcatcher@evilsoft.org&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.     See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package plugin.exporttokens.deprecated;
+
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.text.NumberFormat;
+import java.util.Locale;
+
+import pcgen.cdom.util.CControl;
+import pcgen.core.PlayerCharacter;
+import pcgen.io.ExportHandler;
+import pcgen.io.exporttoken.Token;
+import pcgen.output.channel.ChannelUtilities;
+
+/**
+ * Handle the GOLD token which outputs the amount of unallocated wealth
+ * that the character has.
+ */
+<span class="nc" id="L37">public class GoldToken extends Token</span>
+{
+	@Override
+	public String getTokenName()
+	{
+<span class="nc" id="L42">		return &quot;GOLD&quot;;</span>
+	}
+
+	@Override
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	{
+<span class="nc" id="L48">		DecimalFormatSymbols decimalFormatSymbols = new DecimalFormatSymbols(Locale.US);</span>
+<span class="nc" id="L49">		NumberFormat decimalFormat = new DecimalFormat(&quot;#,##0.##&quot;, decimalFormatSymbols);</span>
+<span class="nc" id="L50">		return decimalFormat.format(getGoldToken(pc));</span>
+	}
+
+	/**
+	 * Retrieve the amount of money that the character has.
+	 * @param pc The character to be queried.
+	 * @return The amount of gold
+	 */
+	public static BigDecimal getGoldToken(PlayerCharacter pc)
+	{
+<span class="nc" id="L60">		Number n = (Number) ChannelUtilities</span>
+<span class="nc" id="L61">			.readControlledChannel(pc.getCharID(), CControl.GOLDINPUT);</span>
+<span class="nc" id="L62">		return new BigDecimal(n.toString());</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

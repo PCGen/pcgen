@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SpellsToken.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.lsttokens.kit.spells</a> &gt; <span class="el_source">SpellsToken.java</span></div><h1>SpellsToken.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2006 (C) Aaron Divinsky &lt;boomer70@yahoo.com&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+
+package plugin.lsttokens.kit.spells;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.StringTokenizer;
+
+import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.content.KnownSpellIdentifier;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.reference.ReferenceUtilities;
+import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
+import pcgen.core.Globals;
+import pcgen.core.PCClass;
+import pcgen.core.kit.KitSpells;
+import pcgen.core.spell.Spell;
+import pcgen.rules.context.AbstractReferenceContext;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.TokenUtilities;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.ComplexParseResult;
+import pcgen.rules.persistence.token.ParseResult;
+
+/**
+ * SPELLS token for KitSpells
+ */
+<span class="fc" id="L49">public class SpellsToken extends AbstractNonEmptyToken&lt;KitSpells&gt; implements CDOMPrimaryToken&lt;KitSpells&gt;</span>
+{
+<span class="fc" id="L51">	private static final Class&lt;Spell&gt; SPELL_CLASS = Spell.class;</span>
+
+	/**
+	 * Gets the name of the tag this class will parse.
+	 * 
+	 * @return Name of the tag this class handles
+	 */
+	@Override
+	public String getTokenName()
+	{
+<span class="fc" id="L61">		return &quot;SPELLS&quot;;</span>
+	}
+
+	@Override
+	public Class&lt;KitSpells&gt; getTokenClass()
+	{
+<span class="fc" id="L67">		return KitSpells.class;</span>
+	}
+
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context, KitSpells kitSpell, String value)
+	{
+<span class="fc" id="L73">		StringTokenizer aTok = new StringTokenizer(value, Constants.PIPE);</span>
+<span class="fc" id="L74">		ComplexParseResult pr = new ComplexParseResult();</span>
+<span class="fc bfc" id="L75" title="All 2 branches covered.">		while (aTok.hasMoreTokens())</span>
+		{
+<span class="fc" id="L77">			String field = aTok.nextToken();</span>
+<span class="fc bfc" id="L78" title="All 2 branches covered.">			if (field.startsWith(&quot;SPELLBOOK=&quot;))</span>
+			{
+<span class="fc bfc" id="L80" title="All 2 branches covered.">				if (kitSpell.getSpellBook() != null)</span>
+				{
+<span class="fc" id="L82">					return new ParseResult.Fail(&quot;Cannot reset SPELLBOOK in SPELLS: &quot; + value);</span>
+				}
+<span class="fc" id="L84">				String spellBook = field.substring(10);</span>
+<span class="fc bfc" id="L85" title="All 2 branches covered.">				if (spellBook.isEmpty())</span>
+				{
+<span class="fc" id="L87">					return new ParseResult.Fail(&quot;Cannot set SPELLBOOK &quot; + &quot;to empty value in SPELLS: &quot; + value);</span>
+				}
+<span class="fc" id="L89">				kitSpell.setSpellBook(spellBook);</span>
+<span class="fc" id="L90">			}</span>
+			else
+			{
+<span class="fc" id="L93">				AbstractReferenceContext refContext = context.getReferenceContext();</span>
+<span class="fc bfc" id="L94" title="All 2 branches covered.">				if (field.startsWith(Constants.LST_CLASS_EQUAL))</span>
+				{
+<span class="fc bfc" id="L96" title="All 2 branches covered.">					if (kitSpell.getCastingClass() != null)</span>
+					{
+<span class="fc" id="L98">						return new ParseResult.Fail(&quot;Cannot reset CLASS&quot; + &quot; in SPELLS: &quot; + value);</span>
+					}
+<span class="fc" id="L100">					String className = field.substring(6);</span>
+<span class="fc bfc" id="L101" title="All 2 branches covered.">					if (className.isEmpty())</span>
+					{
+<span class="fc" id="L103">						return new ParseResult.Fail(&quot;Cannot set CLASS &quot; + &quot;to empty value in SPELLS: &quot; + value);</span>
+					}
+<span class="pc bpc" id="L105" title="1 of 2 branches missed.">					else if (className.equalsIgnoreCase(&quot;Default&quot;))</span>
+					{
+<span class="nc" id="L107">						pr.addWarningMessage(</span>
+							&quot;Use of Default for CLASS= in KIT &quot; + &quot;SPELLS line is unnecessary: Ignoring&quot;);
+					}
+					else
+					{
+<span class="fc" id="L112">						kitSpell.setCastingClass(refContext.getCDOMReference(PCClass.class, className));</span>
+					}
+<span class="fc" id="L114">				}</span>
+				else
+				{
+<span class="fc" id="L117">					int count = 1;</span>
+<span class="fc" id="L118">					int equalLoc = field.indexOf(Constants.EQUALS);</span>
+<span class="fc bfc" id="L119" title="All 2 branches covered.">					if (equalLoc != -1)</span>
+					{
+<span class="fc" id="L121">						String countStr = field.substring(equalLoc + 1);</span>
+						try
+						{
+<span class="fc" id="L124">							count = Integer.parseInt(countStr);</span>
+						}
+<span class="fc" id="L126">						catch (NumberFormatException e)</span>
+						{
+<span class="fc" id="L128">							return new ParseResult.Fail(</span>
+								&quot;Expected an Integer COUNT,&quot; + &quot; but found: &quot; + countStr + &quot; in &quot; + value);
+<span class="fc" id="L130">						}</span>
+<span class="fc" id="L131">						field = field.substring(0, equalLoc);</span>
+					}
+<span class="fc bfc" id="L133" title="All 2 branches covered.">					if (field.isEmpty())</span>
+					{
+<span class="fc" id="L135">						return new ParseResult.Fail(&quot;Expected an Spell in SPELLS&quot; + &quot; but found: &quot; + value);</span>
+					}
+<span class="fc" id="L137">					StringTokenizer subTok = new StringTokenizer(field, &quot;[]&quot;);</span>
+<span class="fc" id="L138">					String filterString = subTok.nextToken();</span>
+
+					// must satisfy all elements in a comma delimited list
+					CDOMReference&lt;Spell&gt; sp;
+
+<span class="fc" id="L143">					sp = TokenUtilities.getTypeOrPrimitive(context, SPELL_CLASS, filterString);</span>
+<span class="fc bfc" id="L144" title="All 2 branches covered.">					if (sp == null)</span>
+					{
+<span class="fc" id="L146">						return new ParseResult.Fail(&quot;  encountered Invalid limit in &quot; + getTokenName() + &quot;: &quot; + value);</span>
+					}
+
+<span class="fc" id="L149">					KnownSpellIdentifier ksi = new KnownSpellIdentifier(sp, null);</span>
+
+<span class="fc" id="L151">					ArrayList&lt;CDOMSingleRef&lt;Ability&gt;&gt; featList = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L152" title="All 2 branches covered.">					while (subTok.hasMoreTokens())</span>
+					{
+<span class="fc" id="L154">						String featName = subTok.nextToken();</span>
+<span class="fc" id="L155">						AbilityCategory featCategory = refContext.get(AbilityCategory.class, &quot;FEAT&quot;);</span>
+<span class="fc" id="L156">						CDOMSingleRef&lt;Ability&gt; feat = refContext.getManufacturerId(featCategory).getReference(featName);</span>
+<span class="fc" id="L157">						featList.add(feat);</span>
+<span class="fc" id="L158">					}</span>
+<span class="fc" id="L159">					kitSpell.addSpell(ksi, featList, count);</span>
+				}
+			}
+<span class="fc" id="L162">		}</span>
+<span class="fc bfc" id="L163" title="All 2 branches covered.">		if (kitSpell.getSpellBook() == null)</span>
+		{
+<span class="fc" id="L165">			kitSpell.setSpellBook(Globals.getDefaultSpellBook());</span>
+		}
+<span class="fc" id="L167">		return pr;</span>
+	}
+
+	@Override
+	public String[] unparse(LoadContext context, KitSpells kitSpell)
+	{
+<span class="fc" id="L173">		StringBuilder sb = new StringBuilder();</span>
+<span class="fc" id="L174">		String spellBook = kitSpell.getSpellBook();</span>
+<span class="fc" id="L175">		String globalSpellbook = Globals.getDefaultSpellBook();</span>
+<span class="fc bfc" id="L176" title="All 4 branches covered.">		if (spellBook != null &amp;&amp; !globalSpellbook.equals(spellBook))</span>
+		{
+<span class="fc" id="L178">			sb.append(&quot;SPELLBOOK=&quot;).append(spellBook);</span>
+		}
+<span class="fc" id="L180">		CDOMSingleRef&lt;PCClass&gt; castingClass = kitSpell.getCastingClass();</span>
+<span class="fc bfc" id="L181" title="All 2 branches covered.">		if (castingClass != null)</span>
+		{
+<span class="pc bpc" id="L183" title="1 of 2 branches missed.">			if (sb.length() != 0)</span>
+			{
+<span class="fc" id="L185">				sb.append(Constants.PIPE);</span>
+			}
+<span class="fc" id="L187">			sb.append(Constants.LST_CLASS_EQUAL).append(castingClass.getLSTformat(false));</span>
+		}
+<span class="fc" id="L189">		Collection&lt;KnownSpellIdentifier&gt; spells = kitSpell.getSpells();</span>
+<span class="pc bpc" id="L190" title="1 of 2 branches missed.">		if (spells != null)</span>
+		{
+<span class="fc bfc" id="L192" title="All 2 branches covered.">			boolean needPipe = sb.length() &gt; 0;</span>
+<span class="fc bfc" id="L193" title="All 2 branches covered.">			for (KnownSpellIdentifier ksi : spells)</span>
+			{
+<span class="fc bfc" id="L195" title="All 2 branches covered.">				if (needPipe)</span>
+				{
+<span class="fc" id="L197">					sb.append(Constants.PIPE);</span>
+				}
+<span class="fc" id="L199">				needPipe = true;</span>
+<span class="fc" id="L200">				Collection&lt;List&lt;CDOMSingleRef&lt;Ability&gt;&gt;&gt; abilities = kitSpell.getAbilities(ksi);</span>
+<span class="fc bfc" id="L201" title="All 2 branches covered.">				for (List&lt;CDOMSingleRef&lt;Ability&gt;&gt; abils : abilities)</span>
+				{
+<span class="fc" id="L203">					StringBuilder spell = new StringBuilder();</span>
+<span class="fc" id="L204">					spell.append(</span>
+<span class="fc" id="L205">						StringUtil.replaceAll(ksi.getLSTformat(), Constants.LST_TYPE_EQUAL, Constants.LST_TYPE_DOT));</span>
+<span class="pc bpc" id="L206" title="1 of 4 branches missed.">					if (abils != null &amp;&amp; !abils.isEmpty())</span>
+					{
+<span class="fc" id="L208">						spell.append('[');</span>
+<span class="fc" id="L209">						spell.append(ReferenceUtilities.joinLstFormat(abils, &quot;][&quot;));</span>
+<span class="fc" id="L210">						spell.append(']');</span>
+					}
+<span class="fc" id="L212">					Integer count = kitSpell.getSpellCount(ksi, abils);</span>
+<span class="fc bfc" id="L213" title="All 2 branches covered.">					if (count != 1)</span>
+					{
+<span class="fc" id="L215">						spell.append('=').append(count);</span>
+					}
+<span class="fc" id="L217">					sb.append(spell);</span>
+<span class="fc" id="L218">				}</span>
+<span class="fc" id="L219">			}</span>
+		}
+<span class="fc bfc" id="L221" title="All 2 branches covered.">		if (sb.length() == 0)</span>
+		{
+<span class="fc" id="L223">			return null;</span>
+		}
+<span class="fc" id="L225">		return new String[]{sb.toString()};</span>
+	}
+	// TODO DeferredToken
+	/*
+	 * if (!aClass.getSafe(ObjectKey.MEMORIZE_SPELLS) &amp;&amp;
+	 * !spellBook.equals(Globals.getDefaultSpellBook())) { warnings.add(&quot;SPELLS: &quot; +
+	 * aClass.getDisplayName() + &quot; can only add to &quot; +
+	 * Globals.getDefaultSpellBook()); return false; }
+	 */
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

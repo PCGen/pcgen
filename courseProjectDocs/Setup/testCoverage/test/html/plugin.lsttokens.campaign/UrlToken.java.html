@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UrlToken.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.lsttokens.campaign</a> &gt; <span class="el_source">UrlToken.java</span></div><h1>UrlToken.java</h1><pre class="source lang-java linenums">/*
+ * UrlToken.java
+ * Copyright 2008 (C) James Dempsey
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+
+package plugin.lsttokens.campaign;
+
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.StringTokenizer;
+
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.content.CampaignURL;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.core.Campaign;
+import pcgen.rules.context.Changes;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.ParseResult;
+import pcgen.util.Logging;
+
+/**
+ * {@code UrlToken} is responsible for parsing the URL campaign token.
+ * 
+ * -0500 (Sun, 27 Jan 2008) $
+ * 
+ */
+<span class="nc" id="L45">public class UrlToken implements CDOMPrimaryToken&lt;Campaign&gt;</span>
+{
+
+	private static final String URL_KIND_NAME_WEBSITE = &quot;WEBSITE&quot;;
+	private static final String URL_KIND_NAME_SURVEY = &quot;SURVEY&quot;;
+
+	@Override
+	public String getTokenName()
+	{
+<span class="nc" id="L54">		return &quot;URL&quot;;</span>
+	}
+
+	@Override
+	public ParseResult parseToken(LoadContext context, Campaign campaign, String value)
+	{
+<span class="nc" id="L60">		final StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);</span>
+<span class="nc bnc" id="L61" title="All 2 branches missed.">		if (tok.countTokens() != 3)</span>
+		{
+<span class="nc" id="L63">			return new ParseResult.Fail(</span>
+				&quot;URL token requires three arguments. Link kind, &quot; + &quot;link and description.  : &quot; + value);
+		}
+<span class="nc" id="L66">		String urlTypeName = tok.nextToken();</span>
+<span class="nc" id="L67">		String urlText = tok.nextToken();</span>
+<span class="nc" id="L68">		String urlDesc = tok.nextToken();</span>
+		CampaignURL.URLKind urlType;
+
+<span class="nc bnc" id="L71" title="All 2 branches missed.">		if (urlTypeName.equalsIgnoreCase(URL_KIND_NAME_WEBSITE))</span>
+		{
+<span class="nc bnc" id="L73" title="All 2 branches missed.">			if (!urlTypeName.equals(URL_KIND_NAME_WEBSITE))</span>
+			{
+<span class="nc" id="L75">				Logging.log(Logging.LST_WARNING, &quot;URL type should be WEBSITE in upper case : &quot; + value);</span>
+			}
+<span class="nc" id="L77">			urlType = CampaignURL.URLKind.WEBSITE;</span>
+<span class="nc" id="L78">			urlTypeName = &quot;&quot;;</span>
+		}
+<span class="nc bnc" id="L80" title="All 2 branches missed.">		else if (urlTypeName.equalsIgnoreCase(URL_KIND_NAME_SURVEY))</span>
+		{
+<span class="nc bnc" id="L82" title="All 2 branches missed.">			if (!urlTypeName.equals(URL_KIND_NAME_SURVEY))</span>
+			{
+<span class="nc" id="L84">				Logging.log(Logging.LST_WARNING, &quot;URL type should be SURVEY in upper case : &quot; + value);</span>
+			}
+<span class="nc" id="L86">			urlType = CampaignURL.URLKind.SURVEY;</span>
+<span class="nc" id="L87">			urlTypeName = &quot;&quot;;</span>
+		}
+		else
+		{
+<span class="nc" id="L91">			urlType = CampaignURL.URLKind.PURCHASE;</span>
+		}
+
+		URI uri;
+		try
+		{
+<span class="nc" id="L97">			uri = new URI(urlText);</span>
+		}
+<span class="nc" id="L99">		catch (URISyntaxException e)</span>
+		{
+<span class="nc" id="L101">			return new ParseResult.Fail(&quot;Invalid URL (&quot; + e.getMessage() + &quot;) : &quot; + value);</span>
+<span class="nc" id="L102">		}</span>
+		// Create URL object
+<span class="nc" id="L104">		CampaignURL campUrl = new CampaignURL(urlType, urlTypeName, uri, urlDesc);</span>
+
+		// Add URL Object to campaign
+<span class="nc" id="L107">		context.getObjectContext().addToList(campaign, ListKey.CAMPAIGN_URL, campUrl);</span>
+<span class="nc" id="L108">		return ParseResult.SUCCESS;</span>
+	}
+
+	@Override
+	public String[] unparse(LoadContext context, Campaign campaign)
+	{
+<span class="nc" id="L114">		Changes&lt;CampaignURL&gt; changes = context.getObjectContext().getListChanges(campaign, ListKey.CAMPAIGN_URL);</span>
+<span class="nc bnc" id="L115" title="All 4 branches missed.">		if (changes == null || changes.isEmpty())</span>
+		{
+<span class="nc" id="L117">			return null;</span>
+		}
+<span class="nc" id="L119">		Collection&lt;CampaignURL&gt; added = changes.getAdded();</span>
+<span class="nc bnc" id="L120" title="All 4 branches missed.">		if (added != null &amp;&amp; !added.isEmpty())</span>
+		{
+<span class="nc" id="L122">			List&lt;String&gt; list = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L123" title="All 2 branches missed.">			for (CampaignURL curl : added)</span>
+			{
+<span class="nc" id="L125">				StringBuilder sb = new StringBuilder();</span>
+<span class="nc" id="L126">				sb.append(curl.getUrlKind());</span>
+<span class="nc" id="L127">				sb.append(Constants.PIPE);</span>
+<span class="nc" id="L128">				sb.append(curl.getUri().toString());</span>
+<span class="nc" id="L129">				sb.append(Constants.PIPE);</span>
+<span class="nc" id="L130">				sb.append(curl.getUrlDesc());</span>
+				//TODO sb is then thrown away?
+<span class="nc" id="L132">			}</span>
+<span class="nc" id="L133">			return list.toArray(new String[0]);</span>
+		}
+<span class="nc" id="L135">		return null;</span>
+	}
+
+	@Override
+	public Class&lt;Campaign&gt; getTokenClass()
+	{
+<span class="nc" id="L141">		return Campaign.class;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BonusConvertPlugin.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.converter</a> &gt; <span class="el_source">BonusConvertPlugin.java</span></div><h1>BonusConvertPlugin.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) 2009 Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package plugin.converter;
+
+import java.util.Collection;
+
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.inst.ObjectCache;
+import pcgen.gui2.converter.ConversionDecider;
+import pcgen.gui2.converter.TokenConverter;
+import pcgen.gui2.converter.event.TokenProcessEvent;
+import pcgen.gui2.converter.event.TokenProcessorPlugin;
+import pcgen.rules.context.EditorLoadContext;
+import pcgen.rules.context.LoadContext;
+import pcgen.util.Logging;
+
+<span class="nc" id="L32">public class BonusConvertPlugin implements TokenProcessorPlugin</span>
+{
+<span class="nc" id="L34">	private static int bonusCount = 1;</span>
+
+	// Just process over these magical tokens for now
+	@Override
+	public String process(TokenProcessEvent tpe)
+	{
+<span class="nc" id="L40">		String value = tpe.getValue();</span>
+<span class="nc" id="L41">		StringBuilder result = new StringBuilder(value.length() + 10);</span>
+<span class="nc" id="L42">		String objectName = tpe.getObjectName();</span>
+		while (true)
+		{
+<span class="nc" id="L45">			int pipeLoc = value.lastIndexOf('|');</span>
+<span class="nc" id="L46">			String preString = value.substring(pipeLoc + 1);</span>
+<span class="nc bnc" id="L47" title="All 6 branches missed.">			if (pipeLoc == -1 || (!preString.startsWith(&quot;PRE&quot;) &amp;&amp; !preString.startsWith(&quot;!PRE&quot;))</span>
+<span class="nc bnc" id="L48" title="All 2 branches missed.">				|| preString.startsWith(&quot;PREAPPLY&quot;))</span>
+			{
+<span class="nc" id="L50">				break;</span>
+			}
+<span class="nc" id="L52">			String pre = process(tpe.getContext(), tpe.getDecider(), objectName, preString);</span>
+<span class="nc" id="L53">			result.insert(0, pre);</span>
+<span class="nc" id="L54">			result.insert(0, '|');</span>
+<span class="nc" id="L55">			value = value.substring(0, pipeLoc);</span>
+<span class="nc" id="L56">		}</span>
+
+<span class="nc" id="L58">		return processBonus(tpe, tpe.getKey(), value + result);</span>
+	}
+
+	private String process(EditorLoadContext context, ConversionDecider decider, String objectName, String token)
+	{
+<span class="nc" id="L63">		final int colonLoc = token.indexOf(':');</span>
+<span class="nc bnc" id="L64" title="All 2 branches missed.">		if (colonLoc == -1)</span>
+		{
+<span class="nc" id="L66">			Logging.errorPrint(&quot;Invalid Token - does not contain a colon: &quot; + token);</span>
+<span class="nc" id="L67">			return null;</span>
+		}
+<span class="nc bnc" id="L69" title="All 2 branches missed.">		else if (colonLoc == 0)</span>
+		{
+<span class="nc" id="L71">			Logging.errorPrint(&quot;Invalid Token - starts with a colon: &quot; + token);</span>
+<span class="nc" id="L72">			return null;</span>
+		}
+
+<span class="nc" id="L75">		String key = token.substring(0, colonLoc);</span>
+<span class="nc bnc" id="L76" title="All 2 branches missed.">		String value = (colonLoc == token.length() - 1) ? null : token.substring(colonLoc + 1);</span>
+
+<span class="nc" id="L78">		CDOMObject cdo = new ObjectCache();</span>
+<span class="nc" id="L79">		cdo.setName(&quot;BONUS&quot; + bonusCount++);</span>
+<span class="nc" id="L80">		TokenProcessEvent tpe = new TokenProcessEvent(context, decider, key, value, objectName, cdo);</span>
+<span class="nc" id="L81">		String error = TokenConverter.process(tpe);</span>
+<span class="nc" id="L82">		context.purge(cdo);</span>
+<span class="nc" id="L83">		TokenConverter.clearConstants();</span>
+<span class="nc bnc" id="L84" title="All 2 branches missed.">		if (tpe.isConsumed())</span>
+		{
+<span class="nc" id="L86">			return tpe.getResult();</span>
+		}
+		else
+		{
+<span class="nc" id="L90">			Logging.errorPrint(error);</span>
+		}
+<span class="nc" id="L92">		return null;</span>
+	}
+
+	private String processBonus(TokenProcessEvent tpe, String key, String value)
+	{
+<span class="nc" id="L97">		LoadContext context = tpe.getContext();</span>
+<span class="nc" id="L98">		CDOMObject obj = tpe.getPrimary();</span>
+<span class="nc bnc" id="L99" title="All 2 branches missed.">		if (context.processToken(obj, key, value))</span>
+		{
+<span class="nc" id="L101">			context.commit();</span>
+		}
+		else
+		{
+<span class="nc" id="L105">			context.rollback();</span>
+<span class="nc" id="L106">			Logging.replayParsedMessages();</span>
+		}
+<span class="nc" id="L108">		Logging.clearParseMessages();</span>
+<span class="nc" id="L109">		Collection&lt;String&gt; output = context.unparse(obj);</span>
+<span class="nc bnc" id="L110" title="All 4 branches missed.">		if (output == null || output.isEmpty())</span>
+		{
+			// Uh Oh
+<span class="nc" id="L113">			return (&quot;Unable to unparse: &quot; + key + ':' + value);</span>
+		}
+<span class="nc" id="L115">		boolean needTab = false;</span>
+<span class="nc bnc" id="L116" title="All 2 branches missed.">		for (String s : output)</span>
+		{
+<span class="nc bnc" id="L118" title="All 2 branches missed.">			if (needTab)</span>
+			{
+<span class="nc" id="L120">				tpe.append('\t');</span>
+			}
+<span class="nc" id="L122">			needTab = true;</span>
+<span class="nc" id="L123">			tpe.append(s);</span>
+<span class="nc" id="L124">		}</span>
+<span class="nc" id="L125">		tpe.consume();</span>
+<span class="nc" id="L126">		return null;</span>
+	}
+
+	@Override
+	public Class&lt;? extends CDOMObject&gt; getProcessedClass()
+	{
+<span class="nc" id="L132">		return CDOMObject.class;</span>
+	}
+
+	@Override
+	public String getProcessedToken()
+	{
+<span class="nc" id="L138">		return &quot;BONUS&quot;;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

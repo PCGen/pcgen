@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TemplateToken.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.exporttokens.deprecated</a> &gt; <span class="el_source">TemplateToken.java</span></div><h1>TemplateToken.java</h1><pre class="source lang-java linenums">/*
+ * TemplateToken.java
+ * Copyright 2003 (C) Devon Jones &lt;soulcatcher@evilsoft.org&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.     See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package plugin.exporttokens.deprecated;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.StringTokenizer;
+
+import pcgen.base.lang.StringUtil;
+import pcgen.cdom.enumeration.FactKey;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.helper.CNAbilitySelection;
+import pcgen.core.PCStat;
+import pcgen.core.PCTemplate;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.SpecialAbility;
+import pcgen.core.analysis.BonusCalc;
+import pcgen.core.analysis.OutputNameFormatting;
+import pcgen.core.display.CharacterDisplay;
+import pcgen.core.display.NonAbilityDisplay;
+import pcgen.io.ExportHandler;
+import pcgen.io.exporttoken.Token;
+
+/**
+ * Deals with returning the values for the TEMPALTE Token
+ * and it's Sub Tokens
+ *
+ * TEMPLATE
+ * TEMPLATE.x.NAME
+ * TEMPLATE.x.OUTPUTNAME
+ * TEMPLATE.x.SA
+ * TEMPLATE.x.FEAT
+ * TEMPLATE.x.SR
+ * TEMPLATE.x.CR
+ * TEMPLATE.x.DR
+ * TEMPLATE.x.xxxMOD
+ */
+<span class="nc" id="L55">public class TemplateToken extends Token</span>
+{
+	/** Token name */
+	public static final String TOKENNAME = &quot;TEMPLATE&quot;;
+
+	@Override
+	public String getTokenName()
+	{
+<span class="nc" id="L63">		return TOKENNAME;</span>
+	}
+
+	@Override
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	{
+<span class="nc" id="L69">		String retString = &quot;&quot;;</span>
+		PCTemplate template;
+
+<span class="nc" id="L72">		CharacterDisplay display = pc.getDisplay();</span>
+<span class="nc" id="L73">		List&lt;PCTemplate&gt; tl = display.getOutputVisibleTemplateList();</span>
+
+<span class="nc" id="L75">		StringTokenizer aTok = new StringTokenizer(tokenSource, &quot;.&quot;);</span>
+<span class="nc" id="L76">		aTok.nextToken();</span>
+
+		int indexOfTemplate;
+<span class="nc" id="L79">		indexOfTemplate = Integer.parseInt(aTok.nextToken());</span>
+
+<span class="nc bnc" id="L81" title="All 2 branches missed.">		String aLabel = (aTok.hasMoreTokens()) ? aTok.nextToken() : &quot;NAME&quot;;</span>
+
+<span class="nc bnc" id="L83" title="All 4 branches missed.">		if ((indexOfTemplate &gt; -1) &amp;&amp; (indexOfTemplate &lt; tl.size()))</span>
+		{
+<span class="nc" id="L85">			template = tl.get(indexOfTemplate);</span>
+
+<span class="nc bnc" id="L87" title="All 2 branches missed.">			if (&quot;NAME&quot;.equals(aLabel))</span>
+			{
+<span class="nc" id="L89">				retString = getOutputNameToken(template);</span>
+			}
+<span class="nc bnc" id="L91" title="All 2 branches missed.">			else if (&quot;OUTPUTNAME&quot;.equals(aLabel))</span>
+			{
+<span class="nc" id="L93">				retString = getOutputNameToken(template);</span>
+			}
+<span class="nc bnc" id="L95" title="All 2 branches missed.">			else if (&quot;APPLIEDNAME&quot;.equals(aLabel))</span>
+			{
+<span class="nc" id="L97">				retString = getAppliedName(template);</span>
+			}
+<span class="nc bnc" id="L99" title="All 2 branches missed.">			else if (&quot;SA&quot;.equals(aLabel))</span>
+			{
+<span class="nc" id="L101">				retString = getSAToken(template, pc);</span>
+			}
+<span class="nc bnc" id="L103" title="All 2 branches missed.">			else if (&quot;FEAT&quot;.equals(aLabel))</span>
+			{
+<span class="nc" id="L105">				retString = getFeatToken(template, pc);</span>
+			}
+<span class="nc bnc" id="L107" title="All 2 branches missed.">			else if (&quot;SR&quot;.equals(aLabel))</span>
+			{
+<span class="nc" id="L109">				retString = Integer.toString(getSRToken(template, display));</span>
+			}
+<span class="nc bnc" id="L111" title="All 2 branches missed.">			else if (&quot;CR&quot;.equals(aLabel))</span>
+			{
+				// If the CR ends in .0, remove that for display purposes
+<span class="nc" id="L114">				retString = Float.toString(getCRToken(template, display));</span>
+<span class="nc" id="L115">				String decimalPlaceValue = retString.substring(retString.length() - 2);</span>
+<span class="nc bnc" id="L116" title="All 2 branches missed.">				if (decimalPlaceValue.equals(&quot;.0&quot;))</span>
+				{
+<span class="nc" id="L118">					retString = retString.substring(0, retString.length() - 2);</span>
+				}
+<span class="nc" id="L120">				return retString;</span>
+			}
+<span class="nc bnc" id="L122" title="All 2 branches missed.">			else if (&quot;DR&quot;.equals(aLabel))</span>
+			{
+<span class="nc" id="L124">				retString = display.calcDR();</span>
+			}
+			else
+			{
+<span class="nc" id="L128">				retString = getModToken(pc, template, aLabel);</span>
+			}
+		}
+
+<span class="nc" id="L132">		return retString;</span>
+	}
+
+	private String getAppliedName(PCTemplate template)
+	{
+<span class="nc" id="L137">		FactKey&lt;String&gt; fk = FactKey.valueOf(&quot;AppliedName&quot;);</span>
+<span class="nc" id="L138">		String retValue = template.getResolved(fk);</span>
+<span class="nc bnc" id="L139" title="All 2 branches missed.">		if (retValue == null)</span>
+		{
+<span class="nc" id="L141">			retValue = template.toString();</span>
+		}
+<span class="nc" id="L143">		return retValue;</span>
+	}
+
+	/**
+	 * Retrieve the list of the keynames of any feats
+	 * that the PC qualifies for at the supplied level and
+	 * hit dice. 
+	 * 
+	 * @param pc
+	 *
+	 * @return a list of feats
+	 */
+	public static List&lt;CNAbilitySelection&gt; feats(PlayerCharacter pc, PCTemplate pct)
+	{
+<span class="nc" id="L157">		final List&lt;CNAbilitySelection&gt; feats = new ArrayList&lt;&gt;();</span>
+
+<span class="nc bnc" id="L159" title="All 2 branches missed.">		for (PCTemplate rlt : pct.getSafeListFor(ListKey.REPEATLEVEL_TEMPLATES))</span>
+		{
+<span class="nc bnc" id="L161" title="All 2 branches missed.">			for (PCTemplate lt : rlt.getSafeListFor(ListKey.LEVEL_TEMPLATES))</span>
+			{
+<span class="nc" id="L163">				Collection&lt;? extends CNAbilitySelection&gt; featList = pc.getTemplateFeatList(lt);</span>
+<span class="nc bnc" id="L164" title="All 2 branches missed.">				if (featList != null)</span>
+				{
+<span class="nc" id="L166">					feats.addAll(featList);</span>
+				}
+<span class="nc" id="L168">			}</span>
+<span class="nc" id="L169">		}</span>
+<span class="nc bnc" id="L170" title="All 2 branches missed.">		for (PCTemplate lt : pct.getSafeListFor(ListKey.LEVEL_TEMPLATES))</span>
+		{
+<span class="nc" id="L172">			Collection&lt;? extends CNAbilitySelection&gt; featList = pc.getTemplateFeatList(lt);</span>
+<span class="nc bnc" id="L173" title="All 2 branches missed.">			if (featList != null)</span>
+			{
+<span class="nc" id="L175">				feats.addAll(featList);</span>
+			}
+<span class="nc" id="L177">		}</span>
+
+<span class="nc bnc" id="L179" title="All 2 branches missed.">		for (PCTemplate lt : pct.getSafeListFor(ListKey.HD_TEMPLATES))</span>
+		{
+<span class="nc" id="L181">			Collection&lt;? extends CNAbilitySelection&gt; featList = pc.getTemplateFeatList(lt);</span>
+<span class="nc bnc" id="L182" title="All 2 branches missed.">			if (featList != null)</span>
+			{
+<span class="nc" id="L184">				feats.addAll(featList);</span>
+			}
+<span class="nc" id="L186">		}</span>
+
+<span class="nc" id="L188">		Collection&lt;? extends CNAbilitySelection&gt; featList = pc.getTemplateFeatList(pct);</span>
+<span class="nc bnc" id="L189" title="All 2 branches missed.">		if (featList != null)</span>
+		{
+<span class="nc" id="L191">			feats.addAll(featList);</span>
+		}
+
+<span class="nc" id="L194">		return feats;</span>
+	}
+
+	/**
+	 * Get value of CR Sub Token
+	 * @param template
+	 * @param display
+	 * @return value of CR Sub Token
+	 */
+	public static float getCRToken(PCTemplate template, CharacterDisplay display)
+	{
+<span class="nc" id="L205">		return template.getCR(display.getTotalLevels(), display.totalHitDice());</span>
+	}
+
+	/**
+	 * Get value of FEAT sub token
+	 * @param template
+	 * @param pc
+	 * @return value of FEAT sub token
+	 */
+	private static String getFeatToken(PCTemplate template, PlayerCharacter pc)
+	{
+<span class="nc" id="L216">		List&lt;CNAbilitySelection&gt; fList = feats(pc, template);</span>
+<span class="nc" id="L217">		return StringUtil.join(fList, &quot;, &quot;);</span>
+	}
+
+	/**
+	 * Get value of MOD sub token
+	 * @param pc
+	 * @param template
+	 * @param aLabel
+	 * @return value of MOD sub token
+	 */
+	public static String getModToken(PlayerCharacter pc, PCTemplate template, String aLabel)
+	{
+<span class="nc" id="L229">		StringBuilder retString = new StringBuilder();</span>
+
+<span class="nc bnc" id="L231" title="All 2 branches missed.">		for (PCStat stat : pc.getDisplay().getStatSet())</span>
+		{
+<span class="nc" id="L233">			String modName = stat.getKeyName() + &quot;MOD&quot;;</span>
+
+<span class="nc bnc" id="L235" title="All 2 branches missed.">			if (aLabel.equals(modName))</span>
+			{
+<span class="nc bnc" id="L237" title="All 2 branches missed.">				if (NonAbilityDisplay.isNonAbilityForObject(stat, template))</span>
+				{
+<span class="nc" id="L239">					retString.append('*');</span>
+				}
+				else
+				{
+<span class="nc" id="L243">					retString.append(BonusCalc.getStatMod(template, stat, pc));</span>
+				}
+
+<span class="nc" id="L246">				break;</span>
+			}
+<span class="nc" id="L248">		}</span>
+
+<span class="nc" id="L250">		return retString.toString();</span>
+	}
+
+	/**
+	 * Get value of OUTPUTNAME sub token
+	 * @param template
+	 * @return value of OUTPUTNAME sub token
+	 */
+	public static String getOutputNameToken(PCTemplate template)
+	{
+<span class="nc" id="L260">		return OutputNameFormatting.getOutputName(template);</span>
+	}
+
+	/**
+	 * Get value of SA sub token
+	 * @param template
+	 * @param pc
+	 * @return value of SA sub token
+	 */
+	public static String getSAToken(PCTemplate template, PlayerCharacter pc)
+	{
+<span class="nc" id="L271">		CharacterDisplay display = pc.getDisplay();</span>
+<span class="nc" id="L272">		List&lt;SpecialAbility&gt; saList = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L273">		saList.addAll(display.getResolvedUserSpecialAbilities(template));</span>
+<span class="nc" id="L274">		saList.addAll(display.getResolvedSpecialAbilities(template));</span>
+<span class="nc" id="L275">		List&lt;PCTemplate&gt; subList = new ArrayList&lt;&gt;(template.getConditionalTemplates(display.getTotalLevels(), display.totalHitDice()));</span>
+<span class="nc bnc" id="L276" title="All 2 branches missed.">		for (PCTemplate subt : subList)</span>
+		{
+<span class="nc" id="L278">			saList.addAll(display.getResolvedUserSpecialAbilities(subt));</span>
+<span class="nc" id="L279">			saList.addAll(display.getResolvedSpecialAbilities(subt));</span>
+<span class="nc" id="L280">		}</span>
+<span class="nc" id="L281">		List&lt;String&gt; saDescList = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L282" title="All 2 branches missed.">		for (SpecialAbility sa : saList)</span>
+		{
+<span class="nc bnc" id="L284" title="All 2 branches missed.">			if (!sa.qualifies(pc, template))</span>
+			{
+<span class="nc" id="L286">				continue;</span>
+			}
+<span class="nc" id="L288">			final String saText = sa.getParsedText(pc, pc, template);</span>
+<span class="nc bnc" id="L289" title="All 4 branches missed.">			if (saText != null &amp;&amp; !saText.equals(&quot;&quot;))</span>
+			{
+<span class="nc" id="L291">				saDescList.add(saText);</span>
+			}
+<span class="nc" id="L293">		}</span>
+<span class="nc" id="L294">		return StringUtil.join(saDescList, &quot;, &quot;);</span>
+	}
+
+	/**
+	 * Get value of SR Sub token
+	 * @param template
+	 * @param display
+	 * @return value of SR Sub token
+	 */
+	public static int getSRToken(PCTemplate template, CharacterDisplay display)
+	{
+<span class="nc" id="L305">		return display.getTemplateSR(template, display.getTotalLevels(), display.totalHitDice());</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

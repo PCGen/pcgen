@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SubstitutionClassApplication.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.core.analysis</a> &gt; <span class="el_source">SubstitutionClassApplication.java</span></div><h1>SubstitutionClassApplication.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2009 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * Copyright 2001 (C) Bryan McRoberts &lt;merton_monk@yahoo.com&gt;
+ * 
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.core.analysis;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.core.PCClass;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.SubstitutionClass;
+import pcgen.core.chooser.CDOMChooserFacadeImpl;
+import pcgen.core.prereq.PrereqHandler;
+import pcgen.facade.core.ChooserFacade.ChooserTreeViewType;
+import pcgen.gui2.facade.Gui2InfoFactory;
+import pcgen.system.LanguageBundle;
+import pcgen.util.chooser.ChooserFactory;
+
+public final class SubstitutionClassApplication
+{
+
+	private SubstitutionClassApplication()
+	{
+	}
+
+	public static void checkForSubstitutionClass(PCClass cl, final int aLevel, final PlayerCharacter aPC)
+	{
+<span class="nc" id="L45">		List&lt;SubstitutionClass&gt; substitutionClassList = cl.getListFor(ListKey.SUBSTITUTION_CLASS);</span>
+<span class="nc bnc" id="L46" title="All 4 branches missed.">		if (substitutionClassList == null || substitutionClassList.isEmpty())</span>
+		{
+<span class="nc" id="L48">			return;</span>
+		}
+
+<span class="nc" id="L51">		List&lt;PCClass&gt; choiceList = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L52">		buildSubstitutionClassChoiceList(cl, choiceList, aPC.getLevel(cl), aPC);</span>
+<span class="nc bnc" id="L53" title="All 2 branches missed.">		if (choiceList.size() &lt;= 1)</span>
+		{
+<span class="nc" id="L55">			return; // This means the there are no classes for which</span>
+			// the pc meets the prerequisitions and thus the
+			// base class is chosen.
+		}
+
+<span class="nc" id="L60">		CDOMChooserFacadeImpl&lt;PCClass&gt; chooserFacade =</span>
+<span class="nc" id="L61">				new CDOMChooserFacadeImpl&lt;&gt;(LanguageBundle.getString(&quot;in_SubstLvlChoice&quot;), choiceList, //$NON-NLS-1$</span>
+					new ArrayList&lt;&gt;(), 1);
+<span class="nc" id="L63">		chooserFacade.setDefaultView(ChooserTreeViewType.NAME);</span>
+<span class="nc" id="L64">		chooserFacade.setInfoFactory(new Gui2InfoFactory(aPC));</span>
+<span class="nc" id="L65">		ChooserFactory.getDelegate().showGeneralChooser(chooserFacade);</span>
+
+<span class="nc" id="L67">		List&lt;PCClass&gt; selectedList = chooserFacade.getFinalSelected();</span>
+<span class="nc" id="L68">		PCClass selected = null;</span>
+<span class="nc bnc" id="L69" title="All 2 branches missed.">		if (!selectedList.isEmpty())</span>
+		{
+<span class="nc" id="L71">			selected = selectedList.get(0);</span>
+		}
+
+<span class="nc bnc" id="L74" title="All 4 branches missed.">		if ((!selectedList.isEmpty()) &amp;&amp; selected instanceof SubstitutionClass sc)</span>
+		{
+<span class="nc" id="L76">			SubstitutionLevelSupport.applyLevelArrayModsToLevel(sc, cl, aLevel, aPC);</span>
+<span class="nc" id="L77">			aPC.setSubstitutionClassName(aPC.getActiveClassLevel(cl, aLevel), sc.getKeyName());</span>
+<span class="nc" id="L78">			return;</span>
+		}
+		else
+		{
+			/*
+			 * the original code has the below line.. however, it appears to not
+			 * be needed. I say this because if the original
+			 * buildSubstitutionClassChoiceList method returned an empty list,
+			 * it returned right away without calling this method.
+			 */
+<span class="nc" id="L88">			aPC.removeSubstitutionClassName(aPC.getActiveClassLevel(cl, aLevel));</span>
+<span class="nc" id="L89">			return;</span>
+		}
+
+	}
+
+	/**
+	 * Build a list of Substitution Classes for the user to choose from. The
+	 * list passed in will be populated.
+	 * 
+	 * @param cl
+	 *            PC Class
+	 * @param choiceList
+	 *            The list of substitution classes to choose from.
+	 * @param level
+	 *            The class level to determine the choices for
+	 * @param aPC
+	 */
+	private static void buildSubstitutionClassChoiceList(PCClass cl, final List&lt;PCClass&gt; choiceList, final int level,
+		final PlayerCharacter aPC)
+	{
+
+<span class="nc bnc" id="L110" title="All 2 branches missed.">		for (SubstitutionClass sc : cl.getListFor(ListKey.SUBSTITUTION_CLASS))</span>
+		{
+<span class="nc bnc" id="L112" title="All 2 branches missed.">			if (!PrereqHandler.passesAll(sc, aPC, cl))</span>
+			{
+<span class="nc" id="L114">				continue;</span>
+			}
+<span class="nc bnc" id="L116" title="All 2 branches missed.">			if (!sc.hasOriginalClassLevel(level))</span>
+			{
+<span class="nc" id="L118">				continue;</span>
+			}
+<span class="nc bnc" id="L120" title="All 2 branches missed.">			if (!SubstitutionLevelSupport.qualifiesForSubstitutionLevel(cl, sc, aPC, level))</span>
+			{
+<span class="nc" id="L122">				continue;</span>
+			}
+
+<span class="nc" id="L125">			choiceList.add(sc);</span>
+<span class="nc" id="L126">		}</span>
+<span class="nc" id="L127">		Collections.sort(choiceList); // sort the SubstitutionClass's</span>
+<span class="nc" id="L128">		choiceList.add(0, cl); // THEN add the base class as the first choice</span>
+<span class="nc" id="L129">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

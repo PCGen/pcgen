@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PreTypeTester.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.pretokens.test</a> &gt; <span class="el_source">PreTypeTester.java</span></div><h1>PreTypeTester.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2001 (C) Bryan McRoberts &lt;merton_monk@yahoo.com&gt;
+ * Copyright 2003 (C) Chris Ward &lt;frugal@purplewombat.co.uk&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.	   See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package plugin.pretokens.test;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import pcgen.cdom.base.CDOMObject;
+import pcgen.core.Equipment;
+import pcgen.core.PCTemplate;
+import pcgen.core.Race;
+import pcgen.core.display.CharacterDisplay;
+import pcgen.core.prereq.AbstractDisplayPrereqTest;
+import pcgen.core.prereq.Prerequisite;
+import pcgen.core.prereq.PrerequisiteException;
+import pcgen.core.prereq.PrerequisiteOperator;
+import pcgen.system.LanguageBundle;
+import pcgen.util.Logging;
+
+/**
+ * Prerequisite tester, tests for the presence of a type.
+ */
+<span class="nc" id="L39">public class PreTypeTester extends AbstractDisplayPrereqTest</span>
+{
+
+	/**
+	 * Get the type of prerequisite handled by this token.
+	 * @return the type of prerequisite handled by this token.
+	 */
+	@Override
+	public String kindHandled()
+	{
+<span class="nc" id="L49">		return &quot;TYPE&quot;; //$NON-NLS-1$</span>
+	}
+
+	@Override
+	public int passes(final Prerequisite prereq, final Equipment equipment, CharacterDisplay display)
+		throws PrerequisiteException
+	{
+
+<span class="nc" id="L57">		final String requiredType = prereq.getKey();</span>
+<span class="nc" id="L58">		int runningTotal = 0;</span>
+
+<span class="nc bnc" id="L60" title="All 2 branches missed.">		if (prereq.getOperator().equals(PrerequisiteOperator.EQ))</span>
+		{
+<span class="nc bnc" id="L62" title="All 2 branches missed.">			if (equipment.isPreType(requiredType))</span>
+			{
+<span class="nc" id="L64">				runningTotal++;</span>
+			}
+		}
+<span class="nc bnc" id="L67" title="All 2 branches missed.">		else if (prereq.getOperator().equals(PrerequisiteOperator.NEQ))</span>
+		{
+<span class="nc bnc" id="L69" title="All 2 branches missed.">			if (!equipment.isPreType(requiredType))</span>
+			{
+<span class="nc" id="L71">				runningTotal++;</span>
+			}
+		}
+		else
+		{
+<span class="nc" id="L76">			throw new PrerequisiteException(</span>
+<span class="nc" id="L77">				LanguageBundle.getFormattedString(&quot;PreType.error.invalidComparison&quot;, //$NON-NLS-1$</span>
+<span class="nc" id="L78">				prereq.getOperator().toString(), prereq.toString()));</span>
+		}
+
+<span class="nc" id="L81">		runningTotal = countedTotal(prereq, runningTotal);</span>
+<span class="nc" id="L82">		return runningTotal;</span>
+	}
+
+	@Override
+	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
+	{
+<span class="nc" id="L88">		Logging.errorPrint(&quot;PRETYPE has been deprecated for non-Equipment Prerequisites.&quot;</span>
+			+ &quot;\n  Please use PRERACE as an alternative&quot;);
+<span class="nc bnc" id="L90" title="All 2 branches missed.">		if (display == null)</span>
+		{
+<span class="nc" id="L92">			return 0;</span>
+		}
+
+<span class="nc" id="L95">		final String requiredType = prereq.getKey();</span>
+
+<span class="nc" id="L97">		Logging.errorPrint(&quot;  PRETYPE value was: &quot; + requiredType + '\n');</span>
+
+<span class="nc" id="L99">		final int numRequired = Integer.parseInt(prereq.getOperand());</span>
+<span class="nc" id="L100">		int runningTotal = 0;</span>
+
+<span class="nc bnc" id="L102" title="All 2 branches missed.">		for (String element : getTypes(display))</span>
+		{
+<span class="nc bnc" id="L104" title="All 2 branches missed.">			if (element.equalsIgnoreCase(requiredType))</span>
+			{
+<span class="nc" id="L106">				runningTotal++;</span>
+			}
+<span class="nc" id="L108">		}</span>
+
+<span class="nc" id="L110">		runningTotal = prereq.getOperator().compare(runningTotal, numRequired);</span>
+<span class="nc" id="L111">		return countedTotal(prereq, runningTotal);</span>
+	}
+
+	@Override
+	public String toHtmlString(final Prerequisite prereq)
+	{
+<span class="nc" id="L117">		return LanguageBundle.getFormattedString(&quot;PreType.toHtml&quot;, prereq.getOperator().toDisplayString(), //$NON-NLS-1$</span>
+<span class="nc" id="L118">			prereq.getKey());</span>
+	}
+
+	/**
+	 * Get a list of types that apply to this character.
+	 * 
+	 * @return a List of Strings where each String is a type that the character
+	 *         has. The list returned will never be null
+	 * 
+	 * @deprecated Use getRaceType() and getRacialSubTypes() instead
+	 */
+	@Deprecated
+	private static List&lt;String&gt; getTypes(CharacterDisplay display)
+	{
+<span class="nc" id="L132">		final List&lt;String&gt; list = new ArrayList&lt;&gt;();</span>
+
+<span class="nc" id="L134">		Race race = display.getRace();</span>
+<span class="nc bnc" id="L135" title="All 2 branches missed.">		if (race != null)</span>
+		{
+<span class="nc" id="L137">			list.add(race.getType());</span>
+		}
+		else
+		{
+<span class="nc" id="L141">			list.add(&quot;Humanoid&quot;);</span>
+		}
+
+<span class="nc bnc" id="L144" title="All 2 branches missed.">		for (PCTemplate t : display.getTemplateSet())</span>
+		{
+<span class="nc" id="L146">			list.add(t.getType());</span>
+<span class="nc" id="L147">		}</span>
+
+<span class="nc" id="L149">		return list;</span>
+
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

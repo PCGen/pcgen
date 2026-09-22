@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FactKey.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.enumeration</a> &gt; <span class="el_source">FactKey.java</span></div><h1>FactKey.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2014 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or modify it under the terms
+ * of the GNU Lesser General Public License as published by the Free Software Foundation;
+ * either version 2.1 of the License, or (at your option) any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT ANY
+ * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+ * PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License along with
+ * this library; if not, write to the Free Software Foundation, Inc., 59 Temple Place,
+ * Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.cdom.enumeration;
+
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Objects;
+
+import pcgen.base.util.CaseInsensitiveMap;
+import pcgen.base.util.FormatManager;
+
+/**
+ * This is a Typesafe enumeration of legal FACTs of an object. It is designed to
+ * act as an index to a specific facts within a CDOMObject.
+ * 
+ * @param &lt;T&gt;
+ *            The Type of object stored for the FactKey
+ */
+public final class FactKey&lt;T&gt;
+{
+
+	/**
+	 * This Map contains the mappings from Strings to the FactKey
+	 */
+<span class="fc" id="L38">	private static CaseInsensitiveMap&lt;FactKey&lt;?&gt;&gt; typeMap = new CaseInsensitiveMap&lt;&gt;();</span>
+
+	/**
+	 * The name of this FactKey
+	 */
+	private final String fieldName;
+
+	private final FormatManager&lt;T&gt; formatManager;
+
+	private FactKey(String name, FormatManager&lt;T&gt; fmtManager)
+<span class="fc" id="L48">	{</span>
+<span class="fc" id="L49">		Objects.requireNonNull(name, &quot;Name for FactKey cannot be null&quot;);</span>
+<span class="fc" id="L50">		Objects.requireNonNull(fmtManager, &quot;FormatManager for FactKey cannot be null&quot;);</span>
+<span class="fc" id="L51">		fieldName = name;</span>
+<span class="fc" id="L52">		formatManager = fmtManager;</span>
+<span class="fc" id="L53">	}</span>
+
+	/**
+	 * Converts this Constant to a String (returns the name of this Constant)
+	 * 
+	 * @return The string representation (name) of this Constant
+	 */
+	@Override
+	public String toString()
+	{
+<span class="nc" id="L63">		return fieldName;</span>
+	}
+
+	/**
+	 * Returns the FactKey for the given String (the search for the constant is
+	 * case-insensitive). If the constant does not already exist, a new FactKey
+	 * is created with the given String as the name of the FactKey.
+	 * 
+	 * @param name
+	 *            The name of the FactKey to be returned
+	 * @return The FactKey for the given name
+	 */
+	public static &lt;T&gt; FactKey&lt;T&gt; getConstant(String name, FormatManager&lt;T&gt; fmtManager)
+	{
+		//This cast is checked by the &quot;else&quot; below
+		@SuppressWarnings(&quot;unchecked&quot;)
+<span class="fc" id="L79">		FactKey&lt;T&gt; key = (FactKey&lt;T&gt;) typeMap.get(name);</span>
+<span class="fc bfc" id="L80" title="All 2 branches covered.">		if (key == null)</span>
+		{
+<span class="fc" id="L82">			key = new FactKey&lt;&gt;(name, fmtManager);</span>
+<span class="fc" id="L83">			typeMap.put(name, key);</span>
+		}
+<span class="pc bpc" id="L85" title="1 of 2 branches missed.">		else if (!key.formatManager.equals(fmtManager))</span>
+		{
+<span class="nc" id="L87">			throw new IllegalArgumentException(</span>
+<span class="nc" id="L88">				&quot;FactKey: &quot; + name + &quot; does not store objects of &quot; + fmtManager.getManagedClass().getCanonicalName());</span>
+		}
+<span class="fc" id="L90">		return key;</span>
+	}
+
+	/**
+	 * Returns the FactKey for the given String (the search for the constant is
+	 * case insensitive). If the FactKey does not already exist, an
+	 * IllegalArgumentException is thrown.
+	 * 
+	 * Does not check the type of the FactKey
+	 * 
+	 * @param name
+	 *            The name of the FactKey to be returned
+	 * @return The FactKey for the given name
+	 * @throws IllegalArgumentException
+	 *             if the given String is not a previously defined FactKey
+	 */
+	public static &lt;T&gt; FactKey&lt;T&gt; valueOf(String name)
+	{
+<span class="fc" id="L108">		FactKey&lt;T&gt; key = (FactKey&lt;T&gt;) typeMap.get(name);</span>
+<span class="pc bpc" id="L109" title="1 of 2 branches missed.">		if (key == null)</span>
+		{
+<span class="nc" id="L111">			throw new IllegalArgumentException(name + &quot; is not a previously defined FactKey&quot;);</span>
+		}
+<span class="fc" id="L113">		return key;</span>
+	}
+
+	/**
+	 * Returns a Collection of all of the FactKeys in this Class.
+	 * 
+	 * This collection maintains a reference to the FactKeys in this Class, so
+	 * if a new FactKey is created, the Collection returned by this method will
+	 * be modified. (Beware of ConcurrentModificationExceptions)
+	 * 
+	 * @return a Collection of all of the FactKeys in this Class.
+	 */
+	public static Collection&lt;FactKey&lt;?&gt;&gt; getAllConstants()
+	{
+<span class="nc" id="L127">		return Collections.unmodifiableCollection(typeMap.values());</span>
+	}
+
+	/**
+	 * Clears all of the FactKeys in this Class (forgets the mappings from
+	 * Strings to FactKeys).
+	 */
+	public static void clearConstants()
+	{
+<span class="fc" id="L136">		typeMap.clear();</span>
+<span class="fc" id="L137">	}</span>
+
+	/**
+	 * Designed to appropriately cast an object fetched with this FactKey.
+	 * 
+	 * @param obj
+	 *            The object that should be cast to the format of item stored by
+	 *            this FactKey
+	 * @return An object cast to the format of item stored by this FactKey
+	 */
+	@SuppressWarnings(&quot;unchecked&quot;)
+	public T cast(Object obj)
+	{
+<span class="fc" id="L150">		return (T) obj;</span>
+	}
+
+	/**
+	 * Returns the FormatManager used by this FactKey.
+	 * 
+	 * @return the FormatManager used by this FactKey
+	 */
+	public FormatManager&lt;T&gt; getFormatManager()
+	{
+<span class="nc" id="L160">		return formatManager;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

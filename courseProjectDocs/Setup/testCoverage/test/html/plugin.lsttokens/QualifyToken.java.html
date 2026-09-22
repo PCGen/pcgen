@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>QualifyToken.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.lsttokens</a> &gt; <span class="el_source">QualifyToken.java</span></div><h1>QualifyToken.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2008 (C) Thomas Parker &lt;thpr@users.sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package plugin.lsttokens;
+
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
+import java.util.Set;
+import java.util.StringTokenizer;
+import java.util.TreeSet;
+
+import pcgen.base.util.HashMapToList;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.Loadable;
+import pcgen.cdom.base.Ungranted;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.inst.PCClassLevel;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.reference.Qualifier;
+import pcgen.cdom.reference.ReferenceManufacturer;
+import pcgen.cdom.reference.ReferenceUtilities;
+import pcgen.core.Ability;
+import pcgen.core.Deity;
+import pcgen.core.Domain;
+import pcgen.core.Equipment;
+import pcgen.core.PCClass;
+import pcgen.core.PCTemplate;
+import pcgen.core.Race;
+import pcgen.core.Skill;
+import pcgen.core.WeaponProf;
+import pcgen.core.spell.Spell;
+import pcgen.rules.context.Changes;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.ParseResult;
+
+/**
+ * Deals with the QUALIFY token for Abilities
+ */
+<span class="fc" id="L57">public class QualifyToken extends AbstractTokenWithSeparator&lt;CDOMObject&gt; implements CDOMPrimaryToken&lt;CDOMObject&gt;</span>
+{
+
+	@Override
+	public String getTokenName()
+	{
+<span class="fc" id="L63">		return &quot;QUALIFY&quot;;</span>
+	}
+
+	public List&lt;Class&lt;? extends CDOMObject&gt;&gt; getLegalTypes()
+	{
+<span class="fc" id="L68">		return Arrays.asList(PCClassLevel.class, Ability.class, Deity.class, Domain.class, Equipment.class,</span>
+			PCClass.class, Race.class, Skill.class, Spell.class, PCTemplate.class, WeaponProf.class);
+	}
+
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context, CDOMObject obj, String value)
+	{
+<span class="pc bpc" id="L75" title="1 of 2 branches missed.">		if (obj instanceof Ungranted)</span>
+		{
+<span class="nc" id="L77">			return new ParseResult.Fail(</span>
+<span class="nc" id="L78">				&quot;Cannot use &quot; + getTokenName() + &quot; on an Ungranted object type: &quot; + obj.getClass().getSimpleName());</span>
+		}
+<span class="fc bfc" id="L80" title="All 2 branches covered.">		if (!getLegalTypes().contains(obj.getClass()))</span>
+		{
+<span class="fc" id="L82">			return new ParseResult.Fail(&quot;Cannot use QUALIFY on a &quot; + obj.getClass());</span>
+		}
+<span class="fc" id="L84">		return super.parseNonEmptyToken(context, obj, value);</span>
+	}
+
+	@Override
+	protected char separator()
+	{
+<span class="fc" id="L90">		return '|';</span>
+	}
+
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
+	{
+<span class="fc bfc" id="L96" title="All 2 branches covered.">		if (!value.contains(Constants.PIPE))</span>
+		{
+<span class="fc" id="L98">			return new ParseResult.Fail(</span>
+<span class="fc" id="L99">				getTokenName() + &quot; requires at least two arguments, QualifyType and Key: &quot; + value);</span>
+		}
+<span class="fc" id="L101">		StringTokenizer st = new StringTokenizer(value, Constants.PIPE);</span>
+<span class="fc" id="L102">		String firstToken = st.nextToken();</span>
+<span class="fc" id="L103">		ReferenceManufacturer&lt;? extends Loadable&gt; rm = context.getManufacturer(firstToken);</span>
+<span class="fc bfc" id="L104" title="All 2 branches covered.">		if (rm == null)</span>
+		{
+<span class="fc" id="L106">			return new ParseResult.Fail(getTokenName() + &quot; unable to generate manufacturer for type: &quot; + value);</span>
+		}
+
+<span class="fc bfc" id="L109" title="All 2 branches covered.">		while (st.hasMoreTokens())</span>
+		{
+<span class="fc" id="L111">			CDOMSingleRef&lt;? extends Loadable&gt; ref = rm.getReference(st.nextToken());</span>
+<span class="fc" id="L112">			context.getObjectContext().addToList(obj, ListKey.QUALIFY, new Qualifier(ref));</span>
+<span class="fc" id="L113">		}</span>
+
+<span class="fc" id="L115">		return ParseResult.SUCCESS;</span>
+	}
+
+	@Override
+	public String[] unparse(LoadContext context, CDOMObject obj)
+	{
+<span class="fc" id="L121">		Changes&lt;Qualifier&gt; changes = context.getObjectContext().getListChanges(obj, ListKey.QUALIFY);</span>
+<span class="pc bpc" id="L122" title="1 of 4 branches missed.">		if (changes == null || changes.isEmpty())</span>
+		{
+<span class="fc" id="L124">			return null;</span>
+		}
+<span class="fc" id="L126">		Collection&lt;Qualifier&gt; quals = changes.getAdded();</span>
+<span class="fc" id="L127">		HashMapToList&lt;String, CDOMSingleRef&lt;?&gt;&gt; map = new HashMapToList&lt;&gt;();</span>
+<span class="fc bfc" id="L128" title="All 2 branches covered.">		for (Qualifier qual : quals)</span>
+		{
+<span class="fc" id="L130">			CDOMSingleRef&lt;?&gt; ref = qual.getQualifiedReference();</span>
+<span class="fc" id="L131">			String key = ref.getPersistentFormat();</span>
+<span class="fc" id="L132">			map.addToListFor(key, ref);</span>
+<span class="fc" id="L133">		}</span>
+<span class="fc" id="L134">		Set&lt;CDOMSingleRef&lt;?&gt;&gt; set = new TreeSet&lt;&gt;(ReferenceUtilities.REFERENCE_SORTER);</span>
+<span class="fc" id="L135">		Set&lt;String&gt; returnSet = new TreeSet&lt;&gt;();</span>
+<span class="fc bfc" id="L136" title="All 2 branches covered.">		for (String key : map.getKeySet())</span>
+		{
+<span class="fc" id="L138">			set.clear();</span>
+<span class="fc" id="L139">			set.addAll(map.getListFor(key));</span>
+<span class="fc" id="L140">			returnSet.add(key + Constants.PIPE + ReferenceUtilities.joinLstFormat(set, Constants.PIPE));</span>
+<span class="fc" id="L141">		}</span>
+<span class="fc" id="L142">		return returnSet.toArray(new String[0]);</span>
+	}
+
+	@Override
+	public Class&lt;CDOMObject&gt; getTokenClass()
+	{
+<span class="fc" id="L148">		return CDOMObject.class;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

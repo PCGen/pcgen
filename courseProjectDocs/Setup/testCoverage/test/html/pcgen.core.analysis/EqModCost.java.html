@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>EqModCost.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.core.analysis</a> &gt; <span class="el_source">EqModCost.java</span></div><h1>EqModCost.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2008 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * Copyright 2001 (C) Bryan McRoberts &lt;merton_monk@yahoo.com&gt;
+ * 
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.core.analysis;
+
+import java.math.BigDecimal;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.StringTokenizer;
+
+import pcgen.cdom.enumeration.FormulaKey;
+import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.enumeration.Type;
+import pcgen.core.Equipment;
+import pcgen.core.EquipmentModifier;
+import pcgen.core.Globals;
+import pcgen.core.PCClass;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.bonus.BonusObj;
+import pcgen.core.prereq.Prerequisite;
+import pcgen.core.spell.Spell;
+import pcgen.util.Delta;
+
+public final class EqModCost
+{
+	private static final String S_CHARGES = &quot;CHARGES&quot;;
+
+	private EqModCost()
+	{
+	}
+
+	public static BigDecimal addItemCosts(EquipmentModifier eqMod, final PlayerCharacter aPC, final String bonusType,
+		final int qty, final Equipment parent)
+	{
+<span class="nc" id="L52">		double val = 0;</span>
+
+<span class="nc" id="L54">		Set&lt;String&gt; typesToGetBonusesFor = new HashSet&lt;&gt;();</span>
+
+<span class="nc bnc" id="L56" title="All 2 branches missed.">		for (BonusObj bonus : eqMod.getBonusList(parent))</span>
+		{
+<span class="nc" id="L58">			boolean meetsAll = true;</span>
+
+<span class="nc bnc" id="L60" title="All 2 branches missed.">			if (bonus.getBonusName().equals(bonusType))</span>
+			{
+<span class="nc" id="L62">				StringTokenizer aTok = new StringTokenizer(bonus.toString().substring(bonusType.length()), &quot;|&quot;, false);</span>
+<span class="nc" id="L63">				final String bType = aTok.nextToken();</span>
+<span class="nc" id="L64">				aTok = new StringTokenizer(bType.substring(5), &quot;.&quot;, false);</span>
+
+<span class="nc" id="L66">				StringBuilder typeString = new StringBuilder(&quot;TYPE&quot;);</span>
+
+<span class="nc bnc" id="L68" title="All 2 branches missed.">				while (aTok.hasMoreTokens())</span>
+				{
+<span class="nc" id="L70">					final String sub_type = aTok.nextToken();</span>
+<span class="nc" id="L71">					meetsAll = parent.isType(sub_type);</span>
+
+<span class="nc bnc" id="L73" title="All 2 branches missed.">					if (!meetsAll)</span>
+					{
+<span class="nc" id="L75">						break;</span>
+					}
+
+<span class="nc" id="L78">					typeString.append(&quot;.&quot;).append(sub_type);</span>
+<span class="nc" id="L79">				}</span>
+
+<span class="nc bnc" id="L81" title="All 2 branches missed.">				if (meetsAll)</span>
+				{
+<span class="nc" id="L83">					typesToGetBonusesFor.add(typeString.toString());</span>
+				}
+			}
+<span class="nc" id="L86">		}</span>
+
+<span class="nc bnc" id="L88" title="All 2 branches missed.">		for (String typeString : typesToGetBonusesFor)</span>
+		{
+<span class="nc" id="L90">			val += eqMod.bonusTo(aPC, bonusType, typeString, parent);</span>
+<span class="nc" id="L91">		}</span>
+
+<span class="nc" id="L93">		return BigDecimal.valueOf(val * qty);</span>
+	}
+
+	public static boolean getCostDouble(EquipmentModifier eqMod)
+	{
+		//
+		// Uninitialized?
+		//
+<span class="nc" id="L101">		Boolean costdouble = eqMod.get(ObjectKey.COST_DOUBLE);</span>
+<span class="nc bnc" id="L102" title="All 2 branches missed.">		if (costdouble == null)</span>
+		{
+<span class="nc bnc" id="L104" title="All 4 branches missed.">			if (eqMod.isType(&quot;MagicalEnhancement&quot;) || eqMod.isType(&quot;BaseMaterial&quot;))</span>
+			{
+<span class="nc" id="L106">				return false;</span>
+			}
+
+<span class="nc bnc" id="L109" title="All 2 branches missed.">			if (eqMod.isIType(Type.MAGIC))</span>
+			{
+<span class="nc" id="L111">				return true;</span>
+			}
+
+<span class="nc bnc" id="L114" title="All 2 branches missed.">			for (Prerequisite preReq : eqMod.getPrerequisiteList())</span>
+			{
+<span class="nc bnc" id="L116" title="All 2 branches missed.">				if (&quot;TYPE&quot;.equalsIgnoreCase(preReq.getKind())</span>
+<span class="nc bnc" id="L117" title="All 2 branches missed.">					&amp;&amp; ((preReq.getKey().equalsIgnoreCase(&quot;EQMODTYPE=MagicalEnhancement&quot;))</span>
+<span class="nc bnc" id="L118" title="All 2 branches missed.">						|| (preReq.getKey().equalsIgnoreCase(&quot;EQMODTYPE.MagicalEnhancement&quot;))))</span>
+				{
+<span class="nc" id="L120">					return true;</span>
+				}
+<span class="nc" id="L122">			}</span>
+<span class="nc" id="L123">			return false;</span>
+		}
+
+<span class="nc" id="L126">		return costdouble;</span>
+	}
+
+	public static String getCost(EquipmentModifier eqMod, final String listEntry)
+	{
+<span class="nc" id="L131">		String costFormula = eqMod.getSafe(FormulaKey.COST).toString();</span>
+<span class="nc" id="L132">		String modChoice = &quot;&quot;;</span>
+
+<span class="nc bnc" id="L134" title="All 2 branches missed.">		while (costFormula.contains(&quot;%SPELLLEVEL&quot;))</span>
+		{
+<span class="nc" id="L136">			final int idx = costFormula.indexOf(&quot;%SPELLLEVEL&quot;);</span>
+
+<span class="nc bnc" id="L138" title="All 2 branches missed.">			if (modChoice.isEmpty())</span>
+			{
+<span class="nc" id="L140">				final int iLevel = EqModSpellInfo.getSpellInfo(listEntry, &quot;SPELLLEVEL&quot;);</span>
+
+<span class="nc bnc" id="L142" title="All 2 branches missed.">				if (iLevel == 0)</span>
+				{
+<span class="nc" id="L144">					modChoice = &quot;0.5&quot;;</span>
+				}
+				else
+				{
+<span class="nc" id="L148">					modChoice = Integer.toString(iLevel);</span>
+				}
+			}
+
+<span class="nc" id="L152">			costFormula = costFormula.substring(0, idx) + modChoice + costFormula.substring(idx + 11);</span>
+<span class="nc" id="L153">		}</span>
+
+<span class="nc" id="L155">		costFormula = replaceCostSpellCost(costFormula, listEntry);</span>
+<span class="nc" id="L156">		costFormula = replaceCostSpellXPCost(costFormula, listEntry);</span>
+<span class="nc" id="L157">		costFormula = replaceCostCasterLevel(costFormula, listEntry);</span>
+<span class="nc" id="L158">		costFormula = replaceCostCharges(costFormula, listEntry);</span>
+<span class="nc" id="L159">		costFormula = replaceCostChoice(costFormula, listEntry);</span>
+
+<span class="nc" id="L161">		return costFormula;</span>
+	}
+
+	private static String replaceCostCasterLevel(String costFormula, final String listEntry)
+	{
+<span class="nc" id="L166">		String modChoice = &quot;&quot;;</span>
+
+<span class="nc bnc" id="L168" title="All 2 branches missed.">		while (costFormula.contains(&quot;%CASTERLEVEL&quot;))</span>
+		{
+<span class="nc" id="L170">			final int idx = costFormula.indexOf(&quot;%CASTERLEVEL&quot;);</span>
+
+<span class="nc bnc" id="L172" title="All 2 branches missed.">			if (modChoice.isEmpty())</span>
+			{
+<span class="nc" id="L174">				final int iCasterLevel = EqModSpellInfo.getSpellInfo(listEntry, &quot;CASTERLEVEL&quot;);</span>
+<span class="nc" id="L175">				modChoice = Integer.toString(iCasterLevel);</span>
+
+				//
+				// Tack on the item creation multiplier, if there is one
+				//
+<span class="nc" id="L180">				final String castClassKey = EqModSpellInfo.getSpellInfoString(listEntry, &quot;CASTER&quot;);</span>
+
+<span class="nc bnc" id="L182" title="All 2 branches missed.">				if (!castClassKey.isEmpty())</span>
+				{
+<span class="nc" id="L184">					final PCClass castClass = Globals.getContext().getReferenceContext()</span>
+<span class="nc" id="L185">						.silentlyGetConstructedCDOMObject(PCClass.class, castClassKey);</span>
+
+<span class="nc bnc" id="L187" title="All 2 branches missed.">					if (castClass != null)</span>
+					{
+<span class="nc" id="L189">						final StringBuilder multiple = new StringBuilder(200);</span>
+<span class="nc" id="L190">						String aString = castClass.get(StringKey.ITEMCREATE);</span>
+
+<span class="nc bnc" id="L192" title="All 4 branches missed.">						if (aString != null &amp;&amp; !aString.isEmpty())</span>
+						{
+<span class="nc" id="L194">							final StringTokenizer aTok = new StringTokenizer(aString, &quot;+-*/()&quot;, true);</span>
+
+							//
+							// This is to support older versions of the
+							// ITEMCREATE tag
+							// that allowed 0.5, because it used to be just a
+							// multiple
+							//
+<span class="nc bnc" id="L202" title="All 2 branches missed.">							if (aTok.countTokens() == 1)</span>
+							{
+<span class="nc" id="L204">								multiple.append(iCasterLevel).append('*').append(aString);</span>
+							}
+							else
+							{
+<span class="nc bnc" id="L208" title="All 2 branches missed.">								while (aTok.hasMoreTokens())</span>
+								{
+<span class="nc" id="L210">									aString = aTok.nextToken();</span>
+
+<span class="nc bnc" id="L212" title="All 2 branches missed.">									if (aString.equals(&quot;CL&quot;))</span>
+									{
+<span class="nc" id="L214">										multiple.append(iCasterLevel);</span>
+									}
+									else
+									{
+<span class="nc" id="L218">										multiple.append(aString);</span>
+									}
+								}
+							}
+
+<span class="nc" id="L223">							modChoice = multiple.toString();</span>
+						}
+					}
+				}
+			}
+
+<span class="nc" id="L229">			costFormula = costFormula.substring(0, idx) + &quot;(&quot; + modChoice + &quot;)&quot; + costFormula.substring(idx + 12);</span>
+<span class="nc" id="L230">		}</span>
+
+<span class="nc" id="L232">		return costFormula;</span>
+	}
+
+	private static String replaceCostCharges(String costFormula, final String listEntry)
+	{
+<span class="nc" id="L237">		String modChoice = &quot;&quot;;</span>
+
+<span class="nc bnc" id="L239" title="All 2 branches missed.">		while (costFormula.contains(&quot;%&quot; + S_CHARGES))</span>
+		{
+<span class="nc" id="L241">			final int idx = costFormula.indexOf(&quot;%&quot; + S_CHARGES);</span>
+
+<span class="nc bnc" id="L243" title="All 2 branches missed.">			if (modChoice.isEmpty())</span>
+			{
+<span class="nc" id="L245">				modChoice = Integer.toString(EqModSpellInfo.getSpellInfo(listEntry, S_CHARGES));</span>
+			}
+
+<span class="nc" id="L248">			costFormula = costFormula.substring(0, idx) + modChoice + costFormula.substring(idx + 8);</span>
+<span class="nc" id="L249">		}</span>
+
+<span class="nc" id="L251">		return costFormula;</span>
+	}
+
+	private static String replaceCostSpellCost(String costFormula, final String listEntry)
+	{
+<span class="nc" id="L256">		String modChoice = &quot;&quot;;</span>
+
+<span class="nc bnc" id="L258" title="All 2 branches missed.">		while (costFormula.contains(&quot;%SPELLCOST&quot;))</span>
+		{
+<span class="nc" id="L260">			final int idx = costFormula.indexOf(&quot;%SPELLCOST&quot;);</span>
+
+<span class="nc bnc" id="L262" title="All 2 branches missed.">			if (modChoice.isEmpty())</span>
+			{
+<span class="nc" id="L264">				final String spellName = EqModSpellInfo.getSpellInfoString(listEntry, &quot;SPELLNAME&quot;);</span>
+<span class="nc" id="L265">				final Spell aSpell = Globals.getContext().getReferenceContext()</span>
+<span class="nc" id="L266">					.silentlyGetConstructedCDOMObject(Spell.class, spellName);</span>
+
+<span class="nc bnc" id="L268" title="All 2 branches missed.">				if (aSpell != null)</span>
+				{
+<span class="nc" id="L270">					modChoice = aSpell.getSafe(ObjectKey.COST).toString();</span>
+				}
+			}
+
+<span class="nc" id="L274">			costFormula = costFormula.substring(0, idx) + modChoice + costFormula.substring(idx + 10);</span>
+<span class="nc" id="L275">		}</span>
+
+<span class="nc" id="L277">		return costFormula;</span>
+	}
+
+	private static String replaceCostChoice(String costFormula, final String listEntry)
+	{
+<span class="nc" id="L282">		String modChoice = &quot;&quot;;</span>
+
+<span class="nc bnc" id="L284" title="All 2 branches missed.">		while (costFormula.contains(&quot;%CHOICE&quot;))</span>
+		{
+<span class="nc" id="L286">			final int idx = costFormula.indexOf(&quot;%CHOICE&quot;);</span>
+
+<span class="nc bnc" id="L288" title="All 2 branches missed.">			if (modChoice.isEmpty())</span>
+			{
+<span class="nc" id="L290">				final int offs = listEntry.lastIndexOf('|');</span>
+<span class="nc" id="L291">				int modValue = 0;</span>
+
+				try
+				{
+<span class="nc" id="L295">					modValue = Delta.parseInt(listEntry.substring(offs + 1));</span>
+				}
+<span class="nc" id="L297">				catch (NumberFormatException exc)</span>
+				{
+					// TODO: Should this really be ignored?
+<span class="nc" id="L300">				}</span>
+
+<span class="nc" id="L302">				modChoice = Integer.toString(modValue);</span>
+			}
+
+<span class="nc" id="L305">			costFormula = costFormula.substring(0, idx) + modChoice + costFormula.substring(idx + 7);</span>
+<span class="nc" id="L306">		}</span>
+
+<span class="nc" id="L308">		return costFormula;</span>
+	}
+
+	private static String replaceCostSpellXPCost(String costFormula, final String listEntry)
+	{
+<span class="nc" id="L313">		String modChoice = &quot;&quot;;</span>
+
+<span class="nc bnc" id="L315" title="All 2 branches missed.">		while (costFormula.contains(&quot;%SPELLXPCOST&quot;))</span>
+		{
+<span class="nc" id="L317">			final int idx = costFormula.indexOf(&quot;%SPELLXPCOST&quot;);</span>
+
+<span class="nc bnc" id="L319" title="All 2 branches missed.">			if (modChoice.isEmpty())</span>
+			{
+<span class="nc" id="L321">				final String spellName = EqModSpellInfo.getSpellInfoString(listEntry, &quot;SPELLNAME&quot;);</span>
+<span class="nc" id="L322">				final Spell aSpell = Globals.getContext().getReferenceContext()</span>
+<span class="nc" id="L323">					.silentlyGetConstructedCDOMObject(Spell.class, spellName);</span>
+
+<span class="nc bnc" id="L325" title="All 2 branches missed.">				if (aSpell != null)</span>
+				{
+<span class="nc" id="L327">					modChoice = Integer.toString(aSpell.getSafe(IntegerKey.XP_COST));</span>
+				}
+			}
+
+<span class="nc" id="L331">			costFormula = costFormula.substring(0, idx) + modChoice + costFormula.substring(idx + 12);</span>
+<span class="nc" id="L332">		}</span>
+
+<span class="nc" id="L334">		return costFormula;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

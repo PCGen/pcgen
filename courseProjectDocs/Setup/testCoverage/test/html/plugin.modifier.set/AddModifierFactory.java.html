@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AddModifierFactory.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.modifier.set</a> &gt; <span class="el_source">AddModifierFactory.java</span></div><h1>AddModifierFactory.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2014 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package plugin.modifier.set;
+
+import java.lang.reflect.Array;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
+
+import pcgen.cdom.calculation.AbstractPCGenModifier;
+import pcgen.cdom.calculation.FormulaModifier;
+import pcgen.base.formula.base.DependencyManager;
+import pcgen.base.formula.base.EvaluationManager;
+import pcgen.base.formula.base.FormulaSemantics;
+import pcgen.base.util.FormatManager;
+import pcgen.base.util.Indirect;
+import pcgen.rules.persistence.token.ModifierFactory;
+
+/**
+ * An AddModifierFactory is a ModifierFactory that adds a specific set of items
+ * to the input set when a Modifier produced by this AddModifierFactory is
+ * processed.
+ * 
+ * @param &lt;T&gt;
+ *            The Class of object contained in the arrays processed by this
+ *            AddModifierFactory
+ */
+<span class="fc" id="L43">public class AddModifierFactory&lt;T&gt; implements ModifierFactory&lt;T[]&gt;</span>
+{
+
+	@SuppressWarnings(&quot;rawtypes&quot;)
+<span class="fc" id="L47">	private static final Class ARRAY_CLASS = Object[].class;</span>
+
+	@SuppressWarnings(&quot;unchecked&quot;)
+	@Override
+	public Class&lt;T[]&gt; getVariableFormat()
+	{
+<span class="nc" id="L53">		return ARRAY_CLASS;</span>
+	}
+
+	@Override
+	public String getIdentification()
+	{
+<span class="nc" id="L59">		return &quot;ADD&quot;;</span>
+	}
+
+	@Override
+	public FormulaModifier&lt;T[]&gt; getModifier(String instructions, FormatManager&lt;T[]&gt; formatManager)
+	{
+<span class="fc" id="L65">		Indirect&lt;T[]&gt; indirect = formatManager.convertIndirect(instructions);</span>
+<span class="fc" id="L66">		return new AddIndirectArrayModifier(formatManager, indirect);</span>
+	}
+
+	@Override
+	public FormulaModifier&lt;T[]&gt; getFixedModifier(FormatManager&lt;T[]&gt; fmtManager, String instructions)
+	{
+<span class="nc" id="L72">		T[] toAdd = fmtManager.convert(instructions);</span>
+<span class="nc" id="L73">		return new AddDirectArrayModifier(fmtManager, toAdd);</span>
+	}
+
+	/**
+	 * An AddDirectArrayModifier is a FormulaModifier that contains a set of objects to be
+	 * used by the Modifier when executed.
+	 */
+	private final class AddDirectArrayModifier extends AddArrayModifier
+	{
+		/**
+		 * The objects to be added to the active set when this AddModifier is
+		 * processed
+		 */
+		private T[] toAdd;
+
+		private AddDirectArrayModifier(FormatManager&lt;T[]&gt; formatManager, T[] toAdd)
+<span class="nc" id="L89">		{</span>
+<span class="nc" id="L90">			super(formatManager);</span>
+<span class="nc" id="L91">			this.toAdd = toAdd;</span>
+<span class="nc" id="L92">		}</span>
+
+		@Override
+		public String getInstructions()
+		{
+<span class="nc" id="L97">			return getFormatManager().unconvert(toAdd);</span>
+		}
+
+		@Override
+		protected T[] getArray()
+		{
+<span class="nc" id="L103">			return toAdd;</span>
+		}
+
+		@Override
+		public void getDependencies(DependencyManager fdm)
+		{
+			//Since this already knows the toSet objects, it has no dependencies
+<span class="nc" id="L110">		}</span>
+
+		@Override
+		public void isValid(FormulaSemantics semantics)
+		{
+			/*
+			 * Since this is direct (already has the object), it has no semantic issues
+			 * (barring someone violating Generics)
+			 */
+<span class="nc" id="L119">		}</span>
+	}
+
+	/**
+	 * An AddIndirectArrayModifier is a FormulaModifier that contains a set of Indirect
+	 * objects to be resolved and used by the Modifier when executed.
+	 */
+	private final class AddIndirectArrayModifier extends AddArrayModifier
+	{
+		/**
+		 * The objects to be added to the active set when this AddModifier is
+		 * processed
+		 */
+		private Indirect&lt;T[]&gt; toAdd;
+
+		private AddIndirectArrayModifier(FormatManager&lt;T[]&gt; formatManager, Indirect&lt;T[]&gt; toAdd)
+<span class="fc" id="L135">		{</span>
+<span class="fc" id="L136">			super(formatManager);</span>
+<span class="fc" id="L137">			this.toAdd = toAdd;</span>
+<span class="fc" id="L138">		}</span>
+
+		@Override
+		public String getInstructions()
+		{
+<span class="nc" id="L143">			return toAdd.getUnconverted();</span>
+		}
+
+		@Override
+		protected T[] getArray()
+		{
+<span class="fc" id="L149">			return toAdd.get();</span>
+		}
+
+		@Override
+		public void getDependencies(DependencyManager fdm)
+		{
+			//CONSIDER: How does DependencyManager want to know about Indirect?
+<span class="nc" id="L156">		}</span>
+
+		@Override
+		public void isValid(FormulaSemantics semantics)
+		{
+			/*
+			 * Since this is direct (already has a reference to the object), it has no
+			 * semantic issues (barring someone violating Generics)
+			 */
+<span class="nc" id="L165">		}</span>
+	}
+
+	/**
+	 * The Modifier that implements ADD for Set objects
+	 */
+	private abstract class AddArrayModifier extends AbstractPCGenModifier&lt;T[]&gt;
+	{
+
+		private final FormatManager&lt;T[]&gt; fmtManager;
+
+		AddArrayModifier(FormatManager&lt;T[]&gt; formatManager)
+<span class="fc" id="L177">		{</span>
+<span class="fc" id="L178">			this.fmtManager = formatManager;</span>
+<span class="fc" id="L179">		}</span>
+
+		@Override
+		public long getPriority()
+		{
+<span class="fc" id="L184">			return ((long) getUserPriority() &lt;&lt; 32) + 3;</span>
+		}
+
+		@Override
+		public T[] process(EvaluationManager evalManager)
+		{
+			@SuppressWarnings(&quot;unchecked&quot;)
+<span class="fc" id="L191">			T[] input = (T[]) evalManager.get(EvaluationManager.INPUT);</span>
+<span class="fc" id="L192">			Set&lt;T&gt; newSet = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L193">			Collections.addAll(newSet, input);</span>
+<span class="fc" id="L194">			Collections.addAll(newSet, getArray());</span>
+<span class="fc" id="L195">			Class&lt;?&gt; component = fmtManager.getManagedClass().getComponentType();</span>
+			@SuppressWarnings(&quot;unchecked&quot;)
+<span class="fc" id="L197">			T[] newArray = (T[]) Array.newInstance(component, newSet.size());</span>
+<span class="fc" id="L198">			return newSet.toArray(newArray);</span>
+		}
+
+		/**
+		 * Returns the array to be added during process().
+		 * 
+		 * @return The array to be added during process()
+		 */
+		protected abstract T[] getArray();
+
+		@Override
+		public FormatManager&lt;T[]&gt; getVariableFormat()
+		{
+<span class="fc" id="L211">			return fmtManager;</span>
+		}
+
+		@Override
+		public String getIdentification()
+		{
+<span class="nc" id="L217">			return AddModifierFactory.this.getIdentification();</span>
+		}
+
+		/**
+		 * Returns the FormatManager for this AddArrayModifier.
+		 * 
+		 * @return The FormatManager for this AddArrayModifier
+		 */
+		FormatManager&lt;T[]&gt; getFormatManager()
+		{
+<span class="nc" id="L227">			return fmtManager;</span>
+		}
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

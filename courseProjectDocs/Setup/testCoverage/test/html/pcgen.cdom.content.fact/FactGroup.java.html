@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FactGroup.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.content.fact</a> &gt; <span class="el_source">FactGroup.java</span></div><h1>FactGroup.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2014 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.cdom.content.fact;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+
+import pcgen.base.util.Indirect;
+import pcgen.base.util.ObjectContainer;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.rules.context.AbstractReferenceContext;
+import pcgen.rules.context.LoadContext;
+
+/**
+ * A FactGroup is an ObjectContainer that contains objects of a specific type
+ * (e.g. Skill) that contain a specific value in a given FACT
+ * 
+ * @param &lt;T&gt;
+ *            The Type of object contained in this FactGroup
+ * @param &lt;F&gt;
+ *            The Type of the Fact being checked in this FactGroup
+ */
+public final class FactGroup&lt;T extends CDOMObject, F&gt; implements ObjectContainer&lt;T&gt;
+{
+
+	/**
+	 * Contains the underlying FactInfo for this FactGroup (identifying the
+	 * &quot;rules of the road&quot;)
+	 */
+	private final FactInfo&lt;T, F&gt; def;
+
+	/**
+	 * The Indirect containing the fact to be matched
+	 */
+	private final Indirect&lt;F&gt; toMatch;
+
+	/**
+	 * The ObjectContainer containing all of the objects of the type of object
+	 * where this FactGroup (and thus the FactInfo) are usable
+	 */
+	private final ObjectContainer&lt;T&gt; allObjects;
+
+	/**
+	 * The cached answers for this FactGroup.
+	 * 
+	 * Note that this cache can exist because these items are facts, and thus
+	 * semantically can't change. There is also the assumption that the global
+	 * list of objects cannot change.
+	 */
+	private List&lt;T&gt; cache;
+
+	/**
+	 * Constructs a new FactGroup from the given context, FactInfo and value.
+	 * 
+	 * @param context
+	 *            The LoadContext used to resolve references
+	 * @param fi
+	 *            The FactInfo indicating the underlying characteristics of the
+	 *            Fact that this FactGroup will check
+	 * @param value
+	 *            The String representation of the value that this FactGroup
+	 *            will be looking for
+	 */
+	public FactGroup(LoadContext context, FactInfo&lt;T, F&gt; fi, String value)
+<span class="nc" id="L82">	{</span>
+<span class="nc bnc" id="L83" title="All 2 branches missed.">		if (fi.getUsableLocation().equals(CDOMObject.class))</span>
+		{
+<span class="nc" id="L85">			throw new IllegalArgumentException(&quot;FactGroup cannot be global&quot;);</span>
+		}
+<span class="nc" id="L87">		def = fi;</span>
+<span class="nc" id="L88">		AbstractReferenceContext refContext = context.getReferenceContext();</span>
+<span class="nc" id="L89">		allObjects = refContext.getCDOMAllReference(def.getUsableLocation());</span>
+<span class="nc" id="L90">		toMatch = def.getFormatManager().convertIndirect(value);</span>
+<span class="nc bnc" id="L91" title="All 2 branches missed.">		if (toMatch == null)</span>
+		{
+<span class="nc" id="L93">			throw new IllegalArgumentException(</span>
+<span class="nc" id="L94">				&quot;Failed to convert &quot; + value + &quot; as a &quot; + def.getFormatManager().getManagedClass().getSimpleName());</span>
+		}
+<span class="nc" id="L96">	}</span>
+
+	@Override
+	public Collection&lt;T&gt; getContainedObjects()
+	{
+<span class="nc bnc" id="L101" title="All 2 branches missed.">		if (cache == null)</span>
+		{
+<span class="nc" id="L103">			List&lt;T&gt; setupCache = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L104" title="All 2 branches missed.">			for (T obj : allObjects.getContainedObjects())</span>
+			{
+<span class="nc bnc" id="L106" title="All 2 branches missed.">				if (contains(obj))</span>
+				{
+<span class="nc" id="L108">					setupCache.add(obj);</span>
+				}
+<span class="nc" id="L110">			}</span>
+<span class="nc" id="L111">			cache = setupCache;</span>
+		}
+<span class="nc" id="L113">		return Collections.unmodifiableCollection(cache);</span>
+	}
+
+	@Override
+	public String getLSTformat(boolean useAny)
+	{
+<span class="nc" id="L119">		return def.getFactName() + &quot;=&quot; + def.getFormatManager().unconvert(toMatch.get());</span>
+	}
+
+	@Override
+	public boolean contains(T obj)
+	{
+<span class="nc" id="L125">		Indirect&lt;?&gt; fact = obj.get(def.getFactKey());</span>
+<span class="nc bnc" id="L126" title="All 4 branches missed.">		return fact != null &amp;&amp; fact.get().equals(toMatch.get());</span>
+	}
+
+	@Override
+	public Class&lt;T&gt; getReferenceClass()
+	{
+<span class="nc" id="L132">		return allObjects.getReferenceClass();</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

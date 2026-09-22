@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>OutputDB.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.output.publish</a> &gt; <span class="el_source">OutputDB.java</span></div><h1>OutputDB.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) Thomas Parker, 2015.
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package pcgen.output.publish;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
+
+import pcgen.base.util.CaseInsensitiveMap;
+import pcgen.base.util.DoubleKeyMap;
+import pcgen.cdom.base.ItemFacet;
+import pcgen.cdom.base.SetFacet;
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.util.CControl;
+import pcgen.core.GameMode;
+import pcgen.output.base.ModeModelFactory;
+import pcgen.output.base.ModelFactory;
+import pcgen.output.factory.ChannelFactory;
+import pcgen.output.factory.ItemModelFactory;
+import pcgen.output.factory.SetModelFactory;
+import pcgen.output.model.BooleanOptionModel;
+
+import freemarker.template.TemplateModel;
+
+/**
+ * OutputDB is the OutputDatabase for building the Map to be provided to
+ * FreeMarker for output.
+ */
+public final class OutputDB
+{
+
+	private OutputDB()
+	{
+		//Utility class should not be constructed
+	}
+
+	/**
+	 * The Map of string names to output models (that are dynamic based on a PC)
+	 */
+<span class="fc" id="L55">	private static final DoubleKeyMap&lt;Object, Object, ModelFactory&gt; outModels =</span>
+			new DoubleKeyMap&lt;&gt;(CaseInsensitiveMap.class, CaseInsensitiveMap.class);
+
+	/**
+	 * The map of string names to models for global items (not PC dependent)
+	 */
+<span class="fc" id="L61">	private static final Map&lt;Object, TemplateModel&gt; globalModels = new CaseInsensitiveMap&lt;&gt;();</span>
+
+	/**
+	 * The Map of string names to output models for the Game Mode
+	 */
+<span class="fc" id="L66">	private static final Map&lt;Object, ModeModelFactory&gt; modeModels = new CaseInsensitiveMap&lt;&gt;();</span>
+
+	/**
+	 * Registers a new ModelFactory to be used in output
+	 * 
+	 * @param name
+	 *            The interpolation for the ModelFactory
+	 * @param modelFactory
+	 *            The ModelFactory to be used to generate the Models when the
+	 *            output Map is built
+	 */
+	public static void registerModelFactory(String name, ModelFactory modelFactory)
+	{
+<span class="fc" id="L79">		Objects.requireNonNull(modelFactory, &quot;Model Factory may not be null&quot;);</span>
+<span class="fc" id="L80">		String[] locationElements = name.split(&quot;\\.&quot;);</span>
+<span class="pc bpc" id="L81" title="1 of 2 branches missed.">		if (locationElements.length == 0)</span>
+		{
+<span class="nc" id="L83">			throw new IllegalArgumentException(&quot;Name may not be null or empty: &quot; + name);</span>
+		}
+<span class="pc bpc" id="L85" title="1 of 2 branches missed.">		if (locationElements.length &gt; 2)</span>
+		{
+<span class="nc" id="L87">			throw new IllegalArgumentException(&quot;Name may only contain zero or one period&quot;);</span>
+		}
+<span class="fc bfc" id="L89" title="All 2 branches covered.">		String secondName = (locationElements.length == 1) ? &quot;&quot; : locationElements[1];</span>
+<span class="fc" id="L90">		ModelFactory old = outModels.put(locationElements[0], secondName, modelFactory);</span>
+<span class="pc bpc" id="L91" title="1 of 2 branches missed.">		if (old != null)</span>
+		{
+<span class="nc" id="L93">			throw new UnsupportedOperationException(&quot;Cannot have two Output Models using the same name: &quot; + name);</span>
+		}
+<span class="fc" id="L95">	}</span>
+
+	/**
+	 * Registers a new ItemFacet with the OutputDatabase using the given name as
+	 * the interpolation for fetching information from the given ItemFacet.
+	 * 
+	 * @param name
+	 *            The name as the interpolation for fetching information from
+	 *            the given ItemFacet during output
+	 * @param facet
+	 *            The ItemFacet to be registered with the given name
+	 */
+	public static void register(String name, ItemFacet&lt;CharID, ?&gt; facet)
+	{
+<span class="fc" id="L109">		registerModelFactory(name, new ItemModelFactory(facet));</span>
+<span class="fc" id="L110">	}</span>
+
+	/**
+	 * Registers a new SetFacet with the OutputDatabase using the given name as
+	 * the interpolation for fetching information from the given SetFacet.
+	 * 
+	 * @param name
+	 *            The name as the interpolation for fetching information from
+	 *            the given SetFacet during output
+	 * @param facet
+	 *            The SetFacet to be registered with the given name
+	 */
+	public static void register(String name, SetFacet&lt;CharID, ?&gt; facet)
+	{
+<span class="fc" id="L124">		registerModelFactory(name, new SetModelFactory(facet));</span>
+<span class="fc" id="L125">	}</span>
+
+	/**
+	 * Registers a new CControl with the OutputDatabase using the given name as the
+	 * interpolation for fetching information from the variable for the given CControl.
+	 * 
+	 * @param name
+	 *            The name as the interpolation for fetching information from the variable
+	 *            for the given CControl during output
+	 * @param control
+	 *            The CControl to be registered with the given name
+	 */
+	public static void register(String name, CControl control)
+	{
+<span class="fc" id="L139">		registerModelFactory(name, new ChannelFactory(control));</span>
+<span class="fc" id="L140">	}</span>
+
+	/**
+	 * Builds the PlayerCharacter data model for the given CharID.
+	 * 
+	 * @param id
+	 *            The CharID for which the data model should be built
+	 * @return A Map of the data model for the PlayerCharacter identified by the
+	 *         given CharID
+	 */
+	public static Map&lt;String, Object&gt; buildDataModel(CharID id)
+	{
+<span class="nc" id="L152">		Map&lt;String, Object&gt; input = new HashMap&lt;&gt;();</span>
+<span class="nc bnc" id="L153" title="All 2 branches missed.">		for (Object k1 : outModels.getKeySet())</span>
+		{
+<span class="nc bnc" id="L155" title="All 2 branches missed.">			for (Object k2 : outModels.getSecondaryKeySet(k1))</span>
+			{
+<span class="nc" id="L157">				ModelFactory modelFactory = outModels.get(k1, k2);</span>
+<span class="nc" id="L158">				TemplateModel model = modelFactory.generate(id);</span>
+<span class="nc" id="L159">				String k1String = k1.toString();</span>
+<span class="nc bnc" id="L160" title="All 2 branches missed.">				if (&quot;&quot;.equals(k2.toString()))</span>
+				{
+<span class="nc" id="L162">					input.put(k1String, model);</span>
+				}
+				else
+				{
+<span class="nc" id="L166">					ensureMap(input, k1String);</span>
+					@SuppressWarnings(&quot;unchecked&quot;)
+<span class="nc" id="L168">					Map&lt;Object, Object&gt; m = (Map&lt;Object, Object&gt;) input.get(k1String);</span>
+<span class="nc" id="L169">					m.put(k2.toString(), model);</span>
+				}
+<span class="nc" id="L171">			}</span>
+<span class="nc" id="L172">		}</span>
+<span class="nc" id="L173">		return input;</span>
+	}
+
+	private static void ensureMap(Map&lt;String, Object&gt; input, String k1String)
+	{
+<span class="nc bnc" id="L178" title="All 2 branches missed.">		if (!input.containsKey(k1String))</span>
+		{
+<span class="nc" id="L180">			input.put(k1String, new HashMap&lt;&gt;());</span>
+		}
+<span class="nc" id="L182">	}</span>
+
+	/**
+	 * Builds the &quot;game mode&quot; data model
+	 * 
+	 * @return Returns a Map containing the &quot;game mode&quot; information
+	 */
+	public static Map&lt;String, Object&gt; buildModeDataModel(GameMode mode)
+	{
+<span class="nc" id="L191">		Map&lt;String, Object&gt; input = new HashMap&lt;&gt;();</span>
+<span class="nc" id="L192">		modeModels.forEach((key, modelFactory) -&gt;</span>
+<span class="nc" id="L193">				input.put(key.toString(), modelFactory.generate(mode)));</span>
+<span class="nc" id="L194">		return input;</span>
+	}
+
+	/**
+	 * Registers a ModeModelFactory under the given name.
+	 * 
+	 * Note that only one ModeModelFactory can be registered under a given (case
+	 * insensitive) name. Additional items registered under the same name will
+	 * cause an UnsupportedOperationException.
+	 * 
+	 * @param name
+	 *            The Name the given ModeModelFactory should be registered under
+	 *            for use as an interpolation under gamemode. in FreeMarker
+	 * @param factory
+	 *            The ModeModelFactory to be registered under the given name
+	 */
+	public static void registerMode(String name, ModeModelFactory factory)
+	{
+<span class="fc" id="L212">		Objects.requireNonNull(factory, &quot;Model Factory may not be null&quot;);</span>
+<span class="fc" id="L213">		int dotLoc = name.indexOf('.');</span>
+<span class="pc bpc" id="L214" title="1 of 2 branches missed.">		if (dotLoc != -1)</span>
+		{
+<span class="nc" id="L216">			throw new IllegalArgumentException(&quot;Name may not contain a dot: &quot; + name);</span>
+		}
+<span class="fc" id="L218">		ModeModelFactory old = modeModels.put(name, factory);</span>
+<span class="pc bpc" id="L219" title="1 of 2 branches missed.">		if (old != null)</span>
+		{
+<span class="nc" id="L221">			throw new UnsupportedOperationException(&quot;Cannot have two Mode Models using the same name: &quot; + name);</span>
+		}
+<span class="fc" id="L223">	}</span>
+
+	/**
+	 * Returns a specific portion of the PlayerCharacter data model for the
+	 * given CharID and selection string.
+	 * 
+	 * @param id
+	 *            The CharID for which the data model should be built
+	 * @param keys
+	 *            A String (or array) of keys identifying the portion of the
+	 *            data model to be built
+	 * @return An Iterable for the portion of the data model identified by the
+	 *         given Strings and the PlayerCharacter identified by the given
+	 *         CharID
+	 */
+	public static Iterable&lt;?&gt; getIterable(CharID id, String... keys)
+	{
+<span class="nc" id="L240">		String k1 = keys[0];</span>
+<span class="nc bnc" id="L241" title="All 2 branches missed.">		String k2 = (keys.length &gt; 1) ? keys[1] : &quot;&quot;;</span>
+<span class="nc" id="L242">		ModelFactory modelFactory = outModels.get(k1, k2);</span>
+<span class="nc bnc" id="L243" title="All 2 branches missed.">		if (modelFactory == null)</span>
+		{
+<span class="nc" id="L245">			return null;</span>
+		}
+<span class="nc" id="L247">		return modelFactory.generate(id);</span>
+	}
+
+	/**
+	 * Returns true if the given interpolation is legal based on the items
+	 * registered with OutputDB.
+	 * 
+	 * @param interpolation
+	 *            The interpolation to be checked to see if it is legal
+	 * @return true if the given interpolation is legal based on the items
+	 *         registered with OutputDB; false otherwise
+	 */
+	public static boolean isLegal(String interpolation)
+	{
+<span class="nc" id="L261">		return outModels.containsKey(interpolation);</span>
+	}
+
+	/**
+	 * Resets the Output Database, to be used when sources are purged/reloaded
+	 * or around testing
+	 */
+	public static void reset()
+	{
+<span class="nc" id="L270">		outModels.clear();</span>
+<span class="nc" id="L271">		globalModels.clear();</span>
+<span class="nc" id="L272">		modeModels.clear();</span>
+<span class="nc" id="L273">	}</span>
+
+	/**
+	 * Returns a map of the global TemplateModel objects (those that do not
+	 * depend on a PC)
+	 * 
+	 * Note that ownership of the returned map is transferred to the calling
+	 * object, no changes to the returned map will impact OutputDB, nor will
+	 * changes to OutputDB impact the returned Map.
+	 * 
+	 * @return a Map of the global TemplateModel objects
+	 */
+	public static Map&lt;Object, TemplateModel&gt; getGlobal()
+	{
+<span class="nc" id="L287">		Map&lt;Object, TemplateModel&gt; map = new CaseInsensitiveMap&lt;&gt;();</span>
+<span class="nc" id="L288">		map.putAll(globalModels);</span>
+<span class="nc" id="L289">		return map;</span>
+	}
+
+	/**
+	 * Registers a new Boolean Preference for inclusion in the global Models.
+	 * 
+	 * @param pref
+	 *            The preference name, as identified in the preference file
+	 * @param defaultValue
+	 *            The default value for the preference if it is not defined
+	 */
+	public static void registerBooleanPreference(String pref, boolean defaultValue)
+	{
+<span class="pc bpc" id="L302" title="2 of 4 branches missed.">		if ((pref == null) || (pref.isEmpty()))</span>
+		{
+<span class="nc" id="L304">			throw new IllegalArgumentException(&quot;Preference Name may not be null or empty: &quot; + pref);</span>
+		}
+<span class="fc" id="L306">		addGlobalModel(pref, new BooleanOptionModel(pref, defaultValue));</span>
+<span class="fc" id="L307">	}</span>
+
+	/**
+	 * Directly adds a new TemplateModel as part of the &quot;Global&quot; Models in
+	 * OutputDB.
+	 * 
+	 * @param name
+	 *            The name to be used when the TemplateModel is referred to in
+	 *            FreeMarker
+	 * @param model
+	 *            The TemplateModel to be added to the global models
+	 */
+	public static void addGlobalModel(String name, TemplateModel model)
+	{
+<span class="fc" id="L321">		TemplateModel old = globalModels.put(name, model);</span>
+<span class="pc bpc" id="L322" title="1 of 2 branches missed.">		if (old != null)</span>
+		{
+<span class="nc" id="L324">			throw new UnsupportedOperationException(</span>
+				&quot;Cannot have two Global Output Models using the same name: &quot; + name);
+		}
+<span class="fc" id="L327">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ObjectContainerPrimitive.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.primitive</a> &gt; <span class="el_source">ObjectContainerPrimitive.java</span></div><h1>ObjectContainerPrimitive.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) 2014-15 Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package pcgen.cdom.primitive;
+
+import java.util.Collection;
+import java.util.Objects;
+
+import pcgen.base.util.ObjectContainer;
+import pcgen.cdom.base.Converter;
+import pcgen.cdom.base.PrimitiveCollection;
+import pcgen.cdom.enumeration.GroupingState;
+import pcgen.core.PlayerCharacter;
+
+/**
+ * An ObjectContainerPrimitive wraps an ObjectContainer to become a
+ * PrimitiveCollection
+ * 
+ * @param &lt;T&gt;
+ *            The Type of object contained in the ObjectContainer and
+ *            PrimitiveCollection
+ */
+public class ObjectContainerPrimitive&lt;T&gt; implements PrimitiveCollection&lt;T&gt;
+{
+
+	/**
+	 * The underlying ObjectContainer
+	 */
+	private ObjectContainer&lt;T&gt; group;
+
+	/**
+	 * Constructs a new ObjectContainerPrimitive wrapping the given
+	 * ObjectContainer
+	 * 
+	 * @param oc
+	 *            The ObjectContainer that is underlying this
+	 *            ObjectContainerPrimitive
+	 */
+	public ObjectContainerPrimitive(ObjectContainer&lt;T&gt; oc)
+<span class="nc" id="L54">	{</span>
+<span class="nc" id="L55">		Objects.requireNonNull(oc, &quot;ObjectContainer cannot be null&quot;);</span>
+<span class="nc" id="L56">		group = oc;</span>
+<span class="nc" id="L57">	}</span>
+
+	@Override
+	public &lt;R&gt; Collection&lt;? extends R&gt; getCollection(PlayerCharacter pc, Converter&lt;T, R&gt; c)
+	{
+<span class="nc" id="L62">		return c.convert(group);</span>
+	}
+
+	@Override
+	public Class&lt;? super T&gt; getReferenceClass()
+	{
+<span class="nc" id="L68">		return group.getReferenceClass();</span>
+	}
+
+	/**
+	 * Returns the GroupingState for this CompoundAndChoiceSet. The
+	 * GroupingState indicates how this CompoundAndChoiceSet can be combined
+	 * with other PrimitiveChoiceSets.
+	 * 
+	 * @return The GroupingState for this CompoundAndChoiceSet.
+	 */
+	@Override
+	public GroupingState getGroupingState()
+	{
+<span class="nc" id="L81">		return GroupingState.ANY;</span>
+	}
+
+	/**
+	 * Returns a representation of this CompoundAndChoiceSet, suitable for
+	 * storing in an LST file.
+	 * 
+	 * @return A representation of this CompoundAndChoiceSet, suitable for
+	 *         storing in an LST file.
+	 */
+	@Override
+	public String getLSTformat(boolean useAny)
+	{
+<span class="nc" id="L94">		return group.getLSTformat(useAny);</span>
+	}
+
+	@Override
+	public int hashCode()
+	{
+<span class="nc" id="L100">		return group.hashCode() - 1;</span>
+	}
+
+	@Override
+	public boolean equals(Object obj)
+	{
+<span class="nc bnc" id="L106" title="All 4 branches missed.">		return (obj instanceof ObjectContainerPrimitive) &amp;&amp; ((ObjectContainerPrimitive&lt;?&gt;) obj).group.equals(group);</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AvailableSpellFacet.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.facet</a> &gt; <span class="el_source">AvailableSpellFacet.java</span></div><h1>AvailableSpellFacet.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) Thomas Parker, 2010.
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package pcgen.cdom.facet;
+
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import pcgen.base.util.HashMapToList;
+import pcgen.cdom.base.CDOMList;
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.base.AbstractSubScopeFacet;
+import pcgen.cdom.list.ClassSpellList;
+import pcgen.cdom.list.DomainSpellList;
+import pcgen.core.spell.Spell;
+import pcgen.util.Logging;
+
+/**
+ * AvailableSpellFacet is a Facet that tracks the Available Spells (and target
+ * objects) that are contained in a Player Character.
+ * 
+ */
+<span class="fc" id="L38">public class AvailableSpellFacet extends AbstractSubScopeFacet&lt;CDOMList&lt;Spell&gt;, Integer, Spell&gt;</span>
+{
+
+	/**
+	 * Returns a non-null HashMapToList indicating the spell levels and sources
+	 * of those spell levels available to a Player Character for a given Spell.
+	 * 
+	 * This may return multiple spell levels because it is possible for a spell
+	 * to be accessible to a Player Character at multiple levels since it may be
+	 * available from multiple sources. This also returns the spell lists
+	 * associated with the given level, since it is possible for a multi-class
+	 * character to have access to the same spell at different levels. By
+	 * returning the source as well as the spell levels, such scenarios can be
+	 * appropriately distinguished.
+	 * 
+	 * This method is value-semantic in that ownership of the returned
+	 * HashMapToList is transferred to the class calling this method.
+	 * Modification of the returned HashMapToList will not modify this
+	 * AvailableSpellFacet and modification of this AvailableSpellFacet will not
+	 * modify the returned HashMapToList. Modifications to the returned
+	 * HashMapToList will also not modify any future or previous objects
+	 * returned by this (or other) methods on AvailableSpellFacet. If you wish
+	 * to modify the information stored in this AvailableSpellFacet, you must
+	 * use the add*() and remove*() methods of AvailableSpellFacet.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character for which the
+	 *            spell levels should be returned
+	 * @param sp
+	 *            The Spell for which the spell levels should be returned
+	 * @return A non-null HashMapToList indicating the spell levels and sources
+	 *         of those spell levels available to a Player Character for a given
+	 *         Spell.
+	 */
+	public HashMapToList&lt;CDOMList&lt;Spell&gt;, Integer&gt; getSpellLevelInfo(CharID id, Spell sp)
+	{
+<span class="nc" id="L74">		HashMapToList&lt;CDOMList&lt;Spell&gt;, Integer&gt; levelInfo = new HashMapToList&lt;&gt;();</span>
+<span class="nc" id="L75">		Map&lt;CDOMList&lt;Spell&gt;, Map&lt;Integer, Map&lt;Spell, Set&lt;Object&gt;&gt;&gt;&gt; listMap =</span>
+<span class="nc" id="L76">				(Map&lt;CDOMList&lt;Spell&gt;, Map&lt;Integer, Map&lt;Spell, Set&lt;Object&gt;&gt;&gt;&gt;) getCache(id);</span>
+<span class="nc bnc" id="L77" title="All 2 branches missed.">		if (listMap == null)</span>
+		{
+<span class="nc" id="L79">			return levelInfo;</span>
+		}
+<span class="nc bnc" id="L81" title="All 2 branches missed.">		for (Entry&lt;CDOMList&lt;Spell&gt;, Map&lt;Integer, Map&lt;Spell, Set&lt;Object&gt;&gt;&gt;&gt; me : listMap.entrySet())</span>
+		{
+<span class="nc" id="L83">			CDOMList&lt;Spell&gt; list = me.getKey();</span>
+			//Check to ensure we don't use SPELLS:
+<span class="nc bnc" id="L85" title="All 4 branches missed.">			if (!(list instanceof ClassSpellList) &amp;&amp; !(list instanceof DomainSpellList))</span>
+			{
+<span class="nc" id="L87">				continue;</span>
+			}
+<span class="nc" id="L89">			Map&lt;Integer, Map&lt;Spell, Set&lt;Object&gt;&gt;&gt; levelMap = me.getValue();</span>
+<span class="nc bnc" id="L90" title="All 2 branches missed.">			for (Map.Entry&lt;Integer, Map&lt;Spell, Set&lt;Object&gt;&gt;&gt; lme : levelMap.entrySet())</span>
+			{
+<span class="nc" id="L92">				Integer level = lme.getKey();</span>
+<span class="nc" id="L93">				Map&lt;Spell, Set&lt;Object&gt;&gt; spellMap = lme.getValue();</span>
+<span class="nc bnc" id="L94" title="All 2 branches missed.">				if (spellMap.containsKey(sp))</span>
+				{
+<span class="nc" id="L96">					levelInfo.addToListFor(list, level);</span>
+				}
+				else
+				{
+<span class="nc bnc" id="L100" title="All 2 branches missed.">					for (Spell spell : spellMap.keySet())</span>
+					{
+<span class="nc bnc" id="L102" title="All 2 branches missed.">						if (spell.getKeyName().equals(sp.getKeyName()))</span>
+						{
+<span class="nc bnc" id="L104" title="All 2 branches missed.">							if (Logging.isLoggable(Logging.INFO))</span>
+							{
+<span class="nc" id="L106">								Logging.log(Logging.INFO, &quot;Found alternate spell of same key: &quot; + spell + &quot; from &quot;</span>
+<span class="nc" id="L107">									+ spell.getSource() + &quot; rather than &quot; + sp.getSource());</span>
+							}
+<span class="nc" id="L109">							levelInfo.addToListFor(list, level);</span>
+						}
+<span class="nc" id="L111">					}</span>
+				}
+<span class="nc" id="L113">			}</span>
+<span class="nc" id="L114">		}</span>
+<span class="nc" id="L115">		return levelInfo;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

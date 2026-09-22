@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CDOMObjectConsolidationFacet.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.facet</a> &gt; <span class="el_source">CDOMObjectConsolidationFacet.java</span></div><h1>CDOMObjectConsolidationFacet.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) Thomas Parker, 2010.
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package pcgen.cdom.facet;
+
+import java.util.Set;
+
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.event.DataFacetChangeEvent;
+import pcgen.cdom.facet.event.DataFacetChangeListener;
+
+/**
+ * CDOMObjectConsolidationFacet consolidates all of the CDOMObjects that are
+ * added to a Player Character. By consolidating all of the CDOMObjects into one
+ * location, behaviors which are consistent across all CDOMObjects can be
+ * performed based on events from a single source Facet.
+ * 
+ * Note: If you attempt to use this class and receive an error that you have
+ * created a cycle in the Spring graph of objects, you may use
+ * CDOMObjectSourceFacet as the source of events instead of this Facet. This
+ * will cause the receiving object to receive the same events, but will not
+ * cause a cycle. This is possible because the underlying data store for the two
+ * facets is the same.
+ * 
+ * @see pcgen.cdom.facet.CDOMObjectSourceFacet
+ * @see pcgen.cdom.facet.CDOMObjectBridge
+ * 
+ */
+<span class="fc" id="L44">public class CDOMObjectConsolidationFacet implements DataFacetChangeListener&lt;CharID, CDOMObject&gt;</span>
+{
+	private CDOMObjectBridge bridgeFacet;
+
+	public void setBridgeFacet(CDOMObjectBridge bridge)
+	{
+<span class="fc" id="L50">		bridgeFacet = bridge;</span>
+<span class="fc" id="L51">	}</span>
+
+	/**
+	 * Add the given object with the given source to the list of objects stored
+	 * in this CDOMObjectConsolidationFacet for the Player Character represented
+	 * by the given CharID.
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which the
+	 *            given item should be added
+	 * @param obj
+	 *            The object to be added to the list of objects stored in this
+	 *            CDOMObjectConsolidationFacet for the Player Character
+	 *            represented by the given CharID
+	 * @param source
+	 *            The source for the given object
+	 */
+	public void add(CharID id, CDOMObject obj, Object source)
+	{
+<span class="fc" id="L70">		bridgeFacet.add(id, obj, source);</span>
+<span class="fc" id="L71">	}</span>
+
+	/**
+	 * Removes the given source entry from the list of sources for the given
+	 * object stored in this CDOMObjectConsolidationFacet for the Player
+	 * Character represented by the given CharID. If the given source was the
+	 * only source for the given object, then the object is removed from the
+	 * list of objects stored in this CDOMObjectConsolidationFacet for the
+	 * Player Character represented by the given CharID.
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character from which the
+	 *            given item source should be removed
+	 * @param obj
+	 *            The object for which the source should be removed
+	 * @param source
+	 *            The source for the given object to be removed from the list of
+	 *            sources
+	 */
+	public void remove(CharID id, CDOMObject obj, Object source)
+	{
+<span class="fc" id="L92">		bridgeFacet.remove(id, obj, source);</span>
+<span class="fc" id="L93">	}</span>
+
+	/**
+	 * Adds a new DataFacetChangeListener to receive DataFacetChangeEvents
+	 * (EdgeChangeEvent and NodeChangeEvent) from CDOMObjectConsolidationFacet.
+	 * The given DataFacetChangeListener is added at the default priority
+	 * (zero).
+	 * 
+	 * Note that the DataFacetChangeListeners are a list, meaning a given
+	 * DataFacetChangeListener can be added more than once at a given priority,
+	 * and if that occurs, it must be removed an equivalent number of times in
+	 * order to no longer receive events from this CDOMObjectConsolidationFacet.
+	 * 
+	 * @param listener
+	 *            The DataFacetChangeListener to receive DataFacetChangeEvents
+	 *            from this CDOMObjectConsolidationFacet
+	 */
+	public void addDataFacetChangeListener(DataFacetChangeListener&lt;CharID, ? super CDOMObject&gt; listener)
+	{
+<span class="fc" id="L112">		bridgeFacet.addDataFacetChangeListener(listener);</span>
+<span class="fc" id="L113">	}</span>
+
+	/**
+	 * Detects the addition of a CDOMObject to a Player Character and adds the
+	 * CDOMObject to the list of CDOMObjects stored in this
+	 * CDOMObjectConsolidationFacet for the Player Character identified by the
+	 * CharID in the DataFacetChangeEvent.
+	 * 
+	 * Triggered when one of the Facets to which CDOMObjectConsolidationFacet
+	 * listens fires a DataFacetChangeEvent to indicate a CDOMObject was added
+	 * to a Player Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 */
+	@Override
+	public void dataAdded(DataFacetChangeEvent&lt;CharID, CDOMObject&gt; dfce)
+	{
+<span class="fc" id="L132">		CDOMObject cdo = dfce.getCDOMObject();</span>
+<span class="fc" id="L133">		add(dfce.getCharID(), cdo, dfce.getSource());</span>
+<span class="fc" id="L134">	}</span>
+
+	/**
+	 * Detects the removal of a CDOMObject to a Player Character and removes the
+	 * CDOMObject to the list of CDOMObjects stored in this
+	 * CDOMObjectConsolidationFacet for the Player Character identified by the
+	 * CharID in the DataFacetChangeEvent.
+	 * 
+	 * Triggered when one of the Facets to which CDOMObjectConsolidationFacet
+	 * listens fires a DataFacetChangeEvent to indicate a CDOMObject was removed
+	 * from a Player Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 */
+	@Override
+	public void dataRemoved(DataFacetChangeEvent&lt;CharID, CDOMObject&gt; dfce)
+	{
+<span class="fc" id="L153">		CDOMObject cdo = dfce.getCDOMObject();</span>
+<span class="fc" id="L154">		remove(dfce.getCharID(), cdo, dfce.getSource());</span>
+<span class="fc" id="L155">	}</span>
+
+	/**
+	 * Returns the Set of objects contained in this
+	 * CDOMObjectConsolidationFacet.
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which the
+	 *            given items in this CDOMObjectConsolidationFacet should be
+	 *            returned
+	 * @return the Set of objects contained in this CDOMObjectConsolidationFacet
+	 */
+	public Set&lt;CDOMObject&gt; getSet(CharID id)
+	{
+<span class="nc" id="L169">		return bridgeFacet.getSet(id);</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

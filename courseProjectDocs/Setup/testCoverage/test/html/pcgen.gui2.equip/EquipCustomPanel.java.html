@@ -1,0 +1,757 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>EquipCustomPanel.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.gui2.equip</a> &gt; <span class="el_source">EquipCustomPanel.java</span></div><h1>EquipCustomPanel.java</h1><pre class="source lang-java linenums">/*
+ * Copyright James Dempsey, 2013
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.gui2.equip;
+
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.EnumMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.swing.AbstractAction;
+import javax.swing.BorderFactory;
+import javax.swing.Box;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+
+import pcgen.cdom.base.Constants;
+import pcgen.core.EquipmentModifier;
+import pcgen.core.SizeAdjustment;
+import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.core.EquipmentBuilderFacade;
+import pcgen.facade.core.EquipmentBuilderFacade.EquipmentHead;
+import pcgen.facade.core.EquipmentFacade;
+import pcgen.facade.util.DefaultListFacade;
+import pcgen.facade.util.DefaultReferenceFacade;
+import pcgen.facade.util.ListFacade;
+import pcgen.facade.util.event.ListEvent;
+import pcgen.facade.util.event.ListListener;
+import pcgen.facade.util.event.ReferenceEvent;
+import pcgen.gui2.filter.Filter;
+import pcgen.gui2.filter.FilterBar;
+import pcgen.gui2.filter.FilteredListFacade;
+import pcgen.gui2.filter.FilteredTreeViewTable;
+import pcgen.gui2.filter.SearchFilterPanel;
+import pcgen.gui2.tabs.models.CharacterComboBoxModel;
+import pcgen.gui2.tools.FlippingSplitPane;
+import pcgen.gui2.tools.Icons;
+import pcgen.gui2.tools.InfoPane;
+import pcgen.gui2.util.FontManipulation;
+import pcgen.gui2.util.TreeColumnCellRenderer;
+import pcgen.gui2.util.treeview.DataView;
+import pcgen.gui2.util.treeview.DataViewColumn;
+import pcgen.gui2.util.treeview.DefaultDataViewColumn;
+import pcgen.gui2.util.treeview.TreeView;
+import pcgen.gui2.util.treeview.TreeViewModel;
+import pcgen.gui2.util.treeview.TreeViewPath;
+import pcgen.system.LanguageBundle;
+
+/**
+ * The Class {@code EquipCustomPanel} displays an available/selected table
+ * pair to allow the creation of a custom piece of equipment..
+ *
+ *
+ */
+public final class EquipCustomPanel extends FlippingSplitPane
+{
+
+	private final FilteredTreeViewTable&lt;Object, EquipmentModifier&gt; availableTable;
+	private final FilteredTreeViewTable&lt;Object, EquipmentModifier&gt; selectedTable;
+	private final JButton nameButton;
+	private final JButton spropButton;
+	private final JButton costButton;
+	private final JButton weightButton;
+	private final JButton damageButton;
+	private final JComboBox&lt;EquipmentHead&gt; headCombo;
+	private final JComboBox&lt;SizeAdjustment&gt; sizeCombo;
+	private final JButton addButton;
+	private final JButton removeButton;
+	private final InfoPane equipModInfoPane;
+	private final InfoPane equipInfoPane;
+	private final CharacterFacade character;
+	private final TreeColumnCellRenderer renderer;
+	private final NameAction nameAction;
+	private final SPropAction spropAction;
+	private final CostAction costAction;
+	private final WeightAction weightAction;
+	private final DamageAction damageAction;
+	private final AddEqmodAction addAction;
+	private final RemoveEqmodAction removeAction;
+	private final EquipmentBuilderFacade builder;
+	private EquipInfoHandler equipInfoHandler;
+
+	private final ListFacade&lt;EquipmentHead&gt; validHeads;
+	private HeadBoxModel headBoxModel;
+	private SizeBoxModel sizeBoxModel;
+<span class="nc" id="L112">	private EquipmentHead currentHead = EquipmentHead.PRIMARY;</span>
+	private Map&lt;EquipmentHead, EquipModTreeViewModel&gt; availEqmodModelMap;
+	private Map&lt;EquipmentHead, EquipModTreeViewModel&gt; selectedEqmodModelMap;
+
+	/**
+	 * Create a new instance of EquipCustomPanel for a character.
+	 * @param character The character being displayed.
+	 * @param builder The equipment builder to be used for creating the item.
+	 */
+	public EquipCustomPanel(CharacterFacade character, EquipmentBuilderFacade builder)
+<span class="nc" id="L122">	{</span>
+<span class="nc" id="L123">		this.character = character;</span>
+<span class="nc" id="L124">		this.builder = builder;</span>
+<span class="nc" id="L125">		validHeads = new DefaultListFacade&lt;&gt;(builder.getEquipmentHeads());</span>
+
+<span class="nc" id="L127">		this.availableTable = new FilteredTreeViewTable&lt;&gt;();</span>
+<span class="nc" id="L128">		this.selectedTable = new FilteredTreeViewTable&lt;&gt;();</span>
+<span class="nc" id="L129">		this.nameButton = new JButton();</span>
+<span class="nc" id="L130">		this.spropButton = new JButton();</span>
+<span class="nc" id="L131">		this.costButton = new JButton();</span>
+<span class="nc" id="L132">		this.weightButton = new JButton();</span>
+<span class="nc" id="L133">		this.damageButton = new JButton();</span>
+<span class="nc" id="L134">		this.headCombo = new JComboBox&lt;&gt;();</span>
+<span class="nc" id="L135">		this.sizeCombo = new JComboBox&lt;&gt;();</span>
+<span class="nc" id="L136">		this.addButton = new JButton();</span>
+<span class="nc" id="L137">		this.removeButton = new JButton();</span>
+<span class="nc" id="L138">		this.equipModInfoPane = new InfoPane(LanguageBundle.getString(&quot;in_igEqModInfo&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L139">		this.equipInfoPane = new InfoPane(LanguageBundle.getString(&quot;in_igEqInfo&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L140">		this.renderer = new EquipQualifiedTreeCellRenderer(character, builder.getEquipment());</span>
+
+<span class="nc" id="L142">		this.nameAction = new NameAction();</span>
+<span class="nc" id="L143">		this.spropAction = new SPropAction();</span>
+<span class="nc" id="L144">		this.costAction = new CostAction();</span>
+<span class="nc" id="L145">		this.weightAction = new WeightAction();</span>
+<span class="nc" id="L146">		this.damageAction = new DamageAction();</span>
+<span class="nc" id="L147">		this.addAction = new AddEqmodAction();</span>
+<span class="nc" id="L148">		this.removeAction = new RemoveEqmodAction();</span>
+
+<span class="nc" id="L150">		initHeadMaps();</span>
+<span class="nc" id="L151">		initComponents();</span>
+<span class="nc" id="L152">		initDefaults();</span>
+<span class="nc" id="L153">	}</span>
+
+	/**
+	 * Setup any data related to multiple equipment heads.
+	 */
+	private void initHeadMaps()
+	{
+<span class="nc" id="L160">		availEqmodModelMap = new EnumMap&lt;&gt;(EquipmentBuilderFacade.EquipmentHead.class);</span>
+<span class="nc" id="L161">		selectedEqmodModelMap = new EnumMap&lt;&gt;(EquipmentBuilderFacade.EquipmentHead.class);</span>
+
+<span class="nc bnc" id="L163" title="All 2 branches missed.">		for (EquipmentHead head : validHeads)</span>
+		{
+<span class="nc" id="L165">			availEqmodModelMap.put(head, new EquipModTreeViewModel(builder, head, true));</span>
+<span class="nc" id="L166">			selectedEqmodModelMap.put(head, new EquipModTreeViewModel(builder, head, false));</span>
+<span class="nc" id="L167">		}</span>
+<span class="nc" id="L168">	}</span>
+
+	private void initComponents()
+	{
+<span class="nc" id="L172">		JPanel upperPanel = new JPanel(new BorderLayout());</span>
+<span class="nc" id="L173">		setTopComponent(upperPanel);</span>
+<span class="nc" id="L174">		setOrientation(VERTICAL_SPLIT);</span>
+
+<span class="nc" id="L176">		Box bannerBox = Box.createHorizontalBox();</span>
+<span class="nc" id="L177">		bannerBox.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));</span>
+<span class="nc" id="L178">		bannerBox.add(Box.createHorizontalGlue());</span>
+<span class="nc" id="L179">		JLabel baseItemLabel = new JLabel(LanguageBundle.getString(&quot;in_EqBuilder_BaseItem&quot;));</span>
+<span class="nc" id="L180">		FontManipulation.large(baseItemLabel);</span>
+<span class="nc" id="L181">		bannerBox.add(baseItemLabel);</span>
+<span class="nc" id="L182">		bannerBox.add(Box.createHorizontalStrut(5));</span>
+<span class="nc" id="L183">		JLabel baseItemName = new JLabel(builder.getBaseItemName());</span>
+<span class="nc" id="L184">		FontManipulation.large(baseItemName);</span>
+<span class="nc" id="L185">		FontManipulation.title(baseItemName);</span>
+<span class="nc" id="L186">		bannerBox.add(baseItemName);</span>
+<span class="nc bnc" id="L187" title="All 2 branches missed.">		if (validHeads.getSize() &gt; 1)</span>
+		{
+<span class="nc" id="L189">			bannerBox.add(Box.createHorizontalStrut(45));</span>
+<span class="nc" id="L190">			JLabel headLabel = new JLabel(LanguageBundle.getString(&quot;in_EqBuilder_Head&quot;));</span>
+<span class="nc" id="L191">			FontManipulation.large(headLabel);</span>
+<span class="nc" id="L192">			bannerBox.add(headLabel);</span>
+<span class="nc" id="L193">			bannerBox.add(Box.createHorizontalStrut(5));</span>
+<span class="nc" id="L194">			Dimension prefDim = headCombo.getPreferredSize();</span>
+<span class="nc" id="L195">			prefDim.width += 15;</span>
+<span class="nc" id="L196">			headCombo.setMaximumSize(prefDim);</span>
+<span class="nc" id="L197">			bannerBox.add(headCombo);</span>
+		}
+<span class="nc" id="L199">		bannerBox.add(Box.createHorizontalGlue());</span>
+<span class="nc" id="L200">		upperPanel.add(bannerBox, BorderLayout.NORTH);</span>
+
+<span class="nc" id="L202">		FlippingSplitPane topPane = new FlippingSplitPane();</span>
+<span class="nc" id="L203">		upperPanel.add(topPane, BorderLayout.CENTER);</span>
+
+<span class="nc" id="L205">		JPanel availPanel = new JPanel(new BorderLayout());</span>
+<span class="nc" id="L206">		FilterBar&lt;Object, EquipmentModifier&gt; bar = new FilterBar&lt;&gt;();</span>
+<span class="nc" id="L207">		bar.addDisplayableFilter(new SearchFilterPanel());</span>
+<span class="nc" id="L208">		availPanel.add(bar, BorderLayout.NORTH);</span>
+
+<span class="nc" id="L210">		availableTable.setDisplayableFilter(bar);</span>
+<span class="nc" id="L211">		availableTable.setTreeViewModel(availEqmodModelMap.get(currentHead));</span>
+<span class="nc" id="L212">		availableTable.setTreeCellRenderer(renderer);</span>
+
+<span class="nc" id="L214">		availPanel.add(new JScrollPane(availableTable), BorderLayout.CENTER);</span>
+
+<span class="nc" id="L216">		Box box = Box.createHorizontalBox();</span>
+<span class="nc" id="L217">		box.add(Box.createHorizontalGlue());</span>
+<span class="nc" id="L218">		addButton.setHorizontalTextPosition(SwingConstants.LEADING);</span>
+<span class="nc" id="L219">		addButton.setAction(addAction);</span>
+<span class="nc" id="L220">		box.add(addButton);</span>
+<span class="nc" id="L221">		box.add(Box.createHorizontalStrut(5));</span>
+<span class="nc" id="L222">		box.setBorder(new EmptyBorder(0, 0, 5, 0));</span>
+<span class="nc" id="L223">		availPanel.add(box, BorderLayout.SOUTH);</span>
+
+<span class="nc" id="L225">		topPane.setLeftComponent(availPanel);</span>
+
+<span class="nc" id="L227">		JPanel selPanel = new JPanel(new BorderLayout());</span>
+
+<span class="nc" id="L229">		Box equipButtonBox = Box.createHorizontalBox();</span>
+<span class="nc" id="L230">		equipButtonBox.add(Box.createHorizontalGlue());</span>
+<span class="nc" id="L231">		nameButton.setHorizontalTextPosition(SwingConstants.LEADING);</span>
+<span class="nc" id="L232">		nameButton.setAction(nameAction);</span>
+<span class="nc" id="L233">		equipButtonBox.add(nameButton);</span>
+<span class="nc" id="L234">		equipButtonBox.add(Box.createHorizontalStrut(5));</span>
+<span class="nc" id="L235">		spropButton.setHorizontalTextPosition(SwingConstants.LEADING);</span>
+<span class="nc" id="L236">		spropButton.setAction(spropAction);</span>
+<span class="nc" id="L237">		equipButtonBox.add(spropButton);</span>
+<span class="nc" id="L238">		equipButtonBox.add(Box.createHorizontalStrut(5));</span>
+<span class="nc" id="L239">		costButton.setHorizontalTextPosition(SwingConstants.LEADING);</span>
+<span class="nc" id="L240">		costButton.setAction(costAction);</span>
+<span class="nc" id="L241">		equipButtonBox.add(costButton);</span>
+<span class="nc" id="L242">		equipButtonBox.add(Box.createHorizontalStrut(5));</span>
+<span class="nc" id="L243">		weightButton.setHorizontalTextPosition(SwingConstants.LEADING);</span>
+<span class="nc" id="L244">		weightButton.setAction(weightAction);</span>
+<span class="nc" id="L245">		equipButtonBox.add(weightButton);</span>
+<span class="nc bnc" id="L246" title="All 2 branches missed.">		if (builder.isWeapon())</span>
+		{
+<span class="nc" id="L248">			equipButtonBox.add(Box.createHorizontalStrut(5));</span>
+<span class="nc" id="L249">			damageButton.setHorizontalTextPosition(SwingConstants.LEADING);</span>
+<span class="nc" id="L250">			damageButton.setAction(damageAction);</span>
+<span class="nc" id="L251">			equipButtonBox.add(damageButton);</span>
+		}
+		// Only show size if it can be used
+<span class="nc bnc" id="L254" title="All 2 branches missed.">		if (builder.isResizable())</span>
+		{
+<span class="nc" id="L256">			JPanel sizePanel = new JPanel();</span>
+<span class="nc" id="L257">			JLabel sizeLabel = new JLabel(LanguageBundle.getString(&quot;in_EqBuilder_Size&quot;));</span>
+<span class="nc" id="L258">			sizePanel.add(sizeLabel);</span>
+<span class="nc" id="L259">			sizePanel.add(sizeCombo);</span>
+<span class="nc" id="L260">			equipButtonBox.add(Box.createHorizontalStrut(5));</span>
+<span class="nc" id="L261">			equipButtonBox.add(sizePanel);</span>
+		}
+<span class="nc" id="L263">		equipButtonBox.add(Box.createHorizontalGlue());</span>
+<span class="nc" id="L264">		equipButtonBox.setBorder(new EmptyBorder(5, 0, 0, 0));</span>
+<span class="nc" id="L265">		selPanel.add(equipButtonBox, BorderLayout.NORTH);</span>
+
+<span class="nc" id="L267">		selectedTable.setTreeViewModel(selectedEqmodModelMap.get(currentHead));</span>
+<span class="nc" id="L268">		selectedTable.setTreeCellRenderer(renderer);</span>
+<span class="nc" id="L269">		selPanel.add(new JScrollPane(selectedTable), BorderLayout.CENTER);</span>
+
+<span class="nc" id="L271">		box = Box.createHorizontalBox();</span>
+<span class="nc" id="L272">		removeButton.setHorizontalTextPosition(SwingConstants.TRAILING);</span>
+<span class="nc" id="L273">		removeButton.setAction(removeAction);</span>
+<span class="nc" id="L274">		box.add(Box.createHorizontalStrut(5));</span>
+<span class="nc" id="L275">		box.add(removeButton);</span>
+<span class="nc" id="L276">		box.add(Box.createHorizontalGlue());</span>
+<span class="nc" id="L277">		box.setBorder(new EmptyBorder(0, 0, 5, 0));</span>
+<span class="nc" id="L278">		selPanel.add(box, BorderLayout.SOUTH);</span>
+
+<span class="nc" id="L280">		topPane.setRightComponent(selPanel);</span>
+<span class="nc" id="L281">		FlippingSplitPane bottomPane = new FlippingSplitPane();</span>
+<span class="nc" id="L282">		bottomPane.setLeftComponent(equipModInfoPane);</span>
+<span class="nc" id="L283">		bottomPane.setRightComponent(equipInfoPane);</span>
+<span class="nc" id="L284">		setBottomComponent(bottomPane);</span>
+<span class="nc" id="L285">		setResizeWeight(0.75);</span>
+<span class="nc" id="L286">	}</span>
+
+	private void initDefaults()
+	{
+<span class="nc" id="L290">		equipInfoHandler = new EquipInfoHandler(character, builder);</span>
+<span class="nc" id="L291">		selectedTable.getSelectionModel().addListSelectionListener(equipInfoHandler);</span>
+
+<span class="nc" id="L293">		EquipModInfoHandler eqModInfoHandler = new EquipModInfoHandler(character, builder);</span>
+<span class="nc" id="L294">		availableTable.getSelectionModel().addListSelectionListener(eqModInfoHandler);</span>
+<span class="nc" id="L295">		selectedTable.getSelectionModel().addListSelectionListener(eqModInfoHandler);</span>
+
+<span class="nc" id="L297">		availableTable.addActionListener(addAction);</span>
+<span class="nc" id="L298">		sizeBoxModel = new SizeBoxModel();</span>
+<span class="nc" id="L299">		sizeCombo.setModel(sizeBoxModel);</span>
+<span class="nc" id="L300">		headBoxModel = new HeadBoxModel();</span>
+<span class="nc" id="L301">		headCombo.setModel(headBoxModel);</span>
+<span class="nc" id="L302">	}</span>
+
+	private class EquipInfoHandler implements ListSelectionListener
+	{
+
+		private final CharacterFacade character;
+		private final EquipmentBuilderFacade builder2;
+
+		EquipInfoHandler(CharacterFacade character, EquipmentBuilderFacade builder)
+<span class="nc" id="L311">		{</span>
+<span class="nc" id="L312">			this.character = character;</span>
+<span class="nc" id="L313">			builder2 = builder;</span>
+<span class="nc" id="L314">			refreshInfo();</span>
+<span class="nc" id="L315">		}</span>
+
+		private void refreshInfo()
+		{
+<span class="nc" id="L319">			EquipmentFacade equip = builder2.getEquipment();</span>
+<span class="nc" id="L320">			equipInfoPane.setText(character.getInfoFactory().getHTMLInfo(equip));</span>
+<span class="nc" id="L321">		}</span>
+
+		@Override
+		public void valueChanged(ListSelectionEvent e)
+		{
+<span class="nc bnc" id="L326" title="All 2 branches missed.">			if (!e.getValueIsAdjusting())</span>
+			{
+<span class="nc" id="L328">				refreshInfo();</span>
+			}
+<span class="nc" id="L330">		}</span>
+
+	}
+
+	private class EquipModInfoHandler implements ListSelectionListener
+	{
+
+		private final CharacterFacade character;
+		private final EquipmentBuilderFacade builder;
+		private EquipmentModifier currObj;
+
+		EquipModInfoHandler(CharacterFacade character, EquipmentBuilderFacade builder)
+<span class="nc" id="L342">		{</span>
+<span class="nc" id="L343">			this.character = character;</span>
+<span class="nc" id="L344">			this.builder = builder;</span>
+<span class="nc" id="L345">		}</span>
+
+		@Override
+		public void valueChanged(ListSelectionEvent e)
+		{
+<span class="nc bnc" id="L350" title="All 2 branches missed.">			if (!e.getValueIsAdjusting())</span>
+			{
+<span class="nc" id="L352">				Object obj = null;</span>
+<span class="nc bnc" id="L353" title="All 2 branches missed.">				if (e.getSource() == availableTable.getSelectionModel())</span>
+				{
+<span class="nc" id="L355">					int selectedRow = availableTable.getSelectedRow();</span>
+<span class="nc bnc" id="L356" title="All 2 branches missed.">					if (selectedRow != -1)</span>
+					{
+<span class="nc" id="L358">						obj = availableTable.getModel().getValueAt(selectedRow, 0);</span>
+					}
+<span class="nc" id="L360">				}</span>
+				else
+				{
+<span class="nc" id="L363">					int selectedRow = selectedTable.getSelectedRow();</span>
+<span class="nc bnc" id="L364" title="All 2 branches missed.">					if (selectedRow != -1)</span>
+					{
+<span class="nc" id="L366">						obj = selectedTable.getModel().getValueAt(selectedRow, 0);</span>
+					}
+				}
+<span class="nc bnc" id="L369" title="All 4 branches missed.">				if (obj instanceof EquipmentModifier &amp;&amp; obj != currObj)</span>
+				{
+<span class="nc" id="L371">					currObj = (EquipmentModifier) obj;</span>
+<span class="nc" id="L372">					equipModInfoPane</span>
+<span class="nc" id="L373">						.setText(character.getInfoFactory().getHTMLInfo((EquipmentModifier) obj, builder.getEquipment()));</span>
+				}
+			}
+<span class="nc" id="L376">		}</span>
+
+	}
+
+	private class AddEqmodAction extends AbstractAction
+	{
+		AddEqmodAction()
+<span class="nc" id="L383">		{</span>
+<span class="nc" id="L384">			super(LanguageBundle.getString(&quot;in_eqCust_AddPrimary&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L385">			putValue(SMALL_ICON, Icons.Forward16.getImageIcon());</span>
+<span class="nc" id="L386">		}</span>
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+<span class="nc" id="L391">			List&lt;Object&gt; data = availableTable.getSelectedData();</span>
+<span class="nc bnc" id="L392" title="All 2 branches missed.">			for (Object eqMod : data)</span>
+			{
+<span class="nc bnc" id="L394" title="All 2 branches missed.">				if (eqMod instanceof EquipmentModifier)</span>
+				{
+<span class="nc" id="L396">					builder.addModToEquipment((EquipmentModifier) eqMod, currentHead);</span>
+				}
+<span class="nc" id="L398">			}</span>
+<span class="nc" id="L399">			equipInfoHandler.refreshInfo();</span>
+<span class="nc" id="L400">			availableTable.refilter();</span>
+<span class="nc" id="L401">		}</span>
+
+	}
+
+	private class RemoveEqmodAction extends AbstractAction
+	{
+		RemoveEqmodAction()
+<span class="nc" id="L408">		{</span>
+<span class="nc" id="L409">			super(LanguageBundle.getString(&quot;in_eqCust_RemovePrimary&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L410">			putValue(SMALL_ICON, Icons.Back16.getImageIcon());</span>
+<span class="nc" id="L411">		}</span>
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+<span class="nc" id="L416">			List&lt;Object&gt; data = selectedTable.getSelectedData();</span>
+<span class="nc bnc" id="L417" title="All 2 branches missed.">			for (Object eqMod : data)</span>
+			{
+<span class="nc bnc" id="L419" title="All 2 branches missed.">				if (eqMod instanceof EquipmentModifier)</span>
+				{
+<span class="nc" id="L421">					builder.removeModFromEquipment((EquipmentModifier) eqMod, currentHead);</span>
+				}
+<span class="nc" id="L423">			}</span>
+<span class="nc" id="L424">			equipInfoHandler.refreshInfo();</span>
+<span class="nc" id="L425">			availableTable.refilter();</span>
+<span class="nc" id="L426">		}</span>
+
+	}
+
+	private class NameAction extends AbstractAction
+	{
+		NameAction()
+<span class="nc" id="L433">		{</span>
+<span class="nc" id="L434">			super(LanguageBundle.getString(&quot;in_nameLabel&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L435">		}</span>
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+<span class="nc" id="L440">			Object result = JOptionPane.showInputDialog(EquipCustomPanel.this,</span>
+<span class="nc" id="L441">				LanguageBundle.getString(&quot;in_eqCust_NewName&quot;), Constants.APPLICATION_NAME, JOptionPane.QUESTION_MESSAGE,</span>
+<span class="nc" id="L442">				null, null, builder.getEquipment().toString());</span>
+<span class="nc bnc" id="L443" title="All 2 branches missed.">			String selectedValue = result == null ? &quot;&quot; : result.toString();</span>
+<span class="nc" id="L444">			builder.setName(selectedValue);</span>
+<span class="nc" id="L445">			equipInfoHandler.refreshInfo();</span>
+<span class="nc" id="L446">		}</span>
+	}
+
+	private class SPropAction extends AbstractAction
+	{
+		SPropAction()
+<span class="nc" id="L452">		{</span>
+<span class="nc" id="L453">			super(LanguageBundle.getString(&quot;in_eqCust_SProp&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L454">		}</span>
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+<span class="nc" id="L459">			Object result = JOptionPane.showInputDialog(EquipCustomPanel.this,</span>
+<span class="nc" id="L460">				LanguageBundle.getString(&quot;in_eqCust_NewSProp&quot;), Constants.APPLICATION_NAME,</span>
+<span class="nc" id="L461">				JOptionPane.QUESTION_MESSAGE, null, null, builder.getEquipment().getRawSpecialProperties());</span>
+<span class="nc bnc" id="L462" title="All 2 branches missed.">			String selectedValue = result == null ? &quot;&quot; : result.toString();</span>
+<span class="nc" id="L463">			builder.setSProp(selectedValue);</span>
+<span class="nc" id="L464">			equipInfoHandler.refreshInfo();</span>
+<span class="nc" id="L465">		}</span>
+	}
+
+	private class CostAction extends AbstractAction
+	{
+		CostAction()
+<span class="nc" id="L471">		{</span>
+<span class="nc" id="L472">			super(LanguageBundle.getString(&quot;in_igEqModelColCost&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L473">		}</span>
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+<span class="nc" id="L478">			Object result = JOptionPane.showInputDialog(EquipCustomPanel.this,</span>
+<span class="nc" id="L479">				LanguageBundle.getString(&quot;in_eqCust_NewCost&quot;), Constants.APPLICATION_NAME, JOptionPane.QUESTION_MESSAGE,</span>
+<span class="nc" id="L480">				null, null, character.getInfoFactory().getCost(builder.getEquipment()));</span>
+<span class="nc bnc" id="L481" title="All 2 branches missed.">			String selectedValue = result == null ? &quot;&quot; : result.toString();</span>
+<span class="nc" id="L482">			builder.setCost(selectedValue);</span>
+<span class="nc" id="L483">			equipInfoHandler.refreshInfo();</span>
+<span class="nc" id="L484">		}</span>
+	}
+
+	private class WeightAction extends AbstractAction
+	{
+		WeightAction()
+<span class="nc" id="L490">		{</span>
+<span class="nc" id="L491">			super(LanguageBundle.getString(&quot;in_igEqModelColWeight&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L492">		}</span>
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+<span class="nc" id="L497">			Object result = JOptionPane.showInputDialog(EquipCustomPanel.this,</span>
+<span class="nc" id="L498">				LanguageBundle.getString(&quot;in_eqCust_NewWeight&quot;), Constants.APPLICATION_NAME,</span>
+<span class="nc" id="L499">				JOptionPane.QUESTION_MESSAGE, null, null, character.getInfoFactory().getWeight(builder.getEquipment()));</span>
+<span class="nc bnc" id="L500" title="All 2 branches missed.">			String selectedValue = result == null ? &quot;&quot; : result.toString();</span>
+<span class="nc" id="L501">			builder.setWeight(selectedValue);</span>
+<span class="nc" id="L502">			equipInfoHandler.refreshInfo();</span>
+<span class="nc" id="L503">		}</span>
+	}
+
+	private class DamageAction extends AbstractAction
+	{
+		DamageAction()
+<span class="nc" id="L509">		{</span>
+<span class="nc" id="L510">			super(LanguageBundle.getString(&quot;in_igInfoLabelTextDamage&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L511">		}</span>
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+<span class="nc" id="L516">			Object result =</span>
+<span class="nc" id="L517">					JOptionPane.showInputDialog(EquipCustomPanel.this, LanguageBundle.getString(&quot;in_eqCust_NewDamage&quot;),</span>
+<span class="nc" id="L518">						Constants.APPLICATION_NAME, JOptionPane.QUESTION_MESSAGE, null, null, builder.getDamage());</span>
+<span class="nc bnc" id="L519" title="All 2 branches missed.">			String selectedValue = result == null ? &quot;&quot; : result.toString();</span>
+<span class="nc" id="L520">			builder.setDamage(selectedValue);</span>
+<span class="nc" id="L521">			equipInfoHandler.refreshInfo();</span>
+<span class="nc" id="L522">		}</span>
+	}
+
+	private static final class EquipModTreeViewModel implements TreeViewModel&lt;EquipmentModifier&gt;, DataView&lt;EquipmentModifier&gt;,
+			Filter&lt;EquipmentBuilderFacade, EquipmentModifier&gt;, ListListener&lt;EquipmentModifier&gt;
+	{
+
+<span class="nc" id="L529">		private static final DefaultListFacade&lt;? extends TreeView&lt;EquipmentModifier&gt;&gt; TREE_VIEWS =</span>
+<span class="nc" id="L530">				new DefaultListFacade&lt;&gt;(Arrays.asList(EquipModTreeView.values()));</span>
+		private final List&lt;DefaultDataViewColumn&gt; columns;
+		private final boolean isAvailModel;
+		private final FilteredListFacade&lt;EquipmentBuilderFacade, EquipmentModifier&gt; equipMods;
+		private final EquipmentBuilderFacade builder;
+		private final EquipmentHead head;
+
+		private EquipModTreeViewModel(EquipmentBuilderFacade builder, EquipmentHead head,
+		                              boolean isAvailModel)
+<span class="nc" id="L539">		{</span>
+<span class="nc" id="L540">			this.builder = builder;</span>
+<span class="nc" id="L541">			this.head = head;</span>
+<span class="nc" id="L542">			this.isAvailModel = isAvailModel;</span>
+<span class="nc" id="L543">			equipMods = new FilteredListFacade&lt;&gt;();</span>
+<span class="nc" id="L544">			equipMods.setContext(builder);</span>
+<span class="nc" id="L545">			equipMods.setFilter(this);</span>
+			//$NON-NLS-1$
+<span class="nc bnc" id="L547" title="All 2 branches missed.">			if (isAvailModel)</span>
+			{
+<span class="nc" id="L549">				ListFacade&lt;EquipmentModifier&gt; eqModList = builder.getAvailList(head);</span>
+<span class="nc" id="L550">				equipMods.setDelegate(eqModList);</span>
+<span class="nc" id="L551">				builder.getAvailList(head).addListListener(this);</span>
+			}
+<span class="nc" id="L553">			columns = Collections.singletonList(new DefaultDataViewColumn(&quot;in_source&quot;, String.class, false)); //$NON-NLS-1$</span>
+<span class="nc" id="L554">		}</span>
+
+		@Override
+		public ListFacade&lt;? extends TreeView&lt;EquipmentModifier&gt;&gt; getTreeViews()
+		{
+<span class="nc" id="L559">			return TREE_VIEWS;</span>
+		}
+
+		@Override
+		public int getDefaultTreeViewIndex()
+		{
+<span class="nc" id="L565">			return 0;</span>
+		}
+
+		@Override
+		public DataView&lt;EquipmentModifier&gt; getDataView()
+		{
+<span class="nc" id="L571">			return this;</span>
+		}
+
+		@Override
+		public ListFacade&lt;EquipmentModifier&gt; getDataModel()
+		{
+<span class="nc bnc" id="L577" title="All 2 branches missed.">			if (isAvailModel)</span>
+			{
+<span class="nc" id="L579">				return equipMods;</span>
+			}
+
+<span class="nc" id="L582">			return builder.getSelectedList(head);</span>
+		}
+
+		@Override
+		public Object getData(EquipmentModifier element, int column)
+		{
+<span class="nc bnc" id="L588" title="All 2 branches missed.">            if (column == 0)</span>
+            {
+<span class="nc" id="L590">                return element.getSource();</span>
+            }
+<span class="nc" id="L592">            return null;</span>
+        }
+
+		@Override
+		public void setData(Object value, EquipmentModifier element, int column)
+		{
+<span class="nc" id="L598">		}</span>
+
+		@Override
+		public List&lt;? extends DataViewColumn&gt; getDataColumns()
+		{
+<span class="nc" id="L603">			return columns;</span>
+		}
+
+		@Override
+		public void elementAdded(ListEvent&lt;EquipmentModifier&gt; e)
+		{
+			//equipMods.elementAdded(e);
+<span class="nc" id="L610">		}</span>
+
+		@Override
+		public void elementRemoved(ListEvent&lt;EquipmentModifier&gt; e)
+		{
+			//equipMods.elementRemoved(e);
+<span class="nc" id="L616">		}</span>
+
+		@Override
+		public void elementsChanged(ListEvent&lt;EquipmentModifier&gt; e)
+		{
+			//equipMods.refilter();
+<span class="nc" id="L622">		}</span>
+
+		@Override
+		public void elementModified(ListEvent&lt;EquipmentModifier&gt; e)
+		{
+			//equipMods.refilter();
+<span class="nc" id="L628">		}</span>
+
+		@Override
+		public boolean accept(EquipmentBuilderFacade context, EquipmentModifier element)
+		{
+<span class="nc" id="L633">			return true;</span>
+		}
+
+		@Override
+		public String getPrefsKey()
+		{
+<span class="nc bnc" id="L639" title="All 2 branches missed.">			return isAvailModel ? &quot;EqModTreeAvail&quot; : &quot;EqModTreeSelected&quot;; //$NON-NLS-1$//$NON-NLS-2$</span>
+		}
+
+	}
+
+<span class="nc" id="L644">	private enum EquipModTreeView implements TreeView&lt;EquipmentModifier&gt;</span>
+	{
+<span class="nc" id="L646">		NAME(LanguageBundle.getString(&quot;in_nameLabel&quot;)), //$NON-NLS-1$</span>
+<span class="nc" id="L647">		TYPE_NAME(LanguageBundle.getString(&quot;in_typeName&quot;)), //$NON-NLS-1$</span>
+<span class="nc" id="L648">		SOURCE_NAME(LanguageBundle.getString(&quot;in_sourceName&quot;)); //$NON-NLS-1$</span>
+		private final String name;
+
+		private EquipModTreeView(String name)
+<span class="nc" id="L652">		{</span>
+<span class="nc" id="L653">			this.name = name;</span>
+<span class="nc" id="L654">		}</span>
+
+		@Override
+		public String getViewName()
+		{
+<span class="nc" id="L659">			return name;</span>
+		}
+
+		@SuppressWarnings(&quot;unchecked&quot;)
+		@Override
+		public List&lt;TreeViewPath&lt;EquipmentModifier&gt;&gt; getPaths(EquipmentModifier pobj)
+		{
+<span class="nc bnc" id="L666" title="All 4 branches missed.">			switch (this)</span>
+			{
+				case NAME:
+<span class="nc" id="L669">					return Collections.singletonList(new TreeViewPath&lt;&gt;(pobj));</span>
+				case TYPE_NAME:
+<span class="nc" id="L671">					TreeViewPath&lt;EquipmentModifier&gt; path =</span>
+<span class="nc" id="L672">							createTreeViewPath(pobj, (Object[]) pobj.getDisplayType().split(&quot;\\.&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L673">					return Collections.singletonList(path);</span>
+				case SOURCE_NAME:
+<span class="nc" id="L675">					return Collections.singletonList(new TreeViewPath&lt;&gt;(pobj, pobj.getSourceForNodeDisplay()));</span>
+				default:
+<span class="nc" id="L677">					throw new InternalError();</span>
+			}
+		}
+
+		/**
+		 * Create a TreeViewPath for the equipment modifier and paths.
+		 * @param pobj The equipment modifier
+		 * @param path The paths under which the equipment modifier should be shown.
+		 * @return The TreeViewPath.
+		 */
+		private static TreeViewPath&lt;EquipmentModifier&gt; createTreeViewPath(EquipmentModifier pobj, Object... path)
+		{
+<span class="nc bnc" id="L689" title="All 2 branches missed.">			if (path.length == 0)</span>
+			{
+<span class="nc" id="L691">				return new TreeViewPath&lt;&gt;(pobj);</span>
+			}
+<span class="nc bnc" id="L693" title="All 2 branches missed.">			if (path.length &gt; 2)</span>
+			{
+<span class="nc" id="L695">				return new TreeViewPath&lt;&gt;(pobj, path[0], path[1]);</span>
+			}
+<span class="nc" id="L697">			return new TreeViewPath&lt;&gt;(pobj, path);</span>
+		}
+
+	}
+
+	private class HeadBoxModel extends CharacterComboBoxModel&lt;EquipmentHead&gt;
+	{
+
+		private final DefaultReferenceFacade&lt;EquipmentHead&gt; headRef;
+
+		HeadBoxModel()
+<span class="nc" id="L708">		{</span>
+<span class="nc" id="L709">			setListFacade(validHeads);</span>
+<span class="nc" id="L710">			headRef = new DefaultReferenceFacade&lt;&gt;(currentHead);</span>
+<span class="nc" id="L711">			setReference(headRef);</span>
+<span class="nc" id="L712">		}</span>
+
+		@Override
+		public void setSelectedItem(Object anItem)
+		{
+<span class="nc" id="L717">			EquipmentHead head = (EquipmentHead) anItem;</span>
+<span class="nc" id="L718">			currentHead = head;</span>
+<span class="nc" id="L719">			headRef.set(head);</span>
+<span class="nc" id="L720">			availableTable.setTreeViewModel(availEqmodModelMap.get(currentHead));</span>
+<span class="nc" id="L721">			selectedTable.setTreeViewModel(selectedEqmodModelMap.get(currentHead));</span>
+<span class="nc" id="L722">		}</span>
+
+		@Override
+		public void referenceChanged(ReferenceEvent&lt;EquipmentHead&gt; e)
+		{
+<span class="nc" id="L727">			super.referenceChanged(e);</span>
+<span class="nc" id="L728">		}</span>
+
+	}
+
+	private class SizeBoxModel extends CharacterComboBoxModel&lt;SizeAdjustment&gt;
+	{
+
+		SizeBoxModel()
+<span class="nc" id="L736">		{</span>
+<span class="nc" id="L737">			setListFacade(character.getDataSet().getSizes());</span>
+<span class="nc" id="L738">			setReference(builder.getSizeRef());</span>
+<span class="nc" id="L739">		}</span>
+
+		@Override
+		public void setSelectedItem(Object anItem)
+		{
+<span class="nc" id="L744">			builder.setSize((SizeAdjustment) anItem);</span>
+<span class="nc" id="L745">		}</span>
+
+		@Override
+		public void referenceChanged(ReferenceEvent&lt;SizeAdjustment&gt; e)
+		{
+<span class="nc" id="L750">			super.referenceChanged(e);</span>
+<span class="nc" id="L751">			equipInfoHandler.refreshInfo();</span>
+<span class="nc" id="L752">		}</span>
+
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

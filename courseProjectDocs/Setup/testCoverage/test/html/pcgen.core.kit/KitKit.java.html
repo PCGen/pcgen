@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>KitKit.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.core.kit</a> &gt; <span class="el_source">KitKit.java</span></div><h1>KitKit.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2005 (C) Aaron Divinsky &lt;boomer70@yahoo.com&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.core.kit;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.reference.ReferenceUtilities;
+import pcgen.core.Kit;
+import pcgen.core.PlayerCharacter;
+
+/**
+ * Applies the Kit
+ */
+<span class="fc" id="L34">public class KitKit extends BaseKit</span>
+{
+<span class="fc" id="L36">	private List&lt;CDOMSingleRef&lt;Kit&gt;&gt; availableKits = new ArrayList&lt;&gt;();</span>
+
+	// These members store the state of an instance of this class.  They are
+	// not cloned.
+<span class="fc" id="L40">	private Map&lt;Kit, List&lt;BaseKit&gt;&gt; appliedKits = new HashMap&lt;&gt;();</span>
+
+	/**
+	 * Actually applies the kit to this PC.
+	 *
+	 * @param aPC The PlayerCharacter the alignment is applied to
+	 */
+	@Override
+	public void apply(PlayerCharacter aPC)
+	{
+<span class="nc bnc" id="L50" title="All 2 branches missed.">		for (Map.Entry&lt;Kit, List&lt;BaseKit&gt;&gt; me : appliedKits.entrySet())</span>
+		{
+<span class="nc" id="L52">			me.getKey().processKit(aPC, me.getValue());</span>
+<span class="nc" id="L53">		}</span>
+<span class="nc" id="L54">	}</span>
+
+	/**
+	 * Test applying this kit to the character.
+	 *
+	 * @param aPC PlayerCharacter The character to apply the kit to.
+	 * @param aKit Kit The kit that has requested the application of the kit.
+	 * @param warnings List The warign list to be populated if anything fails.
+	 */
+	@Override
+	public boolean testApply(Kit aKit, PlayerCharacter aPC, List&lt;String&gt; warnings)
+	{
+<span class="nc" id="L66">		appliedKits = new HashMap&lt;&gt;();</span>
+<span class="nc bnc" id="L67" title="All 2 branches missed.">		for (CDOMSingleRef&lt;Kit&gt; ref : availableKits)</span>
+		{
+<span class="nc" id="L69">			Kit addedKit = ref.get();</span>
+<span class="nc" id="L70">			ArrayList&lt;BaseKit&gt; thingsToAdd = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L71">			addedKit.testApplyKit(aPC, thingsToAdd, warnings, true);</span>
+<span class="nc" id="L72">			appliedKits.put(addedKit, thingsToAdd);</span>
+<span class="nc" id="L73">		}</span>
+<span class="nc" id="L74">		return true;</span>
+	}
+
+	@Override
+	public String getObjectName()
+	{
+<span class="nc" id="L80">		return &quot;Kit&quot;;</span>
+	}
+
+	@Override
+	public String toString()
+	{
+<span class="nc" id="L86">		return ReferenceUtilities.joinLstFormat(availableKits, Constants.PIPE);</span>
+	}
+
+	public void addKit(CDOMSingleRef&lt;Kit&gt; ref)
+	{
+<span class="fc" id="L91">		availableKits.add(ref);</span>
+<span class="fc" id="L92">	}</span>
+
+	public List&lt;CDOMSingleRef&lt;Kit&gt;&gt; getKits()
+	{
+<span class="fc" id="L96">		return availableKits;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

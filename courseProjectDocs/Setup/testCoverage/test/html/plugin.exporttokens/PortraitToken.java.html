@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PortraitToken.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.exporttokens</a> &gt; <span class="el_source">PortraitToken.java</span></div><h1>PortraitToken.java</h1><pre class="source lang-java linenums">/*
+ * PortraitToken.java
+ * Copyright 2003 (C) Devon Jones &lt;soulcatcher@evilsoft.org&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.     See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package plugin.exporttokens;
+
+import java.awt.Graphics2D;
+import java.awt.Rectangle;
+import java.awt.RenderingHints;
+import java.awt.Transparency;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
+
+import pcgen.cdom.base.Constants;
+import pcgen.core.display.CharacterDisplay;
+import pcgen.io.ExportHandler;
+import pcgen.io.exporttoken.AbstractExportToken;
+import pcgen.util.Logging;
+
+import org.apache.commons.lang3.StringUtils;
+
+/**
+ * The Class {@code PortraitToken} supports the PORTRAIT
+ * token and its and PORTRAIT.THUMB variant.
+ *
+ *
+ */
+<span class="nc" id="L45">public class PortraitToken extends AbstractExportToken</span>
+{
+	@Override
+	public String getTokenName()
+	{
+<span class="nc" id="L50">		return &quot;PORTRAIT&quot;;</span>
+	}
+
+	/**
+	 * True if the token should be encoded during the export
+	 * @return False because the Portrait path must be unchanged
+	 */
+	@Override
+	public boolean isEncoded()
+	{
+<span class="nc" id="L60">		return false;</span>
+	}
+
+	//TODO: Move this to a token that has all of the descriptive stuff about a character
+	@Override
+	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
+	{
+<span class="nc bnc" id="L67" title="All 2 branches missed.">		if (&quot;PORTRAIT.THUMB&quot;.equals(tokenSource))</span>
+		{
+<span class="nc" id="L69">			return getThumbnailToken(display);</span>
+		}
+
+<span class="nc" id="L72">		return display.getPortraitPath();</span>
+	}
+
+	private String getThumbnailToken(CharacterDisplay display)
+	{
+		// Generate thumbnail
+<span class="nc" id="L78">		BufferedImage thumb = generateThumb(display);</span>
+<span class="nc bnc" id="L79" title="All 2 branches missed.">		if (thumb == null)</span>
+		{
+<span class="nc" id="L81">			return null;</span>
+		}
+
+		// Save to a temporary file
+<span class="nc" id="L85">		String pcgFilename = display.getFileName();</span>
+		String baseName;
+<span class="nc bnc" id="L87" title="All 2 branches missed.">		if (StringUtils.isNotBlank(pcgFilename))</span>
+		{
+<span class="nc" id="L89">			baseName = new File(pcgFilename).getName();</span>
+<span class="nc bnc" id="L90" title="All 2 branches missed.">			if (baseName.indexOf(Constants.EXTENSION_CHARACTER_FILE) &gt; 0)</span>
+			{
+<span class="nc" id="L92">				baseName = baseName.substring(0, baseName.indexOf(Constants.EXTENSION_CHARACTER_FILE));</span>
+			}
+		}
+		else
+		{
+<span class="nc" id="L97">			baseName = display.getName();</span>
+		}
+
+		File thumbFile;
+		try
+		{
+<span class="nc" id="L103">			thumbFile = File.createTempFile(&quot;pcgentmb_&quot;, &quot;.png&quot;);</span>
+		}
+<span class="nc" id="L105">		catch (IOException e1)</span>
+		{
+<span class="nc" id="L107">			Logging.errorPrint(&quot;PortraitToken.getThumbnailToken failed&quot;, e1);</span>
+<span class="nc" id="L108">			return null;</span>
+
+<span class="nc" id="L110">		}</span>
+		try
+		{
+<span class="nc" id="L113">			ImageIO.write(thumb, &quot;PNG&quot;, thumbFile);</span>
+		}
+<span class="nc" id="L115">		catch (IOException e)</span>
+		{
+<span class="nc" id="L117">			Logging.errorPrint(&quot;PortraitToken.getThumbnailToken failed&quot;, e);</span>
+<span class="nc" id="L118">			return null;</span>
+<span class="nc" id="L119">		}</span>
+
+		// Return the path
+<span class="nc" id="L122">		return thumbFile.getAbsolutePath();</span>
+	}
+
+	/**
+	 * Generate a thumbnail image based on the character's portrait and
+	 * the thumnbnail rectangle.
+	 *
+	 * @param display The character being output.
+	 * @return The thumbnail image, or null if not defined.
+	 */
+	private BufferedImage generateThumb(CharacterDisplay display)
+	{
+<span class="nc" id="L134">		Rectangle cropRect = display.getPortraitThumbnailRect();</span>
+<span class="nc" id="L135">		BufferedImage portrait = null;</span>
+		try
+		{
+<span class="nc" id="L138">			File file = new File(display.getPortraitPath());</span>
+<span class="nc bnc" id="L139" title="All 2 branches missed.">			if (file.isFile())</span>
+			{
+<span class="nc" id="L141">				portrait = ImageIO.read(file);</span>
+			}
+		}
+<span class="nc" id="L144">		catch (IOException ex)</span>
+		{
+<span class="nc" id="L146">			Logging.errorPrint(&quot;Could not load image&quot;, ex);</span>
+<span class="nc" id="L147">		}</span>
+<span class="nc bnc" id="L148" title="All 4 branches missed.">		if (portrait == null || cropRect == null)</span>
+		{
+<span class="nc" id="L150">			return null;</span>
+		}
+
+<span class="nc" id="L153">		BufferedImage thumb = portrait.getSubimage(cropRect.x, cropRect.y, cropRect.width, cropRect.height);</span>
+<span class="nc" id="L154">		thumb = getScaledInstance(thumb, Constants.THUMBNAIL_SIZE, Constants.THUMBNAIL_SIZE,</span>
+			RenderingHints.VALUE_INTERPOLATION_BILINEAR, true);
+<span class="nc" id="L156">		return thumb;</span>
+	}
+
+	/**
+	 * Convenience method that returns a scaled instance of the
+	 * provided {@code BufferedImage}.
+	 *
+	 * @param img the original image to be scaled
+	 * @param targetWidth the desired width of the scaled instance,
+	 *    in pixels
+	 * @param targetHeight the desired height of the scaled instance,
+	 *    in pixels
+	 * @param hint one of the rendering hints that corresponds to
+	 *    {@code RenderingHints.KEY_INTERPOLATION} (e.g.
+	 *    {@code RenderingHints.VALUE_INTERPOLATION_NEAREST_NEIGHBOR},
+	 *    {@code RenderingHints.VALUE_INTERPOLATION_BILINEAR},
+	 *    {@code RenderingHints.VALUE_INTERPOLATION_BICUBIC})
+	 * @param higherQuality if true, this method will use a multi-step
+	 *    scaling technique that provides higher quality than the usual
+	 *    one-step technique (only useful in down scaling cases, where
+	 *    {@code targetWidth} or {@code targetHeight} is
+	 *    smaller than the original dimensions, and generally only when
+	 *    the {@code BILINEAR} hint is specified)
+	 * @return a scaled version of the original {@code BufferedImage}
+	 */
+	public BufferedImage getScaledInstance(BufferedImage img, int targetWidth, int targetHeight, Object hint,
+		boolean higherQuality)
+	{
+<span class="nc bnc" id="L184" title="All 2 branches missed.">		int type = (img.getTransparency() == Transparency.OPAQUE) ? BufferedImage.TYPE_INT_RGB</span>
+<span class="nc" id="L185">			: BufferedImage.TYPE_INT_ARGB;</span>
+<span class="nc" id="L186">		BufferedImage ret = img;</span>
+		int w;
+		int h;
+<span class="nc bnc" id="L189" title="All 2 branches missed.">		if (higherQuality)</span>
+		{
+			// Use multi-step technique: start with original size, then
+			// scale down in multiple passes with drawImage()
+			// until the target size is reached
+<span class="nc" id="L194">			w = img.getWidth();</span>
+<span class="nc" id="L195">			h = img.getHeight();</span>
+		}
+		else
+		{
+			// Use one-step technique: scale directly from original
+			// size to target size with a single drawImage() call
+<span class="nc" id="L201">			w = targetWidth;</span>
+<span class="nc" id="L202">			h = targetHeight;</span>
+		}
+
+		// If we are scaling up, just do the one pass.
+<span class="nc bnc" id="L206" title="All 4 branches missed.">		if (w &lt; targetWidth || h &lt; targetWidth)</span>
+		{
+			// Use one-step technique: scale directly from original
+			// size to target size with a single drawImage() call
+<span class="nc" id="L210">			w = targetWidth;</span>
+<span class="nc" id="L211">			h = targetHeight;</span>
+		}
+
+		do
+		{
+<span class="nc bnc" id="L216" title="All 4 branches missed.">			if (higherQuality &amp;&amp; w &gt; targetWidth)</span>
+			{
+<span class="nc" id="L218">				w /= 2;</span>
+<span class="nc bnc" id="L219" title="All 2 branches missed.">				if (w &lt; targetWidth)</span>
+				{
+<span class="nc" id="L221">					w = targetWidth;</span>
+				}
+			}
+
+<span class="nc bnc" id="L225" title="All 4 branches missed.">			if (higherQuality &amp;&amp; h &gt; targetHeight)</span>
+			{
+<span class="nc" id="L227">				h /= 2;</span>
+<span class="nc bnc" id="L228" title="All 2 branches missed.">				if (h &lt; targetHeight)</span>
+				{
+<span class="nc" id="L230">					h = targetHeight;</span>
+				}
+			}
+
+<span class="nc" id="L234">			BufferedImage tmp = new BufferedImage(w, h, type);</span>
+<span class="nc" id="L235">			Graphics2D g2 = tmp.createGraphics();</span>
+<span class="nc" id="L236">			g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, hint);</span>
+<span class="nc" id="L237">			g2.drawImage(ret, 0, 0, w, h, null);</span>
+<span class="nc" id="L238">			g2.dispose();</span>
+
+<span class="nc" id="L240">			ret = tmp;</span>
+		}
+<span class="nc bnc" id="L242" title="All 4 branches missed.">		while (w != targetWidth || h != targetHeight);</span>
+
+<span class="nc" id="L244">		return ret;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

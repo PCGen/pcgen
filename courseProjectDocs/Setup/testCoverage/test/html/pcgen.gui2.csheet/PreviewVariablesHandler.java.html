@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PreviewVariablesHandler.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.gui2.csheet</a> &gt; <span class="el_source">PreviewVariablesHandler.java</span></div><h1>PreviewVariablesHandler.java</h1><pre class="source lang-java linenums">package pcgen.gui2.csheet;
+
+import pcgen.facade.core.CharacterFacade;
+
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import org.w3c.dom.Document;
+import org.w3c.dom.NodeList;
+import org.w3c.dom.events.EventTarget;
+import org.w3c.dom.html.HTMLInputElement;
+
+/**
+ * A {@link ChangeListener} that decorates a new document in context to automatically save inputs tagged with &quot;target_var&quot;
+ */
+<span class="nc" id="L15">public class PreviewVariablesHandler implements ChangeListener&lt;Document&gt;</span>
+{
+    private CharacterFacade character;
+
+    public void setCharacter(CharacterFacade character)
+    {
+<span class="nc" id="L21">        this.character = character;</span>
+<span class="nc" id="L22">    }</span>
+
+    @Override
+    public void changed(ObservableValue&lt;? extends Document&gt; observableValue, Document oldDoc, Document newDoc)
+    {
+<span class="nc bnc" id="L27" title="All 2 branches missed.">        if (newDoc == null)</span>
+        {
+<span class="nc" id="L29">            return;</span>
+        }
+<span class="nc" id="L31">        NodeList elements = newDoc.getElementsByTagName(&quot;input&quot;);</span>
+<span class="nc bnc" id="L32" title="All 2 branches missed.">        for (int i = 0; i &lt; elements.getLength(); i++)</span>
+        {
+<span class="nc" id="L34">            HTMLInputElement element = (HTMLInputElement) elements.item(i);</span>
+<span class="nc" id="L35">            String key = getInputKey(element);</span>
+<span class="nc bnc" id="L36" title="All 4 branches missed.">            if (key == null || key.isEmpty())</span>
+            {
+<span class="nc" id="L38">                continue;</span>
+            }
+<span class="nc" id="L40">            setInputValue(element, character.getPreviewSheetVar(key));</span>
+<span class="nc" id="L41">            ((EventTarget) element).addEventListener(&quot;change&quot;, evt -&gt;</span>
+            {
+<span class="nc" id="L43">                HTMLInputElement input = (HTMLInputElement) evt.getCurrentTarget();</span>
+<span class="nc" id="L44">                character.addPreviewSheetVar(getInputKey(input), getInputValue(input));</span>
+<span class="nc" id="L45">            }, false);</span>
+        }
+<span class="nc" id="L47">    }</span>
+
+    private boolean isCheckable(HTMLInputElement input)
+    {
+<span class="nc" id="L51">        String type = input.getAttribute(&quot;type&quot;).toLowerCase();</span>
+<span class="nc bnc" id="L52" title="All 4 branches missed.">        return &quot;checkbox&quot;.equals(type) || &quot;radio&quot;.equals(type);</span>
+    }
+
+    private String getInputKey(HTMLInputElement input)
+    {
+<span class="nc" id="L57">        return input.getAttribute(&quot;target_var&quot;);</span>
+    }
+
+    private String getInputValue(HTMLInputElement input)
+    {
+<span class="nc bnc" id="L62" title="All 2 branches missed.">        if (isCheckable(input))</span>
+        {
+<span class="nc" id="L64">            return Boolean.toString(input.getChecked());</span>
+        } else
+        {
+<span class="nc" id="L67">            return input.getValue();</span>
+        }
+    }
+
+    private void setInputValue(HTMLInputElement input, String previewSheetVar)
+    {
+<span class="nc bnc" id="L73" title="All 2 branches missed.">        if (isCheckable(input))</span>
+        {
+<span class="nc" id="L75">            input.setChecked(Boolean.parseBoolean(previewSheetVar));</span>
+        } else
+        {
+<span class="nc" id="L78">            input.setValue(previewSheetVar);</span>
+        }
+<span class="nc" id="L80">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AbilityMigration.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.io.migration</a> &gt; <span class="el_source">AbilityMigration.java</span></div><h1>AbilityMigration.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2013 (C) James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ *
+ */
+package pcgen.io.migration;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import pcgen.core.system.MigrationRule;
+import pcgen.core.system.MigrationRule.ObjectType;
+
+/**
+ * AbilityMigration translates old ability keys into their current values. This is 
+ * used to allow clean loading of older characters which were saved with ability 
+ * keys that have now been changed in the data.
+ * 
+ */
+public final class AbilityMigration
+{
+
+<span class="nc" id="L38">	private static Map&lt;int[], List&lt;MigrationRule&gt;&gt; abilityChangesForVer = new HashMap&lt;&gt;();</span>
+
+	private AbilityMigration()
+	{
+	}
+
+	/**
+	 * Find the new ability key to replace the provided one.
+	 * 
+	 * @param abilityCategory The original ability category as found in the character file.
+	 * @param abilityKey The original ability key as found in the character file.
+	 * @param pcgVer The version of PCGen in which the character was created.
+	 * @return The new ability key, or the passed in one if it has not changed.
+	 */
+	public static CategorisedKey getNewAbilityKey(String abilityCategory, String abilityKey, int[] pcgVer,
+		String gameModeName)
+	{
+<span class="nc" id="L55">		List&lt;MigrationRule&gt; abilityChangeList = abilityChangesForVer.computeIfAbsent(pcgVer,</span>
+<span class="nc" id="L56">			v -&gt; MigrationUtils.getChangeList(v, gameModeName, ObjectType.ABILITY));</span>
+
+<span class="nc bnc" id="L58" title="All 2 branches missed.">		for (MigrationRule rule : abilityChangeList)</span>
+		{
+<span class="nc bnc" id="L60" title="All 2 branches missed.">			if (rule.getOldKey().equalsIgnoreCase(abilityKey)</span>
+<span class="nc bnc" id="L61" title="All 2 branches missed.">				&amp;&amp; rule.getOldCategory().equalsIgnoreCase(abilityCategory))</span>
+			{
+<span class="nc bnc" id="L63" title="All 2 branches missed.">				return new CategorisedKey((rule.getNewCategory() == null) ? abilityCategory : rule.getNewCategory(),</span>
+<span class="nc" id="L64">					rule.getNewKey());</span>
+			}
+<span class="nc" id="L66">		}</span>
+<span class="nc" id="L67">		return new CategorisedKey(abilityCategory, abilityKey);</span>
+	}
+
+	/**
+	 * CategorisedKey is a container for a category and a key. 
+	 */
+	public static final class CategorisedKey
+	{
+		private final String category;
+		private final String key;
+
+		private CategorisedKey(String category, String key)
+<span class="nc" id="L79">		{</span>
+<span class="nc" id="L80">			this.category = category;</span>
+<span class="nc" id="L81">			this.key = key;</span>
+<span class="nc" id="L82">		}</span>
+
+		public String getCategory()
+		{
+<span class="nc" id="L86">			return category;</span>
+		}
+
+		public String getKey()
+		{
+<span class="nc" id="L91">			return key;</span>
+		}
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

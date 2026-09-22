@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PreDeityAlignParser.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.pretokens.parser</a> &gt; <span class="el_source">PreDeityAlignParser.java</span></div><h1>PreDeityAlignParser.java</h1><pre class="source lang-java linenums">/*
+ *
+ * Copyright 2003 (C) Chris Ward &lt;frugal@purplewombat.co.uk&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.       See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package plugin.pretokens.parser;
+
+import java.util.StringTokenizer;
+
+import pcgen.core.prereq.Prerequisite;
+import pcgen.core.prereq.PrerequisiteOperator;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.prereq.AbstractPrerequisiteParser;
+
+/**
+ * A prerequisite parser class that handles the parsing of pre deity align tokens.
+ */
+<span class="nc" id="L31">public class PreDeityAlignParser extends AbstractPrerequisiteParser</span>
+{
+	/**
+	 * Get the type of prerequisite handled by this token.
+	 * @return the type of prerequisite handled by this token.
+	 */
+	@Override
+	public String[] kindsHandled()
+	{
+<span class="nc" id="L40">		return new String[]{&quot;DEITYALIGN&quot;};</span>
+	}
+
+	/**
+	 * Parse the pre req list
+	 *
+	 * @param kind The kind of the prerequisite (less the &quot;PRE&quot; prefix)
+	 * @param formula The body of the prerequisite.
+	 * @param invertResult Whether the prerequisite should invert the result.
+	 * @param overrideQualify
+	 *           if set true, this prerequisite will be enforced in spite
+	 *           of any &quot;QUALIFY&quot; tag that may be present.
+	 * @return PreReq
+	 * @throws PersistenceLayerException
+	 */
+	@Override
+	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+		throws PersistenceLayerException
+	{
+<span class="nc" id="L59">		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);</span>
+<span class="nc" id="L60">		prereq.setKind(null); // PREMULT</span>
+
+<span class="nc" id="L62">		final StringTokenizer inputTokenizer = new StringTokenizer(formula, &quot;,&quot;);</span>
+
+<span class="nc bnc" id="L64" title="All 2 branches missed.">		while (inputTokenizer.hasMoreTokens())</span>
+		{
+<span class="nc" id="L66">			Prerequisite subprereq = new Prerequisite();</span>
+<span class="nc" id="L67">			prereq.addPrerequisite(subprereq);</span>
+<span class="nc" id="L68">			subprereq.setKind(&quot;deityalign&quot;);</span>
+<span class="nc" id="L69">			subprereq.setOperator(PrerequisiteOperator.EQ);</span>
+
+<span class="nc" id="L71">			String token = inputTokenizer.nextToken();</span>
+
+<span class="nc" id="L73">			subprereq.setOperand(token);</span>
+<span class="nc" id="L74">		}</span>
+
+<span class="nc bnc" id="L76" title="All 4 branches missed.">		if ((prereq.getPrerequisiteCount() == 1) &amp;&amp; prereq.getOperator().equals(PrerequisiteOperator.GTEQ)</span>
+<span class="nc bnc" id="L77" title="All 2 branches missed.">			&amp;&amp; prereq.getOperand().equals(&quot;1&quot;))</span>
+		{
+<span class="nc" id="L79">			prereq = prereq.getPrerequisites().get(0);</span>
+		}
+
+<span class="nc bnc" id="L82" title="All 2 branches missed.">		if (invertResult)</span>
+		{
+<span class="nc" id="L84">			prereq.setOperator(prereq.getOperator().invert());</span>
+		}
+<span class="nc" id="L86">		return prereq;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

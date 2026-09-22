@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CDOMDirectSingleRef.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.reference</a> &gt; <span class="el_source">CDOMDirectSingleRef.java</span></div><h1>CDOMDirectSingleRef.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) 2007-18 Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package pcgen.cdom.reference;
+
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Objects;
+
+import pcgen.cdom.base.Loadable;
+import pcgen.cdom.enumeration.GroupingState;
+
+/**
+ * A CDOMDirectSingleRef is a CDOMReference to an object known at construction
+ * of the CDOMDirectSingleRef. This is primarily used in special cases or where
+ * construction is taking place after reference resolution has taken place.
+ * (This can be used in an editor system to directly refer to a known,
+ * constructed object)
+ * 
+ * @param &lt;T&gt;
+ *            The Class of the underlying object contained by this
+ *            CDOMDirectSingleRef
+ */
+public class CDOMDirectSingleRef&lt;T extends Loadable&gt; extends CDOMSingleRef&lt;T&gt;
+{
+
+	/**
+	 * The object of the Class this CDOMDirectSingleRef represents
+	 */
+	private final T referencedObject;
+
+	/**
+	 * The specific choice (association) for the Ability this
+	 * CDOMDirectSingleRef contains. May remain null if the given Ability does
+	 * not have a specific choice (or does not require a specific choice)
+	 */
+<span class="fc" id="L51">	private String choice = null;</span>
+
+	/**
+	 * Constructs a new CDOMDirectSingleRef referring to the given object
+	 * 
+	 * @param item
+	 *            The object this CDOMDirectSingleRef will contain
+	 */
+	public CDOMDirectSingleRef(T item)
+	{
+<span class="fc" id="L61">		super(item.getKeyName());</span>
+<span class="fc" id="L62">		referencedObject = Objects.requireNonNull(item);</span>
+<span class="fc" id="L63">	}</span>
+
+	/**
+	 * Returns true if the given Object matches the object to which this
+	 * CDOMDirectSingleRef refers.
+	 * 
+	 * @param item
+	 *            The object to be tested to see if it matches the object to
+	 *            which this CDOMDirectSingleRef contains.
+	 * @return true if the given Object is the object this CDOMDirectSingleRef
+	 *         contains; false otherwise.
+	 */
+	@Override
+	public boolean contains(T item)
+	{
+<span class="nc" id="L78">		return referencedObject.equals(item);</span>
+	}
+
+	/**
+	 * Returns the given Object this CDOMDirectSingleRef contains.
+	 * 
+	 * @return the given Object this CDOMDirectSingleRef contains.
+	 */
+	@Override
+	public T get()
+	{
+<span class="fc" id="L89">		return referencedObject;</span>
+	}
+
+	/** 
+	 * Check if the reference has been resolved yet. i.e. load of the object has been completed.
+	 * @return true if the reference has been resolved, false if not.
+	 */
+	@Override
+	public boolean hasBeenResolved()
+	{
+<span class="nc bnc" id="L99" title="All 2 branches missed.">		return referencedObject != null;</span>
+	}
+
+	/**
+	 * Returns a representation of this CDOMDirectSingleRef, suitable for
+	 * storing in an LST file.
+	 * 
+	 * Note that this will return the identifier of the underlying reference (of
+	 * the types given at construction), often the &quot;key&quot; in LST terminology.
+	 * 
+	 * @param useAny
+	 * 		   Use any LST format.  Ignored in this specific implementation.
+	 * 
+	 * @return A representation of this CDOMDirectSingleRef, suitable for
+	 *         storing in an LST file.
+	 */
+	@Override
+	public String getLSTformat(boolean useAny)
+	{
+<span class="fc" id="L118">		return referencedObject.getKeyName();</span>
+	}
+
+	@Override
+	public boolean equals(Object obj)
+	{
+<span class="fc bfc" id="L124" title="All 2 branches covered.">		return obj instanceof CDOMDirectSingleRef</span>
+<span class="fc bfc" id="L125" title="All 2 branches covered.">			&amp;&amp; referencedObject.equals(((CDOMDirectSingleRef&lt;?&gt;) obj).referencedObject);</span>
+	}
+
+	@Override
+	public int hashCode()
+	{
+<span class="fc" id="L131">		return referencedObject.getKeyName().hashCode();</span>
+	}
+
+	/**
+	 * Throws an exception. This method may not be called because a
+	 * CDOMDirectSingleRef was resolved at construction.
+	 * 
+	 * @param item
+	 *            ignored
+	 * @throws IllegalStateException
+	 *             because a CDOMDirectSingleRef was resolved at construction.
+	 */
+	@Override
+	public void addResolution(T item)
+	{
+<span class="nc" id="L146">		throw new IllegalStateException(&quot;Cannot resolve a Direct Reference&quot;);</span>
+	}
+
+	/**
+	 * Returns a Collection containing the single Object to which this
+	 * CDOMDirectSingleRef refers.
+	 * 
+	 * This method is reference-semantic, meaning that ownership of the
+	 * Collection returned by this method is transferred to the calling object.
+	 * Modification of the returned Collection should not result in modifying
+	 * the CDOMDirectSingleRef, and modifying the CDOMDirectSingleRef after the
+	 * Collection is returned should not modify the Collection.
+	 * 
+	 * Note that if you know this reference is a CDOMSingleRef, you are better
+	 * off using resolvesTo() as the result will be much faster than having to
+	 * extract the object out of the Collection returned by this method.
+	 * 
+	 * @return A Collection containing the single Object to which this
+	 *         CDOMDirectSingleRef refers.
+	 */
+	@Override
+	public Collection&lt;T&gt; getContainedObjects()
+	{
+<span class="fc" id="L169">		return Collections.singleton(referencedObject);</span>
+	}
+
+	/**
+	 * Static method to construct a new CDOMDirectSingleRef. This is provided
+	 * mainly for convenience to allow less distraction of code with Generics.
+	 * 
+	 * @param &lt;R&gt;
+	 *            The Class of the underlying object contained by the returned
+	 *            CDOMDirectSingleRef
+	 * @param item
+	 *            The object the returned CDOMDirectSingleRef will contain
+	 * @return A new CDOMDirectSingleRef referring to the given object
+	 */
+	public static &lt;R extends Loadable&gt; CDOMDirectSingleRef&lt;R&gt; getRef(R item)
+	{
+<span class="fc" id="L185">		return new CDOMDirectSingleRef&lt;&gt;(item);</span>
+	}
+
+	/**
+	 * Returns the GroupingState for this CDOMDirectSingleRef. The GroupingState
+	 * indicates how this CDOMDirectSingleRef can be combined with other
+	 * PrimitiveChoiceFilters.
+	 * 
+	 * @return The GroupingState for this CDOMDirectSingleRef.
+	 */
+	@Override
+	public GroupingState getGroupingState()
+	{
+<span class="fc" id="L198">		return GroupingState.ALLOWS_UNION;</span>
+	}
+
+	@Override
+	public void setChoice(String c)
+	{
+<span class="nc" id="L204">		choice = c;</span>
+<span class="nc" id="L205">	}</span>
+
+	@Override
+	public String getChoice()
+	{
+<span class="nc" id="L210">		return choice;</span>
+	}
+
+	@SuppressWarnings(&quot;unchecked&quot;)
+	@Override
+	public Class&lt;T&gt; getReferenceClass()
+	{
+<span class="fc" id="L217">		return (Class&lt;T&gt;) referencedObject.getClass();</span>
+	}
+
+	@Override
+	public String getReferenceDescription()
+	{
+<span class="nc" id="L223">		return getReferenceClass().getSimpleName() + &quot; &quot; + getName();</span>
+	}
+
+	@Override
+	public String getPersistentFormat()
+	{
+<span class="fc" id="L229">		return referencedObject.getClassIdentity().getPersistentFormat();</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

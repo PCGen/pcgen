@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FilterBar.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.gui2.filter</a> &gt; <span class="el_source">FilterBar.java</span></div><h1>FilterBar.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2010 Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ */
+package pcgen.gui2.filter;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Container;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Graphics;
+import java.awt.Insets;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.SizeRequirements;
+import javax.swing.UIManager;
+import javax.swing.border.Border;
+
+import org.apache.commons.lang3.ArrayUtils;
+
+/**
+ * This class represents the highest level DisplayableFilter in the filter hierarchy. A FilterBar
+ * is a filter which contains a set of other DisplayableFilters. At the bottom of a FilterBar is a
+ * region of space with an arrow at the center. When this is clicked all of the children filters will
+ * be hidden from view.
+ */
+public class FilterBar&lt;C, E&gt; extends JPanel implements DisplayableFilter&lt;C, E&gt;
+{
+
+<span class="nc" id="L53">	private final JPanel filterPanel = new JPanel(new FilterLayout());</span>
+<span class="nc" id="L54">	private final List&lt;DisplayableFilter&lt;? super C, ? super E&gt;&gt; filters = new ArrayList&lt;&gt;();</span>
+	private FilterHandler filterHandler;
+
+	public FilterBar()
+	{
+<span class="nc" id="L59">		this(true);</span>
+<span class="nc" id="L60">	}</span>
+
+	public FilterBar(boolean collapsable)
+<span class="nc" id="L63">	{</span>
+<span class="nc" id="L64">		setLayout(new BorderLayout());</span>
+<span class="nc" id="L65">		add(filterPanel, BorderLayout.CENTER);</span>
+
+<span class="nc" id="L67">		final ArrowButton arrowbutton = new ArrowButton();</span>
+<span class="nc" id="L68">		arrowbutton.addMouseListener(new MouseAdapter()</span>
+<span class="nc" id="L69">		{</span>
+
+			@Override
+			public void mousePressed(MouseEvent e)
+			{
+<span class="nc bnc" id="L74" title="All 2 branches missed.">				boolean closed = !arrowbutton.isOpen();</span>
+<span class="nc" id="L75">				arrowbutton.setOpen(closed);</span>
+<span class="nc" id="L76">				filterPanel.setVisible(closed);</span>
+<span class="nc" id="L77">			}</span>
+
+		});
+<span class="nc bnc" id="L80" title="All 2 branches missed.">		if (collapsable)</span>
+		{
+<span class="nc" id="L82">			add(arrowbutton, BorderLayout.SOUTH);</span>
+		}
+<span class="nc" id="L84">	}</span>
+
+	public void addDisplayableFilter(DisplayableFilter&lt;? super C, ? super E&gt; filter)
+	{
+<span class="nc" id="L88">		filterPanel.add(filter.getFilterComponent());</span>
+<span class="nc" id="L89">		filters.add(filter);</span>
+<span class="nc" id="L90">		filter.setFilterHandler(filterHandler);</span>
+<span class="nc" id="L91">	}</span>
+
+	@Override
+	public Component getFilterComponent()
+	{
+<span class="nc" id="L96">		return this;</span>
+	}
+
+	@Override
+	public void setFilterHandler(FilterHandler handler)
+	{
+<span class="nc" id="L102">		this.filterHandler = handler;</span>
+<span class="nc bnc" id="L103" title="All 2 branches missed.">		for (DisplayableFilter&lt;? super C, ? super E&gt; displayableFilter : filters)</span>
+		{
+<span class="nc" id="L105">			displayableFilter.setFilterHandler(handler);</span>
+<span class="nc" id="L106">		}</span>
+<span class="nc" id="L107">	}</span>
+
+	@Override
+	public boolean accept(C context, E element)
+	{
+<span class="nc bnc" id="L112" title="All 2 branches missed.">		for (DisplayableFilter&lt;? super C, ? super E&gt; displayableFilter : filters)</span>
+		{
+<span class="nc bnc" id="L114" title="All 2 branches missed.">			if (!displayableFilter.accept(context, element))</span>
+			{
+<span class="nc" id="L116">				return false;</span>
+			}
+<span class="nc" id="L118">		}</span>
+<span class="nc" id="L119">		return true;</span>
+	}
+
+	private static class ArrowButton extends JButton
+	{
+
+<span class="nc" id="L125">		private boolean entered = false;</span>
+<span class="nc" id="L126">		private boolean open = true;</span>
+
+		ArrowButton()
+<span class="nc" id="L129">		{</span>
+<span class="nc" id="L130">			setMinimumSize(new Dimension(6, 6));</span>
+<span class="nc" id="L131">			setPreferredSize(new Dimension(6, 6));</span>
+<span class="nc" id="L132">			setFocusPainted(false);</span>
+<span class="nc" id="L133">			setBorderPainted(false);</span>
+<span class="nc" id="L134">			setRequestFocusEnabled(false);</span>
+<span class="nc" id="L135">			addMouseListener(new MouseAdapter()</span>
+<span class="nc" id="L136">			{</span>
+
+				@Override
+				public void mouseEntered(MouseEvent e)
+				{
+<span class="nc" id="L141">					entered = true;</span>
+<span class="nc" id="L142">					repaint();</span>
+<span class="nc" id="L143">				}</span>
+
+				@Override
+				public void mouseExited(MouseEvent e)
+				{
+<span class="nc" id="L148">					entered = false;</span>
+<span class="nc" id="L149">					repaint();</span>
+<span class="nc" id="L150">				}</span>
+
+			});
+<span class="nc" id="L153">		}</span>
+
+		@Override
+		public void setBorder(Border border)
+		{
+<span class="nc" id="L158">		}</span>
+
+<span class="nc" id="L160">		private static final int[] YUP = {1, 4, 4};</span>
+<span class="nc" id="L161">		private static final int[] YDOWN = {4, 1, 1};</span>
+
+		@Override
+		public void paint(Graphics g)
+		{
+			Color b;
+			Color f;
+<span class="nc bnc" id="L168" title="All 2 branches missed.">			if (entered)</span>
+			{
+<span class="nc" id="L170">				b = UIManager.getColor(&quot;controlDkShadow&quot;);</span>
+<span class="nc" id="L171">				f = Color.BLACK;</span>
+			}
+			else
+			{
+<span class="nc" id="L175">				b = UIManager.getColor(&quot;control&quot;);</span>
+<span class="nc" id="L176">				f = UIManager.getColor(&quot;controlDkShadow&quot;);</span>
+			}
+<span class="nc" id="L178">			g.setColor(b);</span>
+<span class="nc" id="L179">			g.fillRect(0, 0, getWidth(), getHeight());</span>
+<span class="nc" id="L180">			int center = getWidth() / 2;</span>
+<span class="nc" id="L181">			int[] xs = {center, center - 3, center + 3};</span>
+			int[] ys;
+<span class="nc bnc" id="L183" title="All 2 branches missed.">			if (open)</span>
+			{
+<span class="nc" id="L185">				ys = YUP;</span>
+
+			}
+			else
+			{
+<span class="nc" id="L190">				ys = YDOWN;</span>
+			}
+<span class="nc" id="L192">			g.setColor(f);</span>
+<span class="nc" id="L193">			g.drawPolygon(xs, ys, 3);</span>
+<span class="nc" id="L194">			g.fillPolygon(xs, ys, 3);</span>
+<span class="nc" id="L195">		}</span>
+
+		void setOpen(boolean open)
+		{
+<span class="nc" id="L199">			this.open = open;</span>
+<span class="nc" id="L200">		}</span>
+
+		boolean isOpen()
+		{
+<span class="nc" id="L204">			return open;</span>
+		}
+
+	}
+
+	/*
+	 * this layout functions like left to right FlowLayout with the exception
+	 * that it treats the Container's width as absolute and will change the
+	 * height of the container to fit container's children.
+	 */
+	private static class FilterLayout extends FlowLayout
+	{
+<span class="nc" id="L216">		private transient Lock instanceLock = new ReentrantLock();</span>
+
+		FilterLayout()
+		{
+<span class="nc" id="L220">			super(FlowLayout.LEFT, 5, 2);</span>
+<span class="nc" id="L221">		}</span>
+
+		@Override
+		public void layoutContainer(Container target)
+		{
+			try
+			{
+<span class="nc" id="L228">				instanceLock.lock();</span>
+
+<span class="nc" id="L230">				Insets insets = target.getInsets();</span>
+<span class="nc" id="L231">				int maxwidth = target.getWidth() - (insets.left + insets.right + getHgap() * 2);</span>
+<span class="nc" id="L232">				int nmembers = target.getComponentCount();</span>
+<span class="nc" id="L233">				int x = 0;</span>
+<span class="nc" id="L234">				int y = insets.top + getVgap();</span>
+<span class="nc" id="L235">				int rowh = 0;</span>
+<span class="nc" id="L236">				int start = 0;</span>
+
+<span class="nc" id="L238">				boolean ltr = target.getComponentOrientation().isLeftToRight();</span>
+<span class="nc" id="L239">				SizeRequirements[] xChildren = new SizeRequirements[nmembers];</span>
+<span class="nc" id="L240">				SizeRequirements[] yChildren = new SizeRequirements[nmembers];</span>
+<span class="nc bnc" id="L241" title="All 2 branches missed.">				for (int i = 0; i &lt; nmembers; i++)</span>
+				{
+<span class="nc" id="L243">					Component c = target.getComponent(i);</span>
+<span class="nc bnc" id="L244" title="All 2 branches missed.">					if (!c.isVisible())</span>
+					{
+<span class="nc" id="L246">						xChildren[i] = new SizeRequirements(0, 0, 0, c.getAlignmentX());</span>
+<span class="nc" id="L247">						yChildren[i] = new SizeRequirements(0, 0, 0, c.getAlignmentY());</span>
+					}
+					else
+					{
+<span class="nc" id="L251">						Dimension min = c.getMinimumSize();</span>
+<span class="nc" id="L252">						Dimension typ = c.getPreferredSize();</span>
+<span class="nc" id="L253">						Dimension max = c.getMaximumSize();</span>
+<span class="nc" id="L254">						xChildren[i] = new SizeRequirements(min.width, typ.width, max.width, c.getAlignmentX());</span>
+<span class="nc" id="L255">						yChildren[i] = new SizeRequirements(min.height, typ.height, max.height, c.getAlignmentY());</span>
+
+<span class="nc bnc" id="L257" title="All 4 branches missed.">						if ((x == 0) || ((x + typ.width) &lt;= maxwidth))</span>
+						{
+<span class="nc bnc" id="L259" title="All 2 branches missed.">							if (x &gt; 0)</span>
+							{
+<span class="nc" id="L261">								x += getHgap();</span>
+							}
+<span class="nc" id="L263">							x += typ.width;</span>
+<span class="nc" id="L264">							rowh = Math.max(rowh, typ.height);</span>
+						}
+						else
+						{
+<span class="nc" id="L268">							layoutComponents(target, insets.left + getHgap(), y, maxwidth, rowh, xChildren, yChildren,</span>
+								start, i, ltr);
+
+<span class="nc" id="L271">							x = typ.width;</span>
+<span class="nc" id="L272">							y += getVgap() + rowh;</span>
+<span class="nc" id="L273">							rowh = typ.height;</span>
+<span class="nc" id="L274">							start = i;</span>
+						}
+					}
+				}
+<span class="nc" id="L278">				layoutComponents(target, insets.left + getHgap(), y, maxwidth, rowh, xChildren, yChildren, start,</span>
+					nmembers, ltr);
+			} finally
+			{
+<span class="nc" id="L282">				instanceLock.unlock();</span>
+			}
+<span class="nc" id="L284">		}</span>
+
+		private void layoutComponents(Container target, int xOffset, int yOffset, int maxwidth, int rowheight,
+			SizeRequirements[] xChildren, SizeRequirements[] yChildren, int start, int end, boolean ltr)
+		{
+<span class="nc" id="L289">			SizeRequirements[] children = ArrayUtils.subarray(xChildren, start, end);</span>
+<span class="nc" id="L290">			int[] xOffsets = new int[children.length];</span>
+<span class="nc" id="L291">			int[] xSpans = new int[children.length];</span>
+<span class="nc" id="L292">			SizeRequirements.calculateTiledPositions(maxwidth, null, children, xOffsets, xSpans, ltr);</span>
+
+<span class="nc" id="L294">			children = ArrayUtils.subarray(yChildren, start, end);</span>
+<span class="nc" id="L295">			int[] yOffsets = new int[children.length];</span>
+<span class="nc" id="L296">			int[] ySpans = new int[children.length];</span>
+<span class="nc" id="L297">			SizeRequirements total = new SizeRequirements(rowheight, rowheight, rowheight, 0.5f);</span>
+<span class="nc" id="L298">			SizeRequirements.calculateAlignedPositions(rowheight, total, children, yOffsets, ySpans, ltr);</span>
+
+<span class="nc bnc" id="L300" title="All 2 branches missed.">			for (int i = 0; i &lt; children.length; i++)</span>
+			{
+<span class="nc" id="L302">				Component c = target.getComponent(i + start);</span>
+<span class="nc" id="L303">				c.setBounds((int) Math.min((long) xOffset + (long) xOffsets[i], Integer.MAX_VALUE),</span>
+<span class="nc" id="L304">					(int) Math.min((long) yOffset + (long) yOffsets[i], Integer.MAX_VALUE), xSpans[i], ySpans[i]);</span>
+			}
+<span class="nc" id="L306">		}</span>
+
+		@Override
+		public Dimension preferredLayoutSize(Container target)
+		{
+			try
+			{
+<span class="nc" id="L313">				instanceLock.lock();</span>
+
+<span class="nc" id="L315">				Dimension dim = new Dimension(0, 0);</span>
+<span class="nc" id="L316">				int nmembers = target.getComponentCount();</span>
+
+<span class="nc" id="L318">				Insets insets = target.getInsets();</span>
+				// Provide a default if the panel has not been displayed yet (i.e. in a dialog)
+<span class="nc bnc" id="L320" title="All 2 branches missed.">				int targetWidth = target.getWidth() == 0 ? 400 : target.getWidth();</span>
+<span class="nc" id="L321">				int maxwidth = targetWidth - (insets.left + insets.right + getHgap() * 2);</span>
+<span class="nc" id="L322">				int width = 0;</span>
+<span class="nc" id="L323">				int height = 0;</span>
+<span class="nc" id="L324">				int component = 0;</span>
+<span class="nc bnc" id="L325" title="All 2 branches missed.">				for (int i = 0; i &lt; nmembers; i++, component++)</span>
+				{
+<span class="nc" id="L327">					Component m = target.getComponent(i);</span>
+<span class="nc bnc" id="L328" title="All 2 branches missed.">					if (m.isVisible())</span>
+					{
+<span class="nc" id="L330">						Dimension d = m.getPreferredSize();</span>
+<span class="nc bnc" id="L331" title="All 2 branches missed.">						if (component &gt; 0)</span>
+						{
+<span class="nc bnc" id="L333" title="All 2 branches missed.">							if (width + d.width &gt; maxwidth)</span>
+							{
+<span class="nc" id="L335">								dim.width = Math.max(dim.width, width);</span>
+<span class="nc" id="L336">								dim.height += height + getVgap();</span>
+<span class="nc" id="L337">								width = 0;</span>
+<span class="nc" id="L338">								height = 0;</span>
+<span class="nc" id="L339">								component = 0;</span>
+							}
+<span class="nc" id="L341">							width += getHgap();</span>
+						}
+<span class="nc" id="L343">						height = Math.max(height, d.height);</span>
+<span class="nc" id="L344">						width += d.width;</span>
+					}
+				}
+<span class="nc" id="L347">				dim.width = Math.max(dim.width, width);</span>
+<span class="nc" id="L348">				dim.height += height;</span>
+
+<span class="nc" id="L350">				dim.width += insets.left + insets.right + getHgap() * 2;</span>
+<span class="nc" id="L351">				dim.height += insets.top + insets.bottom + getVgap() * 2;</span>
+<span class="nc" id="L352">				return dim;</span>
+			} finally
+			{
+<span class="nc" id="L355">				instanceLock.unlock();</span>
+			}
+		}
+
+		@Override
+		public Dimension minimumLayoutSize(Container target)
+		{
+			try
+			{
+<span class="nc" id="L364">				instanceLock.lock();</span>
+
+<span class="nc" id="L366">				Dimension dim = new Dimension(0, 0);</span>
+<span class="nc" id="L367">				int nmembers = target.getComponentCount();</span>
+
+<span class="nc" id="L369">				Insets insets = target.getInsets();</span>
+<span class="nc" id="L370">				int maxwidth = target.getWidth() - (insets.left + insets.right + getHgap() * 2);</span>
+<span class="nc" id="L371">				int width = 0;</span>
+<span class="nc" id="L372">				int height = 0;</span>
+<span class="nc" id="L373">				int component = 0;</span>
+<span class="nc bnc" id="L374" title="All 2 branches missed.">				for (int i = 0; i &lt; nmembers; i++, component++)</span>
+				{
+<span class="nc" id="L376">					Component m = target.getComponent(i);</span>
+<span class="nc bnc" id="L377" title="All 2 branches missed.">					if (m.isVisible())</span>
+					{
+<span class="nc" id="L379">						Dimension d = m.getMinimumSize();</span>
+<span class="nc bnc" id="L380" title="All 2 branches missed.">						if (component &gt; 0)</span>
+						{
+<span class="nc bnc" id="L382" title="All 2 branches missed.">							if (width + d.width &gt; maxwidth)</span>
+							{
+<span class="nc" id="L384">								dim.width = Math.max(dim.width, width);</span>
+<span class="nc" id="L385">								dim.height += height + getVgap();</span>
+<span class="nc" id="L386">								width = 0;</span>
+<span class="nc" id="L387">								height = 0;</span>
+<span class="nc" id="L388">								component = 0;</span>
+							}
+<span class="nc" id="L390">							width += getHgap();</span>
+						}
+<span class="nc" id="L392">						height = Math.max(height, d.height);</span>
+<span class="nc" id="L393">						width += d.width;</span>
+					}
+				}
+<span class="nc" id="L396">				dim.width = Math.max(dim.width, width);</span>
+<span class="nc" id="L397">				dim.height += height;</span>
+
+<span class="nc" id="L399">				dim.width += insets.left + insets.right + getHgap() * 2;</span>
+<span class="nc" id="L400">				dim.height += insets.top + insets.bottom + getVgap() * 2;</span>
+<span class="nc" id="L401">				return dim;</span>
+			} finally
+			{
+<span class="nc" id="L404">				instanceLock.unlock();</span>
+			}
+		}
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

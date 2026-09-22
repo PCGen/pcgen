@@ -1,0 +1,884 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>JepCountType.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.util</a> &gt; <span class="el_source">JepCountType.java</span></div><h1>JepCountType.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2014 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * Copyright 2013 (C) James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ * 
+ * 
+ */
+package pcgen.util;
+
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
+import java.text.MessageFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+import java.util.StringTokenizer;
+
+import pcgen.base.lang.UnreachableError;
+import pcgen.base.util.CaseInsensitiveMap;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Category;
+import pcgen.cdom.content.CNAbility;
+import pcgen.cdom.enumeration.AspectName;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.MapKey;
+import pcgen.cdom.enumeration.Nature;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.SkillFilter;
+import pcgen.cdom.enumeration.Type;
+import pcgen.core.Ability;
+import pcgen.core.AbilityUtilities;
+import pcgen.core.ChronicleEntry;
+import pcgen.core.Domain;
+import pcgen.core.Equipment;
+import pcgen.core.Language;
+import pcgen.core.PCClass;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.Skill;
+import pcgen.core.display.SkillDisplay;
+import pcgen.system.PCGenSettings;
+import pcgen.util.AbstractCountCommand.JepAbilityCountEnum;
+import pcgen.util.AbstractCountCommand.JepEquipmentCountEnum;
+import pcgen.util.enumeration.View;
+import pcgen.util.enumeration.Visibility;
+
+import org.nfunk.jep.ParseException;
+
+<span class="nc" id="L66">public abstract class JepCountType</span>
+{
+
+	/**
+	 * This Map contains the mappings from Strings to the Type Safe Constant
+	 */
+<span class="nc" id="L72">	private static CaseInsensitiveMap&lt;JepCountType&gt; typeMap = null;</span>
+
+<span class="nc" id="L74">	public static final JepCountType ABILITIESDISTINCT = new JepCountAbilities()</span>
+<span class="nc" id="L75">	{</span>
+		@Override
+		protected Double countData(Collection&lt;? extends CNAbility&gt; filtered, PlayerCharacter pc)
+		{
+<span class="nc bnc" id="L79" title="All 2 branches missed.">			if (assocList.isEmpty())</span>
+			{
+<span class="nc" id="L81">				return (double) filtered.size();</span>
+			}
+
+<span class="nc" id="L84">			double accum = 0;</span>
+<span class="nc bnc" id="L85" title="All 2 branches missed.">			for (final CNAbility ab : filtered)</span>
+			{
+<span class="nc bnc" id="L87" title="All 2 branches missed.">				for (String assoc : pc.getAssociationList(ab))</span>
+				{
+<span class="nc bnc" id="L89" title="All 2 branches missed.">					if (assocList.contains(assoc))</span>
+					{
+<span class="nc" id="L91">						accum++;</span>
+					}
+<span class="nc" id="L93">				}</span>
+<span class="nc" id="L94">			}</span>
+<span class="nc" id="L95">			return accum;</span>
+		}
+
+	};
+
+<span class="nc" id="L100">	public static final JepCountType ABILITIES = new JepCountAbilities()</span>
+<span class="nc" id="L101">	{</span>
+
+		@Override
+		protected Double countData(Collection&lt;? extends CNAbility&gt; filtered, PlayerCharacter pc)
+		{
+<span class="nc" id="L106">			double accum = 0;</span>
+<span class="nc bnc" id="L107" title="All 2 branches missed.">			for (final CNAbility ab : filtered)</span>
+			{
+<span class="nc bnc" id="L109" title="All 2 branches missed.">				if (assocList.isEmpty())</span>
+				{
+<span class="nc" id="L111">					final double ac = pc.getSelectCorrectedAssociationCount(ab);</span>
+<span class="nc bnc" id="L112" title="All 2 branches missed.">					accum += 1.01 &gt;= ac ? 1 : ac;</span>
+<span class="nc" id="L113">				}</span>
+				else
+				{
+<span class="nc bnc" id="L116" title="All 2 branches missed.">					for (String assoc : pc.getAssociationList(ab))</span>
+					{
+<span class="nc bnc" id="L118" title="All 2 branches missed.">						if (assocList.contains(assoc))</span>
+						{
+<span class="nc" id="L120">							accum++;</span>
+						}
+<span class="nc" id="L122">					}</span>
+				}
+<span class="nc" id="L124">			}</span>
+<span class="nc" id="L125">			return accum;</span>
+		}
+
+	};
+
+<span class="nc" id="L130">	public static final JepCountType CAMPAIGNHISTORY = new JepCountFilterable&lt;ChronicleEntry&gt;()</span>
+<span class="nc" id="L131">	{</span>
+		@Override
+		protected Collection&lt;ChronicleEntry&gt; getData(final PlayerCharacter pc)
+		{
+<span class="nc" id="L135">			return pc.getDisplay().getChronicleEntries();</span>
+		}
+
+		@Override
+		public Double count(PlayerCharacter pc, Object[] params) throws ParseException
+		{
+<span class="nc bnc" id="L141" title="All 2 branches missed.">			final Object[] par = params.length &gt; 0 ? params : new String[]{&quot;EXPORT=YES&quot;};</span>
+<span class="nc" id="L142">			return super.count(pc, par);</span>
+		}
+
+		@Override
+		protected Set&lt;ChronicleEntry&gt; filterSetP(final String c, Collection&lt;ChronicleEntry&gt; coll) throws ParseException
+		{
+<span class="nc" id="L148">			final String[] keyValue = c.split(&quot;=&quot;);</span>
+
+<span class="nc bnc" id="L150" title="All 2 branches missed.">			if (!&quot;EXPORT&quot;.equalsIgnoreCase(keyValue[0]))</span>
+			{
+<span class="nc" id="L152">				throw new ParseException(&quot;Bad parameter to count(\&quot;CAMPAIGNHISTORY\&quot; ... )&quot; + c);</span>
+			}
+<span class="nc bnc" id="L154" title="All 4 branches missed.">			if (!&quot;NO&quot;.equalsIgnoreCase(keyValue[1]) &amp;&amp; !&quot;YES&quot;.equalsIgnoreCase(keyValue[1]))</span>
+			{
+<span class="nc" id="L156">				throw new ParseException(&quot;Bad EXPORT value to count(\&quot;CAMPAIGNHISTORY\&quot; ... )&quot; + c);</span>
+			}
+
+<span class="nc" id="L159">			boolean wantExport = &quot;YES&quot;.equalsIgnoreCase(keyValue[1]);</span>
+<span class="nc" id="L160">			final Set&lt;ChronicleEntry&gt; cs = new HashSet&lt;&gt;();</span>
+<span class="nc bnc" id="L161" title="All 2 branches missed.">			for (ChronicleEntry ce : coll)</span>
+			{
+<span class="nc bnc" id="L163" title="All 2 branches missed.">				if (ce.isOutputEntry() == wantExport)</span>
+				{
+<span class="nc" id="L165">					cs.add(ce);</span>
+				}
+<span class="nc" id="L167">			}</span>
+<span class="nc" id="L168">			return cs;</span>
+		}
+
+	};
+
+<span class="nc" id="L173">	public static final JepCountType CLASSES = new JepCountCDOMObject&lt;PCClass&gt;()</span>
+<span class="nc" id="L174">	{</span>
+		@Override
+		protected Collection&lt;PCClass&gt; getData(final PlayerCharacter pc)
+		{
+<span class="nc" id="L178">			return pc.getDisplay().getClassSet();</span>
+		}
+	};
+
+<span class="nc" id="L182">	public static final JepCountType DOMAINS = new JepCountCDOMObject&lt;Domain&gt;()</span>
+<span class="nc" id="L183">	{</span>
+		@Override
+		protected Collection&lt;Domain&gt; getData(final PlayerCharacter pc)
+		{
+<span class="nc" id="L187">			return pc.getDisplay().getDomainSet();</span>
+		}
+	};
+
+<span class="nc" id="L191">	public static final JepCountType EQUIPMENT = new JepCountCDOMObject&lt;Equipment&gt;()</span>
+<span class="nc" id="L192">	{</span>
+		@Override
+		protected Collection&lt;Equipment&gt; getData(final PlayerCharacter pc)
+		{
+<span class="nc" id="L196">			return pc.getEquipmentListInOutputOrder();</span>
+		}
+
+		@Override
+		protected Set&lt;? extends Equipment&gt; filterSetP(final String c, Collection&lt;Equipment&gt; coll)
+		{
+<span class="nc" id="L202">			final String[] keyValue = c.split(&quot;=&quot;);</span>
+
+			final JepEquipmentCountEnum en;
+
+			try
+			{
+<span class="nc" id="L208">				en = JepEquipmentCountEnum.valueOf(keyValue[0]);</span>
+			}
+<span class="nc" id="L210">			catch (IllegalArgumentException ex)</span>
+			{
+<span class="nc" id="L212">				Logging.errorPrint(&quot;Bad parameter to count(\&quot;Equipment\&quot;), &quot; + c);</span>
+<span class="nc" id="L213">				return new HashSet&lt;&gt;();</span>
+<span class="nc" id="L214">			}</span>
+
+<span class="nc" id="L216">			final Set&lt;Equipment&gt; cs = new HashSet&lt;&gt;(coll);</span>
+<span class="nc" id="L217">			final Iterator&lt;? extends Equipment&gt; it = cs.iterator();</span>
+
+<span class="nc bnc" id="L219" title="All 6 branches missed.">			switch (en)</span>
+			{
+				case TYPE:
+<span class="nc" id="L222">					filterPObjectByType(it, keyValue[1]);</span>
+<span class="nc" id="L223">					break;</span>
+				case WIELDCATEGORY:
+<span class="nc bnc" id="L225" title="All 2 branches missed.">					while (it.hasNext())</span>
+					{
+<span class="nc" id="L227">						final Equipment e = it.next();</span>
+<span class="nc bnc" id="L228" title="All 2 branches missed.">						if (!e.getWieldName().equalsIgnoreCase(keyValue[1]))</span>
+						{
+<span class="nc" id="L230">							it.remove();</span>
+						}
+<span class="nc" id="L232">					}</span>
+					break;
+				// TODO have no idea how to get a suitable list of equipment
+				// and test for this.
+				case LOCATION:
+<span class="nc bnc" id="L237" title="All 4 branches missed.">					if (&quot;CARRIED&quot;.equalsIgnoreCase(keyValue[1]) || &quot;Equipped&quot;.equalsIgnoreCase(keyValue[1]))</span>
+					{
+						//					while (it.hasNext())
+						//					{
+						//						Equipment e = (Equipment) it.next();
+						//						if (! e.getParent().equalsIgnoreCase(keyValue[1]));
+						//						{
+						//							it.remove();
+						//						}
+						//					}
+<span class="nc" id="L247">						Logging.debugPrint(&quot;TODO Need to handle carried and equipped items.&quot;);</span>
+					}
+					break;
+				case LOC:
+<span class="nc" id="L251">					break;</span>
+				case TYP:
+<span class="nc" id="L253">					break;</span>
+				case WDC:
+					break;
+                // All enum cases are covered so no default
+            }
+<span class="nc" id="L258">			return cs;</span>
+		}
+	};
+
+<span class="nc" id="L262">	public static final JepCountType FOLLOWERS = new JepCountType()</span>
+<span class="nc" id="L263">	{</span>
+		@Override
+		public Number count(PlayerCharacter pc, Object[] params)
+		{
+			//TODO what if params is not empty??
+<span class="nc" id="L268">			return pc.getDisplay().getFollowerList().size();</span>
+		}
+	};
+
+<span class="nc" id="L272">	public static final JepCountType LANGUAGES = new JepCountCDOMObject&lt;Language&gt;()</span>
+<span class="nc" id="L273">	{</span>
+		@Override
+		protected Collection&lt;Language&gt; getData(final PlayerCharacter pc)
+		{
+<span class="nc" id="L277">			return pc.getDisplay().getLanguageSet();</span>
+		}
+	};
+
+<span class="nc" id="L281">	public static final JepCountType RACESUBTYPE = new JepCountType()</span>
+<span class="nc" id="L282">	{</span>
+		@Override
+		public Number count(PlayerCharacter pc, Object[] params)
+		{
+<span class="nc" id="L286">			return pc.getDisplay().getRacialSubTypeCount();</span>
+		}
+
+	};
+
+<span class="nc" id="L291">	public static final JepCountType SKILLS = new JepCountCDOMObject&lt;Skill&gt;()</span>
+<span class="nc" id="L292">	{</span>
+		@Override
+		protected Collection&lt;Skill&gt; getData(PlayerCharacter pc)
+		{
+<span class="nc" id="L296">			return pc.getDisplay().getSkillSet();</span>
+		}
+	};
+
+<span class="nc" id="L300">	public static final JepCountType SKILLSIT = new JepCountSkillSit();</span>
+
+<span class="nc" id="L302">	public static final JepCountType SPELLBOOKS = new JepCountType()</span>
+<span class="nc" id="L303">	{</span>
+		@Override
+		public Number count(PlayerCharacter pc, Object[] params)
+		{
+			//TODO what if params is not empty??
+<span class="nc" id="L308">			return pc.getDisplay().getSpellBookCount();</span>
+		}
+	};
+
+	public abstract Number count(PlayerCharacter pc, Object[] params) throws ParseException;
+
+	private static final class AspectFilter implements ObjectFilter&lt;CNAbility&gt;
+	{
+		private final String[] keyValue;
+
+		private AspectFilter(String[] keyValue)
+<span class="nc" id="L319">		{</span>
+<span class="nc" id="L320">			this.keyValue = keyValue;</span>
+<span class="nc" id="L321">		}</span>
+
+		@Override
+		public boolean accept(CNAbility o)
+		{
+<span class="nc bnc" id="L326" title="All 2 branches missed.">			return o.getAbility().get(MapKey.ASPECT, AspectName.getConstant(keyValue[1])) != null;</span>
+		}
+	}
+
+	private static final class VisibilityFilter implements ObjectFilter&lt;CNAbility&gt;
+	{
+		private final Visibility vi;
+
+		private VisibilityFilter(Visibility vi)
+<span class="nc" id="L335">		{</span>
+<span class="nc" id="L336">			this.vi = vi;</span>
+<span class="nc" id="L337">		}</span>
+
+		@Override
+		public boolean accept(CNAbility o)
+		{
+<span class="nc" id="L342">			return o.getAbility().getSafe(ObjectKey.VISIBILITY).equals(vi);</span>
+		}
+	}
+
+	private static final class TypeFilter implements ObjectFilter&lt;CNAbility&gt;
+	{
+		String type;
+
+		TypeFilter(String typ)
+<span class="nc" id="L351">		{</span>
+<span class="nc" id="L352">			type = typ;</span>
+<span class="nc" id="L353">		}</span>
+
+		@Override
+		public boolean accept(CNAbility o)
+		{
+			//isType already accounts for A.B.C, so we don't have to do that here
+<span class="nc" id="L359">			return o.getAbility().isType(type);</span>
+		}
+	}
+
+	private static final class TypeExclusionFilter implements ObjectFilter&lt;CNAbility&gt;
+	{
+		String type;
+
+		TypeExclusionFilter(String typ)
+<span class="nc" id="L368">		{</span>
+<span class="nc" id="L369">			type = typ;</span>
+<span class="nc" id="L370">		}</span>
+
+		@Override
+		public boolean accept(CNAbility o)
+		{
+			//Since this is exclude on &quot;any&quot; we have to expand this out
+<span class="nc" id="L376">			StringTokenizer tok = new StringTokenizer(type, &quot;.&quot;);</span>
+<span class="nc" id="L377">			Ability a = o.getAbility();</span>
+<span class="nc bnc" id="L378" title="All 2 branches missed.">			while (tok.hasMoreTokens())</span>
+			{
+<span class="nc bnc" id="L380" title="All 2 branches missed.">				if (a.containsInList(ListKey.TYPE, Type.getConstant(tok.nextToken())))</span>
+				{
+<span class="nc" id="L382">					return false;</span>
+				}
+			}
+<span class="nc" id="L385">			return true;</span>
+		}
+	}
+
+	private static final class NatureFilter implements ObjectFilter&lt;CNAbility&gt;
+	{
+		Nature nature;
+
+		NatureFilter(Nature n)
+<span class="nc" id="L394">		{</span>
+<span class="nc" id="L395">			nature = n;</span>
+<span class="nc" id="L396">		}</span>
+
+		@Override
+		public boolean accept(CNAbility o)
+		{
+<span class="nc" id="L401">			return o.getNature().equals(nature);</span>
+		}
+	}
+
+	private static final class KeyNameFilter implements ObjectFilter&lt;CNAbility&gt;
+	{
+		private final String name;
+		private final List&lt;String&gt; assocList;
+
+		private KeyNameFilter(String keyValue, List&lt;String&gt; list)
+<span class="nc" id="L411">		{</span>
+<span class="nc" id="L412">			this.name = keyValue;</span>
+<span class="nc" id="L413">			assocList = list;</span>
+<span class="nc" id="L414">		}</span>
+
+		@Override
+		public boolean accept(CNAbility o)
+		{
+<span class="nc" id="L419">			List&lt;String&gt; assocs = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L420">			String undec = AbilityUtilities.getUndecoratedName(name, assocs);</span>
+<span class="nc" id="L421">			Ability ab = o.getAbility();</span>
+<span class="nc" id="L422">			String keyName = ab.getKeyName();</span>
+<span class="nc bnc" id="L423" title="All 2 branches missed.">			if (keyName.equalsIgnoreCase(undec))</span>
+			{
+<span class="nc" id="L425">				assocList.addAll(assocs);</span>
+<span class="nc" id="L426">				return true;</span>
+			}
+<span class="nc" id="L428">			return keyName.equalsIgnoreCase(name);</span>
+		}
+	}
+
+	private static final class DisplayNameFilter implements ObjectFilter&lt;CNAbility&gt;
+	{
+		private final String name;
+
+		private DisplayNameFilter(String keyValue)
+<span class="nc" id="L437">		{</span>
+<span class="nc" id="L438">			this.name = keyValue;</span>
+<span class="nc" id="L439">		}</span>
+
+		@Override
+		public boolean accept(CNAbility o)
+		{
+<span class="nc" id="L444">			return o.getAbility().getDisplayName().equalsIgnoreCase(name);</span>
+		}
+	}
+
+	private static final class CategoryFilter implements ObjectFilter&lt;CNAbility&gt;
+	{
+		private final String cat;
+
+		private CategoryFilter(String cat)
+<span class="nc" id="L453">		{</span>
+<span class="nc" id="L454">			this.cat = cat;</span>
+<span class="nc" id="L455">		}</span>
+
+		@Override
+		public boolean accept(CNAbility o)
+		{
+<span class="nc" id="L460">			Category&lt;Ability&gt; parentCategory = o.getAbilityCategory().getParentCategory();</span>
+<span class="nc" id="L461">			return parentCategory.getKeyName().equalsIgnoreCase(cat);</span>
+		}
+	}
+
+<span class="nc" id="L465">	public abstract static class JepCountCDOMObject&lt;T extends CDOMObject&gt; extends JepCountFilterable&lt;T&gt;</span>
+	{
+		@Override
+		public Double count(PlayerCharacter pc, Object[] params) throws ParseException
+		{
+<span class="nc" id="L470">			return super.count(pc, validateParams(params));</span>
+		}
+
+		// By adding this it means that we can call count with just the object to be
+		// counted and get a count of all e.g. count(&quot;ABILITIES&quot;) will return a
+		// count of all abilities with no filtering at all.
+		protected Object[] validateParams(final Object[] params)
+		{
+<span class="nc" id="L478">			Object[] p = new Object[1];</span>
+<span class="nc bnc" id="L479" title="All 2 branches missed.">			if (1 &gt; params.length)</span>
+			{
+<span class="nc" id="L481">				p[0] = &quot;TYPE=ALL&quot;;</span>
+			}
+			else
+			{
+<span class="nc" id="L485">				p = params;</span>
+			}
+<span class="nc" id="L487">			return p;</span>
+		}
+
+		@Override
+		protected Set&lt;? extends T&gt; filterSetP(final String c, Collection&lt;T&gt; coll) throws ParseException
+		{
+<span class="nc" id="L493">			final String[] keyValue = c.split(&quot;=&quot;);</span>
+
+<span class="nc bnc" id="L495" title="All 2 branches missed.">			if (!&quot;TYPE&quot;.equalsIgnoreCase(keyValue[0]))</span>
+			{
+<span class="nc" id="L497">				throw new ParseException(&quot;Bad parameter to count(\&quot;CLASSES\&quot; ... )&quot; + c);</span>
+			}
+
+<span class="nc" id="L500">			final Set&lt;T&gt; cs = new HashSet&lt;&gt;(coll);</span>
+<span class="nc" id="L501">			final Iterator&lt;? extends T&gt; it = cs.iterator();</span>
+
+<span class="nc" id="L503">			filterPObjectByType(it, keyValue[1]);</span>
+<span class="nc" id="L504">			return cs;</span>
+		}
+
+		protected void filterPObjectByType(final Iterator&lt;? extends T&gt; it, final String tString)
+		{
+			// If we want all then we don't need to filter.
+<span class="nc bnc" id="L510" title="All 2 branches missed.">			if (!&quot;ALL&quot;.equalsIgnoreCase(tString))</span>
+			{
+				// Make a List of all the types that each PObject should match
+<span class="nc" id="L513">				final Collection&lt;String&gt; typeList = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L514">				Collections.addAll(typeList, tString.split(&quot;\\.&quot;));</span>
+
+				// These nested loops remove all PObjects from the collection being
+				// iterated that do not match all of the types in typeList
+<span class="nc bnc" id="L518" title="All 2 branches missed.">				while (it.hasNext())</span>
+				{
+<span class="nc" id="L520">					final T pObj = it.next();</span>
+
+<span class="nc bnc" id="L522" title="All 2 branches missed.">					for (final String type : typeList)</span>
+					{
+<span class="nc bnc" id="L524" title="All 2 branches missed.">						if (!pObj.isType(type))</span>
+						{
+<span class="nc" id="L526">							it.remove();</span>
+<span class="nc" id="L527">							break;</span>
+						}
+<span class="nc" id="L529">					}</span>
+<span class="nc" id="L530">				}</span>
+			}
+<span class="nc" id="L532">		}</span>
+	}
+
+<span class="nc" id="L535">	public abstract static class JepCountFilterable&lt;T&gt; extends JepCountType</span>
+	{
+		protected abstract Collection&lt;T&gt; getData(PlayerCharacter pc);
+
+		protected static ParameterTree convertParams(final Object[] params)
+		{
+<span class="nc" id="L541">			ParameterTree pt = null;</span>
+
+<span class="nc bnc" id="L543" title="All 2 branches missed.">			for (final Object param : params)</span>
+			{
+				try
+				{
+<span class="nc bnc" id="L547" title="All 2 branches missed.">					if (pt == null)</span>
+					{
+<span class="nc" id="L549">						pt = ParameterTree.makeTree((String) param);</span>
+					}
+					else
+					{
+<span class="nc" id="L553">						final ParameterTree npt = ParameterTree.makeTree(ParameterTree.AND_STRING);</span>
+<span class="nc" id="L554">						npt.setLeftTree(pt);</span>
+<span class="nc" id="L555">						pt = npt;</span>
+<span class="nc" id="L556">						final ParameterTree npt1 = ParameterTree.makeTree((String) param);</span>
+<span class="nc" id="L557">						pt.setRightTree(npt1);</span>
+					}
+				}
+<span class="nc" id="L560">				catch (ParseException pe)</span>
+				{
+<span class="nc" id="L562">					Logging.errorPrint(MessageFormat.format(&quot;Malformed parameter to count {0}&quot;, param), pe);</span>
+<span class="nc" id="L563">				}</span>
+			}
+<span class="nc" id="L565">			return pt;</span>
+		}
+
+		protected Collection&lt;? extends T&gt; doFilterP(final ParameterTree pt, Collection&lt;T&gt; coll) throws ParseException
+		{
+<span class="nc" id="L570">			final String c = pt.getContents();</span>
+<span class="nc bnc" id="L571" title="All 4 branches missed.">			if (c.equalsIgnoreCase(ParameterTree.OR_STRING) || c.equalsIgnoreCase(ParameterTree.AND_STRING))</span>
+			{
+<span class="nc" id="L573">				final Set&lt;T&gt; a = new HashSet&lt;&gt;(doFilterP(pt.getLeftTree(), coll));</span>
+<span class="nc" id="L574">				final Collection&lt;? extends T&gt; b = doFilterP(pt.getRightTree(), coll);</span>
+<span class="nc bnc" id="L575" title="All 2 branches missed.">				if (c.equalsIgnoreCase(ParameterTree.OR_STRING))</span>
+				{
+<span class="nc" id="L577">					a.addAll(b);</span>
+				}
+				else
+				{
+<span class="nc" id="L581">					a.retainAll(b);</span>
+				}
+<span class="nc" id="L583">				return a;</span>
+			}
+<span class="nc" id="L585">			return filterSetP(c, coll);</span>
+		}
+
+		@Override
+		public Double count(PlayerCharacter pc, Object[] params) throws ParseException
+		{
+<span class="nc" id="L591">			final ParameterTree pt = convertParams(params);</span>
+<span class="nc" id="L592">			Collection&lt;T&gt; data = getData(pc);</span>
+			Collection&lt;? extends T&gt; results;
+<span class="nc bnc" id="L594" title="All 2 branches missed.">			if (pt == null)</span>
+			{
+<span class="nc" id="L596">				results = data;</span>
+			}
+			else
+			{
+<span class="nc" id="L600">				results = doFilterP(pt, data);</span>
+			}
+<span class="nc" id="L602">			return countData(results, pc);</span>
+		}
+
+		protected Double countData(final Collection&lt;? extends T&gt; filtered, PlayerCharacter pc)
+		{
+<span class="nc" id="L607">			return (double) filtered.size();</span>
+		}
+
+		protected abstract Collection&lt;? extends T&gt; filterSetP(String c, Collection&lt;T&gt; coll) throws ParseException;
+
+	}
+
+<span class="nc" id="L614">	public abstract static class JepCountAbilities extends JepCountFilterable&lt;CNAbility&gt;</span>
+	{
+<span class="nc" id="L616">		protected final List&lt;String&gt; assocList = new ArrayList&lt;&gt;();</span>
+
+		@Override
+		protected Collection&lt;CNAbility&gt; getData(final PlayerCharacter pc)
+		{
+<span class="nc" id="L621">			assocList.clear();</span>
+<span class="nc" id="L622">			return pc.getCNAbilities();</span>
+		}
+
+		@Override
+		protected Collection&lt;? extends CNAbility&gt; filterSetP(final String c, Collection&lt;CNAbility&gt; coll)
+		{
+<span class="nc" id="L628">			final String[] keyValue = c.split(&quot;=&quot;);</span>
+			final JepAbilityCountEnum en;
+
+			try
+			{
+<span class="nc" id="L633">				en = JepAbilityCountEnum.valueOf(keyValue[0]);</span>
+			}
+<span class="nc" id="L635">			catch (IllegalArgumentException ex)</span>
+			{
+<span class="nc" id="L637">				Logging.errorPrint(&quot;Bad parameter to count(\&quot;Ability\&quot;), &quot; + c);</span>
+<span class="nc" id="L638">				return new HashSet&lt;&gt;();</span>
+<span class="nc" id="L639">			}</span>
+
+<span class="nc" id="L641">			ObjectFilter&lt;CNAbility&gt; filter = null;</span>
+<span class="nc bnc" id="L642" title="All 9 branches missed.">			switch (en)</span>
+			{
+				case CATEGORY:
+				case CAT:
+<span class="nc" id="L646">					filter = new CategoryFilter(keyValue[1]);</span>
+<span class="nc" id="L647">					break;</span>
+
+				case NAME:
+				case NAM:
+					//TODO need to initialize assocFilter :/
+<span class="nc" id="L652">					filter = new DisplayNameFilter(keyValue[1]);</span>
+<span class="nc" id="L653">					break;</span>
+
+				case KEY:
+<span class="nc" id="L656">					filter = new KeyNameFilter(keyValue[1], assocList);</span>
+<span class="nc" id="L657">					break;</span>
+
+				case NATURE:
+				case NAT:
+					try
+					{
+<span class="nc" id="L663">						Nature n = Nature.valueOf(keyValue[1]);</span>
+<span class="nc bnc" id="L664" title="All 2 branches missed.">						if (!n.equals(Nature.ANY))</span>
+						{
+<span class="nc" id="L666">							filter = new NatureFilter(n);</span>
+						}
+					}
+<span class="nc" id="L669">					catch (IllegalArgumentException ex)</span>
+					{
+<span class="nc" id="L671">						Logging.errorPrint(&quot;Bad parameter to count(\&quot;Ability\&quot;), no such NATURE &quot; + c);</span>
+<span class="nc" id="L672">					}</span>
+
+<span class="nc" id="L674">					break;</span>
+
+				case TYPE:
+				case TYP:
+<span class="nc" id="L678">					filter = new TypeFilter(keyValue[1]);</span>
+<span class="nc" id="L679">					break;</span>
+
+				case EXCLUDETYPE:
+<span class="nc" id="L682">					filter = new TypeExclusionFilter(keyValue[1]);</span>
+<span class="nc" id="L683">					break;</span>
+
+				case VISIBILITY:
+				case VIS:
+					try
+					{
+<span class="nc" id="L689">						final Visibility vi = Visibility.valueOf(keyValue[1]);</span>
+<span class="nc" id="L690">						filter = new VisibilityFilter(vi);</span>
+					}
+<span class="nc" id="L692">					catch (IllegalArgumentException ex)</span>
+					{
+<span class="nc" id="L694">						Logging.errorPrint(&quot;Bad parameter to count(\&quot;Ability\&quot;), no such Visibility &quot; + keyValue[1]);</span>
+<span class="nc" id="L695">					}</span>
+<span class="nc" id="L696">					break;</span>
+
+				case ASPECT:
+<span class="nc" id="L699">					filter = new AspectFilter(keyValue);</span>
+					break;
+
+                // All enum cases are covered so no default
+			}
+
+<span class="nc" id="L705">			List&lt;CNAbility&gt; ret = new ArrayList&lt;&gt;(coll);</span>
+<span class="nc bnc" id="L706" title="All 2 branches missed.">			if (filter != null)</span>
+			{
+<span class="nc bnc" id="L708" title="All 2 branches missed.">				for (Iterator&lt;CNAbility&gt; it = ret.iterator(); it.hasNext();)</span>
+				{
+<span class="nc" id="L710">					CNAbility cna = it.next();</span>
+<span class="nc bnc" id="L711" title="All 2 branches missed.">					if (!filter.accept(cna))</span>
+					{
+<span class="nc" id="L713">						it.remove();</span>
+					}
+<span class="nc" id="L715">				}</span>
+			}
+<span class="nc" id="L717">			return ret;</span>
+		}
+	}
+
+	@FunctionalInterface
+	public interface ObjectFilter&lt;T&gt;
+	{
+		public boolean accept(T o);
+	}
+
+	private static void buildMap()
+	{
+<span class="nc" id="L729">		typeMap = new CaseInsensitiveMap&lt;&gt;();</span>
+<span class="nc" id="L730">		Field[] fields = JepCountType.class.getDeclaredFields();</span>
+<span class="nc bnc" id="L731" title="All 2 branches missed.">        for (Field field : fields)</span>
+        {
+<span class="nc" id="L733">            int mod = field.getModifiers();</span>
+<span class="nc bnc" id="L734" title="All 6 branches missed.">            if (Modifier.isStatic(mod) &amp;&amp; Modifier.isFinal(mod) &amp;&amp; Modifier.isPublic(mod))</span>
+            {
+                try
+                {
+<span class="nc" id="L738">                    Object obj = field.get(null);</span>
+<span class="nc bnc" id="L739" title="All 2 branches missed.">                    if (obj instanceof JepCountType)</span>
+                    {
+<span class="nc" id="L741">                        typeMap.put(field.getName(), (JepCountType) obj);</span>
+                    }
+<span class="nc" id="L743">                } catch (IllegalArgumentException | IllegalAccessException e)</span>
+                {
+<span class="nc" id="L745">                    throw new UnreachableError(e);</span>
+<span class="nc" id="L746">                }</span>
+            }
+        }
+<span class="nc" id="L749">	}</span>
+
+	/**
+	 * Returns the constant for the given String (the search for the constant is
+	 * case insensitive).
+	 * 
+	 * @param name
+	 *            The name of the constant to be returned
+	 * @return The Constant for the given name
+	 */
+	public static synchronized JepCountType valueOf(String name)
+	{
+<span class="nc bnc" id="L761" title="All 2 branches missed.">		if (typeMap == null)</span>
+		{
+<span class="nc" id="L763">			buildMap();</span>
+		}
+<span class="nc" id="L765">		return typeMap.get(name);</span>
+	}
+
+	/**
+	 * Returns a Collection of all of the Constants in this Class.
+	 * 
+	 * This collection maintains a reference to the Constants in this Class, so
+	 * if a new Constant is created, the Collection returned by this method will
+	 * be modified. (Beware of ConcurrentModificationExceptions)
+	 * 
+	 * @return a Collection of all of the Constants in this Class.
+	 */
+	public static synchronized Collection&lt;JepCountType&gt; getAllConstants()
+	{
+<span class="nc bnc" id="L779" title="All 2 branches missed.">		if (typeMap == null)</span>
+		{
+<span class="nc" id="L781">			buildMap();</span>
+		}
+<span class="nc" id="L783">		return Collections.unmodifiableCollection(typeMap.values());</span>
+	}
+
+	private static class JepCountSkillSit extends JepCountType
+	{
+
+		@Override
+		public Number count(PlayerCharacter pc, Object[] params)
+		{
+<span class="nc" id="L792">			SkillFilter sf = null;</span>
+<span class="nc" id="L793">			View v = View.ALL;</span>
+<span class="nc bnc" id="L794" title="All 2 branches missed.">			if (params.length == 0)</span>
+			{
+<span class="nc" id="L796">				return processCount(pc, sf, v);</span>
+			}
+<span class="nc bnc" id="L798" title="All 2 branches missed.">			if (params.length &gt; 2)</span>
+			{
+<span class="nc" id="L800">				Logging.errorPrint(&quot;count(\&quot;SKILLSIT\&quot;) allows up to 2 parameters&quot;);</span>
+			}
+<span class="nc" id="L802">			int nextparameter = 0;</span>
+			//There is at least one parameter, but we don't know what kind
+<span class="nc" id="L804">			String filtername = params[nextparameter++].toString();</span>
+			//If the filter is a SkillFilter,  use it
+<span class="nc" id="L806">			sf = SkillFilter.getByToken(filtername);</span>
+<span class="nc bnc" id="L807" title="All 2 branches missed.">			if (sf != null)</span>
+			{
+<span class="nc bnc" id="L809" title="All 2 branches missed.">				if (params.length == 1)</span>
+				{
+					//If it was just a skill filter, we're done
+<span class="nc" id="L812">					return processCount(pc, sf, v);</span>
+				}
+				else
+				{
+					//else we fall through to a VIEW using the next parameter
+<span class="nc" id="L817">					filtername = params[nextparameter++].toString();</span>
+				}
+			}
+			//Now must start with VIEW=
+<span class="nc bnc" id="L821" title="All 2 branches missed.">			if (filtername.startsWith(&quot;VIEW=&quot;))</span>
+			{
+<span class="nc" id="L823">				v = View.getViewFromName(filtername.substring(5));</span>
+<span class="nc bnc" id="L824" title="All 2 branches missed.">				if (v == null)</span>
+				{
+<span class="nc" id="L826">					Logging.errorPrint(&quot;count(\&quot;SKILLSIT\&quot;) found View it does not understand: &quot; + filtername</span>
+<span class="nc" id="L827">						+ &quot; Legal values are: &quot; + Arrays.asList(View.values()));</span>
+				}
+			}
+			else
+			{
+<span class="nc" id="L832">				Logging.errorPrint(</span>
+					&quot;count(\&quot;SKILLSIT\&quot;) found parameter (Skill Filter?) &quot; + &quot;it does not understand: &quot; + filtername);
+			}
+<span class="nc bnc" id="L835" title="All 2 branches missed.">			while (nextparameter != params.length)</span>
+			{
+<span class="nc" id="L837">				Logging.errorPrint(&quot;count(\&quot;SKILLSIT\&quot;) found parameter &quot; + &quot;it did not expect (out of order?): '&quot;</span>
+					+ params[nextparameter++] + &quot;'.  Parameter was ignored.&quot;);
+			}
+<span class="nc" id="L840">			return processCount(pc, sf, v);</span>
+		}
+
+		private Number processCount(PlayerCharacter pc, SkillFilter sf, View v)
+		{
+<span class="nc bnc" id="L845" title="All 2 branches missed.">			if (sf == null)</span>
+			{
+<span class="nc" id="L847">				sf = getDefaultSkillFilter(pc);</span>
+			}
+<span class="nc" id="L849">			int count = 0;</span>
+<span class="nc" id="L850">			final List&lt;Skill&gt; skills =</span>
+<span class="nc" id="L851">					SkillDisplay.getSkillListInOutputOrder(pc, pc.getDisplay().getPartialSkillList(v));</span>
+<span class="nc bnc" id="L852" title="All 2 branches missed.">			for (Skill sk : skills)</span>
+			{
+<span class="nc bnc" id="L854" title="All 4 branches missed.">				if (pc.includeSkill(sk, sf) &amp;&amp; sk.qualifies(pc, null))</span>
+				{
+<span class="nc" id="L856">					count++; //For the skill</span>
+<span class="nc bnc" id="L857" title="All 2 branches missed.">					for (String situation : sk.getUniqueListFor(ListKey.SITUATION))</span>
+					{
+<span class="nc" id="L859">						double bonus = pc.getTotalBonusTo(&quot;SITUATION&quot;, sk.getKeyName() + '=' + situation);</span>
+<span class="nc bnc" id="L860" title="All 4 branches missed.">						if (bonus &gt; 0.01 || bonus &lt; -0.01)</span>
+						{
+<span class="nc" id="L862">							count++;</span>
+						}
+<span class="nc" id="L864">					}</span>
+				}
+<span class="nc" id="L866">			}</span>
+<span class="nc" id="L867">			return (double) count;</span>
+		}
+
+		private SkillFilter getDefaultSkillFilter(PlayerCharacter pc)
+		{
+<span class="nc bnc" id="L872" title="All 2 branches missed.">			if (pc == null)</span>
+			{
+<span class="nc" id="L874">				return SkillFilter.getByValue(PCGenSettings.OPTIONS_CONTEXT.initInt(PCGenSettings.OPTION_SKILL_FILTER,</span>
+<span class="nc" id="L875">					SkillFilter.Usable.getValue()));</span>
+			}
+			else
+			{
+<span class="nc" id="L879">				return pc.getSkillFilter();</span>
+			}
+		}
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

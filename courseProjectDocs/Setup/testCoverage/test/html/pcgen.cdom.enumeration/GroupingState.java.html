@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GroupingState.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.enumeration</a> &gt; <span class="el_source">GroupingState.java</span></div><h1>GroupingState.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) 2009 Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package pcgen.cdom.enumeration;
+
+import pcgen.util.Logging;
+
+/**
+ * A GroupingState indicates how a PrimitiveChoiceSet or PrimitiveChoiceFilter
+ * can be combined.
+ */
+<span class="fc" id="L26">public enum GroupingState</span>
+{
+
+	/**
+	 * INVALID indicates that the PrimitiveChoiceSet has been constructed in a
+	 * way that means the result is non-sensical. For example, doing a logical
+	 * OR between the ANY set and a TYPE is non-sensical, because the OR is
+	 * wasteful (or with ANY is useless).
+	 */
+<span class="fc" id="L35">	INVALID</span>
+	{
+		@Override
+		public GroupingState add(GroupingState state)
+		{
+<span class="fc" id="L40">			return INVALID;</span>
+		}
+
+		@Override
+		public GroupingState negate()
+		{
+<span class="fc" id="L46">			return INVALID;</span>
+		}
+
+		@Override
+		public GroupingState reduce()
+		{
+<span class="fc" id="L52">			return INVALID;</span>
+		}
+
+		@Override
+		public GroupingState compound(GroupingState state)
+		{
+<span class="fc" id="L58">			return INVALID;</span>
+		}
+
+		@Override
+		public boolean isValid()
+		{
+<span class="fc" id="L64">			return false;</span>
+		}
+	},
+
+	/**
+	 * ALLOWS_NONE indicates that the underlying Set cannot be logically
+	 * combined with any other set. This is often the case for the ANY/ALL set
+	 * (as any logical combination is useless)
+	 */
+<span class="fc" id="L73">	ALLOWS_NONE</span>
+	{
+		@Override
+		public GroupingState add(GroupingState state)
+		{
+<span class="fc bfc" id="L78" title="All 2 branches covered.">			if (state != EMPTY)</span>
+			{
+<span class="fc" id="L80">				Logging.errorPrint(</span>
+					&quot;Attempt to add '&quot; + state + &quot;' grouping state to &quot; + &quot;'ALLOWS_NONE' resulted in 'INVALID'.&quot;);
+<span class="fc" id="L82">				return INVALID;</span>
+			}
+<span class="fc" id="L84">			return ALLOWS_NONE;</span>
+		}
+
+		@Override
+		public GroupingState negate()
+		{
+<span class="fc" id="L90">			return INVALID;</span>
+		}
+
+		@Override
+		public GroupingState reduce()
+		{
+<span class="fc" id="L96">			return ANY;</span>
+		}
+
+		@Override
+		public GroupingState compound(GroupingState state)
+		{
+<span class="fc" id="L102">			return ALLOWS_NONE;</span>
+		}
+
+		@Override
+		public boolean isValid()
+		{
+<span class="fc" id="L108">			return true;</span>
+		}
+	},
+
+	/**
+	 * ALLOWS_INTERSECTION indicates that the underlying set can be combined in
+	 * a logical AND (intersection), but not in a logical OR (union)
+	 */
+<span class="fc" id="L116">	ALLOWS_INTERSECTION</span>
+	{
+		@Override
+		public GroupingState add(GroupingState state)
+		{
+<span class="fc bfc" id="L121" title="All 6 branches covered.">			if (state == this || state == EMPTY || state == ANY)</span>
+			{
+<span class="fc" id="L123">				return this;</span>
+			}
+<span class="fc" id="L125">			Logging.errorPrint(</span>
+				&quot;Attempt to add '&quot; + state + &quot;' grouping state to 'ALLOWS_INTERSECTION' &quot; + &quot;resulted in 'INVALID'.&quot;);
+<span class="fc" id="L127">			return INVALID;</span>
+		}
+
+		@Override
+		public GroupingState negate()
+		{
+<span class="nc" id="L133">			return ANY;</span>
+		}
+
+		@Override
+		public GroupingState reduce()
+		{
+			//TODO Need to check this logical behavior :)
+<span class="nc" id="L140">			return ANY;</span>
+		}
+
+		@Override
+		public GroupingState compound(GroupingState state)
+		{
+<span class="nc bnc" id="L146" title="All 2 branches missed.">			return state == ALLOWS_UNION ? INVALID : ANY;</span>
+		}
+
+		@Override
+		public boolean isValid()
+		{
+<span class="nc" id="L152">			return true;</span>
+		}
+	},
+
+	/**
+	 * ALLOWS_UNION indicates that the underlying set can be combined in a
+	 * logical OR (union), but not in a logical AND (intersection). This is
+	 * often the case for a single reference (as a logical AND with any other
+	 * set will return either only the object (useless) or nothing at all (less
+	 * than useless?)
+	 */
+<span class="fc" id="L163">	ALLOWS_UNION</span>
+	{
+		@Override
+		public GroupingState add(GroupingState state)
+		{
+<span class="fc bfc" id="L168" title="All 6 branches covered.">			if (state == this || state == EMPTY || state == ANY)</span>
+			{
+<span class="fc" id="L170">				return this;</span>
+			}
+<span class="fc" id="L172">			Logging</span>
+<span class="fc" id="L173">				.errorPrint(&quot;Attempt to add '&quot; + state + &quot;' grouping state to 'ALLOWS_UNION' resulted in 'INVALID'.&quot;);</span>
+<span class="fc" id="L174">			return INVALID;</span>
+		}
+
+		@Override
+		public GroupingState negate()
+		{
+<span class="fc" id="L180">			return ANY;</span>
+		}
+
+		@Override
+		public GroupingState reduce()
+		{
+<span class="fc" id="L186">			return this;</span>
+		}
+
+		@Override
+		public GroupingState compound(GroupingState state)
+		{
+<span class="pc bpc" id="L192" title="1 of 2 branches missed.">			return state == ALLOWS_INTERSECTION ? INVALID : ANY;</span>
+		}
+
+		@Override
+		public boolean isValid()
+		{
+<span class="fc" id="L198">			return true;</span>
+		}
+	},
+
+	/**
+	 * ANY indicates that any form of grouping (union or intersection) can be
+	 * used with the set.
+	 */
+<span class="fc" id="L206">	ANY</span>
+	{
+		@Override
+		public GroupingState add(GroupingState state)
+		{
+<span class="fc bfc" id="L211" title="All 2 branches covered.">			if (state == ALLOWS_NONE)</span>
+			{
+<span class="fc" id="L213">				Logging.errorPrint(&quot;Attempt to add 'ALLOWS_NONE' &quot; + &quot;grouping state to 'ANY' resulted in 'INVALID'.&quot;);</span>
+<span class="fc" id="L214">				return INVALID;</span>
+			}
+<span class="fc bfc" id="L216" title="All 2 branches covered.">			return state == EMPTY ? ANY : state;</span>
+		}
+
+		@Override
+		public GroupingState negate()
+		{
+<span class="fc" id="L222">			return this;</span>
+		}
+
+		@Override
+		public GroupingState reduce()
+		{
+<span class="fc" id="L228">			return this;</span>
+		}
+
+		@Override
+		public GroupingState compound(GroupingState state)
+		{
+<span class="fc" id="L234">			return this;</span>
+		}
+
+		@Override
+		public boolean isValid()
+		{
+<span class="fc" id="L240">			return true;</span>
+		}
+	},
+
+	/**
+	 * EMPTY is a starting state of not having any GroupingState. This is an
+	 * invalid state (basically being an empty set), but can be logically
+	 * combined with any valid GroupingState.
+	 */
+<span class="fc" id="L249">	EMPTY</span>
+	{
+		@Override
+		public GroupingState add(GroupingState state)
+		{
+<span class="fc" id="L254">			return state;</span>
+		}
+
+		@Override
+		public GroupingState negate()
+		{
+<span class="nc" id="L260">			return ALLOWS_NONE;</span>
+		}
+
+		@Override
+		public GroupingState reduce()
+		{
+<span class="nc" id="L266">			return this;</span>
+		}
+
+		@Override
+		public GroupingState compound(GroupingState state)
+		{
+<span class="nc" id="L272">			return EMPTY;</span>
+		}
+
+		@Override
+		public boolean isValid()
+		{
+<span class="nc" id="L278">			return false;</span>
+		}
+	};
+
+	/**
+	 * Adds the given GroupingState to this GroupingState, returning the
+	 * GroupingState produced by a combination of the given GroupingState and
+	 * this GroupingState.
+	 * 
+	 * @param state
+	 *            The GroupingState to be combined with this GroupingState
+	 * @return The GroupingState produced by a combination of the given
+	 *         GroupingState and this GroupingState
+	 */
+	public abstract GroupingState add(GroupingState state);
+
+	/**
+	 * Returns the GroupingState that represents the behavior when this
+	 * GroupingState is negated. Note that calling negate() twice does not
+	 * necessarily return the original GroupingState, as negate is not a 1:1
+	 * relationship.
+	 * 
+	 * @return The GroupingState that represents the behavior when this
+	 *         GroupingState is negated
+	 */
+	public abstract GroupingState negate();
+
+	/**
+	 * Returns the GroupingState represented when this GroupingState is placed
+	 * into a combination represented by the given GroupingState.
+	 * 
+	 * Note: this method is only defined if the given GroupingState is
+	 * ALLOWS_UNION or ALLOWS_INTERSECTION.
+	 * 
+	 * For example, if this GroupingState is ALLOWS_UNION, and the given
+	 * GroupingState is ALLOWS_INTERSECTION, then this will return INVALID,
+	 * since this GroupingState can only be combined under a union.
+	 * 
+	 * @param state
+	 *            The GroupingState under which this GroupingState was combined.
+	 * 
+	 * @return the GroupingState represented when this GroupingState is placed
+	 *         into a combination represented by the given GroupingState
+	 */
+	public abstract GroupingState compound(GroupingState state);
+
+	/**
+	 * Returns true if this GroupingState is valid for use.
+	 * 
+	 * @return true if this GroupingState is valid for use; false otherwise.
+	 */
+	public abstract boolean isValid();
+
+	/**
+	 * Returns the GroupingState used when this GroupingState is reduced
+	 * 
+	 * @return the GroupingState used when this GroupingState is reduced
+	 */
+	public abstract GroupingState reduce();
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

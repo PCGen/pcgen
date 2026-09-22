@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>JTableEx.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.gui2.util</a> &gt; <span class="el_source">JTableEx.java</span></div><h1>JTableEx.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2001 (C) Jonas Karlsson &lt;jujutsunerd@users.sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ */
+package pcgen.gui2.util;
+
+import java.awt.Point;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.math.BigDecimal;
+import java.util.Objects;
+
+import javax.swing.JTable;
+import javax.swing.ListSelectionModel;
+import javax.swing.RowSorter;
+import javax.swing.SwingConstants;
+import javax.swing.event.TableModelEvent;
+import javax.swing.table.TableColumnModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
+
+import pcgen.gui2.util.table.SortableTableModel;
+import pcgen.gui2.util.table.SortableTableRowSorter;
+import pcgen.gui2.util.table.TableCellUtilities;
+
+/**
+ *  {@code JTableEx} extends JTable to provide auto-tooltips.
+ *
+ */
+public class JTableEx extends JTable
+{
+	/** Constant for a double click action event. */
+	public static final int ACTION_DOUBLECLICK = 2042;
+	private boolean sortingEnabled;
+
+	/**
+	 * Constructor
+	 */
+	JTableEx()
+	{
+<span class="fc" id="L57">		this(null, null, null);</span>
+<span class="fc" id="L58">	}</span>
+
+	private JTableEx(TableModel tm, TableColumnModel tcm, ListSelectionModel lsm)
+	{
+<span class="fc" id="L62">		super(tm, tcm, lsm);</span>
+<span class="fc" id="L63">		setFillsViewportHeight(true);</span>
+<span class="fc" id="L64">		setDefaultRenderer(BigDecimal.class, new TableCellUtilities.AlignRenderer(SwingConstants.RIGHT));</span>
+<span class="fc" id="L65">		setDefaultRenderer(Float.class, new TableCellUtilities.AlignRenderer(SwingConstants.RIGHT));</span>
+<span class="fc" id="L66">		setDefaultRenderer(Integer.class, new TableCellUtilities.AlignRenderer(SwingConstants.RIGHT));</span>
+<span class="fc" id="L67">		installDoubleClickListener();</span>
+<span class="fc" id="L68">	}</span>
+
+	private void installDoubleClickListener()
+	{
+<span class="fc" id="L72">		addMouseListener(new MouseAdapter()</span>
+<span class="fc" id="L73">		{</span>
+			@Override
+			public void mouseClicked(MouseEvent e)
+			{
+<span class="nc bnc" id="L77" title="All 6 branches missed.">				if (e.getComponent().isEnabled() &amp;&amp; e.getButton() == MouseEvent.BUTTON1 &amp;&amp; e.getClickCount() == 2)</span>
+				{
+<span class="nc" id="L79">					Point p = e.getPoint();</span>
+<span class="nc" id="L80">					int row = convertRowIndexToModel(rowAtPoint(p));</span>
+<span class="nc" id="L81">					int column = convertColumnIndexToModel(columnAtPoint(p));</span>
+<span class="nc" id="L82">					Object value = getModel().getValueAt(row, column);</span>
+<span class="nc" id="L83">					fireActionEvent(JTableEx.this, ACTION_DOUBLECLICK, String.valueOf(value));</span>
+				}
+<span class="nc" id="L85">			}</span>
+		});
+<span class="fc" id="L87">	}</span>
+
+	private void fireActionEvent(Object value, int id, String command)
+	{
+<span class="nc" id="L91">		ActionEvent e = null;</span>
+		// Guaranteed to return a non-null array
+<span class="nc" id="L93">		Object[] listeners = listenerList.getListenerList();</span>
+		// Process the listeners last to first, notifying
+		// those that are interested in this event
+<span class="nc bnc" id="L96" title="All 2 branches missed.">		for (int i = listeners.length - 2; i &gt;= 0; i -= 2)</span>
+		{
+<span class="nc bnc" id="L98" title="All 2 branches missed.">			if (listeners[i] == ActionListener.class)</span>
+			{
+				// Lazily create the event:
+<span class="nc bnc" id="L101" title="All 2 branches missed.">				if (e == null)</span>
+				{
+<span class="nc" id="L103">					e = new ActionEvent(value, id, command);</span>
+				}
+
+<span class="nc" id="L106">				((ActionListener) listeners[i + 1]).actionPerformed(e);</span>
+			}
+		}
+<span class="nc" id="L109">	}</span>
+
+	public void addActionListener(ActionListener listener)
+	{
+<span class="nc" id="L113">		listenerList.add(ActionListener.class, listener);</span>
+<span class="nc" id="L114">	}</span>
+
+	public void removeActionListener(ActionListener listener)
+	{
+<span class="nc" id="L118">		listenerList.remove(ActionListener.class, listener);</span>
+<span class="nc" id="L119">	}</span>
+
+	@Override
+	public boolean getAutoCreateRowSorter()
+	{
+<span class="fc" id="L124">		return sortingEnabled;</span>
+	}
+
+	@Override
+	public void setAutoCreateRowSorter(boolean autoCreateRowSorter)
+	{
+<span class="nc" id="L130">		boolean oldValue = this.sortingEnabled;</span>
+<span class="nc" id="L131">		this.sortingEnabled = autoCreateRowSorter;</span>
+<span class="nc bnc" id="L132" title="All 2 branches missed.">		if (sortingEnabled)</span>
+		{
+<span class="nc" id="L134">			TableModel model = getModel();</span>
+<span class="nc bnc" id="L135" title="All 2 branches missed.">			if (model instanceof SortableTableModel)</span>
+			{
+<span class="nc" id="L137">				setRowSorter(new SortableTableRowSorter((SortableTableModel) dataModel));</span>
+			}
+			else
+			{
+<span class="nc" id="L141">				setRowSorter(new TableRowSorter&lt;&gt;(model));</span>
+			}
+		}
+<span class="nc" id="L144">		firePropertyChange(&quot;autoCreateRowSorter&quot;, oldValue, autoCreateRowSorter);</span>
+<span class="nc" id="L145">	}</span>
+
+	public void sortModel()
+	{
+<span class="nc" id="L149">		RowSorter&lt;?&gt; rowSorter = getRowSorter();</span>
+<span class="nc bnc" id="L150" title="All 2 branches missed.">		if (rowSorter != null)</span>
+		{
+<span class="nc" id="L152">			rowSorter.setSortKeys(getRowSorter().getSortKeys());</span>
+		}
+<span class="nc" id="L154">	}</span>
+
+	@Override
+	public void setModel(TableModel dataModel)
+	{
+<span class="fc" id="L159">		Objects.requireNonNull(dataModel, &quot;Cannot set a null TableModel&quot;);</span>
+<span class="pc bpc" id="L160" title="1 of 2 branches missed.">		if (this.dataModel != dataModel)</span>
+		{
+<span class="fc" id="L162">			TableModel old = this.dataModel;</span>
+<span class="fc bfc" id="L163" title="All 2 branches covered.">			if (old != null)</span>
+			{
+<span class="fc" id="L165">				old.removeTableModelListener(this);</span>
+			}
+<span class="fc" id="L167">			this.dataModel = dataModel;</span>
+<span class="fc" id="L168">			dataModel.addTableModelListener(this);</span>
+
+<span class="fc" id="L170">			tableChanged(new TableModelEvent(dataModel, TableModelEvent.HEADER_ROW));</span>
+
+<span class="fc" id="L172">			firePropertyChange(&quot;model&quot;, old, dataModel);</span>
+
+<span class="pc bpc" id="L174" title="1 of 2 branches missed.">			if (getAutoCreateRowSorter())</span>
+			{
+<span class="nc bnc" id="L176" title="All 2 branches missed.">				if (dataModel instanceof SortableTableModel)</span>
+				{
+<span class="nc" id="L178">					super.setRowSorter(new SortableTableRowSorter((SortableTableModel) dataModel));</span>
+				}
+				else
+				{
+<span class="nc" id="L182">					super.setRowSorter(new TableRowSorter&lt;&gt;(dataModel));</span>
+				}
+			}
+		}
+<span class="fc" id="L186">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

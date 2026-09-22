@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UnequippedList.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.gui2.tabs.equip</a> &gt; <span class="el_source">UnequippedList.java</span></div><h1>UnequippedList.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2011 Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.gui2.tabs.equip;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.core.EquipmentFacade;
+import pcgen.facade.core.EquipmentListFacade;
+import pcgen.facade.core.EquipmentListFacade.EquipmentListListener;
+import pcgen.facade.core.EquipmentSetFacade;
+import pcgen.facade.util.AbstractListFacade;
+import pcgen.facade.util.ReferenceFacade;
+import pcgen.facade.util.event.ListEvent;
+import pcgen.facade.util.event.ListListener;
+import pcgen.facade.util.event.ReferenceEvent;
+import pcgen.facade.util.event.ReferenceListener;
+import pcgen.util.Logging;
+
+public class UnequippedList extends AbstractListFacade&lt;EquipmentFacade&gt; implements EquipmentListFacade,
+		EquipmentListListener, ListListener&lt;EquipmentFacade&gt;, ReferenceListener&lt;EquipmentSetFacade&gt;
+{
+
+	private final EquipmentListFacade purchasedList;
+	private final List&lt;EquipmentFacade&gt; equipmentList;
+	private final Map&lt;EquipmentFacade, Integer&gt; quantityMap;
+	private EquipmentListFacade equippedList;
+	private EquipmentFacade lastRemoved;
+
+	public UnequippedList(CharacterFacade character)
+<span class="nc" id="L49">	{</span>
+<span class="nc" id="L50">		this.purchasedList = character.getPurchasedEquipment();</span>
+<span class="nc" id="L51">		equipmentList = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L52">		quantityMap = new HashMap&lt;&gt;();</span>
+<span class="nc" id="L53">		ReferenceFacade&lt;EquipmentSetFacade&gt; ref = character.getEquipmentSetRef();</span>
+<span class="nc" id="L54">		equippedList = ref.get().getEquippedItems();</span>
+<span class="nc bnc" id="L55" title="All 2 branches missed.">		for (EquipmentFacade equipment : purchasedList)</span>
+		{
+<span class="nc" id="L57">			int quantity = purchasedList.getQuantity(equipment) - equippedList.getQuantity(equipment);</span>
+<span class="nc bnc" id="L58" title="All 2 branches missed.">			if (quantity &gt; 0)</span>
+			{
+<span class="nc" id="L60">				equipmentList.add(equipment);</span>
+<span class="nc" id="L61">				quantityMap.put(equipment, quantity);</span>
+			}
+<span class="nc" id="L63">		}</span>
+<span class="nc" id="L64">		purchasedList.addListListener(this);</span>
+<span class="nc" id="L65">		purchasedList.addEquipmentListListener(this);</span>
+<span class="nc" id="L66">		equippedList.addListListener(this);</span>
+<span class="nc" id="L67">		equippedList.addEquipmentListListener(this);</span>
+<span class="nc" id="L68">		ref.addReferenceListener(this);</span>
+<span class="nc" id="L69">	}</span>
+
+	@Override
+	public EquipmentFacade getElementAt(int index)
+	{
+<span class="nc" id="L74">		return equipmentList.get(index);</span>
+	}
+
+	@Override
+	public int getSize()
+	{
+<span class="nc" id="L80">		return equipmentList.size();</span>
+	}
+
+	@Override
+	public int getQuantity(EquipmentFacade equipment)
+	{
+<span class="nc bnc" id="L86" title="All 2 branches missed.">		if (quantityMap.containsKey(equipment))</span>
+		{
+<span class="nc" id="L88">			return quantityMap.get(equipment);</span>
+		}
+<span class="nc" id="L90">		return 0;</span>
+	}
+
+	@Override
+	public void addEquipmentListListener(EquipmentListListener listener)
+	{
+<span class="nc" id="L96">		listenerList.add(EquipmentListListener.class, listener);</span>
+<span class="nc" id="L97">	}</span>
+
+	@Override
+	public void removeEquipmentListListener(EquipmentListListener listener)
+	{
+<span class="nc" id="L102">		listenerList.remove(EquipmentListListener.class, listener);</span>
+<span class="nc" id="L103">	}</span>
+
+	@Override
+	public void referenceChanged(ReferenceEvent&lt;EquipmentSetFacade&gt; e)
+	{
+<span class="nc" id="L108">		equippedList.removeListListener(this);</span>
+<span class="nc" id="L109">		equippedList.removeEquipmentListListener(this);</span>
+<span class="nc" id="L110">		equippedList = e.getNewReference().getEquippedItems();</span>
+<span class="nc" id="L111">		equippedList.addListListener(this);</span>
+<span class="nc" id="L112">		equippedList.addEquipmentListListener(this);</span>
+<span class="nc" id="L113">		elementsChanged(null);</span>
+<span class="nc" id="L114">	}</span>
+
+	private void addEquipment(EquipmentFacade equipment, int quantity)
+	{
+<span class="nc" id="L118">		equipmentList.add(equipment);</span>
+<span class="nc" id="L119">		quantityMap.put(equipment, quantity);</span>
+<span class="nc" id="L120">		fireElementAdded(this, equipment, equipmentList.size() - 1);</span>
+<span class="nc" id="L121">	}</span>
+
+	private void setQuantity(EquipmentFacade equipment, int quantity)
+	{
+<span class="nc" id="L125">		quantityMap.put(equipment, quantity);</span>
+<span class="nc" id="L126">		fireQuantityChangedEvent(this, equipment, quantity);</span>
+<span class="nc" id="L127">	}</span>
+
+	private void removeEquipment(EquipmentFacade equipment)
+	{
+<span class="nc" id="L131">		int index = equipmentList.indexOf(equipment);</span>
+<span class="nc bnc" id="L132" title="All 2 branches missed.">		if (index &gt;= 0)</span>
+		{
+<span class="nc" id="L134">			equipmentList.remove(index);</span>
+<span class="nc" id="L135">			quantityMap.remove(equipment);</span>
+<span class="nc" id="L136">			fireElementRemoved(this, equipment, index);</span>
+		}
+<span class="nc" id="L138">	}</span>
+
+	@Override
+	public void elementAdded(ListEvent&lt;EquipmentFacade&gt; e)
+	{
+<span class="nc" id="L143">		EquipmentFacade equipment = e.getElement();</span>
+<span class="nc bnc" id="L144" title="All 2 branches missed.">		if (e.getSource() == purchasedList)</span>
+		{
+<span class="nc" id="L146">			lastRemoved = null;</span>
+<span class="nc" id="L147">			addEquipment(equipment, purchasedList.getQuantity(equipment));</span>
+		}
+		else
+		{
+<span class="nc" id="L151">			int quantity = purchasedList.getQuantity(equipment) - equippedList.getQuantity(equipment);</span>
+<span class="nc bnc" id="L152" title="All 2 branches missed.">			if (quantity &gt; 0)</span>
+			{
+<span class="nc" id="L154">				setQuantity(equipment, quantity);</span>
+			}
+			else
+			{
+<span class="nc" id="L158">				removeEquipment(equipment);</span>
+			}
+		}
+<span class="nc" id="L161">	}</span>
+
+	@Override
+	public void elementRemoved(ListEvent&lt;EquipmentFacade&gt; e)
+	{
+<span class="nc" id="L166">		EquipmentFacade equipment = e.getElement();</span>
+<span class="nc bnc" id="L167" title="All 2 branches missed.">		if (e.getSource() == purchasedList)</span>
+		{
+<span class="nc" id="L169">			removeEquipment(equipment);</span>
+			// We remember this item has been removed as we could be getting a 
+			// message to say it has been unequipped shortly.
+<span class="nc" id="L172">			lastRemoved = equipment;</span>
+		}
+		else
+		{
+<span class="nc bnc" id="L176" title="All 2 branches missed.">			if (equipment.equals(lastRemoved))</span>
+			{
+<span class="nc bnc" id="L178" title="All 2 branches missed.">				if (Logging.isDebugMode())</span>
+				{
+<span class="nc" id="L180">					Logging.debugPrint(&quot;Ignoring unequip of item just removed: &quot; + equipment);</span>
+				}
+<span class="nc" id="L182">				return;</span>
+			}
+<span class="nc" id="L184">			int quantity = purchasedList.getQuantity(equipment) - equippedList.getQuantity(equipment);</span>
+<span class="nc bnc" id="L185" title="All 2 branches missed.">			if (quantityMap.containsKey(equipment))</span>
+			{
+<span class="nc" id="L187">				setQuantity(equipment, quantity);</span>
+			}
+			else
+			{
+<span class="nc" id="L191">				addEquipment(equipment, quantity);</span>
+			}
+		}
+<span class="nc" id="L194">	}</span>
+
+	@Override
+	public void elementsChanged(ListEvent&lt;EquipmentFacade&gt; e)
+	{
+<span class="nc" id="L199">		equipmentList.clear();</span>
+<span class="nc" id="L200">		quantityMap.clear();</span>
+<span class="nc bnc" id="L201" title="All 2 branches missed.">		for (EquipmentFacade equipment : purchasedList)</span>
+		{
+<span class="nc" id="L203">			int quantity = purchasedList.getQuantity(equipment) - equippedList.getQuantity(equipment);</span>
+<span class="nc bnc" id="L204" title="All 2 branches missed.">			if (quantity &gt; 0)</span>
+			{
+<span class="nc" id="L206">				equipmentList.add(equipment);</span>
+<span class="nc" id="L207">				quantityMap.put(equipment, quantity);</span>
+			}
+<span class="nc" id="L209">		}</span>
+<span class="nc" id="L210">		fireElementsChanged(this);</span>
+<span class="nc" id="L211">	}</span>
+
+	@Override
+	public void elementModified(ListEvent&lt;EquipmentFacade&gt; e)
+	{
+<span class="nc" id="L216">	}</span>
+
+	@Override
+	public void quantityChanged(EquipmentListEvent e)
+	{
+<span class="nc" id="L221">		EquipmentFacade equipment = e.getEquipment();</span>
+<span class="nc" id="L222">		int quantity = purchasedList.getQuantity(equipment) - equippedList.getQuantity(equipment);</span>
+<span class="nc bnc" id="L223" title="All 2 branches missed.">		if (quantity &gt; 0)</span>
+		{
+<span class="nc bnc" id="L225" title="All 2 branches missed.">			if (quantityMap.containsKey(equipment))</span>
+			{
+<span class="nc" id="L227">				setQuantity(equipment, quantity);</span>
+			}
+			else
+			{
+<span class="nc" id="L231">				addEquipment(equipment, quantity);</span>
+			}
+		}
+		else
+		{
+<span class="nc" id="L236">			removeEquipment(equipment);</span>
+		}
+<span class="nc" id="L238">	}</span>
+
+	private void fireQuantityChangedEvent(Object source, EquipmentFacade equipment, int index)
+	{
+<span class="nc" id="L242">		Object[] listeners = listenerList.getListenerList();</span>
+<span class="nc" id="L243">		EquipmentListEvent e = null;</span>
+<span class="nc bnc" id="L244" title="All 2 branches missed.">		for (int i = listeners.length - 2; i &gt;= 0; i -= 2)</span>
+		{
+<span class="nc bnc" id="L246" title="All 2 branches missed.">			if (listeners[i] == EquipmentListListener.class)</span>
+			{
+<span class="nc bnc" id="L248" title="All 2 branches missed.">				if (e == null)</span>
+				{
+<span class="nc" id="L250">					e = new EquipmentListEvent(source, equipment, index);</span>
+				}
+<span class="nc" id="L252">				((EquipmentListListener) listeners[i + 1]).quantityChanged(e);</span>
+			}
+		}
+<span class="nc" id="L255">	}</span>
+
+	@Override
+	public void modifyElement(EquipmentFacade equipment)
+	{
+		// Ignored.
+<span class="nc" id="L261">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

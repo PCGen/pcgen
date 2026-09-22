@@ -1,0 +1,582 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TempBonusInfoTab.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.gui2.tabs</a> &gt; <span class="el_source">TempBonusInfoTab.java</span></div><h1>TempBonusInfoTab.java</h1><pre class="source lang-java linenums">/*
+ * Copyright James Dempsey, 2012
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.gui2.tabs;
+
+import java.awt.BorderLayout;
+import java.awt.Component;
+import java.awt.event.ActionEvent;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
+import javax.swing.AbstractAction;
+import javax.swing.Box;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTree;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.tree.DefaultMutableTreeNode;
+
+import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.core.InfoFacade;
+import pcgen.facade.core.InfoFactory;
+import pcgen.facade.core.TempBonusFacade;
+import pcgen.facade.util.DefaultListFacade;
+import pcgen.facade.util.ListFacade;
+import pcgen.facade.util.event.ListEvent;
+import pcgen.facade.util.event.ListListener;
+import pcgen.gui2.UIPropertyContext;
+import pcgen.gui2.filter.Filter;
+import pcgen.gui2.filter.FilterBar;
+import pcgen.gui2.filter.FilteredListFacade;
+import pcgen.gui2.filter.FilteredTreeViewTable;
+import pcgen.gui2.filter.SearchFilterPanel;
+import pcgen.gui2.tabs.models.CharacterTreeCellRenderer;
+import pcgen.gui2.tabs.models.CharacterTreeCellRenderer.Handler;
+import pcgen.gui2.tools.FlippingSplitPane;
+import pcgen.gui2.tools.Icons;
+import pcgen.gui2.tools.InfoPane;
+import pcgen.gui2.util.FontManipulation;
+import pcgen.gui2.util.treeview.DataView;
+import pcgen.gui2.util.treeview.DataViewColumn;
+import pcgen.gui2.util.treeview.DefaultDataViewColumn;
+import pcgen.gui2.util.treeview.TreeView;
+import pcgen.gui2.util.treeview.TreeViewModel;
+import pcgen.gui2.util.treeview.TreeViewPath;
+import pcgen.gui3.utilty.ColorUtilty;
+import pcgen.system.LanguageBundle;
+import pcgen.util.enumeration.Tab;
+
+/**
+ * The Class {@code TempBonusInfoTab} allows the user to select which
+ * temporary bonus should be applied to their character.
+ */
+public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfoTab
+{
+
+	/**
+	 * Version for serialisation.
+	 */
+	private static final long serialVersionUID = 4521237435574462482L;
+
+<span class="nc" id="L81">	private final TabTitle tabTitle = new TabTitle(Tab.TEMPBONUS);</span>
+	private final FilteredTreeViewTable&lt;CharacterFacade, TempBonusFacade&gt; availableTable;
+	private final FilteredTreeViewTable&lt;CharacterFacade, TempBonusFacade&gt; selectedTable;
+	private final JButton addButton;
+	private final JButton removeButton;
+	private final InfoPane infoPane;
+	private final TempBonusRenderer tempBonusRenderer;
+
+	/**
+	 * Create a new instance of TemporaryBonusInfoTab.
+	 */
+	public TempBonusInfoTab()
+<span class="nc" id="L93">	{</span>
+<span class="nc" id="L94">		this.availableTable = new FilteredTreeViewTable&lt;&gt;();</span>
+<span class="nc" id="L95">		this.selectedTable = new FilteredTreeViewTable&lt;&gt;();</span>
+<span class="nc" id="L96">		this.addButton = new JButton();</span>
+<span class="nc" id="L97">		this.removeButton = new JButton();</span>
+<span class="nc" id="L98">		this.infoPane = new InfoPane(LanguageBundle.getString(&quot;in_InfoTempMod&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L99">		this.tempBonusRenderer = new TempBonusRenderer();</span>
+<span class="nc" id="L100">		initComponents();</span>
+<span class="nc" id="L101">	}</span>
+
+	private void initComponents()
+	{
+<span class="nc" id="L105">		FlippingSplitPane topPane = new FlippingSplitPane();</span>
+<span class="nc" id="L106">		setTopComponent(topPane);</span>
+<span class="nc" id="L107">		setOrientation(VERTICAL_SPLIT);</span>
+
+<span class="nc" id="L109">		JPanel availPanel = new JPanel(new BorderLayout());</span>
+<span class="nc" id="L110">		FilterBar&lt;CharacterFacade, TempBonusFacade&gt; bar = new FilterBar&lt;&gt;();</span>
+<span class="nc" id="L111">		bar.addDisplayableFilter(new SearchFilterPanel());</span>
+<span class="nc" id="L112">		availPanel.add(bar, BorderLayout.NORTH);</span>
+
+<span class="nc" id="L114">		availableTable.setDisplayableFilter(bar);</span>
+<span class="nc" id="L115">		availableTable.setTreeCellRenderer(tempBonusRenderer);</span>
+<span class="nc" id="L116">		availPanel.add(new JScrollPane(availableTable), BorderLayout.CENTER);</span>
+
+<span class="nc" id="L118">		Box box = Box.createHorizontalBox();</span>
+<span class="nc" id="L119">		box.add(Box.createHorizontalGlue());</span>
+<span class="nc" id="L120">		addButton.setHorizontalTextPosition(SwingConstants.LEADING);</span>
+<span class="nc" id="L121">		box.add(addButton);</span>
+<span class="nc" id="L122">		box.add(Box.createHorizontalStrut(5));</span>
+<span class="nc" id="L123">		box.setBorder(new EmptyBorder(0, 0, 5, 0));</span>
+<span class="nc" id="L124">		availPanel.add(box, BorderLayout.SOUTH);</span>
+
+<span class="nc" id="L126">		topPane.setLeftComponent(availPanel);</span>
+
+<span class="nc" id="L128">		JPanel selPanel = new JPanel(new BorderLayout());</span>
+<span class="nc" id="L129">		FilterBar&lt;CharacterFacade, TempBonusFacade&gt; filterBar = new FilterBar&lt;&gt;();</span>
+<span class="nc" id="L130">		filterBar.addDisplayableFilter(new SearchFilterPanel());</span>
+
+<span class="nc" id="L132">		selectedTable.setDisplayableFilter(filterBar);</span>
+<span class="nc" id="L133">		selectedTable.setTreeCellRenderer(tempBonusRenderer);</span>
+<span class="nc" id="L134">		selPanel.add(new JScrollPane(selectedTable), BorderLayout.CENTER);</span>
+
+<span class="nc" id="L136">		box = Box.createHorizontalBox();</span>
+<span class="nc" id="L137">		box.add(Box.createHorizontalStrut(5));</span>
+<span class="nc" id="L138">		box.add(removeButton);</span>
+<span class="nc" id="L139">		box.add(Box.createHorizontalGlue());</span>
+<span class="nc" id="L140">		box.setBorder(new EmptyBorder(0, 0, 5, 0));</span>
+<span class="nc" id="L141">		selPanel.add(box, BorderLayout.SOUTH);</span>
+
+<span class="nc" id="L143">		topPane.setRightComponent(selPanel);</span>
+<span class="nc" id="L144">		setBottomComponent(infoPane);</span>
+<span class="nc" id="L145">		setResizeWeight(0.75);</span>
+<span class="nc" id="L146">	}</span>
+
+	@Override
+	public ModelMap createModels(CharacterFacade character)
+	{
+<span class="nc" id="L151">		ModelMap models = new ModelMap();</span>
+<span class="nc" id="L152">		models.put(TreeViewModelHandler.class, new TreeViewModelHandler(character));</span>
+<span class="nc" id="L153">		models.put(InfoHandler.class, new InfoHandler(character));</span>
+<span class="nc" id="L154">		models.put(AddAction.class, new AddAction(character));</span>
+<span class="nc" id="L155">		models.put(RemoveAction.class, new RemoveAction(character));</span>
+<span class="nc" id="L156">		models.put(Handler.class, tempBonusRenderer.createHandler(character));</span>
+<span class="nc" id="L157">		return models;</span>
+	}
+
+	@Override
+	public void restoreModels(ModelMap models)
+	{
+<span class="nc" id="L163">		models.get(Handler.class).install();</span>
+<span class="nc" id="L164">		models.get(TreeViewModelHandler.class).install();</span>
+<span class="nc" id="L165">		models.get(InfoHandler.class).install();</span>
+<span class="nc" id="L166">		models.get(AddAction.class).install();</span>
+<span class="nc" id="L167">		models.get(RemoveAction.class).install();</span>
+<span class="nc" id="L168">	}</span>
+
+	@Override
+	public void storeModels(ModelMap models)
+	{
+<span class="nc" id="L173">		models.get(InfoHandler.class).uninstall();</span>
+<span class="nc" id="L174">		models.get(AddAction.class).uninstall();</span>
+<span class="nc" id="L175">		models.get(RemoveAction.class).uninstall();</span>
+<span class="nc" id="L176">		models.get(Handler.class).uninstall();</span>
+<span class="nc" id="L177">	}</span>
+
+	@Override
+	public TabTitle getTabTitle()
+	{
+<span class="nc" id="L182">		return tabTitle;</span>
+	}
+
+	private static class TempBonusRenderer extends CharacterTreeCellRenderer
+	{
+
+		/**
+		 * Version for serialisation.
+		 */
+		private static final long serialVersionUID = -9006249573217208478L;
+
+		@Override
+		public Component getTreeCellRendererComponent(JTree tree, Object value, boolean sel, boolean expanded,
+			boolean leaf, int row, boolean focus)
+		{
+<span class="nc" id="L197">			Object obj = ((DefaultMutableTreeNode) value).getUserObject();</span>
+<span class="nc bnc" id="L198" title="All 2 branches missed.">			if (&quot;&quot;.equals(obj)) //$NON-NLS-1$</span>
+			{
+<span class="nc" id="L200">				obj = LanguageBundle.getString(&quot;in_none&quot;); //$NON-NLS-1$</span>
+			}
+<span class="nc" id="L202">			super.getTreeCellRendererComponent(tree, obj, sel, expanded, leaf, row, focus);</span>
+<span class="nc bnc" id="L203" title="All 4 branches missed.">			if (value instanceof TempBonusFacade &amp;&amp; !character.isQualifiedFor((TempBonusFacade) value))</span>
+			{
+<span class="nc" id="L205">				setForeground(ColorUtilty.colorToAWTColor(UIPropertyContext.getNotQualifiedColor()));</span>
+			}
+<span class="nc bnc" id="L207" title="All 4 branches missed.">			if (value instanceof InfoFacade &amp;&amp; ((InfoFacade) value).isNamePI())</span>
+			{
+<span class="nc" id="L209">				setFont(FontManipulation.bold_italic(getFont()));</span>
+			}
+			else
+			{
+<span class="nc" id="L213">				setFont(FontManipulation.plain(getFont()));</span>
+			}
+<span class="nc" id="L215">			return this;</span>
+		}
+
+	}
+
+	private class InfoHandler implements ListSelectionListener
+	{
+
+		private final CharacterFacade character;
+		private String text;
+
+		InfoHandler(CharacterFacade character)
+<span class="nc" id="L227">		{</span>
+<span class="nc" id="L228">			this.character = character;</span>
+<span class="nc" id="L229">			this.text = &quot;&quot;; //$NON-NLS-1$</span>
+<span class="nc" id="L230">		}</span>
+
+		void install()
+		{
+<span class="nc" id="L234">			availableTable.getSelectionModel().addListSelectionListener(this);</span>
+<span class="nc" id="L235">			selectedTable.getSelectionModel().addListSelectionListener(this);</span>
+<span class="nc" id="L236">			infoPane.setText(text);</span>
+<span class="nc" id="L237">		}</span>
+
+		void uninstall()
+		{
+<span class="nc" id="L241">			availableTable.getSelectionModel().removeListSelectionListener(this);</span>
+<span class="nc" id="L242">			selectedTable.getSelectionModel().removeListSelectionListener(this);</span>
+<span class="nc" id="L243">		}</span>
+
+		@Override
+		public void valueChanged(ListSelectionEvent e)
+		{
+<span class="nc bnc" id="L248" title="All 2 branches missed.">			if (!e.getValueIsAdjusting())</span>
+			{
+<span class="nc" id="L250">				Object obj = null;</span>
+<span class="nc bnc" id="L251" title="All 2 branches missed.">				if (e.getSource() == availableTable.getSelectionModel())</span>
+				{
+<span class="nc" id="L253">					int selectedRow = availableTable.getSelectedRow();</span>
+<span class="nc bnc" id="L254" title="All 2 branches missed.">					if (selectedRow != -1)</span>
+					{
+<span class="nc" id="L256">						obj = availableTable.getModel().getValueAt(selectedRow, 0);</span>
+					}
+<span class="nc" id="L258">				}</span>
+				else
+				{
+<span class="nc" id="L261">					int selectedRow = selectedTable.getSelectedRow();</span>
+<span class="nc bnc" id="L262" title="All 2 branches missed.">					if (selectedRow != -1)</span>
+					{
+<span class="nc" id="L264">						obj = selectedTable.getModel().getValueAt(selectedRow, 0);</span>
+					}
+				}
+<span class="nc bnc" id="L267" title="All 2 branches missed.">				if (obj instanceof TempBonusFacade)</span>
+				{
+<span class="nc" id="L269">					text = character.getInfoFactory().getHTMLInfo((TempBonusFacade) obj);</span>
+<span class="nc" id="L270">					infoPane.setText(text);</span>
+				}
+			}
+<span class="nc" id="L273">		}</span>
+
+	}
+
+	private class AddAction extends AbstractAction
+	{
+
+		/**
+		 * Version for serialisation.
+		 */
+		private static final long serialVersionUID = -6640460398947215666L;
+
+		private final CharacterFacade character;
+
+		AddAction(CharacterFacade character)
+<span class="nc" id="L288">		{</span>
+<span class="nc" id="L289">			super(LanguageBundle.getString(&quot;in_itmInitCompAppBonTitle&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L290">			this.character = character;</span>
+<span class="nc" id="L291">			putValue(SMALL_ICON, Icons.Forward16.getImageIcon());</span>
+<span class="nc" id="L292">		}</span>
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+<span class="nc" id="L297">			List&lt;Object&gt; data = availableTable.getSelectedData();</span>
+<span class="nc bnc" id="L298" title="All 2 branches missed.">			for (Object object : data)</span>
+			{
+<span class="nc bnc" id="L300" title="All 2 branches missed.">				if (object instanceof TempBonusFacade)</span>
+				{
+<span class="nc" id="L302">					character.addTempBonus((TempBonusFacade) object);</span>
+<span class="nc" id="L303">					return;</span>
+				}
+<span class="nc" id="L305">			}</span>
+<span class="nc" id="L306">		}</span>
+
+		void install()
+		{
+<span class="nc" id="L310">			availableTable.addActionListener(this);</span>
+<span class="nc" id="L311">			addButton.setAction(this);</span>
+<span class="nc" id="L312">		}</span>
+
+		void uninstall()
+		{
+<span class="nc" id="L316">			availableTable.removeActionListener(this);</span>
+<span class="nc" id="L317">		}</span>
+
+	}
+
+	private class RemoveAction extends AbstractAction
+	{
+
+		/**
+		 * Version for serialisation.
+		 */
+		private static final long serialVersionUID = 2922387838116495051L;
+
+		private final CharacterFacade character;
+
+		RemoveAction(CharacterFacade character)
+<span class="nc" id="L332">		{</span>
+<span class="nc" id="L333">			super(LanguageBundle.getString(&quot;in_itmInitCompRemoveButTitle&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L334">			this.character = character;</span>
+<span class="nc" id="L335">			putValue(SMALL_ICON, Icons.Back16.getImageIcon());</span>
+<span class="nc" id="L336">		}</span>
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+<span class="nc" id="L341">			List&lt;Object&gt; data = selectedTable.getSelectedData();</span>
+<span class="nc bnc" id="L342" title="All 2 branches missed.">			for (Object object : data)</span>
+			{
+<span class="nc bnc" id="L344" title="All 2 branches missed.">				if (object instanceof TempBonusFacade)</span>
+				{
+<span class="nc" id="L346">					character.removeTempBonus((TempBonusFacade) object);</span>
+<span class="nc" id="L347">					return;</span>
+				}
+<span class="nc" id="L349">			}</span>
+<span class="nc" id="L350">		}</span>
+
+		void install()
+		{
+<span class="nc" id="L354">			selectedTable.addActionListener(this);</span>
+<span class="nc" id="L355">			removeButton.setAction(this);</span>
+<span class="nc" id="L356">		}</span>
+
+		void uninstall()
+		{
+<span class="nc" id="L360">			selectedTable.removeActionListener(this);</span>
+<span class="nc" id="L361">		}</span>
+
+	}
+
+	private class TreeViewModelHandler
+	{
+
+		private final TempBonusTreeViewModel availableModel;
+		private final TempBonusTreeViewModel selectedModel;
+
+		TreeViewModelHandler(CharacterFacade character)
+<span class="nc" id="L372">		{</span>
+<span class="nc" id="L373">			availableModel = new TempBonusTreeViewModel(character, true);</span>
+<span class="nc" id="L374">			selectedModel = new TempBonusTreeViewModel(character, false);</span>
+<span class="nc" id="L375">		}</span>
+
+		void install()
+		{
+<span class="nc" id="L379">			availableModel.install();</span>
+<span class="nc" id="L380">			availableTable.setTreeViewModel(availableModel);</span>
+<span class="nc" id="L381">			selectedModel.install();</span>
+<span class="nc" id="L382">			selectedTable.setTreeViewModel(selectedModel);</span>
+<span class="nc" id="L383">		}</span>
+	}
+
+	private static class TempBonusTreeViewModel implements TreeViewModel&lt;TempBonusFacade&gt;, DataView&lt;TempBonusFacade&gt;,
+			Filter&lt;CharacterFacade, TempBonusFacade&gt;, ListListener&lt;TempBonusFacade&gt;
+	{
+
+<span class="nc" id="L390">		private static final ListFacade&lt;? extends TreeView&lt;TempBonusFacade&gt;&gt; TREE_VIEWS =</span>
+<span class="nc" id="L391">				new DefaultListFacade&lt;&gt;(Arrays.asList(TempBonusTreeView.values()));</span>
+		private final List&lt;DefaultDataViewColumn&gt; columns;
+		private final CharacterFacade character;
+		private final InfoFactory infoFactory;
+		private final boolean isAvailModel;
+		private final FilteredListFacade&lt;CharacterFacade, TempBonusFacade&gt; tempBonuses;
+
+		TempBonusTreeViewModel(CharacterFacade character, boolean isAvailModel)
+<span class="nc" id="L399">		{</span>
+<span class="nc" id="L400">			this.character = character;</span>
+<span class="nc" id="L401">			this.infoFactory = character.getInfoFactory();</span>
+<span class="nc" id="L402">			this.isAvailModel = isAvailModel;</span>
+<span class="nc bnc" id="L403" title="All 2 branches missed.">			if (isAvailModel)</span>
+			{
+<span class="nc" id="L405">				tempBonuses = new FilteredListFacade&lt;&gt;();</span>
+<span class="nc" id="L406">				tempBonuses.setContext(character);</span>
+<span class="nc" id="L407">				tempBonuses.setFilter(this);</span>
+<span class="nc" id="L408">				tempBonuses.setDelegate(character.getAvailableTempBonuses());</span>
+<span class="nc" id="L409">				character.getAvailableTempBonuses().addListListener(this);</span>
+<span class="nc" id="L410">				columns = Arrays.asList(new DefaultDataViewColumn(&quot;in_itmFrom&quot;, String.class, true), //$NON-NLS-1$</span>
+					new DefaultDataViewColumn(&quot;in_itmTarget&quot;, String.class, true), //$NON-NLS-1$
+					new DefaultDataViewColumn(&quot;in_descrip&quot;, String.class, false), //$NON-NLS-1$
+					new DefaultDataViewColumn(&quot;in_source&quot;, String.class, false)); //$NON-NLS-1$
+			}
+			else
+			{
+<span class="nc" id="L417">				tempBonuses = null;</span>
+<span class="nc" id="L418">				columns = Arrays.asList(new DefaultDataViewColumn(&quot;in_itmFrom&quot;, String.class, false), //$NON-NLS-1$</span>
+					new DefaultDataViewColumn(&quot;in_itmTarget&quot;, String.class, true), //$NON-NLS-1$
+					new DefaultDataViewColumn(&quot;in_descrip&quot;, String.class, false), //$NON-NLS-1$
+					new DefaultDataViewColumn(&quot;in_source&quot;, String.class, false)); //$NON-NLS-1$
+			}
+<span class="nc" id="L423">		}</span>
+
+		void install()
+		{
+<span class="nc bnc" id="L427" title="All 2 branches missed.">			for (TempBonusTreeView tbTreeView : TempBonusTreeView.values())</span>
+			{
+<span class="nc" id="L429">				tbTreeView.setInfoFactory(infoFactory);</span>
+			}
+<span class="nc" id="L431">		}</span>
+
+		@Override
+		public ListFacade&lt;? extends TreeView&lt;TempBonusFacade&gt;&gt; getTreeViews()
+		{
+<span class="nc" id="L436">			return TREE_VIEWS;</span>
+		}
+
+		@Override
+		public int getDefaultTreeViewIndex()
+		{
+<span class="nc bnc" id="L442" title="All 2 branches missed.">			return isAvailModel ? 1 : 0;</span>
+		}
+
+		@Override
+		public DataView&lt;TempBonusFacade&gt; getDataView()
+		{
+<span class="nc" id="L448">			return this;</span>
+		}
+
+		@Override
+		public ListFacade&lt;TempBonusFacade&gt; getDataModel()
+		{
+<span class="nc bnc" id="L454" title="All 2 branches missed.">			if (isAvailModel)</span>
+			{
+<span class="nc" id="L456">				return tempBonuses;</span>
+			}
+			else
+			{
+<span class="nc" id="L460">				return character.getTempBonuses();</span>
+			}
+		}
+
+		@Override
+		public Object getData(TempBonusFacade obj, int column)
+		{
+<span class="nc bnc" id="L467" title="All 5 branches missed.">			return switch (column)</span>
+					{
+<span class="nc" id="L469">						case 0 -&gt; obj.getOriginType();</span>
+<span class="nc" id="L470">						case 1 -&gt; infoFactory.getTempBonusTarget(obj);</span>
+<span class="nc" id="L471">						case 2 -&gt; infoFactory.getDescription(obj);</span>
+<span class="nc" id="L472">						case 3 -&gt; obj.getSource();</span>
+<span class="nc" id="L473">						default -&gt; null;</span>
+					};
+		}
+
+		@Override
+		public void setData(Object value, TempBonusFacade element, int column)
+		{
+<span class="nc" id="L480">		}</span>
+
+		@Override
+		public List&lt;? extends DataViewColumn&gt; getDataColumns()
+		{
+<span class="nc" id="L485">			return columns;</span>
+		}
+
+		@Override
+		public void elementAdded(ListEvent&lt;TempBonusFacade&gt; e)
+		{
+<span class="nc" id="L491">			tempBonuses.refilter();</span>
+<span class="nc" id="L492">		}</span>
+
+		@Override
+		public void elementRemoved(ListEvent&lt;TempBonusFacade&gt; e)
+		{
+<span class="nc" id="L497">			tempBonuses.refilter();</span>
+<span class="nc" id="L498">		}</span>
+
+		@Override
+		public void elementsChanged(ListEvent&lt;TempBonusFacade&gt; e)
+		{
+<span class="nc" id="L503">			tempBonuses.refilter();</span>
+<span class="nc" id="L504">		}</span>
+
+		@Override
+		public void elementModified(ListEvent&lt;TempBonusFacade&gt; e)
+		{
+<span class="nc" id="L509">			tempBonuses.refilter();</span>
+<span class="nc" id="L510">		}</span>
+
+		@Override
+		public boolean accept(CharacterFacade context, TempBonusFacade element)
+		{
+<span class="nc bnc" id="L515" title="All 2 branches missed.">			return !context.getTempBonuses().containsElement(element);</span>
+		}
+
+		@Override
+		public String getPrefsKey()
+		{
+<span class="nc bnc" id="L521" title="All 2 branches missed.">			return isAvailModel ? &quot;TempModsTreeAvail&quot; : &quot;TempModsTreeSelected&quot;; //$NON-NLS-1$//$NON-NLS-2$</span>
+		}
+
+	}
+
+<span class="nc" id="L526">	private enum TempBonusTreeView implements TreeView&lt;TempBonusFacade&gt;</span>
+	{
+
+<span class="nc" id="L529">		NAME(&quot;in_nameLabel&quot;), //$NON-NLS-1$</span>
+<span class="nc" id="L530">		ORIGIN_NAME(&quot;in_itmOriginName&quot;), //$NON-NLS-1$</span>
+<span class="nc" id="L531">		SOURCE_NAME(&quot;in_sourceName&quot;), //$NON-NLS-1$</span>
+<span class="nc" id="L532">		TARGET_NAME(&quot;in_itmTargetName&quot;); //$NON-NLS-1$</span>
+
+		private final String name;
+		private InfoFactory infoFactory;
+
+		private TempBonusTreeView(String name)
+<span class="nc" id="L538">		{</span>
+<span class="nc" id="L539">			this.name = LanguageBundle.getString(name);</span>
+<span class="nc" id="L540">		}</span>
+
+		/**
+		 * @param factory The InfoFactory for the character ebing displayed.
+		 */
+		void setInfoFactory(InfoFactory factory)
+		{
+<span class="nc" id="L547">			this.infoFactory = factory;</span>
+<span class="nc" id="L548">		}</span>
+
+		@Override
+		public String getViewName()
+		{
+<span class="nc" id="L553">			return name;</span>
+		}
+
+		@Override
+		public List&lt;TreeViewPath&lt;TempBonusFacade&gt;&gt; getPaths(TempBonusFacade bonus)
+		{
+<span class="nc bnc" id="L559" title="All 5 branches missed.">			switch (this)</span>
+			{
+				case TARGET_NAME:
+<span class="nc bnc" id="L562" title="All 2 branches missed.">					if (infoFactory != null)</span>
+					{
+<span class="nc" id="L564">						return Collections</span>
+<span class="nc" id="L565">							.singletonList(new TreeViewPath&lt;&gt;(bonus, infoFactory.getTempBonusTarget(bonus)));</span>
+					}
+					// No info factory? Treat as a name 
+				case NAME:
+<span class="nc" id="L569">					return Collections.singletonList(new TreeViewPath&lt;&gt;(bonus));</span>
+				case ORIGIN_NAME:
+<span class="nc" id="L571">					return Collections.singletonList(new TreeViewPath&lt;&gt;(bonus, bonus.getOriginType()));</span>
+				case SOURCE_NAME:
+<span class="nc" id="L573">					return Collections.singletonList(new TreeViewPath&lt;&gt;(bonus, bonus.getSourceForNodeDisplay()));</span>
+				default:
+<span class="nc" id="L575">					throw new InternalError();</span>
+			}
+		}
+
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

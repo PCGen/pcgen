@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>IfCommand.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.jepcommands</a> &gt; <span class="el_source">IfCommand.java</span></div><h1>IfCommand.java</h1><pre class="source lang-java linenums">package plugin.jepcommands;
+
+import java.util.Stack;
+
+import pcgen.util.PCGenCommand;
+
+import org.nfunk.jep.ParseException;
+
+/**
+ * &lt;p&gt;
+ * If class; extends PostfixMathCommand. This class accepts three agruments.
+ * The first is a number interpreted as a boolean. The other two may be any
+ * supported classes. If the first argument != 0, the second argument is
+ * returned. Otherwise, the third argument is returned.
+ * &lt;/p&gt;
+ * &lt;p&gt;
+ * So, given if(x,y,z), y is returned if x != 0, and z is returned
+ * otherise.
+ * &lt;/p&gt;
+ */
+public class IfCommand extends PCGenCommand
+{
+	/**
+	 * &lt;p&gt;
+	 * Initializes the number of parameters to = 3, indicating three number
+	 * of parameters.
+	 * &lt;/p&gt;
+	 */
+	public IfCommand()
+	{
+<span class="nc" id="L31">		super();</span>
+<span class="nc" id="L32">		numberOfParameters = 3;</span>
+<span class="nc" id="L33">	}</span>
+
+	/**
+	 * Gets the name of the function handled by this class.
+	 * @return The name of the function.
+	 */
+	@Override
+	public String getFunctionName()
+	{
+<span class="nc" id="L42">		return &quot;IF&quot;;</span>
+	}
+
+	/**
+	 * &lt;p&gt;
+	 * Evaluates the three parameters. The first may be a subclass of
+	 * Number, or a Boolean. The second and third can be any supported type.
+	 * If the first argument is true, the second argument is returned;
+	 * otherwise, the third argument is returned.
+	 * &lt;/p&gt;
+	 *
+	 * @param stack
+	 *            Stack of incoming arguments.
+	 * @throws ParseException
+	 */
+	@SuppressWarnings(&quot;unchecked&quot;) //Uses JEP, which doesn't use generics
+	@Override
+	public void run(final Stack stack) throws ParseException
+	{
+		// Check if stack is null
+<span class="nc bnc" id="L62" title="All 2 branches missed.">		if (stack == null)</span>
+		{
+<span class="nc" id="L64">			throw new ParseException(&quot;Stack argument null&quot;);</span>
+		}
+
+		final boolean condition;
+
+<span class="nc" id="L69">		final Object param3 = stack.pop();</span>
+<span class="nc" id="L70">		final Object param2 = stack.pop();</span>
+<span class="nc" id="L71">		final Object param1 = stack.pop();</span>
+
+<span class="nc bnc" id="L73" title="All 2 branches missed.">		if (param1 instanceof Number)</span>
+		{
+<span class="nc bnc" id="L75" title="All 2 branches missed.">			condition = (((Number) param1).doubleValue() != 0.0d);</span>
+		}
+<span class="nc bnc" id="L77" title="All 2 branches missed.">		else if (param1 instanceof Boolean)</span>
+		{
+<span class="nc" id="L79">			condition = (Boolean) param1;</span>
+		}
+		else
+		{
+<span class="nc" id="L83">			throw new ParseException(&quot;Invalid parameter type for Parameter 1&quot;);</span>
+		}
+
+		// push the result on the inStack
+<span class="nc bnc" id="L87" title="All 2 branches missed.">		stack.push(condition ? param2 : param3);</span>
+<span class="nc" id="L88">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

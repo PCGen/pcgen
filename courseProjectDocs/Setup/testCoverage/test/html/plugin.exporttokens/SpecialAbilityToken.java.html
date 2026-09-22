@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SpecialAbilityToken.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.exporttokens</a> &gt; <span class="el_source">SpecialAbilityToken.java</span></div><h1>SpecialAbilityToken.java</h1><pre class="source lang-java linenums">/*
+ * SpecialAbilityToken.java
+ * Copyright 2003 (C) Devon Jones &lt;soulcatcher@evilsoft.org&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.     See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package plugin.exporttokens;
+
+import java.util.StringTokenizer;
+
+import pcgen.core.PlayerCharacter;
+import pcgen.io.ExportHandler;
+import pcgen.io.exporttoken.Token;
+
+//SPECIALABILITY.x
+//SPECIALABILITY.x.DESCRIPTION
+<span class="nc" id="L29">public class SpecialAbilityToken extends Token</span>
+{
+	public static final String TOKENNAME = &quot;SPECIALABILITY&quot;;
+
+	@Override
+	public String getTokenName()
+	{
+<span class="nc" id="L36">		return TOKENNAME;</span>
+	}
+
+	@Override
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	{
+<span class="nc" id="L42">		StringTokenizer aTok = new StringTokenizer(tokenSource, &quot;.&quot;);</span>
+<span class="nc" id="L43">		aTok.nextToken();</span>
+
+<span class="nc" id="L45">		int i = 0;</span>
+<span class="nc bnc" id="L46" title="All 2 branches missed.">		if (aTok.hasMoreTokens())</span>
+		{
+<span class="nc" id="L48">			i = Integer.parseInt(aTok.nextToken());</span>
+		}
+
+<span class="nc bnc" id="L51" title="All 2 branches missed.">		if (aTok.hasMoreTokens())</span>
+		{
+<span class="nc" id="L53">			String subToken = aTok.nextToken();</span>
+
+<span class="nc bnc" id="L55" title="All 2 branches missed.">			if (&quot;DESCRIPTION&quot;.equals(subToken))</span>
+			{
+<span class="nc" id="L57">				return &quot;&quot;;</span>
+			}
+		}
+<span class="nc" id="L60">		return getSpecialAbilityToken(pc, i);</span>
+	}
+
+	private static String getSpecialAbilityToken(PlayerCharacter pc, int specialIndex)
+	{
+<span class="nc bnc" id="L65" title="All 4 branches missed.">		if (specialIndex &gt;= 0 &amp;&amp; specialIndex &lt; pc.getSpecialAbilityTimesList().size())</span>
+		{
+<span class="nc" id="L67">			return pc.getSpecialAbilityTimesList().get(specialIndex);</span>
+		}
+<span class="nc" id="L69">		return &quot;&quot;;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

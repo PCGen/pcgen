@@ -1,0 +1,1359 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>EqToken.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.io.exporttoken</a> &gt; <span class="el_source">EqToken.java</span></div><h1>EqToken.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2003 (C) Devon Jones &lt;soulcatcher@evilsoft.org&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.     See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ *
+ *
+ */
+package pcgen.io.exporttoken;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.StringTokenizer;
+import java.util.TreeSet;
+
+import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.MapKey;
+import pcgen.cdom.enumeration.SourceFormat;
+import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.inst.EquipmentHead;
+import pcgen.cdom.util.CControl;
+import pcgen.cdom.util.ControlUtilities;
+import pcgen.core.Equipment;
+import pcgen.core.EquipmentModifier;
+import pcgen.core.EquipmentUtilities;
+import pcgen.core.Globals;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.analysis.OutputNameFormatting;
+import pcgen.io.ExportHandler;
+import pcgen.io.FileAccess;
+import pcgen.util.BigDecimalHelper;
+
+/**
+ * Deals with EQ Token
+ */
+<span class="nc" id="L52">public class EqToken extends Token</span>
+{
+	/** Token Name */
+	public static final String TOKENNAME = &quot;EQ&quot;;
+<span class="nc" id="L56">	private static String cachedString = null;</span>
+<span class="nc" id="L57">	private static List&lt;Equipment&gt; cachedList = null;</span>
+<span class="nc" id="L58">	private static int cachedSerial = 0;</span>
+<span class="nc" id="L59">	private static PlayerCharacter cachedPC = null;</span>
+
+	@Override
+	public String getTokenName()
+	{
+<span class="nc" id="L64">		return TOKENNAME;</span>
+	}
+
+	@Override
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	{
+		// Starting EQ.%.NAME.MAGIC,befTrue,aftTrue,befFalse,aftFalse reading
+<span class="nc" id="L71">		StringBuilder bFilter = new StringBuilder();</span>
+<span class="nc" id="L72">		String befTrue = &quot;&quot;;</span>
+<span class="nc" id="L73">		String aftTrue = &quot;&quot;;</span>
+<span class="nc" id="L74">		String befFalse = &quot;&quot;;</span>
+<span class="nc" id="L75">		String aftFalse = &quot;&quot;;</span>
+<span class="nc" id="L76">		StringTokenizer bTok = new StringTokenizer(tokenSource, &quot;~&quot;);</span>
+
+		/* 
+		 * If there are at least 3 tokens it means that we have a case where 
+		 * we are using the ~&lt;b&gt;~&lt;/b&gt; style syntax in order to display something 
+		 * with HTML mark-up
+		 */
+<span class="nc bnc" id="L83" title="All 2 branches missed.">		if (bTok.countTokens() &gt;= 3)</span>
+		{
+<span class="nc" id="L85">			bFilter = new StringBuilder(bTok.nextToken());</span>
+<span class="nc" id="L86">			befTrue = bTok.nextToken();</span>
+<span class="nc" id="L87">			aftTrue = bTok.nextToken();</span>
+
+<span class="nc bnc" id="L89" title="All 2 branches missed.">			if (bTok.hasMoreTokens())</span>
+			{
+<span class="nc" id="L91">				befFalse = bTok.nextToken();</span>
+<span class="nc" id="L92">				aftFalse = bTok.nextToken();</span>
+			}
+
+<span class="nc" id="L95">			tokenSource = tokenSource.substring(0, bFilter.toString().lastIndexOf('.'));</span>
+		}
+
+<span class="nc" id="L98">		bTok = new StringTokenizer(bFilter.toString(), &quot;.&quot;);</span>
+
+<span class="nc" id="L100">		boolean if_detected = false;</span>
+
+<span class="nc bnc" id="L102" title="All 2 branches missed.">		while (bTok.hasMoreTokens())</span>
+		{
+<span class="nc" id="L104">			String bString = bTok.nextToken();</span>
+
+<span class="nc bnc" id="L106" title="All 2 branches missed.">			if (&quot;IF&quot;.equals(bString))</span>
+			{
+<span class="nc" id="L108">				if_detected = true;</span>
+			}
+			else
+			{
+<span class="nc bnc" id="L112" title="All 2 branches missed.">				if (if_detected)</span>
+				{
+<span class="nc" id="L114">					bFilter.append(&quot;.&quot;).append(bString);</span>
+				}
+				else
+				{
+<span class="nc" id="L118">					bFilter = new StringBuilder(bString);</span>
+				}
+			}
+<span class="nc" id="L121">		}</span>
+
+		//
+		// check to see if this was the same as the last list we were asked to export.
+		//
+<span class="nc" id="L126">		String comparatorString = tokenSource.split(&quot;[0-9]+&quot;)[0];</span>
+		List&lt;Equipment&gt; eqList;
+		StringTokenizer aTok;
+<span class="nc" id="L129">		int temp = -1;</span>
+<span class="nc bnc" id="L130" title="All 6 branches missed.">		if (comparatorString.equals(cachedString) &amp;&amp; pc == cachedPC &amp;&amp; pc.getSerial() == cachedSerial)</span>
+		{
+			//			cacheHit++;
+			//			if (cacheHit%100==0) {
+			//				System.out.println(&quot;cacheHit&quot;+cacheHit + &quot;, cacheMiss=&quot;+cacheMiss);
+			//			}
+
+<span class="nc" id="L137">			eqList = cachedList;</span>
+<span class="nc" id="L138">			tokenSource = tokenSource.substring(comparatorString.length());</span>
+<span class="nc" id="L139">			aTok = new StringTokenizer(tokenSource, &quot;.&quot;, false);</span>
+<span class="nc" id="L140">			String token = aTok.nextToken();</span>
+<span class="nc bnc" id="L141" title="All 2 branches missed.">			while (aTok.hasMoreTokens())</span>
+			{
+				try
+				{
+<span class="nc" id="L145">					temp = Integer.parseInt(token);</span>
+				}
+<span class="nc" id="L147">				catch (NumberFormatException exc)</span>
+				{
+					// not an error!
+<span class="nc" id="L150">				}</span>
+
+<span class="nc bnc" id="L152" title="All 2 branches missed.">				if (temp &gt;= 0)</span>
+				{
+<span class="nc" id="L154">					break;</span>
+				}
+<span class="nc" id="L156">				token = aTok.nextToken();</span>
+			}
+<span class="nc" id="L158">		}</span>
+		else
+		{
+			// this is different to the last list we were asked to generate, so
+			// get all of the required list entries
+<span class="nc" id="L163">			aTok = new StringTokenizer(tokenSource, &quot;.&quot;, false);</span>
+<span class="nc" id="L164">			aTok.nextToken();</span>
+
+			//Merge
+<span class="nc" id="L167">			String token = aTok.nextToken();</span>
+<span class="nc" id="L168">			int merge = Constants.MERGE_ALL;</span>
+<span class="nc bnc" id="L169" title="All 2 branches missed.">			if (token.contains(&quot;MERGE&quot;))</span>
+			{
+<span class="nc" id="L171">				merge = returnMergeType(token);</span>
+<span class="nc" id="L172">				token = aTok.nextToken();</span>
+			}
+
+			// Get the list of equipment
+<span class="nc" id="L176">			eqList = new ArrayList&lt;&gt;(pc.getEquipmentListInOutputOrder(merge));</span>
+
+			//Begin Not code...
+<span class="nc bnc" id="L179" title="All 2 branches missed.">			while (aTok.hasMoreTokens())</span>
+			{
+<span class="nc bnc" id="L181" title="All 2 branches missed.">				if (&quot;NOT&quot;.equalsIgnoreCase(token))</span>
+				{
+<span class="nc" id="L183">					eqList = listNotType(eqList, aTok.nextToken());</span>
+				}
+<span class="nc bnc" id="L185" title="All 2 branches missed.">				else if (&quot;ADD&quot;.equalsIgnoreCase(token))</span>
+				{
+<span class="nc" id="L187">					eqList = listAddType(pc, eqList, aTok.nextToken());</span>
+				}
+<span class="nc bnc" id="L189" title="All 2 branches missed.">				else if (&quot;IS&quot;.equalsIgnoreCase(token))</span>
+				{
+<span class="nc" id="L191">					eqList = listIsType(eqList, aTok.nextToken());</span>
+				}
+				else
+				{
+					// In the end of the above, bString would
+					// be valid token, that should go into temp.
+					try
+					{
+<span class="nc" id="L199">						temp = Integer.parseInt(token);</span>
+					}
+<span class="nc" id="L201">					catch (NumberFormatException exc)</span>
+					{
+						// not an error!
+<span class="nc" id="L204">					}</span>
+				}
+
+<span class="nc bnc" id="L207" title="All 2 branches missed.">				if (temp &gt;= 0)</span>
+				{
+<span class="nc" id="L209">					break;</span>
+				}
+<span class="nc" id="L211">				token = aTok.nextToken();</span>
+
+			}
+
+<span class="nc" id="L215">			cachedList = eqList;</span>
+<span class="nc" id="L216">			cachedString = comparatorString;</span>
+<span class="nc" id="L217">			cachedPC = pc;</span>
+<span class="nc" id="L218">			cachedSerial = pc.getSerial();</span>
+		}
+
+		// Now that we have the list, get the token for the appropriate element
+
+<span class="nc" id="L223">		String retString = &quot;&quot;;</span>
+<span class="nc bnc" id="L224" title="All 2 branches missed.">		if (aTok.hasMoreTokens())</span>
+		{
+<span class="nc" id="L226">			String tempString = aTok.nextToken();</span>
+
+<span class="nc bnc" id="L228" title="All 4 branches missed.">			if ((temp &gt;= 0) &amp;&amp; (temp &lt; eqList.size()))</span>
+			{
+<span class="nc" id="L230">				Equipment eq = eqList.get(temp);</span>
+<span class="nc" id="L231">				retString = FileAccess.filterString(getEqToken(pc, eq, tempString, aTok));</span>
+
+				// Starting EQ.%.NAME.MAGIC,befTrue,aftTrue,befFalse,aftFalse treatment
+<span class="nc bnc" id="L234" title="All 4 branches missed.">				if (bFilter != null &amp;&amp; (bFilter.length() &gt; 0))</span>
+				{
+<span class="nc" id="L236">					aTok = new StringTokenizer(bFilter.toString(), &quot;.&quot;);</span>
+
+<span class="nc" id="L238">					boolean result = false;</span>
+<span class="nc" id="L239">					boolean and_operation = false;</span>
+
+<span class="nc bnc" id="L241" title="All 2 branches missed.">					while (aTok.hasMoreTokens())</span>
+					{
+<span class="nc" id="L243">						String bString = aTok.nextToken();</span>
+
+<span class="nc bnc" id="L245" title="All 2 branches missed.">						if (&quot;AND&quot;.equals(bString))</span>
+						{
+<span class="nc" id="L247">							and_operation = true;</span>
+						}
+<span class="nc bnc" id="L249" title="All 2 branches missed.">						else if (&quot;OR&quot;.equals(bString))</span>
+						{
+<span class="nc" id="L251">							and_operation = false;</span>
+						}
+						else
+						{
+<span class="nc bnc" id="L255" title="All 2 branches missed.">							if (and_operation)</span>
+							{
+<span class="nc bnc" id="L257" title="All 4 branches missed.">								result = (result &amp;&amp; eq.isType(bString));</span>
+							}
+							else
+							{
+<span class="nc bnc" id="L261" title="All 4 branches missed.">								result = (result || eq.isType(bString));</span>
+							}
+						}
+<span class="nc" id="L264">					}</span>
+
+<span class="nc bnc" id="L266" title="All 2 branches missed.">					if (result)</span>
+					{
+<span class="nc" id="L268">						retString = befTrue + retString + aftTrue;</span>
+					}
+					else
+					{
+<span class="nc" id="L272">						retString = befFalse + retString + aftFalse;</span>
+					}
+				}
+			}
+		}
+<span class="nc" id="L277">		return retString;</span>
+	}
+
+	/**
+	 * EqToken manages its own encoding to allow the data to be encoded but 
+	 * export sheet markup to passed through as is. Tell ExportHandler that it
+	 * should not re-encode the output from this token.  
+	 */
+	@Override
+	public boolean isEncoded()
+	{
+<span class="nc" id="L288">		return false;</span>
+	}
+
+	public static Integer getRange(final PlayerCharacter pc, Equipment eq)
+	{
+<span class="nc" id="L293">		String rangeVar = pc.getControl(CControl.EQRANGE);</span>
+<span class="nc bnc" id="L294" title="All 2 branches missed.">		if (rangeVar != null)</span>
+		{
+			//Need a special breakout based on PlayerCharacter reset of IntegerKey.RANGE
+<span class="nc bnc" id="L297" title="All 4 branches missed.">			if (eq.isType(&quot;Both&quot;) &amp;&amp; eq.isType(&quot;Melee&quot;))</span>
+			{
+<span class="nc" id="L299">				return 0;</span>
+			}
+<span class="nc" id="L301">			return ((Number) eq.getLocalVariable(pc.getCharID(), rangeVar)).intValue();</span>
+		}
+
+<span class="nc" id="L304">		int range = eq.getSafe(IntegerKey.RANGE);</span>
+
+<span class="nc bnc" id="L306" title="All 2 branches missed.">		if (range == 0)</span>
+		{
+<span class="nc" id="L308">			final String aRange = eq.getWeaponInfo(&quot;RANGE&quot;, true);</span>
+
+<span class="nc bnc" id="L310" title="All 2 branches missed.">			if (!aRange.isEmpty())</span>
+			{
+<span class="nc" id="L312">				range = Integer.parseInt(aRange);</span>
+			}
+		}
+
+<span class="nc" id="L316">		int r = range + (int) eq.bonusTo(pc, &quot;EQMWEAPON&quot;, &quot;RANGEADD&quot;, true);</span>
+<span class="nc" id="L317">		final int i = (int) eq.bonusTo(pc, &quot;EQMWEAPON&quot;, &quot;RANGEMULT&quot;, true);</span>
+<span class="nc" id="L318">		double rangeMult = 1.0;</span>
+
+<span class="nc bnc" id="L320" title="All 2 branches missed.">		if (i &gt; 0)</span>
+		{
+<span class="nc" id="L322">			rangeMult += (i - 1);</span>
+		}
+
+<span class="nc" id="L325">		int postAdd = 0;</span>
+
+<span class="nc bnc" id="L327" title="All 2 branches missed.">		if (eq.isThrown())</span>
+		{
+<span class="nc" id="L329">			r += (int) pc.getTotalBonusTo(&quot;RANGEADD&quot;, &quot;THROWN&quot;);</span>
+<span class="nc" id="L330">			postAdd = (int) pc.getTotalBonusTo(&quot;POSTRANGEADD&quot;, &quot;THROWN&quot;);</span>
+<span class="nc" id="L331">			rangeMult += ((int) pc.getTotalBonusTo(&quot;RANGEMULT&quot;, &quot;THROWN&quot;) / 100.0);</span>
+		}
+<span class="nc bnc" id="L333" title="All 2 branches missed.">		else if (eq.isProjectile())</span>
+		{
+<span class="nc" id="L335">			r += (int) pc.getTotalBonusTo(&quot;RANGEADD&quot;, &quot;PROJECTILE&quot;);</span>
+<span class="nc" id="L336">			postAdd = (int) pc.getTotalBonusTo(&quot;POSTRANGEADD&quot;, &quot;PROJECTILE&quot;);</span>
+<span class="nc" id="L337">			rangeMult += ((int) pc.getTotalBonusTo(&quot;RANGEMULT&quot;, &quot;PROJECTILE&quot;) / 100.0);</span>
+		}
+
+<span class="nc" id="L340">		r *= rangeMult;</span>
+<span class="nc" id="L341">		r += postAdd;</span>
+
+<span class="nc" id="L343">		return r;</span>
+	}
+
+	/**
+	 * Converts the critical multiplier into a dispalyable string, i.e.
+	 * blank for zero, - for negative and puts an x before positive
+	 * numbers e.g. x3
+	 *
+	 * @param mult The critical multiplier
+	 * @return     The string to display
+	 */
+	public static String multAsString(final int mult)
+	{
+<span class="nc bnc" id="L356" title="All 2 branches missed.">		if (mult == 0)</span>
+		{
+<span class="nc" id="L358">			return &quot;&quot;;</span>
+		}
+<span class="nc bnc" id="L360" title="All 2 branches missed.">		else if (mult &lt; 0)</span>
+		{
+<span class="nc" id="L362">			return &quot;-&quot;;</span>
+		}
+
+<span class="nc" id="L365">		return &quot;x&quot; + Integer.toString(mult);</span>
+	}
+
+	/**
+	 * Get the AC Check Token
+	 * @param pc
+	 * @param eq
+	 * @return AC Check Token
+	 */
+	public static String getAcCheckToken(PlayerCharacter pc, Equipment eq)
+	{
+<span class="nc" id="L376">		return String.valueOf(getAcCheckTokenInt(pc, eq));</span>
+	}
+
+	/**
+	 * Get the AC Check Token as an int
+	 * @param pc
+	 * @param eq
+	 * @return AC Check Token as an int
+	 */
+	public static int getAcCheckTokenInt(PlayerCharacter pc, Equipment eq)
+	{
+<span class="nc" id="L387">		String acCheckVar = ControlUtilities.getControlToken(Globals.getContext(), CControl.EQACCHECK);</span>
+<span class="nc bnc" id="L388" title="All 2 branches missed.">		if (acCheckVar == null)</span>
+		{
+<span class="nc" id="L390">			return eq.preFormulaAcCheck(pc);</span>
+		}
+<span class="nc" id="L392">		return ((Number) eq.getLocalVariable(pc.getCharID(), acCheckVar)).intValue();</span>
+	}
+
+	/**
+	 * Get the AC Mod Token
+	 * @param pc
+	 * @param eq
+	 * @return AC Mod Token
+	 */
+	public static String getAcModToken(PlayerCharacter pc, Equipment eq)
+	{
+<span class="nc" id="L403">		return String.valueOf(getAcModTokenInt(pc, eq));</span>
+	}
+
+	/**
+	 * Get the AC Mod Token as an int
+	 * @param pc
+	 * @param eq
+	 * @return AC Mod Token as an int
+	 */
+	public static int getAcModTokenInt(PlayerCharacter pc, Equipment eq)
+	{
+<span class="nc" id="L414">		return eq.getACMod(pc);</span>
+	}
+
+	/**
+	 * Get Alternative Critical Token
+	 * @param eq
+	 * @return Alternative Critical Token
+	 */
+	public static String getAltCritMultToken(Equipment eq)
+	{
+<span class="nc" id="L424">		return EqToken.multAsString(eq.getAltCritMultiplier());</span>
+	}
+
+	/**
+	 * Get Alternative Critical Range Token
+	 * @param pc
+	 * @param eq
+	 * @return Alternative Critical Range Token
+	 */
+	public static String getAltCritRangeToken(PlayerCharacter pc, Equipment eq)
+	{
+<span class="nc" id="L435">		String critRangeVar = ControlUtilities.getControlToken(Globals.getContext(), CControl.CRITRANGE);</span>
+<span class="nc bnc" id="L436" title="All 2 branches missed.">		if (critRangeVar == null)</span>
+		{
+<span class="nc" id="L438">			int critRange = getOldBonusedCritRange(pc, eq, false);</span>
+<span class="nc bnc" id="L439" title="All 2 branches missed.">			return critRange == 0 ? &quot;&quot; : Integer.toString(critRange);</span>
+		}
+		else
+		{
+<span class="nc" id="L443">			EquipmentHead head = eq.getEquipmentHead(2);</span>
+<span class="nc" id="L444">			return WeaponToken.getCritRangeHead(pc, head, critRangeVar).toString();</span>
+		}
+	}
+
+	/**
+	 * Get alternative damage token
+	 * @param pc
+	 * @param eq
+	 * @return alternative damage token
+	 */
+	public static String getAltDamageToken(PlayerCharacter pc, Equipment eq)
+	{
+<span class="nc" id="L456">		return eq.getAltDamage(pc);</span>
+	}
+
+	/**
+	 * Get Attacks token
+	 * @param pc
+	 * @param eq
+	 * @return Attacks token
+	 */
+	public static String getAttacksToken(PlayerCharacter pc, Equipment eq)
+	{
+<span class="nc" id="L467">		return String.valueOf(getAttacksTokenDouble(pc, eq));</span>
+	}
+
+	/**
+	 * Get Attacks token as a double
+	 * @param pc
+	 * @param eq
+	 * @return Attacks token as a double
+	 */
+	public static double getAttacksTokenDouble(PlayerCharacter pc, Equipment eq)
+	{
+<span class="nc" id="L478">		return eq.bonusTo(pc, &quot;COMBAT&quot;, &quot;ATTACKS&quot;, true);</span>
+	}
+
+	/**
+	 * Get Carried token
+	 * @param eq
+	 * @return Carried token
+	 */
+	public static String getCarriedToken(Equipment eq)
+	{
+<span class="nc" id="L488">		return String.valueOf(getCarriedTokenFloat(eq));</span>
+	}
+
+	/**
+	 * Get Carried token as a float
+	 * @param eq
+	 * @return Carried token as a float
+	 */
+	public static float getCarriedTokenFloat(Equipment eq)
+	{
+<span class="nc" id="L498">		return eq.numberCarried();</span>
+	}
+
+	/**
+	 * Get Charges Token
+	 * @param eq
+	 * @return Charges Token
+	 */
+	public static String getChargesToken(Equipment eq)
+	{
+<span class="nc" id="L508">		String retString = &quot;&quot;;</span>
+<span class="nc" id="L509">		int charges = getChargesTokenInt(eq);</span>
+<span class="nc bnc" id="L510" title="All 2 branches missed.">		if (charges &gt;= 0)</span>
+		{
+<span class="nc" id="L512">			retString = String.valueOf(charges);</span>
+		}
+<span class="nc" id="L514">		return retString;</span>
+	}
+
+	/**
+	 * Get Charges Token as int
+	 * @param eq
+	 * @return Charges Token as int
+	 */
+	public static int getChargesTokenInt(Equipment eq)
+	{
+<span class="nc" id="L524">		return eq.getRemainingCharges();</span>
+	}
+
+	/**
+	 * Get Charges Used Token
+	 * @param eq
+	 * @return Charges Used Token
+	 */
+	public static String getChargesUsedToken(Equipment eq)
+	{
+<span class="nc" id="L534">		String retString = &quot;&quot;;</span>
+<span class="nc" id="L535">		int charges = getChargesUsedTokenInt(eq);</span>
+<span class="nc bnc" id="L536" title="All 2 branches missed.">		if (charges &gt;= 0)</span>
+		{
+<span class="nc" id="L538">			retString = String.valueOf(charges);</span>
+		}
+<span class="nc" id="L540">		return retString;</span>
+	}
+
+	/**
+	 * Get Charges Used Token as int
+	 * @param eq
+	 * @return Charges Used Token as int
+	 */
+	public static int getChargesUsedTokenInt(Equipment eq)
+	{
+<span class="nc" id="L550">		return eq.getUsedCharges();</span>
+	}
+
+	/**
+	 * Get Content Weight Token as double
+	 * @param pc
+	 * @param eq
+	 * @return Content Weight Token as double
+	 */
+	public static double getContentWeightTokenDouble(PlayerCharacter pc, Equipment eq)
+	{
+<span class="nc bnc" id="L561" title="All 2 branches missed.">		if (eq.getChildCount() == 0)</span>
+		{
+<span class="nc" id="L563">			return 0.0;</span>
+		}
+<span class="nc" id="L565">		return eq.getContainedWeight(pc, true).doubleValue();</span>
+	}
+
+	/**
+	 * Get Contents Token
+	 * @param pc
+	 * @param eq
+	 * @param tokenizer
+	 * @return Contents Token
+	 */
+	public static String getContentsToken(PlayerCharacter pc, Equipment eq, StringTokenizer tokenizer)
+	{
+<span class="nc bnc" id="L577" title="All 2 branches missed.">		if (tokenizer.hasMoreTokens())</span>
+		{
+<span class="nc" id="L579">			String bType = tokenizer.nextToken();</span>
+<span class="nc" id="L580">			String aSubTag = &quot;NAME&quot;;</span>
+
+<span class="nc bnc" id="L582" title="All 2 branches missed.">			if (tokenizer.hasMoreTokens())</span>
+			{
+<span class="nc" id="L584">				aSubTag = tokenizer.nextToken();</span>
+			}
+
+			try
+			{
+<span class="nc" id="L589">				int contentsIndex = Integer.parseInt(bType);</span>
+<span class="nc" id="L590">				return getEqToken(pc, eq.getContainedByIndex(contentsIndex), aSubTag, tokenizer);</span>
+			}
+<span class="nc" id="L592">			catch (NumberFormatException e)</span>
+			{
+<span class="nc" id="L594">				return eq.getContainerByType(bType, aSubTag);</span>
+			}
+		}
+<span class="nc" id="L597">		return getContentsToken(eq);</span>
+	}
+
+	/**
+	 * Get Contents Token as String
+	 * @param eq
+	 * @return Contents Token as String
+	 */
+	public static String getContentsToken(Equipment eq)
+	{
+<span class="nc" id="L607">		return eq.getContainerContentsString();</span>
+	}
+
+	/**
+	 * Get Contents Num Token
+	 * @param eq
+	 * @return Contents Num Token
+	 */
+	public static String getContentsNumToken(Equipment eq)
+	{
+<span class="nc" id="L617">		return String.valueOf(getContentsNumTokenInt(eq));</span>
+	}
+
+	/**
+	 * Get Contents Num Token as int
+	 * @param eq
+	 * @return Contents Num Token as int
+	 */
+	public static int getContentsNumTokenInt(Equipment eq)
+	{
+<span class="nc" id="L627">		return eq.getContents().size();</span>
+	}
+
+	/**
+	 * Get Cost token
+	 * @param pc
+	 * @param eq
+	 * @return Cost token
+	 */
+	public static String getCostToken(PlayerCharacter pc, Equipment eq)
+	{
+<span class="nc" id="L638">		return BigDecimalHelper.trimZeros(eq.getCost(pc));</span>
+	}
+
+	/**
+	 * Get Critical Multiplier Token
+	 * @param eq
+	 * @return Critical Multiplier Token
+	 */
+	public static String getCritMultToken(Equipment eq)
+	{
+<span class="nc" id="L648">		return EqToken.multAsString(eq.getCritMultiplier());</span>
+	}
+
+	/**
+	 * Get Critical Range Token
+	 * @param pc
+	 * @param eq
+	 * @return Critical Range Token
+	 */
+	public static String getCritRangeToken(PlayerCharacter pc, Equipment eq)
+	{
+<span class="nc" id="L659">		String critRangeVar = ControlUtilities.getControlToken(Globals.getContext(), CControl.CRITRANGE);</span>
+<span class="nc bnc" id="L660" title="All 2 branches missed.">		if (critRangeVar == null)</span>
+		{
+<span class="nc" id="L662">			int critRange = getOldBonusedCritRange(pc, eq, true);</span>
+<span class="nc bnc" id="L663" title="All 2 branches missed.">			return critRange == 0 ? &quot;&quot; : Integer.toString(critRange);</span>
+		}
+		else
+		{
+<span class="nc" id="L667">			EquipmentHead head = eq.getEquipmentHead(1);</span>
+<span class="nc" id="L668">			return WeaponToken.getCritRangeHead(pc, head, critRangeVar).toString();</span>
+		}
+	}
+
+	/**
+	 * Get Damage Token
+	 * @param pc
+	 * @param eq
+	 * @return Damage Token
+	 */
+	public static String getDamageToken(PlayerCharacter pc, Equipment eq)
+	{
+<span class="nc" id="L680">		return eq.getDamage(pc);</span>
+	}
+
+	/**
+	 * Get Description Token
+	 * @param eq
+	 * @return Description Token
+	 */
+	public static String getDescriptionToken(final PlayerCharacter aPC, Equipment eq)
+	{
+<span class="nc" id="L690">		return aPC.getDescription(eq);</span>
+	}
+
+	/**
+	 * Get eDR Token
+	 * @param pc
+	 * @param eq
+	 * @return eDR Token
+	 */
+	public static String getEdrToken(PlayerCharacter pc, Equipment eq)
+	{
+<span class="nc" id="L701">		return String.valueOf(getEdrTokenInt(pc, eq));</span>
+	}
+
+	/**
+	 * Get eDR Token as int
+	 * @param pc
+	 * @param eq
+	 * @return eDR Token as int
+	 */
+	public static int getEdrTokenInt(PlayerCharacter pc, Equipment eq)
+	{
+<span class="nc" id="L712">		String edrVar = ControlUtilities.getControlToken(Globals.getContext(), CControl.EDR);</span>
+<span class="nc bnc" id="L713" title="All 2 branches missed.">		if (edrVar == null)</span>
+		{
+<span class="nc" id="L715">			return Math.max(0, eq.getSafe(IntegerKey.EDR) + (int) eq.bonusTo(pc, &quot;EQMARMOR&quot;, &quot;EDR&quot;, true));</span>
+		}
+<span class="nc" id="L717">		return (Integer) eq.getLocalVariable(pc.getCharID(), edrVar);</span>
+	}
+
+	/**
+	 * Get Equipped Token
+	 * @param eq
+	 * @return Equipped Token
+	 */
+	public static String getEquippedToken(Equipment eq)
+	{
+<span class="nc bnc" id="L727" title="All 2 branches missed.">		return getEquippedTokenBoolean(eq) ? &quot;Y&quot; : &quot;N&quot;;</span>
+	}
+
+	/**
+	 * Get Equipped Token as boolean
+	 * @param eq
+	 * @return Equipped Token as boolean
+	 */
+	public static boolean getEquippedTokenBoolean(Equipment eq)
+	{
+<span class="nc" id="L737">		return eq.isEquipped();</span>
+	}
+
+	/**
+	 * Get Fumble Range Token
+	 * @param eq
+	 * @return Fumble Range Token
+	 */
+	public static String getFumbleRangeToken(PlayerCharacter pc, Equipment eq)
+	{
+<span class="nc" id="L747">		String frVar = ControlUtilities.getControlToken(Globals.getContext(), CControl.FUMBLERANGE);</span>
+<span class="nc bnc" id="L748" title="All 2 branches missed.">		if (frVar == null)</span>
+		{
+<span class="nc bnc" id="L750" title="All 2 branches missed.">			for (EquipmentModifier eqMod : eq.getEqModifierList(true))</span>
+			{
+<span class="nc" id="L752">				String fr = eqMod.get(StringKey.FUMBLE_RANGE);</span>
+<span class="nc bnc" id="L753" title="All 2 branches missed.">				if (fr != null)</span>
+				{
+<span class="nc" id="L755">					return fr;</span>
+				}
+<span class="nc" id="L757">			}</span>
+
+<span class="nc bnc" id="L759" title="All 2 branches missed.">			for (EquipmentModifier eqMod : eq.getEqModifierList(false))</span>
+			{
+<span class="nc" id="L761">				String fr = eqMod.get(StringKey.FUMBLE_RANGE);</span>
+<span class="nc bnc" id="L762" title="All 2 branches missed.">				if (fr != null)</span>
+				{
+<span class="nc" id="L764">					return fr;</span>
+				}
+<span class="nc" id="L766">			}</span>
+
+<span class="nc" id="L768">			String fr = eq.get(StringKey.FUMBLE_RANGE);</span>
+<span class="nc bnc" id="L769" title="All 2 branches missed.">			return fr == null ? &quot;&quot; : fr;</span>
+		}
+<span class="nc" id="L771">		return (String) eq.getLocalVariable(pc.getCharID(), frVar);</span>
+
+	}
+
+	/**
+	 * Get Is Type Token
+	 * @param eq
+	 * @param type
+	 * @return Is Type Token
+	 */
+	public static String getIsTypeToken(Equipment eq, String type)
+	{
+<span class="nc bnc" id="L783" title="All 2 branches missed.">		return getIsTypeTokenBoolean(eq, type) ? &quot;TRUE&quot; : &quot;FALSE&quot;;</span>
+	}
+
+	/**
+	 * Get Is Type Token as boolean
+	 * @param eq
+	 * @param type
+	 * @return Is Type Token as boolean
+	 */
+	public static boolean getIsTypeTokenBoolean(Equipment eq, String type)
+	{
+<span class="nc" id="L794">		return eq.isType(type);</span>
+	}
+
+	/**
+	 * Get Location Token
+	 * @param eq
+	 * @return Location Token
+	 */
+	public static String getLocationToken(Equipment eq)
+	{
+<span class="nc" id="L804">		Equipment obj = eq.getParent();</span>
+<span class="nc bnc" id="L805" title="All 2 branches missed.">		if (obj != null)</span>
+		{
+<span class="nc" id="L807">			return OutputNameFormatting.getOutputName(obj);</span>
+		}
+<span class="nc" id="L809">		return eq.getParentName();</span>
+	}
+
+	/**
+	 * Get Long Name Token
+	 * @param eq
+	 * @return Long Name Token
+	 */
+	public static String getLongNameToken(Equipment eq)
+	{
+<span class="nc" id="L819">		return eq.longName();</span>
+	}
+
+	/**
+	 * Get Max Charges Token
+	 * @param eq
+	 * @return Max Charges Token
+	 */
+	public static String getMaxChargesToken(Equipment eq)
+	{
+<span class="nc" id="L829">		String retString = &quot;&quot;;</span>
+<span class="nc" id="L830">		int charges = getMaxChargesTokenInt(eq);</span>
+<span class="nc bnc" id="L831" title="All 2 branches missed.">		if (charges &gt;= 0)</span>
+		{
+<span class="nc" id="L833">			retString = String.valueOf(charges);</span>
+		}
+<span class="nc" id="L835">		return retString;</span>
+	}
+
+	/**
+	 * Get Max Charges Token as int
+	 * @param eq
+	 * @return Max Charges Token as int
+	 */
+	public static int getMaxChargesTokenInt(Equipment eq)
+	{
+<span class="nc" id="L845">		return eq.getMaxCharges();</span>
+	}
+
+	/**
+	 * Get Max DEX Token as int
+	 * @param pc
+	 * @param eq
+	 * @return Max DEX Token as int
+	 */
+	public static int getMaxDexTokenInt(PlayerCharacter pc, Equipment eq)
+	{
+<span class="nc" id="L856">		String maxDexVar = ControlUtilities.getControlToken(Globals.getContext(), CControl.EQMAXDEX);</span>
+<span class="nc bnc" id="L857" title="All 2 branches missed.">		if (maxDexVar == null)</span>
+		{
+<span class="nc" id="L859">			int mdex = eq.getSafe(IntegerKey.MAX_DEX) + (int) eq.bonusTo(pc, &quot;EQMARMOR&quot;, &quot;MAXDEX&quot;, true);</span>
+<span class="nc" id="L860">			return Math.min(Constants.MAX_MAXDEX, Math.max(0, mdex));</span>
+		}
+<span class="nc" id="L862">		return ((Number) eq.getLocalVariable(pc.getCharID(), maxDexVar)).intValue();</span>
+	}
+
+	/**
+	 * Get Move Token
+	 * @param eq
+	 * @return Move Token
+	 */
+	public static String getMoveToken(Equipment eq)
+	{
+<span class="nc" id="L872">		return eq.moveString();</span>
+	}
+
+	/**
+	 * Get Name Token
+	 * @param eq
+	 * @param pc
+	 * @return Name Token
+	 */
+	public static String getNameToken(Equipment eq, PlayerCharacter pc)
+	{
+<span class="nc" id="L883">		return OutputNameFormatting.parseOutputName(eq, pc);</span>
+	}
+
+	/**
+	 * Get Note Token
+	 * @param eq
+	 * @return Note Token
+	 */
+	public static String getNoteToken(Equipment eq)
+	{
+<span class="nc" id="L893">		return eq.getNote();</span>
+	}
+
+	/**
+	 * Get QTY Token
+	 * @param eq
+	 * @return QTY Token
+	 */
+	public static String getQtyToken(Equipment eq)
+	{
+<span class="nc" id="L903">		return BigDecimalHelper.trimZeros(Double.toString(getQtyDoubleToken(eq)));</span>
+	}
+
+	/**
+	 * Get QTY Token as double
+	 * @param eq
+	 * @return QTY Token as double
+	 */
+	public static double getQtyDoubleToken(Equipment eq)
+	{
+<span class="nc" id="L913">		return eq.qty();</span>
+	}
+
+	/**
+	 * Get CHECKBOXES Token
+	 * @param eq
+	 * @return CHECKBOXES Token
+	 */
+	public static double getCheckboxesDoubleToken(Equipment eq)
+	{
+<span class="nc" id="L923">		return getQtyDoubleToken(eq) * eq.getSafe(IntegerKey.BASE_QUANTITY);</span>
+	}
+
+	/**
+	 * Get CHECKBOXES Token
+	 * @param eq
+	 * @return CHECKBOXES Token
+	 */
+	public static String getCheckboxesToken(Equipment eq)
+	{
+<span class="nc" id="L933">		return BigDecimalHelper.trimZeros(Double.toString(getCheckboxesDoubleToken(eq)));</span>
+	}
+
+	/**
+	 * Get Range Token
+	 * @param eq
+	 * @param pc
+	 * @return Range Token
+	 */
+	public static String getRangeToken(Equipment eq, PlayerCharacter pc)
+	{
+<span class="nc" id="L944">		return Globals.getGameModeUnitSet().displayDistanceInUnitSet(getRange(pc, eq))</span>
+<span class="nc" id="L945">			+ Globals.getGameModeUnitSet().getDistanceUnit();</span>
+	}
+
+	/**
+	 * Get Size Token
+	 * @param eq
+	 * @return Size Token
+	 */
+	public static String getSizeToken(Equipment eq)
+	{
+<span class="nc" id="L955">		return eq.getSize();</span>
+	}
+
+	/**
+	 * Get SizeLong Token
+	 * @param eq
+	 * @return SizeLong Token
+	 */
+	public static String getSizeLongToken(Equipment eq)
+	{
+<span class="nc" id="L965">		return eq.getSizeAdjustment().getDisplayName();</span>
+	}
+
+	/**
+	 * Get Equipment Slot Token
+	 * @param eq
+	 * @return Equipment Slot Token
+	 */
+	public static String getSlotToken(Equipment eq)
+	{
+<span class="nc" id="L975">		return eq.getSlot();</span>
+	}
+
+	/**
+	 * Get Source Token
+	 * @param eq
+	 * @return Source Token
+	 */
+	public static String getSourceToken(Equipment eq)
+	{
+<span class="nc" id="L985">		return SourceFormat.getFormattedString(eq, Globals.getSourceDisplay(), true);</span>
+	}
+
+	public static int getSpellFailureTokenInt(PlayerCharacter pc, Equipment eq)
+	{
+<span class="nc" id="L990">		String spellFailVar = ControlUtilities.getControlToken(Globals.getContext(), CControl.EQSPELLFAILURE);</span>
+<span class="nc bnc" id="L991" title="All 2 branches missed.">		if (spellFailVar == null)</span>
+		{
+<span class="nc" id="L993">			return Math.max(0,</span>
+<span class="nc" id="L994">				eq.getSafe(IntegerKey.SPELL_FAILURE) + (int) eq.bonusTo(pc, &quot;EQMARMOR&quot;, &quot;SPELLFAILURE&quot;, true));</span>
+		}
+<span class="nc" id="L996">		return ((Number) eq.getLocalVariable(pc.getCharID(), spellFailVar)).intValue();</span>
+	}
+
+	/**
+	 * Get Special Property Token
+	 * @param pc
+	 * @param eq
+	 * @return Special Property Token
+	 */
+	public static String getSpropToken(PlayerCharacter pc, Equipment eq)
+	{
+<span class="nc" id="L1007">		return eq.getSpecialProperties(pc);</span>
+	}
+
+	/**
+	 * Get Total Weight Token as double
+	 * @param pc
+	 * @param eq
+	 * @return Total Weight Token as double
+	 */
+	public static double getTotalWeightTokenDouble(PlayerCharacter pc, Equipment eq)
+	{
+<span class="nc" id="L1018">		return getContentWeightTokenDouble(pc, eq) + getWtTokenDouble(pc, eq);</span>
+	}
+
+	/**
+	 * Get TotalWt Token as double
+	 * @param pc
+	 * @param eq
+	 * @return TotalWt Token as double
+	 */
+	public static double getTotalWtTokenDouble(PlayerCharacter pc, Equipment eq)
+	{
+<span class="nc" id="L1029">		return eq.qty() * eq.getWeightAsDouble(pc);</span>
+	}
+
+	/**
+	 * Get Type Token
+	 * @param eq
+	 * @return Type Token
+	 */
+	public static String getTypeToken(Equipment eq)
+	{
+<span class="nc" id="L1039">		return eq.getType().toUpperCase();</span>
+	}
+
+	/**
+	 * Get Type Token
+	 * @param eq
+	 * @param num index
+	 * @return Type Token
+	 */
+	public static String getTypeToken(Equipment eq, int num)
+	{
+<span class="nc" id="L1050">		return eq.typeIndex(num).toUpperCase();</span>
+	}
+
+	/**
+	 * Get TotalWT Token as double
+	 * @param pc
+	 * @param eq
+	 * @return TotalWT Token as double
+	 */
+	public static double getWtTokenDouble(PlayerCharacter pc, Equipment eq)
+	{
+<span class="nc" id="L1061">		return eq.getWeightAsDouble(pc);</span>
+	}
+
+	/**
+	 * Remove a type from a EQ List
+	 * @param eqList
+	 * @param type
+	 * @return List
+	 */
+	public static List&lt;Equipment&gt; listNotType(List&lt;Equipment&gt; eqList, String type)
+	{
+<span class="nc" id="L1072">		return EquipmentUtilities.removeEqType(eqList, type);</span>
+	}
+
+	/**
+	 * Add a type from a EQ List
+	 * @param pc
+	 * @param eqList
+	 * @param type
+	 * @return List
+	 */
+	public static List&lt;Equipment&gt; listAddType(PlayerCharacter pc, List&lt;Equipment&gt; eqList, String type)
+	{
+<span class="nc" id="L1084">		return pc.addEqType(eqList, type);</span>
+	}
+
+	/**
+	 * Remove all other types from a EQ List
+	 * @param eqList
+	 * @param type
+	 * @return List
+	 */
+	public static List&lt;Equipment&gt; listIsType(List&lt;Equipment&gt; eqList, String type)
+	{
+<span class="nc" id="L1095">		return EquipmentUtilities.removeNotEqType(eqList, type);</span>
+	}
+
+	protected static String getEqToken(PlayerCharacter pc, Equipment eq, String token, StringTokenizer tokenizer)
+	{
+<span class="nc" id="L1100">		String retString = &quot;&quot;;</span>
+
+<span class="nc bnc" id="L1102" title="All 2 branches missed.">		if (&quot;LONGNAME&quot;.equals(token))</span>
+		{
+<span class="nc" id="L1104">			retString = getLongNameToken(eq);</span>
+		}
+<span class="nc bnc" id="L1106" title="All 4 branches missed.">		else if (&quot;NAME&quot;.equals(token) || &quot;OUTPUTNAME&quot;.equals(token))</span>
+		{
+<span class="nc" id="L1108">			retString = getNameToken(eq, pc);</span>
+		}
+<span class="nc bnc" id="L1110" title="All 2 branches missed.">		else if (&quot;NOTE&quot;.equals(token))</span>
+		{
+<span class="nc" id="L1112">			retString = getNoteToken(eq);</span>
+		}
+<span class="nc bnc" id="L1114" title="All 4 branches missed.">		else if (&quot;WT&quot;.equals(token) || &quot;ITEMWEIGHT&quot;.equals(token))</span>
+		{
+<span class="nc" id="L1116">			retString = Globals.getGameModeUnitSet().displayWeightInUnitSet(getWtTokenDouble(pc, eq));</span>
+		}
+<span class="nc bnc" id="L1118" title="All 2 branches missed.">		else if (&quot;TOTALWT&quot;.equals(token))</span>
+		{
+<span class="nc" id="L1120">			retString = Globals.getGameModeUnitSet().displayWeightInUnitSet(getTotalWtTokenDouble(pc, eq));</span>
+		}
+<span class="nc bnc" id="L1122" title="All 2 branches missed.">		else if (&quot;TOTALWEIGHT&quot;.equals(token))</span>
+		{
+<span class="nc" id="L1124">			retString = Globals.getGameModeUnitSet().displayWeightInUnitSet(getTotalWeightTokenDouble(pc, eq));</span>
+		}
+<span class="nc bnc" id="L1126" title="All 2 branches missed.">		else if (&quot;ISTYPE&quot;.equals(token))</span>
+		{
+<span class="nc" id="L1128">			retString = getIsTypeToken(eq, tokenizer.nextToken());</span>
+		}
+<span class="nc bnc" id="L1130" title="All 2 branches missed.">		else if (&quot;CHECKBOXES&quot;.equals(token))</span>
+		{
+<span class="nc" id="L1132">			retString = getCheckboxesToken(eq);</span>
+		}
+<span class="nc bnc" id="L1134" title="All 2 branches missed.">		else if (&quot;CONTENTWEIGHT&quot;.equals(token))</span>
+		{
+<span class="nc" id="L1136">			retString = Globals.getGameModeUnitSet().displayWeightInUnitSet(getContentWeightTokenDouble(pc, eq));</span>
+		}
+<span class="nc bnc" id="L1138" title="All 2 branches missed.">		else if (&quot;COST&quot;.equals(token))</span>
+		{
+<span class="nc" id="L1140">			retString = getCostToken(pc, eq);</span>
+		}
+<span class="nc bnc" id="L1142" title="All 2 branches missed.">		else if (&quot;DESC&quot;.equals(token))</span>
+		{
+<span class="nc" id="L1144">			retString = getDescriptionToken(pc, eq);</span>
+		}
+<span class="nc bnc" id="L1146" title="All 2 branches missed.">		else if (&quot;FUMBLERANGE&quot;.equals(token))</span>
+		{
+<span class="nc" id="L1148">			retString = getFumbleRangeToken(pc, eq);</span>
+		}
+<span class="nc bnc" id="L1150" title="All 2 branches missed.">		else if (&quot;QTY&quot;.equals(token))</span>
+		{
+<span class="nc" id="L1152">			retString = getQtyToken(eq);</span>
+		}
+<span class="nc bnc" id="L1154" title="All 2 branches missed.">		else if (&quot;EQUIPPED&quot;.equals(token))</span>
+		{
+<span class="nc" id="L1156">			retString = getEquippedToken(eq);</span>
+		}
+<span class="nc bnc" id="L1158" title="All 2 branches missed.">		else if (&quot;CARRIED&quot;.equals(token))</span>
+		{
+<span class="nc" id="L1160">			retString = getCarriedToken(eq);</span>
+		}
+<span class="nc bnc" id="L1162" title="All 2 branches missed.">		else if (&quot;CONTENTSNUM&quot;.equals(token))</span>
+		{
+<span class="nc" id="L1164">			retString = getContentsNumToken(eq);</span>
+		}
+<span class="nc bnc" id="L1166" title="All 2 branches missed.">		else if (&quot;LOCATION&quot;.equals(token))</span>
+		{
+<span class="nc" id="L1168">			retString = getLocationToken(eq);</span>
+		}
+<span class="nc bnc" id="L1170" title="All 2 branches missed.">		else if (&quot;ACMOD&quot;.equals(token))</span>
+		{
+<span class="nc" id="L1172">			retString = getAcModToken(pc, eq);</span>
+		}
+<span class="nc bnc" id="L1174" title="All 2 branches missed.">		else if (&quot;MAXDEX&quot;.equals(token))</span>
+		{
+<span class="nc" id="L1176">			retString = Integer.toString(getMaxDexTokenInt(pc, eq));</span>
+		}
+<span class="nc bnc" id="L1178" title="All 2 branches missed.">		else if (&quot;ACCHECK&quot;.equals(token))</span>
+		{
+<span class="nc" id="L1180">			retString = getAcCheckToken(pc, eq);</span>
+		}
+<span class="nc bnc" id="L1182" title="All 2 branches missed.">		else if (&quot;EDR&quot;.equals(token))</span>
+		{
+<span class="nc" id="L1184">			retString = getEdrToken(pc, eq);</span>
+		}
+<span class="nc bnc" id="L1186" title="All 2 branches missed.">		else if (&quot;MOVE&quot;.equals(token))</span>
+		{
+<span class="nc" id="L1188">			retString = getMoveToken(eq);</span>
+		}
+<span class="nc bnc" id="L1190" title="All 2 branches missed.">		else if (&quot;TYPE&quot;.equals(token))</span>
+		{
+<span class="nc bnc" id="L1192" title="All 2 branches missed.">			if (tokenizer.hasMoreTokens())</span>
+			{
+				try
+				{
+<span class="nc" id="L1196">					int num = Integer.parseInt(tokenizer.nextToken());</span>
+<span class="nc" id="L1197">					return getTypeToken(eq, num);</span>
+				}
+<span class="nc" id="L1199">				catch (NumberFormatException e)</span>
+				{
+					// TODO - This exception needs to be handled
+				}
+			}
+<span class="nc" id="L1204">			return getTypeToken(eq);</span>
+		}
+<span class="nc bnc" id="L1206" title="All 2 branches missed.">		else if (&quot;QUALITY&quot;.equals(token))</span>
+		{
+<span class="nc" id="L1208">			Map&lt;String, String&gt; qualityMap = eq.getMapFor(MapKey.QUALITY);</span>
+<span class="nc bnc" id="L1209" title="All 2 branches missed.">			if (qualityMap != null)</span>
+			{
+<span class="nc bnc" id="L1211" title="All 2 branches missed.">				if (tokenizer.hasMoreTokens())</span>
+				{
+<span class="nc" id="L1213">					String next = tokenizer.nextToken();</span>
+					try
+					{
+<span class="nc" id="L1216">						int idx = Integer.parseInt(next);</span>
+<span class="nc bnc" id="L1217" title="All 2 branches missed.">						for (String value : qualityMap.values())</span>
+						{
+<span class="nc" id="L1219">							idx--;</span>
+<span class="nc bnc" id="L1220" title="All 2 branches missed.">							if (idx == 0)</span>
+							{
+<span class="nc" id="L1222">								return value;</span>
+							}
+<span class="nc" id="L1224">						}</span>
+					}
+<span class="nc" id="L1226">					catch (NumberFormatException e)</span>
+					{
+<span class="nc" id="L1228">						String value = qualityMap.get(next);</span>
+<span class="nc bnc" id="L1229" title="All 2 branches missed.">						if (value != null)</span>
+						{
+<span class="nc" id="L1231">							return value;</span>
+						}
+<span class="nc" id="L1233">					}</span>
+<span class="nc" id="L1234">					return &quot;&quot;;</span>
+				}
+<span class="nc" id="L1236">				Set&lt;String&gt; qualities = new TreeSet&lt;&gt;();</span>
+<span class="nc bnc" id="L1237" title="All 2 branches missed.">				for (Map.Entry&lt;String, String&gt; me : qualityMap.entrySet())</span>
+				{
+<span class="nc" id="L1239">					qualities</span>
+<span class="nc" id="L1240">						.add(me.getKey() + &quot;: &quot; + me.getValue());</span>
+<span class="nc" id="L1241">				}</span>
+<span class="nc" id="L1242">				return StringUtil.join(qualities, &quot;, &quot;);</span>
+			}
+<span class="nc" id="L1244">			return &quot;&quot;;</span>
+		}
+<span class="nc bnc" id="L1246" title="All 2 branches missed.">		else if (&quot;SPELLFAILURE&quot;.equals(token))</span>
+		{
+<span class="nc" id="L1248">			retString = Integer.toString(EqToken.getSpellFailureTokenInt(pc, eq));</span>
+		}
+<span class="nc bnc" id="L1250" title="All 2 branches missed.">		else if (&quot;SIZE&quot;.equals(token))</span>
+		{
+<span class="nc" id="L1252">			retString = getSizeToken(eq);</span>
+		}
+<span class="nc bnc" id="L1254" title="All 2 branches missed.">		else if (&quot;SIZELONG&quot;.equals(token))</span>
+		{
+<span class="nc" id="L1256">			retString = getSizeLongToken(eq);</span>
+		}
+<span class="nc bnc" id="L1258" title="All 2 branches missed.">		else if (&quot;DAMAGE&quot;.equals(token))</span>
+		{
+<span class="nc" id="L1260">			retString = getDamageToken(pc, eq);</span>
+		}
+<span class="nc bnc" id="L1262" title="All 2 branches missed.">		else if (&quot;CRITRANGE&quot;.equals(token))</span>
+		{
+<span class="nc" id="L1264">			retString = getCritRangeToken(pc, eq);</span>
+		}
+<span class="nc bnc" id="L1266" title="All 2 branches missed.">		else if (&quot;CRITMULT&quot;.equals(token))</span>
+		{
+<span class="nc" id="L1268">			retString = getCritMultToken(eq);</span>
+		}
+<span class="nc bnc" id="L1270" title="All 2 branches missed.">		else if (&quot;ALTDAMAGE&quot;.equals(token))</span>
+		{
+<span class="nc" id="L1272">			retString = getAltDamageToken(pc, eq);</span>
+		}
+<span class="nc bnc" id="L1274" title="All 4 branches missed.">		else if (&quot;ALTCRITMULT&quot;.equals(token) || &quot;ALTCRIT&quot;.equals(token))</span>
+		{
+<span class="nc" id="L1276">			retString = getAltCritMultToken(eq);</span>
+		}
+<span class="nc bnc" id="L1278" title="All 2 branches missed.">		else if (&quot;ALTCRITRANGE&quot;.equals(token))</span>
+		{
+<span class="nc" id="L1280">			retString = getAltCritRangeToken(pc, eq);</span>
+		}
+<span class="nc bnc" id="L1282" title="All 2 branches missed.">		else if (&quot;RANGE&quot;.equals(token))</span>
+		{
+<span class="nc" id="L1284">			retString = getRangeToken(eq, pc);</span>
+		}
+<span class="nc bnc" id="L1286" title="All 2 branches missed.">		else if (&quot;ATTACKS&quot;.equals(token))</span>
+		{
+<span class="nc" id="L1288">			retString = getAttacksToken(pc, eq);</span>
+		}
+<span class="nc bnc" id="L1290" title="All 2 branches missed.">		else if (&quot;PROF&quot;.equals(token))</span>
+		{
+<span class="nc" id="L1292">			retString = eq.consolidatedProfName();</span>
+		}
+<span class="nc bnc" id="L1294" title="All 2 branches missed.">		else if (&quot;SPROP&quot;.equals(token))</span>
+		{
+<span class="nc" id="L1296">			retString = getSpropToken(pc, eq);</span>
+		}
+<span class="nc bnc" id="L1298" title="All 2 branches missed.">		else if (&quot;CHARGES&quot;.equals(token))</span>
+		{
+<span class="nc" id="L1300">			retString = getChargesToken(eq);</span>
+		}
+<span class="nc bnc" id="L1302" title="All 2 branches missed.">		else if (&quot;CHARGESUSED&quot;.equals(token))</span>
+		{
+<span class="nc" id="L1304">			retString = getChargesUsedToken(eq);</span>
+		}
+<span class="nc bnc" id="L1306" title="All 2 branches missed.">		else if (&quot;MAXCHARGES&quot;.equals(token))</span>
+		{
+<span class="nc" id="L1308">			retString = getMaxChargesToken(eq);</span>
+		}
+<span class="nc bnc" id="L1310" title="All 2 branches missed.">		else if (&quot;CONTENTS&quot;.equals(token))</span>
+		{
+<span class="nc" id="L1312">			retString = getContentsToken(pc, eq, tokenizer);</span>
+		}
+<span class="nc bnc" id="L1314" title="All 2 branches missed.">		else if (&quot;SOURCE&quot;.equals(token))</span>
+		{
+<span class="nc" id="L1316">			retString = getSourceToken(eq);</span>
+		}
+<span class="nc bnc" id="L1318" title="All 2 branches missed.">		else if (&quot;SLOT&quot;.equals(token))</span>
+		{
+<span class="nc" id="L1320">			retString = getSlotToken(eq);</span>
+		}
+<span class="nc" id="L1322">		return retString;</span>
+	}
+
+	protected static int returnMergeType(String type)
+	{
+<span class="nc" id="L1327">		int merge = Constants.MERGE_ALL;</span>
+
+<span class="nc bnc" id="L1329" title="All 2 branches missed.">		if (&quot;MERGENONE&quot;.equals(type))</span>
+		{
+<span class="nc" id="L1331">			merge = Constants.MERGE_NONE;</span>
+		}
+<span class="nc bnc" id="L1333" title="All 2 branches missed.">		else if (&quot;MERGELOC&quot;.equals(type))</span>
+		{
+<span class="nc" id="L1335">			merge = Constants.MERGE_LOCATION;</span>
+		}
+<span class="nc bnc" id="L1337" title="All 2 branches missed.">		else if (&quot;MERGEALL&quot;.equals(type))</span>
+		{
+<span class="nc" id="L1339">			merge = Constants.MERGE_ALL;</span>
+		}
+
+<span class="nc" id="L1342">		return merge;</span>
+	}
+
+	public static int getOldBonusedCritRange(PlayerCharacter pc, Equipment e, boolean primary)
+	{
+<span class="nc bnc" id="L1347" title="All 4 branches missed.">		if (!primary &amp;&amp; !e.isDouble())</span>
+		{
+<span class="nc" id="L1349">			return 0;</span>
+		}
+<span class="nc" id="L1351">		int raw = e.getRawCritRange(primary);</span>
+<span class="nc" id="L1352">		int add = (int) e.bonusTo(pc, &quot;EQMWEAPON&quot;, &quot;CRITRANGEADD&quot;, primary);</span>
+<span class="nc" id="L1353">		int dbl = 1 + (int) e.bonusTo(pc, &quot;EQMWEAPON&quot;, &quot;CRITRANGEDOUBLE&quot;, primary);</span>
+<span class="nc" id="L1354">		return raw * dbl + add;</span>
+
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

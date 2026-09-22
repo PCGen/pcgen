@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>EquipmentToken.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.qualifier.armorprof</a> &gt; <span class="el_source">EquipmentToken.java</span></div><h1>EquipmentToken.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2007 (C) Thomas Parker &lt;thpr@users.sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package plugin.qualifier.armorprof;
+
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.logging.Level;
+
+import pcgen.base.util.ObjectContainer;
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.Converter;
+import pcgen.cdom.base.PrimitiveCollection;
+import pcgen.cdom.base.PrimitiveFilter;
+import pcgen.cdom.enumeration.GroupingState;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.Type;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.reference.ReferenceManufacturer;
+import pcgen.cdom.reference.SelectionCreator;
+import pcgen.core.ArmorProf;
+import pcgen.core.Equipment;
+import pcgen.core.PlayerCharacter;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.QualifierToken;
+import pcgen.util.Logging;
+
+<span class="fc" id="L44">public class EquipmentToken implements QualifierToken&lt;ArmorProf&gt;, Converter&lt;Equipment, CDOMReference&lt;ArmorProf&gt;&gt;</span>
+{
+<span class="fc" id="L46">	private static final Type ARMOR_TYPE = Type.getConstant(&quot;Armor&quot;);</span>
+
+<span class="fc" id="L48">	private PrimitiveCollection&lt;Equipment&gt; pcs = null;</span>
+
+<span class="fc" id="L50">	private boolean wasRestricted = false;</span>
+
+	@Override
+	public String getTokenName()
+	{
+<span class="fc" id="L55">		return &quot;EQUIPMENT&quot;;</span>
+	}
+
+	@Override
+	public Class&lt;ArmorProf&gt; getReferenceClass()
+	{
+<span class="fc" id="L61">		return ArmorProf.class;</span>
+	}
+
+	@Override
+	public String getLSTformat(boolean useAny)
+	{
+<span class="fc" id="L67">		StringBuilder sb = new StringBuilder();</span>
+<span class="fc" id="L68">		sb.append(getTokenName());</span>
+<span class="fc bfc" id="L69" title="All 2 branches covered.">		if (wasRestricted)</span>
+		{
+<span class="fc" id="L71">			sb.append('[').append(pcs.getLSTformat(useAny)).append(']');</span>
+		}
+<span class="fc" id="L73">		return sb.toString();</span>
+	}
+
+	@Override
+	public boolean initialize(LoadContext context, SelectionCreator&lt;ArmorProf&gt; sc, String condition, String value,
+		boolean negate)
+	{
+<span class="fc bfc" id="L80" title="All 2 branches covered.">		if (negate)</span>
+		{
+<span class="fc" id="L82">			Logging.addParseMessage(Level.SEVERE,</span>
+<span class="fc" id="L83">				&quot;Cannot make &quot; + getTokenName() + &quot; into a negated Qualifier, remove !&quot;);</span>
+<span class="fc" id="L84">			return false;</span>
+		}
+<span class="fc bfc" id="L86" title="All 2 branches covered.">		if (condition != null)</span>
+		{
+<span class="fc" id="L88">			Logging.addParseMessage(Level.SEVERE,</span>
+<span class="fc" id="L89">				&quot;Cannot make &quot; + getTokenName() + &quot; into a conditional Qualifier, remove =&quot;);</span>
+<span class="fc" id="L90">			return false;</span>
+		}
+<span class="fc" id="L92">		ReferenceManufacturer&lt;Equipment&gt; erm = context.getReferenceContext().getManufacturer(Equipment.class);</span>
+<span class="fc bfc" id="L93" title="All 2 branches covered.">		if (value == null)</span>
+		{
+<span class="fc" id="L95">			pcs = erm.getAllReference();</span>
+		}
+		else
+		{
+<span class="fc" id="L99">			pcs = context.getPrimitiveChoiceFilter(erm, value);</span>
+<span class="fc" id="L100">			wasRestricted = true;</span>
+		}
+<span class="fc bfc" id="L102" title="All 2 branches covered.">		return pcs != null;</span>
+	}
+
+	@Override
+	public int hashCode()
+	{
+<span class="pc bpc" id="L108" title="1 of 2 branches missed.">		return pcs == null ? 0 : pcs.hashCode();</span>
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+<span class="fc bfc" id="L114" title="All 2 branches covered.">		if (o instanceof EquipmentToken other)</span>
+		{
+<span class="pc bpc" id="L116" title="1 of 2 branches missed.">			if (pcs == null)</span>
+			{
+<span class="nc bnc" id="L118" title="All 2 branches missed.">				return other.pcs == null;</span>
+			}
+<span class="fc" id="L120">			return pcs.equals(other.pcs);</span>
+		}
+<span class="fc" id="L122">		return false;</span>
+	}
+
+	@Override
+	public GroupingState getGroupingState()
+	{
+<span class="pc bpc" id="L128" title="1 of 2 branches missed.">		return (pcs == null) ? GroupingState.ANY : pcs.getGroupingState().reduce();</span>
+	}
+
+	@Override
+	public &lt;R&gt; Collection&lt;R&gt; getCollection(PlayerCharacter pc, Converter&lt;ArmorProf, R&gt; c)
+	{
+<span class="fc" id="L134">		Set&lt;R&gt; returnSet = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L135">		Collection&lt;? extends ObjectContainer&lt;ArmorProf&gt;&gt; intermediate = pcs.getCollection(pc, this);</span>
+<span class="fc bfc" id="L136" title="All 2 branches covered.">		for (ObjectContainer&lt;ArmorProf&gt; ref : intermediate)</span>
+		{
+<span class="fc" id="L138">			returnSet.addAll(c.convert(ref));</span>
+<span class="fc" id="L139">		}</span>
+<span class="fc" id="L140">		return returnSet;</span>
+	}
+
+	@Override
+	public Collection&lt;CDOMReference&lt;ArmorProf&gt;&gt; convert(ObjectContainer&lt;Equipment&gt; orig)
+	{
+<span class="fc" id="L146">		Set&lt;CDOMReference&lt;ArmorProf&gt;&gt; refSet = new HashSet&lt;&gt;();</span>
+<span class="fc bfc" id="L147" title="All 2 branches covered.">		for (Equipment e : orig.getContainedObjects())</span>
+		{
+<span class="fc bfc" id="L149" title="All 2 branches covered.">			if (e.getListFor(ListKey.TYPE).contains(ARMOR_TYPE))</span>
+			{
+<span class="fc" id="L151">				CDOMSingleRef&lt;ArmorProf&gt; prof = e.get(ObjectKey.ARMOR_PROF);</span>
+<span class="pc bpc" id="L152" title="1 of 2 branches missed.">				if (prof != null)</span>
+				{
+<span class="fc" id="L154">					refSet.add(prof);</span>
+				}
+			}
+<span class="fc" id="L157">		}</span>
+<span class="fc" id="L158">		return refSet;</span>
+	}
+
+	@Override
+	public Collection&lt;CDOMReference&lt;ArmorProf&gt;&gt; convert(ObjectContainer&lt;Equipment&gt; orig, PrimitiveFilter&lt;Equipment&gt; lim)
+	{
+<span class="nc" id="L164">		throw new UnsupportedOperationException(&quot;Only EquipmentToken should call itself as a Converter&quot;);</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

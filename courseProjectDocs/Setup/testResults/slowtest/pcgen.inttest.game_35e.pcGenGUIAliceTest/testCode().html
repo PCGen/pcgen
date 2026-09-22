@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - testCode()</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<div class="breadcrumbs">
+<a class="breadcrumb" href="../index.html">all</a> &gt; 
+<a class="breadcrumb" href="index.html">pcgen.inttest.game_35e.pcGenGUIAliceTest</a> &gt; 
+<span class="breadcrumb">testCode()</span>
+</div>
+<div class="tab-container">
+<ul class="tabLinks">
+<li>
+<a class="successGroup" href="#">Gradle Test Run :slowtest</a>
+</li>
+</ul>
+<div class="tab">
+<h2>Gradle Test Run :slowtest</h2>
+<h1>testCode()</h1>
+<div class="tab-container">
+<ul class="tabLinks">
+<li>
+<a class="" href="#">summary</a>
+</li>
+<li>
+<a class="" href="#">error output</a>
+</li>
+</ul>
+<div class="tab">
+<h2>summary</h2>
+<div>
+<div class="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox">
+<div class="counter">1</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox">
+<div class="counter">0</div>
+<p>skipped</p>
+</div>
+</td>
+<td>
+<div class="infoBox duration">
+<div class="counter">28.152s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="tab">
+<h2>error output</h2>
+<span class="code">
+<pre id="root-0-test-stderr-testCode()">Sep 22, 2026 11:46:08 AM pcgen.inttest.PcgenFtlTestCase runTest
+INFO: RUNTEST with the character: 35e_Alice
+Sep 22, 2026 11:46:09 AM pcgen.util.TestHelper createDummySettingsFile
+INFO: Using PCC Location of '@data'.
+2026-09-22T11:46:10.284 INFO Test worker#3 Main:108 Starting PCGen v6.09.08.RC1
+2026-09-22T11:46:13.957 INFO Test worker#3 LanguageBundle:134 Initialising language bundle with locale en_US.
+2026-09-22T11:46:23.436 INFO Test worker#3 BatchExporter:117 Started export of /Users/coraybennett/Documents/code/code-analysis-pcgen/code/testsuite/PCGfiles/35e_Alice.pcg using code/testsuite/base-xml.ftl to /var/folders/vv/lqttt3qn06n7n3wnd_q4syzc0000gn/T/junit-3820094934197974484/output/35e_Alice.xml
+2026-09-22T11:46:23.569 INFO Test worker#3 BatchExporter:122 Loading sources [PCGen Advanced Testing Set - Code &amp; Data Team Use Only] using game mode 35e
+2026-09-22T11:46:23.662 INFO Test worker#3 SourceFileLoader:507 Loading game 35e and sources [PCGen Advanced Testing Set - Code &amp; Data Team Use Only].
+2026-09-22T11:46:25.199 LSTERROR Test worker#3 LstUtils:145 Could not get Reference Manufacturer for Category: Ability Pool Child (Source: file:/Users/coraybennett/Documents/code/code-analysis-pcgen/data/zen_test/pcgen_test_advanced/pcgen_test_advanced_abilities.lst )
+2026-09-22T11:46:25.200 LSTERROR Test worker#3 LstUtils:145 Failed in parsing typeStr: ABILITY Ability Pool Child|AUTOMATIC|%LIST for pcgen.core.Ability Weapon Specialization SF
+2026-09-22T11:46:25.201 LSTERROR Test worker#3 LstUtils:145 Illegal Token 'ABILITY' 'Ability Pool Child|AUTOMATIC|%LIST' for pcgen.core.Ability Weapon Specialization SF in file:/Users/coraybennett/Documents/code/code-analysis-pcgen/data/zen_test/pcgen_test_advanced/pcgen_test_advanced_abilities.lst
+2026-09-22T11:46:27.741 LSTERROR Test worker#3 CategoryToken:105 Ability Category Starfinder Test Class Feature had no TYPE or ABILITYLIST, but has a different CATEGORY.  File was: file:/Users/coraybennett/Documents/code/code-analysis-pcgen/data/zen_test/pcgen_test_advanced/pcgen_test_advanced_classes.lst
+2026-09-22T11:46:27.795 SEVERE Test worker#3 CDOMFactory:105 Unconstructed Reference: Language Abyssal
+2026-09-22T11:46:27.799 SEVERE Test worker#3 TrackingReferenceContext:102   Was used in file:/Users/coraybennett/Documents/code/code-analysis-pcgen/data/zen_test/pcgen_test_advanced/pcgen_test_adv_abilities.lst in tokens: [plugin.lsttokens.auto.LangToken]
+2026-09-22T11:46:27.809 SEVERE Test worker#3 CDOMFactory:105 Unconstructed Reference: Language Celestial
+2026-09-22T11:46:27.810 SEVERE Test worker#3 TrackingReferenceContext:102   Was used in file:/Users/coraybennett/Documents/code/code-analysis-pcgen/data/zen_test/pcgen_test_advanced/pcgen_test_adv_abilities.lst in tokens: [plugin.lsttokens.auto.LangToken]
+2026-09-22T11:46:27.811 SEVERE Test worker#3 CDOMFactory:105 Unconstructed Reference: Language Infernal
+2026-09-22T11:46:27.812 SEVERE Test worker#3 TrackingReferenceContext:102   Was used in file:/Users/coraybennett/Documents/code/code-analysis-pcgen/data/zen_test/pcgen_test_advanced/pcgen_test_adv_abilities.lst in tokens: [plugin.lsttokens.auto.LangToken]
+2026-09-22T11:46:27.816 SEVERE Test worker#3 CDOMFactory:105 Unconstructed Reference: AbilityCategory Ability Pool Child
+2026-09-22T11:46:27.818 SEVERE Test worker#3 TrackingReferenceContext:102   Was used in file:/Users/coraybennett/Documents/code/code-analysis-pcgen/data/zen_test/pcgen_test_advanced/pcgen_test_advanced_abilities.lst in tokens: [plugin.lsttokens.AbilityLst]
+2026-09-22T11:46:27.847 SEVERE Test worker#3 AbilityCategory:686 Unconstructed Reference: Ability Category Starfinder Test Class Feature Starfinder Test ~ Weapon Test
+2026-09-22T11:46:27.872 SEVERE Test worker#3 AbilityCategory:719 Invalid use of MULT:YES Ability Weapon Focus where a target [parens] is required
+2026-09-22T11:46:27.873 SEVERE Test worker#3 AbilityCategory:721 PLEASE TAKE NOTE: If usage locations are reported, not all usages are necessary illegal (at least one is)
+2026-09-22T11:46:27.963 SEVERE Test worker#3 SourceFileLoader:761 35e did not have one Deity with 'Unselected' Group (found: 0)
+2026-09-22T11:46:29.082 SEVERE Test worker#3 AbilitySelectionApplication:62 Unable to apply Selection: 'PLEASE MAKE APPROPRIATE SELECTION' to Ability GLOBAL ~ CHOOSE CSKILL (Feat) because the given selection does not exist in the loaded data
+2026-09-22T11:46:29.097 SEVERE Test worker#3 AbilitySelectionApplication:62 Unable to apply Selection: '' to Ability  (*LANGBONUS) because the given selection does not exist in the loaded data
+2026-09-22T11:46:30.627 INFO Test worker#3 CharacterManager:209 Loaded character Alice - /Users/coraybennett/Documents/code/code-analysis-pcgen/code/testsuite/PCGfiles/35e_Alice.pcg
+</pre>
+<button class="clipboard-copy-btn" aria-label="Copy to clipboard" data-copy-element-id="root-0-test-stderr-testCode()">Copy</button>
+</span>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="https://www.gradle.org">Gradle 9.7.1</a> at Sep 22, 2026, 11:53:30 AM</p>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CharacterSpell.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.core.character</a> &gt; <span class="el_source">CharacterSpell.java</span></div><h1>CharacterSpell.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2001 (C) Bryan McRoberts &lt;merton_monk@yahoo.com&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.core.character;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.helper.ClassSource;
+import pcgen.core.Ability;
+import pcgen.core.Domain;
+import pcgen.core.PCClass;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.Race;
+import pcgen.core.analysis.SpellCountCalc;
+import pcgen.core.spell.Spell;
+
+/**
+ * {@code PCClass}.
+ */
+public final class CharacterSpell implements Comparable&lt;CharacterSpell&gt;
+{
+<span class="nc" id="L39">	private final List&lt;SpellInfo&gt; infoList = new ArrayList&lt;&gt;();</span>
+	private final CDOMObject owner; // PCClass/Race/etc. in whose list this object resides
+	private final Spell spell;
+<span class="nc" id="L42">	private String fixedCasterLevel = null;</span>
+
+	/**
+	 * Constructor
+	 * @param o
+	 * @param aSpell
+	 */
+	public CharacterSpell(final CDOMObject o, final Spell aSpell)
+<span class="nc" id="L50">	{</span>
+<span class="nc" id="L51">		owner = o;</span>
+<span class="nc" id="L52">		spell = aSpell;</span>
+<span class="nc" id="L53">	}</span>
+
+	/**
+	 * Returns index of SpellInfo in infoList, or -1 if it doesn't exist.
+	 * 
+	 * @param pc The character to query.
+	 * @param bookName name of spellbook/list
+	 * @param level actual level of spell (adjusted by feats)
+	 * @param specialty -1 = inSpecialty insensitive;&lt;br&gt;0 = inSpecialty==false; and &lt;br&gt; 1 = inSpecialty==true
+	 * @return info index
+	 */
+	public int getInfoIndexFor(PlayerCharacter pc, final String bookName, final int level, final int specialty)
+	{
+<span class="nc bnc" id="L66" title="All 2 branches missed.">		if (infoList.isEmpty())</span>
+		{
+<span class="nc" id="L68">			return -1;</span>
+		}
+
+<span class="nc bnc" id="L71" title="All 2 branches missed.">		boolean sp = specialty == 1;</span>
+
+<span class="nc bnc" id="L73" title="All 2 branches missed.">		if (sp)</span>
+		{
+<span class="nc" id="L75">			sp = isSpecialtySpell(pc);</span>
+		}
+
+<span class="nc" id="L78">		int i = 0;</span>
+
+<span class="nc bnc" id="L80" title="All 2 branches missed.">		for (SpellInfo s : infoList)</span>
+		{
+<span class="nc bnc" id="L82" title="All 12 branches missed.">			if ((&quot;&quot;.equals(bookName) || bookName.equals(s.getBook())) &amp;&amp; (level == -1 || s.getActualLevel() == level)</span>
+				&amp;&amp; (specialty == -1 || sp))
+			{
+<span class="nc" id="L85">				return i;</span>
+			}
+
+<span class="nc" id="L88">			i++;</span>
+<span class="nc" id="L89">		}</span>
+
+<span class="nc" id="L91">		return -1;</span>
+	}
+
+	/**
+	 * Get info list
+	 * @return info list
+	 */
+	public List&lt;SpellInfo&gt; getInfoList()
+	{
+<span class="nc" id="L100">		return infoList;</span>
+	}
+
+	/**
+	 * Get Owner
+	 * @return owner
+	 */
+	public CDOMObject getOwner()
+	{
+<span class="nc" id="L109">		return owner;</span>
+	}
+
+	/**
+	 * is speciality spell
+	 * @return TRUE if speciality spell
+	 */
+	public boolean isSpecialtySpell(PlayerCharacter pc)
+	{
+		final boolean result;
+
+<span class="nc bnc" id="L120" title="All 2 branches missed.">		if (spell == null)</span>
+		{
+<span class="nc" id="L122">			result = false;</span>
+		}
+<span class="nc bnc" id="L124" title="All 2 branches missed.">		else if (owner instanceof Domain)</span>
+		{
+<span class="nc" id="L126">			result = true;</span>
+		}
+<span class="nc bnc" id="L128" title="All 2 branches missed.">		else if (owner instanceof final PCClass a)</span>
+		{
+<span class="nc" id="L130">			result = SpellCountCalc.isSpecialtySpell(pc, a, spell);</span>
+		}
+		else
+		{
+<span class="nc" id="L134">			result = false;</span>
+		}
+
+<span class="nc" id="L137">		return result;</span>
+	}
+
+	/**
+	 * Get spell
+	 * @return spell
+	 */
+	public Spell getSpell()
+	{
+<span class="nc" id="L146">		return spell;</span>
+	}
+
+	/**
+	 * Get the spell info
+	 * @param bookName
+	 * @param level
+	 * @return SpellInfo
+	 */
+	public SpellInfo getSpellInfoFor(final String bookName, final int level)
+	{
+<span class="nc" id="L157">		return getSpellInfoFor(bookName, level, null);</span>
+	}
+
+	/**
+	 * Get the Spell info
+	 * @param bookName
+	 * @param level
+	 * @param featList
+	 * @return Spell Info
+	 */
+	public SpellInfo getSpellInfoFor(final String bookName, final int level, final List&lt;Ability&gt; featList)
+	{
+<span class="nc bnc" id="L169" title="All 2 branches missed.">		if (infoList.isEmpty())</span>
+		{
+<span class="nc" id="L171">			return null;</span>
+		}
+
+<span class="nc bnc" id="L174" title="All 2 branches missed.">		for (SpellInfo s : infoList)</span>
+		{
+<span class="nc bnc" id="L176" title="All 10 branches missed.">			if ((&quot;&quot;.equals(bookName) || bookName.equals(s.getBook())) &amp;&amp; (level == -1 || s.getActualLevel() == level)</span>
+<span class="nc bnc" id="L177" title="All 6 branches missed.">				&amp;&amp; (featList == null || featList.isEmpty() &amp;&amp; (s.getFeatList() == null || s.getFeatList().isEmpty())</span>
+<span class="nc bnc" id="L178" title="All 4 branches missed.">					|| s.getFeatList() != null &amp;&amp; featList.toString().equals(s.getFeatList().toString())))</span>
+			{
+<span class="nc" id="L180">				return s;</span>
+			}
+<span class="nc" id="L182">		}</span>
+
+<span class="nc" id="L184">		return null;</span>
+	}
+
+	public boolean hasSpellInfoFor(int level)
+	{
+<span class="nc bnc" id="L189" title="All 2 branches missed.">		if (infoList.isEmpty())</span>
+		{
+<span class="nc" id="L191">			return false;</span>
+		}
+
+<span class="nc" id="L194">		return infoList.stream()</span>
+<span class="nc bnc" id="L195" title="All 2 branches missed.">		               .anyMatch(spellInfo -&gt; spellInfo.getActualLevel() == level);</span>
+	}
+
+	public boolean hasSpellInfoFor(String bookName)
+	{
+<span class="nc bnc" id="L200" title="All 2 branches missed.">		if (infoList.isEmpty())</span>
+		{
+<span class="nc" id="L202">			return false;</span>
+		}
+
+<span class="nc bnc" id="L205" title="All 2 branches missed.">		for (SpellInfo s : infoList)</span>
+		{
+<span class="nc bnc" id="L207" title="All 2 branches missed.">			if (bookName.equals(s.getBook()))</span>
+			{
+<span class="nc" id="L209">				return true;</span>
+			}
+<span class="nc" id="L211">		}</span>
+
+<span class="nc" id="L213">		return false;</span>
+	}
+
+	/**
+	 * Add Spell info
+	 * @param level
+	 * @param times
+	 * @param book
+	 * @return SpellInfo
+	 */
+	public SpellInfo addInfo(final int level, final int times, final String book)
+	{
+<span class="nc" id="L225">		return addInfo(level, level, times, book, null);</span>
+	}
+
+	/**
+	 * Add Spell info
+	 * @param level
+	 * @param times
+	 * @param book
+	 * @param featList
+	 * @return SpellInfo
+	 */
+	public SpellInfo addInfo(final int origLevel, final int level, final int times, final String book,
+		final List&lt;Ability&gt; featList)
+	{
+<span class="nc" id="L239">		final SpellInfo si = new SpellInfo(this, origLevel, level, times, book);</span>
+
+<span class="nc bnc" id="L241" title="All 2 branches missed.">		if (featList != null)</span>
+		{
+<span class="nc" id="L243">			si.addFeatsToList(featList);</span>
+		}
+
+<span class="nc" id="L246">		infoList.add(si);</span>
+
+<span class="nc" id="L248">		return si;</span>
+	}
+
+	/**
+	 * Compares with another object. The implementation compares the CharacterSpell's contained spell object with the
+	 * passed-in CharacterSpell's spell object.
+	 *
+	 * @param obj the CharacterSpell to compare with
+	 * @return a negative integer, zero, or a positive integer as this object
+	 *         is less than, equal to, or greater than the specified object.
+	 */
+	@Override
+	public int compareTo(final CharacterSpell obj)
+	{
+<span class="nc" id="L262">		int compare = spell.compareTo(obj.spell);</span>
+<span class="nc bnc" id="L263" title="All 2 branches missed.">		if (compare == 0)</span>
+		{
+<span class="nc bnc" id="L265" title="All 2 branches missed.">			if (fixedCasterLevel == null)</span>
+			{
+<span class="nc bnc" id="L267" title="All 2 branches missed.">				if (obj.fixedCasterLevel != null)</span>
+				{
+<span class="nc" id="L269">					compare = -1;</span>
+				}
+			}
+<span class="nc bnc" id="L272" title="All 2 branches missed.">			else if (obj.fixedCasterLevel == null)</span>
+			{
+<span class="nc" id="L274">				compare = 1;</span>
+			}
+			else
+			{
+<span class="nc" id="L278">				compare = fixedCasterLevel.compareTo(obj.fixedCasterLevel);</span>
+			}
+		}
+<span class="nc bnc" id="L281" title="All 2 branches missed.">		if (compare == 0)</span>
+		{
+<span class="nc" id="L283">			compare = owner.getClass().toString().compareTo(obj.owner.getClass().toString());</span>
+		}
+<span class="nc bnc" id="L285" title="All 2 branches missed.">		if (compare == 0)</span>
+		{
+<span class="nc" id="L287">			compare = owner.getKeyName().compareTo(obj.owner.getKeyName());</span>
+		}
+<span class="nc bnc" id="L289" title="All 2 branches missed.">		if (compare == 0)</span>
+		{
+<span class="nc" id="L291">			int thisILsize = infoList.size();</span>
+<span class="nc" id="L292">			int otherILsize = obj.infoList.size();</span>
+<span class="nc bnc" id="L293" title="All 2 branches missed.">			if (thisILsize &lt; otherILsize)</span>
+			{
+<span class="nc" id="L295">				compare = -1;</span>
+			}
+<span class="nc bnc" id="L297" title="All 2 branches missed.">			else if (thisILsize &gt; otherILsize)</span>
+			{
+<span class="nc" id="L299">				compare = 1;</span>
+			}
+			else
+			{
+				//compare contents...
+<span class="nc bnc" id="L304" title="All 2 branches missed.">				for (int i = 0; i &lt; thisILsize; i++)</span>
+				{
+<span class="nc" id="L306">					compare = infoList.get(i).compareTo(obj.infoList.get(i));</span>
+<span class="nc bnc" id="L307" title="All 2 branches missed.">					if (compare != 0)</span>
+					{
+<span class="nc" id="L309">						break;</span>
+					}
+				}
+			}
+		}
+<span class="nc" id="L314">		return compare;</span>
+	}
+
+	/**
+	 * returns true if
+	 * obj.getName() equals this.getName()
+	 * or obj == this
+	 * @param obj
+	 * @return true if equal
+	 */
+	@Override
+	public boolean equals(final Object obj)
+	{
+<span class="nc bnc" id="L327" title="All 6 branches missed.">		return obj != null &amp;&amp; obj instanceof CharacterSpell &amp;&amp; ((CharacterSpell) obj).getName().equals(getName());</span>
+	}
+
+	/**
+	 * this method is used the same as equals() but for hash tables
+	 * @return hash code
+	 */
+	@Override
+	public int hashCode()
+	{
+<span class="nc" id="L337">		return toString().hashCode();</span>
+	}
+
+	/**
+	 * Remove spell info
+	 * @param x
+	 */
+	public void removeSpellInfo(final SpellInfo x)
+	{
+<span class="nc bnc" id="L346" title="All 2 branches missed.">		if (x != null)</span>
+		{
+<span class="nc" id="L348">			infoList.remove(x);</span>
+		}
+<span class="nc" id="L350">	}</span>
+
+	///////////////////////////////////////////////////////////////////////
+	// Accessor(s) and Mutator(s)
+	///////////////////////////////////////////////////////////////////////
+
+	/**
+	 * Returns the Spell's Name for Tree's display
+	 *
+	 * @return the Spell's Name for Tree's display
+	 */
+	@Override
+	public String toString()
+	{
+		final String result;
+
+<span class="nc bnc" id="L366" title="All 2 branches missed.">		if (spell == null)</span>
+		{
+<span class="nc" id="L368">			result = &quot;&quot;;</span>
+		}
+		else
+		{
+<span class="nc" id="L372">			result = spell.getDisplayName();</span>
+		}
+
+<span class="nc" id="L375">		return result;</span>
+	}
+
+	/**
+	 * Returns the name of the spell for this Character Spell
+	 * @return name
+	 */
+	private String getName()
+	{
+<span class="nc" id="L384">		final StringBuilder buf = new StringBuilder(owner.toString());</span>
+
+<span class="nc bnc" id="L386" title="All 2 branches missed.">		if (spell != null)</span>
+		{
+<span class="nc" id="L388">			buf.append(':').append(spell.getDisplayName());</span>
+		}
+<span class="nc" id="L390">		return buf.toString();</span>
+	}
+
+	/**
+	 * @return Returns the fixedCasterLevel.
+	 */
+	public String getFixedCasterLevel()
+	{
+<span class="nc" id="L398">		return fixedCasterLevel;</span>
+	}
+
+	/**
+	 * @param fixedCasterLevel The fixedCasterLevel to set.
+	 */
+	public void setFixedCasterLevel(final String fixedCasterLevel)
+	{
+<span class="nc" id="L406">		this.fixedCasterLevel = fixedCasterLevel;</span>
+<span class="nc" id="L407">	}</span>
+
+	public String getVariableSource(PlayerCharacter pc)
+	{
+<span class="nc bnc" id="L411" title="All 2 branches missed.">		if (owner instanceof Domain)</span>
+		{
+<span class="nc" id="L413">			ClassSource source = pc.getDomainSource((Domain) owner);</span>
+<span class="nc bnc" id="L414" title="All 2 branches missed.">			if (source != null)</span>
+			{
+<span class="nc" id="L416">				return &quot;CLASS:&quot; + pc.getClassKeyed(source.getPcclass().getKeyName());</span>
+			}
+<span class="nc" id="L418">		}</span>
+<span class="nc bnc" id="L419" title="All 2 branches missed.">		else if (owner instanceof PCClass)</span>
+		{
+<span class="nc" id="L421">			return &quot;CLASS:&quot; + owner.getKeyName();</span>
+		}
+<span class="nc bnc" id="L423" title="All 2 branches missed.">		else if (owner instanceof Race) // could be innate spell for race</span>
+		{
+<span class="nc" id="L425">			return &quot;RACE:&quot; + owner.getKeyName();</span>
+		}
+<span class="nc" id="L427">		return Constants.EMPTY_STRING;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

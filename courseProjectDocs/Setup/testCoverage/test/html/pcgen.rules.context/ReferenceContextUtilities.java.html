@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ReferenceContextUtilities.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.rules.context</a> &gt; <span class="el_source">ReferenceContextUtilities.java</span></div><h1>ReferenceContextUtilities.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2007-14 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.rules.context;
+
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Categorized;
+import pcgen.cdom.base.ChooseInformation;
+import pcgen.cdom.base.ClassIdentity;
+import pcgen.cdom.base.Loadable;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.reference.ReferenceManufacturer;
+import pcgen.cdom.reference.UnconstructedValidator;
+import pcgen.rules.persistence.TokenLibrary;
+import pcgen.util.Logging;
+import pcgen.util.StringPClassUtil;
+
+public final class ReferenceContextUtilities
+{
+
+	private ReferenceContextUtilities()
+	{
+		//Do not instantiate utility class
+	}
+
+	/**
+	 * Check the associations now that all the data is loaded.
+	 * 
+	 * @param validator
+	 *            The helper object to track things such as FORWARDREF
+	 *            instances.
+	 */
+	public static void validateAssociations(AbstractReferenceContext refContext, LoadValidator validator)
+	{
+<span class="nc bnc" id="L50" title="All 2 branches missed.">		for (ReferenceManufacturer&lt;?&gt; rm : refContext.getAllManufacturers())</span>
+		{
+<span class="nc bnc" id="L52" title="All 2 branches missed.">			for (CDOMSingleRef&lt;?&gt; singleRef : rm.getReferenced())</span>
+			{
+<span class="nc" id="L54">				String choice = singleRef.getChoice();</span>
+<span class="nc bnc" id="L55" title="All 2 branches missed.">				if (choice != null)</span>
+				{
+<span class="nc" id="L57">					CDOMObject cdo = (CDOMObject) singleRef.get();</span>
+<span class="nc" id="L58">					ChooseInformation&lt;?&gt; ci = cdo.get(ObjectKey.CHOOSE_INFO);</span>
+<span class="nc bnc" id="L59" title="All 2 branches missed.">					if (ci == null)</span>
+					{
+<span class="nc" id="L61">						Logging.errorPrint(&quot;Found &quot; + rm.getReferenceDescription() + &quot; &quot; + cdo.getKeyName() + &quot; &quot;</span>
+							+ &quot; that had association: &quot; + choice + &quot; but was not an object with CHOOSE&quot;);
+<span class="nc" id="L63">						rm.fireUnconstuctedEvent(singleRef);</span>
+<span class="nc" id="L64">						continue;</span>
+					}
+<span class="nc bnc" id="L66" title="All 2 branches missed.">					if (choice.indexOf('%') &gt; -1)</span>
+					{
+						//patterns or %LIST are OK
+						//See CollectionToAbilitySelection.ExpandingConverter
+<span class="nc" id="L70">						continue;</span>
+					}
+<span class="nc" id="L72">					Class&lt;?&gt; cl = ci.getReferenceClass();</span>
+<span class="nc bnc" id="L73" title="All 2 branches missed.">					if (Loadable.class.isAssignableFrom(cl))</span>
+					{
+						@SuppressWarnings(&quot;unchecked&quot;)
+<span class="nc" id="L76">						ReferenceManufacturer&lt;? extends Loadable&gt; mfg = refContext</span>
+<span class="nc" id="L77">							.getManufacturerByFormatName(ci.getPersistentFormat(), (Class&lt;? extends Loadable&gt;) cl);</span>
+<span class="nc bnc" id="L78" title="All 4 branches missed.">						if (!mfg.containsObjectKeyed(choice) &amp;&amp; (TokenLibrary.getPrimitive(cl, choice) == null)</span>
+<span class="nc bnc" id="L79" title="All 2 branches missed.">							&amp;&amp; !report(validator, mfg.getReferenceIdentity(), choice))</span>
+						{
+<span class="nc" id="L81">							Logging.errorPrint(&quot;Found &quot; + rm.getReferenceDescription() + &quot; &quot; + cdo.getKeyName() + &quot; &quot;</span>
+<span class="nc" id="L82">								+ &quot; that had association: &quot; + choice + &quot; but no such &quot; + mfg.getReferenceDescription()</span>
+								+ &quot; was ever defined&quot;);
+<span class="nc" id="L84">							rm.fireUnconstuctedEvent(singleRef);</span>
+<span class="nc" id="L85">							continue;</span>
+						}
+					}
+				}
+<span class="nc" id="L89">			}</span>
+<span class="nc" id="L90">		}</span>
+<span class="nc" id="L91">	}</span>
+
+	private static boolean report(UnconstructedValidator validator, ClassIdentity&lt;?&gt; cl, String key)
+	{
+<span class="nc bnc" id="L95" title="All 4 branches missed.">		return validator != null &amp;&amp; validator.allowUnconstructed(cl, key);</span>
+	}
+
+	public static &lt;T extends Categorized&lt;T&gt;&gt; ReferenceManufacturer&lt;? extends Loadable&gt; getManufacturer(
+		AbstractReferenceContext refContext, String firstToken)
+	{
+<span class="fc" id="L101">		int equalLoc = firstToken.indexOf('=');</span>
+		String className;
+		String categoryName;
+<span class="fc bfc" id="L104" title="All 2 branches covered.">		if (equalLoc != firstToken.lastIndexOf('='))</span>
+		{
+<span class="fc" id="L106">			Logging.log(Logging.LST_ERROR, &quot;  Error encountered: Found second = in ObjectType=Category&quot;);</span>
+<span class="fc" id="L107">			Logging.log(Logging.LST_ERROR, &quot;  Format is: ObjectType[=Category]|Key[|Key] value was: &quot; + firstToken);</span>
+<span class="fc" id="L108">			Logging.log(Logging.LST_ERROR, &quot;  Valid ObjectTypes are: &quot; + StringPClassUtil.getValidStrings());</span>
+<span class="fc" id="L109">			return null;</span>
+		}
+<span class="pc bpc" id="L111" title="1 of 2 branches missed.">		else if (&quot;FEAT&quot;.equals(firstToken))</span>
+		{
+<span class="nc" id="L113">			className = &quot;ABILITY&quot;;</span>
+<span class="nc" id="L114">			categoryName = &quot;FEAT&quot;;</span>
+		}
+<span class="fc bfc" id="L116" title="All 2 branches covered.">		else if (equalLoc == -1)</span>
+		{
+<span class="fc" id="L118">			className = firstToken;</span>
+<span class="fc" id="L119">			categoryName = null;</span>
+		}
+		else
+		{
+<span class="fc" id="L123">			className = firstToken.substring(0, equalLoc);</span>
+<span class="fc" id="L124">			categoryName = firstToken.substring(equalLoc + 1);</span>
+		}
+		//CONSIDER Dynamic fails here
+<span class="fc" id="L127">		Class&lt;? extends Loadable&gt; c = StringPClassUtil.getClassFor(className);</span>
+<span class="fc bfc" id="L128" title="All 2 branches covered.">		if (c == null)</span>
+		{
+<span class="fc" id="L130">			Logging.log(Logging.LST_ERROR, &quot;Unrecognized ObjectType: &quot; + className);</span>
+<span class="fc" id="L131">			return null;</span>
+		}
+		ReferenceManufacturer&lt;? extends Loadable&gt; rm;
+<span class="fc bfc" id="L134" title="All 2 branches covered.">		if (Categorized.class.isAssignableFrom(c))</span>
+		{
+<span class="fc bfc" id="L136" title="All 2 branches covered.">			if (categoryName == null)</span>
+			{
+<span class="fc" id="L138">				Logging.log(Logging.LST_ERROR, &quot;  Error encountered: Found Categorized Type without =Category&quot;);</span>
+<span class="fc" id="L139">				Logging.log(Logging.LST_ERROR, &quot;  Format is: ObjectType[=Category]|Key[|Key] value was: &quot; + firstToken);</span>
+<span class="fc" id="L140">				Logging.log(Logging.LST_ERROR, &quot;  Valid ObjectTypes are: &quot; + StringPClassUtil.getValidStrings());</span>
+<span class="fc" id="L141">				return null;</span>
+			}
+
+<span class="fc" id="L144">			rm = refContext.getManufacturerByFormatName(firstToken, c);</span>
+<span class="fc bfc" id="L145" title="All 2 branches covered.">			if (rm == null)</span>
+			{
+<span class="fc" id="L147">				Logging.log(Logging.LST_ERROR,</span>
+					&quot;  Error encountered: &quot; + className + &quot; Category: &quot; + categoryName + &quot; not found&quot;);
+<span class="fc" id="L149">				return null;</span>
+			}
+		}
+		else
+		{
+<span class="fc bfc" id="L154" title="All 2 branches covered.">			if (categoryName != null)</span>
+			{
+<span class="fc" id="L156">				Logging.log(Logging.LST_ERROR, &quot;  Error encountered: Found Non-Categorized Type with =Category&quot;);</span>
+<span class="fc" id="L157">				Logging.log(Logging.LST_ERROR, &quot;  Format is: ObjectType[=Category]|Key[|Key] value was: &quot; + firstToken);</span>
+<span class="fc" id="L158">				Logging.log(Logging.LST_ERROR, &quot;  Valid ObjectTypes are: &quot; + StringPClassUtil.getValidStrings());</span>
+<span class="fc" id="L159">				return null;</span>
+			}
+<span class="fc" id="L161">			rm = refContext.getManufacturer(c);</span>
+		}
+<span class="fc" id="L163">		return rm;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

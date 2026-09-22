@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ClassLevelTableModel.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.gui2.tabs.summary</a> &gt; <span class="el_source">ClassLevelTableModel.java</span></div><h1>ClassLevelTableModel.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2010 (C) Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ */
+package pcgen.gui2.tabs.summary;
+
+import java.awt.Component;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.swing.AbstractCellEditor;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTable;
+import javax.swing.SwingConstants;
+import javax.swing.table.AbstractTableModel;
+import javax.swing.table.DefaultTableColumnModel;
+import javax.swing.table.JTableHeader;
+import javax.swing.table.TableCellEditor;
+import javax.swing.table.TableCellRenderer;
+import javax.swing.table.TableColumnModel;
+
+import pcgen.core.PCClass;
+import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.core.CharacterLevelFacade;
+import pcgen.facade.core.CharacterLevelsFacade;
+import pcgen.facade.core.CharacterLevelsFacade.CharacterLevelEvent;
+import pcgen.facade.core.CharacterLevelsFacade.ClassListener;
+import pcgen.facade.core.CharacterLevelsFacade.HitPointListener;
+import pcgen.facade.util.event.ListEvent;
+import pcgen.facade.util.event.ListListener;
+import pcgen.gui2.tabs.Utilities;
+import pcgen.gui2.util.SignIcon.Sign;
+import pcgen.gui2.util.table.TableCellUtilities;
+
+public class ClassLevelTableModel extends AbstractTableModel implements ListListener&lt;CharacterLevelFacade&gt;,
+		ItemListener, PropertyChangeListener, HitPointListener, ClassListener
+{
+
+	private CharacterLevelsFacade levels;
+	private Map&lt;String, Integer&gt; finalLevelMap;
+	private CharacterFacade character;
+<span class="nc" id="L67">	private Editor editor = new Editor();</span>
+<span class="nc" id="L68">	private Editor renderer = new Editor();</span>
+	private JComboBox classComboBox;
+	private JTable classTable;
+
+	public ClassLevelTableModel(CharacterFacade character, JTable table, JComboBox comboBox)
+	{
+<span class="nc" id="L74">		super();</span>
+<span class="nc" id="L75">		this.character = character;</span>
+<span class="nc" id="L76">		this.levels = character.getCharacterLevelsFacade();</span>
+<span class="nc" id="L77">		this.finalLevelMap = new HashMap&lt;&gt;();</span>
+<span class="nc" id="L78">		resetLevelMap();</span>
+<span class="nc" id="L79">		levels.addListListener(this);</span>
+<span class="nc" id="L80">		levels.addClassListener(this);</span>
+<span class="nc" id="L81">		levels.addHitPointListener(this);</span>
+<span class="nc" id="L82">		this.classComboBox = comboBox;</span>
+<span class="nc" id="L83">		this.classTable = table;</span>
+<span class="nc" id="L84">	}</span>
+
+	public static void initializeTable(JTable classLevelTable)
+	{
+<span class="nc" id="L88">		JTableHeader tableHeader = classLevelTable.getTableHeader();</span>
+<span class="nc" id="L89">		tableHeader.setResizingAllowed(false);</span>
+<span class="nc" id="L90">		tableHeader.setReorderingAllowed(false);</span>
+<span class="nc" id="L91">		TableColumnModel columnModel = new DefaultTableColumnModel();</span>
+<span class="nc" id="L92">		TableCellRenderer headerRenderer = tableHeader.getDefaultRenderer();</span>
+<span class="nc" id="L93">		columnModel.addColumn(Utilities.createTableColumn(0, &quot;Level&quot;, headerRenderer, false));</span>
+<span class="nc" id="L94">		columnModel.addColumn(Utilities.createTableColumn(1, &quot;HP&quot;, headerRenderer, false));</span>
+<span class="nc" id="L95">		columnModel.addColumn(Utilities.createTableColumn(2, &quot;Class (All Levels In Class)&quot;, headerRenderer, true));</span>
+<span class="nc" id="L96">		classLevelTable.setColumnModel(columnModel);</span>
+<span class="nc" id="L97">		classLevelTable.setAutoCreateColumnsFromModel(false);</span>
+<span class="nc" id="L98">		classLevelTable.setAutoResizeMode(JTable.AUTO_RESIZE_LAST_COLUMN);</span>
+<span class="nc" id="L99">		classLevelTable.setFocusable(false);</span>
+<span class="nc" id="L100">		classLevelTable.setCellSelectionEnabled(false);</span>
+<span class="nc" id="L101">		classLevelTable.setRowHeight(20);</span>
+<span class="nc" id="L102">	}</span>
+
+	public void install()
+	{
+<span class="nc" id="L106">		classTable.setModel(this);</span>
+<span class="nc" id="L107">		classTable.setDefaultRenderer(Object.class, renderer);</span>
+<span class="nc" id="L108">		classTable.setDefaultRenderer(Integer.class, new TableCellUtilities.AlignRenderer(SwingConstants.CENTER));</span>
+<span class="nc" id="L109">		classTable.setDefaultEditor(Object.class, editor);</span>
+<span class="nc" id="L110">		classComboBox.addItemListener(this);</span>
+<span class="nc" id="L111">		classComboBox.addPropertyChangeListener(&quot;model&quot;, this);</span>
+<span class="nc" id="L112">	}</span>
+
+	public void uninstall()
+	{
+<span class="nc" id="L116">		classComboBox.removeItemListener(this);</span>
+<span class="nc" id="L117">		classComboBox.removePropertyChangeListener(&quot;model&quot;, this);</span>
+<span class="nc" id="L118">	}</span>
+
+	private void resetLevelMap()
+	{
+<span class="nc" id="L122">		finalLevelMap.clear();</span>
+<span class="nc bnc" id="L123" title="All 2 branches missed.">		for (int i = levels.getSize() - 1; i &gt;= 0; i--)</span>
+		{
+<span class="nc" id="L125">			String c = levels.getClassTaken(levels.getElementAt(i)).getKeyName();</span>
+<span class="nc bnc" id="L126" title="All 2 branches missed.">			if (!finalLevelMap.containsKey(c))</span>
+			{
+<span class="nc" id="L128">				finalLevelMap.put(c, i);</span>
+			}
+		}
+<span class="nc" id="L131">	}</span>
+
+	@Override
+	public int getRowCount()
+	{
+<span class="nc" id="L136">		return levels.getSize() + 1;</span>
+	}
+
+	@Override
+	public int getColumnCount()
+	{
+<span class="nc" id="L142">		return 3;</span>
+	}
+
+	@Override
+	public boolean isCellEditable(int rowIndex, int columnIndex)
+	{
+<span class="nc bnc" id="L148" title="All 4 branches missed.">		return rowIndex &gt;= levels.getSize() - 1 &amp;&amp; columnIndex == 2;</span>
+	}
+
+	@Override
+	public Class&lt;?&gt; getColumnClass(int columnIndex)
+	{
+<span class="nc bnc" id="L154" title="All 2 branches missed.">		return switch (columnIndex)</span>
+				{
+<span class="nc" id="L156">					case 0, 1 -&gt; Integer.class;</span>
+<span class="nc" id="L157">					default -&gt; Object.class;</span>
+				};
+	}
+
+	@Override
+	public Object getValueAt(int rowIndex, int columnIndex)
+	{
+<span class="nc bnc" id="L164" title="All 2 branches missed.">		if (rowIndex == levels.getSize())</span>
+		{
+<span class="nc" id="L166">			return null;</span>
+		}
+<span class="nc bnc" id="L168" title="All 4 branches missed.">		switch (columnIndex)</span>
+		{
+			case 0:
+<span class="nc" id="L171">				return rowIndex + 1;</span>
+			case 1:
+<span class="nc" id="L173">				return levels.getHPGained(levels.getElementAt(rowIndex));</span>
+			case 2:
+<span class="nc" id="L175">				PCClass c = levels.getClassTaken(levels.getElementAt(rowIndex));</span>
+<span class="nc" id="L176">				String classKey = c.getKeyName();</span>
+<span class="nc bnc" id="L177" title="All 2 branches missed.">				if (finalLevelMap.get(classKey) == rowIndex)</span>
+				{
+<span class="nc" id="L179">					return c + &quot; (&quot; + character.getClassLevel(c) + &quot;)&quot;;</span>
+				}
+<span class="nc" id="L181">				return c.toString();</span>
+			default:
+<span class="nc" id="L183">				return null;</span>
+		}
+	}
+
+	@Override
+	public void elementAdded(ListEvent&lt;CharacterLevelFacade&gt; e)
+	{
+<span class="nc" id="L190">		editor.cancelCellEditing();</span>
+<span class="nc" id="L191">		int i = e.getIndex();</span>
+<span class="nc" id="L192">		String c = levels.getClassTaken(levels.getElementAt(i)).getKeyName();</span>
+<span class="nc" id="L193">		finalLevelMap.put(c, i);</span>
+		// Do a full refresh as the previous max class level row may be affected
+<span class="nc" id="L195">		fireTableDataChanged();</span>
+<span class="nc" id="L196">	}</span>
+
+	@Override
+	public void elementRemoved(ListEvent&lt;CharacterLevelFacade&gt; e)
+	{
+<span class="nc" id="L201">		editor.cancelCellEditing();</span>
+<span class="nc" id="L202">		resetLevelMap();</span>
+		// Do a full refresh as the new max class level row may be affected
+<span class="nc" id="L204">		fireTableDataChanged();</span>
+<span class="nc" id="L205">	}</span>
+
+	@Override
+	public void elementsChanged(ListEvent&lt;CharacterLevelFacade&gt; e)
+	{
+<span class="nc" id="L210">		editor.cancelCellEditing();</span>
+<span class="nc" id="L211">		resetLevelMap();</span>
+<span class="nc" id="L212">		fireTableDataChanged();</span>
+<span class="nc" id="L213">	}</span>
+
+	@Override
+	public void elementModified(ListEvent&lt;CharacterLevelFacade&gt; e)
+	{
+		// Do a full refresh as the new max class level row may be affected
+<span class="nc" id="L219">		fireTableDataChanged();</span>
+<span class="nc" id="L220">	}</span>
+
+	@Override
+	public void itemStateChanged(ItemEvent e)
+	{
+<span class="nc bnc" id="L225" title="All 2 branches missed.">		if (e.getStateChange() == ItemEvent.SELECTED)</span>
+		{
+<span class="nc" id="L227">			fireTableRowsUpdated(levels.getSize(), levels.getSize());</span>
+		}
+<span class="nc" id="L229">	}</span>
+
+	@Override
+	public void propertyChange(PropertyChangeEvent evt)
+	{
+<span class="nc" id="L234">		fireTableRowsUpdated(levels.getSize(), levels.getSize());</span>
+<span class="nc" id="L235">	}</span>
+
+	@Override
+	public void classChanged(CharacterLevelEvent e)
+	{
+<span class="nc" id="L240">		levelChanged(e);</span>
+<span class="nc" id="L241">	}</span>
+
+	@Override
+	public void hitPointsChanged(CharacterLevelEvent e)
+	{
+<span class="nc" id="L246">		levelChanged(e);</span>
+<span class="nc" id="L247">	}</span>
+
+	private void levelChanged(CharacterLevelEvent e)
+	{
+<span class="nc" id="L251">		int firstRow = e.getBaseLevelIndex();</span>
+<span class="nc bnc" id="L252" title="All 2 branches missed.">		int lastRow = e.affectsHigherLevels() ? levels.getSize() - 1 : firstRow;</span>
+<span class="nc" id="L253">		fireTableRowsUpdated(firstRow, lastRow);</span>
+<span class="nc" id="L254">	}</span>
+
+	private class Editor extends AbstractCellEditor implements TableCellEditor, TableCellRenderer, ActionListener
+	{
+
+<span class="nc" id="L259">		private JPanel cellPanel = new JPanel();</span>
+<span class="nc" id="L260">		private JLabel cellLabel = new JLabel();</span>
+<span class="nc" id="L261">		private JButton addLevelButton = Utilities.createSignButton(Sign.Plus);</span>
+<span class="nc" id="L262">		private JButton removeLevelButton = Utilities.createSignButton(Sign.Minus);</span>
+
+		Editor()
+<span class="nc" id="L265">		{</span>
+<span class="nc" id="L266">			super();</span>
+<span class="nc" id="L267">			cellPanel.setLayout(new BoxLayout(cellPanel, BoxLayout.X_AXIS));</span>
+<span class="nc" id="L268">			cellPanel.setOpaque(true);</span>
+<span class="nc" id="L269">			addLevelButton.setFocusable(false);</span>
+<span class="nc" id="L270">			removeLevelButton.setFocusable(false);</span>
+<span class="nc" id="L271">			addLevelButton.addActionListener(this);</span>
+<span class="nc" id="L272">			removeLevelButton.addActionListener(this);</span>
+<span class="nc" id="L273">		}</span>
+
+		@Override
+		public Object getCellEditorValue()
+		{
+<span class="nc" id="L278">			return null;</span>
+		}
+
+		@Override
+		public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus,
+			int row, int column)
+		{
+<span class="nc" id="L285">			return getTableCellEditorComponent(table, value, isSelected, row, column);</span>
+		}
+
+		@Override
+		public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected, int row,
+			int column)
+		{
+<span class="nc" id="L292">			cellPanel.removeAll();</span>
+<span class="nc" id="L293">			TableCellUtilities.setToRowBackground(cellPanel, table, row);</span>
+<span class="nc" id="L294">			cellLabel.setForeground(table.getForeground());</span>
+<span class="nc" id="L295">			cellLabel.setFont(table.getFont());</span>
+<span class="nc bnc" id="L296" title="All 2 branches missed.">			if (row == levels.getSize() - 1)</span>
+			{
+<span class="nc" id="L298">				cellLabel.setText(value.toString());</span>
+<span class="nc" id="L299">				cellPanel.add(cellLabel);</span>
+<span class="nc" id="L300">				cellPanel.add(Box.createHorizontalGlue());</span>
+<span class="nc" id="L301">				cellPanel.add(removeLevelButton);</span>
+			}
+<span class="nc bnc" id="L303" title="All 2 branches missed.">			else if (row == levels.getSize())</span>
+			{
+<span class="nc" id="L305">				cellLabel.setText(&quot;Add Level&quot;);</span>
+<span class="nc" id="L306">				cellPanel.add(Box.createHorizontalGlue());</span>
+<span class="nc" id="L307">				cellPanel.add(cellLabel);</span>
+<span class="nc" id="L308">				cellPanel.add(Box.createHorizontalStrut(3));</span>
+<span class="nc bnc" id="L309" title="All 2 branches missed.">				addLevelButton.setEnabled(classComboBox.getSelectedItem() != null);</span>
+<span class="nc" id="L310">				cellPanel.add(addLevelButton);</span>
+			}
+			else
+			{
+<span class="nc" id="L314">				cellLabel.setText(value.toString());</span>
+<span class="nc" id="L315">				cellPanel.add(cellLabel);</span>
+			}
+<span class="nc" id="L317">			return cellPanel;</span>
+		}
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+<span class="nc bnc" id="L323" title="All 2 branches missed.">			if (e.getSource() == addLevelButton)</span>
+			{
+<span class="nc" id="L325">				PCClass c = (PCClass) classComboBox.getSelectedItem();</span>
+<span class="nc bnc" id="L326" title="All 2 branches missed.">				if (c != null)</span>
+				{
+<span class="nc" id="L328">					character.addCharacterLevels(new PCClass[]{c});</span>
+				}
+<span class="nc" id="L330">			}</span>
+			else
+			{
+<span class="nc" id="L333">				character.removeCharacterLevels(1);</span>
+			}
+<span class="nc" id="L335">			cancelCellEditing();</span>
+<span class="nc" id="L336">		}</span>
+
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

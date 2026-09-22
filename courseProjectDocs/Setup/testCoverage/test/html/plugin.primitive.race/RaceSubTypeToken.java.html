@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RaceSubTypeToken.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.primitive.race</a> &gt; <span class="el_source">RaceSubTypeToken.java</span></div><h1>RaceSubTypeToken.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2010 (C) Thomas Parker &lt;thpr@users.sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package plugin.primitive.race;
+
+import java.util.Collection;
+
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.Converter;
+import pcgen.cdom.base.PrimitiveFilter;
+import pcgen.cdom.enumeration.GroupingState;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.RaceSubType;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.Race;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.PrimitiveToken;
+
+/**
+ * RaceSubTypeToken is a Primitive that filters based on the RaceSubType of a Race.
+ */
+<span class="fc" id="L36">public class RaceSubTypeToken implements PrimitiveToken&lt;Race&gt;, PrimitiveFilter&lt;Race&gt;</span>
+{
+
+<span class="fc" id="L39">	private static final Class&lt;Race&gt; RACE_CLASS = Race.class;</span>
+	private RaceSubType racetype;
+	private CDOMReference&lt;Race&gt; allRaces;
+
+	@Override
+	public boolean initialize(LoadContext context, Class&lt;Race&gt; cl, String value, String args)
+	{
+<span class="fc bfc" id="L46" title="All 2 branches covered.">		if (args != null)</span>
+		{
+<span class="fc" id="L48">			return false;</span>
+		}
+<span class="fc" id="L50">		racetype = RaceSubType.getConstant(value);</span>
+<span class="fc" id="L51">		allRaces = context.getReferenceContext().getCDOMAllReference(RACE_CLASS);</span>
+<span class="fc" id="L52">		return true;</span>
+	}
+
+	@Override
+	public String getTokenName()
+	{
+<span class="fc" id="L58">		return &quot;RACESUBTYPE&quot;;</span>
+	}
+
+	@Override
+	public Class&lt;Race&gt; getReferenceClass()
+	{
+<span class="fc" id="L64">		return RACE_CLASS;</span>
+	}
+
+	@Override
+	public String getLSTformat(boolean useAny)
+	{
+<span class="fc" id="L70">		return getTokenName() + '=' + racetype.toString();</span>
+	}
+
+	@Override
+	public boolean allow(PlayerCharacter pc, Race race)
+	{
+<span class="nc" id="L76">		return race.containsInList(ListKey.RACESUBTYPE, racetype);</span>
+	}
+
+	@Override
+	public GroupingState getGroupingState()
+	{
+<span class="fc" id="L82">		return GroupingState.ANY;</span>
+	}
+
+	@Override
+	public boolean equals(Object obj)
+	{
+<span class="pc bpc" id="L88" title="1 of 2 branches missed.">		if (obj == this)</span>
+		{
+<span class="nc" id="L90">			return true;</span>
+		}
+<span class="pc bpc" id="L92" title="1 of 2 branches missed.">		if (obj instanceof RaceSubTypeToken other)</span>
+		{
+<span class="fc" id="L94">			return racetype.equals(other.racetype);</span>
+		}
+<span class="nc" id="L96">		return false;</span>
+	}
+
+	@Override
+	public int hashCode()
+	{
+<span class="pc bpc" id="L102" title="1 of 2 branches missed.">		return racetype == null ? -11 : racetype.hashCode();</span>
+	}
+
+	@Override
+	public &lt;R&gt; Collection&lt;? extends R&gt; getCollection(PlayerCharacter pc, Converter&lt;Race, R&gt; c)
+	{
+<span class="nc" id="L108">		return c.convert(allRaces, this);</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

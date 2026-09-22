@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>KitDeity.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.core.kit</a> &gt; <span class="el_source">KitDeity.java</span></div><h1>KitDeity.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2005 (C) Aaron Divinsky &lt;boomer70@yahoo.com&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.core.kit;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
+
+import pcgen.cdom.formula.Formula;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.util.CControl;
+import pcgen.core.Deity;
+import pcgen.core.Domain;
+import pcgen.core.Globals;
+import pcgen.core.Kit;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.analysis.DomainApplication;
+import pcgen.output.channel.ChannelUtilities;
+
+/**
+ * Deal with Deities via Kits
+ */
+<span class="fc" id="L39">public class KitDeity extends BaseKit</span>
+{
+	private CDOMSingleRef&lt;Deity&gt; theDeityRef;
+	private Formula choiceCount;
+
+<span class="fc" id="L44">	private List&lt;CDOMSingleRef&lt;Domain&gt;&gt; theDomains = null;</span>
+
+	// These members store the state of an instance of this class.  They are
+	// not cloned.
+<span class="fc" id="L48">	private Deity theDeity = null;</span>
+<span class="fc" id="L49">	private List&lt;Domain&gt; domainsToAdd = null;</span>
+
+	/**
+	 * Add the domain
+	 * @param ref
+	 */
+	public void addDomain(final CDOMSingleRef&lt;Domain&gt; ref)
+	{
+<span class="fc bfc" id="L57" title="All 2 branches covered.">		if (theDomains == null)</span>
+		{
+<span class="fc" id="L59">			theDomains = new ArrayList&lt;&gt;(3);</span>
+		}
+<span class="fc" id="L61">		theDomains.add(ref);</span>
+<span class="fc" id="L62">	}</span>
+
+	/**
+	 * Get domains
+	 * @return list of domains
+	 */
+	public List&lt;CDOMSingleRef&lt;Domain&gt;&gt; getDomains()
+	{
+<span class="fc bfc" id="L70" title="All 2 branches covered.">		if (theDomains == null)</span>
+		{
+<span class="fc" id="L72">			return null;</span>
+		}
+
+<span class="fc" id="L75">		return Collections.unmodifiableList(theDomains);</span>
+	}
+
+	@Override
+	public String toString()
+	{
+<span class="nc" id="L81">		StringBuilder buf = new StringBuilder();</span>
+
+<span class="nc" id="L83">		buf.append(theDeityRef.getLSTformat(false));</span>
+
+<span class="nc bnc" id="L85" title="All 4 branches missed.">		if (theDomains != null &amp;&amp; !theDomains.isEmpty())</span>
+		{
+<span class="nc" id="L87">			buf.append(&quot; (&quot;);</span>
+<span class="nc bnc" id="L88" title="All 2 branches missed.">			if (choiceCount != null)</span>
+			{
+<span class="nc" id="L90">				buf.append(choiceCount);</span>
+<span class="nc" id="L91">				buf.append(&quot; of &quot;);</span>
+			}
+<span class="nc bnc" id="L93" title="All 2 branches missed.">			for (Iterator&lt;CDOMSingleRef&lt;Domain&gt;&gt; i = theDomains.iterator(); i.hasNext();)</span>
+			{
+<span class="nc" id="L95">				buf.append(i.next());</span>
+<span class="nc bnc" id="L96" title="All 2 branches missed.">				if (i.hasNext())</span>
+				{
+<span class="nc" id="L98">					buf.append(&quot;, &quot;);</span>
+				}
+			}
+<span class="nc" id="L101">			buf.append(&quot;)&quot;);</span>
+		}
+
+<span class="nc" id="L104">		return buf.toString();</span>
+	}
+
+	@Override
+	public boolean testApply(Kit aKit, PlayerCharacter aPC, List&lt;String&gt; warnings)
+	{
+<span class="nc" id="L110">		domainsToAdd = null;</span>
+
+<span class="nc" id="L112">		theDeity = theDeityRef.get();</span>
+
+<span class="nc bnc" id="L114" title="All 2 branches missed.">		if (!aPC.canSelectDeity(theDeity))</span>
+		{
+<span class="nc" id="L116">			warnings.add(&quot;DEITY: Cannot select deity \&quot;&quot; + theDeity.getDisplayName() + &quot;\&quot;&quot;);</span>
+<span class="nc" id="L117">			return false;</span>
+		}
+<span class="nc" id="L119">		ChannelUtilities.setControlledChannel(aPC.getCharID(),</span>
+			CControl.DEITYINPUT, theDeity);
+
+<span class="nc bnc" id="L122" title="All 4 branches missed.">		if (theDomains == null || theDomains.isEmpty())</span>
+		{
+			// nothing else to do.
+<span class="nc" id="L125">			return true;</span>
+		}
+
+<span class="nc bnc" id="L128" title="All 2 branches missed.">		if (aPC.getMaxCharacterDomains() &lt;= 0)</span>
+		{
+<span class="nc" id="L130">			warnings.add(&quot;DEITY: Not allowed to choose a domain&quot;);</span>
+
+<span class="nc" id="L132">			return true;</span>
+		}
+		int numberOfChoices;
+<span class="nc bnc" id="L135" title="All 2 branches missed.">		if (choiceCount == null)</span>
+		{
+<span class="nc" id="L137">			numberOfChoices = theDomains.size();</span>
+		}
+		else
+		{
+<span class="nc" id="L141">			numberOfChoices = choiceCount.resolve(aPC, &quot;&quot;).intValue();</span>
+		}
+
+		//
+		// Can't choose more entries than there are...
+		//
+<span class="nc bnc" id="L147" title="All 2 branches missed.">		if (numberOfChoices &gt; theDomains.size())</span>
+		{
+<span class="nc" id="L149">			numberOfChoices = theDomains.size();</span>
+		}
+
+<span class="nc bnc" id="L152" title="All 2 branches missed.">		if (numberOfChoices == 0)</span>
+		{
+			// No choices allowed, we are done.
+<span class="nc" id="L155">			return true;</span>
+		}
+
+		List&lt;CDOMSingleRef&lt;Domain&gt;&gt; xs;
+<span class="nc bnc" id="L159" title="All 2 branches missed.">		if (numberOfChoices == theDomains.size())</span>
+		{
+<span class="nc" id="L161">			xs = theDomains;</span>
+		}
+		else
+		{
+			//
+			// Force user to make enough selections
+			//
+			while (true)
+			{
+<span class="nc" id="L170">				xs = Globals.getChoiceFromList(&quot;Choose Domains&quot;, theDomains, new ArrayList&lt;&gt;(), numberOfChoices, aPC);</span>
+
+<span class="nc bnc" id="L172" title="All 2 branches missed.">				if (!xs.isEmpty())</span>
+				{
+<span class="nc" id="L174">					break;</span>
+				}
+			}
+		}
+		//
+		// Add to list of things to add to the character
+		//
+<span class="nc bnc" id="L181" title="All 2 branches missed.">		for (CDOMSingleRef&lt;Domain&gt; ref : xs)</span>
+		{
+<span class="nc" id="L183">			Domain domain = ref.get();</span>
+<span class="nc bnc" id="L184" title="All 2 branches missed.">			if (!domain.qualifies(aPC, domain))</span>
+			{
+<span class="nc" id="L186">				warnings.add(&quot;DEITY: Not qualified for domain \&quot;&quot; + domain.getDisplayName() + &quot;\&quot;&quot;);</span>
+<span class="nc" id="L187">				continue;</span>
+			}
+<span class="nc bnc" id="L189" title="All 2 branches missed.">			if (aPC.getDomainCount() &gt;= aPC.getMaxCharacterDomains())</span>
+			{
+<span class="nc" id="L191">				warnings.add(&quot;DEITY: No more allowed domains&quot;);</span>
+
+<span class="nc" id="L193">				return false;</span>
+			}
+<span class="nc bnc" id="L195" title="All 2 branches missed.">			if (!aPC.hasDefaultDomainSource())</span>
+			{
+<span class="nc" id="L197">				warnings.add(&quot;DEITY: Cannot add domain \&quot;&quot; + domain.getDisplayName()</span>
+					+ &quot;\&quot; as the character does not have a domain &quot; + &quot;source yet.&quot;);
+<span class="nc" id="L199">				return false;</span>
+			}
+<span class="nc bnc" id="L201" title="All 2 branches missed.">			if (domainsToAdd == null)</span>
+			{
+<span class="nc" id="L203">				domainsToAdd = new ArrayList&lt;&gt;();</span>
+			}
+<span class="nc" id="L205">			domainsToAdd.add(domain);</span>
+
+<span class="nc" id="L207">			aPC.addDomain(domain);</span>
+<span class="nc" id="L208">			DomainApplication.applyDomain(aPC, domain);</span>
+<span class="nc" id="L209">		}</span>
+<span class="nc" id="L210">		aPC.calcActiveBonuses();</span>
+<span class="nc" id="L211">		return true;</span>
+	}
+
+	@Override
+	public void apply(PlayerCharacter aPC)
+	{
+<span class="nc bnc" id="L217" title="All 2 branches missed.">		if (theDeity == null)</span>
+		{
+<span class="nc" id="L219">			return;</span>
+		}
+<span class="nc" id="L221">		ChannelUtilities.setControlledChannel(aPC.getCharID(),</span>
+			CControl.DEITYINPUT, theDeity);
+
+<span class="nc bnc" id="L224" title="All 2 branches missed.">		if (domainsToAdd != null)</span>
+		{
+<span class="nc bnc" id="L226" title="All 2 branches missed.">			for (Domain domain : domainsToAdd)</span>
+			{
+<span class="nc" id="L228">				aPC.addDomain(domain);</span>
+<span class="nc" id="L229">				DomainApplication.applyDomain(aPC, domain);</span>
+<span class="nc" id="L230">			}</span>
+		}
+<span class="nc" id="L232">		aPC.calcActiveBonuses();</span>
+
+<span class="nc" id="L234">		theDeity = null;</span>
+<span class="nc" id="L235">		domainsToAdd = null;</span>
+<span class="nc" id="L236">	}</span>
+
+	@Override
+	public String getObjectName()
+	{
+<span class="nc" id="L241">		return &quot;Deity&quot;;</span>
+	}
+
+	public void setCount(Formula formula)
+	{
+<span class="fc" id="L246">		choiceCount = formula;</span>
+<span class="fc" id="L247">	}</span>
+
+	public Formula getCount()
+	{
+<span class="fc" id="L251">		return choiceCount;</span>
+	}
+
+	public void setDeity(CDOMSingleRef&lt;Deity&gt; ref)
+	{
+<span class="fc" id="L256">		theDeityRef = ref;</span>
+<span class="fc" id="L257">	}</span>
+
+	public CDOMSingleRef&lt;Deity&gt; getDeityRef()
+	{
+<span class="fc" id="L261">		return theDeityRef;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

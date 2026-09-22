@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CDOMListObject.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.base</a> &gt; <span class="el_source">CDOMListObject.java</span></div><h1>CDOMListObject.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2007, 2008 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.cdom.base;
+
+import java.net.URI;
+
+/**
+ * This is an abstract object intended to be used as a basis for &quot;concrete&quot;
+ * CDOMList objects.
+ * 
+ * CDOMListObject provides basic equality, ensuring matching Class, matching
+ * underlying class (the Class of objects in the CDOMList) and matching List
+ * name. It does not fully test the underlying CDOMObject contents.
+ * 
+ * @param &lt;T&gt;
+ *            The type of object contained in the CDOMList
+ */
+<span class="fc" id="L33">public abstract class CDOMListObject&lt;T extends CDOMObject&gt; extends ConcretePrereqObject implements CDOMList&lt;T&gt;, Loadable</span>
+{
+<span class="fc" id="L35">	private String name = null;</span>
+<span class="fc" id="L36">	private String keyName = null;</span>
+<span class="fc" id="L37">	private URI sourceURI = null;</span>
+
+	@Override
+	public String getKeyName()
+	{
+<span class="pc bpc" id="L42" title="1 of 2 branches missed.">		return (keyName == null) ? name : keyName;</span>
+	}
+
+	@Override
+	public URI getSourceURI()
+	{
+<span class="nc" id="L48">		return sourceURI;</span>
+	}
+
+	@Override
+	public void setSourceURI(URI source)
+	{
+<span class="fc" id="L54">		sourceURI = source;</span>
+<span class="fc" id="L55">	}</span>
+
+	public void setKeyName(String key)
+	{
+<span class="nc" id="L59">		keyName = key;</span>
+<span class="nc" id="L60">	}</span>
+
+	@Override
+	public String getDisplayName()
+	{
+<span class="nc" id="L65">		return name;</span>
+	}
+
+	@Override
+	public String getLSTformat()
+	{
+<span class="nc" id="L71">		return getKeyName();</span>
+	}
+
+	@Override
+	public boolean isInternal()
+	{
+<span class="fc" id="L77">		return false;</span>
+	}
+
+	@Override
+	public void setName(String n)
+	{
+<span class="fc" id="L83">		name = n;</span>
+<span class="fc" id="L84">	}</span>
+
+	@Override
+	public String toString()
+	{
+<span class="nc" id="L89">		return getKeyName();</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

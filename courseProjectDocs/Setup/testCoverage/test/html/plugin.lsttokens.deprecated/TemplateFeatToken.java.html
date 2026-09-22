@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TemplateFeatToken.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.lsttokens.deprecated</a> &gt; <span class="el_source">TemplateFeatToken.java</span></div><h1>TemplateFeatToken.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) 2008 Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package plugin.lsttokens.deprecated;
+
+import java.math.BigDecimal;
+import java.util.Collection;
+import java.util.List;
+import java.util.StringTokenizer;
+
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.CDOMObjectUtilities;
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.ChoiceSet;
+import pcgen.cdom.base.ConcretePersistentTransitionChoice;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.base.PersistentChoiceActor;
+import pcgen.cdom.base.PersistentTransitionChoice;
+import pcgen.cdom.base.UserSelection;
+import pcgen.cdom.choiceset.AbilityRefChoiceSet;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.Nature;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.helper.CNAbilitySelection;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
+import pcgen.cdom.reference.ReferenceManufacturer;
+import pcgen.cdom.reference.ReferenceUtilities;
+import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
+import pcgen.core.AbilityUtilities;
+import pcgen.core.PCTemplate;
+import pcgen.core.PlayerCharacter;
+import pcgen.persistence.lst.DeprecatedToken;
+import pcgen.rules.context.Changes;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.TokenUtilities;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.DeferredToken;
+import pcgen.rules.persistence.token.ParseResult;
+import pcgen.util.enumeration.Visibility;
+
+/**
+ * Class deals with FEAT Token
+ */
+<span class="nc" id="L61">public class TemplateFeatToken extends AbstractTokenWithSeparator&lt;PCTemplate&gt; implements CDOMPrimaryToken&lt;PCTemplate&gt;,</span>
+		PersistentChoiceActor&lt;CNAbilitySelection&gt;, DeferredToken&lt;PCTemplate&gt;, DeprecatedToken
+{
+	@Override
+	public String getTokenName()
+	{
+<span class="nc" id="L67">		return &quot;FEAT&quot;;</span>
+	}
+
+	@Override
+	protected char separator()
+	{
+<span class="nc" id="L73">		return '|';</span>
+	}
+
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context, PCTemplate pct, String value)
+	{
+<span class="nc" id="L79">		context.getObjectContext().removeList(pct, ListKey.FEAT_TOKEN_LIST);</span>
+
+<span class="nc" id="L81">		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);</span>
+
+<span class="nc" id="L83">		boolean first = true;</span>
+
+<span class="nc" id="L85">		ReferenceManufacturer&lt;Ability&gt; rm = context.getReferenceContext().getManufacturerId(AbilityCategory.FEAT);</span>
+<span class="nc bnc" id="L86" title="All 2 branches missed.">		while (tok.hasMoreTokens())</span>
+		{
+<span class="nc" id="L88">			String token = tok.nextToken();</span>
+<span class="nc bnc" id="L89" title="All 2 branches missed.">			if (Constants.LST_DOT_CLEAR.equals(token))</span>
+			{
+<span class="nc bnc" id="L91" title="All 2 branches missed.">				if (!first)</span>
+				{
+<span class="nc" id="L93">					return new ParseResult.Fail(</span>
+<span class="nc" id="L94">						&quot;  Non-sensical &quot; + getTokenName() + &quot;: .CLEAR was not the first list item: &quot; + value);</span>
+				}
+			}
+			else
+			{
+<span class="nc" id="L99">				CDOMReference&lt;Ability&gt; ability = TokenUtilities.getTypeOrPrimitive(rm, token);</span>
+<span class="nc bnc" id="L100" title="All 2 branches missed.">				if (ability == null)</span>
+				{
+<span class="nc" id="L102">					return ParseResult.INTERNAL_ERROR;</span>
+				}
+<span class="nc" id="L104">				context.getObjectContext().addToList(pct, ListKey.FEAT_TOKEN_LIST, ability);</span>
+			}
+<span class="nc" id="L106">			first = false;</span>
+<span class="nc" id="L107">		}</span>
+<span class="nc" id="L108">		return ParseResult.SUCCESS;</span>
+	}
+
+	@Override
+	public String[] unparse(LoadContext context, PCTemplate pct)
+	{
+<span class="nc" id="L114">		Changes&lt;CDOMReference&lt;Ability&gt;&gt; changes =</span>
+<span class="nc" id="L115">				context.getObjectContext().getListChanges(pct, ListKey.FEAT_TOKEN_LIST);</span>
+<span class="nc" id="L116">		Collection&lt;CDOMReference&lt;Ability&gt;&gt; added = changes.getAdded();</span>
+<span class="nc" id="L117">		Collection&lt;CDOMReference&lt;Ability&gt;&gt; removedItems = changes.getRemoved();</span>
+<span class="nc" id="L118">		String returnVal = null;</span>
+<span class="nc bnc" id="L119" title="All 2 branches missed.">		if (changes.includesGlobalClear())</span>
+		{
+<span class="nc bnc" id="L121" title="All 4 branches missed.">			if (removedItems != null &amp;&amp; !removedItems.isEmpty())</span>
+			{
+<span class="nc" id="L123">				context.addWriteMessage(</span>
+<span class="nc" id="L124">					&quot;Non-sensical relationship in &quot; + getTokenName() + &quot;: global .CLEAR and local .CLEAR. performed&quot;);</span>
+<span class="nc" id="L125">				return null;</span>
+			}
+<span class="nc" id="L127">			returnVal = Constants.LST_DOT_CLEAR;</span>
+		}
+<span class="nc bnc" id="L129" title="All 4 branches missed.">		else if (removedItems != null &amp;&amp; !removedItems.isEmpty())</span>
+		{
+<span class="nc" id="L131">			context.addWriteMessage(getTokenName() + &quot; does not support &quot; + Constants.LST_DOT_CLEAR_DOT);</span>
+<span class="nc" id="L132">			return null;</span>
+		}
+<span class="nc bnc" id="L134" title="All 4 branches missed.">		if (added != null &amp;&amp; !added.isEmpty())</span>
+		{
+<span class="nc" id="L136">			returnVal = ReferenceUtilities.joinLstFormat(added, Constants.PIPE);</span>
+		}
+<span class="nc bnc" id="L138" title="All 2 branches missed.">		if (returnVal == null)</span>
+		{
+<span class="nc" id="L140">			return null;</span>
+		}
+<span class="nc" id="L142">		return new String[]{returnVal};</span>
+	}
+
+	@Override
+	public Class&lt;PCTemplate&gt; getTokenClass()
+	{
+<span class="nc" id="L148">		return PCTemplate.class;</span>
+	}
+
+	@Override
+	public void applyChoice(CDOMObject owner, CNAbilitySelection choice, PlayerCharacter pc)
+	{
+<span class="nc bnc" id="L154" title="All 2 branches missed.">		if (!pc.isImporting())</span>
+		{
+<span class="nc" id="L156">			double cost = choice.getCNAbility().getAbility().getSafe(ObjectKey.SELECTION_COST).doubleValue();</span>
+<span class="nc bnc" id="L157" title="All 2 branches missed.">			if (cost &gt; 0.0001)</span>
+			{
+<span class="nc" id="L159">				pc.adjustAbilities(AbilityCategory.FEAT, new BigDecimal(String.valueOf(cost)));</span>
+			}
+<span class="nc" id="L161">			pc.addAbility(choice, UserSelection.getInstance(), UserSelection.getInstance());</span>
+		}
+<span class="nc" id="L163">		pc.addTemplateFeat(owner, choice);</span>
+<span class="nc" id="L164">	}</span>
+
+	@Override
+	public boolean allow(CNAbilitySelection choice, PlayerCharacter pc, boolean allowStack)
+	{
+<span class="nc" id="L169">		Ability ability = choice.getCNAbility().getAbility();</span>
+<span class="nc bnc" id="L170" title="All 2 branches missed.">		if (!ability.getSafe(ObjectKey.VISIBILITY).equals(Visibility.DEFAULT))</span>
+		{
+<span class="nc" id="L172">			return false;</span>
+		}
+<span class="nc bnc" id="L174" title="All 2 branches missed.">		if (!ability.qualifies(pc, ability))</span>
+		{
+<span class="nc" id="L176">			return false;</span>
+		}
+<span class="nc" id="L178">		String selection = choice.getSelection();</span>
+		// Avoid any already selected
+<span class="nc bnc" id="L180" title="All 2 branches missed.">		return !AbilityUtilities.alreadySelected(pc, ability, selection, allowStack);</span>
+	}
+
+	@Override
+	public CNAbilitySelection decodeChoice(LoadContext context, String s)
+	{
+<span class="nc" id="L186">		return CNAbilitySelection.getAbilitySelectionFromPersistentFormat(context, s);</span>
+	}
+
+	@Override
+	public String encodeChoice(CNAbilitySelection choice)
+	{
+<span class="nc" id="L192">		return choice.getPersistentFormat();</span>
+	}
+
+	@Override
+	public void restoreChoice(PlayerCharacter pc, CDOMObject owner, CNAbilitySelection choice)
+	{
+		// No action required
+<span class="nc" id="L199">	}</span>
+
+	@Override
+	public Class&lt;PCTemplate&gt; getDeferredTokenClass()
+	{
+<span class="nc" id="L204">		return PCTemplate.class;</span>
+	}
+
+	@Override
+	public void removeChoice(PlayerCharacter pc, CDOMObject owner, CNAbilitySelection choice)
+	{
+<span class="nc bnc" id="L210" title="All 2 branches missed.">		if (!pc.isImporting())</span>
+		{
+<span class="nc" id="L212">			pc.getSpellList();</span>
+		}
+
+		// See if our choice is not auto or virtual
+<span class="nc" id="L216">		Ability anAbility =</span>
+<span class="nc" id="L217">				pc.getMatchingAbility(AbilityCategory.FEAT, choice.getCNAbility().getAbility(), Nature.NORMAL);</span>
+<span class="nc bnc" id="L218" title="All 2 branches missed.">		if (anAbility != null)</span>
+		{
+<span class="nc" id="L220">			pc.removeAbility(choice, UserSelection.getInstance(), UserSelection.getInstance());</span>
+<span class="nc" id="L221">			CDOMObjectUtilities.removeAdds(anAbility, pc);</span>
+<span class="nc" id="L222">			CDOMObjectUtilities.restoreRemovals(anAbility, pc);</span>
+<span class="nc" id="L223">			pc.adjustMoveRates();</span>
+		}
+<span class="nc" id="L225">	}</span>
+
+	@Override
+	public boolean process(LoadContext context, PCTemplate pct)
+	{
+<span class="nc" id="L230">		List&lt;CDOMReference&lt;Ability&gt;&gt; list = pct.getListFor(ListKey.FEAT_TOKEN_LIST);</span>
+<span class="nc bnc" id="L231" title="All 4 branches missed.">		if (list != null &amp;&amp; !list.isEmpty())</span>
+		{
+<span class="nc" id="L233">			AbilityRefChoiceSet rcs =</span>
+<span class="nc" id="L234">					new AbilityRefChoiceSet(CDOMDirectSingleRef.getRef(AbilityCategory.FEAT), list, Nature.NORMAL);</span>
+<span class="nc" id="L235">			ChoiceSet&lt;CNAbilitySelection&gt; cs = new ChoiceSet&lt;&gt;(getTokenName(), rcs);</span>
+<span class="nc" id="L236">			cs.setTitle(&quot;Feat Choice&quot;);</span>
+<span class="nc" id="L237">			PersistentTransitionChoice&lt;CNAbilitySelection&gt; tc =</span>
+					new ConcretePersistentTransitionChoice&lt;&gt;(cs, FormulaFactory.ONE);
+<span class="nc" id="L239">			context.getObjectContext().put(pct, ObjectKey.TEMPLATE_FEAT, tc);</span>
+<span class="nc" id="L240">			tc.setChoiceActor(this);</span>
+		}
+<span class="nc" id="L242">		return true;</span>
+	}
+
+	@Override
+	public String getMessage(CDOMObject obj, String value)
+	{
+<span class="nc" id="L248">		return &quot;Feat-based tokens have been deprecated - use ABILITY based functions&quot;;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

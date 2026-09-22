@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PCBaseSpellStatTermEvaluator.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.core.term</a> &gt; <span class="el_source">PCBaseSpellStatTermEvaluator.java</span></div><h1>PCBaseSpellStatTermEvaluator.java</h1><pre class="source lang-java linenums">/**
+ * Copyright (c) 2008 Andrew Wilson &lt;nuance@users.sourceforge.net&gt;.
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ * Created 03-Aug-2008 22:55:01
+ */
+
+package pcgen.core.term;
+
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.core.Globals;
+import pcgen.core.PCClass;
+import pcgen.core.PCStat;
+import pcgen.core.PlayerCharacter;
+
+public class PCBaseSpellStatTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
+{
+
+	private final String source;
+
+	public PCBaseSpellStatTermEvaluator(String originalText, String source)
+<span class="nc" id="L36">	{</span>
+<span class="nc" id="L37">		this.originalText = originalText;</span>
+<span class="nc" id="L38">		this.source = source;</span>
+<span class="nc" id="L39">	}</span>
+
+	@Override
+	public Float resolve(PlayerCharacter pc)
+	{
+<span class="nc" id="L44">		PCClass pcClass = pc.getClassKeyed(source);</span>
+
+<span class="nc bnc" id="L46" title="All 2 branches missed.">		if (pcClass == null)</span>
+		{
+			pcClass =
+<span class="nc" id="L49">					Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class, source);</span>
+		}
+		//null safe to pass in
+<span class="nc" id="L52">		return (float) getBaseSpellStatBonus(pc, pcClass);</span>
+	}
+
+	private int getBaseSpellStatBonus(PlayerCharacter pc, PCClass pcClass)
+	{
+<span class="nc bnc" id="L57" title="All 2 branches missed.">		if (pcClass == null)</span>
+		{
+<span class="nc" id="L59">			return 0;</span>
+		}
+
+<span class="nc" id="L62">		int baseSpellStat = 0;</span>
+<span class="nc" id="L63">		CDOMSingleRef&lt;PCStat&gt; ssref = pcClass.get(ObjectKey.SPELL_STAT);</span>
+<span class="nc bnc" id="L64" title="All 2 branches missed.">		if (ssref != null)</span>
+		{
+<span class="nc" id="L66">			PCStat ss = ssref.get();</span>
+<span class="nc" id="L67">			baseSpellStat = pc.getTotalStatFor(ss);</span>
+<span class="nc" id="L68">			baseSpellStat += (int) pc.getTotalBonusTo(&quot;STAT&quot;, &quot;BASESPELLSTAT&quot;);</span>
+<span class="nc" id="L69">			baseSpellStat += (int) pc.getTotalBonusTo(&quot;STAT&quot;, &quot;BASESPELLSTAT;CLASS=&quot; + pcClass.getKeyName());</span>
+<span class="nc" id="L70">			baseSpellStat += (int) pc.getTotalBonusTo(&quot;STAT&quot;, &quot;CAST.&quot; + ss.getKeyName());</span>
+<span class="nc" id="L71">			baseSpellStat = pc.getModForNumber(baseSpellStat, ss);</span>
+		}
+<span class="nc" id="L73">		return baseSpellStat;</span>
+	}
+
+	@Override
+	public boolean isSourceDependant()
+	{
+<span class="nc" id="L79">		return true;</span>
+	}
+
+	public boolean isStatic()
+	{
+<span class="nc" id="L84">		return false;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

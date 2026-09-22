@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - testGetSkillBreakdownAfterCloseCharacterDoesNotLogError()</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<div class="breadcrumbs">
+<a class="breadcrumb" href="../index.html">all</a> &gt; 
+<a class="breadcrumb" href="index.html">pcgen.gui2.facade.CharacterLevelsFacadeImplTest</a> &gt; 
+<span class="breadcrumb">testGetSkillBreakdownAfterCloseCharacterDoesNotLogError()</span>
+</div>
+<div class="tab-container">
+<ul class="tabLinks">
+<li>
+<a class="successGroup" href="#">Gradle Test Run :slowtest</a>
+</li>
+</ul>
+<div class="tab">
+<h2>Gradle Test Run :slowtest</h2>
+<h1>testGetSkillBreakdownAfterCloseCharacterDoesNotLogError()</h1>
+<div class="tab-container">
+<ul class="tabLinks">
+<li>
+<a class="" href="#">summary</a>
+</li>
+<li>
+<a class="" href="#">error output</a>
+</li>
+</ul>
+<div class="tab">
+<h2>summary</h2>
+<div>
+<div class="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox">
+<div class="counter">1</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox">
+<div class="counter">0</div>
+<p>skipped</p>
+</div>
+</td>
+<td>
+<div class="infoBox duration">
+<div class="counter">2.676s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="tab">
+<h2>error output</h2>
+<span class="code">
+<pre id="root-0-test-stderr-testGetSkillBreakdownAfterCloseCharacterDoesNotLogError()">2026-09-22T11:46:07.127 INFO Test worker#3 LanguageBundle:134 Initialising language bundle with locale en_US.
+2026-09-22T11:46:07.341 LSTWARN Test worker#3 AbstractToFactToken:38 PCClass token ABB has been deprecated and replaced by FACT. Token was ABB:Ftr
+2026-09-22T11:46:07.346 LSTERROR Test worker#3 AbstractToFactToken:42 Illegal FACT subtoken 'ABB' 'Ftr' for pcgen.core.PCClass Fighter (Source: null )
+2026-09-22T11:46:07.347 LSTERROR Test worker#3 AbstractToFactToken:42 Failed in parsing typeStr: FACT ABB|Ftr for pcgen.core.PCClass Fighter
+2026-09-22T11:46:07.348 LSTERROR Test worker#3 AbstractToFactToken:42 Illegal Token 'FACT' 'ABB|Ftr' for pcgen.core.PCClass Fighter in null
+2026-09-22T11:46:07.376 LSTERROR Test worker#3 PCClassLoader:324 Illegal FACT subtoken 'ABB' 'Ftr' for pcgen.core.PCClass Fighter (Source: null )
+2026-09-22T11:46:07.378 LSTERROR Test worker#3 PCClassLoader:324 Failed in parsing typeStr: FACT ABB|Ftr for pcgen.core.PCClass Fighter
+2026-09-22T11:46:07.380 LSTERROR Test worker#3 PCClassLoader:324 Illegal Token 'FACT' 'ABB|Ftr' for pcgen.core.PCClass Fighter in null
+2026-09-22T11:46:07.382 LSTERROR Test worker#3 PCClassLoader:324 Delegation Error to FACT (Source: null )
+2026-09-22T11:46:07.383 LSTERROR Test worker#3 PCClassLoader:324 Failed in parsing typeStr: ABB Ftr for pcgen.core.PCClass Fighter
+2026-09-22T11:46:07.384 LSTERROR Test worker#3 PCClassLoader:324 Illegal Token 'ABB' 'Ftr' for pcgen.core.PCClass Fighter in null
+2026-09-22T11:46:07.389 LSTWARN Test worker#3 AbstractToFactToken:38 PCClass token ABB has been deprecated and replaced by FACT. Token was ABB:Wiz
+2026-09-22T11:46:07.393 LSTERROR Test worker#3 AbstractToFactToken:42 Illegal FACT subtoken 'ABB' 'Wiz' for pcgen.core.PCClass Wizard (Source: null )
+2026-09-22T11:46:07.394 LSTERROR Test worker#3 AbstractToFactToken:42 Failed in parsing typeStr: FACT ABB|Wiz for pcgen.core.PCClass Wizard
+2026-09-22T11:46:07.395 LSTERROR Test worker#3 AbstractToFactToken:42 Illegal Token 'FACT' 'ABB|Wiz' for pcgen.core.PCClass Wizard in null
+2026-09-22T11:46:07.396 LSTERROR Test worker#3 PCClassLoader:324 Illegal FACT subtoken 'ABB' 'Wiz' for pcgen.core.PCClass Wizard (Source: null )
+2026-09-22T11:46:07.397 LSTERROR Test worker#3 PCClassLoader:324 Failed in parsing typeStr: FACT ABB|Wiz for pcgen.core.PCClass Wizard
+2026-09-22T11:46:07.398 LSTERROR Test worker#3 PCClassLoader:324 Illegal Token 'FACT' 'ABB|Wiz' for pcgen.core.PCClass Wizard in null
+2026-09-22T11:46:07.399 LSTERROR Test worker#3 PCClassLoader:324 Delegation Error to FACT (Source: null )
+2026-09-22T11:46:07.400 LSTERROR Test worker#3 PCClassLoader:324 Failed in parsing typeStr: ABB Wiz for pcgen.core.PCClass Wizard
+2026-09-22T11:46:07.401 LSTERROR Test worker#3 PCClassLoader:324 Illegal Token 'ABB' 'Wiz' for pcgen.core.PCClass Wizard in null
+2026-09-22T11:46:07.409 SEVERE Test worker#3 EncumbranceToken:128 Error: load.lst for game mode 3.5 does not contain load category definitions. No weight categories will be available. Please refer to the documentation for the Load List file. See: null
+2026-09-22T11:46:07.412 SEVERE Test worker#3 SizeNumToken:73 Size: C did not have a SIZENUM (cannot be assumed)
+2026-09-22T11:46:07.413 SEVERE Test worker#3 SizeNumToken:73 Size: D did not have a SIZENUM (cannot be assumed)
+2026-09-22T11:46:07.413 SEVERE Test worker#3 SizeNumToken:73 Size: F did not have a SIZENUM (cannot be assumed)
+2026-09-22T11:46:07.414 SEVERE Test worker#3 SizeNumToken:73 Size: G did not have a SIZENUM (cannot be assumed)
+2026-09-22T11:46:07.415 SEVERE Test worker#3 SizeNumToken:73 Size: H did not have a SIZENUM (cannot be assumed)
+2026-09-22T11:46:07.450 SEVERE Test worker#3 SizeNumToken:73 Size: L did not have a SIZENUM (cannot be assumed)
+2026-09-22T11:46:07.451 SEVERE Test worker#3 SizeNumToken:73 Size: M did not have a SIZENUM (cannot be assumed)
+2026-09-22T11:46:07.452 SEVERE Test worker#3 SizeNumToken:73 Size: S did not have a SIZENUM (cannot be assumed)
+2026-09-22T11:46:07.453 SEVERE Test worker#3 SizeNumToken:73 Size: T did not have a SIZENUM (cannot be assumed)
+</pre>
+<button class="clipboard-copy-btn" aria-label="Copy to clipboard" data-copy-element-id="root-0-test-stderr-testGetSkillBreakdownAfterCloseCharacterDoesNotLogError()">Copy</button>
+</span>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="https://www.gradle.org">Gradle 9.7.1</a> at Sep 22, 2026, 11:53:30 AM</p>
+</div>
+</div>
+</body>
+</html>

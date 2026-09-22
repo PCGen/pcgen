@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>EquipSlotLoader.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.persistence.lst</a> &gt; <span class="el_source">EquipSlotLoader.java</span></div><h1>EquipSlotLoader.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2001 (C) Bryan McRoberts &lt;merton_monk@yahoo.com&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ *
+ *
+ */
+package pcgen.persistence.lst;
+
+import java.net.URI;
+import java.util.Map;
+import java.util.StringTokenizer;
+
+import pcgen.core.SystemCollections;
+import pcgen.core.character.EquipSlot;
+import pcgen.persistence.SystemLoader;
+import pcgen.rules.context.LoadContext;
+import pcgen.util.Logging;
+
+<span class="nc" id="L33">public final class EquipSlotLoader extends LstLineFileLoader</span>
+{
+
+	@Override
+	public void parseLine(LoadContext context, String lstLine, URI sourceURI)
+	{
+<span class="nc" id="L39">		final EquipSlot eqSlot = new EquipSlot();</span>
+
+<span class="nc" id="L41">		final StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);</span>
+
+<span class="nc" id="L43">		Map&lt;String, LstToken&gt; tokenMap = TokenStore.inst().getTokenMap(EquipSlotLstToken.class);</span>
+<span class="nc bnc" id="L44" title="All 2 branches missed.">		while (colToken.hasMoreTokens())</span>
+		{
+<span class="nc" id="L46">			final String colString = colToken.nextToken().trim();</span>
+
+<span class="nc" id="L48">			final int idxColon = colString.indexOf(':');</span>
+<span class="nc" id="L49">			String key = &quot;&quot;;</span>
+			try
+			{
+<span class="nc" id="L52">				key = colString.substring(0, idxColon);</span>
+			}
+<span class="nc" id="L54">			catch (StringIndexOutOfBoundsException e)</span>
+			{
+				// TODO Handle Exception
+<span class="nc" id="L57">			}</span>
+<span class="nc" id="L58">			EquipSlotLstToken token = (EquipSlotLstToken) tokenMap.get(key);</span>
+
+			//TODO: (DJ) Sick hack, remove in 5.11.x
+<span class="nc bnc" id="L61" title="All 4 branches missed.">			if (token != null &amp;&amp; key.equals(&quot;NUMSLOTS&quot;))</span>
+			{
+<span class="nc" id="L63">				final String value = colString.substring(idxColon + 1);</span>
+<span class="nc" id="L64">				LstUtils.deprecationCheck(token, eqSlot.getSlotName(), sourceURI, value);</span>
+<span class="nc bnc" id="L65" title="All 2 branches missed.">				if (!token.parse(eqSlot, lstLine, getGameMode()))</span>
+				{
+<span class="nc" id="L67">					Logging.errorPrint(</span>
+<span class="nc" id="L68">						&quot;Error parsing equip slots &quot; + eqSlot.getSlotName() + ':' + sourceURI + ':' + colString + &quot;\&quot;&quot;);</span>
+				}
+				break;
+			}
+<span class="nc bnc" id="L72" title="All 2 branches missed.">			else if (token != null)</span>
+			{
+<span class="nc" id="L74">				final String value = colString.substring(idxColon + 1);</span>
+<span class="nc" id="L75">				LstUtils.deprecationCheck(token, eqSlot.getSlotName(), sourceURI, value);</span>
+<span class="nc bnc" id="L76" title="All 2 branches missed.">				if (!token.parse(eqSlot, value, getGameMode()))</span>
+				{
+<span class="nc" id="L78">					Logging.errorPrint(</span>
+<span class="nc" id="L79">						&quot;Error parsing equip slots &quot; + eqSlot.getSlotName() + ':' + sourceURI + ':' + colString + &quot;\&quot;&quot;);</span>
+				}
+<span class="nc" id="L81">			}</span>
+			else
+			{
+<span class="nc" id="L84">				Logging.errorPrint(&quot;Illegal slot info '&quot; + lstLine + &quot;' in &quot; + sourceURI.toString());</span>
+			}
+<span class="nc" id="L86">		}</span>
+
+<span class="nc" id="L88">		SystemCollections.addToEquipSlotsList(eqSlot, getGameMode());</span>
+<span class="nc" id="L89">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

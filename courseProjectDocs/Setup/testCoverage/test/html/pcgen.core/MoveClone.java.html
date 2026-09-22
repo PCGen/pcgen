@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MoveClone.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.core</a> &gt; <span class="el_source">MoveClone.java</span></div><h1>MoveClone.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2019 (C) Tom Parker &lt;thpr@sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or modify it under the terms
+ * of the GNU Lesser General Public License as published by the Free Software Foundation;
+ * either version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful, but WITHOUT ANY
+ * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+ * PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License along with
+ * this library; if not, write to the Free Software Foundation, Inc., 59 Temple Place,
+ * Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.core;
+
+import java.util.Objects;
+import java.util.function.Function;
+
+import pcgen.cdom.enumeration.MovementType;
+
+/**
+ * MoveClone represents a MOVECLONE: token from the data.
+ */
+public class MoveClone
+{
+
+	/**
+	 * Contains the base movement type for this MoveClone (e.g. &quot;Walk&quot;).
+	 */
+	private final MovementType baseMovementType;
+
+	/**
+	 * Contains the target MovementType of the clone of movement for this MoveClone (e.g.
+	 * &quot;Fly&quot;).
+	 */
+	private final MovementType cloneMovementType;
+
+	/**
+	 * The Function that performs the conversion from the base MovementType to the cloned
+	 * MovementType.
+	 */
+	private final Function&lt;Double, Double&gt; conversion;
+
+	/**
+	 * A String representation of the Function, so that it can be restored to LST.
+	 */
+	private final String formulaString;
+
+	/**
+	 * Creates a MoveClone with the given parameters.
+	 * 
+	 * @param baseMovementType
+	 *            The base MovementType for this MoveClone (e.g. &quot;Walk&quot;).
+	 * @param cloneMovementType
+	 *            The target MovementType of the clone of movement for this MoveClone
+	 *            (e.g. &quot;Fly&quot;).
+	 * @param conversion
+	 *            The Function that performs the conversion from the base MovementType to
+	 *            the cloned MovementType.
+	 * @param formulaString
+	 *            A String representation of the Function, so that it can be restored to
+	 *            LST.
+	 */
+	public MoveClone(MovementType baseMovementType,
+		MovementType cloneMovementType, Function&lt;Double, Double&gt; conversion,
+		String formulaString)
+<span class="fc" id="L69">	{</span>
+<span class="fc" id="L70">		this.baseMovementType = Objects.requireNonNull(baseMovementType);</span>
+<span class="fc" id="L71">		this.cloneMovementType = Objects.requireNonNull(cloneMovementType);</span>
+<span class="fc" id="L72">		this.conversion = Objects.requireNonNull(conversion);</span>
+<span class="fc" id="L73">		this.formulaString = Objects.requireNonNull(formulaString);</span>
+<span class="fc" id="L74">	}</span>
+
+	/**
+	 * Returns the base movement type for this MoveClone (e.g. &quot;Walk&quot;).
+	 * 
+	 * @return The base movement type for this MoveClone (e.g. &quot;Walk&quot;)
+	 */
+	public MovementType getBaseType()
+	{
+<span class="fc" id="L83">		return baseMovementType;</span>
+	}
+
+	/**
+	 * Returns the target MovementType of the clone of movement for this MoveClone (e.g.
+	 * &quot;Fly&quot;).
+	 * 
+	 * @return The target MovementType of the clone of movement for this MoveClone (e.g.
+	 *         &quot;Fly&quot;)
+	 */
+	public MovementType getCloneType()
+	{
+<span class="fc" id="L95">		return cloneMovementType;</span>
+	}
+
+	/**
+	 * Returns a String representation of the Function, so that it can be restored to LST.
+	 * 
+	 * @return A String representation of the Function, so that it can be restored to LST
+	 */
+	public String getFormulaString()
+	{
+<span class="fc" id="L105">		return formulaString;</span>
+	}
+
+	/**
+	 * Applies the conversion Function in this MoveClone to the given baseMove value.
+	 * 
+	 * @param baseMove
+	 *            The baseMove value that should be converted by the conversion function
+	 *            in this MoveClone
+	 * @return The converted value of movement to be used as the movement of the clone
+	 *         MovementType in this MoveClone
+	 */
+	public double apply(Double baseMove)
+	{
+<span class="nc" id="L119">		return conversion.apply(baseMove);</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>LastGroupSeparator.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.core.utils</a> &gt; <span class="el_source">LastGroupSeparator.java</span></div><h1>LastGroupSeparator.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2010 (C) Tom Parker &lt;thpr@sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.core.utils;
+
+import java.util.Objects;
+import java.util.Stack;
+import java.util.StringTokenizer;
+
+public class LastGroupSeparator
+{
+
+	private final String startingString;
+<span class="fc" id="L28">	private StringBuilder root = null;</span>
+
+	public LastGroupSeparator(String baseString)
+<span class="fc" id="L31">	{</span>
+<span class="fc" id="L32">		Objects.requireNonNull(baseString, &quot;Choose Separator cannot take null initialization String&quot;);</span>
+<span class="fc" id="L33">		startingString = baseString;</span>
+<span class="fc" id="L34">	}</span>
+
+	public String process()
+	{
+<span class="fc" id="L38">		StringTokenizer base = new StringTokenizer(startingString, &quot;()&quot;, true);</span>
+<span class="fc" id="L39">		int sbLength = startingString.length();</span>
+<span class="fc" id="L40">		root = new StringBuilder(sbLength);</span>
+<span class="fc" id="L41">		StringBuilder temp = new StringBuilder(sbLength);</span>
+<span class="fc" id="L42">		boolean isValid = false;</span>
+<span class="fc" id="L43">		Stack&lt;String&gt; expected = new Stack&lt;&gt;();</span>
+<span class="fc bfc" id="L44" title="All 2 branches covered.">		while (base.hasMoreTokens())</span>
+		{
+<span class="fc" id="L46">			String working = base.nextToken();</span>
+<span class="fc bfc" id="L47" title="All 2 branches covered.">			if (expected.isEmpty())</span>
+			{
+<span class="pc bpc" id="L49" title="1 of 2 branches missed.">				if (isValid)</span>
+				{
+<span class="nc" id="L51">					root.append('(');</span>
+<span class="nc" id="L52">					root.append(temp);</span>
+<span class="nc" id="L53">					root.append(')');</span>
+				}
+<span class="fc" id="L55">				temp = new StringBuilder(sbLength);</span>
+<span class="fc" id="L56">				isValid = false;</span>
+			}
+<span class="fc bfc" id="L58" title="All 2 branches covered.">			if (&quot;(&quot;.equals(working))</span>
+			{
+<span class="fc bfc" id="L60" title="All 2 branches covered.">				if (!expected.isEmpty())</span>
+				{
+<span class="fc" id="L62">					temp.append(working);</span>
+				}
+<span class="fc" id="L64">				isValid = true;</span>
+<span class="fc" id="L65">				expected.push(&quot;)&quot;);</span>
+			}
+<span class="fc bfc" id="L67" title="All 2 branches covered.">			else if (&quot;)&quot;.equals(working))</span>
+			{
+<span class="pc bpc" id="L69" title="1 of 2 branches missed.">				if (expected.isEmpty())</span>
+				{
+<span class="nc" id="L71">					throw new GroupingMismatchException(</span>
+						startingString + &quot; did not have an open parenthesis &quot; + &quot;before close: &quot; + temp);
+				}
+<span class="pc bpc" id="L74" title="1 of 2 branches missed.">				else if (!&quot;)&quot;.equals(expected.pop()))</span>
+				{
+<span class="nc" id="L76">					throw new GroupingMismatchException(</span>
+						startingString + &quot; did not have matching parenthesis &quot; + &quot;inside of brackets: &quot; + temp);
+				}
+<span class="fc bfc" id="L79" title="All 2 branches covered.">				else if (!expected.isEmpty())</span>
+				{
+<span class="fc" id="L81">					temp.append(working);</span>
+				}
+			}
+<span class="fc bfc" id="L84" title="All 2 branches covered.">			else if (expected.isEmpty())</span>
+			{
+<span class="fc" id="L86">				root.append(working);</span>
+			}
+			else
+			{
+<span class="fc" id="L90">				temp.append(working);</span>
+			}
+<span class="fc" id="L92">		}</span>
+<span class="pc bpc" id="L93" title="1 of 2 branches missed.">		if (expected.isEmpty())</span>
+		{
+<span class="fc bfc" id="L95" title="All 2 branches covered.">			if (!isValid)</span>
+			{
+<span class="fc" id="L97">				return null;</span>
+			}
+<span class="fc" id="L99">			return temp.toString();</span>
+		}
+<span class="nc" id="L101">		throw new GroupingMismatchException(</span>
+<span class="nc" id="L102">			startingString + &quot; reached end of String while attempting to match: &quot; + expected.pop());</span>
+	}
+
+	public String getRoot()
+	{
+<span class="pc bpc" id="L107" title="1 of 2 branches missed.">		if (root == null)</span>
+		{
+<span class="nc" id="L109">			throw new IllegalStateException();</span>
+		}
+<span class="fc" id="L111">		return root.toString();</span>
+	}
+
+	public static final class GroupingMismatchException extends IllegalStateException
+	{
+
+		private GroupingMismatchException(String base)
+		{
+<span class="nc" id="L119">			super(base);</span>
+<span class="nc" id="L120">		}</span>
+
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PanelFromResource.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.gui3</a> &gt; <span class="el_source">PanelFromResource.java</span></div><h1>PanelFromResource.java</h1><pre class="source lang-java linenums">package pcgen.gui3;
+
+import javafx.application.Platform;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import pcgen.system.LanguageBundle;
+
+import java.text.MessageFormat;
+import java.util.concurrent.CompletableFuture;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.Objects;
+
+/**
+ * A utility class for loading and displaying JavaFX scenes from FXML resources.
+ * This class provides functionality to load FXML files, assign their controllers,
+ * and display the loaded scenes in a new JavaFX stage.
+ *
+ * &lt;p&gt;Unlike {@link JFXPanelFromResource}, this class does &lt;strong&gt;not&lt;/strong&gt; extend
+ * {@code JFXPanel}, so the loaded {@link Scene} is never wrapped in an embedded
+ * scene peer. This avoids the {@code EmbeddedScene.sceneState} NPE that occurs
+ * on macOS HiDPI displays when an embedded scene is later re-parented onto a
+ * top-level {@link Stage}. Use this class for any dialog that is shown via
+ * {@link #showAsStage(String)} or {@link #showAndBlock(String)}.
+ *
+ * @param &lt;T&gt; The type of the controller associated with the FXML resource.
+ */
+public class PanelFromResource&lt;T&gt; implements Controllable&lt;T&gt;
+{
+<span class="nc" id="L34">	private static final Logger LOG = Logger.getLogger(PanelFromResource.class.getName());</span>
+
+<span class="nc" id="L36">	private final FXMLLoader fxmlLoader = new FXMLLoader();</span>
+
+	/**
+	 * Constructs a new PanelFromResource instance.
+	 *
+	 * @param klass        The class relative to which the FXML resource is located.
+	 * @param resourceName The name of the FXML resource file to load.
+	 * @throws NullPointerException if the resource cannot be found.
+	 */
+	public PanelFromResource(Class&lt;? extends T&gt; klass, String resourceName)
+<span class="nc" id="L46">	{</span>
+<span class="nc" id="L47">		URL resource = klass.getResource(resourceName);</span>
+<span class="nc" id="L48">		Objects.requireNonNull(resource,</span>
+<span class="nc" id="L49">				() -&gt; MessageFormat.format(&quot;Resource {0} not found relative to class {1}&quot;, resourceName, klass));</span>
+<span class="nc" id="L50">		LOG.log(Level.FINE, () -&gt; MessageFormat.format(</span>
+				&quot;Loading a scene for resource name {0} (a class {1}). The final location is {2}&quot;, resourceName, klass,
+				resource));
+<span class="nc" id="L53">		fxmlLoader.setLocation(resource);</span>
+<span class="nc" id="L54">		fxmlLoader.setResources(LanguageBundle.getBundle());</span>
+<span class="nc" id="L55">	}</span>
+
+	/**
+	 * Retrieves the controller associated with the loaded FXML resource.
+	 * The controller is only available after one of the {@code show*} methods has
+	 * been invoked (which is when the FXML file is actually loaded).
+	 *
+	 * &lt;p&gt;This method may be called from any thread; if invoked off the JavaFX
+	 * application thread it will bounce to it and wait for the result.
+	 *
+	 * @return The controller instance, or {@code null} if no FXML has been loaded yet.
+	 */
+	@Override
+	public T getController()
+	{
+<span class="nc bnc" id="L70" title="All 2 branches missed.">		if (Platform.isFxApplicationThread())</span>
+		{
+<span class="nc" id="L72">			return fxmlLoader.getController();</span>
+		}
+<span class="nc" id="L74">		return GuiUtility.runOnJavaFXThreadNow(fxmlLoader::getController);</span>
+	}
+
+	/**
+	 * Displays the loaded FXML resource as a new non-modal JavaFX stage.
+	 *
+	 * &lt;p&gt;This method may be called from any thread. If invoked off the JavaFX
+	 * application thread, the stage creation and display are dispatched there
+	 * via {@link Platform#runLater(Runnable)} and this call returns immediately.
+	 *
+	 * @param title The title of the stage to be displayed.
+	 */
+	public void showAsStage(String title)
+	{
+<span class="nc bnc" id="L88" title="All 2 branches missed.">		if (Platform.isFxApplicationThread())</span>
+		{
+<span class="nc" id="L90">			showAsStageOnFxThread(title);</span>
+		}
+		else
+		{
+<span class="nc" id="L94">			ensureToolkitInitialized();</span>
+<span class="nc" id="L95">			Platform.runLater(() -&gt; showAsStageOnFxThread(title));</span>
+		}
+<span class="nc" id="L97">	}</span>
+
+	private void showAsStageOnFxThread(String title)
+	{
+		try
+		{
+<span class="nc" id="L103">			Scene scene = fxmlLoader.load();</span>
+
+<span class="nc" id="L105">			Stage stage = new Stage();</span>
+<span class="nc" id="L106">			stage.setTitle(title);</span>
+<span class="nc" id="L107">			stage.setScene(scene);</span>
+<span class="nc" id="L108">			stage.sizeToScene();</span>
+<span class="nc" id="L109">			stage.show();</span>
+<span class="nc" id="L110">		} catch (IOException e)</span>
+		{
+<span class="nc" id="L112">			LOG.log(Level.SEVERE,</span>
+<span class="nc" id="L113">					MessageFormat.format(&quot;Failed to load stream fxml from location {0})&quot;, fxmlLoader.getLocation()),</span>
+					e);
+<span class="nc" id="L115">		}</span>
+<span class="nc" id="L116">	}</span>
+
+	/**
+	 * Displays the loaded FXML resource as a JavaFX stage, blocking the
+	 * calling thread until the user closes the dialog.
+	 *
+	 * &lt;p&gt;Must &lt;strong&gt;not&lt;/strong&gt; be called from the JavaFX application thread;
+	 * doing so would deadlock because {@code Stage.showAndWait()} requires the
+	 * FX thread to remain available to pump events.
+	 *
+	 * @param title The title of the stage to be displayed.
+	 * @throws RuntimeException if this method is called on the JavaFX application thread.
+	 */
+	public void showAndBlock(String title)
+	{
+<span class="nc" id="L131">		GuiAssertions.assertIsNotJavaFXThread();</span>
+<span class="nc" id="L132">		ensureToolkitInitialized();</span>
+<span class="nc" id="L133">		CompletableFuture&lt;Integer&gt; lock = new CompletableFuture&lt;&gt;();</span>
+<span class="nc" id="L134">		Platform.runLater(() -&gt; {</span>
+			try
+			{
+<span class="nc" id="L137">				Scene scene = fxmlLoader.load();</span>
+
+<span class="nc" id="L139">				Stage stage = new Stage();</span>
+<span class="nc" id="L140">				stage.setTitle(title);</span>
+<span class="nc" id="L141">				stage.setScene(scene);</span>
+<span class="nc" id="L142">				stage.sizeToScene();</span>
+<span class="nc" id="L143">				stage.showAndWait();</span>
+<span class="nc" id="L144">			} catch (IOException e)</span>
+			{
+<span class="nc" id="L146">				LOG.log(Level.SEVERE,</span>
+<span class="nc" id="L147">						MessageFormat.format(&quot;Failed to load stream fxml from location {0}&quot;, fxmlLoader.getLocation()),</span>
+						e);
+			} finally
+			{
+<span class="nc" id="L151">				lock.complete(0);</span>
+			}
+<span class="nc" id="L153">		});</span>
+<span class="nc" id="L154">		lock.join();</span>
+<span class="nc" id="L155">	}</span>
+
+	/**
+	 * Ensures the JavaFX toolkit has been initialized before this class
+	 * schedules any work on the FX application thread.
+	 *
+	 * &lt;p&gt;&lt;strong&gt;Why this exists.&lt;/strong&gt; Historically the OptionsPathDialog
+	 * (and a handful of other early dialogs) were opened via
+	 * {@link JFXPanelFromResource}, which extends
+	 * {@link javafx.embed.swing.JFXPanel}. Constructing a {@code JFXPanel} is
+	 * one of the three documented ways to bootstrap the JavaFX runtime — it
+	 * implicitly initialises the toolkit (and sets implicit-exit to
+	 * {@code false}) as a side effect, so callers never had to think about
+	 * lifecycle.
+	 *
+	 * &lt;p&gt;When {@code PanelFromResource} was introduced — to avoid the macOS
+	 * HiDPI {@code com.sun.javafx.tk.quantum.GlassScene#updateSceneState} NPE
+	 * caused by re-parenting a {@code JFXPanel}'s embedded {@link Scene} onto
+	 * a top-level {@link Stage} — it intentionally stopped extending
+	 * {@code JFXPanel}. That deliberate change removed the implicit toolkit
+	 * bootstrap, which in turn exposed a latent ordering bug in
+	 * {@link pcgen.system.Main#startupWithGUI()}: {@code loadProperties(true)}
+	 * runs &lt;em&gt;before&lt;/em&gt; {@code new JFXPanel()} on that path. On a fresh
+	 * installation with no {@code settings.files.path} and no {@code -s} CLI
+	 * argument, {@code loadProperties} needs to show the OptionsPathDialog,
+	 * and the first call into {@link Platform#runLater(Runnable)} would throw
+	 * {@code IllegalStateException: Toolkit not initialized}. The JVM would
+	 * log SEVERE and exit before the dialog could be displayed, so the
+	 * application could never start fresh.
+	 *
+	 * &lt;p&gt;This helper makes {@code PanelFromResource} self-sufficient: if the
+	 * toolkit has not yet been started we start it; if it already has, the
+	 * {@link IllegalStateException} from {@link Platform#startup(Runnable)} is
+	 * swallowed — that exception is the documented signal that initialisation
+	 * has already happened (e.g. from a prior {@code PanelFromResource} use,
+	 * a {@code JFXPanel} construction, or an explicit {@code Platform.startup}
+	 * elsewhere). {@link Platform#setImplicitExit(boolean)} is then forced to
+	 * {@code false} so that closing this dialog does not tear down the toolkit
+	 * before the rest of the GUI gets a chance to bring up its own Stages —
+	 * matching the previous {@code JFXPanel} behaviour and preventing a
+	 * regression where dismissing an early dialog would shut JavaFX down.
+	 *
+	 * &lt;p&gt;{@link Platform#startup(Runnable)} is internally guarded by an atomic
+	 * flag in {@code com.sun.javafx.application.PlatformImpl}, so concurrent
+	 * callers race safely: exactly one wins and starts the toolkit, the rest
+	 * see {@code IllegalStateException} and fall through. No additional
+	 * synchronisation is required here.
+	 */
+	private static void ensureToolkitInitialized()
+	{
+		try
+		{
+<span class="nc" id="L207">			Platform.startup(() -&gt; {</span>
+				// The toolkit is considered initialized the moment this Runnable
+				// is queued onto the FX application thread; we have no work to
+				// perform here ourselves.
+<span class="nc" id="L211">			});</span>
+		}
+<span class="nc" id="L213">		catch (IllegalStateException alreadyStarted)</span>
+		{
+<span class="nc" id="L215">			LOG.log(Level.FINEST,</span>
+					&quot;JavaFX toolkit was already initialised before PanelFromResource bootstrap; continuing.&quot;,
+					alreadyStarted);
+		}
+<span class="nc" id="L219">		catch (RuntimeException | LinkageError toolkitFailure)</span>
+		{
+			// Cannot run JavaFX, report a user-friendly message
+<span class="nc" id="L222">			GraphicsStartupError.reportAndExit(toolkitFailure);</span>
+<span class="nc" id="L223">		}</span>
+<span class="nc" id="L224">		Platform.setImplicitExit(false);</span>
+<span class="nc" id="L225">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

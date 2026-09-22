@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TotalToken.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.io.exporttoken</a> &gt; <span class="el_source">TotalToken.java</span></div><h1>TotalToken.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2003 (C) Devon Jones &lt;soulcatcher@evilsoft.org&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.     See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ *
+ *
+ */
+package pcgen.io.exporttoken;
+
+import pcgen.core.Globals;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.SettingsHandler;
+import pcgen.core.display.CharacterDisplay;
+import pcgen.core.utils.CoreUtility;
+import pcgen.io.ExportHandler;
+import pcgen.util.BigDecimalHelper;
+import pcgen.util.Logging;
+import pcgen.util.enumeration.Load;
+
+/**
+ * Deal with returning TOTAL Tokens
+ * 
+ * TOTAL.WEIGHT
+ * TOTAL.VALUE
+ * TOTAL.CAPACITY
+ * TOTAL.LOAD
+ */
+<span class="nc" id="L41">public class TotalToken extends Token</span>
+{
+	/** Token name */
+	public static final String TOKENNAME = &quot;TOTAL&quot;;
+
+	@Override
+	public String getTokenName()
+	{
+<span class="nc" id="L49">		return TOKENNAME;</span>
+	}
+
+	@Override
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	{
+<span class="nc" id="L55">		String retString = &quot;&quot;;</span>
+
+<span class="nc bnc" id="L57" title="All 2 branches missed.">		if (&quot;TOTAL.WEIGHT&quot;.equals(tokenSource))</span>
+		{
+<span class="nc" id="L59">			retString = getWeightToken(pc.getDisplay());</span>
+		}
+<span class="nc bnc" id="L61" title="All 2 branches missed.">		else if (&quot;TOTAL.VALUE&quot;.equals(tokenSource))</span>
+		{
+<span class="nc" id="L63">			retString = getValueToken(pc);</span>
+		}
+<span class="nc bnc" id="L65" title="All 2 branches missed.">		else if (&quot;TOTAL.CAPACITY&quot;.equals(tokenSource))</span>
+		{
+<span class="nc" id="L67">			retString = getCapacityToken(pc.getDisplay());</span>
+		}
+<span class="nc bnc" id="L69" title="All 2 branches missed.">		else if (&quot;TOTAL.LOAD&quot;.equals(tokenSource))</span>
+		{
+<span class="nc" id="L71">			retString = getLoadToken(pc.getDisplay());</span>
+		}
+
+<span class="nc" id="L74">		return retString;</span>
+	}
+
+	/**
+	 * Get the CAPACITY sub token
+	 * @param display
+	 * @return the CAPACITY sub token
+	 */
+	public static String getCapacityToken(CharacterDisplay display)
+	{
+<span class="nc" id="L84">		return Globals.getGameModeUnitSet().displayWeightInUnitSet(display.getMaxLoad().doubleValue());</span>
+	}
+
+	/**
+	 * Get the LOAD sub token
+	 * @param display
+	 * @return the LOAD sub token
+	 */
+	public static String getLoadToken(CharacterDisplay display)
+	{
+<span class="nc" id="L94">		Load load = display.getLoadType();</span>
+
+<span class="nc bnc" id="L96" title="All 5 branches missed.">		switch (load)</span>
+		{
+			case LIGHT:
+<span class="nc" id="L99">				return CoreUtility.capitalizeFirstLetter(Load.LIGHT.toString());</span>
+
+			case MEDIUM:
+<span class="nc" id="L102">				return CoreUtility.capitalizeFirstLetter(Load.MEDIUM.toString());</span>
+
+			case HEAVY:
+<span class="nc" id="L105">				return CoreUtility.capitalizeFirstLetter(Load.HEAVY.toString());</span>
+
+			case OVERLOAD:
+<span class="nc" id="L108">				return CoreUtility.capitalizeFirstLetter(Load.OVERLOAD.toString());</span>
+
+			default:
+<span class="nc" id="L111">				Logging.errorPrint(</span>
+					&quot;Unknown load constant detected in TokenTotal.getLoadToken, the constant was &quot; + load + '.');
+
+<span class="nc" id="L114">				return &quot;Unknown&quot;;</span>
+		}
+	}
+
+	/**
+	 * Get the VALUE sub token
+	 * @param pc
+	 * @return the VALUE sub token
+	 */
+	public static String getValueToken(PlayerCharacter pc)
+	{
+<span class="nc" id="L125">		return BigDecimalHelper.trimZeros(pc.totalValue()) + ' ' + SettingsHandler.getGameAsProperty().get().getCurrencyDisplay();</span>
+	}
+
+	/**
+	 * Get the WEIGHT sub token
+	 * @param display
+	 * @return the WEIGHT sub token
+	 */
+	public static String getWeightToken(CharacterDisplay display)
+	{
+<span class="nc" id="L135">		return Globals.getGameModeUnitSet().displayWeightInUnitSet(display.totalWeight().doubleValue())</span>
+<span class="nc" id="L136">			+ Globals.getGameModeUnitSet().getWeightUnit();</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

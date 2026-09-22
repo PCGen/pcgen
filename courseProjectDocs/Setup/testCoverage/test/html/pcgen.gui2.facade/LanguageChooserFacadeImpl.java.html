@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>LanguageChooserFacadeImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.gui2.facade</a> &gt; <span class="el_source">LanguageChooserFacadeImpl.java</span></div><h1>LanguageChooserFacadeImpl.java</h1><pre class="source lang-java linenums">/**
+ * Copyright James Dempsey, 2010
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.gui2.facade;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Set;
+
+import pcgen.cdom.base.ChooseDriver;
+import pcgen.cdom.base.ChooseInformation;
+import pcgen.cdom.content.CNAbility;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.core.Ability;
+import pcgen.core.Globals;
+import pcgen.core.Language;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.RuleConstants;
+import pcgen.core.Skill;
+import pcgen.core.analysis.SkillRankControl;
+import pcgen.core.chooser.ChoiceManagerList;
+import pcgen.core.chooser.ChooserUtilities;
+import pcgen.core.display.CharacterDisplay;
+import pcgen.facade.core.LanguageChooserFacade;
+import pcgen.facade.util.DefaultListFacade;
+import pcgen.facade.util.DefaultReferenceFacade;
+import pcgen.facade.util.ListFacade;
+import pcgen.facade.util.ReferenceFacade;
+
+/**
+ * The Class {@code LanguageChooserFacadeImpl} is an implementation of the
+ * LanguageChooserFacade for the gui2 package. It is responsible for managing 
+ * details of a possible selection of languages. 
+ *
+ * 
+ */
+public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
+{
+	private final PlayerCharacter theCharacter;
+	private final CharacterDisplay charDisplay;
+	private final ChooseDriver source;
+	private final String name;
+	private final DefaultListFacade&lt;Language&gt; availableList;
+	private final DefaultListFacade&lt;Language&gt; selectedList;
+	private final DefaultListFacade&lt;Language&gt; originalSelectedList;
+	private final DefaultReferenceFacade&lt;Integer&gt; numSelectionsRemain;
+	private final CharacterFacadeImpl pcFacade;
+
+	/**
+	 * Create a new LanguageChooserFacadeImpl. This is initially empty but will be 
+	 * populated upon the available list being requested. Called commit or rollback 
+	 * ends the 'transaction'.
+	 *  
+	 * @param pcFacade The character facade managing this chooser facade.
+	 * @param name The name of the chooser
+	 * @param source The source of the languages list, null for racial bionus languages.
+	 */
+	public LanguageChooserFacadeImpl(CharacterFacadeImpl pcFacade, String name, ChooseDriver source)
+<span class="nc" id="L74">	{</span>
+<span class="nc" id="L75">		this.pcFacade = pcFacade;</span>
+<span class="nc" id="L76">		this.theCharacter = pcFacade.getTheCharacter();</span>
+<span class="nc" id="L77">		this.charDisplay = theCharacter.getDisplay();</span>
+<span class="nc" id="L78">		this.name = name;</span>
+<span class="nc" id="L79">		this.source = source;</span>
+
+<span class="nc" id="L81">		availableList = new DefaultListFacade&lt;&gt;();</span>
+<span class="nc" id="L82">		selectedList = new DefaultListFacade&lt;&gt;();</span>
+<span class="nc" id="L83">		originalSelectedList = new DefaultListFacade&lt;&gt;();</span>
+<span class="nc" id="L84">		numSelectionsRemain = new DefaultReferenceFacade&lt;&gt;(0);</span>
+<span class="nc" id="L85">	}</span>
+
+	/**
+	 * Populate the lists of available and selected languages ready for use by a chooser. 
+	 */
+	private void buildLanguageList()
+	{
+<span class="nc bnc" id="L92" title="All 2 branches missed.">		if (!(source instanceof Skill))</span>
+		{
+<span class="nc" id="L94">			buildBonusLangList();</span>
+		}
+		else
+		{
+<span class="nc" id="L98">			buildObjectLangList();</span>
+		}
+<span class="nc" id="L100">	}</span>
+
+	/**
+	 * Build up the language lists for a choice of racial bonus languages.
+	 */
+	private void buildBonusLangList()
+	{
+<span class="nc" id="L107">		CNAbility cna = theCharacter.getBonusLanguageAbility();</span>
+<span class="nc" id="L108">		Ability a = cna.getAbility();</span>
+
+<span class="nc" id="L110">		ChooseInformation&lt;Language&gt; chooseInfo = (ChooseInformation&lt;Language&gt;) a.get(ObjectKey.CHOOSE_INFO);</span>
+<span class="nc" id="L111">		List&lt;Language&gt; availLangs = new ArrayList&lt;&gt;(chooseInfo.getSet(theCharacter));</span>
+
+<span class="nc" id="L113">		List&lt;? extends Language&gt; selLangs = chooseInfo.getChoiceActor().getCurrentlySelected(cna, theCharacter);</span>
+<span class="nc bnc" id="L114" title="All 2 branches missed.">		if (selLangs == null)</span>
+		{
+<span class="nc" id="L116">			selLangs = Collections.emptyList();</span>
+		}
+
+<span class="nc" id="L119">		availLangs.removeAll(charDisplay.getLanguageSet());</span>
+<span class="nc" id="L120">		refreshLangListContents(availLangs, availableList);</span>
+<span class="nc" id="L121">		refreshLangListContents(selLangs, selectedList);</span>
+<span class="nc" id="L122">		refreshLangListContents(selLangs, originalSelectedList);</span>
+
+<span class="nc" id="L124">		boolean allowBonusLangAfterFirst = Globals.checkRule(RuleConstants.INTBONUSLANG);</span>
+<span class="nc bnc" id="L125" title="All 2 branches missed.">		boolean atFirstLvl = theCharacter.getTotalLevels() &lt;= 1;</span>
+<span class="nc bnc" id="L126" title="All 4 branches missed.">		if (allowBonusLangAfterFirst || atFirstLvl)</span>
+		{
+<span class="nc" id="L128">			int bonusLangMax = theCharacter.getBonusLanguageCount();</span>
+<span class="nc" id="L129">			numSelectionsRemain.set(bonusLangMax - selLangs.size());</span>
+<span class="nc" id="L130">		}</span>
+		else
+		{
+<span class="nc" id="L133">			numSelectionsRemain.set(0);</span>
+		}
+<span class="nc" id="L135">	}</span>
+
+	/**
+	 * Build up the language lists for a choice of languages linked to a rules 
+	 * object. e.g. The speak language skill.
+	 */
+	private void buildObjectLangList()
+	{
+<span class="nc" id="L143">		ChooseInformation&lt;Language&gt; chooseInfo = (ChooseInformation&lt;Language&gt;) source.getChooseInfo();</span>
+<span class="nc" id="L144">		final List&lt;Language&gt; availLangs = new ArrayList&lt;&gt;(chooseInfo.getSet(theCharacter));</span>
+
+<span class="nc" id="L146">		List&lt;? extends Language&gt; selLangs = chooseInfo.getChoiceActor().getCurrentlySelected(source, theCharacter);</span>
+<span class="nc bnc" id="L147" title="All 2 branches missed.">		if (selLangs == null)</span>
+		{
+<span class="nc" id="L149">			selLangs = new ArrayList&lt;&gt;();</span>
+		}
+
+<span class="nc" id="L152">		Set&lt;Language&gt; languageSet = charDisplay.getLanguageSet();</span>
+<span class="nc" id="L153">		availLangs.removeAll(languageSet);</span>
+<span class="nc" id="L154">		refreshLangListContents(availLangs, availableList);</span>
+<span class="nc" id="L155">		refreshLangListContents(selLangs, selectedList);</span>
+<span class="nc" id="L156">		refreshLangListContents(selLangs, originalSelectedList);</span>
+
+		int numSelections;
+<span class="nc bnc" id="L159" title="All 2 branches missed.">		if (source instanceof Skill)</span>
+		{
+<span class="nc" id="L161">			numSelections =</span>
+<span class="nc" id="L162">					SkillRankControl.getTotalRank(theCharacter, (Skill) source).intValue() - selectedList.getSize();</span>
+		}
+		else
+		{
+<span class="nc" id="L166">			ChoiceManagerList&lt;Language&gt; aMan =</span>
+<span class="nc" id="L167">					ChooserUtilities.getConfiguredController(source, theCharacter, null, new ArrayList&lt;&gt;());</span>
+<span class="nc" id="L168">			numSelections = aMan.getNumEffectiveChoices(selLangs, new ArrayList&lt;&gt;(), theCharacter);</span>
+		}
+<span class="nc" id="L170">		numSelectionsRemain.set(numSelections);</span>
+<span class="nc" id="L171">	}</span>
+
+	/**
+	 * Replace the contents of a list facade with the given languages.
+	 *  
+	 * @param langList The source list of languages
+	 * @param langListFacade The list facade to be populated
+	 */
+	private void refreshLangListContents(List&lt;? extends Language&gt; langList,
+		DefaultListFacade&lt;Language&gt; langListFacade)
+	{
+<span class="nc" id="L182">		Collections.sort(langList);</span>
+<span class="nc" id="L183">		langListFacade.clearContents();</span>
+<span class="nc bnc" id="L184" title="All 2 branches missed.">		for (Language language : langList)</span>
+		{
+<span class="nc" id="L186">			langListFacade.addElement(language);</span>
+<span class="nc" id="L187">		}</span>
+<span class="nc" id="L188">	}</span>
+
+	@Override
+	public void addSelected(Language language)
+	{
+<span class="nc bnc" id="L193" title="All 2 branches missed.">		if (numSelectionsRemain.get() &lt;= 0)</span>
+		{
+<span class="nc" id="L195">			return;</span>
+		}
+<span class="nc" id="L197">		selectedList.addElement(language);</span>
+<span class="nc" id="L198">		availableList.removeElement(language);</span>
+<span class="nc" id="L199">		numSelectionsRemain.set(numSelectionsRemain.get() - 1);</span>
+<span class="nc" id="L200">	}</span>
+
+	@Override
+	public void removeSelected(Language language)
+	{
+<span class="nc" id="L205">		selectedList.removeElement(language);</span>
+<span class="nc" id="L206">		availableList.addElement(language);</span>
+<span class="nc" id="L207">		numSelectionsRemain.set(numSelectionsRemain.get() + 1);</span>
+<span class="nc" id="L208">	}</span>
+
+	@Override
+	public ListFacade&lt;Language&gt; getAvailableList()
+	{
+<span class="nc" id="L213">		buildLanguageList();</span>
+<span class="nc" id="L214">		return availableList;</span>
+	}
+
+	@Override
+	public String getName()
+	{
+<span class="nc" id="L220">		return name;</span>
+	}
+
+	@Override
+	public ReferenceFacade&lt;Integer&gt; getRemainingSelections()
+	{
+<span class="nc" id="L226">		return numSelectionsRemain;</span>
+	}
+
+	@Override
+	public ListFacade&lt;Language&gt; getSelectedList()
+	{
+<span class="nc" id="L232">		return selectedList;</span>
+	}
+
+	@Override
+	@SuppressWarnings(&quot;unchecked&quot;)
+	public void commit()
+	{
+<span class="nc" id="L239">		ChoiceManagerList&lt;Language&gt; choiceManager = ChooserUtilities.getChoiceManager(source, theCharacter);</span>
+
+<span class="nc" id="L241">		List&lt;Language&gt; selected = new ArrayList&lt;&gt;(selectedList.getSize());</span>
+<span class="nc bnc" id="L242" title="All 2 branches missed.">		for (Language language : selectedList)</span>
+		{
+<span class="nc" id="L244">			selected.add(language);</span>
+<span class="nc" id="L245">		}</span>
+<span class="nc" id="L246">		choiceManager.applyChoices(theCharacter, selected);</span>
+
+		// Update list on character facade
+<span class="nc" id="L249">		pcFacade.refreshLanguageList();</span>
+<span class="nc" id="L250">	}</span>
+
+	@Override
+	public void rollback()
+	{
+<span class="nc" id="L255">		buildLanguageList();</span>
+<span class="nc" id="L256">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

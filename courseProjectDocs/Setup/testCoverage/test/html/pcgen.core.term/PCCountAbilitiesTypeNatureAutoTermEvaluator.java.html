@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PCCountAbilitiesTypeNatureAutoTermEvaluator.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.core.term</a> &gt; <span class="el_source">PCCountAbilitiesTypeNatureAutoTermEvaluator.java</span></div><h1>PCCountAbilitiesTypeNatureAutoTermEvaluator.java</h1><pre class="source lang-java linenums">/**
+ * Copyright (c) 2008 Andrew Wilson &lt;nuance@users.sourceforge.net&gt;.
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ * Created 06-Aug-2008 19:43:26
+ */
+
+package pcgen.core.term;
+
+import java.util.Collection;
+
+import pcgen.cdom.content.CNAbility;
+import pcgen.cdom.enumeration.Nature;
+import pcgen.core.AbilityCategory;
+import pcgen.core.PlayerCharacter;
+
+public class PCCountAbilitiesTypeNatureAutoTermEvaluator extends BasePCCountAbilitiesTypeTermEvaluator
+		implements TermEvaluator
+{
+	public PCCountAbilitiesTypeNatureAutoTermEvaluator(String originalText, AbilityCategory abCat, String[] types,
+		boolean visible, boolean hidden)
+<span class="nc" id="L35">	{</span>
+<span class="nc" id="L36">		this.originalText = originalText;</span>
+<span class="nc" id="L37">		this.abCat = abCat;</span>
+<span class="nc" id="L38">		this.types = types;</span>
+<span class="nc" id="L39">		this.visible = visible;</span>
+<span class="nc" id="L40">		this.hidden = hidden;</span>
+<span class="nc" id="L41">	}</span>
+
+	@Override
+	Collection&lt;CNAbility&gt; getAbilities(PlayerCharacter pc)
+	{
+<span class="nc" id="L46">		return pc.getPoolAbilities(abCat, Nature.AUTOMATIC);</span>
+	}
+
+	@Override
+	public boolean isSourceDependant()
+	{
+<span class="nc" id="L52">		return false;</span>
+	}
+
+	public boolean isStatic()
+	{
+<span class="nc" id="L57">		return false;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>NoteItem.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.core</a> &gt; <span class="el_source">NoteItem.java</span></div><h1>NoteItem.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2002 (C) Bryan McRoberts &lt;merton_monk@yahoo.com&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.core;
+
+import java.util.Optional;
+
+import pcgen.cdom.enumeration.PCStringKey;
+import pcgen.io.FileAccess;
+import pcgen.util.Logging;
+
+/**
+ * {@code NoteItem}.
+ *
+ */
+public final class NoteItem implements Cloneable
+{
+	private String name;
+	private String value;
+	private int id_parent;
+	private int id_value;
+	private final Optional&lt;PCStringKey&gt; key;
+
+	public NoteItem(Optional&lt;PCStringKey&gt; key, final int my_id, final int my_parent, final String aName, final String aValue)
+<span class="nc" id="L39">	{</span>
+<span class="nc" id="L40">		this.key = key;</span>
+<span class="nc" id="L41">		id_value = my_id;</span>
+<span class="nc" id="L42">		id_parent = my_parent;</span>
+<span class="nc" id="L43">		name = aName;</span>
+<span class="nc" id="L44">		value = aValue;</span>
+<span class="nc" id="L45">	}</span>
+
+	public NoteItem(PCStringKey key, final int my_id, final int my_parent, final String aName, final String aValue)
+	{
+<span class="nc" id="L49">		this(Optional.of(key), my_id, my_parent, aName, aValue);</span>
+<span class="nc" id="L50">	}</span>
+
+	public NoteItem(final int my_id, final int my_parent, final String aName, final String aValue)
+	{
+<span class="nc" id="L54">		this(Optional.empty(), my_id, my_parent, aName, aValue);</span>
+<span class="nc" id="L55">	}</span>
+
+	/**
+	 * This is used to export to character sheets
+	 * e.g. getExportString(&quot;&lt;b&gt;&quot;,&quot;&lt;/b&gt;,&quot;&lt;br&gt;,&quot;&quot;)
+	 * would return the name in bold and the value on the next line in html format.
+	 * 
+	 * @param beforeName The markup to be included before the name. 
+	 * @param afterName  The markup to be included after the name.
+	 * @param beforeValue The markup to be included before the value.
+	 * @param afterValue The markup to be included after the value.
+	 * @return The export string including markup, the name of the note and the note contents. 
+	 */
+	public String getExportString(final String beforeName, final String afterName, final String beforeValue,
+		final String afterValue)
+	{
+<span class="nc" id="L71">		return beforeName + FileAccess.filterString(name) + afterName + beforeValue + FileAccess.filterString(value)</span>
+			+ afterValue;
+	}
+
+	public int getId()
+	{
+<span class="nc" id="L77">		return id_value;</span>
+	}
+
+	public void setIdValue(final int x)
+	{
+<span class="nc" id="L82">		id_value = x;</span>
+<span class="nc" id="L83">	}</span>
+
+	public void setName(final String x)
+	{
+<span class="nc" id="L87">		name = x;</span>
+<span class="nc" id="L88">	}</span>
+
+	public String getName()
+	{
+<span class="nc" id="L92">		return name;</span>
+	}
+
+	public void setParentId(final int x)
+	{
+<span class="nc" id="L97">		id_parent = x;</span>
+<span class="nc" id="L98">	}</span>
+
+	public int getParentId()
+	{
+<span class="nc" id="L102">		return id_parent;</span>
+	}
+
+	public void setValue(final String x)
+	{
+<span class="nc" id="L107">		value = x;</span>
+<span class="nc" id="L108">	}</span>
+
+	public String getValue()
+	{
+<span class="nc" id="L112">		return value;</span>
+	}
+
+	public Optional&lt;PCStringKey&gt; getPCStringKey()
+	{
+<span class="nc" id="L117">		return key;</span>
+	}
+
+	@Override
+	public String toString()
+	{
+<span class="nc" id="L123">		return name;</span>
+	}
+
+	@Override
+	public NoteItem clone()
+	{
+		try
+		{
+<span class="nc" id="L131">			return (NoteItem) super.clone();</span>
+		}
+<span class="nc" id="L133">		catch (CloneNotSupportedException e)</span>
+		{
+<span class="nc" id="L135">			Logging.errorPrint(&quot;NoteItem.clone failed&quot;, e);</span>
+<span class="nc" id="L136">			return null;</span>
+		}
+	}
+
+	@Override
+	public int hashCode()
+	{
+<span class="nc" id="L143">		return 17 * id_value ^ 23 * id_parent;</span>
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+<span class="nc bnc" id="L149" title="All 2 branches missed.">		if (o instanceof NoteItem other)</span>
+		{
+<span class="nc bnc" id="L151" title="All 6 branches missed.">			return (id_parent == other.id_parent) &amp;&amp; (id_value == other.id_value) &amp;&amp; (name.equals(other.name))</span>
+<span class="nc bnc" id="L152" title="All 4 branches missed.">				&amp;&amp; (value.equals(other.value)) &amp;&amp; (key.equals(other.key));</span>
+		}
+<span class="nc" id="L154">		return false;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

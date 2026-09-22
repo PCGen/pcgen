@@ -1,0 +1,789 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AbilityChooserTab.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.gui2.tabs</a> &gt; <span class="el_source">AbilityChooserTab.java</span></div><h1>AbilityChooserTab.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2008 Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ * 
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ * 
+ */
+package pcgen.gui2.tabs;
+
+import java.awt.BorderLayout;
+import java.awt.Component;
+import java.awt.event.ActionEvent;
+import java.util.Arrays;
+import java.util.Hashtable;
+import java.util.List;
+
+import javax.swing.AbstractAction;
+import javax.swing.Box;
+import javax.swing.DefaultListSelectionModel;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JSplitPane;
+import javax.swing.JTable;
+import javax.swing.JTree;
+import javax.swing.ListSelectionModel;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.TreePath;
+import javax.swing.undo.StateEditable;
+
+import pcgen.cdom.enumeration.Nature;
+import pcgen.core.AbilityCategory;
+import pcgen.facade.core.AbilityFacade;
+import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.core.InfoFactory;
+import pcgen.facade.util.DefaultListFacade;
+import pcgen.facade.util.DelegatingListFacade;
+import pcgen.facade.util.ListFacade;
+import pcgen.gui2.UIPropertyContext;
+import pcgen.gui2.filter.Filter;
+import pcgen.gui2.filter.FilterBar;
+import pcgen.gui2.filter.FilterButton;
+import pcgen.gui2.filter.FilterHandler;
+import pcgen.gui2.filter.FilterUtilities;
+import pcgen.gui2.filter.FilteredTreeViewTable;
+import pcgen.gui2.filter.SearchFilterPanel;
+import pcgen.gui2.tabs.ability.AbilityTreeTableModel;
+import pcgen.gui2.tabs.ability.AbilityTreeViews;
+import pcgen.gui2.tabs.ability.CategoryTableModel;
+import pcgen.gui2.tabs.models.CharacterTreeCellRenderer;
+import pcgen.gui2.tabs.models.QualifiedTreeCellRenderer;
+import pcgen.gui2.tools.FlippingSplitPane;
+import pcgen.gui2.tools.Icons;
+import pcgen.gui2.tools.InfoPane;
+import pcgen.gui2.util.JTreeTable;
+import pcgen.gui2.util.treeview.CachedDataView;
+import pcgen.gui2.util.treeview.DataView;
+import pcgen.gui2.util.treeview.DataViewColumn;
+import pcgen.gui2.util.treeview.DefaultDataViewColumn;
+import pcgen.gui2.util.treeview.TreeView;
+import pcgen.gui2.util.treeview.TreeViewModel;
+import pcgen.gui3.utilty.ColorUtilty;
+import pcgen.system.LanguageBundle;
+
+/**
+ * This component allows the user to select abilities for a character. The
+ * AbilityChooserTab is a subtab of the AbilitiesInfoTab and is used to display
+ * the available and selected abilities for a particular ability category. Its
+ * up to the AbilitiesInfoTab to manage this tab's state which more or less
+ * follows the state management guidelines of a {@code CharacterInfoTab}.
+ *
+ * @see pcgen.gui2.tabs.CharacterInfoTab
+ */
+@SuppressWarnings({&quot;UseOfObsoleteCollectionType&quot;, &quot;PMD.ReplaceHashtableWithMap&quot;, &quot;serial&quot;})
+public class AbilityChooserTab extends FlippingSplitPane implements StateEditable, TodoHandler
+{
+
+	private final FilteredTreeViewTable&lt;CharacterFacade, AbilityFacade&gt; availableTreeViewPanel;
+	private final JTreeTable selectedTreeViewPanel;
+	private final JTable categoryTable;
+	private final InfoPane infoPane;
+	private final JButton addButton;
+	private final JButton removeButton;
+	private final FilterBar&lt;CharacterFacade, AbilityCategory&gt; categoryBar;
+	private final FilterButton&lt;CharacterFacade, AbilityFacade&gt; qFilterButton;
+	private final QualifiedTreeCellRenderer qualifiedRenderer;
+	private final AbilityRenderer abilityRenderer;
+
+	public AbilityChooserTab()
+<span class="nc" id="L106">	{</span>
+<span class="nc" id="L107">		this.availableTreeViewPanel = new FilteredTreeViewTable&lt;&gt;();</span>
+<span class="nc" id="L108">		this.selectedTreeViewPanel = new JTreeTable();</span>
+<span class="nc" id="L109">		this.categoryTable = new JTable();</span>
+<span class="nc" id="L110">		this.infoPane = new InfoPane();</span>
+<span class="nc" id="L111">		this.addButton = new JButton();</span>
+<span class="nc" id="L112">		this.removeButton = new JButton();</span>
+<span class="nc" id="L113">		this.categoryBar = new FilterBar&lt;&gt;();</span>
+<span class="nc" id="L114">		this.qFilterButton = new FilterButton&lt;&gt;(&quot;AbilityQualified&quot;);</span>
+<span class="nc" id="L115">		this.qualifiedRenderer = new QualifiedTreeCellRenderer();</span>
+<span class="nc" id="L116">		this.abilityRenderer = new AbilityRenderer();</span>
+<span class="nc" id="L117">		initComponents();</span>
+<span class="nc" id="L118">	}</span>
+
+	private void initComponents()
+	{
+<span class="nc" id="L122">		setOrientation(VERTICAL_SPLIT);</span>
+<span class="nc" id="L123">		availableTreeViewPanel.setDefaultRenderer(Boolean.class, new BooleanRenderer());</span>
+<span class="nc" id="L124">		availableTreeViewPanel.setTreeCellRenderer(qualifiedRenderer);</span>
+<span class="nc" id="L125">		selectedTreeViewPanel.setTreeCellRenderer(abilityRenderer);</span>
+<span class="nc" id="L126">		FilterBar&lt;CharacterFacade, AbilityFacade&gt; filterBar = new FilterBar&lt;&gt;();</span>
+<span class="nc" id="L127">		filterBar.addDisplayableFilter(new SearchFilterPanel());</span>
+
+<span class="nc" id="L129">		qFilterButton.setText(LanguageBundle.getString(&quot;in_igQualFilter&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L130">		filterBar.addDisplayableFilter(qFilterButton);</span>
+<span class="nc" id="L131">		JPanel availPanel = FilterUtilities.configureFilteredTreeViewPane(availableTreeViewPanel, filterBar);</span>
+<span class="nc" id="L132">		Box box = Box.createHorizontalBox();</span>
+<span class="nc" id="L133">		box.add(Box.createHorizontalGlue());</span>
+<span class="nc" id="L134">		addButton.setHorizontalTextPosition(SwingConstants.LEADING);</span>
+<span class="nc" id="L135">		box.add(addButton);</span>
+<span class="nc" id="L136">		box.add(Box.createHorizontalStrut(5));</span>
+<span class="nc" id="L137">		box.setBorder(new EmptyBorder(0, 0, 5, 0));</span>
+<span class="nc" id="L138">		availPanel.add(box, BorderLayout.SOUTH);</span>
+<span class="nc" id="L139">		JPanel selPanel = new JPanel(new BorderLayout());</span>
+<span class="nc" id="L140">		selPanel.add(new JScrollPane(selectedTreeViewPanel), BorderLayout.CENTER);</span>
+<span class="nc" id="L141">		AbilityTreeTableModel.initializeTreeTable(selectedTreeViewPanel);</span>
+
+<span class="nc" id="L143">		box = Box.createHorizontalBox();</span>
+<span class="nc" id="L144">		box.add(Box.createHorizontalStrut(5));</span>
+<span class="nc" id="L145">		box.add(removeButton);</span>
+<span class="nc" id="L146">		box.add(Box.createHorizontalGlue());</span>
+<span class="nc" id="L147">		box.setBorder(new EmptyBorder(0, 0, 5, 0));</span>
+<span class="nc" id="L148">		selPanel.add(box, BorderLayout.SOUTH);</span>
+<span class="nc" id="L149">		FlippingSplitPane topPane =</span>
+				new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT, true, availPanel, selPanel);
+
+<span class="nc" id="L152">		setTopComponent(topPane);</span>
+
+<span class="nc" id="L154">		FilterButton&lt;CharacterFacade, AbilityCategory&gt; gainedFilterButton =</span>
+				new FilterButton&lt;&gt;(&quot;AbilityGained&quot;, true);
+<span class="nc" id="L156">		gainedFilterButton.setText(LanguageBundle.getString(&quot;in_gained&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L157">		gainedFilterButton.setEnabled(true);</span>
+<span class="nc" id="L158">		gainedFilterButton.setFilter((context, element) -&gt; context.getActiveAbilityCategories().containsElement(element));</span>
+<span class="nc" id="L159">		categoryBar.addDisplayableFilter(gainedFilterButton);</span>
+
+<span class="nc" id="L161">		JPanel filterPanel = new JPanel(new BorderLayout());</span>
+<span class="nc" id="L162">		filterPanel.add(categoryBar, BorderLayout.NORTH);</span>
+<span class="nc" id="L163">		filterPanel.add(new JScrollPane(categoryTable), BorderLayout.CENTER);</span>
+
+<span class="nc" id="L165">		FlippingSplitPane bottomPane = new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT);</span>
+<span class="nc" id="L166">		bottomPane.setLeftComponent(filterPanel);</span>
+<span class="nc" id="L167">		bottomPane.setRightComponent(infoPane);</span>
+<span class="nc" id="L168">		setBottomComponent(bottomPane);</span>
+<span class="nc" id="L169">	}</span>
+
+	private static final class BooleanRenderer extends DefaultTableCellRenderer
+	{
+
+		BooleanRenderer()
+<span class="nc" id="L175">		{</span>
+<span class="nc" id="L176">			setHorizontalAlignment(SwingConstants.CENTER);</span>
+<span class="nc" id="L177">		}</span>
+
+		@Override
+		protected void setValue(Object value)
+		{
+<span class="nc bnc" id="L182" title="All 2 branches missed.">			if (value == Boolean.TRUE)</span>
+			{
+<span class="nc" id="L184">				setText(LanguageBundle.getString(&quot;in_yes&quot;)); //$NON-NLS-1$</span>
+			}
+<span class="nc bnc" id="L186" title="All 2 branches missed.">			else if (value == Boolean.FALSE)</span>
+			{
+<span class="nc" id="L188">				setText(LanguageBundle.getString(&quot;in_no&quot;)); //$NON-NLS-1$</span>
+			}
+			else
+			{
+<span class="nc" id="L192">				setText(&quot;&quot;);</span>
+			}
+<span class="nc" id="L194">		}</span>
+
+	}
+
+	private class AvailableAbilityTreeViewModel extends CachedDataView&lt;AbilityFacade&gt;
+			implements TreeViewModel&lt;AbilityFacade&gt;, ListSelectionListener
+	{
+
+		private final ListFacade&lt;? extends TreeView&lt;AbilityFacade&gt;&gt; treeviews;
+		private final CharacterFacade character;
+		private final ListSelectionModel selectionModel;
+		private final List&lt;? extends DataViewColumn&gt; dataColumns;
+		private final InfoFactory infoFactory;
+		private final String title;
+		private final DelegatingListFacade&lt;AbilityFacade&gt; delegate;
+
+		AvailableAbilityTreeViewModel(CharacterFacade character, ListSelectionModel selectionModel,
+			String tableTitle)
+<span class="nc" id="L212">		{</span>
+<span class="nc" id="L213">			this.character = character;</span>
+<span class="nc" id="L214">			this.title = tableTitle;</span>
+<span class="nc" id="L215">			this.treeviews = new DefaultListFacade&lt;&gt;(AbilityTreeViews.createTreeViewList(character));</span>
+<span class="nc" id="L216">			this.selectionModel = selectionModel;</span>
+<span class="nc" id="L217">			this.infoFactory = character.getInfoFactory();</span>
+<span class="nc" id="L218">			this.delegate = new DelegatingListFacade&lt;&gt;();</span>
+<span class="nc" id="L219">			delegate.setDelegate(new DefaultListFacade&lt;&gt;());</span>
+<span class="nc" id="L220">			selectionModel.addListSelectionListener(this);</span>
+
+<span class="nc" id="L222">			dataColumns = Arrays.asList(new DefaultDataViewColumn(&quot;in_type&quot;, String.class), //$NON-NLS-1$</span>
+				new DefaultDataViewColumn(&quot;in_abColumnsMultiples&quot;, Boolean.class), //$NON-NLS-1$
+				new DefaultDataViewColumn(&quot;in_abColumnsStacks&quot;, Boolean.class), //$NON-NLS-1$
+				new DefaultDataViewColumn(&quot;in_abColumnsDescription&quot;, String.class), //$NON-NLS-1$
+				new DefaultDataViewColumn(&quot;in_abColumnsCost&quot;, Float.class), //$NON-NLS-1$
+				new DefaultDataViewColumn(&quot;in_abColumnsSource&quot;, String.class)); //$NON-NLS-1$
+
+<span class="nc" id="L229">		}</span>
+
+		@Override
+		public ListFacade&lt;? extends TreeView&lt;AbilityFacade&gt;&gt; getTreeViews()
+		{
+<span class="nc" id="L234">			return treeviews;</span>
+		}
+
+		@Override
+		public int getDefaultTreeViewIndex()
+		{
+<span class="nc" id="L240">			return 0;</span>
+		}
+
+		@Override
+		public DataView&lt;AbilityFacade&gt; getDataView()
+		{
+<span class="nc" id="L246">			return this;</span>
+		}
+
+		@Override
+		public ListFacade&lt;AbilityFacade&gt; getDataModel()
+		{
+<span class="nc" id="L252">			return delegate;</span>
+		}
+
+		@Override
+		public List&lt;? extends DataViewColumn&gt; getDataColumns()
+		{
+<span class="nc" id="L258">			return dataColumns;</span>
+		}
+
+		private String getTypes(List&lt;String&gt; types)
+		{
+<span class="nc bnc" id="L263" title="All 2 branches missed.">			if (types.isEmpty())</span>
+			{
+<span class="nc" id="L265">				return &quot;&quot;;</span>
+			}
+<span class="nc" id="L267">			StringBuilder ret = new StringBuilder(types.get(0));</span>
+<span class="nc bnc" id="L268" title="All 2 branches missed.">			for (int x = 1; x &lt; types.size(); x++)</span>
+			{
+<span class="nc" id="L270">				ret.append(&quot;, &quot;).append(types.get(x));</span>
+			}
+<span class="nc" id="L272">			return ret.toString();</span>
+		}
+
+		void install()
+		{
+<span class="nc" id="L277">			availableTreeViewPanel.setTreeViewModel(this);</span>
+<span class="nc" id="L278">			selectedTreeViewPanel.getSelectionModel().addListSelectionListener(this);</span>
+<span class="nc" id="L279">		}</span>
+
+		void uninstall()
+		{
+<span class="nc" id="L283">			selectedTreeViewPanel.getSelectionModel().removeListSelectionListener(this);</span>
+<span class="nc" id="L284">		}</span>
+
+		@Override
+		public void valueChanged(ListSelectionEvent e)
+		{
+<span class="nc bnc" id="L289" title="All 2 branches missed.">			if (e.getValueIsAdjusting())</span>
+			{
+<span class="nc" id="L291">				return;</span>
+			}
+<span class="nc bnc" id="L293" title="All 2 branches missed.">			if (e.getSource() == selectionModel)</span>
+			{
+<span class="nc" id="L295">				int index = selectionModel.getMinSelectionIndex();</span>
+<span class="nc bnc" id="L296" title="All 2 branches missed.">				if (index != -1)</span>
+				{
+<span class="nc" id="L298">					delegate.setDelegate(character.getDataSet().getAbilities()</span>
+<span class="nc" id="L299">						.getValue((AbilityCategory) categoryTable.getValueAt(index, 0)));</span>
+				}
+<span class="nc" id="L301">			}</span>
+			else
+			{
+<span class="nc" id="L304">				int index = selectedTreeViewPanel.getSelectedRow();</span>
+<span class="nc bnc" id="L305" title="All 4 branches missed.">				if (index != -1 &amp;&amp; index &lt; selectedTreeViewPanel.getRowCount())</span>
+				{
+<span class="nc" id="L307">					Object data = selectedTreeViewPanel.getValueAt(index, 0);</span>
+<span class="nc bnc" id="L308" title="All 2 branches missed.">					if (data instanceof AbilityCategory)</span>
+					{
+<span class="nc" id="L310">						delegate</span>
+<span class="nc" id="L311">							.setDelegate(character.getDataSet().getAbilities().getValue((AbilityCategory) data));</span>
+						// Select the appropriate row in the category table
+<span class="nc bnc" id="L313" title="All 2 branches missed.">						for (int i = 0; i &lt; categoryTable.getRowCount(); i++)</span>
+						{
+<span class="nc" id="L315">							Object catData = categoryTable.getValueAt(i, 0);</span>
+<span class="nc bnc" id="L316" title="All 2 branches missed.">							if (catData == data)</span>
+							{
+<span class="nc" id="L318">								categoryTable.setRowSelectionInterval(i, i);</span>
+							}
+						}
+
+					}
+				}
+			}
+<span class="nc" id="L325">		}</span>
+
+		@Override
+		public String getPrefsKey()
+		{
+<span class="nc" id="L330">			return title;</span>
+		}
+
+		@Override
+		public Object getDataInternal(AbilityFacade obj, int column)
+		{
+<span class="nc bnc" id="L336" title="All 7 branches missed.">			return switch (column)</span>
+					{
+<span class="nc" id="L338">						case 0 -&gt; getTypes(obj.getTypes());</span>
+<span class="nc" id="L339">						case 1 -&gt; obj.isMult();</span>
+<span class="nc" id="L340">						case 2 -&gt; obj.isStackable();</span>
+<span class="nc" id="L341">						case 3 -&gt; infoFactory.getDescription(obj);</span>
+<span class="nc" id="L342">						case 4 -&gt; (int) obj.getCost();</span>
+<span class="nc" id="L343">						case 5 -&gt; obj.getSource();</span>
+<span class="nc" id="L344">						default -&gt; null;</span>
+					};
+		}
+
+		@Override
+		public void setData(Object value, AbilityFacade element, int column)
+		{
+<span class="nc" id="L351">		}</span>
+
+	}
+
+	private class InfoHandler implements ListSelectionListener
+	{
+
+		private final CharacterFacade character;
+		private String text;
+		private String title;
+
+		InfoHandler(CharacterFacade character)
+<span class="nc" id="L363">		{</span>
+<span class="nc" id="L364">			this.character = character;</span>
+<span class="nc" id="L365">			this.text = &quot;&quot;; //$NON-NLS-1$</span>
+<span class="nc" id="L366">			this.title = LanguageBundle.getString(&quot;in_abInfo&quot;); //$NON-NLS-1$</span>
+<span class="nc" id="L367">		}</span>
+
+		void install()
+		{
+<span class="nc" id="L371">			availableTreeViewPanel.getSelectionModel().addListSelectionListener(this);</span>
+<span class="nc" id="L372">			selectedTreeViewPanel.getSelectionModel().addListSelectionListener(this);</span>
+<span class="nc" id="L373">			categoryTable.getSelectionModel().addListSelectionListener(this);</span>
+<span class="nc" id="L374">			infoPane.setTitle(title);</span>
+<span class="nc" id="L375">			infoPane.setText(text);</span>
+<span class="nc" id="L376">		}</span>
+
+		void uninstall()
+		{
+<span class="nc" id="L380">			availableTreeViewPanel.getSelectionModel().removeListSelectionListener(this);</span>
+<span class="nc" id="L381">			selectedTreeViewPanel.getSelectionModel().removeListSelectionListener(this);</span>
+<span class="nc" id="L382">			categoryTable.getSelectionModel().removeListSelectionListener(this);</span>
+<span class="nc" id="L383">		}</span>
+
+		@Override
+		public void valueChanged(ListSelectionEvent e)
+		{
+<span class="nc bnc" id="L388" title="All 2 branches missed.">			if (!e.getValueIsAdjusting())</span>
+			{
+<span class="nc" id="L390">				Object data = null;</span>
+<span class="nc bnc" id="L391" title="All 2 branches missed.">				if (e.getSource() == availableTreeViewPanel.getSelectionModel())</span>
+				{
+<span class="nc" id="L393">					data = availableTreeViewPanel.getSelectedObject();</span>
+				}
+<span class="nc bnc" id="L395" title="All 2 branches missed.">				else if (e.getSource() == selectedTreeViewPanel.getSelectionModel())</span>
+				{
+<span class="nc" id="L397">					int index = selectedTreeViewPanel.getSelectedRow();</span>
+<span class="nc bnc" id="L398" title="All 2 branches missed.">					if (index != -1)</span>
+					{
+<span class="nc" id="L400">						data = selectedTreeViewPanel.getModel().getValueAt(index, 0);</span>
+					}
+<span class="nc" id="L402">				}</span>
+				else
+				{
+<span class="nc" id="L405">					int index = categoryTable.getSelectionModel().getMinSelectionIndex();</span>
+<span class="nc bnc" id="L406" title="All 2 branches missed.">					if (index != -1)</span>
+					{
+<span class="nc" id="L408">						data = categoryTable.getValueAt(index, 0);</span>
+					}
+				}
+<span class="nc bnc" id="L411" title="All 2 branches missed.">				if (data != null)</span>
+				{
+<span class="nc bnc" id="L413" title="All 2 branches missed.">					if (data instanceof AbilityFacade)</span>
+					{
+<span class="nc" id="L415">						text = character.getInfoFactory().getHTMLInfo((AbilityFacade) data);</span>
+<span class="nc" id="L416">						infoPane.setText(text);</span>
+					}
+<span class="nc bnc" id="L418" title="All 2 branches missed.">					if (data instanceof AbilityCategory)</span>
+					{
+<span class="nc" id="L420">						title = LanguageBundle.getFormattedString(&quot;in_abCatInfo&quot;, //$NON-NLS-1$</span>
+<span class="nc" id="L421">							((AbilityCategory) data).getName());</span>
+<span class="nc" id="L422">						infoPane.setTitle(title);</span>
+
+					}
+				}
+				else
+				{
+<span class="nc" id="L428">					text = &quot;&quot;; //$NON-NLS-1$</span>
+<span class="nc" id="L429">					infoPane.setText(&quot;&quot;); //$NON-NLS-1$</span>
+				}
+			}
+<span class="nc" id="L432">		}</span>
+
+	}
+
+	public Hashtable&lt;Object, Object&gt; createState(CharacterFacade character,
+		ListFacade&lt;AbilityCategory&gt; categories, ListFacade&lt;AbilityCategory&gt; fullCategoryList, String title)
+	{
+<span class="nc" id="L439">		Hashtable&lt;Object, Object&gt; state = new Hashtable&lt;&gt;();</span>
+<span class="nc" id="L440">		CategoryTableModel categoryTableModel =</span>
+				new CategoryTableModel(character, fullCategoryList, categoryBar, categoryTable);
+<span class="nc" id="L442">		state.put(CategoryTableModel.class, categoryTableModel);</span>
+
+<span class="nc" id="L444">		ListSelectionModel listModel = new DefaultListSelectionModel();</span>
+<span class="nc" id="L445">		listModel.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);</span>
+<span class="nc" id="L446">		state.put(ListSelectionModel.class, listModel);</span>
+<span class="nc" id="L447">		state.put(AbilityTreeTableModel.class, new AbilityTreeTableModel(character, categories));</span>
+<span class="nc" id="L448">		state.put(AvailableAbilityTreeViewModel.class, new AvailableAbilityTreeViewModel(character, listModel, title));</span>
+<span class="nc" id="L449">		state.put(InfoHandler.class, new InfoHandler(character));</span>
+<span class="nc" id="L450">		state.put(TreeRendererHandler.class, new TreeRendererHandler(character));</span>
+<span class="nc" id="L451">		state.put(AddAction.class, new AddAction(character));</span>
+<span class="nc" id="L452">		state.put(RemoveAction.class, new RemoveAction(character));</span>
+<span class="nc" id="L453">		state.put(AbilityFilterHandler.class, new AbilityFilterHandler(character));</span>
+<span class="nc" id="L454">		state.put(CategoryFilterHandler.class, new CategoryFilterHandler(categoryTableModel));</span>
+<span class="nc" id="L455">		return state;</span>
+	}
+
+	@Override
+	public void storeState(Hashtable&lt;Object, Object&gt; state)
+	{
+<span class="nc" id="L461">		((InfoHandler) state.get(InfoHandler.class)).uninstall();</span>
+<span class="nc" id="L462">		((AvailableAbilityTreeViewModel) state.get(AvailableAbilityTreeViewModel.class)).uninstall();</span>
+<span class="nc" id="L463">		categoryTable.setSelectionModel(new DefaultListSelectionModel());</span>
+<span class="nc" id="L464">		((CategoryTableModel) state.get(CategoryTableModel.class)).uninstall();</span>
+<span class="nc" id="L465">		((AddAction) state.get(AddAction.class)).uninstall();</span>
+<span class="nc" id="L466">		((RemoveAction) state.get(RemoveAction.class)).uninstall();</span>
+<span class="nc" id="L467">		((TreeRendererHandler) state.get(TreeRendererHandler.class)).uninstall();</span>
+<span class="nc" id="L468">	}</span>
+
+	@Override
+	public void restoreState(Hashtable&lt;?, ?&gt; state)
+	{
+<span class="nc" id="L473">		((CategoryFilterHandler) state.get(CategoryFilterHandler.class)).install();</span>
+<span class="nc" id="L474">		((AbilityFilterHandler) state.get(AbilityFilterHandler.class)).install();</span>
+<span class="nc" id="L475">		categoryTable.setModel((CategoryTableModel) state.get(CategoryTableModel.class));</span>
+<span class="nc" id="L476">		categoryTable.setSelectionModel((ListSelectionModel) state.get(ListSelectionModel.class));</span>
+<span class="nc" id="L477">		((TreeRendererHandler) state.get(TreeRendererHandler.class)).install();</span>
+<span class="nc" id="L478">		selectedTreeViewPanel.setTreeTableModel((AbilityTreeTableModel) state.get(AbilityTreeTableModel.class));</span>
+<span class="nc" id="L479">		((AvailableAbilityTreeViewModel) state.get(AvailableAbilityTreeViewModel.class)).install();</span>
+<span class="nc" id="L480">		addButton.setAction((AddAction) state.get(AddAction.class));</span>
+<span class="nc" id="L481">		removeButton.setAction((RemoveAction) state.get(RemoveAction.class));</span>
+<span class="nc" id="L482">		((InfoHandler) state.get(InfoHandler.class)).install();</span>
+<span class="nc" id="L483">		((CategoryTableModel) state.get(CategoryTableModel.class)).install();</span>
+<span class="nc" id="L484">		((AddAction) state.get(AddAction.class)).install();</span>
+<span class="nc" id="L485">		((RemoveAction) state.get(RemoveAction.class)).install();</span>
+
+<span class="nc" id="L487">		ensureCategorySelected();</span>
+<span class="nc" id="L488">	}</span>
+
+	/**
+	 * Ensure that when the tab is displayed a category is selected if any are
+	 * available.
+	 */
+	private void ensureCategorySelected()
+	{
+<span class="nc bnc" id="L496" title="All 2 branches missed.">		if (categoryTable.getSelectedRowCount() == 0)</span>
+		{
+<span class="nc" id="L498">			CategoryTableModel model = (CategoryTableModel) categoryTable.getModel();</span>
+<span class="nc" id="L499">			model.refilter();</span>
+<span class="nc bnc" id="L500" title="All 2 branches missed.">			if (model.getRowCount() &gt; 0)</span>
+			{
+<span class="nc" id="L502">				categoryTable.getSelectionModel().setSelectionInterval(0, 0);</span>
+			}
+		}
+
+<span class="nc" id="L506">	}</span>
+
+	@Override
+	public void adviseTodo(String fieldName)
+	{
+<span class="nc" id="L511">		CategoryTableModel model = (CategoryTableModel) categoryTable.getModel();</span>
+<span class="nc" id="L512">		model.refilter();</span>
+<span class="nc bnc" id="L513" title="All 2 branches missed.">		for (int i = 0; i &lt; model.getRowCount(); i++)</span>
+		{
+<span class="nc" id="L515">			AbilityCategory category = model.getCategory(i);</span>
+<span class="nc bnc" id="L516" title="All 2 branches missed.">			if (category.getName().equals(fieldName))</span>
+			{
+<span class="nc" id="L518">				categoryTable.getSelectionModel().setSelectionInterval(i, i);</span>
+<span class="nc" id="L519">				return;</span>
+			}
+
+		}
+<span class="nc" id="L523">	}</span>
+
+	private class AddAction extends AbstractAction implements ListSelectionListener
+	{
+
+		private final CharacterFacade character;
+		private AbilityCategory abilityCat;
+
+		AddAction(CharacterFacade character)
+<span class="nc" id="L532">		{</span>
+<span class="nc" id="L533">			super(LanguageBundle.getString(&quot;in_addSelected&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L534">			this.character = character;</span>
+<span class="nc" id="L535">			this.putValue(SMALL_ICON, Icons.Forward16.getImageIcon());</span>
+<span class="nc" id="L536">		}</span>
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+<span class="nc bnc" id="L541" title="All 2 branches missed.">			if (!abilityCat.isEditable())</span>
+			{
+<span class="nc" id="L543">				return;</span>
+			}
+
+<span class="nc" id="L546">			Object data = availableTreeViewPanel.getSelectedObject();</span>
+<span class="nc" id="L547">			int index = categoryTable.getSelectedRow();</span>
+<span class="nc bnc" id="L548" title="All 6 branches missed.">			if (data != null &amp;&amp; data instanceof AbilityFacade &amp;&amp; index != -1)</span>
+			{
+<span class="nc" id="L550">				AbilityCategory category = (AbilityCategory) categoryTable.getValueAt(index, 0);</span>
+<span class="nc" id="L551">				character.addAbility(category, (AbilityFacade) data);</span>
+<span class="nc" id="L552">				availableTreeViewPanel.refilter();</span>
+<span class="nc" id="L553">				JTree tree = selectedTreeViewPanel.getTree();</span>
+<span class="nc bnc" id="L554" title="All 2 branches missed.">				for (int i = 0; i &lt; tree.getRowCount(); i++)</span>
+				{
+<span class="nc" id="L556">					TreePath pathForRow = tree.getPathForRow(i);</span>
+<span class="nc bnc" id="L557" title="All 2 branches missed.">					if (category.toString().equals(pathForRow.getLastPathComponent().toString()))</span>
+					{
+<span class="nc" id="L559">						tree.expandRow(i);</span>
+					}
+				}
+
+			}
+<span class="nc" id="L564">		}</span>
+
+		void install()
+		{
+<span class="nc" id="L568">			availableTreeViewPanel.addActionListener(this);</span>
+<span class="nc" id="L569">			categoryTable.getSelectionModel().addListSelectionListener(this);</span>
+<span class="nc" id="L570">		}</span>
+
+		void uninstall()
+		{
+<span class="nc" id="L574">			availableTreeViewPanel.removeActionListener(this);</span>
+<span class="nc" id="L575">			categoryTable.getSelectionModel().removeListSelectionListener(this);</span>
+<span class="nc" id="L576">		}</span>
+
+		@Override
+		public void valueChanged(ListSelectionEvent e)
+		{
+<span class="nc bnc" id="L581" title="All 2 branches missed.">			if (!e.getValueIsAdjusting())</span>
+			{
+<span class="nc" id="L583">				int index = categoryTable.getSelectionModel().getMinSelectionIndex();</span>
+<span class="nc bnc" id="L584" title="All 2 branches missed.">				if (index != -1)</span>
+				{
+<span class="nc" id="L586">					abilityCat = (AbilityCategory) categoryTable.getValueAt(index, 0);</span>
+<span class="nc" id="L587">					this.setEnabled(abilityCat.isEditable());</span>
+<span class="nc" id="L588">					this.putValue(SHORT_DESCRIPTION,</span>
+<span class="nc bnc" id="L589" title="All 2 branches missed.">						abilityCat.isEditable() ? null : LanguageBundle.getString(&quot;in_abCatNotEditable&quot;));</span>
+				}
+
+			}
+<span class="nc" id="L593">		}</span>
+
+	}
+
+	private class RemoveAction extends AbstractAction implements ListSelectionListener
+	{
+
+		private final CharacterFacade character;
+		private AbilityCategory abilityCat;
+
+		RemoveAction(CharacterFacade character)
+<span class="nc" id="L604">		{</span>
+<span class="nc" id="L605">			super(LanguageBundle.getString(&quot;in_removeSelected&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L606">			this.character = character;</span>
+<span class="nc" id="L607">			this.putValue(SMALL_ICON, Icons.Back16.getImageIcon());</span>
+<span class="nc" id="L608">		}</span>
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+<span class="nc bnc" id="L613" title="All 2 branches missed.">			if (!abilityCat.isEditable())</span>
+			{
+<span class="nc" id="L615">				return;</span>
+			}
+
+<span class="nc" id="L618">			int selectedRow = selectedTreeViewPanel.getSelectedRow();</span>
+<span class="nc bnc" id="L619" title="All 2 branches missed.">			if (selectedRow == -1)</span>
+			{
+<span class="nc" id="L621">				return;</span>
+			}
+<span class="nc" id="L623">			Object data = selectedTreeViewPanel.getModel().getValueAt(selectedRow, 0);</span>
+<span class="nc bnc" id="L624" title="All 4 branches missed.">			if (data != null &amp;&amp; data instanceof AbilityFacade)</span>
+			{
+<span class="nc" id="L626">				TreePath path = selectedTreeViewPanel.getTree().getPathForRow(selectedRow);</span>
+<span class="nc" id="L627">				DefaultMutableTreeNode node = (DefaultMutableTreeNode) path.getParentPath().getLastPathComponent();</span>
+<span class="nc" id="L628">				Object category = node.getUserObject();</span>
+<span class="nc bnc" id="L629" title="All 2 branches missed.">				if (category instanceof AbilityCategory)</span>
+				{
+<span class="nc" id="L631">					character.removeAbility((AbilityCategory) category, (AbilityFacade) data);</span>
+<span class="nc" id="L632">					availableTreeViewPanel.refilter();</span>
+				}
+			}
+<span class="nc" id="L635">		}</span>
+
+		void install()
+		{
+<span class="nc" id="L639">			selectedTreeViewPanel.addActionListener(this);</span>
+<span class="nc" id="L640">			categoryTable.getSelectionModel().addListSelectionListener(this);</span>
+<span class="nc" id="L641">		}</span>
+
+		void uninstall()
+		{
+<span class="nc" id="L645">			selectedTreeViewPanel.removeActionListener(this);</span>
+<span class="nc" id="L646">			categoryTable.getSelectionModel().removeListSelectionListener(this);</span>
+<span class="nc" id="L647">		}</span>
+
+		@Override
+		public void valueChanged(ListSelectionEvent e)
+		{
+<span class="nc bnc" id="L652" title="All 2 branches missed.">			if (!e.getValueIsAdjusting())</span>
+			{
+<span class="nc" id="L654">				int index = categoryTable.getSelectionModel().getMinSelectionIndex();</span>
+<span class="nc bnc" id="L655" title="All 2 branches missed.">				if (index != -1)</span>
+				{
+<span class="nc" id="L657">					abilityCat = (AbilityCategory) categoryTable.getValueAt(index, 0);</span>
+<span class="nc" id="L658">					this.setEnabled(abilityCat.isEditable());</span>
+<span class="nc" id="L659">					this.putValue(SHORT_DESCRIPTION,</span>
+<span class="nc bnc" id="L660" title="All 2 branches missed.">						abilityCat.isEditable() ? null : LanguageBundle.getString(&quot;in_abCatNotEditable&quot;));</span>
+				}
+
+			}
+<span class="nc" id="L664">		}</span>
+
+	}
+
+	private class AbilityFilterHandler
+	{
+
+<span class="nc" id="L671">		private final Filter&lt;CharacterFacade, AbilityFacade&gt; qFilter = new Filter&lt;&gt;()</span>
+<span class="nc" id="L672">		{</span>
+			@Override
+			public boolean accept(CharacterFacade context, AbilityFacade element)
+			{
+<span class="nc" id="L676">				return character.isQualifiedFor(element);</span>
+			}
+
+		};
+		private final CharacterFacade character;
+
+		AbilityFilterHandler(CharacterFacade character)
+<span class="nc" id="L683">		{</span>
+<span class="nc" id="L684">			this.character = character;</span>
+<span class="nc" id="L685">		}</span>
+
+		void install()
+		{
+<span class="nc" id="L689">			qFilterButton.setFilter(qFilter);</span>
+<span class="nc" id="L690">		}</span>
+
+	}
+
+	private class CategoryFilterHandler implements FilterHandler
+	{
+
+		private final CategoryTableModel model;
+
+		CategoryFilterHandler(CategoryTableModel model)
+<span class="nc" id="L700">		{</span>
+<span class="nc" id="L701">			this.model = model;</span>
+<span class="nc" id="L702">		}</span>
+
+		void install()
+		{
+<span class="nc" id="L706">			categoryBar.setFilterHandler(this);</span>
+<span class="nc" id="L707">			refilter();</span>
+<span class="nc" id="L708">		}</span>
+
+		@Override
+		public void refilter()
+		{
+<span class="nc" id="L713">			model.refilter();</span>
+<span class="nc" id="L714">		}</span>
+
+		@Override
+		public void scrollToTop()
+		{
+			// do nothing
+<span class="nc" id="L720">		}</span>
+
+		@Override
+		public void setSearchEnabled(boolean enable)
+		{
+			//do nothing as there is no search bar
+<span class="nc" id="L726">		}</span>
+
+	}
+
+	private class TreeRendererHandler
+	{
+
+		private final CharacterFacade character;
+
+		TreeRendererHandler(CharacterFacade character)
+<span class="nc" id="L736">		{</span>
+<span class="nc" id="L737">			this.character = character;</span>
+<span class="nc" id="L738">		}</span>
+
+		void install()
+		{
+<span class="nc" id="L742">			abilityRenderer.setCharacter(character);</span>
+<span class="nc" id="L743">			qualifiedRenderer.setCharacter(character);</span>
+<span class="nc" id="L744">		}</span>
+
+		void uninstall()
+		{
+<span class="nc" id="L748">			abilityRenderer.setCharacter(null);</span>
+<span class="nc" id="L749">			qualifiedRenderer.setCharacter(null);</span>
+<span class="nc" id="L750">		}</span>
+	}
+
+	/**
+	 * The Class {@code AbilityRenderer} displays the tree cells of the
+	 * available and selected ability tables.
+	 */
+	private static class AbilityRenderer extends CharacterTreeCellRenderer
+	{
+
+		@Override
+		public Component getTreeCellRendererComponent(JTree tree, Object value, boolean sel, boolean expanded,
+			boolean leaf, int row, boolean focus)
+		{
+
+<span class="nc" id="L765">			super.getTreeCellRendererComponent(tree, value, sel, expanded, leaf, row, focus);</span>
+<span class="nc" id="L766">			Object abilityObj = ((DefaultMutableTreeNode) value).getUserObject();</span>
+<span class="nc bnc" id="L767" title="All 2 branches missed.">			if (abilityObj instanceof AbilityFacade ability)</span>
+			{
+<span class="nc" id="L769">				Nature nature = character.getAbilityNature(ability);</span>
+<span class="nc bnc" id="L770" title="All 2 branches missed.">				if (nature == Nature.VIRTUAL)</span>
+				{
+<span class="nc" id="L772">					setForeground(ColorUtilty.colorToAWTColor(UIPropertyContext.getVirtualColor()));</span>
+				}
+<span class="nc bnc" id="L774" title="All 2 branches missed.">				else if (!character.isQualifiedFor(ability))</span>
+				{
+<span class="nc" id="L776">					setForeground(ColorUtilty.colorToAWTColor(UIPropertyContext.getNotQualifiedColor()));</span>
+				}
+<span class="nc bnc" id="L778" title="All 2 branches missed.">				else if (nature == Nature.AUTOMATIC)</span>
+				{
+<span class="nc" id="L780">					setForeground(ColorUtilty.colorToAWTColor(UIPropertyContext.getAutomaticColor()));</span>
+				}
+			}
+<span class="nc" id="L783">			return this;</span>
+		}
+
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

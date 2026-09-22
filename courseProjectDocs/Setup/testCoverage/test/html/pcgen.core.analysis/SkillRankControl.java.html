@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SkillRankControl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.core.analysis</a> &gt; <span class="el_source">SkillRankControl.java</span></div><h1>SkillRankControl.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2008 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * Copyright 2001 (C) Bryan McRoberts &lt;merton_monk@yahoo.com&gt;
+ * 
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.core.analysis;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
+import pcgen.cdom.base.CDOMObjectUtilities;
+import pcgen.cdom.base.PersistentTransitionChoice;
+import pcgen.cdom.enumeration.AssociationListKey;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.SkillCost;
+import pcgen.cdom.enumeration.Type;
+import pcgen.core.Globals;
+import pcgen.core.Language;
+import pcgen.core.PCClass;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.RuleConstants;
+import pcgen.core.Skill;
+import pcgen.core.chooser.ChooserUtilities;
+import pcgen.core.pclevelinfo.PCLevelInfo;
+import pcgen.core.utils.CoreUtility;
+import pcgen.util.Logging;
+import pcgen.util.enumeration.View;
+
+import org.apache.commons.lang3.StringUtils;
+
+public final class SkillRankControl
+{
+
+	private SkillRankControl()
+	{
+	}
+
+	/**
+	 * Returns the total ranks of a skill rank + bonus ranks (racial, class, etc
+	 * bonuses). Note that the total ranks could be higher than the max ranks if
+	 * the ranks come from a familiar's master.
+	 * 
+	 * @param pc
+	 * @return rank + bonus ranks (racial, class, etc. bonuses)
+	 */
+	public static Float getTotalRank(PlayerCharacter pc, Skill sk)
+	{
+<span class="nc" id="L63">		Objects.requireNonNull(sk);</span>
+<span class="nc bnc" id="L64" title="All 2 branches missed.">		if (pc == null)</span>
+		{
+<span class="nc" id="L66">			Logging.errorPrint(&quot;Asked to get total rank for null character. Location was &quot;, new Throwable());</span>
+<span class="nc" id="L67">			return 0.0f;</span>
+		}
+<span class="nc" id="L69">		Float rank = pc.getRank(sk);</span>
+<span class="nc bnc" id="L70" title="All 2 branches missed.">		if (rank == null)</span>
+		{
+<span class="nc" id="L72">			Logging.errorPrint(&quot;Rank of skill &quot; + sk + &quot; for &quot; + pc + &quot; was null. Location was &quot;, new Throwable());</span>
+<span class="nc" id="L73">			return 0.0f;</span>
+		}
+<span class="nc" id="L75">		double baseRanks = rank.doubleValue();</span>
+<span class="nc" id="L76">		double ranks = baseRanks + SkillRankControl.getSkillRankBonusTo(pc, sk);</span>
+<span class="nc bnc" id="L77" title="All 4 branches missed.">		if (!Globals.checkRule(RuleConstants.SKILLMAX) &amp;&amp; pc.hasClass())</span>
+		{
+			/*
+			 * Note: The class grabbed doesn't matter - it is only used for calculating cross-class skill rank cost.
+			 * All classes of a multi-class character are scanned to determine if the skill is a class skill.
+			 */
+<span class="nc" id="L83">			double maxRanks = pc.getMaxRank(sk, pc.getClassList().get(0)).doubleValue();</span>
+<span class="nc" id="L84">			maxRanks = Math.max(maxRanks, baseRanks);</span>
+<span class="nc" id="L85">			ranks = Math.min(maxRanks, ranks);</span>
+		}
+<span class="nc" id="L87">		return (float) ranks;</span>
+	}
+
+	/**
+	 * Set the ranks for the specified class to zero
+	 * 
+	 * @param aClass
+	 * @param aPC
+	 */
+	public static void setZeroRanks(PCClass aClass, PlayerCharacter aPC, Skill sk)
+	{
+<span class="nc bnc" id="L98" title="All 2 branches missed.">		if (aClass == null)</span>
+		{
+<span class="nc" id="L100">			return;</span>
+		}
+
+<span class="nc" id="L103">		Double rank = aPC.getSkillRankForClass(sk, aClass);</span>
+<span class="nc bnc" id="L104" title="All 2 branches missed.">		if (rank != null)</span>
+		{
+<span class="nc" id="L106">			aPC.removeSkillRankValue(sk, aClass);</span>
+<span class="nc" id="L107">			String aResp = modRanks(-rank, aClass, false, aPC, sk);</span>
+
+<span class="nc bnc" id="L109" title="All 2 branches missed.">			if (!aResp.isEmpty())</span>
+			{
+				// error or debug? XXX
+<span class="nc" id="L112">				Logging.debugPrint(aResp);</span>
+			}
+		}
+<span class="nc" id="L115">	}</span>
+
+	/**
+	 * Modify the rank
+	 * 
+	 * @param rankMod
+	 * @param aClass
+	 * @param ignorePrereqs
+	 * @param aPC
+	 * @return message
+	 */
+	public static String modRanks(double rankMod, PCClass aClass, boolean ignorePrereqs, PlayerCharacter aPC, Skill sk)
+	{
+<span class="nc" id="L128">		int i = 0;</span>
+
+<span class="nc bnc" id="L130" title="All 2 branches missed.">		if (!ignorePrereqs)</span>
+		{
+<span class="nc bnc" id="L132" title="All 2 branches missed.">			if (aClass == null)</span>
+			{
+<span class="nc" id="L134">				return &quot;You must be at least level one before you can purchase skills.&quot;;</span>
+			}
+
+<span class="nc bnc" id="L137" title="All 4 branches missed.">			if ((rankMod &gt; 0.0) &amp;&amp; !sk.qualifies(aPC, sk))</span>
+			{
+<span class="nc" id="L139">				return &quot;You do not meet the prerequisites required to take this skill.&quot;;</span>
+			}
+
+<span class="nc" id="L142">			SkillCost sc = aPC.getSkillCostForClass(sk, aClass);</span>
+
+<span class="nc" id="L144">			i = sc.getCost();</span>
+<span class="nc bnc" id="L145" title="All 2 branches missed.">			if (i == 0)</span>
+			{
+<span class="nc" id="L147">				return &quot;You cannot purchase this exclusive skill.&quot;;</span>
+			}
+
+<span class="nc bnc" id="L150" title="All 4 branches missed.">			if ((rankMod &gt; 0.0) &amp;&amp; (aClass.getSkillPool(aPC) &lt; (rankMod * i)))</span>
+			{
+<span class="nc" id="L152">				return &quot;You do not have enough skill points.&quot;;</span>
+			}
+
+<span class="nc" id="L155">			double maxRank = aPC.getMaxRank(sk, aClass).doubleValue();</span>
+
+<span class="nc bnc" id="L157" title="All 4 branches missed.">			if (!Globals.checkRule(RuleConstants.SKILLMAX) &amp;&amp; (rankMod &gt; 0.0))</span>
+			{
+<span class="nc" id="L159">				double ttlRank = getTotalRank(aPC, sk).doubleValue();</span>
+
+<span class="nc bnc" id="L161" title="All 2 branches missed.">				if (ttlRank &gt;= maxRank)</span>
+				{
+<span class="nc" id="L163">					return &quot;Skill rank at maximum (&quot; + maxRank + &quot;) for your level.&quot;;</span>
+				}
+
+<span class="nc bnc" id="L166" title="All 2 branches missed.">				if ((ttlRank + rankMod) &gt; maxRank)</span>
+				{
+<span class="nc" id="L168">					return &quot;Raising skill would make it above maximum (&quot; + maxRank + &quot;) for your level.&quot;;</span>
+				}
+			}
+		}
+
+<span class="nc bnc" id="L173" title="All 2 branches missed.">		if ((aPC.getRank(sk).doubleValue() + rankMod) &lt; 0.0)</span>
+		{
+<span class="nc" id="L175">			return &quot;Cannot lower rank below 0&quot;;</span>
+		}
+
+<span class="nc" id="L178">		String classKey = &quot;None&quot;;</span>
+
+<span class="nc bnc" id="L180" title="All 2 branches missed.">		if (aClass != null)</span>
+		{
+<span class="nc" id="L182">			classKey = aClass.getKeyName();</span>
+		}
+
+<span class="nc" id="L185">		Double rank = aPC.getSkillRankForClass(sk, aClass);</span>
+
+<span class="nc bnc" id="L187" title="All 2 branches missed.">		double currentRank = (rank == null) ? 0.0 : rank;</span>
+
+<span class="nc bnc" id="L189" title="All 4 branches missed.">		if (CoreUtility.doublesEqual(currentRank, 0.0) &amp;&amp; (rankMod &lt; 0.0))</span>
+		{
+<span class="nc" id="L191">			return &quot;No more ranks found for class: &quot; + classKey + &quot;. Try a different one.&quot;;</span>
+		}
+
+<span class="nc" id="L194">		rankMod = modRanks2(rankMod, currentRank, aClass, aPC, sk);</span>
+
+<span class="nc bnc" id="L196" title="All 2 branches missed.">		if (!ignorePrereqs)</span>
+		{
+<span class="nc" id="L198">            aPC.setSkillPool(aClass, aClass.getSkillPool(aPC) - (int) (i * rankMod));</span>
+        }
+
+<span class="nc" id="L201">		return &quot;&quot;;</span>
+	}
+
+	public static void replaceClassRank(PlayerCharacter pc, Skill sk, PCClass oldClass, PCClass newClass)
+	{
+<span class="nc" id="L206">		Double rank = pc.getSkillRankForLocalClass(sk, oldClass);</span>
+<span class="nc bnc" id="L207" title="All 2 branches missed.">		if (rank != null)</span>
+		{
+<span class="nc" id="L209">			pc.removeSkillRankForLocalClass(sk, oldClass);</span>
+<span class="nc" id="L210">			pc.setSkillRankValue(sk, newClass, rank);</span>
+		}
+<span class="nc" id="L212">	}</span>
+
+	private static double modRanks2(double rankChange, double curRank, PCClass pcc, PlayerCharacter aPC, Skill sk)
+	{
+<span class="nc" id="L216">		double newRank = curRank + rankChange;</span>
+
+		//
+		// Modify for the chosen class
+		//
+<span class="nc bnc" id="L221" title="All 2 branches missed.">		if (CoreUtility.doublesEqual(newRank, 0.0))</span>
+		{
+<span class="nc" id="L223">			aPC.removeSkillRankValue(sk, pcc);</span>
+		}
+		else
+		{
+<span class="nc" id="L227">			aPC.setSkillRankValue(sk, pcc, newRank);</span>
+		}
+
+<span class="nc bnc" id="L230" title="All 2 branches missed.">		if (!aPC.isImporting())</span>
+		{
+<span class="nc bnc" id="L232" title="All 2 branches missed.">			if (ChooseActivation.hasNewChooseToken(sk))</span>
+			{
+<span class="nc bnc" id="L234" title="All 4 branches missed.">				if (!CoreUtility.doublesEqual(rankChange, 0) &amp;&amp; !CoreUtility.doublesEqual(curRank, (int) newRank))</span>
+				{
+<span class="nc" id="L236">					ChooserUtilities.modChoices(sk, new ArrayList&lt;Language&gt;(), new ArrayList&lt;Language&gt;(), aPC, true,</span>
+						null);
+<span class="nc" id="L238">					aPC.setDirty(true);</span>
+<span class="nc" id="L239">					int selectedLanguages = aPC.getSelectCorrectedAssociationCount(sk);</span>
+<span class="nc" id="L240">					int maxLanguages = getTotalRank(aPC, sk).intValue();</span>
+<span class="nc bnc" id="L241" title="All 2 branches missed.">					if (selectedLanguages &gt; maxLanguages)</span>
+					{
+						// Do nothing, handled above
+<span class="nc" id="L244">						Logging.log(Logging.DEBUG, &quot;Although there were more selected langauges: &quot; + selectedLanguages + &quot; than max langauges: &quot; + maxLanguages + &quot; we dealth with that earlier.&quot;);</span>
+					}
+				}
+			}
+		}
+
+<span class="nc" id="L250">		aPC.calcActiveBonuses();</span>
+
+<span class="nc" id="L252">		return rankChange;</span>
+	}
+
+	/**
+	 * Get the bonus to a skill rank
+	 * 
+	 * @param aPC
+	 * @return bonus to skill rank
+	 */
+	public static double getSkillRankBonusTo(PlayerCharacter aPC, Skill sk)
+	{
+<span class="nc" id="L263">		double bonus = aPC.getTotalBonusTo(&quot;SKILLRANK&quot;, sk.getKeyName());</span>
+<span class="nc bnc" id="L264" title="All 2 branches missed.">		for (Type singleType : sk.getTrueTypeList(false))</span>
+		{
+<span class="nc" id="L266">			bonus += aPC.getTotalBonusTo(&quot;SKILLRANK&quot;, &quot;TYPE.&quot; + singleType);</span>
+<span class="nc" id="L267">		}</span>
+
+<span class="nc" id="L269">		updateAdds(aPC, sk, bonus);</span>
+
+<span class="nc" id="L271">		return bonus;</span>
+	}
+
+	private static void updateAdds(PlayerCharacter aPC, Skill sk, double bonus)
+	{
+		// Check for ADDs
+<span class="nc" id="L277">		List&lt;PersistentTransitionChoice&lt;?&gt;&gt; adds = sk.getListFor(ListKey.ADD);</span>
+<span class="nc bnc" id="L278" title="All 2 branches missed.">		if (adds != null)</span>
+		{
+<span class="nc" id="L280">			int iCount = 0;</span>
+<span class="nc bnc" id="L281" title="All 2 branches missed.">			for (PersistentTransitionChoice&lt;?&gt; ptc : adds)</span>
+			{
+<span class="nc" id="L283">				iCount += aPC.getAssocCount(ptc, AssociationListKey.ADD);</span>
+<span class="nc" id="L284">			}</span>
+
+<span class="nc bnc" id="L286" title="All 2 branches missed.">			if (CoreUtility.doublesEqual(aPC.getRank(sk).doubleValue() + bonus, 0.0))</span>
+			{
+				//
+				// There was a total (because we've applied the ADD's, but now
+				// there isn't.
+				// Need to remove the ADDed items
+				//
+<span class="nc bnc" id="L293" title="All 2 branches missed.">				if (iCount != 0)</span>
+				{
+<span class="nc" id="L295">					CDOMObjectUtilities.removeAdds(sk, aPC);</span>
+<span class="nc" id="L296">					CDOMObjectUtilities.restoreRemovals(sk, aPC);</span>
+				}
+			}
+			else
+			{
+				//
+				// There wasn't a total (because we haven't applied the ADDs),
+				// but now there is
+				// Need to apply the ADDed items
+				//
+<span class="nc bnc" id="L306" title="All 2 branches missed.">				if (iCount == 0)</span>
+				{
+<span class="nc" id="L308">					CDOMObjectUtilities.addAdds(sk, aPC);</span>
+<span class="nc" id="L309">					CDOMObjectUtilities.checkRemovals(sk, aPC);</span>
+				}
+			}
+		}
+<span class="nc" id="L313">	}</span>
+
+	/**
+	 * Adjust the character's skills to reflect the loss of a level. This is 
+	 * done by:
+	 * &lt;ol&gt;
+	 * &lt;li&gt;Removing ranks from any skills with max ranks or more&lt;/li&gt;
+	 * &lt;li&gt;Taking any skill points still needing to be refunded off the remainder 
+	 * for the next highest level of the class&lt;/li&gt;
+	 * &lt;li&gt;or taking them off the remainder for the highest class level.&lt;/li&gt;
+	 * &lt;/ol&gt;
+	 * 
+	 * @param pc The character being updated.
+	 * @param classBeingLevelledDown The class we are removing a level of.
+	 * @param currentLevel The character;s level before the removal.
+	 * @param pointsToRemove The number of points that need to be refunded.
+	 */
+	public static void removeSkillsForTopLevel(PlayerCharacter pc, PCClass classBeingLevelledDown, int currentLevel,
+		int pointsToRemove)
+	{
+
+<span class="nc" id="L334">		double remaining = pointsToRemove;</span>
+<span class="nc bnc" id="L335" title="All 2 branches missed.">		if (remaining &lt;= 0.0)</span>
+		{
+<span class="nc" id="L337">			return;</span>
+		}
+		// Remove a rank from each skill with max ranks at the old level (now above max ranks)
+<span class="nc bnc" id="L340" title="All 2 branches missed.">		for (Skill skill : pc.getSkillSet())</span>
+		{
+<span class="nc bnc" id="L342" title="All 2 branches missed.">			if (!skill.getSafe(ObjectKey.VISIBILITY).isVisibleTo(View.VISIBLE_DISPLAY))</span>
+			{
+<span class="nc" id="L344">				continue;</span>
+			}
+
+<span class="nc bnc" id="L347" title="All 2 branches missed.">			PCClass aClass = pc.getClassList().isEmpty() ? null : pc.getClassList().get(0);</span>
+<span class="nc" id="L348">			double maxRanks = pc.getMaxRank(skill, aClass).doubleValue();</span>
+<span class="nc" id="L349">			double rankMod = maxRanks - getTotalRank(pc, skill);</span>
+<span class="nc bnc" id="L350" title="All 2 branches missed.">			if (rankMod &lt; 0)</span>
+			{
+<span class="nc bnc" id="L352" title="All 2 branches missed.">				if (Logging.isLoggable(Logging.INFO))</span>
+				{
+<span class="nc" id="L354">					Logging.log(Logging.INFO, &quot;Removing &quot; + (rankMod * -1) + &quot; ranks from &quot; + skill);</span>
+				}
+<span class="nc" id="L356">				String err = modRanks(rankMod, classBeingLevelledDown, true, pc, skill);</span>
+<span class="nc bnc" id="L357" title="All 2 branches missed.">				if (StringUtils.isBlank(err))</span>
+				{
+<span class="nc" id="L359">					remaining += rankMod;</span>
+<span class="nc bnc" id="L360" title="All 2 branches missed.">					if (remaining &lt;= 0)</span>
+					{
+<span class="nc" id="L362">						break;</span>
+					}
+				}
+			}
+<span class="nc" id="L366">		}</span>
+
+		// Deal with any remaining skill points to be refunded
+<span class="nc bnc" id="L369" title="All 2 branches missed.">		if (remaining != 0.0)</span>
+		{
+			//  If there are other levels left of the class being removed, 
+			// subtract the remainder from the remaining value of the next 
+			// highest level of the class removed.
+<span class="nc" id="L374">			PCLevelInfo targetLevel = null;</span>
+<span class="nc" id="L375">			int level = currentLevel - 1;</span>
+<span class="nc bnc" id="L376" title="All 2 branches missed.">			while (level &gt; 0)</span>
+			{
+<span class="nc" id="L378">				PCLevelInfo pcLI = pc.getLevelInfo(level - 1);</span>
+<span class="nc bnc" id="L379" title="All 2 branches missed.">				if (pcLI.getClassKeyName().equals(classBeingLevelledDown.getKeyName()))</span>
+				{
+<span class="nc" id="L381">					targetLevel = pcLI;</span>
+<span class="nc" id="L382">					break;</span>
+				}
+<span class="nc" id="L384">				level--;</span>
+<span class="nc" id="L385">			}</span>
+<span class="nc bnc" id="L386" title="All 4 branches missed.">			if (targetLevel == null &amp;&amp; currentLevel &gt; 0)</span>
+			{
+				//  Otherwise subtract the remainder from the remaining value of 
+				// the character's highest remaining level.
+<span class="nc" id="L390">				targetLevel = pc.getLevelInfo(currentLevel - 2);</span>
+			}
+<span class="nc bnc" id="L392" title="All 2 branches missed.">			if (targetLevel != null)</span>
+			{
+<span class="nc" id="L394">				targetLevel.setSkillPointsRemaining(targetLevel.getSkillPointsRemaining() - (int) remaining);</span>
+			}
+		}
+
+<span class="nc" id="L398">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SpellsFacet.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.facet</a> &gt; <span class="el_source">SpellsFacet.java</span></div><h1>SpellsFacet.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) Thomas Parker, 2012.
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package pcgen.cdom.facet;
+
+import java.util.Collection;
+
+import pcgen.cdom.formula.Formula;
+import pcgen.cdom.base.AssociatedPrereqObject;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.content.SpellLikeAbility;
+import pcgen.cdom.enumeration.AssociationKey;
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.base.AbstractQualifiedListFacet;
+import pcgen.cdom.facet.event.DataFacetChangeEvent;
+import pcgen.cdom.facet.event.DataFacetChangeListener;
+import pcgen.core.spell.Spell;
+
+/**
+ * SpellsFacet is a Facet that tracks the SpellLikeAbility objects that have
+ * been granted to a Player Character through SPELLS
+ * 
+ */
+<span class="fc" id="L39">public class SpellsFacet extends AbstractQualifiedListFacet&lt;SpellLikeAbility&gt;</span>
+		implements DataFacetChangeListener&lt;CharID, CDOMObject&gt;
+{
+
+	private CDOMObjectSourceFacet cdomSourceFacet;
+
+	/**
+	 * Adds a SpellLikeAbility to this facet if the CDOMObject added to a Player
+	 * Character contains a SPELLS entry.
+	 * 
+	 * Triggered when one of the Facets to which SpellsFacet listens fires a
+	 * DataFacetChangeEvent to indicate a CDOMObject was added to a Player
+	 * Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 */
+	@Override
+	public void dataAdded(DataFacetChangeEvent&lt;CharID, CDOMObject&gt; dfce)
+	{
+<span class="fc" id="L60">		CharID id = dfce.getCharID();</span>
+<span class="fc" id="L61">		CDOMObject cdo = dfce.getCDOMObject();</span>
+
+<span class="fc" id="L63">		Collection&lt;CDOMReference&lt;Spell&gt;&gt; mods = cdo.getListMods(Spell.SPELLS);</span>
+<span class="pc bpc" id="L64" title="1 of 2 branches missed.">		if (mods == null)</span>
+		{
+<span class="fc" id="L66">			return;</span>
+		}
+
+<span class="nc bnc" id="L69" title="All 2 branches missed.">		for (CDOMReference&lt;Spell&gt; ref : mods)</span>
+		{
+<span class="nc" id="L71">			Collection&lt;AssociatedPrereqObject&gt; assocs = cdo.getListAssociations(Spell.SPELLS, ref);</span>
+<span class="nc" id="L72">			Collection&lt;Spell&gt; spells = ref.getContainedObjects();</span>
+<span class="nc bnc" id="L73" title="All 2 branches missed.">			for (AssociatedPrereqObject apo : assocs)</span>
+			{
+<span class="nc" id="L75">				Formula times = apo.getAssociation(AssociationKey.TIMES_PER_UNIT);</span>
+<span class="nc" id="L76">				String timeunit = apo.getAssociation(AssociationKey.TIME_UNIT);</span>
+				// The timeunit needs to default to day as per the docs
+<span class="nc bnc" id="L78" title="All 2 branches missed.">				if (timeunit == null)</span>
+				{
+<span class="nc" id="L80">					timeunit = &quot;Day&quot;;</span>
+				}
+<span class="nc" id="L82">				String casterlevel = apo.getAssociation(AssociationKey.CASTER_LEVEL);</span>
+<span class="nc" id="L83">				String dcformula = apo.getAssociation(AssociationKey.DC_FORMULA);</span>
+<span class="nc" id="L84">				String book = apo.getAssociation(AssociationKey.SPELLBOOK);</span>
+<span class="nc" id="L85">				String ident = cdo.getQualifiedKey();</span>
+<span class="nc bnc" id="L86" title="All 2 branches missed.">				for (Spell sp : spells)</span>
+				{
+<span class="nc" id="L88">					SpellLikeAbility sla =</span>
+							new SpellLikeAbility(sp, times, timeunit, book, casterlevel, dcformula, ident);
+<span class="nc" id="L90">					sla.addAllPrerequisites(apo.getPrerequisiteList());</span>
+<span class="nc" id="L91">					add(id, sla, cdo);</span>
+<span class="nc" id="L92">				}</span>
+<span class="nc" id="L93">			}</span>
+<span class="nc" id="L94">		}</span>
+<span class="nc" id="L95">	}</span>
+
+	/**
+	 * Removes all SpellLikeAbility objects granted by a CDOMObject when that
+	 * CDOMObject is removed from a Player Character.
+	 * 
+	 * Triggered when one of the Facets to which SpellsFacet listens fires a
+	 * DataFacetChangeEvent to indicate a CDOMObject was removed from a Player
+	 * Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 */
+	@Override
+	public void dataRemoved(DataFacetChangeEvent&lt;CharID, CDOMObject&gt; dfce)
+	{
+<span class="fc" id="L112">		removeAll(dfce.getCharID(), dfce.getCDOMObject());</span>
+<span class="fc" id="L113">	}</span>
+
+	public void setCdomSourceFacet(CDOMObjectSourceFacet cdomSourceFacet)
+	{
+<span class="fc" id="L117">		this.cdomSourceFacet = cdomSourceFacet;</span>
+<span class="fc" id="L118">	}</span>
+
+	/**
+	 * Initializes the connections for SpellsFacet to other facets.
+	 * 
+	 * This method is automatically called by the Spring framework during
+	 * initialization of the SpellsFacet.
+	 */
+	public void init()
+	{
+<span class="fc" id="L128">		cdomSourceFacet.addDataFacetChangeListener(this);</span>
+<span class="fc" id="L129">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

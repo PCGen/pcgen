@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SubClassApplication.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.core.analysis</a> &gt; <span class="el_source">SubClassApplication.java</span></div><h1>SubClassApplication.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2009 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * Copyright 2001 (C) Bryan McRoberts &lt;merton_monk@yahoo.com&gt;
+ * 
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.core.analysis;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.AssociationKey;
+import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.core.PCClass;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.SpellProhibitor;
+import pcgen.core.SubClass;
+import pcgen.core.chooser.CDOMChooserFacadeImpl;
+import pcgen.core.prereq.PrereqHandler;
+import pcgen.facade.core.ChooserFacade.ChooserTreeViewType;
+import pcgen.gui2.facade.Gui2InfoFactory;
+import pcgen.system.LanguageBundle;
+import pcgen.util.Logging;
+import pcgen.util.chooser.ChooserFactory;
+import pcgen.util.enumeration.ProhibitedSpellType;
+
+public final class SubClassApplication
+{
+
+	private SubClassApplication()
+	{
+	}
+
+	public static void checkForSubClass(PlayerCharacter aPC, PCClass cl)
+	{
+<span class="nc" id="L51">		List&lt;SubClass&gt; subClassList = cl.getListFor(ListKey.SUB_CLASS);</span>
+<span class="nc bnc" id="L52" title="All 4 branches missed.">		if (subClassList == null || subClassList.isEmpty())</span>
+		{
+<span class="nc" id="L54">			return;</span>
+		}
+
+<span class="nc" id="L57">		List&lt;PCClass&gt; availableList = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L58">		String subClassKey = aPC.getSubClassName(cl);</span>
+<span class="nc bnc" id="L59" title="All 2 branches missed.">		boolean subClassSelected =</span>
+<span class="nc bnc" id="L60" title="All 4 branches missed.">				subClassKey != null &amp;&amp; !subClassKey.equals(Constants.NONE) &amp;&amp; !subClassKey.equals(&quot;&quot;);</span>
+
+<span class="nc bnc" id="L62" title="All 2 branches missed.">		for (SubClass sc : subClassList)</span>
+		{
+<span class="nc bnc" id="L64" title="All 2 branches missed.">			if (!PrereqHandler.passesAll(sc, aPC, cl))</span>
+			{
+<span class="nc" id="L66">				continue;</span>
+			}
+
+			// If a subclass has already been selected, only add that one
+<span class="nc bnc" id="L70" title="All 4 branches missed.">			if (!subClassSelected || sc.getKeyName().equals(aPC.getSubClassName(cl)))</span>
+			{
+<span class="nc" id="L72">				availableList.add(sc);</span>
+			}
+<span class="nc" id="L74">		}</span>
+
+		// add base class to the chooser
+<span class="nc bnc" id="L77" title="All 4 branches missed.">		if (cl.getSafe(ObjectKey.ALLOWBASECLASS)</span>
+<span class="nc bnc" id="L78" title="All 2 branches missed.">			&amp;&amp; (!subClassSelected || cl.getKeyName().equals(aPC.getSubClassName(cl))))</span>
+		{
+<span class="nc" id="L80">			availableList.add(0, cl);</span>
+		}
+
+		/*
+		 * REFACTOR This makes an assumption that SubClasses are ONLY Schools, which may
+		 * not be a fabulous assumption
+		 */
+		List&lt;PCClass&gt; selectedSubClasses;
+<span class="nc" id="L88">		CDOMChooserFacadeImpl&lt;PCClass&gt; chooserFacade =</span>
+<span class="nc" id="L89">			new CDOMChooserFacadeImpl&lt;&gt;(LanguageBundle.getString(&quot;in_schoolSpecChoice&quot;), availableList, //$NON-NLS-1$</span>
+				new ArrayList&lt;&gt;(), 1);
+<span class="nc" id="L91">		chooserFacade.setDefaultView(ChooserTreeViewType.NAME);</span>
+<span class="nc" id="L92">		chooserFacade.setInfoFactory(new Gui2InfoFactory(aPC));</span>
+
+<span class="nc bnc" id="L94" title="All 2 branches missed.">		if (availableList.size() == 1)</span>
+		{
+<span class="nc" id="L96">			selectedSubClasses = availableList;</span>
+		}
+<span class="nc bnc" id="L98" title="All 2 branches missed.">		else if (availableList.isEmpty())</span>
+		{
+<span class="nc bnc" id="L100" title="All 2 branches missed.">			if (Logging.isLoggable(Logging.WARNING))</span>
+			{
+<span class="nc" id="L102">				Logging.log(Logging.WARNING, &quot;No subclass choices avaialble for &quot; + cl);</span>
+			}
+<span class="nc" id="L104">			return;</span>
+		}
+		else
+		{
+<span class="nc" id="L108">			ChooserFactory.getDelegate().showGeneralChooser(chooserFacade);</span>
+<span class="nc" id="L109">			selectedSubClasses = chooserFacade.getFinalSelected();</span>
+		}
+
+<span class="nc bnc" id="L112" title="All 2 branches missed.">		if (!cl.getSafe(ObjectKey.ALLOWBASECLASS))</span>
+		{
+<span class="nc bnc" id="L114" title="All 2 branches missed.">			while (selectedSubClasses.isEmpty())</span>
+			{
+<span class="nc" id="L116">				ChooserFactory.getDelegate().showGeneralChooser(chooserFacade);</span>
+<span class="nc" id="L117">				selectedSubClasses = chooserFacade.getFinalSelected();</span>
+			}
+		}
+
+<span class="nc bnc" id="L121" title="All 2 branches missed.">		if (selectedSubClasses.isEmpty())</span>
+		{
+<span class="nc" id="L123">			return;</span>
+		}
+
+<span class="nc" id="L126">		PCClass subselected = selectedSubClasses.get(0);</span>
+
+<span class="nc bnc" id="L128" title="All 2 branches missed.">		if (subselected instanceof SubClass sc)</span>
+		{
+<span class="nc" id="L130">			aPC.removeProhibitedSchools(cl);</span>
+			/*
+			 * CONSIDER What happens to this reset during PCClass/PCClassLevel split
+			 */
+<span class="nc" id="L134">			aPC.removeAssoc(cl, AssociationKey.SPECIALTY);</span>
+
+<span class="nc" id="L136">			availableList.clear();</span>
+
+<span class="nc bnc" id="L138" title="All 2 branches missed.">			for (SubClass sub : subClassList)</span>
+			{
+<span class="nc bnc" id="L140" title="All 2 branches missed.">				if (sub.equals(sc))</span>
+				{
+					//Skip the selected specialist school
+<span class="nc" id="L143">					continue;</span>
+				}
+<span class="nc bnc" id="L145" title="All 2 branches missed.">				if (!PrereqHandler.passesAll(sub, aPC, cl))</span>
+				{
+<span class="nc" id="L147">					continue;</span>
+				}
+
+<span class="nc" id="L150">				int displayedCost = sub.getProhibitCost();</span>
+<span class="nc bnc" id="L151" title="All 2 branches missed.">				if (displayedCost == 0)</span>
+				{
+<span class="nc" id="L153">					continue;</span>
+				}
+
+<span class="nc" id="L156">				availableList.add(sub);</span>
+<span class="nc" id="L157">			}</span>
+
+<span class="nc" id="L159">			setSubClassKey(aPC, cl, sc.getKeyName());</span>
+
+<span class="nc bnc" id="L161" title="All 2 branches missed.">			if (sc.get(ObjectKey.CHOICE) != null)</span>
+			{
+<span class="nc" id="L163">				aPC.setAssoc(cl, AssociationKey.SPECIALTY, sc.getChoice());</span>
+			}
+
+<span class="nc bnc" id="L166" title="All 2 branches missed.">			if (sc.getSafe(IntegerKey.COST) != 0)</span>
+			{
+<span class="nc" id="L168">				chooserFacade =</span>
+<span class="nc" id="L169">						new CDOMChooserFacadeImpl&lt;&gt;(LanguageBundle.getString(&quot;in_schoolProhibitChoice&quot;), //$NON-NLS-1$</span>
+<span class="nc" id="L170">								availableList, new ArrayList&lt;&gt;(), sc.getSafe(IntegerKey.COST));</span>
+<span class="nc" id="L171">				chooserFacade.setDefaultView(ChooserTreeViewType.NAME);</span>
+<span class="nc" id="L172">				chooserFacade.setInfoFactory(new Gui2InfoFactory(aPC));</span>
+<span class="nc" id="L173">				chooserFacade.setRequireCompleteSelection(true);</span>
+<span class="nc" id="L174">				ChooserFactory.getDelegate().showGeneralChooser(chooserFacade);</span>
+
+<span class="nc bnc" id="L176" title="All 2 branches missed.">                for (PCClass choice : chooserFacade.getFinalSelected())</span>
+				{
+<span class="nc" id="L178">					sc = (SubClass) choice;</span>
+<span class="nc" id="L179">					SpellProhibitor prohibSchool = new SpellProhibitor();</span>
+<span class="nc" id="L180">					prohibSchool.setType(ProhibitedSpellType.SCHOOL);</span>
+<span class="nc" id="L181">					prohibSchool.addValue(sc.getChoice());</span>
+<span class="nc" id="L182">					SpellProhibitor prohibSubSchool = new SpellProhibitor();</span>
+<span class="nc" id="L183">					prohibSubSchool.setType(ProhibitedSpellType.SUBSCHOOL);</span>
+<span class="nc" id="L184">					prohibSubSchool.addValue(sc.getChoice());</span>
+<span class="nc" id="L185">					aPC.addProhibitedSchool(prohibSchool, cl);</span>
+<span class="nc" id="L186">					aPC.addProhibitedSchool(prohibSubSchool, cl);</span>
+<span class="nc" id="L187">				}</span>
+			}
+		}
+<span class="nc" id="L190">	}</span>
+
+	public static void setSubClassKey(PlayerCharacter pc, PCClass cl, final String aKey)
+	{
+<span class="nc bnc" id="L194" title="All 4 branches missed.">		if (aKey == null || cl == null)</span>
+		{
+<span class="nc" id="L196">			return;</span>
+		}
+
+<span class="nc" id="L199">		pc.setSubClassName(cl, aKey);</span>
+
+<span class="nc bnc" id="L201" title="All 2 branches missed.">		if (!aKey.equals(cl.getKeyName()))</span>
+		{
+<span class="nc" id="L203">			final SubClass a = cl.getSubClassKeyed(aKey);</span>
+
+<span class="nc bnc" id="L205" title="All 2 branches missed.">			if (a != null)</span>
+			{
+<span class="nc" id="L207">				cl.inheritAttributesFrom(a);</span>
+<span class="nc" id="L208">				pc.reInheritClassLevels(cl);</span>
+			}
+		}
+<span class="nc" id="L211">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

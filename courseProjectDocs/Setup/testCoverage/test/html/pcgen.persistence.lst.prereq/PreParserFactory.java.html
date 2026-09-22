@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PreParserFactory.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.persistence.lst.prereq</a> &gt; <span class="el_source">PreParserFactory.java</span></div><h1>PreParserFactory.java</h1><pre class="source lang-java linenums">/*
+ *
+ * Copyright 2003 (C) Chris Ward &lt;frugal@purplewombat.co.uk&gt;
+ *
+ * This library is free software; you can redistribute it and/or modify it under the terms of the GNU Lesser General
+ * Public License as published by the Free Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ *
+ * This library is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied
+ * warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License along with this library; if not, write to
+ * the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ *
+ *
+ *
+ *
+ */
+package pcgen.persistence.lst.prereq;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import pcgen.core.prereq.Prerequisite;
+import pcgen.core.prereq.PrerequisiteOperator;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.system.PluginLoader;
+import pcgen.util.Logging;
+
+public final class PreParserFactory implements PluginLoader
+{
+<span class="fc" id="L36">	private static PreParserFactory instance = null;</span>
+<span class="fc" id="L37">	private final Map&lt;String, PrerequisiteParserInterface&gt; parserLookup = new HashMap&lt;&gt;();</span>
+
+	private PreParserFactory()
+<span class="fc" id="L40">	{</span>
+<span class="fc" id="L41">	}</span>
+
+	@Override
+	public void loadPlugin(Class&lt;?&gt; clazz) throws Exception
+	{
+<span class="nc" id="L46">		register((PrerequisiteParserInterface) clazz.getDeclaredConstructor().newInstance());</span>
+<span class="nc" id="L47">	}</span>
+
+	@SuppressWarnings(&quot;unchecked&quot;)
+	@Override
+	public Class[] getPluginClasses()
+	{
+<span class="nc" id="L53">		return new Class[]{PrerequisiteParserInterface.class};</span>
+	}
+
+	/**
+	 * Gets the single instance of PreParserFactory.
+	 *
+	 * @return Returns the instance.
+	 * @throws PersistenceLayerException the persistence layer exception
+	 */
+	public static PreParserFactory getInstance() throws PersistenceLayerException
+	{
+<span class="fc bfc" id="L64" title="All 2 branches covered.">		if (instance == null)</span>
+		{
+<span class="fc" id="L66">			instance = new PreParserFactory();</span>
+		}
+
+<span class="fc" id="L69">		return instance;</span>
+	}
+
+	private PrerequisiteParserInterface getParser(String kind)
+	{
+<span class="fc" id="L74">		return parserLookup.get(kind.toLowerCase());</span>
+	}
+
+	public void register(PrerequisiteParserInterface testClass) throws PersistenceLayerException
+	{
+<span class="fc" id="L79">		String[] kindsHandled = testClass.kindsHandled();</span>
+
+<span class="fc bfc" id="L81" title="All 2 branches covered.">		for (String kind : kindsHandled)</span>
+		{
+<span class="fc" id="L83">			Object test = parserLookup.get(kind.toLowerCase());</span>
+
+<span class="pc bpc" id="L85" title="1 of 2 branches missed.">			if (test != null)</span>
+			{
+<span class="nc" id="L87">				throw new PersistenceLayerException(</span>
+<span class="nc" id="L88">						&quot;Error registering '&quot; + testClass.getClass().getName() + &quot;' as test '&quot; + kind</span>
+<span class="nc" id="L89">								+ &quot;'. The test is already registered to '&quot; + test.getClass().getName() + &quot;'&quot;);</span>
+			}
+
+<span class="fc" id="L92">			parserLookup.put(kind.toLowerCase(), testClass);</span>
+		}
+<span class="fc" id="L94">	}</span>
+
+	public static List&lt;Prerequisite&gt; parse(final List&lt;String&gt; preStrings)
+	{
+<span class="nc" id="L98">		final List&lt;Prerequisite&gt; ret = new ArrayList&lt;&gt;(preStrings.size());</span>
+<span class="nc bnc" id="L99" title="All 2 branches missed.">		for (String prestr : preStrings)</span>
+		{
+			try
+			{
+<span class="nc" id="L103">				final PreParserFactory factory = PreParserFactory.getInstance();</span>
+<span class="nc" id="L104">				final Prerequisite prereq = factory.parse(prestr);</span>
+<span class="nc" id="L105">				ret.add(prereq);</span>
+			}
+<span class="nc" id="L107">			catch (PersistenceLayerException ple)</span>
+			{
+<span class="nc" id="L109">				Logging.errorPrint(ple.getMessage(), ple);</span>
+				//The message is now produced at a lower level, and thus has to be localized there.
+	            //Logging.errorPrintLocalised(PropertyFactory.getString(&quot;PrereqHandler.Unable_to_parse&quot;), object); //$NON-NLS-1$
+<span class="nc" id="L112">			}</span>
+<span class="nc" id="L113">		}</span>
+<span class="nc" id="L114">		return ret;</span>
+	}
+
+    public Prerequisite parse(String prereqStr) throws PersistenceLayerException
+	{
+
+<span class="pc bpc" id="L120" title="1 of 4 branches missed.">		if ((prereqStr == null) || (prereqStr.length() &lt;= 0))</span>
+		{
+<span class="fc" id="L122">			throw new PersistenceLayerException(&quot;Null or empty PRE string&quot;);</span>
+		}
+
+<span class="fc" id="L125">		int index = prereqStr.indexOf(':');</span>
+<span class="fc bfc" id="L126" title="All 2 branches covered.">		if (index &lt; 0)</span>
+		{
+<span class="fc" id="L128">			throw new PersistenceLayerException(&quot;'&quot; + prereqStr + &quot;'&quot; + &quot; is a badly formatted prereq.&quot;);</span>
+		}
+
+<span class="fc" id="L131">		String kind = prereqStr.substring(0, index);</span>
+<span class="fc" id="L132">		String formula = prereqStr.substring(index + 1);</span>
+
+<span class="fc" id="L134">		boolean overrideQualify = false;</span>
+<span class="pc bpc" id="L135" title="1 of 2 branches missed.">		if (formula.startsWith(&quot;Q:&quot;))</span>
+		{
+<span class="nc" id="L137">			formula = formula.substring(2);</span>
+<span class="nc" id="L138">			overrideQualify = true;</span>
+		}
+
+<span class="fc" id="L141">		boolean invertResult = false;</span>
+<span class="fc bfc" id="L142" title="All 2 branches covered.">		if (kind.startsWith(&quot;!&quot;))</span>
+		{
+<span class="fc" id="L144">			invertResult = true;</span>
+<span class="fc" id="L145">			kind = kind.substring(1);</span>
+		}
+<span class="fc" id="L147">		kind = kind.substring(3);</span>
+<span class="fc" id="L148">		PrerequisiteParserInterface parser = getParser(kind);</span>
+<span class="fc bfc" id="L149" title="All 2 branches covered.">		if (parser == null)</span>
+		{
+<span class="fc" id="L151">			throw new PersistenceLayerException(&quot;Can not determine which parser to use for &quot; + &quot;'&quot; + prereqStr + &quot;'&quot;);</span>
+		}
+		try
+		{
+<span class="fc" id="L155">			Prerequisite prereq = parser.parse(kind, formula, invertResult, overrideQualify);</span>
+			//sanity check to make sure we have not got a top level element that
+			// is a PREMULT with only 1 element.
+<span class="fc bfc" id="L158" title="All 4 branches covered.">			while (prereq.getKind() == null &amp;&amp; prereq.getPrerequisiteCount() == 1</span>
+<span class="fc bfc" id="L159" title="All 4 branches covered.">				&amp;&amp; prereq.getOperator().equals(PrerequisiteOperator.GTEQ) &amp;&amp; prereq.getOperand().equals(&quot;1&quot;))</span>
+			{
+<span class="fc" id="L161">				Prerequisite sub = prereq.getPrerequisites().get(0);</span>
+<span class="fc" id="L162">				sub.setOriginalCheckmult(prereq.isOriginalCheckMult());</span>
+<span class="fc" id="L163">				prereq = sub;</span>
+<span class="fc" id="L164">			}</span>
+<span class="fc" id="L165">			return prereq;</span>
+		}
+<span class="fc" id="L167">		catch (Throwable t)</span>
+		{
+<span class="fc" id="L169">			throw new PersistenceLayerException(&quot;Cannot parse '&quot; + prereqStr + &quot;': &quot; + t.getMessage(), t);</span>
+		}
+	}
+
+	/**
+	 * Identify if the token passed in defines a prerequisite.
+	 *
+	 * @param token The token to be checked.
+	 * @return True if the string is a prereq string.
+	 */
+	public static boolean isPreReqString(String token)
+	{
+<span class="pc bpc" id="L181" title="1 of 6 branches missed.">		return (token.startsWith(&quot;PRE&quot;) || token.startsWith(&quot;!PRE&quot;)) &amp;&amp; (token.indexOf(':') &gt; 0);</span>
+	}
+
+	public static void clear()
+	{
+<span class="pc bpc" id="L186" title="1 of 2 branches missed.">		if (instance != null)</span>
+		{
+<span class="fc" id="L188">			instance.parserLookup.clear();</span>
+		}
+<span class="fc" id="L190">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

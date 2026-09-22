@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>JDynamicTable.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.gui2.util</a> &gt; <span class="el_source">JDynamicTable.java</span></div><h1>JDynamicTable.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2011 Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ * 
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ * 
+ */
+package pcgen.gui2.util;
+
+import java.awt.Container;
+import java.util.List;
+
+import javax.swing.JScrollPane;
+import javax.swing.JViewport;
+import javax.swing.ScrollPaneConstants;
+import javax.swing.event.TableColumnModelEvent;
+import javax.swing.table.TableColumn;
+import javax.swing.table.TableColumnModel;
+
+import pcgen.gui2.util.event.DynamicTableColumnModelListener;
+import pcgen.gui2.util.table.DynamicTableColumnModel;
+import pcgen.gui3.GuiUtility;
+
+import javafx.embed.swing.JFXPanel;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.control.Button;
+import javafx.scene.control.CheckMenuItem;
+import javafx.scene.control.ContextMenu;
+import javafx.scene.control.MenuItem;
+
+public class JDynamicTable extends JTableEx
+{
+
+<span class="nc" id="L46">	private final DynamicTableColumnModelListener listener = new DynamicTableColumnModelListener()</span>
+<span class="nc" id="L47">	{</span>
+
+		@Override
+		public void availableColumnAdded(TableColumnModelEvent event)
+		{
+<span class="nc" id="L52">			int index = event.getToIndex();</span>
+<span class="nc" id="L53">			TableColumn column = dynamicColumnModel.getAvailableColumns().get(index);</span>
+<span class="nc" id="L54">			menu.getItems().add(index, createMenuItem(column));</span>
+<span class="nc" id="L55">			cornerButton.setVisible(true);</span>
+<span class="nc" id="L56">		}</span>
+
+		@Override
+		public void availableColumnRemove(TableColumnModelEvent event)
+		{
+
+<span class="nc" id="L62">			menu.getItems().remove(event.getFromIndex());</span>
+<span class="nc bnc" id="L63" title="All 2 branches missed.">			if (menu.getItems().isEmpty())</span>
+			{
+<span class="nc" id="L65">				cornerButton.setVisible(false);</span>
+			}
+<span class="nc" id="L67">		}</span>
+
+	};
+	private final Button cornerButton;
+	private final JFXPanel wrappedCornerButton;
+<span class="nc" id="L72">	private DynamicTableColumnModel dynamicColumnModel = null;</span>
+<span class="nc" id="L73">	private final ContextMenu menu = new ContextMenu();</span>
+
+	public JDynamicTable()
+<span class="nc" id="L76">	{</span>
+<span class="nc" id="L77">		this.cornerButton = new JTableMenuButton(menu);</span>
+<span class="nc" id="L78">		this.wrappedCornerButton = GuiUtility.wrapParentAsJFXPanel(cornerButton);</span>
+<span class="nc" id="L79">	}</span>
+
+	@Override
+	protected void configureEnclosingScrollPane()
+	{
+<span class="nc" id="L84">		super.configureEnclosingScrollPane();</span>
+<span class="nc" id="L85">		Container p = getParent();</span>
+<span class="nc bnc" id="L86" title="All 2 branches missed.">		if (p instanceof JViewport)</span>
+		{
+<span class="nc" id="L88">			Container gp = p.getParent();</span>
+<span class="nc bnc" id="L89" title="All 2 branches missed.">			if (gp instanceof JScrollPane scrollPane)</span>
+			{
+				// Make certain we are the viewPort's view and not, for
+				// example, the rowHeaderView of the scrollPane -
+				// an implementor of fixed columns might do this.
+<span class="nc" id="L94">				JViewport viewport = scrollPane.getViewport();</span>
+<span class="nc bnc" id="L95" title="All 4 branches missed.">				if (viewport == null || viewport.getView() != this)</span>
+				{
+<span class="nc" id="L97">					return;</span>
+				}
+<span class="nc" id="L99">				scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);</span>
+<span class="nc" id="L100">				scrollPane.setCorner(</span>
+						ScrollPaneConstants.UPPER_TRAILING_CORNER,
+						wrappedCornerButton);
+			}
+		}
+<span class="nc" id="L105">	}</span>
+
+	@Override
+	protected void unconfigureEnclosingScrollPane()
+	{
+<span class="nc" id="L110">		super.unconfigureEnclosingScrollPane();</span>
+<span class="nc" id="L111">		Container p = getParent();</span>
+<span class="nc bnc" id="L112" title="All 2 branches missed.">		if (p instanceof JViewport)</span>
+		{
+<span class="nc" id="L114">			Container gp = p.getParent();</span>
+<span class="nc bnc" id="L115" title="All 2 branches missed.">			if (gp instanceof JScrollPane scrollPane)</span>
+			{
+				// Make certain we are the viewPort's view and not, for
+				// example, the rowHeaderView of the scrollPane -
+				// an implementor of fixed columns might do this.
+<span class="nc" id="L120">				JViewport viewport = scrollPane.getViewport();</span>
+<span class="nc bnc" id="L121" title="All 4 branches missed.">				if (viewport == null || viewport.getView() != this)</span>
+				{
+<span class="nc" id="L123">					return;</span>
+				}
+<span class="nc" id="L125">				scrollPane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER, null);</span>
+			}
+		}
+<span class="nc" id="L128">	}</span>
+
+	private MenuItem createMenuItem(TableColumn column)
+	{
+<span class="nc" id="L132">		CheckMenuItem item = new CheckMenuItem();</span>
+<span class="nc" id="L133">		boolean visible = dynamicColumnModel.isVisible(column);</span>
+<span class="nc" id="L134">		item.setSelected(visible);</span>
+<span class="nc" id="L135">		item.setOnAction(new MenuAction(column, visible));</span>
+<span class="nc" id="L136">		return item;</span>
+	}
+
+	@Override
+	public void setColumnModel(TableColumnModel columnModel)
+	{
+<span class="nc bnc" id="L142" title="All 2 branches missed.">		if (this.dynamicColumnModel != null)</span>
+		{
+<span class="nc" id="L144">			this.dynamicColumnModel.removeDynamicTableColumnModelListener(listener);</span>
+<span class="nc" id="L145">			cornerButton.setVisible(false);</span>
+		}
+<span class="nc" id="L147">		super.setColumnModel(columnModel);</span>
+<span class="nc" id="L148">	}</span>
+
+	public void setColumnModel(DynamicTableColumnModel columnModel)
+	{
+<span class="nc bnc" id="L152" title="All 2 branches missed.">		if (this.dynamicColumnModel != null)</span>
+		{
+<span class="nc" id="L154">			this.dynamicColumnModel.removeDynamicTableColumnModelListener(listener);</span>
+		}
+<span class="nc" id="L156">		this.dynamicColumnModel = columnModel;</span>
+<span class="nc" id="L157">		columnModel.addDynamicTableColumnModelListener(listener);</span>
+<span class="nc" id="L158">		super.setColumnModel(columnModel);</span>
+<span class="nc" id="L159">		List&lt;TableColumn&gt; columns = columnModel.getAvailableColumns();</span>
+<span class="nc" id="L160">		menu.getItems().clear();</span>
+<span class="nc bnc" id="L161" title="All 2 branches missed.">		if (!columns.isEmpty())</span>
+		{
+<span class="nc bnc" id="L163" title="All 2 branches missed.">			for (TableColumn column : columns)</span>
+			{
+<span class="nc" id="L165">				menu.getItems().add(createMenuItem(column));</span>
+<span class="nc" id="L166">			}</span>
+<span class="nc" id="L167">			cornerButton.setVisible(true);</span>
+		}
+		else
+		{
+<span class="nc" id="L171">			cornerButton.setVisible(false);</span>
+		}
+<span class="nc" id="L173">	}</span>
+
+	private final class MenuAction implements EventHandler&lt;ActionEvent&gt;
+	{
+
+		private boolean visible;
+		private final TableColumn column;
+
+		private MenuAction(TableColumn column, boolean visible)
+<span class="nc" id="L182">		{</span>
+<span class="nc" id="L183">			this.visible = visible;</span>
+<span class="nc" id="L184">			this.column = column;</span>
+<span class="nc" id="L185">		}</span>
+
+		@Override
+		public void handle(ActionEvent e)
+		{
+<span class="nc bnc" id="L190" title="All 2 branches missed.">			visible = !visible;</span>
+<span class="nc" id="L191">			dynamicColumnModel.setVisible(column, visible);</span>
+<span class="nc" id="L192">		}</span>
+
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

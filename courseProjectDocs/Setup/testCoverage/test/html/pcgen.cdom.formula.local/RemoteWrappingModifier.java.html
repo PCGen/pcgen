@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RemoteWrappingModifier.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.formula.local</a> &gt; <span class="el_source">RemoteWrappingModifier.java</span></div><h1>RemoteWrappingModifier.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2018 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or modify it under the terms
+ * of the GNU Lesser General Public License as published by the Free Software Foundation;
+ * either version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful, but WITHOUT ANY
+ * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+ * PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License along with
+ * this library; if not, write to the Free Software Foundation, Inc., 59 Temple Place,
+ * Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.cdom.formula.local;
+
+import java.util.Objects;
+
+import pcgen.cdom.calculation.FormulaModifier;
+import pcgen.base.formula.base.DependencyManager;
+import pcgen.base.formula.base.EvaluationManager;
+import pcgen.base.formula.base.FormulaSemantics;
+import pcgen.base.formula.base.FunctionLibrary;
+import pcgen.base.formula.base.VarScoped;
+import pcgen.base.formula.exception.SemanticsException;
+import pcgen.base.solver.Modifier;
+import pcgen.base.util.FormatManager;
+
+/**
+ * A RemoteWrappingModifier wraps a FormulaModifier and projects it to the formula system
+ * as a Modifier, while also inserting any new formula system functions supported by the
+ * given java.util.function.Function.
+ *
+ * @param &lt;T&gt;
+ *            The format that this RemoteWrappingModifier acts upon
+ */
+public class RemoteWrappingModifier&lt;T&gt; implements Modifier&lt;T&gt;
+{
+	/**
+	 * The underlying FormulaModifier.
+	 */
+	private final FormulaModifier&lt;T&gt; modifier;
+
+	/**
+	 * The value of the source() function.
+	 */
+	private final VarScoped sourceValue;
+
+	/**
+	 * The value of the target() function.
+	 */
+	private final VarScoped targetValue;
+
+	/**
+	 * The FormatManager indicating the format of the return value for the source()
+	 * function of RemoteWrappingModifier.
+	 */
+	private final FormatManager&lt;?&gt; sourceFormatManager;
+
+	/**
+	 * The FormatManager indicating the format of the return value for the target()
+	 * function of RemoteWrappingModifier.
+	 */
+	private final FormatManager&lt;?&gt; targetFormatManager;
+
+	/**
+	 * Constructs a new RemoteWrappingModifier for the given FormulaModifier and Function.
+	 *
+	 * @param modifier
+	 *            The underlying FormulaModifier
+	 * @param sourceValue
+	 *            The value of the source() function
+	 * @param sourceFormatManager
+	 *            The FormatManager indicating the format of the return value for the
+	 *            source() function
+	 * @param targetValue
+	 *            The value of the target() function
+	 * @param targetFormatManager
+	 *            The FormatManager indicating the format of the return value for the
+	 *            target() function
+	 */
+	public RemoteWrappingModifier(FormulaModifier&lt;T&gt; modifier, VarScoped sourceValue,
+		FormatManager&lt;?&gt; sourceFormatManager, VarScoped targetValue, FormatManager&lt;?&gt; targetFormatManager)
+<span class="nc" id="L85">	{</span>
+<span class="nc" id="L86">		this.modifier = Objects.requireNonNull(modifier);</span>
+<span class="nc" id="L87">		this.sourceValue = Objects.requireNonNull(sourceValue);</span>
+<span class="nc" id="L88">		this.sourceFormatManager = Objects.requireNonNull(sourceFormatManager);</span>
+<span class="nc" id="L89">		this.targetValue = Objects.requireNonNull(targetValue);</span>
+<span class="nc" id="L90">		this.targetFormatManager = Objects.requireNonNull(targetFormatManager);</span>
+<span class="nc" id="L91">	}</span>
+
+	@Override
+	public T process(EvaluationManager manager)
+	{
+<span class="nc" id="L96">		FunctionLibrary functionLib = manager.get(EvaluationManager.FUNCTION);</span>
+<span class="nc" id="L97">		functionLib = new RemoteWrappingLibrary(functionLib, sourceValue, sourceFormatManager, targetValue,</span>
+			targetFormatManager);
+<span class="nc" id="L99">		return modifier.process(manager.getWith(EvaluationManager.FUNCTION, functionLib));</span>
+	}
+
+	@Override
+	public void captureDependencies(DependencyManager fdm)
+	{
+<span class="nc" id="L105">		FunctionLibrary functionLib = fdm.get(DependencyManager.FUNCTION);</span>
+<span class="nc" id="L106">		functionLib = new RemoteWrappingLibrary(functionLib, sourceValue, sourceFormatManager, targetValue,</span>
+			targetFormatManager);
+<span class="nc" id="L108">		modifier.getDependencies(fdm.getWith(DependencyManager.FUNCTION, functionLib));</span>
+<span class="nc" id="L109">	}</span>
+
+	@Override
+	public void isValid(FormulaSemantics semantics) throws SemanticsException
+	{
+<span class="nc" id="L114">		FunctionLibrary functionLib = semantics.get(FormulaSemantics.FUNCTION);</span>
+<span class="nc" id="L115">		functionLib = new RemoteWrappingLibrary(functionLib, sourceValue, sourceFormatManager, targetValue,</span>
+			targetFormatManager);
+<span class="nc" id="L117">		modifier.isValid(semantics.getWith(FormulaSemantics.FUNCTION, functionLib));</span>
+<span class="nc" id="L118">	}</span>
+
+	@Override
+	public long getPriority()
+	{
+<span class="nc" id="L123">		return modifier.getPriority();</span>
+	}
+
+	@Override
+	public FormatManager&lt;T&gt; getVariableFormat()
+	{
+<span class="nc" id="L129">		return modifier.getVariableFormat();</span>
+	}
+
+	@Override
+	public String getIdentification()
+	{
+<span class="nc" id="L135">		return modifier.getIdentification();</span>
+	}
+
+	@Override
+	public String getInstructions()
+	{
+<span class="nc" id="L141">		return modifier.getInstructions();</span>
+	}
+
+	@Override
+	public int hashCode()
+	{
+<span class="nc" id="L147">		return (31 * modifier.hashCode() + sourceValue.hashCode()) * 31 + targetValue.hashCode();</span>
+	}
+
+	@Override
+	public boolean equals(Object obj)
+	{
+<span class="nc bnc" id="L153" title="All 2 branches missed.">		if (obj instanceof RemoteWrappingModifier&lt;?&gt; other)</span>
+		{
+<span class="nc bnc" id="L155" title="All 4 branches missed.">			return modifier.equals(other.modifier) &amp;&amp; sourceValue.equals(other.sourceValue)</span>
+<span class="nc bnc" id="L156" title="All 4 branches missed.">				&amp;&amp; sourceFormatManager.equals(other.sourceFormatManager) &amp;&amp; targetValue.equals(other.targetValue)</span>
+<span class="nc bnc" id="L157" title="All 2 branches missed.">				&amp;&amp; targetFormatManager.equals(other.targetFormatManager);</span>
+		}
+<span class="nc" id="L159">		return false;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

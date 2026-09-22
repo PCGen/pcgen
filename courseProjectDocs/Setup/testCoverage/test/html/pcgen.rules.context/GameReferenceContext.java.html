@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GameReferenceContext.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.rules.context</a> &gt; <span class="el_source">GameReferenceContext.java</span></div><h1>GameReferenceContext.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2007 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.rules.context;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+
+import pcgen.cdom.base.BasicClassIdentity;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Categorized;
+import pcgen.cdom.base.ClassIdentity;
+import pcgen.cdom.base.Loadable;
+import pcgen.cdom.reference.ManufacturableFactory;
+import pcgen.cdom.reference.ReferenceManufacturer;
+import pcgen.cdom.reference.SimpleReferenceManufacturer;
+import pcgen.cdom.reference.TransparentFactory;
+import pcgen.cdom.reference.UnconstructedValidator;
+
+/**
+ * The Class {@code GameReferenceContext} is a ReferenceContext which is
+ * capable of delegating its transparent references to references built later 
+ * in the process.  Transparent references are a new concept, they are basically 
+ * references that allow later resolution to other references (meaning in the 
+ * long run, they delegate to another reference of the same general type, though 
+ * they can be created before the delegate target is created)
+ *
+ * 
+ */
+public final class GameReferenceContext extends AbstractReferenceContext
+{
+<span class="fc" id="L48">	private final Map&lt;String, ReferenceManufacturer&lt;?&gt;&gt; mapByPers = new HashMap&lt;&gt;();</span>
+
+	private GameReferenceContext()
+<span class="fc" id="L51">	{</span>
+<span class="fc" id="L52">	}</span>
+
+	@Override
+	public &lt;T extends Loadable&gt; ReferenceManufacturer&lt;T&gt; getManufacturer(Class&lt;T&gt; cl)
+	{
+<span class="pc bpc" id="L57" title="1 of 2 branches missed.">		if (Categorized.class.isAssignableFrom(cl))</span>
+		{
+<span class="nc" id="L59">			throw new InternalError(cl + &quot; is categorized but was fetched without a category&quot;);</span>
+		}
+<span class="fc" id="L61">		ClassIdentity&lt;T&gt; identity = BasicClassIdentity.getIdentity(cl);</span>
+<span class="fc" id="L62">		return getManufacturerId(identity);</span>
+	}
+
+	@Override
+	protected &lt;T extends Loadable&gt; ReferenceManufacturer&lt;T&gt; constructReferenceManufacturer(ClassIdentity&lt;T&gt; identity)
+	{
+<span class="nc" id="L68">		return new SimpleReferenceManufacturer&lt;&gt;(</span>
+<span class="nc" id="L69">			new TransparentFactory&lt;&gt;(identity.getPersistentFormat(), identity.getReferenceClass()));</span>
+	}
+
+	@Override
+	public Collection&lt;ReferenceManufacturer&lt;?&gt;&gt; getAllManufacturers()
+	{
+<span class="fc" id="L75">		return new ArrayList&lt;&gt;(mapByPers.values());</span>
+	}
+
+	@Override
+	public boolean validate(UnconstructedValidator validator)
+	{
+<span class="nc" id="L81">		return true;</span>
+	}
+
+	@Override
+	&lt;T extends CDOMObject&gt; T performCopy(T obj, String copyName)
+	{
+<span class="nc" id="L87">		throw new UnsupportedOperationException(&quot;GameReferenceContext cannot copy objects&quot;);</span>
+	}
+
+	@Override
+	public &lt;T extends CDOMObject&gt; T performMod(T obj)
+	{
+<span class="nc" id="L93">		throw new UnsupportedOperationException(&quot;GameReferenceContext cannot mod objects&quot;);</span>
+	}
+
+	@Override
+	public &lt;T extends Loadable&gt; boolean hasManufacturer(ClassIdentity&lt;T&gt; cl)
+	{
+<span class="nc" id="L99">		return false;</span>
+	}
+
+	@Override
+	public &lt;T extends Loadable&gt; ReferenceManufacturer&lt;T&gt; getManufacturerFac(ManufacturableFactory&lt;T&gt; factory)
+	{
+<span class="nc" id="L105">		throw new UnsupportedOperationException(&quot;GameReferenceContext cannot provide a factory based manufacturer&quot;);</span>
+	}
+
+	/**
+	 * Return a new GameReferenceContext. This ReferenceContext is initialized as per
+	 * the rules of AbstractReferenceContext.
+	 * 
+	 * @return A new GameReferenceContext
+	 */
+	public static GameReferenceContext createGameReferenceContext()
+	{
+<span class="fc" id="L116">		GameReferenceContext context = new GameReferenceContext();</span>
+<span class="fc" id="L117">		context.initialize();</span>
+<span class="fc" id="L118">		return context;</span>
+	}
+
+	@Override
+	public &lt;T extends Loadable&gt; ReferenceManufacturer&lt;T&gt; getManufacturerId(ClassIdentity&lt;T&gt; identity)
+	{
+<span class="fc" id="L124">		String persistent = identity.getPersistentFormat();</span>
+<span class="fc" id="L125">		return getManufacturerByFormatName(persistent, identity.getReferenceClass());</span>
+	}
+
+	@Override
+	public &lt;T extends Loadable&gt; ReferenceManufacturer&lt;T&gt; getManufacturerByFormatName(String formatName,
+		Class&lt;T&gt; refClass)
+	{
+		@SuppressWarnings(&quot;unchecked&quot;)
+<span class="fc" id="L133">		ReferenceManufacturer&lt;T&gt; mfg = (ReferenceManufacturer&lt;T&gt;) mapByPers.get(formatName);</span>
+<span class="fc bfc" id="L134" title="All 2 branches covered.">		if (mfg == null)</span>
+		{
+<span class="fc" id="L136">			mfg = new SimpleReferenceManufacturer&lt;&gt;(new TransparentFactory&lt;&gt;(formatName, refClass));</span>
+<span class="fc" id="L137">			mapByPers.put(formatName, mfg);</span>
+		}
+<span class="fc" id="L139">		return mfg;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

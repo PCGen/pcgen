@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CharacterSheetInfoTab.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.gui2.tabs</a> &gt; <span class="el_source">CharacterSheetInfoTab.java</span></div><h1>CharacterSheetInfoTab.java</h1><pre class="source lang-java linenums">/**
+ * CharacterSheetInfoTab.java Copyright James Dempsey, 2010
+ *
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ *
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ **/
+package pcgen.gui2.tabs;
+
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.io.File;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Locale;
+import java.util.stream.Collectors;
+
+import javax.swing.Box;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+
+import pcgen.core.GameMode;
+import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.core.EquipmentSetFacade;
+import pcgen.facade.core.TempBonusFacade;
+import pcgen.facade.util.ListFacades;
+import pcgen.facade.util.event.ListEvent;
+import pcgen.facade.util.event.ListListener;
+import pcgen.facade.util.event.ReferenceEvent;
+import pcgen.facade.util.event.ReferenceListener;
+import pcgen.gui2.csheet.CharacterSheetPanel;
+import pcgen.gui2.filter.Filter;
+import pcgen.gui2.filter.FilteredListFacadeTableModel;
+import pcgen.gui2.tools.FlippingSplitPane;
+import pcgen.gui2.util.DisplayAwareTab;
+import pcgen.gui2.util.table.TableUtils;
+import pcgen.gui3.GuiAssertions;
+import pcgen.gui3.GuiUtility;
+import pcgen.system.ConfigurationSettings;
+import pcgen.system.LanguageBundle;
+import pcgen.util.Logging;
+import pcgen.util.enumeration.Tab;
+
+import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.scene.control.ComboBox;
+import javafx.util.StringConverter;
+
+/**
+ * The Class {@code CharacterSheetInfoTab} is a placeholder for the
+ * character sheet tab.
+ */
+public class CharacterSheetInfoTab extends FlippingSplitPane implements CharacterInfoTab, DisplayAwareTab
+{
+<span class="nc" id="L70">	private final TabTitle tabTitle = new TabTitle(Tab.CHARACTERSHEET);</span>
+	private final CharacterSheetPanel csheet;
+	private final ComboBox&lt;File&gt; sheetBox;
+	private final JTable equipSetTable;
+	private final JTable tempBonusTable;
+	private final JTable tempBonusRowTable;
+	private final JTable equipSetRowTable;
+
+
+	/**
+	 * Create a new instance of CharacterSheetInfoTab
+	 */
+	@SuppressWarnings(&quot;serial&quot;)
+	public CharacterSheetInfoTab()
+<span class="nc" id="L84">	{</span>
+<span class="nc" id="L85">		this.csheet = new CharacterSheetPanel();</span>
+<span class="nc" id="L86">		this.sheetBox = new ComboBox&lt;&gt;();</span>
+<span class="nc" id="L87">		this.equipSetTable = TableUtils.createDefaultTable();</span>
+<span class="nc" id="L88">		this.equipSetRowTable = TableUtils.createDefaultTable();</span>
+<span class="nc" id="L89">		this.tempBonusTable = TableUtils.createDefaultTable();</span>
+<span class="nc" id="L90">		this.tempBonusRowTable = TableUtils.createDefaultTable();</span>
+<span class="nc" id="L91">		setOneTouchExpandable(true);</span>
+
+<span class="nc" id="L93">		JPanel panel = new JPanel(new BorderLayout());</span>
+<span class="nc" id="L94">		Box box = Box.createHorizontalBox();</span>
+<span class="nc" id="L95">		box.add(new JLabel(LanguageBundle.getString(&quot;in_character_sheet_label&quot;))); //$NON-NLS-1$</span>
+
+		// todo: make this into a proper component
+<span class="nc" id="L98">		sheetBox.setConverter(new StringConverter&lt;&gt;()</span>
+<span class="nc" id="L99">		{</span>
+			@Override
+			public String toString(final File file)
+			{
+<span class="nc bnc" id="L103" title="All 2 branches missed.">				if (file == null)</span>
+				{
+<span class="nc" id="L105">					return &quot;&quot;;</span>
+				}
+<span class="nc" id="L107">				return file.getName();</span>
+			}
+
+			@Override
+			public File fromString(final String input)
+			{
+<span class="nc bnc" id="L113" title="All 2 branches missed.">				if (input == null)</span>
+				{
+<span class="nc" id="L115">					return null;</span>
+				}
+<span class="nc" id="L117">				return new File(input);</span>
+			}
+		});
+
+<span class="nc" id="L121">		box.add(GuiUtility.wrapParentAsJFXPanel(sheetBox));</span>
+<span class="nc" id="L122">		panel.add(box, BorderLayout.NORTH);</span>
+<span class="nc" id="L123">		FlippingSplitPane subPane = new FlippingSplitPane();</span>
+<span class="nc" id="L124">		subPane.setOrientation(VERTICAL_SPLIT);</span>
+<span class="nc" id="L125">		equipSetTable.getTableHeader().setReorderingAllowed(false);</span>
+<span class="nc" id="L126">		JScrollPane pane = TableUtils.createRadioBoxSelectionPane(equipSetTable, equipSetRowTable);</span>
+<span class="nc" id="L127">		pane.setPreferredSize(new Dimension(200, 100));</span>
+<span class="nc" id="L128">		subPane.setTopComponent(pane);</span>
+
+<span class="nc" id="L130">		tempBonusTable.getTableHeader().setReorderingAllowed(false);</span>
+<span class="nc" id="L131">		pane = TableUtils.createCheckBoxSelectionPane(tempBonusTable, tempBonusRowTable);</span>
+<span class="nc" id="L132">		pane.setPreferredSize(new Dimension(200, 100));</span>
+<span class="nc" id="L133">		subPane.setBottomComponent(pane);</span>
+<span class="nc" id="L134">		panel.add(subPane, BorderLayout.CENTER);</span>
+<span class="nc" id="L135">		panel.setPreferredSize(panel.getMinimumSize());</span>
+<span class="nc" id="L136">		setLeftComponent(panel);</span>
+
+<span class="nc" id="L138">		csheet.setPreferredSize(new Dimension(600, 300));</span>
+<span class="nc" id="L139">		setRightComponent(csheet);</span>
+
+<span class="nc" id="L141">	}</span>
+
+	@Override
+	public ModelMap createModels(CharacterFacade character)
+	{
+<span class="nc" id="L146">		ModelMap models = new ModelMap();</span>
+<span class="nc" id="L147">		models.put(BoxHandler.class, new BoxHandler(character));</span>
+<span class="nc" id="L148">		models.put(CSheetHandler.class, new CSheetHandler(character));</span>
+<span class="nc" id="L149">		models.put(TempBonusTableModel.class, new TempBonusTableModel(character));</span>
+<span class="nc" id="L150">		models.put(EquipSetTableModel.class, new EquipSetTableModel(character));</span>
+<span class="nc" id="L151">		return models;</span>
+	}
+
+	@Override
+	public void restoreModels(ModelMap models)
+	{
+<span class="nc" id="L157">		models.get(BoxHandler.class).install();</span>
+<span class="nc" id="L158">		models.get(CSheetHandler.class).install();</span>
+<span class="nc" id="L159">		EquipSetTableModel equipSetModel = models.get(EquipSetTableModel.class);</span>
+<span class="nc" id="L160">		equipSetTable.setModel(equipSetModel);</span>
+<span class="nc" id="L161">		equipSetRowTable.setModel(equipSetModel);</span>
+<span class="nc" id="L162">		TempBonusTableModel tempBonusModel = models.get(TempBonusTableModel.class);</span>
+<span class="nc" id="L163">		tempBonusTable.setModel(tempBonusModel);</span>
+<span class="nc" id="L164">		tempBonusRowTable.setModel(tempBonusModel);</span>
+<span class="nc" id="L165">	}</span>
+
+	@Override
+	public void storeModels(ModelMap models)
+	{
+<span class="nc" id="L170">		models.get(CSheetHandler.class).uninstall();</span>
+<span class="nc" id="L171">	}</span>
+
+	@Override
+	public TabTitle getTabTitle()
+	{
+<span class="nc" id="L176">		return tabTitle;</span>
+	}
+
+	@Override
+	public void tabSelected()
+	{
+		// Refresh the character sheet as we have been displayed.
+<span class="nc" id="L183">		csheet.refresh();</span>
+<span class="nc" id="L184">	}</span>
+
+	private final class BoxHandler
+	{
+
+		/**
+		 * Prefs key for the character sheet for a game mode.
+		 */
+		private final CharacterFacade character;
+		private final ObservableList&lt;File&gt; sheetBoxItems;
+
+		private BoxHandler(CharacterFacade character)
+<span class="nc" id="L196">		{</span>
+<span class="nc" id="L197">			GuiAssertions.assertIsNotJavaFXThread();</span>
+<span class="nc bnc" id="L198" title="All 2 branches missed.">			if (character==null)</span>
+			{
+<span class="nc" id="L200">			    Logging.errorPrint(&quot;Not expecting a null character in CharacterSheetInfoTab BoxHandler&quot;);</span>
+            }
+<span class="nc" id="L202">			this.character = character;</span>
+			// This is the model for ComboBox
+<span class="nc" id="L204">			this.sheetBoxItems = FXCollections.observableArrayList();</span>
+<span class="nc" id="L205">			GameMode game = character.getDataSet().getGameMode();</span>
+<span class="nc" id="L206">			String previewDir = ConfigurationSettings.getPreviewDir();</span>
+<span class="nc" id="L207">			File sheetDir = new File(previewDir, game.getCharSheetDir());</span>
+<span class="nc bnc" id="L208" title="All 4 branches missed.">			if (sheetDir.exists() &amp;&amp; sheetDir.isDirectory())</span>
+			{
+<span class="nc bnc" id="L210" title="All 4 branches missed.">				File[] files = sheetDir.listFiles(pathname -&gt; pathname.isFile() &amp;&amp; !pathname.isHidden());</span>
+<span class="nc bnc" id="L211" title="All 2 branches missed.">				if (files == null)</span>
+				{
+<span class="nc" id="L213">					sheetBoxItems.clear();</span>
+				}
+				else
+				{
+<span class="nc" id="L217">					List&lt;File&gt; fileAsList =</span>
+<span class="nc" id="L218">							Arrays.stream(files)</span>
+<span class="nc" id="L219">		                          .sorted(Comparator.comparing(file -&gt; file.toString()</span>
+<span class="nc" id="L220">		                                                                 .toLowerCase(Locale.getDefault())))</span>
+<span class="nc" id="L221">		                          .collect(Collectors.toList());</span>
+<span class="nc" id="L222">					sheetBoxItems.setAll(fileAsList);</span>
+				}
+
+
+<span class="nc" id="L226">				File file = null;</span>
+<span class="nc" id="L227">				String previewSheet = character.getPreviewSheetRef().toString();</span>
+<span class="nc bnc" id="L228" title="All 2 branches missed.">				if (previewSheet == null)</span>
+				{
+<span class="nc" id="L230">					previewSheet = game.getDefaultCharSheet();</span>
+				}
+<span class="nc bnc" id="L232" title="All 2 branches missed.">				if (previewSheet != null)</span>
+				{
+<span class="nc" id="L234">					file = new File(sheetDir, previewSheet);</span>
+<span class="nc bnc" id="L235" title="All 2 branches missed.">					if (!file.isFile())</span>
+					{
+<span class="nc" id="L237">						Logging.errorPrint(&quot;Invalid Character Sheet: &quot; + file.getAbsolutePath()); //$NON-NLS-1$</span>
+					}
+				}
+<span class="nc bnc" id="L240" title="All 6 branches missed.">				if ((file == null || !file.isFile()) &amp;&amp; game.getDefaultCharSheet() != null)</span>
+				{
+<span class="nc" id="L242">					file = new File(sheetDir, game.getDefaultCharSheet());</span>
+				}
+<span class="nc" id="L244">				File finalFile = file;</span>
+<span class="nc" id="L245">				Platform.runLater(() -&gt; sheetBox.getSelectionModel().select(finalFile));</span>
+<span class="nc" id="L246">			}</span>
+			else
+			{
+<span class="nc" id="L249">				sheetBoxItems.clear();</span>
+			}
+<span class="nc" id="L251">		}</span>
+
+		void install()
+		{
+<span class="nc" id="L255">			GuiAssertions.assertIsNotJavaFXThread();</span>
+<span class="nc" id="L256">			sheetBox.setOnAction(this::onSelectedCharSheet);</span>
+
+<span class="nc" id="L258">			Platform.runLater(() -&gt; {</span>
+<span class="nc" id="L259">				csheet.setCharacterSheet(sheetBox.getSelectionModel().getSelectedItem());</span>
+<span class="nc" id="L260">				sheetBox.setItems(sheetBoxItems);</span>
+<span class="nc" id="L261">			});</span>
+<span class="nc" id="L262">		}</span>
+
+		private void onSelectedCharSheet(final ActionEvent actionEvent)
+		{
+<span class="nc" id="L266">			GuiAssertions.assertIsJavaFXThread();</span>
+<span class="nc" id="L267">			File outputSheet = sheetBox.getSelectionModel().getSelectedItem();</span>
+<span class="nc" id="L268">			csheet.setCharacterSheet(outputSheet);</span>
+<span class="nc" id="L269">			csheet.refresh();</span>
+<span class="nc bnc" id="L270" title="All 2 branches missed.">			if (outputSheet!=null)</span>
+			{
+<span class="nc" id="L272">				character.setPreviewSheet(outputSheet.getName());</span>
+			}
+<span class="nc" id="L274">		}</span>
+
+	}
+
+	private class CSheetHandler implements ListListener&lt;Object&gt;, ReferenceListener&lt;Object&gt;
+	{
+
+		private final CharacterFacade character;
+
+		CSheetHandler(CharacterFacade character)
+<span class="nc" id="L284">		{</span>
+<span class="nc" id="L285">			this.character = character;</span>
+<span class="nc" id="L286">		}</span>
+
+		void install()
+		{
+<span class="nc" id="L290">			csheet.setCharacter(character);</span>
+<span class="nc" id="L291">		}</span>
+
+		void uninstall()
+		{
+<span class="nc" id="L295">		}</span>
+
+		@Override
+		public void elementAdded(ListEvent&lt;Object&gt; e)
+		{
+<span class="nc" id="L300">			csheet.refresh();</span>
+<span class="nc" id="L301">		}</span>
+
+		@Override
+		public void elementRemoved(ListEvent&lt;Object&gt; e)
+		{
+<span class="nc" id="L306">			csheet.refresh();</span>
+<span class="nc" id="L307">		}</span>
+
+		@Override
+		public void elementsChanged(ListEvent&lt;Object&gt; e)
+		{
+<span class="nc" id="L312">			csheet.refresh();</span>
+<span class="nc" id="L313">		}</span>
+
+		@Override
+		public void referenceChanged(ReferenceEvent&lt;Object&gt; e)
+		{
+<span class="nc" id="L318">			csheet.refresh();</span>
+<span class="nc" id="L319">		}</span>
+
+		@Override
+		public void elementModified(ListEvent&lt;Object&gt; e)
+		{
+<span class="nc" id="L324">			csheet.refresh();</span>
+<span class="nc" id="L325">		}</span>
+
+	}
+
+	private class TempBonusTableModel extends FilteredListFacadeTableModel&lt;TempBonusFacade&gt;
+			implements Filter&lt;CharacterFacade, TempBonusFacade&gt;
+	{
+
+		/**
+		 * Version for serialisation.
+		 */
+		private static final long serialVersionUID = -2157540968522498242L;
+
+<span class="nc" id="L338">		private final ListListener&lt;TempBonusFacade&gt; listener = new ListListener&lt;&gt;()</span>
+<span class="nc" id="L339">		{</span>
+
+			@Override
+			public void elementAdded(ListEvent&lt;TempBonusFacade&gt; e)
+			{
+<span class="nc" id="L344">				int index = ListFacades.wrap(sortedList).indexOf(e.getElement());</span>
+<span class="nc" id="L345">				TempBonusTableModel.this.fireTableCellUpdated(index, -1);</span>
+<span class="nc" id="L346">			}</span>
+
+			@Override
+			public void elementRemoved(ListEvent&lt;TempBonusFacade&gt; e)
+			{
+<span class="nc" id="L351">				int index = ListFacades.wrap(sortedList).indexOf(e.getElement());</span>
+<span class="nc" id="L352">				TempBonusTableModel.this.fireTableCellUpdated(index, -1);</span>
+<span class="nc" id="L353">			}</span>
+
+			@Override
+			public void elementsChanged(ListEvent&lt;TempBonusFacade&gt; e)
+			{
+<span class="nc" id="L358">				TempBonusTableModel.this.fireTableRowsUpdated(0, sortedList.getSize() - 1);</span>
+<span class="nc" id="L359">			}</span>
+
+			@Override
+			public void elementModified(ListEvent&lt;TempBonusFacade&gt; e)
+			{
+<span class="nc" id="L364">			}</span>
+
+		};
+
+		TempBonusTableModel(CharacterFacade character)
+<span class="nc" id="L369">		{</span>
+<span class="nc" id="L370">			super(character);</span>
+<span class="nc" id="L371">			setDelegate(character.getTempBonuses());</span>
+<span class="nc" id="L372">			setFilter(this);</span>
+<span class="nc" id="L373">			character.getTempBonuses().addListListener(listener);</span>
+<span class="nc" id="L374">		}</span>
+
+		@Override
+		public Class&lt;?&gt; getColumnClass(int columnIndex)
+		{
+<span class="nc bnc" id="L379" title="All 2 branches missed.">			if (columnIndex == -1)</span>
+			{
+<span class="nc" id="L381">				return Boolean.class;</span>
+			}
+<span class="nc" id="L383">			return super.getColumnClass(columnIndex);</span>
+		}
+
+		@Override
+		protected Object getValueAt(TempBonusFacade element, int column)
+		{
+<span class="nc bnc" id="L389" title="All 3 branches missed.">			return switch (column)</span>
+					{
+<span class="nc" id="L391">						case -1 -&gt; element.isActive();</span>
+<span class="nc" id="L392">						case 0 -&gt; element;</span>
+<span class="nc" id="L393">						default -&gt; null;</span>
+					};
+		}
+
+		@Override
+		public int getColumnCount()
+		{
+<span class="nc" id="L400">			return 1;</span>
+		}
+
+		@Override
+		public String getColumnName(int column)
+		{
+<span class="nc bnc" id="L406" title="All 2 branches missed.">			if (column == 0)</span>
+			{
+<span class="nc" id="L408">				return LanguageBundle.getString(&quot;in_InfoTempMod&quot;); //$NON-NLS-1$</span>
+			}
+<span class="nc" id="L410">			return null;</span>
+		}
+
+		@Override
+		public void setValueAt(Object aValue, int rowIndex, int columnIndex)
+		{
+<span class="nc" id="L416">			TempBonusFacade bonus = sortedList.getElementAt(rowIndex);</span>
+<span class="nc bnc" id="L417" title="All 2 branches missed.">			character.setTempBonusActive(bonus, aValue == Boolean.TRUE);</span>
+<span class="nc" id="L418">			csheet.refresh();</span>
+<span class="nc" id="L419">		}</span>
+
+		@Override
+		public boolean isCellEditable(int rowIndex, int columnIndex)
+		{
+<span class="nc bnc" id="L424" title="All 2 branches missed.">			return columnIndex &lt; 0;</span>
+		}
+
+		@Override
+		public boolean accept(CharacterFacade context, TempBonusFacade element)
+		{
+<span class="nc" id="L430">			return true;</span>
+		}
+
+	}
+
+	private class EquipSetTableModel extends FilteredListFacadeTableModel&lt;EquipmentSetFacade&gt;
+			implements ReferenceListener&lt;EquipmentSetFacade&gt;, Filter&lt;CharacterFacade, EquipmentSetFacade&gt;
+	{
+
+		/**
+		 * Version for serialisation.
+		 */
+		private static final long serialVersionUID = 5028006226606996671L;
+
+		EquipSetTableModel(CharacterFacade character)
+<span class="nc" id="L445">		{</span>
+<span class="nc" id="L446">			super(character);</span>
+<span class="nc" id="L447">			character.getEquipmentSetRef().addReferenceListener(this);</span>
+<span class="nc" id="L448">			setDelegate(character.getEquipmentSets());</span>
+<span class="nc" id="L449">			setFilter(this);</span>
+<span class="nc" id="L450">		}</span>
+
+		@Override
+		public Class&lt;?&gt; getColumnClass(int columnIndex)
+		{
+<span class="nc bnc" id="L455" title="All 2 branches missed.">			if (columnIndex == -1)</span>
+			{
+<span class="nc" id="L457">				return Boolean.class;</span>
+			}
+<span class="nc" id="L459">			return super.getColumnClass(columnIndex);</span>
+		}
+
+		@Override
+		protected Object getValueAt(EquipmentSetFacade element, int column)
+		{
+<span class="nc bnc" id="L465" title="All 3 branches missed.">			return switch (column)</span>
+					{
+<span class="nc bnc" id="L467" title="All 2 branches missed.">						case -1 -&gt; character.getEquipmentSetRef().get() == element;</span>
+<span class="nc" id="L468">						case 0 -&gt; element;</span>
+<span class="nc" id="L469">						default -&gt; null;</span>
+					};
+		}
+
+		@Override
+		public int getColumnCount()
+		{
+<span class="nc" id="L476">			return 1;</span>
+		}
+
+		@Override
+		public String getColumnName(int column)
+		{
+<span class="nc bnc" id="L482" title="All 2 branches missed.">			if (column == 0)</span>
+			{
+<span class="nc" id="L484">				return LanguageBundle.getString(&quot;in_csEquipSets&quot;); //$NON-NLS-1$</span>
+			}
+<span class="nc" id="L486">			return null;</span>
+		}
+
+		@Override
+		public boolean isCellEditable(int rowIndex, int columnIndex)
+		{
+<span class="nc bnc" id="L492" title="All 2 branches missed.">			return columnIndex &lt; 0;</span>
+		}
+
+		@Override
+		public void setValueAt(Object aValue, int rowIndex, int columnIndex)
+		{
+<span class="nc" id="L498">			EquipmentSetFacade eqset = sortedList.getElementAt(rowIndex);</span>
+<span class="nc" id="L499">			character.setEquipmentSet(eqset);</span>
+<span class="nc" id="L500">			csheet.refresh();</span>
+<span class="nc" id="L501">		}</span>
+
+		@Override
+		public void referenceChanged(ReferenceEvent&lt;EquipmentSetFacade&gt; e)
+		{
+<span class="nc" id="L506">			fireTableRowsUpdated(0, character.getEquipmentSets().getSize() - 1);</span>
+<span class="nc" id="L507">		}</span>
+
+		@Override
+		public boolean accept(CharacterFacade context, EquipmentSetFacade element)
+		{
+<span class="nc" id="L512">			return true;</span>
+		}
+
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

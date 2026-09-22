@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FilteredListFacade.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.gui2.filter</a> &gt; <span class="el_source">FilteredListFacade.java</span></div><h1>FilteredListFacade.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2011 Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ * 
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ * 
+ */
+package pcgen.gui2.filter;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import pcgen.facade.util.AbstractListFacade;
+import pcgen.facade.util.ListFacade;
+import pcgen.facade.util.event.ListEvent;
+import pcgen.facade.util.event.ListListener;
+
+<span class="nc" id="L29">public class FilteredListFacade&lt;C, E&gt; extends AbstractListFacade&lt;E&gt; implements ListListener&lt;E&gt;</span>
+{
+
+<span class="nc" id="L32">	private final List&lt;E&gt; data = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L33">	private ListFacade&lt;E&gt; delegate = null;</span>
+<span class="nc" id="L34">	private Filter&lt;? super C, ? super E&gt; filter = null;</span>
+<span class="nc" id="L35">	private C context = null;</span>
+
+	@Override
+	public E getElementAt(int index)
+	{
+<span class="nc" id="L40">		return data.get(index);</span>
+	}
+
+	@Override
+	public int getSize()
+	{
+<span class="nc" id="L46">		return data.size();</span>
+	}
+
+	public void setContext(C context)
+	{
+<span class="nc" id="L51">		C oldContext = this.context;</span>
+<span class="nc" id="L52">		this.context = context;</span>
+<span class="nc bnc" id="L53" title="All 2 branches missed.">		if (oldContext != context)</span>
+		{
+<span class="nc" id="L55">			refilter();</span>
+		}
+<span class="nc" id="L57">	}</span>
+
+	public void setFilter(Filter&lt;? super C, ? super E&gt; filter)
+	{
+<span class="nc" id="L61">		Filter&lt;? super C, ? super E&gt; oldFilter = this.filter;</span>
+<span class="nc" id="L62">		this.filter = filter;</span>
+<span class="nc bnc" id="L63" title="All 2 branches missed.">		if (oldFilter != filter)</span>
+		{
+<span class="nc" id="L65">			refilter();</span>
+		}
+<span class="nc" id="L67">	}</span>
+
+	public void setDelegate(ListFacade&lt;E&gt; list)
+	{
+<span class="nc" id="L71">		ListFacade&lt;E&gt; oldList = this.delegate;</span>
+<span class="nc bnc" id="L72" title="All 2 branches missed.">		if (oldList != null)</span>
+		{
+<span class="nc" id="L74">			oldList.removeListListener(this);</span>
+		}
+<span class="nc" id="L76">		this.delegate = list;</span>
+<span class="nc bnc" id="L77" title="All 2 branches missed.">		if (list != null)</span>
+		{
+<span class="nc" id="L79">			list.addListListener(this);</span>
+		}
+<span class="nc" id="L81">		refilter();</span>
+<span class="nc" id="L82">	}</span>
+
+	public void refilter()
+	{
+<span class="nc" id="L86">		data.clear();</span>
+<span class="nc bnc" id="L87" title="All 2 branches missed.">		if (delegate != null)</span>
+		{
+<span class="nc" id="L89">			List&lt;E&gt; list = new ArrayList&lt;&gt;(delegate.getSize());</span>
+<span class="nc bnc" id="L90" title="All 2 branches missed.">			for (E element : delegate)</span>
+			{
+<span class="nc bnc" id="L92" title="All 4 branches missed.">				if (filter == null || filter.accept(context, element))</span>
+				{
+<span class="nc" id="L94">					list.add(element);</span>
+				}
+<span class="nc" id="L96">			}</span>
+<span class="nc" id="L97">			data.addAll(list);</span>
+		}
+<span class="nc" id="L99">		fireElementsChanged(this);</span>
+<span class="nc" id="L100">	}</span>
+
+	@Override
+	public void elementAdded(ListEvent&lt;E&gt; e)
+	{
+<span class="nc bnc" id="L105" title="All 4 branches missed.">		if (filter == null || filter.accept(context, e.getElement()))</span>
+		{
+<span class="nc" id="L107">			int size = data.size();</span>
+<span class="nc" id="L108">			data.add(e.getElement());</span>
+<span class="nc" id="L109">			fireElementAdded(this, e.getElement(), size);</span>
+		}
+<span class="nc" id="L111">	}</span>
+
+	@Override
+	public void elementRemoved(ListEvent&lt;E&gt; e)
+	{
+<span class="nc" id="L116">		int index = data.indexOf(e.getElement());</span>
+<span class="nc" id="L117">		data.remove(e.getElement());</span>
+<span class="nc" id="L118">		fireElementRemoved(this, e.getElement(), index);</span>
+<span class="nc" id="L119">	}</span>
+
+	@Override
+	public void elementsChanged(ListEvent&lt;E&gt; e)
+	{
+<span class="nc" id="L124">		refilter();</span>
+<span class="nc" id="L125">	}</span>
+
+	@Override
+	public void elementModified(ListEvent&lt;E&gt; e)
+	{
+<span class="nc bnc" id="L130" title="All 2 branches missed.">		if (data.contains(e.getElement()))</span>
+		{
+<span class="nc bnc" id="L132" title="All 4 branches missed.">			if (filter != null &amp;&amp; !filter.accept(context, e.getElement()))</span>
+			{
+<span class="nc" id="L134">				elementRemoved(e);</span>
+			}
+		}
+		else
+		{
+<span class="nc" id="L139">			elementAdded(e);</span>
+		}
+
+<span class="nc" id="L142">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

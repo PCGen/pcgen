@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>HitDiceToken.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.exporttokens</a> &gt; <span class="el_source">HitDiceToken.java</span></div><h1>HitDiceToken.java</h1><pre class="source lang-java linenums">/*
+ * HitDiceToken.java
+ * Copyright 2003 (C) Devon Jones &lt;soulcatcher@evilsoft.org&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.     See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package plugin.exporttokens;
+
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
+import pcgen.core.PCClass;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.display.CharacterDisplay;
+import pcgen.io.ExportHandler;
+import pcgen.io.exporttoken.Token;
+import pcgen.util.Delta;
+
+/**
+ * Deals with the HITDICE Token
+ */
+<span class="nc" id="L38">public class HitDiceToken extends Token</span>
+{
+	/** Token Name */
+	public static final String TOKENNAME = &quot;HITDICE&quot;;
+
+	@Override
+	public String getTokenName()
+	{
+<span class="nc" id="L46">		return TOKENNAME;</span>
+	}
+
+	@Override
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	{
+<span class="nc" id="L52">		String retString = &quot;&quot;;</span>
+
+<span class="nc bnc" id="L54" title="All 4 branches missed.">		if (&quot;HITDICE&quot;.equals(tokenSource) || &quot;HITDICE.LONG&quot;.equals(tokenSource))</span>
+		{
+<span class="nc" id="L56">			retString = getHitDiceToken(pc);</span>
+		}
+<span class="nc bnc" id="L58" title="All 2 branches missed.">		else if (&quot;HITDICE.MEDIUM&quot;.equals(tokenSource))</span>
+		{
+<span class="nc" id="L60">			retString = getMediumToken(pc);</span>
+		}
+<span class="nc bnc" id="L62" title="All 2 branches missed.">		else if (&quot;HITDICE.SHORT&quot;.equals(tokenSource))</span>
+		{
+<span class="nc" id="L64">			retString = getShortToken(pc.getDisplay());</span>
+		}
+
+<span class="nc" id="L67">		return retString;</span>
+	}
+
+	/**
+	 * Get the medium version of the HITDICE token
+	 * @param pc
+	 * @return the medium version of the HITDICE token
+	 */
+	public static String getHitDiceToken(PlayerCharacter pc)
+	{
+<span class="nc" id="L77">		StringBuilder ret = new StringBuilder();</span>
+<span class="nc" id="L78">		String del = &quot;&quot;;</span>
+
+<span class="nc" id="L80">		CharacterDisplay display = pc.getDisplay();</span>
+<span class="nc bnc" id="L81" title="All 2 branches missed.">		for (PCClass pcClass : display.getClassSet())</span>
+		{
+<span class="nc" id="L83">			HashMap&lt;Integer, Integer&gt; hdMap = new LinkedHashMap&lt;&gt;();</span>
+
+<span class="nc" id="L85">			IntStream.range(0, display.getLevel(pcClass))</span>
+<span class="nc" id="L86">					.map(i -&gt; display.getLevelHitDie(pcClass, i + 1).getDie())</span>
+<span class="nc bnc" id="L87" title="All 2 branches missed.">					.filter(hitDie -&gt; hitDie != 0).forEach(hitDie -&gt;</span>
+<span class="nc" id="L88">						hdMap.merge(hitDie, 1, Integer::sum)</span>
+			);
+
+<span class="nc bnc" id="L91" title="All 2 branches missed.">			for (final Map.Entry&lt;Integer, Integer&gt; entry : hdMap.entrySet())</span>
+			{
+<span class="nc" id="L93">				Integer value = entry.getValue();</span>
+<span class="nc" id="L94">				ret.append(del);</span>
+<span class="nc" id="L95">				ret.append('(');</span>
+<span class="nc" id="L96">				ret.append(value).append('d').append((int) entry.getKey());</span>
+<span class="nc" id="L97">				ret.append(')');</span>
+<span class="nc" id="L98">				del = &quot;+&quot;;</span>
+<span class="nc" id="L99">			}</span>
+<span class="nc" id="L100">		}</span>
+
+		// Get CON bonus contribution to hitpoint total
+<span class="nc" id="L103">		int temp = (int) display.getStatBonusTo(&quot;HP&quot;, &quot;BONUS&quot;) * display.getTotalLevels();</span>
+
+		// Add in feat bonus
+<span class="nc" id="L106">		temp += (int) pc.getTotalBonusTo(&quot;HP&quot;, &quot;CURRENTMAX&quot;);</span>
+
+<span class="nc bnc" id="L108" title="All 2 branches missed.">		if (temp != 0)</span>
+		{
+<span class="nc" id="L110">			ret.append(Delta.toString(temp));</span>
+		}
+
+<span class="nc" id="L113">		return ret.toString();</span>
+	}
+
+	/**
+	 * Get the HITDICE token
+	 * @param pc
+	 * @return the HITDICE token
+	 */
+	public static String getMediumToken(PlayerCharacter pc)
+	{
+<span class="nc" id="L123">		StringBuilder ret = new StringBuilder();</span>
+<span class="nc" id="L124">		String del = &quot;&quot;;</span>
+
+<span class="nc" id="L126">		HashMap&lt;Integer, Integer&gt; hdMap = new LinkedHashMap&lt;&gt;();</span>
+
+<span class="nc" id="L128">		CharacterDisplay display = pc.getDisplay();</span>
+<span class="nc" id="L129">		display.getClassSet().forEach(pcClass -&gt;</span>
+<span class="nc" id="L130">				IntStream.range(0, display.getLevel(pcClass))</span>
+<span class="nc" id="L131">						.map(i -&gt; display.getLevelHitDie(pcClass, i + 1).getDie())</span>
+<span class="nc bnc" id="L132" title="All 2 branches missed.">						.filter(hitDie -&gt; hitDie != 0)</span>
+<span class="nc" id="L133">						.forEach(hitDie -&gt; hdMap.merge(hitDie, 1, Integer::sum)));</span>
+
+<span class="nc bnc" id="L135" title="All 2 branches missed.">		if (hdMap.size() &gt; 1)</span>
+		{
+<span class="nc" id="L137">			ret.append(getShortToken(display));</span>
+<span class="nc" id="L138">			ret.append(&quot; HD; &quot;);</span>
+		}
+
+<span class="nc bnc" id="L141" title="All 2 branches missed.">		for (final Map.Entry&lt;Integer, Integer&gt; entry : hdMap.entrySet())</span>
+		{
+<span class="nc" id="L143">			Integer value = entry.getValue();</span>
+<span class="nc" id="L144">			ret.append(del);</span>
+<span class="nc" id="L145">			ret.append(value).append('d').append((int) entry.getKey());</span>
+<span class="nc" id="L146">			del = &quot;+&quot;;</span>
+<span class="nc" id="L147">		}</span>
+
+		// Get CON bonus contribution to hitpoint total
+<span class="nc" id="L150">		int temp = (int) display.getStatBonusTo(&quot;HP&quot;, &quot;BONUS&quot;) * display.getTotalLevels();</span>
+
+		// Add in feat bonus
+<span class="nc" id="L153">		temp += (int) pc.getTotalBonusTo(&quot;HP&quot;, &quot;CURRENTMAX&quot;);</span>
+
+<span class="nc bnc" id="L155" title="All 2 branches missed.">		if (temp != 0)</span>
+		{
+<span class="nc" id="L157">			ret.append(Delta.toString(temp));</span>
+		}
+
+<span class="nc" id="L160">		return ret.toString();</span>
+	}
+
+	/**
+	 * Get the short version of the HITDICE token
+	 * @param display
+	 * @return the short version of the HITDICE token
+	 */
+	public static String getShortToken(CharacterDisplay display)
+	{
+<span class="nc" id="L170">		int dice = display.getClassSet().stream()</span>
+<span class="nc" id="L171">				.map(pcClass -&gt;</span>
+<span class="nc" id="L172">						IntStream.range(0, display.getLevel(pcClass))</span>
+<span class="nc" id="L173">								.map(i -&gt; display.getLevelHitDie(pcClass, i + 1).getDie())</span>
+<span class="nc" id="L174">								.boxed()</span>
+<span class="nc" id="L175">								.collect(Collectors.toMap(Function.identity(),</span>
+<span class="nc" id="L176">										hitDie -&gt; 1,</span>
+                                        Integer::sum,
+										LinkedHashMap::new)))
+<span class="nc" id="L179">				.mapToInt(hdMap -&gt; hdMap.entrySet().stream().mapToInt(Map.Entry::getValue).sum())</span>
+<span class="nc" id="L180">				.sum();</span>
+
+<span class="nc" id="L182">		return String.valueOf(dice);</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

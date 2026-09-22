@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CskillToken.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.lsttokens.domain</a> &gt; <span class="el_source">CskillToken.java</span></div><h1>CskillToken.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2008 (C) Thomas Parker &lt;thpr@users.sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package plugin.lsttokens.domain;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.StringTokenizer;
+
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.ChooseDriver;
+import pcgen.cdom.base.ChooseSelectionActor;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.SkillCost;
+import pcgen.cdom.reference.PatternMatchingReference;
+import pcgen.cdom.reference.ReferenceUtilities;
+import pcgen.core.Domain;
+import pcgen.core.PCClass;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.Skill;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.Changes;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.TokenUtilities;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.ParseResult;
+
+<span class="fc" id="L45">public class CskillToken extends AbstractTokenWithSeparator&lt;Domain&gt;</span>
+		implements CDOMPrimaryToken&lt;Domain&gt;, ChooseSelectionActor&lt;Skill&gt;
+{
+<span class="fc" id="L48">	private static final Class&lt;Skill&gt; SKILL_CLASS = Skill.class;</span>
+
+	@Override
+	public String getTokenName()
+	{
+<span class="fc" id="L53">		return &quot;CSKILL&quot;;</span>
+	}
+
+	@Override
+	protected char separator()
+	{
+<span class="fc" id="L59">		return '|';</span>
+	}
+
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context, Domain obj, String value)
+	{
+<span class="fc" id="L65">		boolean first = true;</span>
+<span class="fc" id="L66">		boolean foundAny = false;</span>
+<span class="fc" id="L67">		boolean foundOther = false;</span>
+
+<span class="fc" id="L69">		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);</span>
+<span class="fc bfc" id="L70" title="All 2 branches covered.">		while (tok.hasMoreTokens())</span>
+		{
+<span class="fc" id="L72">			String tokText = tok.nextToken();</span>
+<span class="fc bfc" id="L73" title="All 2 branches covered.">			if (Constants.LST_DOT_CLEAR.equals(tokText))</span>
+			{
+<span class="fc bfc" id="L75" title="All 2 branches covered.">				if (!first)</span>
+				{
+<span class="fc" id="L77">					return new ParseResult.Fail(</span>
+<span class="fc" id="L78">						&quot;  Non-sensical &quot; + getTokenName() + &quot;: .CLEAR was not the first list item&quot;);</span>
+				}
+<span class="fc" id="L80">				context.getObjectContext().removeList(obj, ListKey.LOCALCSKILL);</span>
+			}
+<span class="fc bfc" id="L82" title="All 2 branches covered.">			else if (tokText.startsWith(Constants.LST_DOT_CLEAR_DOT))</span>
+			{
+<span class="fc" id="L84">				String clearText = tokText.substring(7);</span>
+<span class="fc bfc" id="L85" title="All 2 branches covered.">				if (Constants.LST_ALL.equals(clearText))</span>
+				{
+<span class="fc" id="L87">					context.getObjectContext().removeFromList(obj, ListKey.LOCALCSKILL,</span>
+<span class="fc" id="L88">						context.getReferenceContext().getCDOMAllReference(SKILL_CLASS));</span>
+				}
+<span class="fc bfc" id="L90" title="All 2 branches covered.">				else if (Constants.LST_LIST.equals(clearText))</span>
+				{
+<span class="fc" id="L92">					context.getObjectContext().removeFromList(obj, ListKey.NEW_CHOOSE_ACTOR, this);</span>
+				}
+				else
+				{
+<span class="fc" id="L96">					CDOMReference&lt;Skill&gt; ref = TokenUtilities.getTypeOrPrimitive(context, SKILL_CLASS, clearText);</span>
+<span class="fc bfc" id="L97" title="All 2 branches covered.">					if (ref == null)</span>
+					{
+<span class="fc" id="L99">						return new ParseResult.Fail(&quot;  Error was encountered while parsing &quot; + getTokenName());</span>
+					}
+<span class="fc" id="L101">					context.getObjectContext().removeFromList(obj, ListKey.LOCALCSKILL, ref);</span>
+				}
+<span class="fc" id="L103">			}</span>
+			else
+			{
+				/*
+				 * Note this HAS to be done one-by-one, because the
+				 * .clearChildNodeOfClass method above does NOT recognize the
+				 * C/CC Skill object and therefore doesn't know how to search
+				 * the sublists
+				 */
+<span class="fc bfc" id="L112" title="All 2 branches covered.">				if (Constants.LST_ALL.equals(tokText))</span>
+				{
+<span class="fc" id="L114">					foundAny = true;</span>
+<span class="fc" id="L115">					context.getObjectContext().addToList(obj, ListKey.LOCALCSKILL,</span>
+<span class="fc" id="L116">						context.getReferenceContext().getCDOMAllReference(SKILL_CLASS));</span>
+				}
+				else
+				{
+<span class="fc" id="L120">					foundOther = true;</span>
+<span class="fc bfc" id="L121" title="All 2 branches covered.">					if (Constants.LST_LIST.equals(tokText))</span>
+					{
+<span class="fc" id="L123">						context.getObjectContext().addToList(obj, ListKey.NEW_CHOOSE_ACTOR, this);</span>
+					}
+					else
+					{
+<span class="fc" id="L127">						CDOMReference&lt;Skill&gt; ref = getSkillReference(context, tokText);</span>
+<span class="fc bfc" id="L128" title="All 2 branches covered.">						if (ref == null)</span>
+						{
+<span class="fc" id="L130">							return new ParseResult.Fail(&quot;  Error was encountered while parsing &quot; + getTokenName());</span>
+						}
+<span class="fc" id="L132">						context.getObjectContext().addToList(obj, ListKey.LOCALCSKILL, ref);</span>
+					}
+				}
+			}
+<span class="fc" id="L136">			first = false;</span>
+<span class="fc" id="L137">		}</span>
+<span class="fc bfc" id="L138" title="All 4 branches covered.">		if (foundAny &amp;&amp; foundOther)</span>
+		{
+<span class="fc" id="L140">			return new ParseResult.Fail(</span>
+<span class="fc" id="L141">				&quot;Non-sensical &quot; + getTokenName() + &quot;: Contains ANY and a specific reference: &quot; + value);</span>
+		}
+<span class="fc" id="L143">		return ParseResult.SUCCESS;</span>
+	}
+
+	private CDOMReference&lt;Skill&gt; getSkillReference(LoadContext context, String tokText)
+	{
+<span class="fc bfc" id="L148" title="All 2 branches covered.">		if (tokText.endsWith(Constants.PERCENT))</span>
+		{
+<span class="fc" id="L150">			return new PatternMatchingReference&lt;&gt;(context.getReferenceContext().getCDOMAllReference(SKILL_CLASS),</span>
+				tokText);
+		}
+		else
+		{
+<span class="fc" id="L155">			return TokenUtilities.getTypeOrPrimitive(context, SKILL_CLASS, tokText);</span>
+		}
+	}
+
+	@Override
+	public String[] unparse(LoadContext context, Domain obj)
+	{
+<span class="fc" id="L162">		Changes&lt;CDOMReference&lt;Skill&gt;&gt; changes = context.getObjectContext().getListChanges(obj, ListKey.LOCALCSKILL);</span>
+<span class="fc" id="L163">		Changes&lt;ChooseSelectionActor&lt;?&gt;&gt; listChanges =</span>
+<span class="fc" id="L164">				context.getObjectContext().getListChanges(obj, ListKey.NEW_CHOOSE_ACTOR);</span>
+<span class="fc" id="L165">		List&lt;String&gt; list = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L166">		Collection&lt;CDOMReference&lt;Skill&gt;&gt; removedItems = changes.getRemoved();</span>
+<span class="pc bpc" id="L167" title="3 of 4 branches missed.">		if (removedItems != null &amp;&amp; !removedItems.isEmpty())</span>
+		{
+<span class="nc bnc" id="L169" title="All 2 branches missed.">			if (changes.includesGlobalClear())</span>
+			{
+<span class="nc" id="L171">				context.addWriteMessage(</span>
+<span class="nc" id="L172">					&quot;Non-sensical relationship in &quot; + getTokenName() + &quot;: global .CLEAR and local .CLEAR. performed&quot;);</span>
+<span class="nc" id="L173">				return null;</span>
+			}
+<span class="nc" id="L175">			list.add(Constants.LST_DOT_CLEAR_DOT + ReferenceUtilities.joinLstFormat(removedItems, &quot;|.CLEAR.&quot;));</span>
+		}
+<span class="fc" id="L177">		Collection&lt;ChooseSelectionActor&lt;?&gt;&gt; listRemoved = listChanges.getRemoved();</span>
+<span class="pc bpc" id="L178" title="3 of 4 branches missed.">		if (listRemoved != null &amp;&amp; !listRemoved.isEmpty())</span>
+		{
+<span class="nc bnc" id="L180" title="All 2 branches missed.">			if (listRemoved.contains(this))</span>
+			{
+<span class="nc" id="L182">				list.add(&quot;.CLEAR.LIST&quot;);</span>
+			}
+		}
+<span class="pc bpc" id="L185" title="1 of 2 branches missed.">		if (changes.includesGlobalClear())</span>
+		{
+<span class="nc" id="L187">			list.add(Constants.LST_DOT_CLEAR);</span>
+		}
+<span class="fc" id="L189">		Collection&lt;CDOMReference&lt;Skill&gt;&gt; added = changes.getAdded();</span>
+<span class="pc bpc" id="L190" title="1 of 4 branches missed.">		if (added != null &amp;&amp; !added.isEmpty())</span>
+		{
+<span class="fc" id="L192">			list.add(ReferenceUtilities.joinLstFormat(added, Constants.PIPE));</span>
+		}
+<span class="fc" id="L194">		Collection&lt;ChooseSelectionActor&lt;?&gt;&gt; listAdded = listChanges.getAdded();</span>
+<span class="pc bpc" id="L195" title="1 of 4 branches missed.">		if (listAdded != null &amp;&amp; !listAdded.isEmpty())</span>
+		{
+<span class="fc bfc" id="L197" title="All 2 branches covered.">			for (ChooseSelectionActor&lt;?&gt; cra : listAdded)</span>
+			{
+<span class="pc bpc" id="L199" title="1 of 2 branches missed.">				if (cra.getSource().equals(getTokenName()))</span>
+				{
+					try
+					{
+<span class="fc" id="L203">						list.add(cra.getLstFormat());</span>
+					}
+<span class="nc" id="L205">					catch (PersistenceLayerException e)</span>
+					{
+<span class="nc" id="L207">						context.addWriteMessage(&quot;Error writing Prerequisite: &quot; + e);</span>
+<span class="nc" id="L208">						return null;</span>
+<span class="fc" id="L209">					}</span>
+				}
+<span class="fc" id="L211">			}</span>
+		}
+<span class="fc bfc" id="L213" title="All 2 branches covered.">		if (list.isEmpty())</span>
+		{
+<span class="fc" id="L215">			return null;</span>
+		}
+<span class="fc" id="L217">		return list.toArray(new String[0]);</span>
+	}
+
+	@Override
+	public Class&lt;Domain&gt; getTokenClass()
+	{
+<span class="fc" id="L223">		return Domain.class;</span>
+	}
+
+	@Override
+	public void applyChoice(ChooseDriver obj, Skill skill, PlayerCharacter pc)
+	{
+<span class="fc" id="L229">		PCClass pcc = pc.getDomainSource((Domain) obj).getPcclass();</span>
+<span class="fc" id="L230">		pc.addLocalCost(pcc, skill, SkillCost.CLASS, obj);</span>
+<span class="fc" id="L231">	}</span>
+
+	@Override
+	public void removeChoice(ChooseDriver obj, Skill skill, PlayerCharacter pc)
+	{
+<span class="fc" id="L236">		PCClass pcc = pc.getDomainSource((Domain) obj).getPcclass();</span>
+<span class="fc" id="L237">		pc.removeLocalCost(pcc, skill, SkillCost.CLASS, obj);</span>
+<span class="fc" id="L238">	}</span>
+
+	@Override
+	public String getSource()
+	{
+<span class="fc" id="L243">		return getTokenName();</span>
+	}
+
+	@Override
+	public String getLstFormat()
+	{
+<span class="fc" id="L249">		return &quot;LIST&quot;;</span>
+	}
+
+	@Override
+	public Class&lt;Skill&gt; getChoiceClass()
+	{
+<span class="nc" id="L255">		return SKILL_CLASS;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CDOMKitLoader.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.rules.persistence</a> &gt; <span class="el_source">CDOMKitLoader.java</span></div><h1>CDOMKitLoader.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2008 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ *
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.rules.persistence;
+
+import java.net.URI;
+import java.util.HashMap;
+import java.util.Map;
+
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.core.Kit;
+import pcgen.core.kit.BaseKit;
+import pcgen.rules.context.LoadContext;
+import pcgen.util.Logging;
+
+<span class="nc" id="L30">public class CDOMKitLoader</span>
+{
+<span class="nc" id="L32">	private final Map&lt;String, CDOMSubLineLoader&lt;? extends BaseKit&gt;&gt; loadMap = new HashMap&lt;&gt;();</span>
+
+<span class="nc" id="L34">	private final Class&lt;Kit&gt; targetClass = Kit.class;</span>
+
+	public void addLineLoader(CDOMSubLineLoader&lt;? extends BaseKit&gt; loader)
+	{
+		// TODO check null
+		// TODO check duplicate!
+<span class="nc" id="L40">		loadMap.put(loader.getPrefix(), loader);</span>
+<span class="nc" id="L41">	}</span>
+
+	public boolean parseSubLine(LoadContext context, Kit obj, String val, URI source)
+	{
+<span class="nc" id="L45">		int sepLoc = val.indexOf('\t');</span>
+<span class="nc bnc" id="L46" title="All 2 branches missed.">		String firstToken = (sepLoc == -1) ? val : val.substring(0, sepLoc);</span>
+<span class="nc" id="L47">		int colonLoc = firstToken.indexOf(':');</span>
+<span class="nc bnc" id="L48" title="All 2 branches missed.">		if (colonLoc == -1)</span>
+		{
+<span class="nc" id="L50">			Logging.addParseMessage(Logging.LST_ERROR,</span>
+				&quot;Unsure what to do with line without &quot; + &quot;a colon in first token: &quot; + val + &quot; in file: &quot; + source);
+<span class="nc" id="L52">			return false;</span>
+		}
+
+<span class="nc" id="L55">		String prefix = firstToken.substring(0, colonLoc);</span>
+<span class="nc" id="L56">		CDOMSubLineLoader&lt;? extends BaseKit&gt; loader = loadMap.get(prefix);</span>
+<span class="nc bnc" id="L57" title="All 2 branches missed.">		if (loader == null)</span>
+		{
+<span class="nc" id="L59">			Logging.addParseMessage(Logging.LST_ERROR,</span>
+				&quot;Unsure what to do with line with prefix: &quot; + prefix + &quot;.  Line was: &quot; + val + &quot; in file: &quot; + source);
+<span class="nc" id="L61">			return false;</span>
+		}
+<span class="nc" id="L63">		return subParse(context, obj, loader, val);</span>
+	}
+
+	private &lt;CC extends BaseKit&gt; boolean subParse(LoadContext context, Kit kit, CDOMSubLineLoader&lt;CC&gt; loader,
+		String line)
+	{
+<span class="nc" id="L69">		CC obj = loader.getCDOMObject();</span>
+<span class="nc" id="L70">		context.getObjectContext().addToList(kit, ListKey.KIT_TASKS, obj);</span>
+<span class="nc" id="L71">		return loader.parseLine(context, obj, line);</span>
+	}
+
+	protected Kit getCDOMObject(LoadContext context, String name)
+	{
+<span class="nc" id="L76">		Kit obj = context.getReferenceContext().silentlyGetConstructedCDOMObject(targetClass, name);</span>
+<span class="nc bnc" id="L77" title="All 2 branches missed.">		if (obj == null)</span>
+		{
+<span class="nc" id="L79">			obj = context.getReferenceContext().constructCDOMObject(targetClass, name);</span>
+		}
+<span class="nc" id="L81">		return obj;</span>
+	}
+
+	public Class&lt;Kit&gt; getTargetClass()
+	{
+<span class="nc" id="L86">		return targetClass;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

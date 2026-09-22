@@ -1,0 +1,526 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AbstractReferenceContext.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.rules.context</a> &gt; <span class="el_source">AbstractReferenceContext.java</span></div><h1>AbstractReferenceContext.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2007 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ *
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.rules.context;
+
+import java.lang.ref.WeakReference;
+import java.net.URI;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Optional;
+import java.util.Set;
+import java.util.TreeSet;
+
+import pcgen.base.format.dice.DiceFormat;
+import pcgen.base.formatmanager.ArrayFormatFactory;
+import pcgen.base.formatmanager.FormatUtilities;
+import pcgen.base.formatmanager.SimpleFormatManagerLibrary;
+import pcgen.base.util.DoubleKeyMap;
+import pcgen.base.util.FormatManager;
+import pcgen.base.util.Indirect;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Categorized;
+import pcgen.cdom.base.ClassIdentity;
+import pcgen.cdom.base.Loadable;
+import pcgen.cdom.base.SortKeyRequired;
+import pcgen.cdom.enumeration.FactKey;
+import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.SubClassCategory;
+import pcgen.cdom.enumeration.Type;
+import pcgen.cdom.format.table.ColumnFormatFactory;
+import pcgen.cdom.format.table.DataTable;
+import pcgen.cdom.format.table.TableColumn;
+import pcgen.cdom.format.table.TableFormatFactory;
+import pcgen.cdom.list.ClassSkillList;
+import pcgen.cdom.list.ClassSpellList;
+import pcgen.cdom.list.DomainSpellList;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
+import pcgen.cdom.reference.CDOMGroupRef;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.reference.ManufacturableFactory;
+import pcgen.cdom.reference.ReferenceManufacturer;
+import pcgen.cdom.reference.UnconstructedValidator;
+import pcgen.core.Domain;
+import pcgen.core.PCClass;
+import pcgen.core.SubClass;
+import pcgen.output.channel.compat.HandedCompat;
+import pcgen.util.Logging;
+
+/**
+ * An AbstractReferenceContext is responsible for dealing with References during load of a
+ * PCGen dataset from LST files.
+ * 
+ * Most of the function relates to 3 areas: (1) Managing the ReferenceManagers that
+ * actually hold the references to CDOMObjects (Skills, Languages, etc.) (2) Managing the
+ * overall loading process of the managers (e.g. resolving those references once load is
+ * complete) (3) Managing Formats available in the data
+ * 
+ * References are necessary because we need to be able to parse data that, for example,
+ * provides: AUTO:LANGUAGE|Draconic ... and we may or may not have loaded Language files.
+ * It would be impossible to load everything in order (there will be circular references).
+ * The result is that the loading system always refers to objects indirectly when they are
+ * referenced by a Token like AUTO:LANGUAGE. This indirect reference is a &quot;CDOMReference&quot;
+ * (and may refer to one or more CDOMObjects - groups are allowed). Once the load is
+ * complete, the references can be resolved to their actual underlying objects and any
+ * references that were made where an object of that name does not exist can be
+ * identified.
+ */
+<span class="fc" id="L88">public abstract class AbstractReferenceContext</span>
+{
+
+	@SuppressWarnings(&quot;rawtypes&quot;)
+<span class="fc" id="L92">	private static final Class&lt;Categorized&gt; CATEGORIZED_CLASS = Categorized.class;</span>
+<span class="fc" id="L93">	private static final Class&lt;DomainSpellList&gt; DOMAINSPELLLIST_CLASS = DomainSpellList.class;</span>
+<span class="fc" id="L94">	private static final Class&lt;ClassSkillList&gt; CLASSSKILLLIST_CLASS = ClassSkillList.class;</span>
+<span class="fc" id="L95">	private static final Class&lt;ClassSpellList&gt; CLASSSPELLLIST_CLASS = ClassSpellList.class;</span>
+<span class="fc" id="L96">	private static final Class&lt;DataTable&gt; DATA_TABLE_CLASS = DataTable.class;</span>
+<span class="fc" id="L97">	private static final Class&lt;TableColumn&gt; TABLE_COLUMN_CLASS = TableColumn.class;</span>
+
+<span class="fc" id="L99">	private final DoubleKeyMap&lt;Class&lt;?&gt;, Object, WeakReference&lt;List&lt;?&gt;&gt;&gt; sortedMap = new DoubleKeyMap&lt;&gt;();</span>
+
+	private URI sourceURI;
+
+	private URI extractURI;
+
+<span class="fc" id="L105">	private final SimpleFormatManagerLibrary fmtLibrary = new SimpleFormatManagerLibrary();</span>
+
+	public void initialize()
+	{
+<span class="fc" id="L109">		FormatUtilities.loadDefaultFormats(fmtLibrary);</span>
+<span class="fc" id="L110">		fmtLibrary.addFormatManagerBuilder(new ArrayFormatFactory('\n', ','));</span>
+<span class="fc" id="L111">		fmtLibrary.addFormatManager(new DiceFormat());</span>
+<span class="fc" id="L112">		fmtLibrary.addFormatManager(HandedCompat.HANDED_MANAGER);</span>
+<span class="fc" id="L113">		fmtLibrary.addFormatManagerBuilder(</span>
+<span class="fc" id="L114">			new ColumnFormatFactory(this.getManufacturer(AbstractReferenceContext.TABLE_COLUMN_CLASS)));</span>
+<span class="fc" id="L115">		fmtLibrary.addFormatManagerBuilder(</span>
+<span class="fc" id="L116">			new TableFormatFactory(this.getManufacturer(AbstractReferenceContext.DATA_TABLE_CLASS)));</span>
+<span class="fc" id="L117">	}</span>
+
+	public abstract &lt;T extends Loadable&gt; ReferenceManufacturer&lt;T&gt; getManufacturer(Class&lt;T&gt; cl);
+
+	/**
+	 * Returns true if this AbstractReferenceContext has a Manufacturer for the given
+	 * ClassIdentity.
+	 * 
+	 * @param classIdentity
+	 *            The ClassIdentity to be checked to see if this AbstractReferenceContext
+	 *            has a Manufacturer for the ClassIdentity
+	 * @return true if this AbstractReferenceContext has a Manufacturer for the given
+	 *         ClassIdentity; false otherwise
+	 */
+	public abstract &lt;T extends Loadable&gt; boolean hasManufacturer(ClassIdentity&lt;T&gt; classIdentity);
+
+	protected abstract &lt;T extends Loadable&gt; ReferenceManufacturer&lt;T&gt; constructReferenceManufacturer(
+		ClassIdentity&lt;T&gt; identity);
+
+	/**
+	 * Retrieve the Reference manufacturer that handles this class and category. Note that
+	 * even though abilities are categorized, the category may not be know initially, so
+	 * null cat values are legal.
+	 *
+	 * @return The reference manufacturer
+	 */
+	public abstract Collection&lt;? extends ReferenceManufacturer&lt;?&gt;&gt; getAllManufacturers();
+
+	public boolean validate(UnconstructedValidator validator)
+	{
+<span class="fc" id="L147">		boolean returnGood = true;</span>
+<span class="fc bfc" id="L148" title="All 2 branches covered.">		for (ReferenceManufacturer&lt;?&gt; ref : getAllManufacturers())</span>
+		{
+<span class="fc" id="L150">			returnGood &amp;= ref.validate(validator);</span>
+<span class="fc" id="L151">		}</span>
+<span class="fc" id="L152">		return returnGood;</span>
+	}
+
+	public &lt;T extends Loadable&gt; CDOMGroupRef&lt;T&gt; getCDOMAllReference(Class&lt;T&gt; c)
+	{
+<span class="fc" id="L157">		return getManufacturer(c).getAllReference();</span>
+	}
+
+	public &lt;T extends Loadable&gt; CDOMGroupRef&lt;T&gt; getCDOMTypeReference(Class&lt;T&gt; c, String... val)
+	{
+<span class="fc" id="L162">		return getManufacturer(c).getTypeReference(val);</span>
+	}
+
+	public &lt;T extends Loadable&gt; T constructCDOMObject(Class&lt;T&gt; c, String val)
+	{
+		T obj;
+<span class="pc bpc" id="L168" title="1 of 2 branches missed.">		if (CATEGORIZED_CLASS.isAssignableFrom(c))</span>
+		{
+<span class="nc" id="L170">			throw new UnsupportedOperationException(&quot;Categorized can't be built directly with null category&quot;);</span>
+		}
+		else
+		{
+<span class="fc" id="L174">			obj = getManufacturer(c).constructObject(val);</span>
+		}
+<span class="fc" id="L176">		obj.setSourceURI(sourceURI);</span>
+<span class="fc" id="L177">		return obj;</span>
+	}
+
+	public &lt;T extends Loadable&gt; void constructIfNecessary(Class&lt;T&gt; cl, String value)
+	{
+<span class="fc" id="L182">		getManufacturer(cl).constructIfNecessary(value);</span>
+<span class="fc" id="L183">	}</span>
+
+	public &lt;T extends Loadable&gt; CDOMSingleRef&lt;T&gt; getCDOMReference(Class&lt;T&gt; c, String val)
+	{
+<span class="fc" id="L187">		return getManufacturer(c).getReference(val);</span>
+	}
+
+	public &lt;T extends Loadable&gt; void reassociateKey(String key, T obj)
+	{
+		@SuppressWarnings(&quot;unchecked&quot;)
+<span class="fc" id="L193">		ClassIdentity&lt;T&gt; identity = (ClassIdentity&lt;T&gt;) obj.getClassIdentity();</span>
+<span class="fc" id="L194">		getManufacturerId(identity).renameObject(key, obj);</span>
+<span class="fc" id="L195">	}</span>
+
+	public &lt;T extends Loadable&gt; T get(Class&lt;T&gt; c, String val)
+	{
+<span class="fc" id="L199">		return silentlyGetConstructedCDOMObject(c, val);</span>
+	}
+
+	public &lt;T extends Loadable&gt; Indirect&lt;T&gt; getIndirect(Class&lt;T&gt; c, String val)
+	{
+<span class="nc" id="L204">		return getCDOMReference(c, val);</span>
+	}
+
+	public &lt;T extends Loadable&gt; T silentlyGetConstructedCDOMObject(Class&lt;T&gt; c, String val)
+	{
+<span class="fc" id="L209">		return getManufacturer(c).getActiveObject(val);</span>
+	}
+
+	@SuppressWarnings(&quot;unchecked&quot;)
+	protected &lt;T&gt; Class&lt;T&gt; getGenericClass(T obj)
+	{
+<span class="nc" id="L215">		return (Class&lt;T&gt;) obj.getClass();</span>
+	}
+
+	public &lt;T extends Loadable&gt; void importObject(T orig)
+	{
+		/*
+		 * Assume a class will behave well and return its own identity. This is made to
+		 * avoid having to have Loadable&lt;T&gt;
+		 */
+		@SuppressWarnings(&quot;unchecked&quot;)
+<span class="fc" id="L225">		ClassIdentity&lt;T&gt; identity = (ClassIdentity&lt;T&gt;) orig.getClassIdentity();</span>
+<span class="fc" id="L226">		ReferenceManufacturer&lt;T&gt; mfg = getManufacturerId(identity);</span>
+<span class="fc" id="L227">		mfg.addObject(orig, orig.getKeyName());</span>
+<span class="fc" id="L228">	}</span>
+
+	public &lt;T extends Loadable&gt; boolean forget(T obj)
+	{
+		@SuppressWarnings(&quot;unchecked&quot;)
+<span class="fc" id="L233">		ClassIdentity&lt;T&gt; identity = (ClassIdentity&lt;T&gt;) obj.getClassIdentity();</span>
+<span class="pc bpc" id="L234" title="1 of 2 branches missed.">		if (hasManufacturer(identity))</span>
+		{
+<span class="fc" id="L236">			return getManufacturerId(identity).forgetObject(obj);</span>
+		}
+<span class="nc" id="L238">		return false;</span>
+	}
+
+	public &lt;T extends Loadable&gt; Collection&lt;T&gt; getConstructedCDOMObjects(Class&lt;T&gt; c)
+	{
+		// if (CategorizedCDOMObject.class.isAssignableFrom(c))
+		// {
+		// return categorized.getAllConstructedCDOMObjects((Class) c);
+		// }
+		// else
+		// {
+<span class="fc" id="L249">		return getManufacturer(c).getAllObjects();</span>
+		// }
+	}
+
+	public Set&lt;Object&gt; getAllConstructedObjects()
+	{
+<span class="nc" id="L255">		Set&lt;Object&gt; set = new HashSet&lt;&gt;();</span>
+<span class="nc bnc" id="L256" title="All 2 branches missed.">		for (ReferenceManufacturer&lt;?&gt; ref : getAllManufacturers())</span>
+		{
+<span class="nc" id="L258">			set.addAll(ref.getAllObjects());</span>
+<span class="nc" id="L259">		}</span>
+		// Collection otherSet = categorized.getAllConstructedCDOMObjects();
+		// set.addAll(otherSet);
+<span class="nc" id="L262">		return set;</span>
+	}
+
+	public &lt;T extends Loadable&gt; boolean containsConstructedCDOMObject(Class&lt;T&gt; c, String s)
+	{
+<span class="nc" id="L267">		return getManufacturer(c).containsObjectKeyed(s);</span>
+	}
+
+	public void buildDerivedObjects()
+	{
+<span class="fc" id="L272">		Collection&lt;Domain&gt; domains = getConstructedCDOMObjects(Domain.class);</span>
+<span class="fc bfc" id="L273" title="All 2 branches covered.">		for (Domain d : domains)</span>
+		{
+<span class="fc" id="L275">			DomainSpellList dsl = constructCDOMObject(DOMAINSPELLLIST_CLASS, d.getKeyName());</span>
+<span class="fc" id="L276">			dsl.addType(Type.DIVINE);</span>
+<span class="fc" id="L277">			d.put(ObjectKey.DOMAIN_SPELLLIST, dsl);</span>
+<span class="fc" id="L278">		}</span>
+<span class="fc" id="L279">		Collection&lt;PCClass&gt; classes = getConstructedCDOMObjects(PCClass.class);</span>
+<span class="fc bfc" id="L280" title="All 2 branches covered.">		for (PCClass pcc : classes)</span>
+		{
+<span class="fc" id="L282">			String key = pcc.getKeyName();</span>
+<span class="fc" id="L283">			ClassSkillList skl = constructCDOMObject(CLASSSKILLLIST_CLASS, key);</span>
+<span class="fc" id="L284">			boolean isMonster = pcc.isMonster();</span>
+<span class="pc bpc" id="L285" title="1 of 2 branches missed.">			if (isMonster)</span>
+			{
+<span class="nc" id="L287">				skl.addType(Type.MONSTER);</span>
+			}
+<span class="fc" id="L289">			pcc.put(ObjectKey.CLASS_SKILLLIST, skl);</span>
+			/*
+			 * TODO Need to limit which are built to only spellcasters... If you
+			 * do that, please see TO-DO in SpellListFacet
+			 */
+<span class="fc" id="L294">			ClassSpellList csl = constructCDOMObject(CLASSSPELLLIST_CLASS, key);</span>
+<span class="fc" id="L295">			FactKey&lt;String&gt; fk = FactKey.valueOf(&quot;SpellType&quot;);</span>
+<span class="fc" id="L296">			String spelltype = pcc.getResolved(fk);</span>
+<span class="pc bpc" id="L297" title="1 of 2 branches missed.">			if (spelltype != null)</span>
+			{
+<span class="nc" id="L299">				csl.addType(Type.getConstant(spelltype));</span>
+			}
+<span class="fc" id="L301">			pcc.put(ObjectKey.CLASS_SPELLLIST, csl);</span>
+			// simple.constructCDOMObject(SPELLPROGRESSION_CLASS, key);
+			// Collection&lt;CDOMSubClass&gt; subclasses = categorized
+			// .getConstructedCDOMObjects(SUBCLASS_CLASS, SubClassCategory
+			// .getConstant(key));
+			// for (CDOMSubClass subcl : subclasses)
+<span class="pc bpc" id="L307" title="1 of 2 branches missed.">			if (pcc.containsListFor(ListKey.SUB_CLASS))</span>
+			{
+<span class="nc" id="L309">				SubClassCategory cat = SubClassCategory.getConstant(key);</span>
+<span class="nc" id="L310">				boolean needSelf = pcc.getSafe(ObjectKey.ALLOWBASECLASS);</span>
+<span class="nc bnc" id="L311" title="All 2 branches missed.">				for (SubClass subcl : pcc.getListFor(ListKey.SUB_CLASS))</span>
+				{
+<span class="nc" id="L313">					String subKey = subcl.getKeyName();</span>
+<span class="nc bnc" id="L314" title="All 2 branches missed.">					if (subKey.equalsIgnoreCase(key))</span>
+					{
+						//Now an error to explicitly create this match, see CODE-1928
+<span class="nc" id="L317">						Logging.errorPrint(&quot;Cannot explicitly create a SUBCLASS that matches the parent class.  &quot;</span>
+							+ &quot;Use ALLOWBASECLASS.  &quot; + &quot;Tokens on the offending SUBCLASS line will be ignored&quot;);
+<span class="nc" id="L319">						pcc.removeFromListFor(ListKey.SUB_CLASS, subcl);</span>
+<span class="nc" id="L320">						continue;</span>
+					}
+<span class="nc" id="L322">					skl = constructCDOMObject(CLASSSKILLLIST_CLASS, subKey);</span>
+<span class="nc bnc" id="L323" title="All 2 branches missed.">					if (isMonster)</span>
+					{
+<span class="nc" id="L325">						skl.addType(Type.MONSTER);</span>
+					}
+<span class="nc" id="L327">					subcl.put(ObjectKey.CLASS_SKILLLIST, skl);</span>
+					// TODO Need to limit which are built to only
+					// spellcasters...
+<span class="nc" id="L330">					csl = constructCDOMObject(CLASSSPELLLIST_CLASS, subKey);</span>
+<span class="nc bnc" id="L331" title="All 2 branches missed.">					if (spelltype != null)</span>
+					{
+<span class="nc" id="L333">						csl.addType(Type.getConstant(spelltype));</span>
+					}
+<span class="nc" id="L335">					subcl.put(ObjectKey.CLASS_SPELLLIST, csl);</span>
+					// constructCDOMObject(SPELLPROGRESSION_CLASS, subKey);
+					/*
+					 * CONSIDER For right now, this is easiest to do here, though
+					 * doing this 'live' may be more appropriate in the end.
+					 */
+<span class="nc" id="L341">					subcl.setCDOMCategory(cat);</span>
+<span class="nc" id="L342">					importObject(subcl);</span>
+<span class="nc" id="L343">				}</span>
+<span class="nc bnc" id="L344" title="All 2 branches missed.">				if (needSelf)</span>
+				{
+<span class="nc" id="L346">					SubClass self = cat.newInstance();</span>
+<span class="nc" id="L347">					self.setKeyName(key);</span>
+<span class="nc" id="L348">					importObject(self);</span>
+				}
+			}
+<span class="fc" id="L351">		}</span>
+<span class="fc" id="L352">	}</span>
+
+	/**
+	 * Returns a CDOMSingleRef for the given Object.
+	 * 
+	 * If possible an internal reference to the object will be returned; otherwise a
+	 * direct reference may be returned. This possible use of a direct reference allows
+	 * this method to be used before OR after reference resolution.
+	 * 
+	 * @param obj
+	 *            The object for which a CDOMSingleRef should be returned
+	 * @return A CDOMSingleRef for the given Object
+	 */
+	public &lt;T extends Loadable&gt; CDOMSingleRef&lt;T&gt; getCDOMDirectReference(T obj)
+	{
+<span class="fc" id="L367">		return new CDOMDirectSingleRef&lt;&gt;(obj);</span>
+	}
+
+	URI getExtractURI()
+	{
+<span class="nc" id="L372">		return extractURI;</span>
+	}
+
+	void setExtractURI(URI extractURI)
+	{
+<span class="fc" id="L377">		this.extractURI = extractURI;</span>
+<span class="fc" id="L378">	}</span>
+
+	URI getSourceURI()
+	{
+<span class="fc" id="L382">		return sourceURI;</span>
+	}
+
+	void setSourceURI(URI sourceURI)
+	{
+<span class="fc" id="L387">		this.sourceURI = sourceURI;</span>
+<span class="fc" id="L388">	}</span>
+
+	public boolean resolveReferences(UnconstructedValidator validator)
+	{
+<span class="fc" id="L392">		boolean returnGood = true;</span>
+<span class="fc bfc" id="L393" title="All 2 branches covered.">		for (ReferenceManufacturer&lt;?&gt; rs : getAllManufacturers())</span>
+		{
+<span class="fc" id="L395">			returnGood &amp;= processResolution(validator, rs);</span>
+<span class="fc" id="L396">		}</span>
+<span class="fc" id="L397">		return returnGood;</span>
+	}
+
+	private &lt;T extends Loadable&gt; boolean processResolution(UnconstructedValidator validator,
+		ReferenceManufacturer&lt;T&gt; rs)
+	{
+<span class="fc" id="L403">		ManufacturableFactory&lt;T&gt; factory = rs.getFactory();</span>
+<span class="fc" id="L404">		ManufacturableFactory&lt;T&gt; parent = factory.getParent();</span>
+<span class="pc bpc" id="L405" title="1 of 2 branches missed.">		ReferenceManufacturer&lt;T&gt; manufacturer = (parent == null) ? null : getManufacturerFac(parent);</span>
+<span class="pc bpc" id="L406" title="1 of 4 branches missed.">		return factory.populate(manufacturer, rs, validator) &amp;&amp; rs.resolveReferences(validator);</span>
+	}
+
+	public void buildDeferredObjects()
+	{
+<span class="fc bfc" id="L411" title="All 2 branches covered.">		for (ReferenceManufacturer&lt;?&gt; rs : getAllManufacturers())</span>
+		{
+<span class="fc" id="L413">			rs.buildDeferredObjects();</span>
+<span class="fc" id="L414">		}</span>
+<span class="fc" id="L415">	}</span>
+
+	public &lt;T extends Loadable&gt; T constructNowIfNecessary(Class&lt;T&gt; cl, String name)
+	{
+<span class="fc" id="L419">		return getManufacturer(cl).constructNowIfNecessary(name);</span>
+	}
+
+	public &lt;T extends Loadable&gt; int getConstructedObjectCount(Class&lt;T&gt; c)
+	{
+<span class="fc" id="L424">		return getManufacturer(c).getConstructedObjectCount();</span>
+	}
+
+	/**
+	 * Returns the ReferenceManufacturer for the given ClassIdentity.
+	 * 
+	 * @param classIdentity
+	 *            The ClassIdentity for which the ReferenceManufacturer should be returned
+	 * @return The ReferenceManufacturer for the given ClassIdentity
+	 */
+	public abstract &lt;T extends Loadable&gt; ReferenceManufacturer&lt;T&gt; getManufacturerId(ClassIdentity&lt;T&gt; classIdentity);
+
+	public &lt;T extends CDOMObject&gt; List&lt;T&gt; getSortedList(Class&lt;T&gt; cl, IntegerKey key)
+	{
+		List&lt;T&gt; returnList;
+<span class="fc" id="L439">		WeakReference&lt;List&lt;?&gt;&gt; wr = sortedMap.get(cl, key);</span>
+<span class="pc bpc" id="L440" title="1 of 4 branches missed.">		if ((wr == null) || ((returnList = (List&lt;T&gt;) wr.get()) == null))</span>
+		{
+<span class="fc" id="L442">			returnList = generateList(cl, Comparator.comparing(o -&gt; o.getSafe(key)));</span>
+<span class="fc" id="L443">			sortedMap.put(cl, key, new WeakReference&lt;&gt;(returnList));</span>
+		}
+<span class="fc" id="L445">		return Collections.unmodifiableList(returnList);</span>
+	}
+
+	public &lt;T extends CDOMObject&gt; List&lt;T&gt; getSortOrderedList(Class&lt;T&gt; cl)
+	{
+		List&lt;T&gt; returnList;
+<span class="nc" id="L451">		Comparator&lt;CDOMObject&gt; comp = CDOMObject.P_OBJECT_NAME_COMP;</span>
+		//We arbitrarily use the sort order comparator as the second key
+<span class="nc" id="L453">		WeakReference&lt;List&lt;?&gt;&gt; wr = sortedMap.get(cl, comp);</span>
+<span class="nc bnc" id="L454" title="All 4 branches missed.">		if ((wr == null) || ((returnList = (List&lt;T&gt;) wr.get()) == null))</span>
+		{
+<span class="nc" id="L456">			returnList = generateList(cl, comp);</span>
+<span class="nc" id="L457">			sortedMap.put(cl, comp, new WeakReference&lt;&gt;(returnList));</span>
+		}
+<span class="nc" id="L459">		return Collections.unmodifiableList(returnList);</span>
+	}
+
+	private &lt;T extends CDOMObject&gt; List&lt;T&gt; generateList(Class&lt;T&gt; cl, Comparator&lt;? super T&gt; comp)
+	{
+<span class="fc" id="L464">		Set&lt;T&gt; tm = new TreeSet&lt;&gt;(comp);</span>
+<span class="fc" id="L465">		tm.addAll(getConstructedCDOMObjects(cl));</span>
+<span class="fc" id="L466">		return new ArrayList&lt;&gt;(tm);</span>
+	}
+
+	/**
+	 * Returns the ReferenceManufacturer for the given ManufacturableFactory.
+	 * 
+	 * Note: Use of this method should be avoided if possible. getManufacturerId is
+	 * preferred; this method is only present for current backward compatibility to how
+	 * parent/child ability categories function, and will be removed when it is practical
+	 * to do so.
+	 * 
+	 * @param factory
+	 *            The ManufacturableFactory for which the ReferenceManufacturer should be
+	 *            returned
+	 * @return The ReferenceManufacturer for the given ManufacturableFactory
+	 */
+	public abstract &lt;T extends Loadable&gt; ReferenceManufacturer&lt;T&gt; getManufacturerFac(ManufacturableFactory&lt;T&gt; factory);
+
+	abstract &lt;T extends CDOMObject&gt; T performCopy(T object, String copyName);
+
+	public abstract &lt;T extends CDOMObject&gt; T performMod(T obj);
+
+	public FormatManager&lt;?&gt; getFormatManager(String clName)
+	{
+<span class="fc" id="L490">		return fmtLibrary.getFormatManager(Optional.empty(), clName);</span>
+	}
+
+	void importCDOMToFormat(Class&lt;? extends Loadable&gt; cl)
+	{
+<span class="fc" id="L495">		fmtLibrary.addFormatManager(getManufacturer(cl));</span>
+<span class="fc" id="L496">	}</span>
+
+	/**
+	 * Returns a sorted list of items, as sorted by the sort key.
+	 * 
+	 * @param cl
+	 *            The Class of object to return
+	 * @return The List of items, sorted by their sort key
+	 */
+	public &lt;T extends SortKeyRequired &amp; Loadable&gt; List&lt;T&gt; getSortkeySortedCDOMObjects(Class&lt;T&gt; cl)
+	{
+<span class="fc" id="L507">		List&lt;T&gt; items = new ArrayList&lt;&gt;(getConstructedCDOMObjects(cl));</span>
+<span class="fc" id="L508">		items.sort(Comparator.comparing(SortKeyRequired::getSortKey));</span>
+<span class="fc" id="L509">		return items;</span>
+	}
+
+	/**
+	 * Returns the ReferenceManufacturer for a given Format name and class.
+	 * 
+	 * @param formatName
+	 *            The (persistent) name of the format for which the ReferenceManufacturer
+	 *            should be returned
+	 * @param cl
+	 *            The class, indicating additional information about the
+	 *            ReferenceManufacturer to be returned
+	 * @return The ReferenceManufacturer for a given Format name and class
+	 */
+	public abstract &lt;T extends Loadable&gt; ReferenceManufacturer&lt;T&gt; getManufacturerByFormatName(String formatName,
+		Class&lt;T&gt; cl);
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CDOMChoiceManager.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.core.chooser</a> &gt; <span class="el_source">CDOMChoiceManager.java</span></div><h1>CDOMChoiceManager.java</h1><pre class="source lang-java linenums">/*
+ * Missing License Header, Copyright 2016 (C) Andrew Maitland &lt;amaitland@users.sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.core.chooser;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import pcgen.cdom.formula.Formula;
+import pcgen.cdom.base.ChooseDriver;
+import pcgen.cdom.base.ChooseInformation;
+import pcgen.core.Globals;
+import pcgen.core.PlayerCharacter;
+import pcgen.facade.core.ChooserFacade.ChooserTreeViewType;
+import pcgen.gui2.facade.Gui2InfoFactory;
+import pcgen.system.LanguageBundle;
+import pcgen.util.Logging;
+import pcgen.util.chooser.ChooserFactory;
+
+import org.apache.commons.lang3.StringUtils;
+
+public class CDOMChoiceManager&lt;T&gt; implements ChoiceManagerList&lt;T&gt;
+{
+
+	private final ChooseDriver owner;
+	private final Integer numberOfChoices;
+	protected final int choicesPerUnitCost;
+<span class="nc" id="L42">	protected ChooseController&lt;T&gt; controller = new ChooseController&lt;&gt;();</span>
+	protected final ChooseInformation&lt;T&gt; info;
+
+	private int preChooserChoices;
+
+	public CDOMChoiceManager(ChooseDriver cdo, ChooseInformation&lt;T&gt; chooseType, Integer numChoices, int cost)
+<span class="nc" id="L48">	{</span>
+<span class="nc" id="L49">		numberOfChoices = numChoices;</span>
+<span class="nc" id="L50">		owner = cdo;</span>
+<span class="nc" id="L51">		info = chooseType;</span>
+<span class="nc" id="L52">		choicesPerUnitCost = cost;</span>
+<span class="nc" id="L53">	}</span>
+
+	@Override
+	public void getChoices(PlayerCharacter pc, List&lt;T&gt; availableList, List&lt;T&gt; selectedList)
+	{
+<span class="nc" id="L58">		availableList.addAll(info.getSet(pc));</span>
+<span class="nc" id="L59">		List&lt;? extends T&gt; selected = info.getChoiceActor().getCurrentlySelected(owner, pc);</span>
+<span class="nc bnc" id="L60" title="All 2 branches missed.">		if (selected != null)</span>
+		{
+<span class="nc" id="L62">			selectedList.addAll(selected);</span>
+		}
+<span class="nc" id="L64">		preChooserChoices = selectedList.size();</span>
+<span class="nc" id="L65">	}</span>
+
+	/**
+	 * Conditionally add the selected item
+	 * 
+	 * @param pc
+	 * @param item
+	 */
+	@Override
+	public boolean conditionallyApply(PlayerCharacter pc, T item)
+	{
+<span class="nc" id="L76">		List&lt;? extends T&gt; oldSelections = info.getChoiceActor().getCurrentlySelected(owner, pc);</span>
+<span class="nc" id="L77">		boolean applied = false;</span>
+<span class="nc bnc" id="L78" title="All 4 branches missed.">		if (oldSelections == null || !oldSelections.contains(item))</span>
+		{
+<span class="nc bnc" id="L80" title="All 2 branches missed.">			if (info.getSet(pc).contains(item))</span>
+			{
+<span class="nc" id="L82">				info.getChoiceActor().applyChoice(owner, item, pc);</span>
+<span class="nc" id="L83">				applied = true;</span>
+			}
+		}
+<span class="nc" id="L86">		adjustPool(info.getChoiceActor().getCurrentlySelected(owner, pc));</span>
+<span class="nc" id="L87">		return applied;</span>
+	}
+
+	/**
+	 * Add the selected Feat proficiencies
+	 * 
+	 * @param pc
+	 * @param selected
+	 */
+	@Override
+	public boolean applyChoices(PlayerCharacter pc, List&lt;T&gt; selected)
+	{
+<span class="nc" id="L99">		List&lt;? extends T&gt; oldSelections = info.getChoiceActor().getCurrentlySelected(owner, pc);</span>
+<span class="nc" id="L100">		List&lt;T&gt; toAdd = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L101" title="All 2 branches missed.">		for (T obj : selected)</span>
+		{
+<span class="nc bnc" id="L103" title="All 4 branches missed.">			if (oldSelections == null || !oldSelections.remove(obj))</span>
+			{
+<span class="nc" id="L105">				toAdd.add(obj);</span>
+			}
+<span class="nc" id="L107">		}</span>
+<span class="nc" id="L108">		int oldSize = 0;</span>
+<span class="nc bnc" id="L109" title="All 2 branches missed.">		if (oldSelections != null)</span>
+		{
+<span class="nc" id="L111">			oldSize = oldSelections.size();</span>
+<span class="nc bnc" id="L112" title="All 2 branches missed.">			for (T obj : oldSelections)</span>
+			{
+<span class="nc" id="L114">				info.getChoiceActor().removeChoice(pc, owner, obj);</span>
+<span class="nc" id="L115">			}</span>
+		}
+<span class="nc bnc" id="L117" title="All 2 branches missed.">		for (T obj : toAdd)</span>
+		{
+<span class="nc" id="L119">			info.getChoiceActor().applyChoice(owner, obj, pc);</span>
+<span class="nc" id="L120">		}</span>
+<span class="nc" id="L121">		adjustPool(selected);</span>
+<span class="nc bnc" id="L122" title="All 2 branches missed.">		return oldSize != selected.size();</span>
+	}
+
+	/**
+	 * Display a chooser to the user.
+	 * 
+	 * @param aPc The character the choice is for.
+	 * @param availableList The list of possible choices.
+	 * @param selectedList The list of existing selections.
+	 * @return list The list of the new selections made by the user (unchanged if the dialog was cancelled)
+	 */
+	@Override
+	public List&lt;T&gt; doChooser(PlayerCharacter aPc, final List&lt;T&gt; availableList, final List&lt;T&gt; selectedList,
+		final List&lt;String&gt; reservedList)
+	{
+<span class="nc" id="L137">		int effectiveChoices = getNumEffectiveChoices(selectedList, reservedList, aPc);</span>
+
+<span class="nc bnc" id="L139" title="All 4 branches missed.">		boolean dupsAllowed = controller.isMultYes() &amp;&amp; controller.isStackYes();</span>
+
+		/*
+		 * TODO This is temporarily commented out until the correct behavior of
+		 * the &quot;available&quot; list is established. This is done to make
+		 * CDOMChoiceManager not remove items when selected, which is consistent
+		 * with the (buggy?) old Choose system
+		 */
+<span class="nc bnc" id="L147" title="All 2 branches missed.">		if (!dupsAllowed)</span>
+		{
+			// availableList.removeAll(reservedList);
+<span class="nc" id="L150">			availableList.removeAll(selectedList);</span>
+		}
+
+<span class="nc" id="L153">		Globals.sortChooserLists(availableList, selectedList);</span>
+
+<span class="nc bnc" id="L155" title="All 2 branches missed.">		String title = StringUtils.isBlank(info.getTitle()) ? &quot;in_chooser&quot; //$NON-NLS-1$</span>
+<span class="nc" id="L156">			: info.getTitle();</span>
+<span class="nc bnc" id="L157" title="All 2 branches missed.">		if (title.startsWith(&quot;in_&quot;)) //$NON-NLS-1$</span>
+		{
+<span class="nc" id="L159">			title = LanguageBundle.getString(title);</span>
+		}
+
+<span class="nc" id="L162">		CDOMChooserFacadeImpl&lt;T&gt; chooserFacade =</span>
+				new CDOMChooserFacadeImpl&lt;&gt;(title, availableList, selectedList, effectiveChoices);
+<span class="nc" id="L164">		chooserFacade.setDefaultView(ChooserTreeViewType.NAME);</span>
+<span class="nc" id="L165">		chooserFacade.setAllowsDups(dupsAllowed);</span>
+<span class="nc" id="L166">		chooserFacade.setInfoFactory(new Gui2InfoFactory(aPc));</span>
+<span class="nc" id="L167">		ChooserFactory.getDelegate().showGeneralChooser(chooserFacade);</span>
+
+<span class="nc" id="L169">		return chooserFacade.getFinalSelected();</span>
+	}
+
+	/**
+	 * Calculate the number of effective choices the user can make.
+	 *  
+	 * @param selectedList The list of already selected items.
+	 * @param reservedList The list of options which cannot be offered.
+	 * @param aPc The character the choice applies to.
+	 * @return The number of choices that may be made 
+	 */
+	@Override
+	public int getNumEffectiveChoices(final List&lt;? extends T&gt; selectedList, final List&lt;String&gt; reservedList,
+		PlayerCharacter aPc)
+	{
+<span class="nc" id="L184">		int selectedPoolValue = (selectedList.size() + (choicesPerUnitCost - 1)) / choicesPerUnitCost;</span>
+<span class="nc" id="L185">		int reservedPoolValue = (reservedList.size() + (choicesPerUnitCost - 1)) / choicesPerUnitCost;</span>
+		int effectiveTotalChoices;
+<span class="nc bnc" id="L187" title="All 2 branches missed.">		if (numberOfChoices == null)</span>
+		{
+<span class="nc" id="L189">			effectiveTotalChoices = controller.getTotalChoices();</span>
+		}
+		else
+		{
+<span class="nc" id="L193">			effectiveTotalChoices = (numberOfChoices - reservedPoolValue + selectedPoolValue);</span>
+		}
+<span class="nc" id="L195">		int effectiveChoices =</span>
+<span class="nc" id="L196">				Math.min(controller.getPool() + selectedPoolValue, effectiveTotalChoices / choicesPerUnitCost);</span>
+<span class="nc" id="L197">		effectiveChoices *= choicesPerUnitCost;</span>
+<span class="nc" id="L198">		Formula formula = owner.getNumChoices();</span>
+<span class="nc bnc" id="L199" title="All 2 branches missed.">		if (formula != null)</span>
+		{
+<span class="nc" id="L201">			int numChoices = formula.resolve(aPc, owner.getFormulaSource()).intValue();</span>
+<span class="nc bnc" id="L202" title="All 2 branches missed.">			if (numChoices &gt; 0)</span>
+			{
+<span class="nc" id="L204">				effectiveChoices = Math.min(effectiveChoices, numChoices);</span>
+			}
+		}
+<span class="nc" id="L207">		effectiveChoices -= selectedList.size();</span>
+<span class="nc" id="L208">		return effectiveChoices;</span>
+	}
+
+	/**
+	 * 
+	 * @param pc
+	 * @param availableList
+	 * @param selectedList
+	 */
+	@Override
+	public List&lt;T&gt; doChooserRemove(PlayerCharacter pc, List&lt;T&gt; availableList, List&lt;T&gt; selectedList,
+		List&lt;String&gt; reservedList)
+	{
+<span class="nc" id="L221">		return doChooser(pc, availableList, selectedList, reservedList);</span>
+	}
+
+	protected void adjustPool(List&lt;? extends T&gt; selected)
+	{
+<span class="nc" id="L226">		controller.adjustPool(selected);</span>
+<span class="nc" id="L227">	}</span>
+
+	@Override
+	public void setController(ChooseController&lt;T&gt; cc)
+	{
+<span class="nc" id="L232">		controller = cc;</span>
+<span class="nc" id="L233">	}</span>
+
+	@Override
+	public int getChoicesPerUnitCost()
+	{
+<span class="nc" id="L238">		return choicesPerUnitCost;</span>
+	}
+
+	@Override
+	public int getPreChooserChoices()
+	{
+<span class="nc" id="L244">		return preChooserChoices;</span>
+	}
+
+	@Override
+	public void restoreChoice(PlayerCharacter pc, ChooseDriver target, String choice)
+	{
+<span class="nc bnc" id="L250" title="All 2 branches missed.">		if (!choice.isEmpty())</span>
+		{
+<span class="nc" id="L252">			T ch = info.decodeChoice(Globals.getContext(), choice);</span>
+<span class="nc bnc" id="L253" title="All 2 branches missed.">			if (ch == null)</span>
+			{
+<span class="nc" id="L255">				Logging.errorPrint(</span>
+<span class="nc" id="L256">					&quot;Error finding &quot; + info.getReferenceClass().getSimpleName() + &quot; &quot; + choice + &quot;: Not Found&quot;);</span>
+			}
+			else
+			{
+<span class="nc" id="L260">				info.restoreChoice(pc, target, ch);</span>
+			}
+		}
+<span class="nc" id="L263">	}</span>
+
+	protected String getTitle()
+	{
+<span class="nc" id="L267">		return info.getTitle() + &quot; (&quot; + owner.getDisplayName() + ')';</span>
+	}
+
+	@Override
+	public void removeChoice(PlayerCharacter pc, ChooseDriver obj, T selection)
+	{
+<span class="nc" id="L273">		info.removeChoice(pc, obj, selection);</span>
+<span class="nc" id="L274">	}</span>
+
+	@Override
+	public T decodeChoice(String choice)
+	{
+<span class="nc" id="L279">		return info.decodeChoice(Globals.getContext(), choice);</span>
+	}
+
+	@Override
+	public void applyChoice(PlayerCharacter pc, ChooseDriver cdo, T selection)
+	{
+<span class="nc" id="L285">		info.getChoiceActor().applyChoice(cdo, selection, pc);</span>
+<span class="nc" id="L286">	}</span>
+
+	@Override
+	public String encodeChoice(T obj)
+	{
+<span class="nc" id="L291">		return info.encodeChoice(obj);</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

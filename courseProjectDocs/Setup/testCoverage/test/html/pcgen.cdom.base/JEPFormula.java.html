@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>JEPFormula.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.base</a> &gt; <span class="el_source">JEPFormula.java</span></div><h1>JEPFormula.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) 2007 Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package pcgen.cdom.base;
+
+import pcgen.cdom.formula.Formula;
+import pcgen.core.Equipment;
+import pcgen.core.PlayerCharacter;
+
+/**
+ * JEPFormula is a variable-value Formula designed to be run through the JEP
+ * formula evaluation system.
+ */
+public class JEPFormula implements Formula
+{
+
+	/**
+	 * The value of this JEPFormula
+	 */
+	private final String formula;
+
+	/**
+	 * Creates a new JEPFormula from the given String.
+	 * 
+	 * @param formulaString
+	 *            The String value of this JEPFormula.
+	 */
+	JEPFormula(String formulaString)
+<span class="fc" id="L43">	{</span>
+<span class="fc" id="L44">		formula = formulaString;</span>
+<span class="fc" id="L45">	}</span>
+
+	/**
+	 * Returns a String representation of this JEPFormula.
+	 */
+	@Override
+	public String toString()
+	{
+<span class="fc" id="L53">		return formula;</span>
+	}
+
+	@Override
+	public int hashCode()
+	{
+<span class="fc" id="L59">		return formula.hashCode();</span>
+	}
+
+	@Override
+	public boolean equals(Object obj)
+	{
+<span class="pc bpc" id="L65" title="1 of 4 branches missed.">		return obj instanceof JEPFormula &amp;&amp; ((JEPFormula) obj).formula.equals(formula);</span>
+	}
+
+	/**
+	 * Resolves this JEPFormula, returning the value of this JEPFormula in the
+	 * context of the given PlayerCharacter and source.
+	 * 
+	 * @param character
+	 *            The PlayerCharacter relative to which the JEPFormula should be
+	 *            resolved.
+	 * @param source
+	 *            The source object of the JEPFormula, for purposes of
+	 *            resolution.
+	 * @return The value of this JEPFormula in the context of the given
+	 *         PlayerCharacter and source.
+	 * @throws NullPointerException
+	 *             if the given PlayerCharacter is null
+	 */
+	@Override
+	public Float resolve(PlayerCharacter character, String source)
+	{
+<span class="nc" id="L86">		return character.getVariableValue(formula, source);</span>
+	}
+
+	/**
+	 * Returns true if this Formula is static (will always return the same
+	 * value). As a JEPFormula will likely return different values except in
+	 * rare cases, this will return false.
+	 * 
+	 * @return false
+	 */
+	@Override
+	public boolean isStatic()
+	{
+<span class="fc" id="L99">		return false;</span>
+	}
+
+	/**
+	 * Resolves this JEPFormula, returning the value of this JEPFormula in
+	 * context to the given Equipment, PlayerCharacter, and Source identifier.
+	 * 
+	 * @param equipment
+	 *            The Equipment relative to which the JEPFormula should be
+	 *            resolved.
+	 * @param primary
+	 *            True if the primary head of the given Equipment should be used
+	 *            for resolution, false if the secondary head should be used for
+	 *            resolution.
+	 * @param pc
+	 *            The PlayerCharacter relative to which the JEPFormula should be
+	 *            resolved.
+	 * @param source
+	 *            The source object of the JEPFormula, for purposes of
+	 *            resolution.
+	 * @return The value of this JEPFormula in the context of the given
+	 *         Equipment, PlayerCharacter, and Source identifier.
+	 */
+	@Override
+	public Number resolve(Equipment equipment, boolean primary, PlayerCharacter pc, String source)
+	{
+<span class="nc" id="L125">		return equipment.getVariableValue(formula, source, primary, pc);</span>
+	}
+
+	@Override
+	public boolean isValid()
+	{
+<span class="fc" id="L131">		return true;</span>
+	}
+
+	@Override
+	public Number resolveStatic()
+	{
+<span class="nc" id="L137">		throw new UnsupportedOperationException(&quot;Formula is not static&quot;);</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

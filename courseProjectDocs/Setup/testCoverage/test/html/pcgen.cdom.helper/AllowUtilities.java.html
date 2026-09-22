@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AllowUtilities.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.helper</a> &gt; <span class="el_source">AllowUtilities.java</span></div><h1>AllowUtilities.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2018 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or modify it under the terms
+ * of the GNU Lesser General Public License as published by the Free Software Foundation;
+ * either version 2.1 of the License, or (at your option) any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT ANY
+ * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+ * PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License along with
+ * this library; if not, write to the Free Software Foundation, Inc., 59 Temple Place,
+ * Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.cdom.helper;
+
+import java.text.MessageFormat;
+import java.util.List;
+
+import pcgen.base.lang.CaseInsensitiveString;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.MapKey;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.SettingsHandler;
+
+/**
+ * InfoUtilities is a set of utilities related to the ALLOW token.
+ */
+public final class AllowUtilities
+{
+
+	private AllowUtilities()
+	{
+		//Do not instantiate utility class
+	}
+
+	/**
+	 * Returns an HTML String indicating the state of the ALLOW items on an object.
+	 * 
+	 * @param pc
+	 *            The PlayerCharacter in which the state should be processed
+	 * @param cdo
+	 *            The CDOMObject on which the ALLOW items are being analyzed
+	 * @return An HTML String with the text indicating the state of the ALLOW items for
+	 *         the given PlayerCharacter and CDOMObject
+	 */
+	public static String getAllowInfo(PlayerCharacter pc, CDOMObject cdo)
+	{
+<span class="nc" id="L52">		List&lt;InfoBoolean&gt; allowItems = cdo.getListFor(ListKey.ALLOW);</span>
+<span class="nc bnc" id="L53" title="All 4 branches missed.">		if ((allowItems == null) || allowItems.isEmpty())</span>
+		{
+<span class="nc" id="L55">			return Constants.EMPTY_STRING;</span>
+		}
+<span class="nc" id="L57">		StringBuilder sb = new StringBuilder(400);</span>
+<span class="nc" id="L58">		StringBuffer tempBuffer = new StringBuffer(200);</span>
+<span class="nc" id="L59">		boolean needSeparator = false;</span>
+<span class="nc bnc" id="L60" title="All 2 branches missed.">		for (InfoBoolean infoBoolean : allowItems)</span>
+		{
+<span class="nc" id="L62">			CaseInsensitiveString cis = new CaseInsensitiveString(infoBoolean.getInfoName());</span>
+<span class="nc" id="L63">			MessageFormat info = cdo.get(MapKey.INFO, cis);</span>
+<span class="nc bnc" id="L64" title="All 2 branches missed.">			if (info != null)</span>
+			{
+<span class="nc bnc" id="L66" title="All 2 branches missed.">				if (needSeparator)</span>
+				{
+<span class="nc" id="L68">					sb.append(&quot; and &quot;);</span>
+				}
+<span class="nc" id="L70">				needSeparator = true;</span>
+<span class="nc" id="L71">				boolean passes = pc.solve(infoBoolean.getFormula());</span>
+<span class="nc bnc" id="L72" title="All 2 branches missed.">				if (!passes)</span>
+				{
+<span class="nc" id="L74">					sb.append(SettingsHandler.getPrereqFailColorAsHtmlStart());</span>
+<span class="nc" id="L75">					sb.append(&quot;&lt;i&gt;&quot;);</span>
+				}
+<span class="nc" id="L77">				Object[] infoVars = InfoUtilities.getInfoVars(pc.getCharID(), cdo, cis);</span>
+<span class="nc" id="L78">				tempBuffer.setLength(0);</span>
+<span class="nc" id="L79">				info.format(infoVars, tempBuffer, null);</span>
+<span class="nc" id="L80">				sb.append(htmlEscape(tempBuffer.toString()));</span>
+<span class="nc bnc" id="L81" title="All 2 branches missed.">				if (!passes)</span>
+				{
+<span class="nc" id="L83">					sb.append(&quot;&lt;/i&gt;&quot;);</span>
+<span class="nc" id="L84">					sb.append(SettingsHandler.getPrereqFailColorAsHtmlEnd());</span>
+				}
+			}
+<span class="nc" id="L87">		}</span>
+<span class="nc" id="L88">		return sb.toString();</span>
+	}
+
+	/**
+	 * Escapes the minimal set of characters required to inject untrusted text into HTML
+	 * &lt;em&gt;element content&lt;/em&gt; (i.e. between tags, never inside attribute values).
+	 *
+	 * &lt;p&gt;Only {@code &amp;} and {@code &lt;} are escaped, because those are the only two
+	 * characters that can change the structure of an HTML document when they appear in
+	 * element content: {@code &amp;} starts an entity reference and {@code &lt;} starts a tag.
+	 * The other &quot;classic&quot; HTML metacharacters are intentionally left untouched:
+	 * &lt;ul&gt;
+	 *   &lt;li&gt;{@code &gt;} is structurally meaningful only as the closing delimiter of a tag
+	 *       that was already opened by an unescaped {@code &lt;}; in plain text it is just
+	 *       a greater-than sign and browsers render it as such.&lt;/li&gt;
+	 *   &lt;li&gt;{@code &quot;} and {@code '} only matter inside attribute values. The output of
+	 *       this method is concatenated into element content (see
+	 *       {@link #getAllowInfo(PlayerCharacter, CDOMObject)}), never an attribute, so
+	 *       escaping them would just clutter the rendered text with {@code &amp;quot;} /
+	 *       {@code &amp;#39;} entities.&lt;/li&gt;
+	 * &lt;/ul&gt;
+	 *
+	 * &lt;p&gt;&lt;strong&gt;Do not&lt;/strong&gt; reuse this helper for HTML attribute values, JavaScript,
+	 * CSS, or URL contexts — it is deliberately incomplete for those.
+	 */
+	static String htmlEscape(String input)
+	{
+<span class="fc" id="L115">		StringBuilder out = new StringBuilder(input.length());</span>
+<span class="fc bfc" id="L116" title="All 2 branches covered.">		for (int i = 0; i &lt; input.length(); i++)</span>
+		{
+<span class="fc" id="L118">			char c = input.charAt(i);</span>
+<span class="fc bfc" id="L119" title="All 3 branches covered.">			switch (c)</span>
+			{
+<span class="fc" id="L121">				case '&amp;' -&gt; out.append(&quot;&amp;amp;&quot;);</span>
+<span class="fc" id="L122">				case '&lt;' -&gt; out.append(&quot;&amp;lt;&quot;);</span>
+<span class="fc" id="L123">				default -&gt; out.append(c);</span>
+			}
+		}
+<span class="fc" id="L126">		return out.toString();</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

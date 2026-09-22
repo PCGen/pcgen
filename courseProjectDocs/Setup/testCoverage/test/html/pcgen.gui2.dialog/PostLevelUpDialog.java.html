@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PostLevelUpDialog.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.gui2.dialog</a> &gt; <span class="el_source">PostLevelUpDialog.java</span></div><h1>PostLevelUpDialog.java</h1><pre class="source lang-java linenums">/*
+ * Copyright James Dempsey, 2012
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.gui2.dialog;
+
+import java.awt.BorderLayout;
+import java.awt.Component;
+import java.awt.Container;
+import java.awt.Frame;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+
+import javax.swing.Box;
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JSpinner;
+import javax.swing.JTable;
+import javax.swing.SpinnerNumberModel;
+import javax.swing.table.AbstractTableModel;
+import javax.swing.table.JTableHeader;
+import javax.swing.table.TableCellEditor;
+import javax.swing.table.TableCellRenderer;
+
+import pcgen.core.PCClass;
+import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.core.CharacterLevelFacade;
+import pcgen.facade.core.CharacterLevelsFacade;
+import pcgen.facade.core.CharacterLevelsFacade.CharacterLevelEvent;
+import pcgen.facade.core.CharacterLevelsFacade.HitPointListener;
+import pcgen.gui2.tools.Utility;
+import pcgen.gui2.util.table.TableCellUtilities.SpinnerEditor;
+import pcgen.gui2.util.table.TableCellUtilities.SpinnerRenderer;
+import pcgen.system.LanguageBundle;
+
+import org.apache.commons.lang3.math.NumberUtils;
+import org.apache.commons.lang3.mutable.MutableInt;
+
+/**
+ * The Class {@code PostLevelUpDialog} provides a display of the results
+ * of levelling up a character. 
+ *
+ * 
+ */
+@SuppressWarnings(&quot;serial&quot;)
+public final class PostLevelUpDialog extends JDialog implements ActionListener
+{
+
+	private final CharacterLevelsFacade levels;
+	private final LevelTableModel tableModel;
+	private final int oldLevel;
+	private final int numLevels;
+
+	private PostLevelUpDialog(Frame frame, CharacterFacade character, int oldLevel)
+	{
+<span class="nc" id="L76">		super(frame, true);</span>
+<span class="nc" id="L77">		this.oldLevel = oldLevel;</span>
+<span class="nc" id="L78">		this.levels = character.getCharacterLevelsFacade();</span>
+<span class="nc" id="L79">		numLevels = character.getCharacterLevelsFacade().getSize() - oldLevel;</span>
+<span class="nc" id="L80">		this.tableModel = new LevelTableModel();</span>
+<span class="nc" id="L81">		initComponents();</span>
+<span class="nc" id="L82">		pack();</span>
+<span class="nc" id="L83">	}</span>
+
+	/**
+	 * Display the post levelling dialog for a character. This will display a 
+	 * list of levels just added along with the hit points and skill points 
+	 * gained. The hit points gained may be edited.
+	 * 
+	 * @param parent The component we should appear above.
+	 * @param character The character that has been levelled up.
+	 * @param oldLevel The character's level before the level up action.
+	 */
+	public static void showPostLevelUpDialog(Component parent, CharacterFacade character, int oldLevel)
+	{
+<span class="nc" id="L96">		int size = character.getCharacterLevelsFacade().getSize();</span>
+<span class="nc bnc" id="L97" title="All 2 branches missed.">		if (size - oldLevel + 1 &lt; 1)</span>
+		{
+<span class="nc" id="L99">			return;</span>
+		}
+
+<span class="nc" id="L102">		Frame frame = JOptionPane.getFrameForComponent(parent);</span>
+<span class="nc" id="L103">		PostLevelUpDialog dialog = new PostLevelUpDialog(frame, character, oldLevel);</span>
+<span class="nc" id="L104">		dialog.setLocationRelativeTo(frame);</span>
+<span class="nc" id="L105">		dialog.setVisible(true);</span>
+<span class="nc" id="L106">	}</span>
+
+	private void initComponents()
+	{
+<span class="nc" id="L110">		setDefaultCloseOperation(DISPOSE_ON_CLOSE);</span>
+
+<span class="nc" id="L112">		Container pane = getContentPane();</span>
+<span class="nc" id="L113">		pane.setLayout(new BorderLayout());</span>
+<span class="nc" id="L114">		JTable table = new JTable(tableModel)</span>
+<span class="nc" id="L115">		{</span>
+
+			@Override
+			public TableCellEditor getCellEditor(int row, int column)
+			{
+<span class="nc bnc" id="L120" title="All 4 branches missed.">				if (column == LevelTableModel.COL_ROLLED_HP &amp;&amp; row &lt; numLevels)</span>
+				{//TODO: the max roll should be calculated in a different manner
+<span class="nc" id="L122">					String hd = levels.getClassTaken(levels.getElementAt(row + oldLevel)).getHD();</span>
+<span class="nc" id="L123">					int max = NumberUtils.toInt(hd);</span>
+<span class="nc" id="L124">					return new SpinnerEditor(new SpinnerNumberModel(1, 1, max, 1));</span>
+				}
+<span class="nc" id="L126">				return super.getCellEditor(row, column);</span>
+			}
+
+			@Override
+			public TableCellRenderer getCellRenderer(int row, int column)
+			{
+<span class="nc bnc" id="L132" title="All 4 branches missed.">				if (column == LevelTableModel.COL_ROLLED_HP &amp;&amp; row &lt; numLevels)</span>
+				{
+<span class="nc" id="L134">					return new SpinnerRenderer();</span>
+				}
+<span class="nc" id="L136">				return super.getCellRenderer(row, column);</span>
+			}
+
+		};
+<span class="nc" id="L140">		table.setCellSelectionEnabled(false);</span>
+<span class="nc" id="L141">		table.setRowHeight(new JSpinner().getPreferredSize().height);</span>
+<span class="nc" id="L142">		JTableHeader header = table.getTableHeader();</span>
+<span class="nc" id="L143">		header.setReorderingAllowed(false);</span>
+
+<span class="nc" id="L145">		JScrollPane scrollPane = new JScrollPane(table);</span>
+<span class="nc" id="L146">		pane.add(scrollPane, BorderLayout.CENTER);</span>
+
+<span class="nc" id="L148">		Box box = Box.createHorizontalBox();</span>
+<span class="nc" id="L149">		box.add(Box.createHorizontalGlue());</span>
+<span class="nc" id="L150">		JButton button = new JButton(LanguageBundle.getString(&quot;in_close&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L151">		button.setMnemonic(LanguageBundle.getMnemonic(&quot;in_mn_close&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L152">		button.setActionCommand(&quot;Close&quot;); //$NON-NLS-1$</span>
+<span class="nc" id="L153">		button.addActionListener(this);</span>
+<span class="nc" id="L154">		box.add(button);</span>
+<span class="nc" id="L155">		pane.add(box, BorderLayout.SOUTH);</span>
+<span class="nc" id="L156">		addWindowListener(new WindowAdapter()</span>
+<span class="nc" id="L157">		{</span>
+
+			@Override
+			public void windowClosed(WindowEvent e)
+			{
+				//Make sure to remove the listeners so that the garbage collector can
+				//dispose of this dialog and prevent a memory leak
+<span class="nc" id="L164">				levels.removeHitPointListener(tableModel);</span>
+<span class="nc" id="L165">			}</span>
+
+		});
+
+<span class="nc" id="L169">		Utility.installEscapeCloseOperation(this);</span>
+<span class="nc" id="L170">	}</span>
+
+	@Override
+	public void actionPerformed(ActionEvent e)
+	{
+		// Close the dialog
+<span class="nc" id="L176">		dispose();</span>
+<span class="nc" id="L177">	}</span>
+
+	private class LevelTableModel extends AbstractTableModel implements HitPointListener
+	{
+		static final int COL_LEVEL = 0;
+		static final int COL_CLASS = 1;
+		static final int COL_GAINED_HP = 2;
+		static final int COL_ROLLED_HP = 3;
+		static final int COL_SKILL_POINTS = 4;
+
+		private final Object[] columns;
+		private final Object[][] data;
+		private final Map&lt;PCClass, MutableInt&gt; classLevelMap;
+
+		LevelTableModel()
+<span class="nc" id="L192">		{</span>
+<span class="nc" id="L193">			columns = new Object[]{LanguageBundle.getString(&quot;in_level&quot;), //$NON-NLS-1$</span>
+<span class="nc" id="L194">				LanguageBundle.getString(&quot;in_classString&quot;), //$NON-NLS-1$</span>
+<span class="nc" id="L195">				LanguageBundle.getString(&quot;in_luGainedHp&quot;), //$NON-NLS-1$</span>
+<span class="nc" id="L196">				LanguageBundle.getString(&quot;in_luRolledHp&quot;), //$NON-NLS-1$</span>
+<span class="nc" id="L197">				LanguageBundle.getString(&quot;in_luSkillPoints&quot;) //$NON-NLS-1$</span>
+			};
+
+<span class="nc" id="L200">			data = new Object[numLevels + 1][5];</span>
+<span class="nc" id="L201">			classLevelMap = new HashMap&lt;&gt;();</span>
+<span class="nc" id="L202">			int gainedTotal = 0;</span>
+<span class="nc" id="L203">			int rolledTotal = 0;</span>
+<span class="nc" id="L204">			int pointTotal = 0;</span>
+<span class="nc bnc" id="L205" title="All 2 branches missed.">			for (int i = oldLevel; i &lt; (numLevels + oldLevel); i++)</span>
+			{
+<span class="nc" id="L207">				CharacterLevelFacade level = levels.getElementAt(i);</span>
+<span class="nc" id="L208">				Object[] dataRow = data[i - oldLevel];</span>
+<span class="nc" id="L209">				dataRow[COL_LEVEL] = i + 1;</span>
+<span class="nc" id="L210">				PCClass pcClass = levels.getClassTaken(level);</span>
+<span class="nc" id="L211">				dataRow[COL_CLASS] = pcClass;</span>
+<span class="nc bnc" id="L212" title="All 2 branches missed.">				if (!classLevelMap.containsKey(pcClass))</span>
+				{
+<span class="nc" id="L214">					classLevelMap.put(pcClass, new MutableInt(0));</span>
+				}
+<span class="nc" id="L216">				classLevelMap.get(pcClass).increment();</span>
+<span class="nc" id="L217">				gainedTotal += (Integer) (dataRow[COL_GAINED_HP] = levels.getHPGained(level));</span>
+<span class="nc" id="L218">				rolledTotal += (Integer) (dataRow[COL_ROLLED_HP] = levels.getHPRolled(level));</span>
+<span class="nc" id="L219">				pointTotal += (Integer) (dataRow[COL_SKILL_POINTS] = levels.getGainedSkillPoints(level));</span>
+			}
+<span class="nc" id="L221">			data[numLevels][COL_LEVEL] = LanguageBundle.getString(&quot;in_sumTotal&quot;); //$NON-NLS-1$</span>
+<span class="nc" id="L222">			StringBuilder builder = new StringBuilder(100);</span>
+<span class="nc" id="L223">			Iterator&lt;PCClass&gt; classes = classLevelMap.keySet().iterator();</span>
+<span class="nc bnc" id="L224" title="All 2 branches missed.">			while (classes.hasNext())</span>
+			{
+<span class="nc" id="L226">				PCClass c = classes.next();</span>
+<span class="nc" id="L227">				builder.append(c.getAbbrev()).append(' ');</span>
+<span class="nc" id="L228">				builder.append('(').append(classLevelMap.get(c)).append(')');</span>
+<span class="nc bnc" id="L229" title="All 2 branches missed.">				if (classes.hasNext())</span>
+				{
+<span class="nc" id="L231">					builder.append(&quot;, &quot;); //$NON-NLS-1$</span>
+				}
+<span class="nc" id="L233">			}</span>
+<span class="nc" id="L234">			data[numLevels][COL_CLASS] = builder;</span>
+<span class="nc" id="L235">			data[numLevels][COL_GAINED_HP] = gainedTotal;</span>
+<span class="nc" id="L236">			data[numLevels][COL_ROLLED_HP] = rolledTotal;</span>
+<span class="nc" id="L237">			data[numLevels][COL_SKILL_POINTS] = pointTotal;</span>
+
+<span class="nc" id="L239">			levels.addHitPointListener(this);</span>
+<span class="nc" id="L240">		}</span>
+
+		@Override
+		public int getRowCount()
+		{
+<span class="nc" id="L245">			return numLevels + 1;</span>
+		}
+
+		@Override
+		public int getColumnCount()
+		{
+<span class="nc" id="L251">			return columns.length;</span>
+		}
+
+		@Override
+		public boolean isCellEditable(int rowIndex, int columnIndex)
+		{
+<span class="nc bnc" id="L257" title="All 2 branches missed.">			if (columnIndex == COL_ROLLED_HP)</span>
+			{
+<span class="nc bnc" id="L259" title="All 2 branches missed.">				return rowIndex &lt; numLevels;</span>
+			}
+<span class="nc" id="L261">			return false;</span>
+		}
+
+		@Override
+		public Class&lt;?&gt; getColumnClass(int columnIndex)
+		{
+<span class="nc bnc" id="L267" title="All 2 branches missed.">			return switch (columnIndex)</span>
+					{
+<span class="nc" id="L269">						case COL_GAINED_HP, COL_ROLLED_HP, COL_SKILL_POINTS -&gt; Integer.class;</span>
+<span class="nc" id="L270">						default -&gt; Object.class;</span>
+					};
+		}
+
+		@Override
+		public String getColumnName(int column)
+		{
+<span class="nc" id="L277">			return columns[column].toString();</span>
+		}
+
+		@Override
+		public Object getValueAt(int rowIndex, int columnIndex)
+		{
+<span class="nc" id="L283">			return data[rowIndex][columnIndex];</span>
+		}
+
+		@Override
+		public void setValueAt(Object aValue, int rowIndex, int columnIndex)
+		{
+<span class="nc" id="L289">			CharacterLevelFacade level = levels.getElementAt(rowIndex + oldLevel);</span>
+<span class="nc" id="L290">			levels.setHPRolled(level, (Integer) aValue);</span>
+<span class="nc" id="L291">		}</span>
+
+		@Override
+		public void hitPointsChanged(CharacterLevelEvent e)
+		{
+<span class="nc" id="L296">			int gainedTotal = 0;</span>
+<span class="nc" id="L297">			int rolledTotal = 0;</span>
+<span class="nc bnc" id="L298" title="All 2 branches missed.">			for (int i = oldLevel; i &lt; numLevels + oldLevel; i++)</span>
+			{
+<span class="nc" id="L300">				CharacterLevelFacade level = levels.getElementAt(i);</span>
+<span class="nc" id="L301">				Object[] dataRow = data[i - oldLevel];</span>
+<span class="nc" id="L302">				gainedTotal += (Integer) (dataRow[COL_GAINED_HP] = levels.getHPGained(level));</span>
+<span class="nc" id="L303">				rolledTotal += (Integer) (dataRow[COL_ROLLED_HP] = levels.getHPRolled(level));</span>
+			}
+<span class="nc" id="L305">			data[numLevels][COL_GAINED_HP] = gainedTotal;</span>
+<span class="nc" id="L306">			data[numLevels][COL_ROLLED_HP] = rolledTotal;</span>
+<span class="nc" id="L307">			fireTableRowsUpdated(0, data.length);</span>
+<span class="nc" id="L308">		}</span>
+
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

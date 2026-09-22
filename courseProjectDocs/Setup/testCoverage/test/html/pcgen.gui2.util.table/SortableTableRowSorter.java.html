@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SortableTableRowSorter.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.gui2.util.table</a> &gt; <span class="el_source">SortableTableRowSorter.java</span></div><h1>SortableTableRowSorter.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2016 Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ * 
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ * 
+ */
+package pcgen.gui2.util.table;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+import javax.swing.RowSorter;
+import javax.swing.SortOrder;
+
+import pcgen.util.Comparators;
+
+public class SortableTableRowSorter extends RowSorter&lt;SortableTableModel&gt;
+{
+
+<span class="nc" id="L35">	private List&lt;? extends RowSorter.SortKey&gt; sortKeys = Collections.emptyList();</span>
+
+	private SortableTableModel model;
+
+	protected SortableTableRowSorter()
+	{
+<span class="nc" id="L41">		this(null);</span>
+<span class="nc" id="L42">	}</span>
+
+	public SortableTableRowSorter(SortableTableModel model)
+<span class="nc" id="L45">	{</span>
+<span class="nc" id="L46">		setModel(model);</span>
+<span class="nc" id="L47">	}</span>
+
+	@Override
+	public SortableTableModel getModel()
+	{
+<span class="nc" id="L52">		return model;</span>
+	}
+
+	public void setModel(SortableTableModel model)
+	{
+<span class="nc" id="L57">		this.model = model;</span>
+<span class="nc" id="L58">	}</span>
+
+	/**
+	 * Reverses the sort order from ascending to descending (or descending
+	 * to ascending) if the specified column is already the primary sorted
+	 * column; otherwise, makes the specified column the primary sorted
+	 * column, with an ascending sort order. If the specified column is not
+	 * sortable, this method has no effect.
+	 *
+	 * @param column index of the column to make the primary sorted column,
+	 * in terms of the underlying model
+	 * @throws IndexOutOfBoundsException {@inheritDoc}
+	 */
+	@Override
+	public void toggleSortOrder(int column)
+	{
+<span class="nc" id="L74">		List&lt;RowSorter.SortKey&gt; keys = new ArrayList&lt;&gt;(getSortKeys());</span>
+		RowSorter.SortKey sortKey;
+		int sortIndex;
+<span class="nc bnc" id="L77" title="All 2 branches missed.">		for (sortIndex = keys.size() - 1; sortIndex &gt;= 0; sortIndex--)</span>
+		{
+<span class="nc bnc" id="L79" title="All 2 branches missed.">			if (keys.get(sortIndex).getColumn() == column)</span>
+			{
+<span class="nc" id="L81">				break;</span>
+			}
+		}
+<span class="nc bnc" id="L84" title="All 2 branches missed.">		if (sortIndex == -1)</span>
+		{
+			// Key doesn't exist
+<span class="nc" id="L87">			sortKey = new RowSorter.SortKey(column, SortOrder.ASCENDING);</span>
+<span class="nc" id="L88">			keys.add(0, sortKey);</span>
+		}
+<span class="nc bnc" id="L90" title="All 2 branches missed.">		else if (sortIndex == 0)</span>
+		{
+			// It's the primary sorting key, toggle it
+<span class="nc" id="L93">			keys.set(0, toggle(keys.get(0)));</span>
+		}
+		else
+		{
+			// It's not the first, but was sorted on, remove old
+			// entry, insert as first with ascending.
+<span class="nc" id="L99">			keys.remove(sortIndex);</span>
+<span class="nc" id="L100">			keys.add(0, new RowSorter.SortKey(column, SortOrder.ASCENDING));</span>
+		}
+<span class="nc bnc" id="L102" title="All 2 branches missed.">		if (keys.size() &gt; 2)</span>
+		{
+<span class="nc" id="L104">			keys = keys.subList(0, 2);</span>
+		}
+<span class="nc" id="L106">		setSortKeys(keys);</span>
+<span class="nc" id="L107">	}</span>
+
+	private RowSorter.SortKey toggle(RowSorter.SortKey key)
+	{
+<span class="nc bnc" id="L111" title="All 2 branches missed.">		if (key.getSortOrder() == SortOrder.ASCENDING)</span>
+		{
+<span class="nc" id="L113">			return new RowSorter.SortKey(key.getColumn(), SortOrder.DESCENDING);</span>
+		}
+<span class="nc" id="L115">		return new RowSorter.SortKey(key.getColumn(), SortOrder.ASCENDING);</span>
+	}
+
+	@Override
+	public int convertRowIndexToModel(int index)
+	{
+<span class="nc" id="L121">		return index;</span>
+	}
+
+	@Override
+	public int convertRowIndexToView(int index)
+	{
+<span class="nc" id="L127">		return index;</span>
+	}
+
+	@Override
+	public void setSortKeys(List&lt;? extends RowSorter.SortKey&gt; keys)
+	{
+<span class="nc" id="L133">		sortKeys = keys;</span>
+<span class="nc" id="L134">		sort();</span>
+<span class="nc" id="L135">	}</span>
+
+	private void sort()
+	{
+<span class="nc" id="L139">		SortableTableModel m = getModel();</span>
+<span class="nc bnc" id="L140" title="All 2 branches missed.">		if (m == null)</span>
+		{
+<span class="nc" id="L142">			return;</span>
+		}
+<span class="nc" id="L144">		int columnCount = m.getColumnCount();</span>
+<span class="nc" id="L145">		Comparator&lt;?&gt;[] comparators = new Comparator[columnCount];</span>
+<span class="nc bnc" id="L146" title="All 2 branches missed.">		for (int i = 0; i &lt; columnCount; i++)</span>
+		{
+<span class="nc" id="L148">			comparators[i] = Comparators.getComparatorFor(m.getColumnClass(i));</span>
+		}
+<span class="nc" id="L150">		RowSorter.SortKey[] keys = sortKeys.toArray(new RowSorter.SortKey[0]);</span>
+
+<span class="nc" id="L152">		m.sortModel(new RowComparator(keys, comparators));</span>
+<span class="nc" id="L153">	}</span>
+
+	@Override
+	public List&lt;? extends RowSorter.SortKey&gt; getSortKeys()
+	{
+<span class="nc" id="L158">		return sortKeys;</span>
+	}
+
+	@Override
+	public int getViewRowCount()
+	{
+<span class="nc bnc" id="L164" title="All 2 branches missed.">		if (getModel() == null)</span>
+		{
+<span class="nc" id="L166">			return 0;</span>
+		}
+<span class="nc" id="L168">		return getModel().getRowCount();</span>
+	}
+
+	@Override
+	public int getModelRowCount()
+	{
+<span class="nc bnc" id="L174" title="All 2 branches missed.">		if (getModel() == null)</span>
+		{
+<span class="nc" id="L176">			return 0;</span>
+		}
+<span class="nc" id="L178">		return getModel().getRowCount();</span>
+	}
+
+	@Override
+	public void modelStructureChanged()
+	{
+<span class="nc" id="L184">	}</span>
+
+	@Override
+	public void allRowsChanged()
+	{
+<span class="nc" id="L189">	}</span>
+
+	@Override
+	public void rowsInserted(int firstRow, int endRow)
+	{
+<span class="nc" id="L194">	}</span>
+
+	@Override
+	public void rowsDeleted(int firstRow, int endRow)
+	{
+<span class="nc" id="L199">	}</span>
+
+	@Override
+	public void rowsUpdated(int firstRow, int endRow)
+	{
+<span class="nc" id="L204">	}</span>
+
+	@Override
+	public void rowsUpdated(int firstRow, int endRow, int column)
+	{
+<span class="nc" id="L209">	}</span>
+
+}
+
+class RowComparator implements Comparator&lt;Row&gt;
+{
+
+	private final RowSorter.SortKey[] keys;
+	private final Comparator&lt;?&gt;[] comparators;
+
+	RowComparator(RowSorter.SortKey[] keys, Comparator&lt;?&gt;[] comparators)
+<span class="nc" id="L220">	{</span>
+<span class="nc" id="L221">		this.keys = keys;</span>
+<span class="nc" id="L222">		this.comparators = comparators;</span>
+<span class="nc" id="L223">	}</span>
+
+	@Override
+	public int compare(Row o1, Row o2)
+	{
+<span class="nc bnc" id="L228" title="All 2 branches missed.">		for (RowSorter.SortKey key : keys)</span>
+		{
+<span class="nc bnc" id="L230" title="All 2 branches missed.">			if (key.getSortOrder() == SortOrder.UNSORTED)</span>
+			{
+<span class="nc" id="L232">				continue;</span>
+			}
+<span class="nc" id="L234">			int column = key.getColumn();</span>
+<span class="nc" id="L235">			Comparator comparator = comparators[column];</span>
+<span class="nc" id="L236">			Object obj1 = o1.getValueAt(column);</span>
+<span class="nc" id="L237">			Object obj2 = o2.getValueAt(column);</span>
+			int ret;
+<span class="nc bnc" id="L239" title="All 2 branches missed.">			if (obj1 == null)</span>
+			{
+<span class="nc bnc" id="L241" title="All 2 branches missed.">				if (obj2 == null)</span>
+				{
+<span class="nc" id="L243">					ret = 0;</span>
+				}
+				else
+				{
+<span class="nc" id="L247">					ret = -1;</span>
+				}
+			}
+<span class="nc bnc" id="L250" title="All 2 branches missed.">			else if (obj2 == null)</span>
+			{
+<span class="nc" id="L252">				ret = 1;</span>
+			}
+			else
+			{
+<span class="nc" id="L256">				ret = comparator.compare(obj1, obj2);</span>
+			}
+<span class="nc bnc" id="L258" title="All 2 branches missed.">			if (key.getSortOrder() == SortOrder.DESCENDING)</span>
+			{
+<span class="nc" id="L260">				ret *= -1;</span>
+			}
+<span class="nc bnc" id="L262" title="All 2 branches missed.">			if (ret != 0)</span>
+			{
+<span class="nc" id="L264">				return ret;</span>
+			}
+		}
+
+<span class="nc" id="L268">		return 0;</span>
+	}
+
+	@Override
+	public int hashCode()
+	{
+<span class="nc" id="L274">		int hash = 7;</span>
+<span class="nc" id="L275">		hash = 19 * hash + Arrays.deepHashCode(this.keys);</span>
+<span class="nc" id="L276">		hash = 19 * hash + Arrays.deepHashCode(this.comparators);</span>
+<span class="nc" id="L277">		return hash;</span>
+	}
+
+	@Override
+	public boolean equals(Object obj)
+	{
+<span class="nc bnc" id="L283" title="All 2 branches missed.">		if (obj == null)</span>
+		{
+<span class="nc" id="L285">			return false;</span>
+		}
+<span class="nc bnc" id="L287" title="All 2 branches missed.">		if (getClass() != obj.getClass())</span>
+		{
+<span class="nc" id="L289">			return false;</span>
+		}
+<span class="nc" id="L291">		final RowComparator other = (RowComparator) obj;</span>
+<span class="nc bnc" id="L292" title="All 2 branches missed.">		if (!Arrays.deepEquals(this.keys, other.keys))</span>
+		{
+<span class="nc" id="L294">			return false;</span>
+		}
+<span class="nc" id="L296">		return Arrays.deepEquals(this.comparators, other.comparators);</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

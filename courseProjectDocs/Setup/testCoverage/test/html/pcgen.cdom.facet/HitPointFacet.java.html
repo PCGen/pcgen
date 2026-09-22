@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>HitPointFacet.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.facet</a> &gt; <span class="el_source">HitPointFacet.java</span></div><h1>HitPointFacet.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) Thomas Parker, 2012.
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package pcgen.cdom.facet;
+
+import pcgen.util.RandomUtil;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.content.HitDie;
+import pcgen.cdom.content.Processor;
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.facet.analysis.LevelFacet;
+import pcgen.cdom.facet.base.AbstractAssociationFacet;
+import pcgen.cdom.facet.event.DataFacetChangeEvent;
+import pcgen.cdom.facet.event.DataFacetChangeListener;
+import pcgen.cdom.facet.model.ClassFacet;
+import pcgen.cdom.facet.model.RaceFacet;
+import pcgen.cdom.facet.model.TemplateFacet;
+import pcgen.cdom.inst.PCClassLevel;
+import pcgen.core.PCClass;
+import pcgen.core.PCTemplate;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.SettingsHandler;
+import pcgen.util.Logging;
+
+/**
+ * HitPointFacet stores information about hit points for a Player Character.
+ * Specifically this Facet stores the number of hit points granted to a Player
+ * Character for each PCClassLevel possessed by the Player Character.
+ * 
+ */
+<span class="fc" id="L47">public class HitPointFacet extends AbstractAssociationFacet&lt;CharID, PCClassLevel, Integer&gt;</span>
+		implements DataFacetChangeListener&lt;CharID, CDOMObject&gt;
+{
+
+<span class="fc" id="L51">	private final PlayerCharacterTrackingFacet trackingFacet =</span>
+<span class="fc" id="L52">			FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);</span>
+
+	private ClassFacet classFacet;
+
+	private RaceFacet raceFacet;
+
+	private TemplateFacet templateFacet;
+
+	private LevelFacet levelFacet;
+
+	private BonusCheckingFacet bonusCheckingFacet;
+
+	/**
+	 * Roll the hitpoints for a single level.
+	 *
+	 * @param min the minimum number on the die
+	 * @param max the maximum number on the die
+	 * @param totalLevel the level the hitpoints are being rolled for (used in maths)
+	 * @return the hitpoints for the given level.
+	 */
+	private static int rollHP(final int min, final int max, final int totalLevel)
+	{
+		int roll;
+
+<span class="nc bnc" id="L76" title="All 7 branches missed.">		switch (SettingsHandler.getHPRollMethod())</span>
+		{
+<span class="nc" id="L78">			case Constants.HP_USER_ROLLED -&gt; roll = 1;</span>
+			case Constants.HP_AVERAGE -&gt; {
+<span class="nc" id="L80">				roll = max - min;</span>
+
+				// (n+1)/2
+				// average roll on a die with an  odd # of sides works out exactly
+				// average roll on a die with an even # of sides will have an extra 0.5
+
+<span class="nc bnc" id="L86" title="All 4 branches missed.">				if (((totalLevel &amp; 0x01) == 0) &amp;&amp; ((roll &amp; 0x01) != 0))</span>
+				{
+<span class="nc" id="L88">					++roll;</span>
+				}
+<span class="nc" id="L90">				roll = min + (roll / 2);</span>
+<span class="nc" id="L91">			}</span>
+<span class="nc" id="L92">			case Constants.HP_AUTO_MAX -&gt; roll = max;</span>
+<span class="nc" id="L93">			case Constants.HP_PERCENTAGE -&gt; roll = (min - 1) + (int) ((SettingsHandler.getHPPercent() * ((max - min) + 1)) / 100.0);</span>
+<span class="nc" id="L94">			case Constants.HP_AVERAGE_ROUNDED_UP -&gt; roll = (int) Math.ceil((min + max) / 2.0);</span>
+<span class="nc" id="L95">			case Constants.HP_STANDARD -&gt; roll = Math.abs(RandomUtil.getRandomInt((max - min) + 1)) + min;</span>
+			default -&gt; {
+<span class="nc" id="L97">				Logging.errorPrint(&quot;Unknown HP roll method &quot;</span>
+<span class="nc" id="L98">					+ SettingsHandler.getHPRollMethod() + &quot;; falling back to HP_STANDARD&quot;);</span>
+<span class="nc" id="L99">				roll = Math.abs(RandomUtil.getRandomInt((max - min) + 1)) + min;</span>
+			}
+		}
+
+<span class="nc" id="L103">		return roll;</span>
+	}
+
+	/**
+	 * Watches for new PCClassLevel objects to be granted to the Player
+	 * Character. When called, this then triggers the determination of the Hit
+	 * Points for that PCClassLevel.
+	 * 
+	 * Triggered when one of the Facets to which FollowerOptionFacet listens
+	 * fires a DataFacetChangeEvent to indicate a FollowerOption was added to a
+	 * Player Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 */
+	@Override
+	public void dataAdded(DataFacetChangeEvent&lt;CharID, CDOMObject&gt; dfce)
+	{
+<span class="fc" id="L122">		CharID id = dfce.getCharID();</span>
+<span class="fc" id="L123">		CDOMObject cdo = dfce.getCDOMObject();</span>
+<span class="fc" id="L124">		PlayerCharacter pc = trackingFacet.getPC(id);</span>
+<span class="pc bpc" id="L125" title="1 of 2 branches missed.">		if (!pc.isImporting())</span>
+		{
+<span class="fc" id="L127">			boolean first = true;</span>
+<span class="pc bpc" id="L128" title="1 of 2 branches missed.">			for (PCClass pcClass : classFacet.getSet(id))</span>
+			{
+				//
+				// Recalculate HPs in case HD have changed.
+				//
+<span class="nc" id="L133">				Processor&lt;HitDie&gt; dieLock = cdo.get(ObjectKey.HITDIE);</span>
+<span class="nc bnc" id="L134" title="All 2 branches missed.">				if (dieLock != null)</span>
+				{
+<span class="nc bnc" id="L136" title="All 2 branches missed.">					for (int level = 1; level &lt;= classFacet.getLevel(id, pcClass); level++)</span>
+					{
+<span class="nc" id="L138">						HitDie baseHD = pcClass.getSafe(ObjectKey.LEVEL_HITDIE);</span>
+<span class="nc bnc" id="L139" title="All 2 branches missed.">						if (!baseHD.equals(getLevelHitDie(id, pcClass, level)))</span>
+						{
+							// If the HD has changed from base reroll
+<span class="nc" id="L142">							rollHP(id, pcClass, level, first);</span>
+<span class="nc" id="L143">							pc.setDirty(true);</span>
+						}
+					}
+				}
+<span class="nc" id="L147">				first = false;</span>
+<span class="nc" id="L148">			}</span>
+		}
+<span class="fc" id="L150">	}</span>
+
+	@Override
+	public void dataRemoved(DataFacetChangeEvent&lt;CharID, CDOMObject&gt; dfce)
+	{
+		/*
+		 * TODO This probably needs some form of symmetry - when a PCClassLevel
+		 * is removed, the number of hit points for that PCClassLevel is
+		 * removed.
+		 * 
+		 * Alternatively, we can define this in such a way that the otherwise
+		 * lost information is saved, so that addition and removal of the same
+		 * level doesn't trigger new seleciton of hit points - need to define
+		 * the best strategy here (and just clearly document the decision)
+		 */
+<span class="fc" id="L165">	}</span>
+
+	/**
+	 * Returns the HitDie for the given PCClass and level in the Player
+	 * Character identified by the given CharID.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character for which the
+	 *            HitDie of the given PCClass and level will be returned
+	 * @param pcClass
+	 *            The PCClass for which the HitDie will be returned
+	 * @param classLevel
+	 *            The level for which the HitDie will be returned
+	 * @return The HitDie for the given PCClass and level in the Player
+	 *         Character identified by the given CharID
+	 */
+	public HitDie getLevelHitDie(CharID id, PCClass pcClass, int classLevel)
+	{
+		// Class Base Hit Die
+<span class="nc" id="L184">		HitDie currDie = pcClass.getSafe(ObjectKey.LEVEL_HITDIE);</span>
+<span class="nc" id="L185">		Processor&lt;HitDie&gt; dieLock = raceFacet.get(id).get(ObjectKey.HITDIE);</span>
+<span class="nc bnc" id="L186" title="All 2 branches missed.">		if (dieLock != null)</span>
+		{
+<span class="nc" id="L188">			currDie = dieLock.applyProcessor(currDie, pcClass);</span>
+		}
+
+		// Templates
+<span class="nc bnc" id="L192" title="All 2 branches missed.">		for (PCTemplate template : templateFacet.getSet(id))</span>
+		{
+<span class="nc bnc" id="L194" title="All 2 branches missed.">			if (template != null)</span>
+			{
+<span class="nc" id="L196">				Processor&lt;HitDie&gt; lock = template.get(ObjectKey.HITDIE);</span>
+<span class="nc bnc" id="L197" title="All 2 branches missed.">				if (lock != null)</span>
+				{
+<span class="nc" id="L199">					currDie = lock.applyProcessor(currDie, pcClass);</span>
+				}
+			}
+<span class="nc" id="L202">		}</span>
+
+		// Levels
+<span class="nc" id="L205">		PCClassLevel cl = classFacet.getClassLevel(id, pcClass, classLevel);</span>
+<span class="nc bnc" id="L206" title="All 2 branches missed.">		if (cl != null)</span>
+		{
+<span class="nc bnc" id="L208" title="All 2 branches missed.">			if (cl.get(ObjectKey.DONTADD_HITDIE) != null)</span>
+			{
+<span class="nc" id="L210">				currDie = HitDie.ZERO; //null;</span>
+			}
+			else
+			{
+<span class="nc" id="L214">				Processor&lt;HitDie&gt; lock = cl.get(ObjectKey.HITDIE);</span>
+<span class="nc bnc" id="L215" title="All 2 branches missed.">				if (lock != null)</span>
+				{
+<span class="nc" id="L217">					currDie = lock.applyProcessor(currDie, pcClass);</span>
+				}
+			}
+		}
+
+<span class="nc" id="L222">		return currDie;</span>
+	}
+
+	/**
+	 * Rolls the hit points for a given PCClass and level.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character on which the hit
+	 *            points are to be rolled
+	 * @param pcc
+	 *            The PCClass for which the hit points are to be rolled
+	 * @param level
+	 *            The class level for which the hit points are to be rolled
+	 * @param first
+	 *            And identifier indicating if this is the Player Character's
+	 *            first level.
+	 */
+	public void rollHP(CharID id, PCClass pcc, int level, boolean first)
+	{
+<span class="nc" id="L241">		int roll = 0;</span>
+
+<span class="nc" id="L243">		HitDie lvlDie = getLevelHitDie(id, pcc, level);</span>
+<span class="nc bnc" id="L244" title="All 4 branches missed.">		if ((lvlDie == null) || (lvlDie.getDie() == 0))</span>
+		{
+<span class="nc" id="L246">			roll = 0;</span>
+		}
+		else
+		{
+<span class="nc" id="L250">			final int min = 1 + (int) bonusCheckingFacet.getBonus(id, &quot;HD&quot;, &quot;MIN&quot;)</span>
+<span class="nc" id="L251">				+ (int) bonusCheckingFacet.getBonus(id, &quot;HD&quot;, &quot;MIN;CLASS.&quot; + pcc.getKeyName());</span>
+<span class="nc" id="L252">			final int max = getLevelHitDie(id, pcc, level).getDie() + (int) bonusCheckingFacet.getBonus(id, &quot;HD&quot;, &quot;MAX&quot;)</span>
+<span class="nc" id="L253">				+ (int) bonusCheckingFacet.getBonus(id, &quot;HD&quot;, &quot;MAX;CLASS.&quot; + pcc.getKeyName());</span>
+
+<span class="nc bnc" id="L255" title="All 4 branches missed.">			if (first &amp;&amp; maximizeHPatFirstLevel(pcc, level))</span>
+			{
+<span class="nc" id="L257">				roll = max;</span>
+			}
+			else
+			{
+<span class="nc" id="L261">				PlayerCharacter pc = trackingFacet.getPC(id);</span>
+<span class="nc bnc" id="L262" title="All 2 branches missed.">				if (!pc.isImporting())</span>
+				{
+<span class="nc" id="L264">					roll = rollHP(min, max, levelFacet.getTotalLevels(id));</span>
+				}
+			}
+
+<span class="nc" id="L268">			roll += ((int) bonusCheckingFacet.getBonus(id, &quot;HP&quot;, &quot;CURRENTMAXPERLEVEL&quot;));</span>
+		}
+<span class="nc" id="L270">		PCClassLevel classLevel = classFacet.getClassLevel(id, pcc, level - 1);</span>
+<span class="nc" id="L271">		set(id, classLevel, roll);</span>
+<span class="nc" id="L272">	}</span>
+
+	private boolean maximizeHPatFirstLevel(PCClass pcc, int level)
+	{
+<span class="nc bnc" id="L276" title="All 4 branches missed.">		boolean classAllowsMaxHP = !SettingsHandler.isHPMaxAtFirstPCClassLevelOnly() || pcc.isType(&quot;PC&quot;);</span>
+<span class="nc bnc" id="L277" title="All 6 branches missed.">		return (level == 1) &amp;&amp; SettingsHandler.isHPMaxAtFirstLevel() &amp;&amp; classAllowsMaxHP;</span>
+	}
+
+	public void setClassFacet(ClassFacet classFacet)
+	{
+<span class="fc" id="L282">		this.classFacet = classFacet;</span>
+<span class="fc" id="L283">	}</span>
+
+	public void setRaceFacet(RaceFacet raceFacet)
+	{
+<span class="fc" id="L287">		this.raceFacet = raceFacet;</span>
+<span class="fc" id="L288">	}</span>
+
+	public void setTemplateFacet(TemplateFacet templateFacet)
+	{
+<span class="fc" id="L292">		this.templateFacet = templateFacet;</span>
+<span class="fc" id="L293">	}</span>
+
+	public void setLevelFacet(LevelFacet levelFacet)
+	{
+<span class="fc" id="L297">		this.levelFacet = levelFacet;</span>
+<span class="fc" id="L298">	}</span>
+
+	public void setBonusCheckingFacet(BonusCheckingFacet bonusCheckingFacet)
+	{
+<span class="fc" id="L302">		this.bonusCheckingFacet = bonusCheckingFacet;</span>
+<span class="fc" id="L303">	}</span>
+
+	/**
+	 * Initializes the connections for HitPointFacet to other facets.
+	 * 
+	 * This method is automatically called by the Spring framework during
+	 * initialization of the HitPointFacet.
+	 */
+	public void init()
+	{
+<span class="fc" id="L313">		templateFacet.addDataFacetChangeListener(this);</span>
+<span class="fc" id="L314">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

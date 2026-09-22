@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>QualifiedName.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.core.analysis</a> &gt; <span class="el_source">QualifiedName.java</span></div><h1>QualifiedName.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2008 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * Copyright 2001 (C) Bryan McRoberts &lt;merton_monk@yahoo.com&gt;
+ * 
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.core.analysis;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.StringJoiner;
+
+import pcgen.cdom.base.ChooseInformation;
+import pcgen.cdom.content.CNAbility;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.core.Ability;
+import pcgen.core.AbilityUtilities;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.Skill;
+
+public final class QualifiedName
+{
+
+	private QualifiedName()
+	{
+	}
+
+	/**
+	 * This method generates a name for this Ability which includes any choices
+	 * made and a count of how many times it has been applied.
+	 * 
+	 * @param pc
+	 *            TODO
+	 * 
+	 * @return The name of the full Ability, plus any sub-choices made for this
+	 *         character. Starts with the name of the ability, and then (for
+	 *         types other than weapon proficiencies), either appends a count of
+	 *         the times the ability is applied e.g. &quot; (3x)&quot;, or a list of the
+	 *         sub-choices e.g. &quot; (Sub1, Sub2, ...)&quot;.
+	 */
+	public static String qualifiedName(PlayerCharacter pc, List&lt;CNAbility&gt; list)
+	{
+<span class="nc" id="L56">		Ability a = AbilityUtilities.validateCNAList(list);</span>
+<span class="nc" id="L57">		String outputName = OutputNameFormatting.getOutputName(a);</span>
+<span class="nc bnc" id="L58" title="All 2 branches missed.">		if (&quot;[BASE]&quot;.equalsIgnoreCase(outputName))</span>
+		{
+<span class="nc" id="L60">			return a.getDisplayName();</span>
+		}
+		// start with the name of the ability
+		// don't do for Weapon Profs
+<span class="nc" id="L64">		final StringBuilder aStrBuf = new StringBuilder(outputName);</span>
+
+<span class="nc" id="L66">		ChooseInformation&lt;?&gt; chooseInfo = a.get(ObjectKey.CHOOSE_INFO);</span>
+<span class="nc bnc" id="L67" title="All 2 branches missed.">		if (chooseInfo != null)</span>
+		{
+<span class="nc" id="L69">			processChooseInfo(aStrBuf, pc, chooseInfo, list);</span>
+		}
+<span class="nc" id="L71">		return aStrBuf.toString();</span>
+	}
+
+	private static &lt;T&gt; void processChooseInfo(StringBuilder aStrBuf, PlayerCharacter pc,
+		ChooseInformation&lt;T&gt; chooseInfo, List&lt;CNAbility&gt; list)
+	{
+<span class="nc" id="L77">		List&lt;T&gt; allSelections = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L78" title="All 2 branches missed.">		for (CNAbility cna : list)</span>
+		{
+<span class="nc bnc" id="L80" title="All 2 branches missed.">			if (pc.hasAssociations(cna))</span>
+			{
+<span class="nc" id="L82">				List&lt;? extends T&gt; selections = (List&lt;? extends T&gt;) pc.getDetailedAssociations(cna);</span>
+<span class="nc" id="L83">				allSelections.addAll(selections);</span>
+			}
+<span class="nc" id="L85">		}</span>
+<span class="nc" id="L86">		String choiceInfo = chooseInfo.composeDisplay(allSelections).toString();</span>
+<span class="nc bnc" id="L87" title="All 2 branches missed.">		if (!choiceInfo.isEmpty())</span>
+		{
+<span class="nc" id="L89">			aStrBuf.append(&quot; (&quot;);</span>
+<span class="nc" id="L90">			aStrBuf.append(choiceInfo);</span>
+<span class="nc" id="L91">			aStrBuf.append(&quot;)&quot;);</span>
+		}
+<span class="nc" id="L93">	}</span>
+
+	public static String qualifiedName(PlayerCharacter pc, Skill s)
+	{
+<span class="nc" id="L97">		String outputName = OutputNameFormatting.getOutputName(s);</span>
+<span class="nc bnc" id="L98" title="All 2 branches missed.">		if (!pc.hasAssociations(s))</span>
+		{
+<span class="nc" id="L100">			return outputName;</span>
+		}
+
+<span class="nc" id="L103">		StringJoiner joiner = new StringJoiner(&quot;, &quot;, outputName + &quot;(&quot;, &quot;)&quot;);</span>
+<span class="nc" id="L104">		List&lt;String&gt; associationList = pc.getAssociationList(s);</span>
+<span class="nc" id="L105">		Collections.sort(associationList);</span>
+<span class="nc" id="L106">		associationList.forEach(joiner::add);</span>
+<span class="nc" id="L107">		return joiner.toString();</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

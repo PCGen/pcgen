@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FollowerLimit.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.helper</a> &gt; <span class="el_source">FollowerLimit.java</span></div><h1>FollowerLimit.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2008 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.cdom.helper;
+
+import java.util.Objects;
+
+import pcgen.cdom.formula.Formula;
+import pcgen.cdom.list.CompanionList;
+import pcgen.cdom.reference.CDOMSingleRef;
+
+/**
+ * A FollowerLimit represents an upper bound (stored as a Formula) on the number
+ * of Companions a PlayerCharacter may have for a specific CompanionList.
+ */
+public class FollowerLimit
+{
+
+	/**
+	 * A reference to the CompanionList to which this FollowerLimit applies
+	 */
+	private final CDOMSingleRef&lt;CompanionList&gt; ref;
+
+	/**
+	 * The Formula that represents the upper bound on the number of Companions a
+	 * PlayerCharacter may have for the CompanionList.
+	 */
+	private final Formula formula;
+
+	/**
+	 * Creates a new FollowerLimit for the given CompanionList (provided by
+	 * reference), which is limited by the given Formula.
+	 * 
+	 * @param clRef
+	 *            A reference to the CompanionList to which this FollowerLimit
+	 *            applies
+	 * @param limit
+	 *            The Formula that represents the upper bound on the number of
+	 *            Companions a PlayerCharacter may have for the CompanionList.
+	 */
+	public FollowerLimit(CDOMSingleRef&lt;CompanionList&gt; clRef, Formula limit)
+<span class="fc" id="L56">	{</span>
+<span class="fc" id="L57">		Objects.requireNonNull(clRef, &quot;Reference for FollowerLimit cannot be null&quot;);</span>
+<span class="fc" id="L58">		Objects.requireNonNull(limit, &quot;Formula for FollowerLimit cannot be null&quot;);</span>
+<span class="fc" id="L59">		ref = clRef;</span>
+<span class="fc" id="L60">		formula = limit;</span>
+<span class="fc" id="L61">	}</span>
+
+	/**
+	 * Returns a reference to the CompanionList to which this FollowerLimit
+	 * applies
+	 * 
+	 * @return A reference to the CompanionList to which this FollowerLimit
+	 *         applies
+	 */
+	public CDOMSingleRef&lt;CompanionList&gt; getCompanionList()
+	{
+<span class="fc" id="L72">		return ref;</span>
+	}
+
+	/**
+	 * Returns the Formula that represents the upper bound on the number of
+	 * Companions a PlayerCharacter may have for the CompanionList.
+	 * 
+	 * @return The Formula that represents the upper bound on the number of
+	 *         Companions a PlayerCharacter may have for the CompanionList.
+	 */
+	public Formula getValue()
+	{
+<span class="fc" id="L84">		return formula;</span>
+	}
+
+	@Override
+	public int hashCode()
+	{
+<span class="nc" id="L90">		return ref.hashCode() * 31 + formula.hashCode();</span>
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+<span class="nc bnc" id="L96" title="All 2 branches missed.">		if (o instanceof FollowerLimit other)</span>
+		{
+<span class="nc bnc" id="L98" title="All 4 branches missed.">			return ref.equals(other.ref) &amp;&amp; formula.equals(other.formula);</span>
+		}
+<span class="nc" id="L100">		return false;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

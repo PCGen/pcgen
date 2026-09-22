@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AbstractPreEqualConvertPlugin.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.rules.persistence.token</a> &gt; <span class="el_source">AbstractPreEqualConvertPlugin.java</span></div><h1>AbstractPreEqualConvertPlugin.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) 2009 Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package pcgen.rules.persistence.token;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.gui2.converter.event.TokenProcessEvent;
+import pcgen.gui2.converter.event.TokenProcessorPlugin;
+
+<span class="nc" id="L28">public abstract class AbstractPreEqualConvertPlugin implements TokenProcessorPlugin</span>
+{
+	public static final String FLOW_LEFT =
+			&quot;Set unspecified values to next identified value &quot; + &quot;(items queue until set/equals sign flows left)&quot;;
+	public static final String FLOW_RIGHT = &quot;Set unspecified values to previous identified value &quot;
+		+ &quot;(equals sign holds on unspecified items until redefined)&quot;;
+	public static final String SET_ONE = &quot;Set unspecified values to one (identify as 'present')&quot;;
+
+	@Override
+	public String process(TokenProcessEvent tpe)
+	{
+<span class="nc" id="L39">		String formula = tpe.getValue();</span>
+
+<span class="nc" id="L41">		int commaLoc = formula.indexOf(',');</span>
+<span class="nc bnc" id="L42" title="All 2 branches missed.">		if (commaLoc == -1)</span>
+		{
+<span class="nc" id="L44">			return &quot;Prerequisite &quot; + tpe.getKey() + &quot; must have a count: &quot; + formula;</span>
+		}
+<span class="nc bnc" id="L46" title="All 2 branches missed.">		if (commaLoc == formula.length() - 1)</span>
+		{
+<span class="nc" id="L48">			return &quot;Prerequisite &quot; + tpe.getKey() + &quot; can not have only a count: &quot; + formula;</span>
+		}
+<span class="nc" id="L50">		String num = formula.substring(0, commaLoc);</span>
+
+		try
+		{
+<span class="nc" id="L54">			Integer.parseInt(num);</span>
+		}
+<span class="nc" id="L56">		catch (NumberFormatException nfe)</span>
+		{
+<span class="nc" id="L58">			return &quot;'&quot; + num + &quot;' in &quot; + tpe.getKey() + &quot; is not a valid integer&quot;;</span>
+<span class="nc" id="L59">		}</span>
+
+<span class="nc" id="L61">		String rest = formula.substring(commaLoc + 1);</span>
+<span class="nc" id="L62">		commaLoc = rest.indexOf(',');</span>
+<span class="nc bnc" id="L63" title="All 2 branches missed.">		if (commaLoc == -1)</span>
+		{
+<span class="nc" id="L65">			doPrefix(tpe, num);</span>
+<span class="nc" id="L66">			int equalLoc = rest.indexOf('=');</span>
+<span class="nc bnc" id="L67" title="All 2 branches missed.">			if (equalLoc == -1)</span>
+			{
+				// No equals
+<span class="nc" id="L70">				tpe.append(rest);</span>
+<span class="nc" id="L71">				tpe.append(&quot;=1&quot;);</span>
+			}
+			else
+			{
+				// unambiguous
+<span class="nc" id="L76">				tpe.append(rest);</span>
+			}
+<span class="nc" id="L78">		}</span>
+		else
+		{
+<span class="nc" id="L81">			String[] strings = rest.split(&quot;,&quot;);</span>
+<span class="nc" id="L82">			int withEquals = 0;</span>
+<span class="nc" id="L83">			boolean withoutEquals = false;</span>
+<span class="nc" id="L84">			boolean lastWithEquals = false;</span>
+<span class="nc" id="L85">			List&lt;String&gt; list = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L86" title="All 2 branches missed.">			for (String tok : strings)</span>
+			{
+<span class="nc" id="L88">				int equalLoc = tok.indexOf('=');</span>
+<span class="nc bnc" id="L89" title="All 2 branches missed.">				if (equalLoc == -1)</span>
+				{
+<span class="nc" id="L91">					withoutEquals = true;</span>
+<span class="nc" id="L92">					lastWithEquals = false;</span>
+				}
+				else
+				{
+<span class="nc" id="L96">					withEquals++;</span>
+<span class="nc" id="L97">					lastWithEquals = true;</span>
+				}
+<span class="nc" id="L99">				list.add(tok);</span>
+			}
+<span class="nc bnc" id="L101" title="All 4 branches missed.">			if (withEquals == 1 &amp;&amp; lastWithEquals)</span>
+			{
+				// Propagate item to all...
+<span class="nc" id="L104">				String last = strings[strings.length - 1];</span>
+<span class="nc" id="L105">				int equalLoc = last.indexOf('=');</span>
+<span class="nc" id="L106">				String equal = last.substring(equalLoc + 1);</span>
+<span class="nc" id="L107">				doPrefix(tpe, num);</span>
+<span class="nc" id="L108">				tpe.append(StringUtil.join(list, &quot;=&quot; + equal + &quot;,&quot;));</span>
+<span class="nc" id="L109">			}</span>
+<span class="nc bnc" id="L110" title="All 4 branches missed.">			else if (withEquals &gt; 0 &amp;&amp; withoutEquals)</span>
+			{
+<span class="nc" id="L112">				StringBuilder one = new StringBuilder();</span>
+<span class="nc" id="L113">				StringBuilder left = new StringBuilder();</span>
+<span class="nc" id="L114">				StringBuilder right = new StringBuilder();</span>
+<span class="nc" id="L115">				one.append(tpe.getKey());</span>
+<span class="nc" id="L116">				one.append(':');</span>
+<span class="nc" id="L117">				one.append(num);</span>
+<span class="nc" id="L118">				one.append(',');</span>
+<span class="nc" id="L119">				left.append(tpe.getKey());</span>
+<span class="nc" id="L120">				left.append(':');</span>
+<span class="nc" id="L121">				left.append(num);</span>
+<span class="nc" id="L122">				left.append(',');</span>
+<span class="nc" id="L123">				right.append(tpe.getKey());</span>
+<span class="nc" id="L124">				right.append(':');</span>
+<span class="nc" id="L125">				right.append(num);</span>
+<span class="nc" id="L126">				right.append(',');</span>
+<span class="nc" id="L127">				boolean needComma = false;</span>
+<span class="nc" id="L128">				Integer lastValue = null;</span>
+<span class="nc bnc" id="L129" title="All 2 branches missed.">				for (int i = 0; i &lt; strings.length; i++)</span>
+				{
+<span class="nc bnc" id="L131" title="All 2 branches missed.">					if (needComma)</span>
+					{
+<span class="nc" id="L133">						one.append(',');</span>
+<span class="nc" id="L134">						left.append(',');</span>
+<span class="nc" id="L135">						right.append(',');</span>
+					}
+<span class="nc" id="L137">					needComma = true;</span>
+<span class="nc" id="L138">					String tok = strings[i];</span>
+<span class="nc" id="L139">					int equalLoc = tok.indexOf('=');</span>
+<span class="nc" id="L140">					one.append(tok);</span>
+<span class="nc" id="L141">					left.append(tok);</span>
+<span class="nc" id="L142">					right.append(tok);</span>
+<span class="nc bnc" id="L143" title="All 2 branches missed.">					if (equalLoc == -1)</span>
+					{
+<span class="nc" id="L145">						one.append(&quot;=1&quot;);</span>
+<span class="nc" id="L146">						right.append('=');</span>
+<span class="nc bnc" id="L147" title="All 2 branches missed.">						if (lastValue == null)</span>
+						{
+<span class="nc" id="L149">							right.append('1');</span>
+						}
+						else
+						{
+<span class="nc" id="L153">							right.append(lastValue);</span>
+						}
+<span class="nc" id="L155">						left.append('=');</span>
+<span class="nc" id="L156">						left.append(getNextValue(strings, i));</span>
+					}
+					else
+					{
+<span class="nc" id="L160">						lastValue = Integer.decode(tok.substring(equalLoc + 1));</span>
+					}
+				}
+<span class="nc" id="L163">				List&lt;String&gt; descr = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L164">				String oneResult = one.toString();</span>
+<span class="nc" id="L165">				String rightResult = right.toString();</span>
+<span class="nc" id="L166">				String leftResult = left.toString();</span>
+<span class="nc bnc" id="L167" title="All 4 branches missed.">				if (oneResult.equals(leftResult) &amp;&amp; leftResult.equals(rightResult))</span>
+				{
+<span class="nc" id="L169">					tpe.append(oneResult);</span>
+				}
+				else
+				{
+<span class="nc" id="L173">					descr.add(oneResult + &quot; ... &quot; + SET_ONE);</span>
+<span class="nc" id="L174">					descr.add(rightResult + &quot; ... &quot; + FLOW_RIGHT);</span>
+<span class="nc" id="L175">					descr.add(leftResult + &quot; ... &quot; + FLOW_LEFT);</span>
+<span class="nc" id="L176">					List&lt;String&gt; choice = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L177">					choice.add(oneResult);</span>
+<span class="nc" id="L178">					choice.add(rightResult);</span>
+<span class="nc" id="L179">					choice.add(leftResult);</span>
+<span class="nc" id="L180">					String decision = tpe.getDecider().getConversionDecision(</span>
+<span class="nc" id="L181">						&quot;Resolve ambiguity for &quot; + getProcessedToken() + &quot;:&quot; + formula, descr, choice, 0);</span>
+<span class="nc" id="L182">					tpe.append(decision);</span>
+				}
+<span class="nc" id="L184">			}</span>
+<span class="nc bnc" id="L185" title="All 2 branches missed.">			else if (withEquals &gt; 0) // &amp;&amp; !withoutEquals</span>
+			{
+<span class="nc" id="L187">				doPrefix(tpe, num);</span>
+<span class="nc" id="L188">				tpe.append(StringUtil.join(list, &quot;,&quot;));</span>
+			}
+<span class="nc bnc" id="L190" title="All 2 branches missed.">			else if (withoutEquals) // &amp;&amp; withEquals == 0</span>
+			{
+<span class="nc" id="L192">				doPrefix(tpe, num);</span>
+<span class="nc" id="L193">				tpe.append(StringUtil.join(list, &quot;=1,&quot;));</span>
+<span class="nc" id="L194">				tpe.append(&quot;=1&quot;);</span>
+			}
+		}
+<span class="nc" id="L197">		tpe.consume();</span>
+<span class="nc" id="L198">		return null;</span>
+	}
+
+	private void doPrefix(TokenProcessEvent tpe, String num)
+	{
+<span class="nc" id="L203">		tpe.append(tpe.getKey());</span>
+<span class="nc" id="L204">		tpe.append(':');</span>
+<span class="nc" id="L205">		tpe.append(num);</span>
+<span class="nc" id="L206">		tpe.append(',');</span>
+<span class="nc" id="L207">	}</span>
+
+	private int getNextValue(String[] strings, int i)
+	{
+<span class="nc bnc" id="L211" title="All 2 branches missed.">		for (int j = i + 1; j &lt; strings.length; j++)</span>
+		{
+<span class="nc" id="L213">			String tok = strings[j];</span>
+<span class="nc" id="L214">			int equalLoc = tok.indexOf('=');</span>
+<span class="nc bnc" id="L215" title="All 2 branches missed.">			if (equalLoc != -1)</span>
+			{
+<span class="nc" id="L217">				return Integer.parseInt(tok.substring(equalLoc + 1));</span>
+			}
+		}
+<span class="nc" id="L220">		return 1;</span>
+	}
+
+	@Override
+	public Class&lt;? extends CDOMObject&gt; getProcessedClass()
+	{
+<span class="nc" id="L226">		return CDOMObject.class;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

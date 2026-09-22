@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GeneralChooserFacadeBase.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.gui2.facade</a> &gt; <span class="el_source">GeneralChooserFacadeBase.java</span></div><h1>GeneralChooserFacadeBase.java</h1><pre class="source lang-java linenums">/*
+ * Copyright James Dempsey, 2012
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.gui2.facade;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import pcgen.cdom.enumeration.Type;
+import pcgen.core.PObject;
+import pcgen.facade.core.ChooserFacade;
+import pcgen.facade.core.InfoFacade;
+import pcgen.facade.core.InfoFactory;
+import pcgen.facade.util.DefaultListFacade;
+import pcgen.facade.util.DefaultReferenceFacade;
+import pcgen.facade.util.ListFacade;
+import pcgen.facade.util.ReferenceFacade;
+import pcgen.system.LanguageBundle;
+
+/**
+ * The Class {@code GeneraChooserFacadeBase} is a base from which a
+ * ChooserFacade may be simply implemented. The implementing class need only call 
+ * the constructor and implement the commit to process the selections.
+ *
+ * 
+ */
+
+public abstract class GeneralChooserFacadeBase implements ChooserFacade
+{
+
+	private final String name;
+
+	private final List&lt;InfoFacade&gt; origAvailable;
+	private final List&lt;InfoFacade&gt; origSelected;
+	private final int maxNewSelections;
+
+	private final DefaultListFacade&lt;InfoFacade&gt; availableList;
+	private final DefaultListFacade&lt;InfoFacade&gt; selectedList;
+	private final DefaultReferenceFacade&lt;Integer&gt; numSelectionsRemain;
+
+	private final String availableTableTypeNameTitle;
+	private final String selectedTableTitle;
+	private final String selectionCountName;
+	private final String addButtonName;
+	private final String removeButtonName;
+
+	private final String availableTableTitle;
+<span class="nc" id="L63">	private ChooserTreeViewType defaultView = ChooserTreeViewType.TYPE_NAME;</span>
+
+	private boolean requireCompleteSelection;
+	private boolean preferRadioSelection;
+
+	private final InfoFactory infoFactory;
+
+	/**
+	 * Create a new instance of GeneraChooserFacadeBase with default localised 
+	 * text for the chooser. Note none of the supplied lists will be directly 
+	 * modified.   
+	 * 
+	 * @param name The title of the chooser.
+	 * @param available The list of items to select from.
+	 * @param selected The list of items already selected. The user may choose to deselect items from this list.
+	 * @param maxNewSelections The number of selections the user may make in addition to those in the selected list.
+	 * @param infoFactory The factory which provides descriptions for items. 
+	 */
+	GeneralChooserFacadeBase(String name, List&lt;InfoFacade&gt; available, List&lt;InfoFacade&gt; selected, int maxNewSelections,
+		InfoFactory infoFactory)
+	{
+<span class="nc" id="L84">		this(name, available, selected, maxNewSelections, LanguageBundle.getString(&quot;in_available&quot;), //$NON-NLS-1$</span>
+<span class="nc" id="L85">			LanguageBundle.getString(&quot;in_typeName&quot;), //$NON-NLS-1$</span>
+<span class="nc" id="L86">			LanguageBundle.getString(&quot;in_selected&quot;), //$NON-NLS-1$</span>
+<span class="nc" id="L87">			LanguageBundle.getString(&quot;in_selRemain&quot;), //$NON-NLS-1$</span>
+<span class="nc" id="L88">			LanguageBundle.getString(&quot;in_add&quot;), //$NON-NLS-1$</span>
+<span class="nc" id="L89">			LanguageBundle.getString(&quot;in_remove&quot;), //$NON-NLS-1$ </span>
+			infoFactory);
+<span class="nc" id="L91">	}</span>
+
+	/**
+	 * Create a new instance of GeneraChooserFacadeBase with supplied text for 
+	 * the chooser. Note none of the supplied lists will be directly modified.   
+	
+	 * @param name The title of the chooser.
+	 * @param available The list of items to select from.
+	 * @param selected The list of items already selected. The user may choose to deselect items from this list.
+	 * @param maxNewSelections The number of selections the user may make in addition to those in the selected list.
+	 * @param availableTableTitle The title for the available list in flat mode.
+	 * @param availableTableTypeNameTitle The title for the available list in tree mode.
+	 * @param selectedTableTitle The title for the selected list.
+	 * @param selectionCountName The label for the number of selections remaining.
+	 * @param addButtonName The label for the add button.
+	 * @param removeButtonName The label for the remove button.
+	 * @param infoFactory The factory which provides descriptions for items. 
+	 */
+	GeneralChooserFacadeBase(String name, List&lt;InfoFacade&gt; available, List&lt;InfoFacade&gt; selected, int maxNewSelections,
+		String availableTableTitle, String availableTableTypeNameTitle, String selectedTableTitle,
+		String selectionCountName, String addButtonName, String removeButtonName, InfoFactory infoFactory)
+<span class="nc" id="L112">	{</span>
+<span class="nc" id="L113">		this.name = name;</span>
+<span class="nc" id="L114">		this.origAvailable = available;</span>
+<span class="nc" id="L115">		this.origSelected = selected;</span>
+<span class="nc" id="L116">		this.maxNewSelections = maxNewSelections;</span>
+<span class="nc" id="L117">		this.availableTableTitle = availableTableTitle;</span>
+<span class="nc" id="L118">		this.availableTableTypeNameTitle = availableTableTypeNameTitle;</span>
+<span class="nc" id="L119">		this.selectedTableTitle = selectedTableTitle;</span>
+<span class="nc" id="L120">		this.selectionCountName = selectionCountName;</span>
+<span class="nc" id="L121">		this.addButtonName = addButtonName;</span>
+<span class="nc" id="L122">		this.removeButtonName = removeButtonName;</span>
+<span class="nc" id="L123">		this.infoFactory = infoFactory;</span>
+
+		// Build working content
+<span class="nc" id="L126">		availableList = new DefaultListFacade&lt;&gt;(origAvailable);</span>
+<span class="nc" id="L127">		selectedList = new DefaultListFacade&lt;&gt;(origSelected);</span>
+<span class="nc" id="L128">		numSelectionsRemain = new DefaultReferenceFacade&lt;&gt;(maxNewSelections);</span>
+
+<span class="nc" id="L130">	}</span>
+
+	@Override
+	public final ListFacade&lt;InfoFacade&gt; getAvailableList()
+	{
+<span class="nc" id="L135">		return availableList;</span>
+	}
+
+	@Override
+	public final ListFacade&lt;InfoFacade&gt; getSelectedList()
+	{
+<span class="nc" id="L141">		return selectedList;</span>
+	}
+
+	@Override
+	public final void addSelected(InfoFacade item)
+	{
+<span class="nc bnc" id="L147" title="All 2 branches missed.">		if (numSelectionsRemain.get() &lt;= 0)</span>
+		{
+<span class="nc" id="L149">			return;</span>
+		}
+<span class="nc" id="L151">		selectedList.addElement(item);</span>
+<span class="nc" id="L152">		availableList.removeElement(item);</span>
+<span class="nc" id="L153">		numSelectionsRemain.set(numSelectionsRemain.get() - 1);</span>
+<span class="nc" id="L154">	}</span>
+
+	@Override
+	public final void removeSelected(InfoFacade item)
+	{
+<span class="nc" id="L159">		selectedList.removeElement(item);</span>
+<span class="nc" id="L160">		availableList.addElement(item);</span>
+<span class="nc" id="L161">		numSelectionsRemain.set(numSelectionsRemain.get() + 1);</span>
+<span class="nc" id="L162">	}</span>
+
+	@Override
+	public ReferenceFacade&lt;Integer&gt; getRemainingSelections()
+	{
+<span class="nc" id="L167">		return numSelectionsRemain;</span>
+	}
+
+	@Override
+	public abstract void commit();
+
+	@Override
+	public final void rollback()
+	{
+<span class="nc" id="L176">		availableList.setContents(origAvailable);</span>
+<span class="nc" id="L177">		selectedList.setContents(origSelected);</span>
+<span class="nc" id="L178">		numSelectionsRemain.set(maxNewSelections);</span>
+<span class="nc" id="L179">	}</span>
+
+	@Override
+	public final String getName()
+	{
+<span class="nc" id="L184">		return name;</span>
+	}
+
+	@Override
+	public String getAvailableTableTypeNameTitle()
+	{
+<span class="nc" id="L190">		return availableTableTypeNameTitle;</span>
+	}
+
+	@Override
+	public String getAvailableTableTitle()
+	{
+<span class="nc" id="L196">		return availableTableTitle;</span>
+	}
+
+	@Override
+	public String getSelectedTableTitle()
+	{
+<span class="nc" id="L202">		return selectedTableTitle;</span>
+	}
+
+	@Override
+	public String getAddButtonName()
+	{
+<span class="nc" id="L208">		return addButtonName;</span>
+	}
+
+	@Override
+	public String getRemoveButtonName()
+	{
+<span class="nc" id="L214">		return removeButtonName;</span>
+	}
+
+	@Override
+	public String getSelectionCountName()
+	{
+<span class="nc" id="L220">		return selectionCountName;</span>
+	}
+
+	@Override
+	public List&lt;String&gt; getBranchNames(InfoFacade item)
+	{
+<span class="nc" id="L226">		List&lt;String&gt; branches = new ArrayList&lt;&gt;();</span>
+
+<span class="nc bnc" id="L228" title="All 2 branches missed.">		if (item instanceof PObject pObject)</span>
+		{
+<span class="nc" id="L230">			branches = pObject.getTrueTypeList(true)</span>
+<span class="nc" id="L231">			                  .stream()</span>
+<span class="nc" id="L232">			                  .map(Type::toString)</span>
+<span class="nc" id="L233">			                  .collect(Collectors.toUnmodifiableList());</span>
+		}
+<span class="nc" id="L235">		return branches;</span>
+	}
+
+	@Override
+	public ChooserTreeViewType getDefaultView()
+	{
+<span class="nc" id="L241">		return defaultView;</span>
+	}
+
+	/**
+	 * @param defaultView the flatDefault to set
+	 */
+	public void setDefaultView(ChooserTreeViewType defaultView)
+	{
+<span class="nc" id="L249">		this.defaultView = defaultView;</span>
+<span class="nc" id="L250">	}</span>
+
+	@Override
+	public boolean isRequireCompleteSelection()
+	{
+<span class="nc" id="L255">		return requireCompleteSelection;</span>
+	}
+
+	@Override
+	public boolean isPreferRadioSelection()
+	{
+<span class="nc" id="L261">		return preferRadioSelection;</span>
+	}
+
+	@Override
+	public boolean isUserInput()
+	{
+<span class="nc" id="L267">		return false;</span>
+	}
+
+	@Override
+	public boolean isInfoAvailable()
+	{
+<span class="nc" id="L273">		return true;</span>
+	}
+
+	@Override
+	public InfoFactory getInfoFactory()
+	{
+<span class="nc" id="L279">		return infoFactory;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

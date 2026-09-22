@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FactFacetModel.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.output.model</a> &gt; <span class="el_source">FactFacetModel.java</span></div><h1>FactFacetModel.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2014-15 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.output.model;
+
+import java.util.Objects;
+
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.PCStringKey;
+import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.ObjectWrapperFacet;
+import pcgen.cdom.facet.fact.FactFacet;
+
+import freemarker.template.TemplateHashModel;
+import freemarker.template.TemplateModel;
+import freemarker.template.TemplateModelException;
+
+/**
+ * An FactFacetModel wraps a FactFacet and serves as a TemplateHashModel for
+ * that FactFacet (with a given CharID).
+ */
+public class FactFacetModel implements TemplateHashModel
+{
+
+<span class="nc" id="L39">	private static final ObjectWrapperFacet WRAPPER_FACET = FacetLibrary.getFacet(ObjectWrapperFacet.class);</span>
+
+	/**
+	 * The underlying CharID used to get the PlayerCharacter's item from the
+	 * underlying FactFacet.
+	 */
+	private final CharID id;
+
+	/**
+	 * The underlying FactFacet used to get information about the
+	 * PlayerCharacter.
+	 */
+	private final FactFacet facet;
+
+	/**
+	 * Constructs a new FactFacetModel from the given CharID and FactFacet.
+	 * 
+	 * @param id
+	 *            The underlying CharID used to get the PlayerCharacter's info
+	 *            from the given FactFacet
+	 * @param facet
+	 *            The underlying FactFacet used to get information about the
+	 *            PlayerCharacter
+	 */
+	public FactFacetModel(CharID id, FactFacet facet)
+<span class="nc" id="L64">	{</span>
+<span class="nc" id="L65">		Objects.requireNonNull(id, &quot;CharID may not be null&quot;);</span>
+<span class="nc" id="L66">		Objects.requireNonNull(facet, &quot;FactFacet may not be null&quot;);</span>
+<span class="nc" id="L67">		this.id = id;</span>
+<span class="nc" id="L68">		this.facet = facet;</span>
+<span class="nc" id="L69">	}</span>
+
+	@Override
+	public TemplateModel get(String arg0) throws TemplateModelException
+	{
+<span class="nc" id="L74">		PCStringKey key = PCStringKey.getStringKey(arg0);</span>
+<span class="nc" id="L75">		return WRAPPER_FACET.wrap(id, facet.get(id, key));</span>
+	}
+
+	@Override
+	public boolean isEmpty()
+	{
+<span class="nc" id="L81">		return false;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

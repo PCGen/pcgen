@@ -1,0 +1,1321 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AbstractReferenceManufacturer.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.reference</a> &gt; <span class="el_source">AbstractReferenceManufacturer.java</span></div><h1>AbstractReferenceManufacturer.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2007, 2008 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.cdom.reference;
+
+import java.lang.ref.WeakReference;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.TreeMap;
+
+import javax.swing.event.EventListenerList;
+
+import pcgen.base.lang.CaseInsensitiveString;
+import pcgen.base.util.BasicIndirect;
+import pcgen.base.util.FixedStringList;
+import pcgen.base.util.FormatManager;
+import pcgen.base.util.HashMapToInstanceList;
+import pcgen.base.util.Indirect;
+import pcgen.base.util.KeyMap;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.ClassIdentity;
+import pcgen.cdom.base.Loadable;
+import pcgen.cdom.content.RollMethod;
+import pcgen.cdom.enumeration.Type;
+import pcgen.cdom.inst.Dynamic;
+import pcgen.util.Logging;
+import pcgen.util.StringPClassUtil;
+
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+
+/**
+ * An AbstractReferenceManufacturer is a concrete, but abstract object capable
+ * of creating CDOMReferences of a given &quot;form&quot;. That &quot;form&quot; includes a specific
+ * Class of Loadable, or a specific Class/Category for Categorized Loadable
+ * (this class does not make distinction between the Class and Class/Categorized
+ * cases)
+ * 
+ * The Class is designed to share significant common code between
+ * implementations of the ReferenceManufacturer interface.
+ * 
+ * @param &lt;T&gt;
+ *            The Class of object this AbstractReferenceManufacturer can
+ *            manufacture
+ */
+public abstract class AbstractReferenceManufacturer&lt;T extends Loadable&gt; implements ReferenceManufacturer&lt;T&gt;
+{
+
+<span class="fc" id="L71">	private volatile boolean isResolved = false;</span>
+
+	private final ManufacturableFactory&lt;T&gt; factory;
+
+	/**
+	 * The &quot;ALL&quot; reference, if it is ever referenced. This ensures that only one
+	 * &quot;ALL&quot; reference is ever built (and allows it to be reused if the
+	 * reference is requested a second time). This also stores the reference so
+	 * that it can be appropriately resolved when resolveReferences() is called.
+	 */
+	private CDOMGroupRef&lt;T&gt; allRef;
+
+	/**
+	 * Storage for &quot;TYPE&quot; references. This ensures that only one &quot;TYPE&quot;
+	 * reference is ever built for any combination of Types. (and allows those
+	 * references to be reused if a combination of types reference is requested
+	 * a second time). This also stores the reference so that it can be
+	 * appropriately resolved when resolveReferences() is called.
+	 * 
+	 * It is expected that the String array used as a key to this map conforms
+	 * to the following rules: (1) The array does not contain null values (2)
+	 * The array does not contain redundant values (3) The array is sorted in
+	 * alphabetical order, as defined by the natural ordering of String (for
+	 * simplicity [and due to lack of user presentation of this value] this sort
+	 * does not correct for internationalization)
+	 */
+<span class="fc" id="L97">	private final Map&lt;FixedStringList, WeakReference&lt;CDOMGroupRef&lt;T&gt;&gt;&gt; typeReferences =</span>
+			new TreeMap&lt;&gt;(FixedStringList.CASE_INSENSITIVE_ORDER);
+
+	/**
+	 * Storage for individual references. This ensures that only one reference
+	 * is ever built for any identifier. (and allows those references to be
+	 * reused if a reference to an identifier is requested a second time). This
+	 * also stores the reference so that it can be appropriately resolved when
+	 * resolveReferences() is called.
+	 */
+<span class="fc" id="L107">	private final Map&lt;String, WeakReference&lt;CDOMSingleRef&lt;T&gt;&gt;&gt; referenced =</span>
+			new TreeMap&lt;&gt;(String.CASE_INSENSITIVE_ORDER);
+
+	/**
+	 * Stores the active objects for this AbstractReferenceManufacturer. These
+	 * are objects that have been constructed or imported into the
+	 * AbstractReferenceManufacturer.
+	 */
+<span class="fc" id="L115">	private final KeyMap&lt;T&gt; active = new KeyMap&lt;&gt;();</span>
+
+	/**
+	 * Stores derivative objects (Those that are NOT created by this
+	 * AbstractReferenceManufacturer and are NOT inserted into this
+	 * AbstractReferenceManufacturer. However, these objects exist elsewhere,
+	 * and need to be processed under certain conditions. The getAllObjects()
+	 * method should NOT add this list to the items returned.
+	 */
+<span class="fc" id="L124">	private final List&lt;T&gt; derivatives = new ArrayList&lt;&gt;();</span>
+
+	/**
+	 * Stores the duplicate objects for identifiers in this
+	 * AbstractReferenceManufacturer. Identifiers will only be stored in this
+	 * Map if an identical identifier already exists in the active map. Also, if
+	 * the gating object in the active map is removed, then the first
+	 * &quot;duplicate&quot; in this MapToList should be removed and moved to the &quot;active&quot;
+	 * map. This map should never contain an identifier which is not in the
+	 * active map.
+	 * 
+	 * Due to extremely weak .equals() rules in many PObjects, this Map MUST be
+	 * a HashMapToInstanceList. In the future, it may be exchanged for a
+	 * TreeMapToList that leverages String.CASE_INSENSITIVE_ORDER; however, the
+	 * instance behavior may be too important to make that swap without
+	 * developing a MapToList that is backed by a TreeMap and also an
+	 * &quot;InstanceList&quot;
+	 */
+<span class="fc" id="L142">	private final HashMapToInstanceList&lt;CaseInsensitiveString, T&gt; duplicates = new HashMapToInstanceList&lt;&gt;();</span>
+
+	/**
+	 * Contains a list of deferred objects. Identifiers for objects for which
+	 * construction was deferred were inserted into the
+	 * AbstractReferenceManufacturer using constructIfNecessary(String). Objects
+	 * will be constructed when buildDeferredReferences() is called, if and only
+	 * if no object with the matching identifier has been constructed or
+	 * imported into this AbstractReferenceManufacturer.
+	 */
+<span class="fc" id="L152">	private final List&lt;String&gt; deferred = new ArrayList&lt;&gt;();</span>
+
+	/**
+	 * Contains a list of manufactured objects (those that are built implicitly
+	 * by tokens like NATURALATTACKS). These can be &quot;displaced&quot; by object which
+	 * are later built explicitly in a WeaponProf LST file, for example.
+	 */
+<span class="fc" id="L159">	private final List&lt;WeakReference&lt;T&gt;&gt; manufactured = new ArrayList&lt;&gt;();</span>
+
+	/**
+	 * The EventListenerList which contains the listeners to this
+	 * AbstractReferenceManufacturer.
+	 */
+<span class="fc" id="L165">	private final EventListenerList listenerList = new EventListenerList();</span>
+
+	/**
+	 * Constructs a new AbstractReferenceManufacturer for the given Class.
+	 * 
+	 * @param fac
+	 *            The ManufacturableFactory this AbstractReferenceManufacturer
+	 *            will use to construct and reference objects
+	 * @throws IllegalArgumentException
+	 *             if the given Class is null or the given Class does not have a
+	 *             public, zero argument constructor
+	 *
+	 */
+	@SuppressFBWarnings(value = &quot;CT_CONSTRUCTOR_THROW&quot;,
+		justification = &quot;Abstract class; ManufacturableFactory is required and Objects.requireNonNull is the lightest defense against an unusable instance&quot;)
+	public AbstractReferenceManufacturer(ManufacturableFactory&lt;T&gt; fac)
+<span class="fc" id="L181">	{</span>
+<span class="pc bpc" id="L182" title="1 of 2 branches missed.">		if (fac == null)</span>
+		{
+<span class="nc" id="L184">			throw new IllegalArgumentException(&quot;Factory for &quot; + getClass().getName() + &quot; cannot be null&quot;);</span>
+		}
+<span class="fc" id="L186">		factory = fac;</span>
+<span class="fc" id="L187">	}</span>
+
+	/**
+	 * Gets a reference to the Class or Class/Context provided by this
+	 * AbstractReferenceManufacturer. The reference will be a reference to the
+	 * objects identified by the given types.
+	 * 
+	 * @param types
+	 *            An array of the types of objects to which the returned
+	 *            CDOMReference will refer.
+	 * @return A CDOMGroupRef which is intended to contain objects of a given
+	 *         Type for the Class or Class/Context this
+	 *         AbstractReferenceManufacturer represents.
+	 * @throws IllegalArgumentException
+	 *             if any of the given Strings is null, empty (length is zero),
+	 *             or contains a period (.), equals (=), comma (,) or pipe (|)
+	 */
+	@Override
+	public CDOMGroupRef&lt;T&gt; getTypeReference(String... types)
+	{
+<span class="fc bfc" id="L207" title="All 2 branches covered.">		for (String type : types)</span>
+		{
+<span class="pc bpc" id="L209" title="2 of 4 branches missed.">			if (type == null || type.isEmpty())</span>
+			{
+<span class="nc" id="L211">				throw new IllegalArgumentException(</span>
+					&quot;Attempt to acquire empty Type (the type String contains a null or empty element)&quot;);
+			}
+<span class="pc bpc" id="L214" title="1 of 2 branches missed.">			if (type.indexOf('.') != -1)</span>
+			{
+<span class="nc" id="L216">				throw new IllegalArgumentException(&quot;Cannot build Reference with type containing a period: &quot; + type);</span>
+			}
+<span class="fc bfc" id="L218" title="All 2 branches covered.">			if (type.indexOf('=') != -1)</span>
+			{
+<span class="fc" id="L220">				throw new IllegalArgumentException(&quot;Cannot build Reference with type containing an equals: &quot; + type);</span>
+			}
+<span class="pc bpc" id="L222" title="1 of 2 branches missed.">			if (type.indexOf(',') != -1)</span>
+			{
+<span class="nc" id="L224">				throw new IllegalArgumentException(&quot;Cannot build Reference with type containing a comma: &quot; + type);</span>
+			}
+<span class="pc bpc" id="L226" title="1 of 2 branches missed.">			if (type.indexOf('|') != -1)</span>
+			{
+<span class="nc" id="L228">				throw new IllegalArgumentException(&quot;Cannot build Reference with type containing a pipe: &quot; + type);</span>
+			}
+		}
+<span class="fc" id="L231">		Arrays.sort(types);</span>
+<span class="fc" id="L232">		FixedStringList typeList = new FixedStringList(types);</span>
+<span class="fc" id="L233">		WeakReference&lt;CDOMGroupRef&lt;T&gt;&gt; ref = typeReferences.get(typeList);</span>
+<span class="fc bfc" id="L234" title="All 2 branches covered.">		if (ref != null)</span>
+		{
+<span class="fc" id="L236">			CDOMGroupRef&lt;T&gt; trt = ref.get();</span>
+<span class="pc bpc" id="L237" title="1 of 2 branches missed.">			if (trt != null)</span>
+			{
+<span class="fc" id="L239">				return trt;</span>
+			}
+		}
+		// Didn't find the appropriate key, create new
+<span class="fc" id="L243">		CDOMGroupRef&lt;T&gt; cgr = factory.getTypeReference(types);</span>
+<span class="fc" id="L244">		typeReferences.put(typeList, new WeakReference&lt;&gt;(cgr));</span>
+<span class="fc" id="L245">		return cgr;</span>
+	}
+
+	/**
+	 * Returns a CDOMGroupRef for the given Class or Class/Context provided by
+	 * this AbstractReferenceManufacturer.
+	 * 
+	 * @return A CDOMGroupRef which is intended to contain all the objects of
+	 *         the Class or Class/Context this AbstractReferenceManufacturer
+	 *         represents.
+	 */
+	@Override
+	public CDOMGroupRef&lt;T&gt; getAllReference()
+	{
+<span class="fc bfc" id="L259" title="All 2 branches covered.">		if (allRef == null)</span>
+		{
+<span class="fc" id="L261">			allRef = factory.getAllReference();</span>
+		}
+<span class="fc" id="L263">		return allRef;</span>
+	}
+
+	/**
+	 * The class of object this AbstractReferenceManufacturer represents.
+	 * 
+	 * @return The class of object this AbstractReferenceManufacturer
+	 *         represents.
+	 */
+	@Override
+	public Class&lt;T&gt; getReferenceClass()
+	{
+<span class="fc" id="L275">		return factory.getReferenceClass();</span>
+	}
+
+	/**
+	 * Resolves the references that have been requested from this
+	 * AbstractReferenceManufacturer, using the objects contained within this
+	 * AbstractReferenceManufacturer.
+	 * 
+	 * This method guarantees that all references are resolved.
+	 * 
+	 * Note: Implementations of AbstractReferenceManufacturer may place limits
+	 * on the number of times resolveReferences() can be called. The reason for
+	 * this is that some references may only be resolved once, and the
+	 * AbstractReferenceManufacturer is not required to maintain a list of
+	 * references that have been resolved and those which have not been
+	 * resolved.
+	 */
+	@Override
+	public boolean resolveReferences(UnconstructedValidator validator)
+	{
+<span class="fc" id="L295">		boolean resolutionSuccessful = resolvePrimitiveReferences(validator);</span>
+<span class="fc" id="L296">		resolutionSuccessful &amp;= resolveGroupReferences();</span>
+<span class="fc bfc" id="L297" title="All 2 branches covered.">		for (WeakReference&lt;CDOMGroupRef&lt;T&gt;&gt; ref : typeReferences.values())</span>
+		{
+<span class="fc" id="L299">			CDOMGroupRef&lt;T&gt; trt = ref.get();</span>
+<span class="pc bpc" id="L300" title="1 of 4 branches missed.">			if (trt != null &amp;&amp; trt.getObjectCount() == 0)</span>
+			{
+<span class="fc" id="L302">				Logging.errorPrint(&quot;Error: No &quot; + factory.getReferenceDescription() + &quot; objects of &quot;</span>
+<span class="fc" id="L303">					+ trt.getLSTformat(false) + &quot; were loaded but were referred to in the data&quot;);</span>
+<span class="fc" id="L304">				fireUnconstuctedEvent(trt);</span>
+<span class="fc" id="L305">				resolutionSuccessful = false;</span>
+			}
+<span class="fc" id="L307">		}</span>
+<span class="fc" id="L308">		isResolved = true;</span>
+<span class="fc" id="L309">		return resolutionSuccessful;</span>
+	}
+
+	private boolean resolvePrimitiveReferences(UnconstructedValidator validator)
+	{
+<span class="fc" id="L314">		boolean resolutionSuccessful = true;</span>
+<span class="fc bfc" id="L315" title="All 2 branches covered.">		for (Entry&lt;String, WeakReference&lt;CDOMSingleRef&lt;T&gt;&gt;&gt; me1 : referenced.entrySet())</span>
+		{
+<span class="fc" id="L317">			CDOMSingleRef&lt;T&gt; value = me1.getValue().get();</span>
+<span class="pc bpc" id="L318" title="1 of 2 branches missed.">			if (value != null)</span>
+			{
+<span class="fc" id="L320">				resolutionSuccessful &amp;= factory.resolve(this, me1.getKey(), value, validator);</span>
+			}
+<span class="fc" id="L322">		}</span>
+<span class="fc" id="L323">		return resolutionSuccessful;</span>
+	}
+
+	private boolean resolveGroupReferences()
+	{
+		/*
+		 * Intern each group key's tokens to Type constants once, before the
+		 * per-object loop, so the objects x groups x tokens matching below does
+		 * cheap Type lookups instead of re-interning strings each time.
+		 */
+<span class="fc" id="L333">		Map&lt;FixedStringList, Type[]&gt; internedKeys = new HashMap&lt;&gt;(typeReferences.size());</span>
+<span class="fc bfc" id="L334" title="All 2 branches covered.">		for (FixedStringList key : typeReferences.keySet())</span>
+		{
+<span class="fc" id="L336">			Type[] types = new Type[key.size()];</span>
+<span class="fc bfc" id="L337" title="All 2 branches covered.">			for (int i = 0; i &lt; types.length; i++)</span>
+			{
+<span class="fc" id="L339">				types[i] = Type.getConstant(key.get(i));</span>
+			}
+<span class="fc" id="L341">			internedKeys.put(key, types);</span>
+<span class="fc" id="L342">		}</span>
+<span class="fc bfc" id="L343" title="All 2 branches covered.">		for (T obj : getAllObjects())</span>
+		{
+<span class="fc bfc" id="L345" title="All 2 branches covered.">			if (allRef != null)</span>
+			{
+<span class="fc" id="L347">				allRef.addResolution(obj);</span>
+			}
+<span class="fc bfc" id="L349" title="All 2 branches covered.">			for (Map.Entry&lt;FixedStringList, WeakReference&lt;CDOMGroupRef&lt;T&gt;&gt;&gt; me : typeReferences.entrySet())</span>
+			{
+<span class="fc" id="L351">				CDOMGroupRef&lt;T&gt; trt = me.getValue().get();</span>
+<span class="pc bpc" id="L352" title="1 of 2 branches missed.">				if (trt != null)</span>
+				{
+<span class="fc" id="L354">					boolean typeOkay = true;</span>
+<span class="fc bfc" id="L355" title="All 2 branches covered.">					for (Type type : internedKeys.get(me.getKey()))</span>
+					{
+<span class="fc bfc" id="L357" title="All 2 branches covered.">						if (!obj.isType(type))</span>
+						{
+<span class="fc" id="L359">							typeOkay = false;</span>
+<span class="fc" id="L360">							break;</span>
+						}
+					}
+<span class="fc bfc" id="L363" title="All 2 branches covered.">					if (typeOkay)</span>
+					{
+<span class="fc" id="L365">						trt.addResolution(obj);</span>
+					}
+				}
+<span class="fc" id="L368">			}</span>
+<span class="fc" id="L369">		}</span>
+<span class="fc bfc" id="L370" title="All 4 branches covered.">		if (allRef != null &amp;&amp; allRef.getObjectCount() == 0)</span>
+		{
+<span class="fc" id="L372">			Logging.errorPrint(&quot;Error: No &quot; + factory.getReferenceDescription()</span>
+				+ &quot; objects were loaded but were referred to in the data&quot;);
+<span class="fc" id="L374">			fireUnconstuctedEvent(allRef);</span>
+<span class="fc" id="L375">			return false;</span>
+		}
+<span class="fc" id="L377">		return true;</span>
+	}
+
+	/**
+	 * Adds an object to the contents of this AbstractReferenceManufacturer.
+	 * This is used in conditions where this AbstractReferenceManufacturer was
+	 * not used to construct the object.
+	 * 
+	 * Implementation Note: There are various situations where this &quot;external
+	 * construction&quot; may happen - the primary one being loading of &quot;game mode&quot;
+	 * information like CDOMStat objects.
+	 * 
+	 * @param item
+	 *            The object to be imported into this
+	 *            AbstractReferenceManufacturer
+	 * @param key
+	 *            The identifier of the object to be imported into this
+	 *            AbstractReferenceManufacturer
+	 * @throws IllegalArgumentException
+	 *             if the given object is not of the Class that this
+	 *             AbstractReferenceManufacturer constructs and references
+	 */
+	@Override
+	public void addObject(T item, String key)
+	{
+<span class="pc bpc" id="L402" title="1 of 2 branches missed.">		if (!factory.isMember(item))</span>
+		{
+<span class="nc" id="L404">			throw new IllegalArgumentException(</span>
+<span class="nc" id="L405">				&quot;Attempted to register a &quot; + item.getClass().getName() + &quot; in &quot; + factory.getReferenceDescription());</span>
+		}
+<span class="fc" id="L407">		T current = active.get(key);</span>
+<span class="fc bfc" id="L408" title="All 2 branches covered.">		if (current == null)</span>
+		{
+<span class="fc" id="L410">			active.put(key, item);</span>
+		}
+		else
+		{
+<span class="fc" id="L414">			duplicates.addToListFor(new CaseInsensitiveString(key), item);</span>
+		}
+<span class="fc" id="L416">	}</span>
+
+	/**
+	 * Gets the object represented by the given identifier. Will return null if
+	 * an object with the given identifier is not present in this
+	 * AbstractReferenceManufacturer. Does not make any test to check if the
+	 * given identifier has multiple matching objects.
+	 * 
+	 * Note that this is testing *object* presence. This will not return an
+	 * object if a reference for the given identifier has been requested; it
+	 * will only return true if an object with the given identifier has actually
+	 * been constructed by or imported into this AbstractReferenceManufacturer.
+	 * 
+	 * @param key
+	 *            identifier of the object to be returned
+	 * @return The object stored in this AbstractReferenceManufacturer with the
+	 *         given identifier, or null if this AbstractReferenceManufacturer
+	 *         does not contain an object with the given identifier.
+	 */
+	@Override
+	public T getActiveObject(String key)
+	{
+<span class="fc" id="L438">		return active.get(key);</span>
+	}
+
+	/**
+	 * Gets the object represented by the given identifier. Will return null if
+	 * an object with the given identifier is not present in this
+	 * AbstractReferenceManufacturer.
+	 * 
+	 * Note that this is testing *object* presence. This will not return an
+	 * object if a reference for the given identifier has been requested; it
+	 * will only return true if an object with the given identifier has actually
+	 * been constructed by or imported into this AbstractReferenceManufacturer.
+	 * 
+	 * @param key
+	 *            identifier of the object to be returned
+	 * @return The object stored in this AbstractReferenceManufacturer with the
+	 *         given identifier, or null if this AbstractReferenceManufacturer
+	 *         does not contain an object with the given identifier.
+	 */
+	@Override
+	public T getObject(String key)
+	{
+<span class="fc" id="L460">		T po = active.get(key);</span>
+<span class="fc bfc" id="L461" title="All 2 branches covered.">		if (po != null)</span>
+		{
+<span class="fc" id="L463">			List&lt;T&gt; list = duplicates.getListFor(new CaseInsensitiveString(key));</span>
+<span class="pc bpc" id="L464" title="3 of 4 branches missed.">			if ((list != null) &amp;&amp; !list.isEmpty())</span>
+			{
+<span class="nc" id="L466">				Logging.errorPrint(</span>
+<span class="nc" id="L467">					&quot;Reference to Constructed &quot; + factory.getReferenceDescription() + &quot; &quot; + key + &quot; is ambiguous&quot;);</span>
+<span class="nc" id="L468">				StringBuilder sb = new StringBuilder(1000);</span>
+<span class="nc" id="L469">				sb.append(&quot;Locations: &quot;);</span>
+<span class="nc" id="L470">				sb.append(po.getSourceURI());</span>
+<span class="nc bnc" id="L471" title="All 2 branches missed.">				for (T dupe : list)</span>
+				{
+<span class="nc" id="L473">					sb.append(&quot;, &quot;);</span>
+<span class="nc" id="L474">					sb.append(dupe.getSourceURI());</span>
+<span class="nc" id="L475">				}</span>
+<span class="nc" id="L476">				Logging.errorPrint(sb.toString());</span>
+			}
+<span class="fc" id="L478">			return po;</span>
+		}
+<span class="fc" id="L480">		return null;</span>
+	}
+
+	/**
+	 * Constructs a new Loadable of the Class or Class/Category represented by
+	 * this AbstractReferenceManufacturer. This also adds the object to the list
+	 * of constructed objects within this AbstractReferenceManufacturer.
+	 * 
+	 * Implementation Note: At this point, the &quot;key&quot; provided is likely to be
+	 * the &quot;display name&quot; of an object, not the actual &quot;KEY&quot;. This is due to the
+	 * need to construct an object at the time it is first encountered, which is
+	 * probably not the time at which the KEY is known (the intent is not to do
+	 * &quot;lookahead&quot;, as it fails under .MOD conditions anyway). In order to
+	 * &quot;rename&quot; an object once a KEY is encountered, see renameObject(String, T)
+	 * 
+	 * @param key
+	 *            The identifier of the Loadable to be constructed
+	 * @return The new Loadable of the Class or Class/Category represented by
+	 *         this AbstractReferenceManufacturer
+	 * @throws IllegalArgumentException
+	 *             if the given identifier is null or empty (length is zero)
+	 */
+	@Override
+	public T constructObject(String key)
+	{
+<span class="fc" id="L505">		T obj = buildObject(key);</span>
+<span class="fc" id="L506">		addObject(obj, key);</span>
+<span class="fc" id="L507">		return obj;</span>
+	}
+
+	/**
+	 * Constructs a new Loadable of the Class or Class/Category represented by
+	 * this AbstractReferenceManufacturer
+	 * 
+	 * This should remain protected (vs. public) as it is for &quot;internal use
+	 * only&quot;; it serves as a convenience method to wrap the .newInstance call
+	 * and the possible Exceptions. Other classes should use
+	 * constructObject(String)
+	 * 
+	 * @param key
+	 *            The identifier of the Loadable to be constructed
+	 * @return The new Loadable of the Class or Class/Category represented by
+	 *         this AbstractReferenceManufacturer
+	 * @throws IllegalArgumentException
+	 *             if the given identifier is null or empty (length is zero)
+	 */
+	@Override
+	public T buildObject(String key)
+	{
+<span class="pc bpc" id="L529" title="2 of 4 branches missed.">		if (key == null || key.equals(&quot;&quot;))</span>
+		{
+<span class="nc" id="L531">			throw new IllegalArgumentException(&quot;Cannot build empty name&quot;);</span>
+		}
+<span class="fc" id="L533">		T obj = factory.newInstance();</span>
+<span class="fc" id="L534">		obj.setName(key);</span>
+<span class="fc" id="L535">		return obj;</span>
+	}
+
+	/**
+	 * Changes the identifier for a given object, as stored in this
+	 * AbstractReferenceManufacturer.
+	 * 
+	 * @param key
+	 *            The new identifier to be used for the given object
+	 * @param item
+	 *            The object for which the identifier in this
+	 *            AbstractReferenceManufacturer should be changed
+	 */
+	@Override
+	@SuppressFBWarnings(value = &quot;IMPROPER_UNICODE&quot;,
+		justification = &quot;equalsIgnoreCase is locale-independent; null-tolerant on key arg&quot;)
+	public void renameObject(String key, T item)
+	{
+<span class="fc" id="L553">		String oldKey = item.getKeyName();</span>
+<span class="pc bpc" id="L554" title="1 of 2 branches missed.">		if (oldKey.equalsIgnoreCase(key))</span>
+		{
+<span class="nc bnc" id="L556" title="All 2 branches missed.">			if (Logging.isDebugMode())</span>
+			{
+<span class="nc" id="L558">				Logging.debugPrint(&quot;Worthless Key change encountered: &quot; + item.getDisplayName() + &quot; &quot; + oldKey);</span>
+<span class="nc" id="L559">				Logging.reportSource(Logging.DEBUG, item.getSourceURI());</span>
+			}
+		}
+<span class="fc" id="L562">		forgetObject(item);</span>
+<span class="fc" id="L563">		addObject(item, key);</span>
+<span class="fc" id="L564">	}</span>
+
+	/**
+	 * Remove the given object from this AbstractReferenceManufacturer. Returns
+	 * true if the object was removed from this AbstractReferenceManufacturer;
+	 * false otherwise.
+	 * 
+	 * @param item
+	 *            The object to be removed from this
+	 *            AbstractReferenceManufacturer.
+	 * @return true if the object was removed from this
+	 *         AbstractReferenceManufacturer; false otherwise.
+	 */
+	@Override
+	public boolean forgetObject(T item)
+	{
+<span class="pc bpc" id="L580" title="1 of 2 branches missed.">		if (!factory.isMember(item))</span>
+		{
+<span class="nc" id="L582">			throw new IllegalArgumentException(</span>
+				&quot;Object to be forgotten does not match Class &quot; + &quot;of this AbstractReferenceManufacturer&quot;);
+		}
+<span class="fc" id="L585">		String key = active.getKeyFor(item);</span>
+<span class="pc bpc" id="L586" title="1 of 2 branches missed.">		if (key == null)</span>
+		{
+			/*
+			 * TODO This is a bug - the key name is not necessarily loaded into
+			 * the object, it may have been consumed by the object context... :P
+			 */
+<span class="nc" id="L592">			CaseInsensitiveString ocik = new CaseInsensitiveString(item.getKeyName());</span>
+<span class="nc" id="L593">			duplicates.removeFromListFor(ocik, item);</span>
+<span class="nc" id="L594">		}</span>
+		else
+		{
+<span class="fc" id="L597">			CaseInsensitiveString ocik = new CaseInsensitiveString(key);</span>
+<span class="fc" id="L598">			List&lt;T&gt; list = duplicates.getListFor(ocik);</span>
+<span class="fc bfc" id="L599" title="All 2 branches covered.">			if (list == null)</span>
+			{
+				// No replacement
+<span class="fc" id="L602">				active.remove(key);</span>
+			}
+			else
+			{
+<span class="fc" id="L606">				T newActive = duplicates.getElementInList(ocik, 0);</span>
+<span class="fc" id="L607">				duplicates.removeFromListFor(ocik, newActive);</span>
+<span class="fc" id="L608">				active.put(key, newActive);</span>
+			}
+		}
+<span class="fc" id="L611">		return true;</span>
+	}
+
+	/**
+	 * Returns true if this AbstractReferenceManufacturer contains an object of
+	 * the Class or Class/Category represented by this
+	 * AbstractReferenceManufacturer.
+	 * 
+	 * Note that this is testing *object* presence. This will not return true if
+	 * a reference for the given identifier has been requested; it will only
+	 * return true if an object with the given identifier has actually been
+	 * constructed by or imported into this AbstractReferenceManufacturer.
+	 * 
+	 * @param key
+	 *            The identifier of the object to be checked if it is present in
+	 *            this AbstractReferenceManufacturer.
+	 * @return true if this AbstractReferenceManufacturer contains an object of
+	 *         the Class or Class/Category represented by this
+	 *         AbstractReferenceManufacturer; false otherwise.
+	 */
+	@Override
+	public boolean containsObjectKeyed(String key)
+	{
+<span class="nc" id="L634">		return active.containsKey(key);</span>
+	}
+
+	/**
+	 * Gets a reference to the Class or Class/Context provided by this
+	 * AbstractReferenceManufacturer. The reference will be a reference to the
+	 * object identified by the given key.
+	 * 
+	 * @param key
+	 *            The key used to identify the object to which the returned
+	 *            CDOMReference will refer.
+	 * @return A CDOMReference that refers to the object identified by the given
+	 *         key
+	 * @throws IllegalArgumentException
+	 *             if the given key is null or empty
+	 */
+	@Override
+	public CDOMSingleRef&lt;T&gt; getReference(String key)
+	{
+		/*
+		 * TODO This is incorrect, but a hack for now :)
+		 * 
+		 * Mainly this throws around IllegalArgumentException in order to catch
+		 * bad parsing issues (design flaws in the code). Not sure if we want to
+		 * continue that long term? Once tokens are truly tested this may not be
+		 * necessary or desirable.
+		 */
+<span class="fc" id="L661">		Objects.requireNonNull(key, &quot;Cannot request a reference to null identifier&quot;);</span>
+<span class="fc bfc" id="L662" title="All 2 branches covered.">		if (key.isEmpty())</span>
+		{
+<span class="fc" id="L664">			throw new IllegalArgumentException(&quot;Cannot request a reference to an empty identifier&quot;);</span>
+		}
+		/*
+		 * Items thrown below this point are for protection from coding errors
+		 * in LST files, not part of the public interface of this method
+		 */
+		try
+		{
+<span class="fc" id="L672">			Integer.parseInt(key);</span>
+<span class="fc" id="L673">			throw new IllegalArgumentException(&quot;A number cannot be a valid single item: &quot; + key);</span>
+		}
+<span class="fc" id="L675">		catch (NumberFormatException nfe)</span>
+		{
+			// ok
+		}
+<span class="fc bfc" id="L679" title="All 2 branches covered.">		if (key.contains(&quot;=&quot;))</span>
+		{
+<span class="fc" id="L681">			throw new IllegalArgumentException(&quot;= cannot be a in valid single item (perhaps something like TYPE= &quot;</span>
+				+ &quot;is not supported in this token?): &quot; + key);
+		}
+<span class="fc bfc" id="L684" title="All 2 branches covered.">		if (String.CASE_INSENSITIVE_ORDER.compare(&quot;ANY&quot;, key) == 0)</span>
+		{
+<span class="fc" id="L686">			throw new IllegalArgumentException(&quot;Any cannot be a valid single item (not supported in this token?)&quot;);</span>
+		}
+<span class="fc bfc" id="L688" title="All 2 branches covered.">		if (String.CASE_INSENSITIVE_ORDER.compare(&quot;ALL&quot;, key) == 0)</span>
+		{
+<span class="fc" id="L690">			throw new IllegalArgumentException(&quot;All cannot be a valid single item (not supported in this token?)&quot;);</span>
+		}
+<span class="fc bfc" id="L692" title="All 2 branches covered.">		if (key.contains(&quot;:&quot;))</span>
+		{
+<span class="fc" id="L694">			throw new IllegalArgumentException(&quot;: cannot exist in a valid single item (did you try to use a &quot;</span>
+				+ &quot;PRE where it is not supported?) &quot; + key);
+		}
+<span class="pc bpc" id="L697" title="1 of 2 branches missed.">		if (String.CASE_INSENSITIVE_ORDER.compare(&quot;%LIST&quot;, key) == 0)</span>
+		{
+<span class="nc" id="L699">			throw new IllegalArgumentException(&quot;%LIST cannot be a valid single item (not supported in this token?)&quot;);</span>
+		}
+
+<span class="fc" id="L702">		WeakReference&lt;CDOMSingleRef&lt;T&gt;&gt; wr = referenced.get(key);</span>
+<span class="fc bfc" id="L703" title="All 2 branches covered.">		if (wr != null)</span>
+		{
+<span class="fc" id="L705">			CDOMSingleRef&lt;T&gt; ref = wr.get();</span>
+<span class="pc bpc" id="L706" title="1 of 2 branches missed.">			if (ref != null)</span>
+			{
+<span class="fc" id="L708">				return ref;</span>
+			}
+		}
+		CDOMSingleRef&lt;T&gt; ref;
+<span class="pc bpc" id="L712" title="1 of 2 branches missed.">		if (isResolved)</span>
+		{
+<span class="nc" id="L714">			T current = active.get(key);</span>
+<span class="nc bnc" id="L715" title="All 2 branches missed.">			if (current == null)</span>
+			{
+<span class="nc" id="L717">				throw new IllegalArgumentException(</span>
+					key + &quot; is not valid post-resolution &quot; + &quot;because it was never constructed&quot;);
+			}
+<span class="nc" id="L720">			ref = CDOMDirectSingleRef.getRef(current);</span>
+<span class="nc" id="L721">		}</span>
+		else
+		{
+<span class="fc" id="L724">			CDOMSingleRef&lt;T&gt; lr = factory.getReference(key);</span>
+<span class="fc" id="L725">			referenced.put(key, new WeakReference&lt;&gt;(lr));</span>
+<span class="fc" id="L726">			ref = lr;</span>
+		}
+<span class="fc" id="L728">		return ref;</span>
+	}
+
+	/**
+	 * Returns true if this AbstractReferenceManufacturer is &quot;valid&quot;. A &quot;valid&quot;
+	 * AbstractReferenceManufacturer is one where all of the following are true:
+	 * 
+	 * (1) Any object stored in the AbstractReferenceManufacturer reports that
+	 * it's KEY (as defined by Loadable.getKeyName()) matches the identifier
+	 * used to store the object in the AbstractReferenceManufacturer.
+	 * 
+	 * (2) All objects stored in the ReferenceManufacturer have valid names
+	 * (do not use illegal characters in the names)
+	 * 
+	 * (3) No two objects in the AbstractReferenceManufacturer have a matching
+	 * identifier.
+	 * 
+	 * @param validator
+	 *            UnconstructedValidator which can suppress unconstructed
+	 *            reference warnings
+	 * 
+	 * @return true if the AbstractReferenceManufacturer is &quot;valid&quot;; false
+	 *         otherwise.
+	 */
+	@Override
+	public boolean validate(UnconstructedValidator validator)
+	{
+<span class="fc" id="L755">		boolean returnGood = true;</span>
+<span class="pc bpc" id="L756" title="3 of 4 branches missed.">		if (validator == null || !validator.allowDuplicates(getReferenceClass()))</span>
+		{
+<span class="fc" id="L758">			returnGood = validateDuplicates();</span>
+		}
+<span class="fc" id="L760">		returnGood &amp;= validateNames();</span>
+<span class="fc" id="L761">		returnGood &amp;= validateActive();</span>
+<span class="fc" id="L762">		return returnGood;</span>
+	}
+
+	private boolean validateNames()
+	{
+<span class="pc bpc" id="L767" title="1 of 2 branches missed.">		if (!Logging.isLoggable(Logging.LST_WARNING))</span>
+		{
+<span class="nc" id="L769">			return true;</span>
+		}
+<span class="fc bfc" id="L771" title="All 2 branches covered.">		for (String key : active.keySet())</span>
+		{
+<span class="fc" id="L773">			T value = active.get(key);</span>
+<span class="fc bfc" id="L774" title="All 2 branches covered.">			if (value.isInternal())</span>
+			{
+<span class="fc" id="L776">				continue;</span>
+			}
+			/*
+			 * http://wiki.pcgen.org/index.php?title=Data_LST_Standards
+			 * 
+			 * Characters which should never be used in object names are Commas
+			 * (,), Pipes (|), Backslashes (\), Colons (:), Semicolons (;),
+			 * Periods (.), Brackets ([]), Percent (%), Asterisk (*) and Equals
+			 * (=).
+			 */
+<span class="pc bpc" id="L786" title="3 of 4 branches missed.">			if (key.indexOf(',') != -1 &amp;&amp; factory.getReferenceClass() != RollMethod.class)</span>
+			{
+<span class="nc" id="L788">				Logging.log(Logging.LST_WARNING, &quot;Found &quot; + factory.getReferenceDescription() + &quot; with KEY: &quot; + key</span>
+					+ &quot; which contains a comma &quot; + &quot;(prohibited character in a key)&quot;);
+			}
+<span class="pc bpc" id="L791" title="1 of 2 branches missed.">			if (key.indexOf('|') != -1)</span>
+			{
+<span class="nc" id="L793">				Logging.log(Logging.LST_WARNING, &quot;Found &quot; + factory.getReferenceDescription() + &quot; with KEY: &quot; + key</span>
+					+ &quot; which contains a pipe &quot; + &quot;(prohibited character in a key)&quot;);
+			}
+<span class="pc bpc" id="L796" title="1 of 2 branches missed.">			if (key.indexOf('\\') != -1)</span>
+			{
+<span class="nc" id="L798">				Logging.log(Logging.LST_WARNING, &quot;Found &quot; + factory.getReferenceDescription() + &quot; with KEY: &quot; + key</span>
+					+ &quot; which contains a backslash &quot; + &quot;(prohibited character in a key)&quot;);
+			}
+<span class="pc bpc" id="L801" title="1 of 2 branches missed.">			if (key.indexOf(':') != -1)</span>
+			{
+<span class="nc" id="L803">				Logging.log(Logging.LST_WARNING, &quot;Found &quot; + factory.getReferenceDescription() + &quot; with KEY: &quot; + key</span>
+					+ &quot; which contains a colon &quot; + &quot;(prohibited character in a key)&quot;);
+			}
+<span class="pc bpc" id="L806" title="1 of 2 branches missed.">			if (key.indexOf(';') != -1)</span>
+			{
+<span class="nc" id="L808">				Logging.log(Logging.LST_WARNING, &quot;Found &quot; + factory.getReferenceDescription() + &quot; with KEY: &quot; + key</span>
+					+ &quot; which contains a semicolon &quot; + &quot;(prohibited character in a key)&quot;);
+			}
+			// if (key.indexOf('.') != -1)
+			// {
+			// Logging.log(Logging.LST_WARNING, &quot;Found &quot;
+			// + getReferenceDescription() + &quot; with KEY: &quot; + key
+			// + &quot; which contains a period &quot;
+			// + &quot;(prohibited character in a key)&quot;);
+			// }
+<span class="pc bpc" id="L818" title="1 of 2 branches missed.">			if (key.indexOf('%') != -1)</span>
+			{
+<span class="nc" id="L820">				Logging.log(Logging.LST_WARNING, &quot;Found &quot; + factory.getReferenceDescription() + &quot; with KEY: &quot; + key</span>
+					+ &quot; which contains a percent sign &quot; + &quot;(prohibited character in a key)&quot;);
+			}
+<span class="pc bpc" id="L823" title="1 of 2 branches missed.">			if (key.indexOf('*') != -1)</span>
+			{
+<span class="nc" id="L825">				Logging.log(Logging.LST_WARNING, &quot;Found &quot; + factory.getReferenceDescription() + &quot; with KEY: &quot; + key</span>
+					+ &quot; which contains an asterisk &quot; + &quot;(prohibited character in a key)&quot;);
+			}
+<span class="pc bpc" id="L828" title="1 of 2 branches missed.">			if (key.indexOf('=') != -1)</span>
+			{
+<span class="nc" id="L830">				Logging.log(Logging.LST_WARNING, &quot;Found &quot; + factory.getReferenceDescription() + &quot; with KEY: &quot; + key</span>
+					+ &quot; which contains an equals sign &quot; + &quot;(prohibited character in a key)&quot;);
+			}
+<span class="pc bpc" id="L833" title="2 of 4 branches missed.">			if ((key.indexOf('[') != -1) || (key.indexOf(']') != -1))</span>
+			{
+<span class="nc" id="L835">				Logging.log(Logging.LST_WARNING, &quot;Found &quot; + factory.getReferenceDescription() + &quot; with KEY: &quot; + key</span>
+					+ &quot; which contains a bracket  &quot; + &quot;(prohibited character in a key)&quot;);
+			}
+<span class="fc" id="L838">		}</span>
+<span class="fc" id="L839">		return true;</span>
+	}
+
+	private boolean validateActive()
+	{
+<span class="fc" id="L844">		boolean returnGood = true;</span>
+<span class="fc bfc" id="L845" title="All 2 branches covered.">		for (Object second : active.keySet())</span>
+		{
+<span class="fc" id="L847">			T activeObj = active.get(second);</span>
+<span class="fc" id="L848">			String keyName = activeObj.getKeyName();</span>
+<span class="pc bpc" id="L849" title="1 of 2 branches missed.">			if (keyName == null)</span>
+			{
+<span class="nc" id="L851">				Logging.errorPrint(activeObj.getClass() + &quot; &quot; + activeObj.getDisplayName() + &quot; has a null KeyName&quot;);</span>
+			}
+<span class="pc bpc" id="L853" title="1 of 2 branches missed.">			else if (String.CASE_INSENSITIVE_ORDER.compare(keyName, second.toString()) != 0)</span>
+			{
+<span class="nc" id="L855">				Logging.errorPrint(getReferenceDescription() + &quot; Magical Key Change: &quot; + second + &quot; to &quot; + keyName);</span>
+<span class="nc" id="L856">				returnGood = false;</span>
+			}
+<span class="fc" id="L858">		}</span>
+<span class="fc" id="L859">		return returnGood;</span>
+	}
+
+	private boolean validateDuplicates()
+	{
+<span class="fc" id="L864">		boolean returnGood = true;</span>
+<span class="pc bpc" id="L865" title="1 of 2 branches missed.">		for (CaseInsensitiveString second : duplicates.getKeySet())</span>
+		{
+<span class="nc" id="L867">			List&lt;T&gt; list = duplicates.getListFor(second);</span>
+<span class="nc" id="L868">			T good = active.get(second.toString());</span>
+			/*
+			 * CONSIDER Should get CDOMObject reference out of here :(
+			 */
+<span class="nc bnc" id="L872" title="All 2 branches missed.">			if (good instanceof CDOMObject cdo)</span>
+			{
+<span class="nc bnc" id="L874" title="All 2 branches missed.">				for (T dupe : list)</span>
+                {
+<span class="nc bnc" id="L876" title="All 2 branches missed.">                    if (cdo.isCDOMEqual((CDOMObject) dupe))</span>
+                    {
+<span class="nc bnc" id="L878" title="All 2 branches missed.">                        for (Iterator&lt;WeakReference&lt;T&gt;&gt; it = manufactured.iterator();it.hasNext();)</span>
+                        {
+<span class="nc" id="L880">                            WeakReference&lt;T&gt; wr = it.next();</span>
+<span class="nc" id="L881">                            T mfg = wr.get();</span>
+<span class="nc bnc" id="L882" title="All 2 branches missed.">                            if (mfg == null)</span>
+                            {
+<span class="nc" id="L884">                                it.remove();</span>
+                            }
+                            // Yes this is instance equality, not .equals
+<span class="nc bnc" id="L887" title="All 2 branches missed.">                            else if (mfg == good)</span>
+                            {
+<span class="nc" id="L889">                                forgetObject(good);</span>
+<span class="nc" id="L890">                                break;</span>
+                            }
+<span class="nc" id="L892">                        }</span>
+                    }
+<span class="nc" id="L894">                }</span>
+			}
+<span class="nc bnc" id="L896" title="All 2 branches missed.">			if (duplicates.containsListFor(second))</span>
+			{
+<span class="nc" id="L898">				Logging.errorPrint(&quot;More than one &quot; + factory.getReferenceDescription() + &quot; with key/name &quot;</span>
+<span class="nc" id="L899">					+ good.getKeyName() + &quot; was built&quot;);</span>
+<span class="nc" id="L900">				List&lt;T&gt; dupes = duplicates.getListFor(second);</span>
+<span class="nc" id="L901">				StringBuilder sb = new StringBuilder(1000);</span>
+<span class="nc" id="L902">				sb.append(&quot;Sources: &quot;);</span>
+<span class="nc bnc" id="L903" title="All 2 branches missed.">				sb.append(good.isInternal() ? &quot;&lt;internal&gt;&quot; : good.getSourceURI());</span>
+<span class="nc bnc" id="L904" title="All 2 branches missed.">				for (T dupe : dupes)</span>
+				{
+<span class="nc bnc" id="L906" title="All 2 branches missed.">					sb.append(&quot;, &quot;).append(dupe.isInternal() ? &quot;&lt;internal&gt;&quot; : dupe.getSourceURI());</span>
+<span class="nc bnc" id="L907" title="All 2 branches missed.">					if (!dupe.getKeyName().equals(good.getKeyName()))</span>
+					{
+<span class="nc" id="L909">						Logging.errorPrint(&quot;Key case differed for &quot; + dupe.getKeyName());</span>
+					}
+<span class="nc" id="L911">				}</span>
+<span class="nc" id="L912">				Logging.errorPrint(sb.toString());</span>
+<span class="nc" id="L913">				returnGood = false;</span>
+			}
+<span class="nc" id="L915">		}</span>
+<span class="fc" id="L916">		return returnGood;</span>
+	}
+
+	/**
+	 * Instructs the AbstractReferenceManufacturer that the object with the
+	 * given identifer should be constructed automatically if it is necessary
+	 * when buildDeferredObjects() is called. The object will be constructed
+	 * only if no object with the matching identifier has been constructed or
+	 * imported into this AbstractReferenceManufacturer.
+	 * 
+	 * Implementation Note: This is generally used for backwards compatibility
+	 * to previous versions of PCGen or to items that are built automatically
+	 * (such as Weapon Proficiencies for Natural Attacks)
+	 * 
+	 * @param key
+	 *            The identifier of the Loadable to be built (if otherwise not
+	 *            constructed or imported into this
+	 *            AbstractReferenceManufacturer) when buildDeferredObjects() is
+	 *            called.
+	 */
+	@Override
+	public void constructIfNecessary(String key)
+	{
+		/*
+		 * TODO FIXME Need to ensure that items that are built here are tagged
+		 * as manufactured, so that they are not written out to LST files
+		 */
+<span class="fc" id="L943">		deferred.add(key);</span>
+<span class="fc" id="L944">	}</span>
+
+	/**
+	 * Returns a Collection of all of the objects contained in this
+	 * AbstractReferenceManufacturer, sorted by their Key Name. This will not
+	 * return null, it will return an empty list if no objects have been
+	 * constructed by or imported into this AbstractReferenceManufacturer.
+	 * 
+	 * @return A sorted Collection of all of the objects contained in this
+	 *         AbstractReferenceManufacturer
+	 */
+	@Override
+	public Collection&lt;T&gt; getAllObjects()
+	{
+<span class="fc" id="L958">		return active.keySortedValues();</span>
+	}
+
+	/**
+	 * Builds any objects whose construction was deferred. Identifiers for
+	 * objects for which construction was deferred were inserted into the
+	 * AbstractReferenceManufacturer using constructIfNecessary(String). Objects
+	 * will be constructed only if no object with the matching identifier has
+	 * been constructed or imported into this AbstractReferenceManufacturer.
+	 * 
+	 * Construction or import into the AbstractReferenceManufacturer could occur
+	 * at any time before buildDeferredObjects() is called, either before or
+	 * after constructIfNecessary(String) was called with the relevant
+	 * identifier. However, construction or import of an object with an
+	 * identical identifier after buildDeferredObjects() is called will result
+	 * in a duplicate object being formed. AbstractReferenceManufacturer is not
+	 * responsible for deleting automatically built objects under those
+	 * conditions.
+	 */
+	@Override
+	public void buildDeferredObjects()
+	{
+<span class="pc bpc" id="L980" title="1 of 2 branches missed.">		for (String cis : deferred)</span>
+		{
+<span class="nc bnc" id="L982" title="All 2 branches missed.">			if (!active.containsKey(cis))</span>
+			{
+<span class="nc" id="L984">				constructObject(cis);</span>
+			}
+<span class="nc" id="L986">		}</span>
+<span class="fc" id="L987">	}</span>
+
+	/**
+	 * Returns a Collection of the &quot;TYPE&quot; references for this
+	 * AbstractReferenceManufacturer.
+	 * 
+	 * This method is value-semantic in that ownership of the returned
+	 * Collection is transferred to the class calling this method. Modification
+	 * of the returned Collection will not modify the &quot;TYPE&quot; references for this
+	 * AbstractReferenceManufacturer and modification of the &quot;TYPE&quot; references
+	 * for this AbstractReferenceManufacturer through subsequent calls of
+	 * getTypeReference(String...) will not modify the returned Collection.
+	 * 
+	 * This method will not return null, even if getTypeReference(String...)
+	 * method was never called.
+	 * 
+	 * @return A Collection of the &quot;TYPE&quot; references for this
+	 *         AbstractReferenceManufacturer.
+	 */
+	protected Collection&lt;CDOMGroupRef&lt;T&gt;&gt; getTypeReferences()
+	{
+<span class="fc" id="L1008">		List&lt;CDOMGroupRef&lt;T&gt;&gt; list = new ArrayList&lt;&gt;(typeReferences.size());</span>
+<span class="pc bpc" id="L1009" title="1 of 2 branches missed.">		for (Iterator&lt;WeakReference&lt;CDOMGroupRef&lt;T&gt;&gt;&gt; it = typeReferences.values().iterator(); it.hasNext();)</span>
+		{
+<span class="nc" id="L1011">			WeakReference&lt;CDOMGroupRef&lt;T&gt;&gt; wr = it.next();</span>
+<span class="nc" id="L1012">			CDOMGroupRef&lt;T&gt; trt = wr.get();</span>
+<span class="nc bnc" id="L1013" title="All 2 branches missed.">			if (trt == null)</span>
+			{
+<span class="nc" id="L1015">				it.remove();</span>
+			}
+			else
+			{
+<span class="nc" id="L1019">				list.add(trt);</span>
+			}
+<span class="nc" id="L1021">		}</span>
+<span class="fc" id="L1022">		return list;</span>
+	}
+
+	/**
+	 * Returns a Collection of the primitive references for this
+	 * AbstractReferenceManufacturer.
+	 * 
+	 * This method is value-semantic in that ownership of the returned
+	 * Collection is transferred to the class calling this method. Modification
+	 * of the returned Collection will not modify the primitive references for
+	 * this AbstractReferenceManufacturer and modification of the primitive
+	 * references for this AbstractReferenceManufacturer through subsequent
+	 * calls of getReference(String) will not modify the returned Collection.
+	 * 
+	 * This method will not return null, even if getReference(String) method was
+	 * never called.
+	 * 
+	 * @return A Collection of the primitive references for this
+	 *         AbstractReferenceManufacturer.
+	 */
+	@Override
+	public Collection&lt;CDOMSingleRef&lt;T&gt;&gt; getReferenced()
+	{
+<span class="fc" id="L1045">		List&lt;CDOMSingleRef&lt;T&gt;&gt; list = new ArrayList&lt;&gt;();</span>
+<span class="pc bpc" id="L1046" title="1 of 2 branches missed.">		for (WeakReference&lt;CDOMSingleRef&lt;T&gt;&gt; wr : referenced.values())</span>
+		{
+<span class="nc" id="L1048">			CDOMSingleRef&lt;T&gt; ref = wr.get();</span>
+<span class="nc bnc" id="L1049" title="All 2 branches missed.">			if (ref != null)</span>
+			{
+<span class="nc" id="L1051">				list.add(ref);</span>
+			}
+<span class="nc" id="L1053">		}</span>
+<span class="fc" id="L1054">		return list;</span>
+	}
+
+	/**
+	 * Injects all objects from the given ReferenceManufacturer into this
+	 * AbstractReferenceManufacturer. Effectively this is a bulk addObject for
+	 * all of the objects contained in the given ReferenceManufacturer.
+	 * 
+	 * Note that this imports only the objects, and NOT references. This
+	 * AbstractReferenceManufacturer does inherit any deferred objects
+	 * (triggered through constructIfNecessary) from the given
+	 * ReferenceManufacturer.
+	 * 
+	 * @param arm
+	 *            The ReferenceManufacturer from which the objects should be
+	 *            imported into this AbstractReferenceManufacturer
+	 */
+	@Override
+	public void injectConstructed(ReferenceManufacturer&lt;T&gt; arm)
+	{
+<span class="pc bpc" id="L1074" title="1 of 2 branches missed.">		for (T value : active.keySortedValues())</span>
+		{
+<span class="nc" id="L1076">			arm.addObject(value, active.getKeyFor(value));</span>
+<span class="nc" id="L1077">		}</span>
+<span class="pc bpc" id="L1078" title="1 of 2 branches missed.">		for (CaseInsensitiveString cis : duplicates.getKeySet())</span>
+		{
+<span class="nc bnc" id="L1080" title="All 2 branches missed.">			for (T obj : duplicates.getListFor(cis))</span>
+			{
+<span class="nc" id="L1082">				arm.addObject(obj, cis.toString());</span>
+<span class="nc" id="L1083">			}</span>
+<span class="nc" id="L1084">		}</span>
+<span class="pc bpc" id="L1085" title="1 of 2 branches missed.">		for (String s : deferred)</span>
+		{
+<span class="nc" id="L1087">			arm.constructIfNecessary(s);</span>
+<span class="nc" id="L1088">		}</span>
+<span class="fc" id="L1089">	}</span>
+
+	/**
+	 * Triggers immediate construction of the object with the given identifier
+	 * if it does not exist. This is an alternative to constructIfNecessary that
+	 * should be used sparingly (generally direct access like this is higher
+	 * risk, but necessary in some cases)
+	 * 
+	 * Note that use of this method is inherently risky when taken in context to
+	 * .MOD and .COPY. Changes to keys may change the object to which an
+	 * identifier refers. Therefore, any resolution that should take place at
+	 * runtime should use getReference and resolve the reference.
+	 * 
+	 * The object will be constructed only if no object with the matching
+	 * identifier has been constructed or imported into this
+	 * ReferenceManufacturer. If the object has already been constructed, then
+	 * the previously constructed object is returned.
+	 * 
+	 * This method is effectively a convenience method that wraps
+	 * containsObject, getObject, and constructObject into a single method call
+	 * (and avoids the contains-triggered branch)
+	 * 
+	 * @param key
+	 *            The identifier of the Loadable to be built (if otherwise not
+	 *            constructed or imported into this
+	 *            AbstractReferenceManufacturer), or if an object with that
+	 *            identifier already exists, the identifier of the object to be
+	 *            returned.
+	 * @return The previously existing or new Loadable with the given
+	 *         identifier.
+	 */
+	@Override
+	public T constructNowIfNecessary(String key)
+	{
+<span class="fc" id="L1123">		T obj = active.get(key);</span>
+<span class="fc bfc" id="L1124" title="All 2 branches covered.">		if (obj == null)</span>
+		{
+<span class="fc" id="L1126">			obj = constructObject(key);</span>
+<span class="fc" id="L1127">			manufactured.add(new WeakReference&lt;&gt;(obj));</span>
+		}
+<span class="fc" id="L1129">		return obj;</span>
+	}
+
+	/**
+	 * Adds an UnconstructedListener to this AbstractReferenceManufacturer, that
+	 * will receive UnconstructedEvents if the validate method of this
+	 * AbstractReferenceManufacturer is called and the UnconstructedValidator
+	 * given to the validate method does not report that the unconstructed
+	 * reference is permitted.
+	 * 
+	 * @param listener
+	 *            The UnconstructedListener to be registered with this
+	 *            AbstractReferenceManufacturer
+	 */
+	@Override
+	public void addUnconstructedListener(UnconstructedListener listener)
+	{
+<span class="fc" id="L1146">		listenerList.add(UnconstructedListener.class, listener);</span>
+<span class="fc" id="L1147">	}</span>
+
+	/**
+	 * Returns an array of UnconstructedListeners that are registered with this
+	 * AbstractReferenceManufacturer.
+	 * 
+	 * @return An array of UnconstructedListeners that are registered with this
+	 *         AbstractReferenceManufacturer.
+	 */
+	@Override
+	public synchronized UnconstructedListener[] getUnconstructedListeners()
+	{
+<span class="nc" id="L1159">		return listenerList.getListeners(UnconstructedListener.class);</span>
+	}
+
+	/**
+	 * Removes an UnconstructedListener from this AbstractReferenceManufacturer,
+	 * so that it will no longer receive UnconstructedEvents from this
+	 * AbstractReferenceManufacturer
+	 * 
+	 * @param listener
+	 *            The UnconstructedListener to be removed from registration with
+	 *            this AbstractReferenceManufacturer
+	 */
+	@Override
+	public void removeUnconstructedListener(UnconstructedListener listener)
+	{
+<span class="nc" id="L1174">		listenerList.remove(UnconstructedListener.class, listener);</span>
+<span class="nc" id="L1175">	}</span>
+
+	/**
+	 * Fires a new UnconstructedEvent for the given CDOMReference to any
+	 * UnconstructedListener objects registered with this
+	 * AbstractReferenceManufacturer
+	 * 
+	 * @param ref
+	 *            The CDOMReference to which the UnconstructedEvent should
+	 *            refer.
+	 */
+	@Override
+	public void fireUnconstuctedEvent(CDOMReference&lt;?&gt; ref)
+	{
+<span class="fc" id="L1189">		Object[] listeners = listenerList.getListenerList();</span>
+		/*
+		 * This list is decremented from the end of the list to the beginning in
+		 * order to maintain consistent operation with how Java AWT and Swing
+		 * listeners are notified of Events (they are in reverse order to how
+		 * they were added to the Event-owning object).
+		 */
+<span class="fc" id="L1196">		UnconstructedEvent uEvent = null;</span>
+<span class="fc bfc" id="L1197" title="All 2 branches covered.">		for (int i = listeners.length - 2; i &gt;= 0; i -= 2)</span>
+		{
+<span class="pc bpc" id="L1199" title="1 of 2 branches missed.">			if (listeners[i] == UnconstructedListener.class)</span>
+			{
+				// Lazily create event
+<span class="pc bpc" id="L1202" title="1 of 2 branches missed.">				if (uEvent == null)</span>
+				{
+<span class="fc" id="L1204">					uEvent = new UnconstructedEvent(this, ref);</span>
+				}
+<span class="fc" id="L1206">				((UnconstructedListener) listeners[i + 1]).unconstructedReferenceFound(uEvent);</span>
+			}
+		}
+<span class="fc" id="L1209">	}</span>
+
+	/**
+	 * Returns the number of objects that are constructed in this
+	 * AbstractReferenceManufacturer (These could be natively constructed or
+	 * imported objects and does not count duplicates)
+	 * 
+	 * @return The number of objects that are constructed in this
+	 *         AbstractReferenceManufacturer
+	 */
+	@Override
+	public int getConstructedObjectCount()
+	{
+<span class="fc" id="L1222">		return active.size();</span>
+	}
+
+	@Override
+	public ManufacturableFactory&lt;T&gt; getFactory()
+	{
+<span class="fc" id="L1228">		return factory;</span>
+	}
+
+	@Override
+	public String getReferenceDescription()
+	{
+<span class="nc" id="L1234">		return factory.getReferenceDescription();</span>
+	}
+
+	@Override
+	public Collection&lt;CDOMReference&lt;T&gt;&gt; getAllReferences()
+	{
+<span class="fc" id="L1240">		List&lt;CDOMReference&lt;T&gt;&gt; list = new ArrayList&lt;&gt;();</span>
+<span class="pc bpc" id="L1241" title="1 of 2 branches missed.">		if (allRef != null)</span>
+		{
+<span class="nc" id="L1243">			list.add(allRef);</span>
+		}
+<span class="fc" id="L1245">		list.addAll(getTypeReferences());</span>
+<span class="fc" id="L1246">		list.addAll(getReferenced());</span>
+<span class="fc" id="L1247">		return list;</span>
+	}
+
+	@Override
+	public void addDerivativeObject(T obj)
+	{
+<span class="fc" id="L1253">		Objects.requireNonNull(obj, &quot;Derivative Object cannot be null&quot;);</span>
+<span class="fc" id="L1254">		derivatives.add(obj);</span>
+<span class="fc" id="L1255">	}</span>
+
+	@Override
+	public Collection&lt;T&gt; getDerivativeObjects()
+	{
+<span class="fc" id="L1260">		return new ArrayList&lt;&gt;(derivatives);</span>
+	}
+
+	@Override
+	public T convert(String key)
+	{
+<span class="fc" id="L1266">		return getActiveObject(key);</span>
+	}
+
+	@Override
+	public Indirect&lt;T&gt; convertIndirect(String key)
+	{
+<span class="pc bpc" id="L1272" title="1 of 2 branches missed.">		return isResolved ? new BasicIndirect&lt;&gt;(this, getActiveObject(key)) : getReference(key);</span>
+	}
+
+	@Override
+	public String getIdentifierType()
+	{
+<span class="pc bpc" id="L1278" title="1 of 2 branches missed.">		if (Dynamic.class.equals(getManagedClass()))</span>
+		{
+<span class="nc" id="L1280">			return factory.getPersistentFormat();</span>
+		}
+<span class="fc" id="L1282">		return StringPClassUtil.getStringFor(getManagedClass());</span>
+	}
+
+	@Override
+	public Class&lt;T&gt; getManagedClass()
+	{
+<span class="fc" id="L1288">		return factory.getReferenceClass();</span>
+	}
+
+	@Override
+	public String unconvert(T arg0)
+	{
+<span class="nc" id="L1294">		return arg0.getKeyName();</span>
+	}
+
+	@Override
+	public Optional&lt;FormatManager&lt;?&gt;&gt; getComponentManager()
+	{
+<span class="fc" id="L1300">		return Optional.empty();</span>
+	}
+
+	@Override
+	public boolean isDirect()
+	{
+<span class="nc" id="L1306">		return false;</span>
+	}
+
+	@Override
+	public ClassIdentity&lt;T&gt; getReferenceIdentity()
+	{
+<span class="fc" id="L1312">		return factory.getReferenceIdentity();</span>
+	}
+
+	@Override
+	public String getPersistentFormat()
+	{
+<span class="fc" id="L1318">		return factory.getPersistentFormat();</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

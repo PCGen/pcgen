@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MasterAvailableSpellFacet.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.facet</a> &gt; <span class="el_source">MasterAvailableSpellFacet.java</span></div><h1>MasterAvailableSpellFacet.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) 2014 Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package pcgen.cdom.facet;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+import pcgen.cdom.base.AssociatedPrereqObject;
+import pcgen.cdom.base.CDOMList;
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.DataSetInitializedFacet;
+import pcgen.cdom.base.MasterListInterface;
+import pcgen.cdom.enumeration.AssociationKey;
+import pcgen.cdom.enumeration.DataSetID;
+import pcgen.cdom.facet.base.AbstractListFacet;
+import pcgen.cdom.helper.AvailableSpell;
+import pcgen.cdom.list.ClassSpellList;
+import pcgen.cdom.list.DomainSpellList;
+import pcgen.core.SettingsHandler;
+import pcgen.core.spell.Spell;
+import pcgen.rules.context.LoadContext;
+
+/**
+ * The Class {@code MasterSkillFacet} caches a copy of all class skill
+ * lists. This allows faster checking of whether skills are class skills for a
+ * character class. Note this is a &quot;global&quot; facet in that it does not have
+ * method that depend on CharID (they are not character specific).
+ * 
+ */
+<span class="fc" id="L46">public class MasterAvailableSpellFacet extends AbstractListFacet&lt;DataSetID, AvailableSpell&gt;</span>
+		implements DataSetInitializedFacet
+{
+	private DataSetInitializationFacet datasetInitializationFacet;
+
+	/**
+	 * Initializes the global lists of ClassSkillLists. This method only needs
+	 * to be called once for each set of sources that are loaded.
+	 */
+	@Override
+	public synchronized void initialize(LoadContext lc)
+	{
+<span class="fc" id="L58">		DataSetID dsID = lc.getDataSetID();</span>
+<span class="fc" id="L59">		MasterListInterface masterLists = SettingsHandler.getGameAsProperty().get().getMasterLists();</span>
+<span class="fc" id="L60">		List&lt;CDOMReference&lt;CDOMList&lt;Spell&gt;&gt;&gt; useLists = new ArrayList&lt;&gt;();</span>
+<span class="pc bpc" id="L61" title="1 of 2 branches missed.">		for (CDOMReference ref : masterLists.getActiveLists())</span>
+		{
+<span class="nc" id="L63">			Collection&lt;CDOMList&lt;Spell&gt;&gt; lists = ref.getContainedObjects();</span>
+<span class="nc bnc" id="L64" title="All 2 branches missed.">			for (CDOMList&lt;Spell&gt; list : lists)</span>
+			{
+<span class="nc bnc" id="L66" title="All 4 branches missed.">				if ((list instanceof ClassSpellList) || (list instanceof DomainSpellList))</span>
+				{
+<span class="nc" id="L68">					useLists.add(ref);</span>
+<span class="nc" id="L69">					break;</span>
+				}
+<span class="nc" id="L71">			}</span>
+<span class="nc" id="L72">		}</span>
+<span class="pc bpc" id="L73" title="1 of 2 branches missed.">		for (CDOMReference&lt;CDOMList&lt;Spell&gt;&gt; ref : useLists)</span>
+		{
+<span class="nc bnc" id="L75" title="All 2 branches missed.">			for (Spell spell : masterLists.getObjects(ref))</span>
+			{
+<span class="nc" id="L77">				Collection&lt;AssociatedPrereqObject&gt; assoc = masterLists.getAssociations(ref, spell);</span>
+<span class="nc bnc" id="L78" title="All 2 branches missed.">				for (AssociatedPrereqObject apo : assoc)</span>
+				{
+<span class="nc" id="L80">					int lvl = apo.getAssociation(AssociationKey.SPELL_LEVEL);</span>
+<span class="nc bnc" id="L81" title="All 2 branches missed.">					for (CDOMList&lt;Spell&gt; list : ref.getContainedObjects())</span>
+					{
+<span class="nc" id="L83">						AvailableSpell as = new AvailableSpell(list, spell, lvl);</span>
+<span class="nc bnc" id="L84" title="All 2 branches missed.">						if (apo.hasPrerequisites())</span>
+						{
+<span class="nc" id="L86">							as.addAllPrerequisites(apo.getPrerequisiteList());</span>
+						}
+<span class="nc" id="L88">						add(dsID, as);</span>
+<span class="nc" id="L89">					}</span>
+<span class="nc" id="L90">				}</span>
+<span class="nc" id="L91">			}</span>
+<span class="nc" id="L92">		}</span>
+<span class="fc" id="L93">	}</span>
+
+	/**
+	 * Retrieve a list of all spells for a particular spell list. 
+	 * @param spellList The list to be queried
+	 * @param dsID The owning data set
+	 * @return The list of available spells.
+	 */
+	public List&lt;AvailableSpell&gt; getAllSpellsInList(CDOMList&lt;Spell&gt; spellList, DataSetID dsID)
+	{
+<span class="nc" id="L103">		List&lt;AvailableSpell&gt; spellsInList = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L104">		Collection&lt;AvailableSpell&gt; spells = getSet(dsID);</span>
+<span class="nc bnc" id="L105" title="All 2 branches missed.">		for (AvailableSpell as : spells)</span>
+		{
+<span class="nc bnc" id="L107" title="All 2 branches missed.">			if (as.getSpelllist().equals(spellList))</span>
+			{
+<span class="nc" id="L109">				spellsInList.add(as);</span>
+			}
+<span class="nc" id="L111">		}</span>
+
+<span class="nc" id="L113">		return spellsInList;</span>
+	}
+
+	/**
+	 * Retrieve a list of any occurrence of a specific spell in the particular spell list. 
+	 * @param spellList The list to be queried
+	 * @param dsID The owning data set
+	 * @param spell The spell to be found.
+	 * @return The list of available spells.
+	 */
+	public List&lt;AvailableSpell&gt; getMatchingSpellsInList(CDOMList&lt;Spell&gt; spellList, DataSetID dsID, Spell spell)
+	{
+<span class="nc" id="L125">		List&lt;AvailableSpell&gt; spellsInList = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L126">		Collection&lt;AvailableSpell&gt; spells = getSet(dsID);</span>
+<span class="nc bnc" id="L127" title="All 2 branches missed.">		for (AvailableSpell as : spells)</span>
+		{
+<span class="nc bnc" id="L129" title="All 4 branches missed.">			if (as.getSpelllist().equals(spellList) &amp;&amp; as.getSpell().equals(spell))</span>
+			{
+<span class="nc" id="L131">				spellsInList.add(as);</span>
+			}
+<span class="nc" id="L133">		}</span>
+
+<span class="nc" id="L135">		return spellsInList;</span>
+	}
+
+	public void setDataSetInitializationFacet(DataSetInitializationFacet datasetInitializationFacet)
+	{
+<span class="fc" id="L140">		this.datasetInitializationFacet = datasetInitializationFacet;</span>
+<span class="fc" id="L141">	}</span>
+
+	public void init()
+	{
+<span class="fc" id="L145">		datasetInitializationFacet.addDataSetInitializedFacet(this);</span>
+<span class="fc" id="L146">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

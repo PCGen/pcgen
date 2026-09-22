@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>KitFunds.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.core.kit</a> &gt; <span class="el_source">KitFunds.java</span></div><h1>KitFunds.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2005 (C) Greg Bingleman &lt;byngl@hotmail.com&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.core.kit;
+
+import java.math.BigDecimal;
+import java.util.List;
+
+import pcgen.cdom.formula.Formula;
+import pcgen.cdom.util.CControl;
+import pcgen.core.Kit;
+import pcgen.core.PlayerCharacter;
+import pcgen.output.channel.ChannelUtilities;
+
+/**
+ * {@code KitFunds}.
+ */
+<span class="fc" id="L32">public final class KitFunds extends BaseKit</span>
+{
+	private String name;
+	private Formula quantity;
+
+	// These members store the state of an instance of this class.  They are
+	// not cloned.
+<span class="fc" id="L39">	private BigDecimal theQty = BigDecimal.ZERO;</span>
+
+	@Override
+	public String toString()
+	{
+<span class="nc" id="L44">		return quantity.toString() + ' ' + name;</span>
+	}
+
+	@Override
+	public boolean testApply(Kit aKit, PlayerCharacter aPC, List&lt;String&gt; warnings)
+	{
+<span class="nc bnc" id="L50" title="All 2 branches missed.">		if (quantity == null)</span>
+		{
+<span class="nc" id="L52">			return false;</span>
+		}
+<span class="nc" id="L54">		theQty = new BigDecimal(quantity.resolve(aPC, &quot;&quot;).toString());</span>
+<span class="nc" id="L55">		return true;</span>
+	}
+
+	@Override
+	public void apply(PlayerCharacter aPC)
+	{
+<span class="nc" id="L61">		BigDecimal currentGold = new BigDecimal(ChannelUtilities</span>
+<span class="nc" id="L62">			.readControlledChannel(aPC.getCharID(), CControl.GOLDINPUT).toString());</span>
+<span class="nc" id="L63">		ChannelUtilities.setControlledChannel(aPC.getCharID(),</span>
+<span class="nc" id="L64">			CControl.GOLDINPUT, currentGold.add(theQty));</span>
+<span class="nc" id="L65">	}</span>
+
+	@Override
+	public String getObjectName()
+	{
+<span class="nc" id="L70">		return &quot;Funds&quot;;</span>
+	}
+
+	public void setQuantity(Formula formula)
+	{
+<span class="fc" id="L75">		quantity = formula;</span>
+<span class="fc" id="L76">	}</span>
+
+	@Override
+	public void setName(String value)
+	{
+<span class="fc" id="L81">		name = value;</span>
+<span class="fc" id="L82">	}</span>
+
+	public String getName()
+	{
+<span class="fc" id="L86">		return name;</span>
+	}
+
+	public Formula getQuantity()
+	{
+<span class="fc" id="L91">		return quantity;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

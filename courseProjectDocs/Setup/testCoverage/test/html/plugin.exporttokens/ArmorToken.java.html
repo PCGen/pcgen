@@ -1,0 +1,552 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ArmorToken.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.exporttokens</a> &gt; <span class="el_source">ArmorToken.java</span></div><h1>ArmorToken.java</h1><pre class="source lang-java linenums">package plugin.exporttokens;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.StringTokenizer;
+
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.util.CControl;
+import pcgen.core.Equipment;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.analysis.BonusCalc;
+import pcgen.core.analysis.OutputNameFormatting;
+import pcgen.io.ExportHandler;
+import pcgen.io.exporttoken.EqToken;
+import pcgen.io.exporttoken.Token;
+import pcgen.util.BigDecimalHelper;
+import pcgen.util.Delta;
+import pcgen.util.Logging;
+
+/**
+ * Class deals with ARMOR Token
+ */
+<span class="nc" id="L23">public class ArmorToken extends Token</span>
+{
+
+	/** Name of the Token */
+	public static final String TOKENNAME = &quot;ARMOR&quot;;
+
+	/**
+	 * Get the token name
+	 * @return token name
+	 */
+	@Override
+	public String getTokenName()
+	{
+<span class="nc" id="L36">		return TOKENNAME;</span>
+	}
+
+	@Override
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	{
+<span class="nc bnc" id="L42" title="All 2 branches missed.">		if (tokenSource.startsWith(&quot;ARMOR&quot;)</span>
+<span class="nc bnc" id="L43" title="All 4 branches missed.">			&amp;&amp; ((tokenSource.charAt(5) == '.') || Character.isDigit(tokenSource.charAt(5))))</span>
+		{
+<span class="nc" id="L45">			return getArmorToken(tokenSource, pc, eh);</span>
+		}
+<span class="nc" id="L47">		return &quot;&quot;;</span>
+	}
+
+	/**
+	 * @param tokenSource
+	 * @param pc
+	 * @param eh The ExportHandler to advise if there are no more items.
+	 * @return token
+	 */
+	public static String getArmorToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	{
+<span class="nc" id="L58">		return replaceTokenArmor(tokenSource, pc, eh);</span>
+	}
+
+	/**
+	 * See the PCGen Docs on Token Syntax
+	 *
+	 * @param aString
+	 * @param aPC
+	 * @param eh The ExportHandler to advise if there are no more items.
+	 * @return int
+	 */
+	private static String replaceTokenArmor(String aString, PlayerCharacter aPC, ExportHandler eh)
+	{
+<span class="nc" id="L71">		final StringTokenizer aTok = new StringTokenizer(aString, &quot;.&quot;);</span>
+<span class="nc" id="L72">		final String[] tokens = new String[aTok.countTokens()];</span>
+<span class="nc bnc" id="L73" title="All 2 branches missed.">		for (int i = 0; aTok.hasMoreTokens(); ++i)</span>
+		{
+<span class="nc" id="L75">			tokens[i] = aTok.nextToken();</span>
+		}
+<span class="nc" id="L77">		String property = &quot;&quot;;</span>
+		// When removing old syntax, this if should be removed
+<span class="nc bnc" id="L79" title="All 2 branches missed.">		if (tokens.length &gt; 0)</span>
+		{
+<span class="nc" id="L81">			property = tokens[tokens.length - 1];</span>
+		}
+<span class="nc" id="L83">		int equipped = 3;</span>
+<span class="nc" id="L84">		int index = 0;</span>
+<span class="nc" id="L85">		String type = &quot;&quot;;</span>
+<span class="nc" id="L86">		String subtype = &quot;&quot;;</span>
+<span class="nc" id="L87">		int merge = Constants.MERGE_ALL;</span>
+<span class="nc bnc" id="L88" title="All 2 branches missed.">		for (int i = 0; i &lt; tokens.length; ++i)</span>
+		{
+<span class="nc bnc" id="L90" title="All 2 branches missed.">			if (&quot;ARMOR&quot;.equals(tokens[i]))</span>
+			{
+<span class="nc" id="L92">				continue;</span>
+			}
+			// When removing old syntax, delete this if
+<span class="nc bnc" id="L95" title="All 2 branches missed.">			else if (tokens[i].startsWith(&quot;ARMOR&quot;))</span>
+			{
+				try
+				{
+<span class="nc" id="L99">					index = Integer.parseInt(tokens[i].substring(5));</span>
+				}
+<span class="nc" id="L101">				catch (NumberFormatException nfe)</span>
+				{
+<span class="nc" id="L103">					index = 0;</span>
+<span class="nc" id="L104">				}</span>
+<span class="nc" id="L105">				Logging.errorPrint(&quot;Old syntax ARMORx will be replaced for ARMOR.x&quot;);</span>
+			}
+<span class="nc bnc" id="L107" title="All 2 branches missed.">			else if (&quot;ALL&quot;.equals(tokens[i]))</span>
+			{
+<span class="nc" id="L109">				equipped = 3;</span>
+			}
+			// When removing old syntax, delete this if
+<span class="nc bnc" id="L112" title="All 2 branches missed.">			else if (tokens[i].startsWith(&quot;ALL&quot;))</span>
+			{
+<span class="nc" id="L114">				Logging.errorPrint(&quot;Old syntax ALLx will be replaced for ALL.x&quot;);</span>
+
+<span class="nc" id="L116">				index = Integer.parseInt(tokens[i].substring(3));</span>
+<span class="nc" id="L117">				equipped = 3;</span>
+			}
+<span class="nc bnc" id="L119" title="All 2 branches missed.">			else if (&quot;EQUIPPED&quot;.equals(tokens[i]))</span>
+			{
+<span class="nc" id="L121">				equipped = 1;</span>
+			}
+			// When removing old syntax, delete this if
+<span class="nc bnc" id="L124" title="All 2 branches missed.">			else if (tokens[i].startsWith(&quot;EQUIPPED&quot;))</span>
+			{
+<span class="nc" id="L126">				Logging.errorPrint(&quot;Old syntax EQUIPPEDx will be replaced for EQUIPPED.x&quot;);</span>
+
+<span class="nc" id="L128">				index = Integer.parseInt(tokens[i].substring(8));</span>
+<span class="nc" id="L129">				equipped = 1;</span>
+			}
+<span class="nc bnc" id="L131" title="All 2 branches missed.">			else if (&quot;NOT_EQUIPPED&quot;.equals(tokens[i]))</span>
+			{
+<span class="nc" id="L133">				equipped = 2;</span>
+			}
+			// When removing old syntax, delete this if
+<span class="nc bnc" id="L136" title="All 2 branches missed.">			else if (tokens[i].startsWith(&quot;NOT_EQUIPPED&quot;))</span>
+			{
+<span class="nc" id="L138">				Logging.errorPrint(&quot;Old syntax NOT_EQUIPPEDx will be replaced for NOT_EQUIPPED.x&quot;);</span>
+
+<span class="nc" id="L140">				index = Integer.parseInt(tokens[i].substring(12));</span>
+<span class="nc" id="L141">				equipped = 2;</span>
+			}
+<span class="nc bnc" id="L143" title="All 2 branches missed.">			else if (tokens[i].equals(&quot;MERGENONE&quot;))</span>
+			{
+<span class="nc" id="L145">				merge = Constants.MERGE_NONE;</span>
+			}
+<span class="nc bnc" id="L147" title="All 2 branches missed.">			else if (tokens[i].equals(&quot;MERGELOC&quot;))</span>
+			{
+<span class="nc" id="L149">				merge = Constants.MERGE_LOCATION;</span>
+			}
+<span class="nc bnc" id="L151" title="All 2 branches missed.">			else if (tokens[i].equals(&quot;MERGEALL&quot;))</span>
+			{
+<span class="nc" id="L153">				merge = Constants.MERGE_ALL;</span>
+			}
+<span class="nc bnc" id="L155" title="All 2 branches missed.">			else if (tokens[i].equals(&quot;ISTYPE&quot;))</span>
+			{
+<span class="nc" id="L157">				property = tokens[i] + '.' + tokens[i + 1];</span>
+<span class="nc" id="L158">				break;</span>
+			}
+<span class="nc bnc" id="L160" title="All 2 branches missed.">			else if (tokens[i].equals(&quot;NAME&quot;))</span>
+			{
+<span class="nc" id="L162">				property = tokens[i];</span>
+<span class="nc bnc" id="L163" title="All 2 branches missed.">				if (i &lt; (tokens.length - 1))</span>
+				{
+<span class="nc" id="L165">					property += '.' + tokens[i + 1];</span>
+				}
+				break;
+			}
+<span class="nc bnc" id="L169" title="All 2 branches missed.">			else if (i &lt; (tokens.length - 1))</span>
+			{
+				try
+				{
+<span class="nc" id="L173">					index = Integer.parseInt(tokens[i]);</span>
+				}
+<span class="nc" id="L175">				catch (NumberFormatException exc)</span>
+				{
+<span class="nc bnc" id="L177" title="All 2 branches missed.">					if (&quot;&quot;.equals(type))</span>
+					{
+<span class="nc" id="L179">						type = tokens[i];</span>
+					}
+					else
+					{
+<span class="nc" id="L183">						subtype = tokens[i];</span>
+					}
+<span class="nc" id="L185">				}</span>
+			}
+			else
+			{
+<span class="nc" id="L189">				property = tokens[i];</span>
+			}
+		}
+<span class="nc bnc" id="L192" title="All 2 branches missed.">		if (&quot;&quot;.equals(type))</span>
+		{
+<span class="nc" id="L194">			return replaceTokenArmor(index, property, equipped, merge, aPC, eh);</span>
+		}
+<span class="nc bnc" id="L196" title="All 2 branches missed.">		else if (&quot;SUIT&quot;.equals(type))</span>
+		{
+<span class="nc" id="L198">			return replaceTokenArmorSuit(index, subtype, property, equipped, merge, aPC, eh);</span>
+		}
+<span class="nc bnc" id="L200" title="All 2 branches missed.">		else if (&quot;SHIRT&quot;.equals(type))</span>
+		{
+<span class="nc" id="L202">			return replaceTokenArmorShirt(index, subtype, property, equipped, merge, aPC, eh);</span>
+		}
+<span class="nc bnc" id="L204" title="All 2 branches missed.">		else if (&quot;SHIELD&quot;.equals(type))</span>
+		{
+<span class="nc" id="L206">			return replaceTokenArmorShield(index, subtype, property, equipped, merge, aPC, eh);</span>
+		}
+<span class="nc bnc" id="L208" title="All 4 branches missed.">		else if (&quot;ITEM&quot;.equals(type) || &quot;ACITEM&quot;.equals(type))</span>
+		{
+<span class="nc" id="L210">			return replaceTokenArmorItem(index, subtype, property, equipped, merge, aPC, eh);</span>
+		}
+		else
+		{
+<span class="nc" id="L214">			return replaceTokenArmorVarious(index, type, subtype, property, equipped, merge, aPC, eh);</span>
+		}
+	}
+
+	/**
+	 * select suits - shields
+	 * @param armor
+	 * @param property
+	 * @param equipped
+	 * @param merge
+	 * @param aPC
+	 * @param eh The ExportHandler to advise if there are no more items.
+	 * @return int
+	 */
+	private static String replaceTokenArmor(int armor, String property, int equipped, int merge, PlayerCharacter aPC,
+		ExportHandler eh)
+	{
+<span class="nc" id="L231">		final List&lt;Equipment&gt; aArrayList = aPC.getEquipmentOfTypeInOutputOrder(&quot;Armor&quot;, equipped, merge);</span>
+<span class="nc" id="L232">		final List&lt;Equipment&gt; bArrayList = aPC.getEquipmentOfTypeInOutputOrder(&quot;Shield&quot;, equipped, merge);</span>
+
+<span class="nc bnc" id="L234" title="All 2 branches missed.">		for (Equipment eq : bArrayList)</span>
+		{
+<span class="nc" id="L236">			aArrayList.remove(eq);</span>
+<span class="nc" id="L237">		}</span>
+
+<span class="nc bnc" id="L239" title="All 2 branches missed.">		if (armor &lt; aArrayList.size())</span>
+		{
+<span class="nc" id="L241">			final Equipment eq = aArrayList.get(armor);</span>
+<span class="nc" id="L242">			return writeArmorProperty(eq, property, aPC);</span>
+		}
+<span class="nc" id="L244">		eh.setNoMoreItems(true);</span>
+<span class="nc" id="L245">		return &quot;&quot;;</span>
+	}
+
+	/**
+	 * select items, which improve AC but are not type ARMOR
+	 * @param item
+	 * @param subtype
+	 * @param property
+	 * @param equipped
+	 * @param merge
+	 * @param aPC
+	 * @param eh The ExportHandler to advise if there are no more items.
+	 * @return int
+	 */
+	private static String replaceTokenArmorItem(int item, String subtype, String property, int equipped, int merge,
+		PlayerCharacter aPC, ExportHandler eh)
+	{
+		// select all pieces of equipment of status==equipped
+		// filter all AC relevant stuff
+<span class="nc" id="L264">		final List&lt;Equipment&gt; aArrayList = new ArrayList&lt;&gt;();</span>
+
+<span class="nc bnc" id="L266" title="All 2 branches missed.">		for (Equipment eq : aPC.getEquipmentListInOutputOrder(merge))</span>
+		{
+<span class="nc bnc" id="L268" title="All 8 branches missed.">			if ((&quot;&quot;.equals(subtype) || eq.isType(subtype))</span>
+<span class="nc bnc" id="L269" title="All 6 branches missed.">				&amp;&amp; ((equipped == 3) || ((equipped == 2) &amp;&amp; !eq.isEquipped()) || ((equipped == 1) &amp;&amp; eq.isEquipped())))</span>
+			{
+<span class="nc bnc" id="L271" title="All 6 branches missed.">				if (eq.altersAC(aPC) &amp;&amp; !eq.isArmor() &amp;&amp; !eq.isShield())</span>
+				{
+<span class="nc" id="L273">					aArrayList.add(eq);</span>
+				}
+			}
+<span class="nc" id="L276">		}</span>
+
+<span class="nc bnc" id="L278" title="All 2 branches missed.">		if (item &lt; aArrayList.size())</span>
+		{
+<span class="nc" id="L280">			final Equipment eq = aArrayList.get(item);</span>
+<span class="nc" id="L281">			return writeArmorProperty(eq, property, aPC);</span>
+		}
+<span class="nc" id="L283">		eh.setNoMoreItems(true);</span>
+<span class="nc" id="L284">		return &quot;&quot;;</span>
+	}
+
+	/**
+	 * select shields
+	 * @param shield
+	 * @param subtype
+	 * @param property
+	 * @param equipped
+	 * @param merge
+	 * @param aPC
+	 * @param eh The ExportHandler to advise if there are no more items.
+	 * @return int
+	 */
+	private static String replaceTokenArmorShield(int shield, String subtype, String property, int equipped, int merge,
+		PlayerCharacter aPC, ExportHandler eh)
+	{
+<span class="nc" id="L301">		final List&lt;Equipment&gt; aArrayList = aPC.getEquipmentOfTypeInOutputOrder(&quot;Shield&quot;, subtype, equipped, merge);</span>
+
+<span class="nc bnc" id="L303" title="All 2 branches missed.">		if (shield &lt; aArrayList.size())</span>
+		{
+<span class="nc" id="L305">			final Equipment eq = aArrayList.get(shield);</span>
+<span class="nc" id="L306">			return writeArmorProperty(eq, property, aPC);</span>
+		}
+<span class="nc" id="L308">		eh.setNoMoreItems(true);</span>
+<span class="nc" id="L309">		return &quot;&quot;;</span>
+	}
+
+	/**
+	 * select shirts
+	 * @param shirt
+	 * @param subtype
+	 * @param property
+	 * @param equipped
+	 * @param merge
+	 * @param aPC
+	 * @param eh The ExportHandler to advise if there are no more items.
+	 * @return int
+	 */
+	private static String replaceTokenArmorShirt(int shirt, String subtype, String property, int equipped, int merge,
+		PlayerCharacter aPC, ExportHandler eh)
+	{
+<span class="nc" id="L326">		final List&lt;Equipment&gt; aArrayList = aPC.getEquipmentOfTypeInOutputOrder(&quot;Shirt&quot;, subtype, equipped, merge);</span>
+
+<span class="nc bnc" id="L328" title="All 2 branches missed.">		if (shirt &lt; aArrayList.size())</span>
+		{
+<span class="nc" id="L330">			final Equipment eq = aArrayList.get(shirt);</span>
+<span class="nc" id="L331">			return writeArmorProperty(eq, property, aPC);</span>
+		}
+<span class="nc" id="L333">		eh.setNoMoreItems(true);</span>
+<span class="nc" id="L334">		return &quot;&quot;;</span>
+	}
+
+	/**
+	 * select suits
+	 * @param suit
+	 * @param subtype
+	 * @param property
+	 * @param equipped
+	 * @param merge
+	 * @param aPC
+	 * @param eh The ExportHandler to advise if there are no more items.
+	 * @return int
+	 */
+	private static String replaceTokenArmorSuit(int suit, String subtype, String property, int equipped, int merge,
+		PlayerCharacter aPC, ExportHandler eh)
+	{
+<span class="nc" id="L351">		final List&lt;Equipment&gt; aArrayList = aPC.getEquipmentOfTypeInOutputOrder(&quot;Suit&quot;, subtype, equipped, merge);</span>
+
+		//
+		// Temporary hack until someone gets around to fixing it properly
+		//
+		//aArrayList.addAll(aPC.getEquipmentOfTypeInOutputOrder(&quot;Shirt&quot;, subtype, equipped));
+
+<span class="nc bnc" id="L358" title="All 2 branches missed.">		if (suit &lt; aArrayList.size())</span>
+		{
+<span class="nc" id="L360">			final Equipment eq = aArrayList.get(suit);</span>
+<span class="nc" id="L361">			return writeArmorProperty(eq, property, aPC);</span>
+		}
+<span class="nc" id="L363">		eh.setNoMoreItems(true);</span>
+<span class="nc" id="L364">		return &quot;&quot;;</span>
+	}
+
+	/**
+	 * select various stuff, that improves AC
+	 * @param index
+	 * @param type
+	 * @param subtype
+	 * @param property
+	 * @param equipped
+	 * @param merge
+	 * @param aPC
+	 * @param eh The ExportHandler to advise if there are no more items.
+	 * @return int
+	 */
+	private static String replaceTokenArmorVarious(int index, String type, String subtype, String property,
+		int equipped, int merge, PlayerCharacter aPC, ExportHandler eh)
+	{
+<span class="nc" id="L382">		final List&lt;Equipment&gt; aArrayList = new ArrayList&lt;&gt;();</span>
+
+<span class="nc bnc" id="L384" title="All 2 branches missed.">		for (Equipment eq : aPC.getEquipmentOfTypeInOutputOrder(type, subtype, equipped, merge))</span>
+		{
+<span class="nc bnc" id="L386" title="All 2 branches missed.">			if (eq.getACMod(aPC) &gt; 0)</span>
+			{
+<span class="nc" id="L388">				aArrayList.add(eq);</span>
+			}
+<span class="nc bnc" id="L390" title="All 2 branches missed.">			else if (eq.altersAC(aPC))</span>
+			{
+<span class="nc" id="L392">				aArrayList.add(eq);</span>
+			}
+<span class="nc" id="L394">		}</span>
+
+<span class="nc bnc" id="L396" title="All 2 branches missed.">		if (index &lt; aArrayList.size())</span>
+		{
+<span class="nc" id="L398">			final Equipment eq = aArrayList.get(index);</span>
+<span class="nc" id="L399">			return writeArmorProperty(eq, property, aPC);</span>
+		}
+<span class="nc" id="L401">		eh.setNoMoreItems(true);</span>
+<span class="nc" id="L402">		return &quot;&quot;;</span>
+	}
+
+	private static String writeArmorProperty(Equipment eq, String property, PlayerCharacter aPC)
+	{
+<span class="nc" id="L407">		StringBuilder ret = new StringBuilder();</span>
+
+<span class="nc bnc" id="L409" title="All 2 branches missed.">		if (property.startsWith(&quot;NAME&quot;))</span>
+		{
+<span class="nc bnc" id="L411" title="All 4 branches missed.">			if (eq.isEquipped() &amp;&amp; !property.equals(&quot;NAMENOSTAR&quot;))</span>
+			{
+<span class="nc" id="L413">				ret.append('*');</span>
+			}
+
+<span class="nc" id="L416">			ret.append(OutputNameFormatting.parseOutputName(eq, aPC));</span>
+<span class="nc" id="L417">			ret.append(eq.getAppliedName());</span>
+		}
+<span class="nc bnc" id="L419" title="All 2 branches missed.">		else if (property.startsWith(&quot;OUTPUTNAME&quot;))</span>
+		{
+			// TODO this appears to be the same as above.  Should be refactored
+<span class="nc bnc" id="L422" title="All 2 branches missed.">			if (eq.isEquipped())</span>
+			{
+<span class="nc" id="L424">				ret.append('*');</span>
+			}
+
+<span class="nc" id="L427">			ret.append(OutputNameFormatting.parseOutputName(eq, aPC));</span>
+<span class="nc" id="L428">			ret.append(eq.getAppliedName());</span>
+		}
+<span class="nc bnc" id="L430" title="All 4 branches missed.">		else if (property.startsWith(&quot;TOTALAC&quot;) || property.startsWith(&quot;ACBONUS&quot;))</span>
+		{
+			// adjustments for new equipment modifier
+			// EQMARMOR|AC|x|TYPE=ENHANCEMENT changed to COMBAT|AC|x|TYPE=Armor.ENHANCEMENT
+			//FileAccess.write(output, Delta.toString(eq.getACMod()));
+<span class="nc" id="L435">			String acMod = aPC.getControl(CControl.EQACMOD);</span>
+<span class="nc bnc" id="L436" title="All 2 branches missed.">			if (acMod != null)</span>
+			{
+<span class="nc" id="L438">				Object o = aPC.getLocal(eq, acMod);</span>
+<span class="nc" id="L439">				int intValue = ((Number) o).intValue();</span>
+<span class="nc" id="L440">				ret.append(Delta.toString(intValue));</span>
+<span class="nc" id="L441">			}</span>
+			else
+			{
+<span class="nc" id="L444">				ret.append(Delta.toString((int) eq.bonusTo(aPC, &quot;COMBAT&quot;, &quot;AC&quot;, true)));</span>
+			}
+<span class="nc" id="L446">		}</span>
+<span class="nc bnc" id="L447" title="All 2 branches missed.">		else if (property.startsWith(&quot;BASEAC&quot;))</span>
+		{
+			// adjustments for new equipment modifier
+			// EQMARMOR|AC|x|TYPE=ENHANCEMENT changed to COMBAT|AC|x|TYPE=Armor.ENHANCEMENT
+			//FileAccess.write(output, Delta.toString(eq.getACMod()));
+<span class="nc" id="L452">			String baseMod = aPC.getControl(CControl.EQBASEACMOD);</span>
+<span class="nc bnc" id="L453" title="All 2 branches missed.">			if (baseMod != null)</span>
+			{
+<span class="nc" id="L455">				Object o = aPC.getLocal(eq, baseMod);</span>
+<span class="nc" id="L456">				int intValue = ((Number) o).intValue();</span>
+<span class="nc" id="L457">				ret.append(Delta.toString(intValue));</span>
+<span class="nc" id="L458">			}</span>
+			else
+			{
+<span class="nc" id="L461">				ret.append(Delta.toString((int) BonusCalc.charBonusTo(eq, &quot;COMBAT&quot;, &quot;AC&quot;, aPC)));</span>
+			}
+<span class="nc" id="L463">		}</span>
+<span class="nc bnc" id="L464" title="All 2 branches missed.">		else if (property.startsWith(&quot;MAXDEX&quot;))</span>
+		{
+<span class="nc" id="L466">			final int iMax = EqToken.getMaxDexTokenInt(aPC, eq);</span>
+<span class="nc bnc" id="L467" title="All 2 branches missed.">			if (iMax != Constants.MAX_MAXDEX)</span>
+			{
+<span class="nc" id="L469">				ret.append(Delta.toString(iMax));</span>
+			}
+<span class="nc" id="L471">		}</span>
+<span class="nc bnc" id="L472" title="All 2 branches missed.">		else if (property.startsWith(&quot;ACCHECK&quot;))</span>
+		{
+<span class="nc" id="L474">			ret.append(Delta.toString(EqToken.getAcCheckTokenInt(aPC, eq)));</span>
+		}
+<span class="nc bnc" id="L476" title="All 2 branches missed.">		else if (property.startsWith(&quot;EDR&quot;))</span>
+		{
+<span class="nc" id="L478">			ret.append(Delta.toString(EqToken.getEdrTokenInt(aPC, eq)));</span>
+		}
+<span class="nc bnc" id="L480" title="All 2 branches missed.">		else if (property.startsWith(&quot;ISTYPE&quot;))</span>
+		{
+<span class="nc bnc" id="L482" title="All 2 branches missed.">			if (eq.isType(property.substring(property.indexOf('.') + 1)))</span>
+			{
+<span class="nc" id="L484">				ret.append(&quot;TRUE&quot;);</span>
+			}
+			else
+			{
+<span class="nc" id="L488">				ret.append(&quot;FALSE&quot;);</span>
+			}
+		}
+<span class="nc bnc" id="L491" title="All 2 branches missed.">		else if (property.startsWith(&quot;SPELLFAIL&quot;))</span>
+		{
+<span class="nc" id="L493">			ret.append(EqToken.getSpellFailureTokenInt(aPC, eq));</span>
+		}
+<span class="nc bnc" id="L495" title="All 2 branches missed.">		else if (property.startsWith(&quot;MOVE&quot;))</span>
+		{
+<span class="nc" id="L497">			final StringTokenizer aTok = new StringTokenizer(eq.moveString(), &quot;,&quot;, false);</span>
+<span class="nc" id="L498">			String tempString = &quot;&quot;;</span>
+
+<span class="nc" id="L500">			String sizeAbb = aPC.getSizeAdjustment().getKeyName();</span>
+<span class="nc bnc" id="L501" title="All 6 branches missed.">			if ((&quot;M&quot;.equals(sizeAbb) || &quot;S&quot;.equals(sizeAbb)) &amp;&amp; (aTok.countTokens() &gt; 0))</span>
+			{
+<span class="nc" id="L503">				tempString = aTok.nextToken();</span>
+
+<span class="nc bnc" id="L505" title="All 4 branches missed.">				if (&quot;S&quot;.equals(sizeAbb) &amp;&amp; (aTok.countTokens() &gt; 1))</span>
+				{
+<span class="nc" id="L507">					tempString = aTok.nextToken();</span>
+				}
+			}
+
+<span class="nc" id="L511">			ret.append(tempString);</span>
+<span class="nc" id="L512">		}</span>
+<span class="nc bnc" id="L513" title="All 2 branches missed.">		else if (property.startsWith(&quot;SPROP&quot;))</span>
+		{
+<span class="nc" id="L515">			ret.append(eq.getSpecialProperties(aPC));</span>
+		}
+<span class="nc bnc" id="L517" title="All 2 branches missed.">		else if (property.startsWith(&quot;TYPE&quot;))</span>
+		{
+<span class="nc" id="L519">			String typeString = &quot;&quot;;</span>
+
+<span class="nc bnc" id="L521" title="All 2 branches missed.">			if (eq.isLight())</span>
+			{
+<span class="nc" id="L523">				typeString = &quot;Light&quot;;</span>
+			}
+<span class="nc bnc" id="L525" title="All 2 branches missed.">			else if (eq.isMedium())</span>
+			{
+<span class="nc" id="L527">				typeString = &quot;Medium&quot;;</span>
+			}
+<span class="nc bnc" id="L529" title="All 2 branches missed.">			else if (eq.isHeavy())</span>
+			{
+<span class="nc" id="L531">				typeString = &quot;Heavy&quot;;</span>
+			}
+<span class="nc bnc" id="L533" title="All 2 branches missed.">			else if (eq.isShield())</span>
+			{
+<span class="nc" id="L535">				typeString = &quot;Shield&quot;;</span>
+			}
+<span class="nc bnc" id="L537" title="All 2 branches missed.">			else if (eq.isExtra())</span>
+			{
+<span class="nc" id="L539">				typeString = &quot;Extra&quot;;</span>
+			}
+
+<span class="nc" id="L542">			ret.append(typeString);</span>
+<span class="nc" id="L543">		}</span>
+<span class="nc bnc" id="L544" title="All 2 branches missed.">		else if (property.startsWith(&quot;WT&quot;))</span>
+		{
+<span class="nc" id="L546">			ret.append(BigDecimalHelper.trimZeros(eq.getWeight(aPC).toString()));</span>
+		}
+<span class="nc" id="L548">		return ret.toString();</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

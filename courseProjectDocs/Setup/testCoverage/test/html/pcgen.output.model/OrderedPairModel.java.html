@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>OrderedPairModel.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.output.model</a> &gt; <span class="el_source">OrderedPairModel.java</span></div><h1>OrderedPairModel.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2015 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.output.model;
+
+import java.util.Objects;
+import java.util.function.Supplier;
+
+import pcgen.base.math.OrderedPair;
+import pcgen.output.base.SimpleWrapperLibrary;
+
+import freemarker.template.TemplateModel;
+import freemarker.template.TemplateModelException;
+import freemarker.template.TemplateScalarModel;
+import freemarker.template.TemplateSequenceModel;
+
+/**
+ * A OrderedPairModel wraps a OrderedPair object into a TemplateScalarModel and
+ * TemplateSequenceModel (of length 2).
+ */
+public class OrderedPairModel implements TemplateScalarModel, TemplateSequenceModel, Supplier&lt;OrderedPair&gt;
+{
+
+	/**
+	 * The underlying OrderedPair object
+	 */
+	private final OrderedPair point;
+
+	/**
+	 * Constructs a new OrderedPairModel with the given underlying OrderedPair
+	 * 
+	 * @param point The OrderedPair this OrderedPairModel wraps
+	 */
+	public OrderedPairModel(OrderedPair point)
+<span class="nc" id="L49">	{</span>
+<span class="nc" id="L50">		Objects.requireNonNull(point, &quot;OrderedPair cannot be null&quot;);</span>
+<span class="nc" id="L51">		this.point = point;</span>
+<span class="nc" id="L52">	}</span>
+
+	@Override
+	public String getAsString()
+	{
+<span class="nc" id="L57">		return point.toString();</span>
+	}
+
+	@Override
+	public OrderedPair get()
+	{
+<span class="nc" id="L63">		return point;</span>
+	}
+
+	@Override
+	public TemplateModel get(int index) throws TemplateModelException
+	{
+<span class="nc bnc" id="L69" title="All 2 branches missed.">		if (index == 0)</span>
+		{
+<span class="nc" id="L71">			return SimpleWrapperLibrary.wrap(point.getPreciseX());</span>
+		}
+<span class="nc bnc" id="L73" title="All 2 branches missed.">		else if (index == 1)</span>
+		{
+<span class="nc" id="L75">			return SimpleWrapperLibrary.wrap(point.getPreciseY());</span>
+		}
+<span class="nc" id="L77">		return null;</span>
+	}
+
+	@Override
+	public int size()
+	{
+<span class="nc" id="L83">		return 2;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

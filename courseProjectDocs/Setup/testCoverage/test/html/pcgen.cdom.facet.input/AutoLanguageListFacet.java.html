@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AutoLanguageListFacet.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.facet.input</a> &gt; <span class="el_source">AutoLanguageListFacet.java</span></div><h1>AutoLanguageListFacet.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) Devon Jones, 2012.
+ * Copyright (c) Thomas Parker, 2012.
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package pcgen.cdom.facet.input;
+
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.base.AbstractSourcedListFacet;
+import pcgen.cdom.facet.model.LanguageFacet;
+import pcgen.cdom.meta.CorePerspective;
+import pcgen.cdom.meta.CorePerspectiveDB;
+import pcgen.cdom.meta.FacetBehavior;
+import pcgen.cdom.meta.PerspectiveLocation;
+import pcgen.core.Language;
+
+/**
+ * AutoLanguageFacet is a Facet that tracks the Languages that have been granted
+ * to a Player Character through the AUTO:LANG|%LIST
+ * 
+ */
+<span class="fc" id="L35">public class AutoLanguageListFacet extends AbstractSourcedListFacet&lt;CharID, Language&gt; implements PerspectiveLocation</span>
+{
+	private LanguageFacet languageFacet;
+
+	public void setLanguageFacet(LanguageFacet languageFacet)
+	{
+<span class="fc" id="L41">		this.languageFacet = languageFacet;</span>
+<span class="fc" id="L42">	}</span>
+
+	public void init()
+	{
+<span class="fc" id="L46">		addDataFacetChangeListener(languageFacet);</span>
+<span class="fc" id="L47">		CorePerspectiveDB.register(CorePerspective.LANGUAGE, FacetBehavior.INPUT, this);</span>
+<span class="fc" id="L48">	}</span>
+
+	@Override
+	public String getIdentity()
+	{
+<span class="fc" id="L53">		return &quot;AUTO:LANG|%LIST&quot;;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

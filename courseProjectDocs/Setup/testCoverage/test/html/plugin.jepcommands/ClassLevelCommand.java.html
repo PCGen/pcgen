@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ClassLevelCommand.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.jepcommands</a> &gt; <span class="el_source">ClassLevelCommand.java</span></div><h1>ClassLevelCommand.java</h1><pre class="source lang-java linenums">package plugin.jepcommands;
+
+import java.util.Stack;
+
+import pcgen.core.GameMode;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.SettingsHandler;
+import pcgen.core.VariableProcessor;
+import pcgen.util.PCGenCommand;
+import pcgen.util.PJEP;
+
+import org.nfunk.jep.ParseException;
+
+/**
+ * JEP command for class level (cl)
+ *
+ * eg. classlevel(&quot;Fighter&quot;)
+ * eg. classlevel(&quot;Fighter&quot;, &quot;APPLIEDAS=NONEPIC&quot;)
+ * eg. classlevel(&quot;APPLIEDAS=NONEPIC&quot;) [in CLASS LST file only]
+ * eg. classlevel() [in CLASS LST file only]
+ */
+public class ClassLevelCommand extends PCGenCommand
+{
+
+	@Override
+	public boolean checkNumberOfParameters(int arg0)
+	{
+<span class="nc bnc" id="L28" title="All 4 branches missed.">		return arg0 &gt;= 0 &amp;&amp; arg0 &lt;= 2;</span>
+	}
+
+	/**
+	 * Constructor
+	 */
+	public ClassLevelCommand()
+<span class="nc" id="L35">	{</span>
+<span class="nc" id="L36">		numberOfParameters = -1;</span>
+<span class="nc" id="L37">	}</span>
+
+	/**
+	 * Gets the name of the function handled by this class.
+	 * @return The name of the function.
+	 */
+	@Override
+	public String getFunctionName()
+	{
+<span class="nc" id="L46">		return &quot;CLASSLEVEL&quot;;</span>
+	}
+
+	@Override
+	public boolean updateVariables(final PJEP jep)
+	{
+<span class="nc" id="L52">		boolean updated = false;</span>
+<span class="nc bnc" id="L53" title="All 2 branches missed.">		if (jep.removeVariable(&quot;CL&quot;) != null)</span>
+		{
+<span class="nc" id="L55">			updated = true;</span>
+		}
+
+<span class="nc" id="L58">		String src = variableSource;</span>
+<span class="nc bnc" id="L59" title="All 4 branches missed.">		if ((src == null) || !src.startsWith(&quot;CLASS:&quot;))</span>
+		{
+<span class="nc" id="L61">			return updated;</span>
+		}
+<span class="nc" id="L63">		src = src.substring(6);</span>
+
+<span class="nc" id="L65">		PlayerCharacter pc = null;</span>
+<span class="nc bnc" id="L66" title="All 2 branches missed.">		if (parent instanceof VariableProcessor)</span>
+		{
+<span class="nc" id="L68">			pc = ((VariableProcessor) parent).getPc();</span>
+		}
+<span class="nc bnc" id="L70" title="All 2 branches missed.">		else if (parent instanceof PlayerCharacter)</span>
+		{
+<span class="nc" id="L72">			pc = (PlayerCharacter) parent;</span>
+		}
+<span class="nc bnc" id="L74" title="All 2 branches missed.">		if (pc == null)</span>
+		{
+<span class="nc" id="L76">			return updated;</span>
+		}
+
+<span class="nc" id="L79">		final Number result = Double.valueOf(pc.getClassLevelString(src, false));</span>
+<span class="nc" id="L80">		jep.addVariable(&quot;CL&quot;, result.doubleValue());</span>
+
+<span class="nc" id="L82">		return true;</span>
+	}
+
+	/**
+	 * Runs classlevel on the inStack. The parameter is popped
+	 * off the {@code inStack}, and the variable's value is
+	 * pushed back to the top of {@code inStack}.
+	 * @param inStack the jep stack
+	 * @throws ParseException
+	 */
+	@SuppressWarnings(&quot;unchecked&quot;) //Uses JEP, which doesn't use generics
+	@Override
+	public void run(final Stack inStack) throws ParseException
+	{
+		// check the stack
+<span class="nc" id="L97">		checkStack(inStack);</span>
+
+		// get the parameter from the stack
+
+<span class="nc" id="L101">		int paramCount = curNumberOfParameters;</span>
+
+<span class="nc" id="L103">		String applied = null;</span>
+<span class="nc" id="L104">		String className = null;</span>
+
+<span class="nc bnc" id="L106" title="All 2 branches missed.">		if (paramCount &gt; 2)</span>
+		{
+<span class="nc" id="L108">			throw new ParseException(&quot;Invalid number of parameters&quot;);</span>
+		}
+
+<span class="nc bnc" id="L111" title="All 2 branches missed.">		if (paramCount &gt;= 2)</span>
+		{
+<span class="nc" id="L113">			String p2 = inStack.pop().toString();</span>
+<span class="nc bnc" id="L114" title="All 2 branches missed.">			if (p2.startsWith(&quot;APPLIEDAS=&quot;))</span>
+			{
+<span class="nc" id="L116">				applied = p2.substring(10);</span>
+			}
+		}
+
+<span class="nc bnc" id="L120" title="All 2 branches missed.">		if (paramCount &gt;= 1)</span>
+		{
+<span class="nc" id="L122">			String p1 = inStack.pop().toString();</span>
+<span class="nc bnc" id="L123" title="All 2 branches missed.">			if (p1.startsWith(&quot;APPLIEDAS=&quot;))</span>
+			{
+<span class="nc bnc" id="L125" title="All 2 branches missed.">				if (applied != null)</span>
+				{
+<span class="nc" id="L127">					throw new ParseException(&quot;Formula had two APPLIEDAS= entries&quot;);</span>
+				}
+<span class="nc" id="L129">				applied = p1.substring(10);</span>
+			}
+			else
+			{
+				//Should be a class name
+<span class="nc" id="L134">				className = p1;</span>
+			}
+		}
+
+		/*
+		 * If there was no parameter showing the class, and this is used in a
+		 * CLASS file, then use the class name
+		 */
+<span class="nc bnc" id="L142" title="All 2 branches missed.">		if (className == null)</span>
+		{
+<span class="nc" id="L144">			String src = variableSource;</span>
+<span class="nc bnc" id="L145" title="All 2 branches missed.">			if (src.startsWith(&quot;CLASS:&quot;))</span>
+			{
+<span class="nc" id="L147">				className = src.substring(6);</span>
+			}
+		}
+
+<span class="nc bnc" id="L151" title="All 2 branches missed.">		if (className == null)</span>
+		{
+<span class="nc" id="L153">			throw new ParseException(&quot;Unable to determine class name&quot;);</span>
+		}
+
+<span class="nc" id="L156">		PlayerCharacter pc = getPC();</span>
+
+<span class="nc" id="L158">		String cl = className;</span>
+<span class="nc bnc" id="L159" title="All 2 branches missed.">		if (applied != null)</span>
+		{
+<span class="nc bnc" id="L161" title="All 2 branches missed.">			if (&quot;NONEPIC&quot;.equalsIgnoreCase(applied))</span>
+			{
+<span class="nc" id="L163">				GameMode mode = SettingsHandler.getGameAsProperty().get();</span>
+				//Add 1 since game mode is inclusive, but BEFORELEVEL is not!
+<span class="nc" id="L165">				int limit = mode.getMaxNonEpicLevel() + 1;</span>
+<span class="nc bnc" id="L166" title="All 2 branches missed.">				if (limit == Integer.MAX_VALUE)</span>
+				{
+<span class="nc" id="L168">					throw new ParseException(&quot;Game Mode has no EPIC limit&quot;);</span>
+				}
+<span class="nc" id="L170">				cl += &quot;;BEFORELEVEL=&quot; + limit;</span>
+<span class="nc" id="L171">			}</span>
+			else
+			{
+<span class="nc" id="L174">				throw new ParseException(&quot;Did not understand APPLIEDAS=&quot; + applied);</span>
+			}
+		}
+
+<span class="nc" id="L178">		Double result = Double.valueOf(pc.getClassLevelString(cl, false));</span>
+<span class="nc" id="L179">		inStack.push(result);</span>
+<span class="nc" id="L180">	}</span>
+
+	private PlayerCharacter getPC() throws ParseException
+	{
+<span class="nc" id="L184">		PlayerCharacter pc = null;</span>
+<span class="nc bnc" id="L185" title="All 2 branches missed.">		if (parent instanceof VariableProcessor)</span>
+		{
+<span class="nc" id="L187">			pc = ((VariableProcessor) parent).getPc();</span>
+		}
+<span class="nc bnc" id="L189" title="All 2 branches missed.">		else if (parent instanceof PlayerCharacter)</span>
+		{
+<span class="nc" id="L191">			pc = (PlayerCharacter) parent;</span>
+		}
+<span class="nc bnc" id="L193" title="All 2 branches missed.">		if (pc == null)</span>
+		{
+<span class="nc" id="L195">			throw new ParseException(&quot;Invalid parent (no PC): &quot; + parent.getClass().getName());</span>
+		}
+<span class="nc" id="L197">		return pc;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

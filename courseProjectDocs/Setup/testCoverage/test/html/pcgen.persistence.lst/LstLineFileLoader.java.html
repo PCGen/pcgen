@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>LstLineFileLoader.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.persistence.lst</a> &gt; <span class="el_source">LstLineFileLoader.java</span></div><h1>LstLineFileLoader.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2003 (C) David Hibbs &lt;sage_sam@users.sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ *
+ */
+package pcgen.persistence.lst;
+
+import java.net.URI;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Observable;
+import java.util.Set;
+import java.util.StringTokenizer;
+
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
+
+/**
+ * This class is an extension of the LstFileLoader that loads items
+ * that are typically not PObjects, or are PObjects but do not have
+ * a campaign associated with them.  System items such as paper size,
+ * size adjustments, etc. are extensions of this class because they
+ * do not need the MOD/COPY/FORGET funcationality of core PObjects used
+ * to directly create characters.
+ *
+ * &lt;p&gt;
+ *
+ */
+<span class="fc" id="L43">public abstract class LstLineFileLoader extends Observable</span>
+{
+	/**
+	 * Stores what game mode the objects loaded by this loader should be
+	 * associated with.
+	 */
+	// TODO - Should be a constant.
+<span class="fc" id="L50">	protected String gameMode = &quot;*&quot;; //$NON-NLS-1$</span>
+
+	/**
+	 * This method loads a single LST formatted file.
+	 *
+	 * @param context the context
+	 * @param uri String containing the absolute file path
+	 * or the URL from which to read LST formatted data.
+	 * @throws PersistenceLayerException the persistence layer exception
+	 */
+	public void loadLstFile(LoadContext context, URI uri) throws PersistenceLayerException
+	{
+<span class="nc" id="L62">		String dataBuffer = LstFileLoader.readFromURI(uri)</span>
+<span class="nc" id="L63">				.orElseThrow(() -&gt; new PersistenceLayerException(&quot;Failed to read from URI: &quot; + uri));</span>
+<span class="nc bnc" id="L64" title="All 2 branches missed.">		if (context != null)</span>
+		{
+<span class="nc" id="L66">			context.setSourceURI(uri);</span>
+		}
+<span class="nc" id="L68">		loadLstString(context, uri, dataBuffer);</span>
+<span class="nc" id="L69">	}</span>
+
+	/**
+	 * This method loads a single LST formatted file.
+	 *
+	 * @param context the context
+	 * @param uri String containing the absolute file path
+	 * or the URL from which the LST formatted data was read.
+	 * @param aString The LST formatted data
+	 * @throws PersistenceLayerException the persistence layer exception
+	 */
+	public void loadLstString(LoadContext context, URI uri, final String aString) throws PersistenceLayerException
+	{
+<span class="fc" id="L82">		final String newlinedelim = &quot;\r\n&quot;;</span>
+<span class="fc" id="L83">		final StringTokenizer fileLines = new StringTokenizer(aString, newlinedelim);</span>
+
+<span class="fc bfc" id="L85" title="All 2 branches covered.">		while (fileLines.hasMoreTokens())</span>
+		{
+<span class="fc" id="L87">			String line = fileLines.nextToken().trim();</span>
+
+			// check for comments and blank lines
+<span class="pc bpc" id="L90" title="1 of 4 branches missed.">			if ((line.isEmpty()) || (line.charAt(0) == LstFileLoader.LINE_COMMENT_CHAR))</span>
+			{
+<span class="fc" id="L92">				continue;</span>
+			}
+
+<span class="fc" id="L95">			parseLine(context, line, uri);</span>
+<span class="fc" id="L96">		}</span>
+<span class="fc" id="L97">	}</span>
+
+	/**
+	 * This method loads a single LST formatted file in a game mode file.
+	 *
+	 * @param context the context
+	 * @param fileName String containing the absolute file path
+	 * @param game the game mode
+	 * @throws PersistenceLayerException the persistence layer exception
+	 */
+	public void loadLstFile(LoadContext context, URI fileName, String game) throws PersistenceLayerException
+	{
+<span class="nc" id="L109">		gameMode = game;</span>
+<span class="nc" id="L110">		loadLstFile(context, fileName);</span>
+<span class="nc" id="L111">	}</span>
+
+	/**
+	 * This method loads the given list of LST files.
+	 * @param fileList containing the list of files to read
+	 * @throws PersistenceLayerException if there is a problem with the
+	 *         LST syntax
+	 */
+	public void loadLstFiles(LoadContext context, List&lt;CampaignSourceEntry&gt; fileList) throws PersistenceLayerException
+	{
+		// Track which sources have been loaded already
+<span class="nc" id="L122">		Set&lt;CampaignSourceEntry&gt; loadedFiles = new HashSet&lt;&gt;();</span>
+
+		// Load the files themselves as thoroughly as possible
+<span class="nc bnc" id="L125" title="All 2 branches missed.">		for (CampaignSourceEntry cse : fileList)</span>
+		{
+			// Check if the CSE has already been loaded before loading it
+<span class="nc bnc" id="L128" title="All 2 branches missed.">			if (!loadedFiles.contains(cse))</span>
+			{
+<span class="nc" id="L130">				loadLstFile(context, cse.getURI());</span>
+<span class="nc" id="L131">				loadedFiles.add(cse);</span>
+			}
+<span class="nc" id="L133">		}</span>
+<span class="nc" id="L134">	}</span>
+
+	/**
+	 * This method parses the LST file line, applying it to the provided target
+	 * object.  If the line indicates the start of a new target object, a new
+	 * PObject of the appropriate type will be created prior to applying the
+	 * line contents.  Because of this behavior, it is necessary for this
+	 * method to return the new object.  Implementations of this method also
+	 * MUST call finishObject with the original target prior to returning the
+	 * new value.
+	 *
+	 * @param lstLine String LST formatted line read from the source URL
+	 * @param sourceURI URI that the line was read from, for error reporting
+	 *         purposes
+	 * @throws PersistenceLayerException if there is a problem with the LST syntax
+	 */
+	public abstract void parseLine(LoadContext context, String lstLine, URI sourceURI) throws PersistenceLayerException;
+
+	/**
+	 * @return Returns the gameMode.
+	 */
+	public String getGameMode()
+	{
+<span class="nc" id="L157">		return gameMode;</span>
+	}
+
+	/**
+	 * @param gameMode The gameMode to set.
+	 */
+	public void setGameMode(String gameMode)
+	{
+<span class="nc" id="L165">		this.gameMode = gameMode;</span>
+<span class="nc" id="L166">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

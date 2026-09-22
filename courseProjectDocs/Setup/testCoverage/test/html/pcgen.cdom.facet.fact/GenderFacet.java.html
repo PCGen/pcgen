@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GenderFacet.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.facet.fact</a> &gt; <span class="el_source">GenderFacet.java</span></div><h1>GenderFacet.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) Thomas Parker, 2009.
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package pcgen.cdom.facet.fact;
+
+import pcgen.cdom.base.ItemFacet;
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.Gender;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.facet.base.AbstractItemFacet;
+import pcgen.cdom.facet.model.TemplateFacet;
+import pcgen.core.PCTemplate;
+import pcgen.output.publish.OutputDB;
+
+/**
+ * GenderFacet is a Facet that tracks the Gender of a Player Character.
+ * 
+ */
+<span class="fc" id="L33">public class GenderFacet extends AbstractItemFacet&lt;CharID, Gender&gt; implements ItemFacet&lt;CharID, Gender&gt;</span>
+{
+
+	private TemplateFacet templateFacet;
+
+	/**
+	 * Returns the Gender for the Player Character represented by the given
+	 * CharID.
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which the
+	 *            Gender should be returned
+	 * @return The Gender for the Player Character represented by the given
+	 *         CharID
+	 */
+	public Gender getGender(CharID id)
+	{
+<span class="fc" id="L50">		Gender g = findTemplateGender(id);</span>
+<span class="fc bfc" id="L51" title="All 2 branches covered.">		if (g == null)</span>
+		{
+<span class="fc" id="L53">			g = get(id);</span>
+		}
+<span class="fc bfc" id="L55" title="All 2 branches covered.">		return g == null ? Gender.getDefaultValue() : g;</span>
+	}
+
+	/**
+	 * Returns true if the Gender can be set for the Player Character
+	 * represented by the given CharID. Returns false if the Gender of the
+	 * Player Character is currently controlled by a Gender Lock applied by a
+	 * PCTemplate.
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character to query to see
+	 *            if the Gender can be set for that Player Character
+	 * @return true if the Gender can be set for the Player Character
+	 *         represented by the given CharID; false otherwise
+	 */
+	public boolean canSetGender(CharID id)
+	{
+<span class="fc bfc" id="L72" title="All 2 branches covered.">		return findTemplateGender(id) == null;</span>
+	}
+
+	/**
+	 * Returns the Gender if the Gender has been locked by a PCTemplate
+	 * possessed by the Player Character represented by the given CharID. null
+	 * will be returned if the Player Character does not possess a PCTemplate or
+	 * if the PCTemplates possessed by the Player Character do not exert a
+	 * Gender Lock on the Player Character.
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character to check if a
+	 *            Gender Lock exists on that Player Character
+	 * @return A Gender, if the Gender has been locked by a PCTemplate possessed
+	 *         by the Player Character represented by the given CharID; null
+	 *         otherwise
+	 */
+	private Gender findTemplateGender(CharID id)
+	{
+<span class="fc" id="L91">		Gender g = null;</span>
+
+<span class="fc bfc" id="L93" title="All 2 branches covered.">		for (PCTemplate template : templateFacet.getSet(id))</span>
+		{
+<span class="fc" id="L95">			Gender lock = template.get(ObjectKey.GENDER_LOCK);</span>
+<span class="fc bfc" id="L96" title="All 2 branches covered.">			if (lock != null)</span>
+			{
+<span class="fc" id="L98">				g = lock;</span>
+			}
+<span class="fc" id="L100">		}</span>
+
+<span class="fc" id="L102">		return g;</span>
+	}
+
+	public void setTemplateFacet(TemplateFacet templateFacet)
+	{
+<span class="fc" id="L107">		this.templateFacet = templateFacet;</span>
+<span class="fc" id="L108">	}</span>
+
+	/**
+	 * Initializes the connections for GenderFacet to other facets.
+	 * 
+	 * This method is automatically called by the Spring framework during
+	 * initialization of the GenderFacet.
+	 */
+	public void init()
+	{
+<span class="fc" id="L118">		OutputDB.register(&quot;gender&quot;, this);</span>
+<span class="fc" id="L119">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

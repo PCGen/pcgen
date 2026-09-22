@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GraphicsStartupError.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.gui3</a> &gt; <span class="el_source">GraphicsStartupError.java</span></div><h1>GraphicsStartupError.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2026 Vest &lt;Vest@users.noreply.github.com&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ */
+package pcgen.gui3;
+
+import java.awt.GraphicsEnvironment;
+
+import javax.swing.JOptionPane;
+
+import pcgen.util.GracefulExit;
+import pcgen.util.Logging;
+
+/**
+ * Turns a JavaFX toolkit-initialization failure into a user-readable message.
+ * More details are described in the Troubleshooting section of the README.
+ */
+public final class GraphicsStartupError
+{
+	private GraphicsStartupError()
+	{
+	}
+
+	/**
+	 * The kind of toolkit-init failure, used to select the message.
+	 */
+<span class="fc" id="L36">	public enum Kind</span>
+	{
+		/** A native library could not be loaded (e.g. an unsatisfiable transitive dependency). */
+<span class="fc" id="L39">		NATIVE_LIBRARY,</span>
+		/** The libraries loaded, but no display could be opened (headless / no X or Wayland). */
+<span class="fc" id="L41">		NO_DISPLAY,</span>
+		/** Any other toolkit-init failure. */
+<span class="fc" id="L43">		GENERIC</span>
+	}
+
+	/**
+	 * Classifies {@code failure} by walking its cause chain.
+	 *
+	 * @param failure the throwable raised while starting the JavaFX toolkit
+	 * @return the {@link Kind} of failure
+	 */
+	public static Kind classify(Throwable failure)
+	{
+<span class="fc bfc" id="L54" title="All 2 branches covered.">		for (Throwable t = failure; t != null; t = t.getCause())</span>
+		{
+<span class="fc bfc" id="L56" title="All 2 branches covered.">			if (t instanceof LinkageError)</span>
+			{
+<span class="fc" id="L58">				return Kind.NATIVE_LIBRARY;</span>
+			}
+<span class="fc" id="L60">			String message = t.getMessage();</span>
+<span class="pc bpc" id="L61" title="1 of 4 branches missed.">			if (message != null &amp;&amp; message.contains(&quot;Unable to open DISPLAY&quot;))</span>
+			{
+<span class="fc" id="L63">				return Kind.NO_DISPLAY;</span>
+			}
+		}
+<span class="fc" id="L66">		return Kind.GENERIC;</span>
+	}
+
+	/**
+	 * Builds the user-facing message for a classified failure. The message is
+	 * universal (no distro-specific commands) and echoes the real underlying
+	 * cause so a knowledgeable user gets the concrete clue.
+	 *
+	 * @param kind    the classification from {@link #classify(Throwable)}
+	 * @param failure the original throwable
+	 * @return the message to log and (when not headless) show in a dialog
+	 */
+	public static String buildMessage(Kind kind, Throwable failure)
+	{
+<span class="fc" id="L80">		String cause = rootMessage(failure);</span>
+<span class="pc bpc" id="L81" title="1 of 3 branches missed.">		return switch (kind)</span>
+		{
+<span class="fc" id="L83">			case NATIVE_LIBRARY -&gt; &quot;&quot;&quot;</span>
+					PCGen's graphical toolkit (JavaFX) failed to start.
+					It could not load a native graphics library. This is usually a missing system package.
+					Underlying error: %s
+<span class="fc" id="L87">					See the Troubleshooting section of the PCGen README for platform-specific fixes.&quot;&quot;&quot;.formatted(cause);</span>
+<span class="fc" id="L88">			case NO_DISPLAY -&gt; &quot;&quot;&quot;</span>
+					PCGen's graphical toolkit (JavaFX) could not open a display.
+					Run PCGen from a graphical desktop session, not a remote/SSH shell.
+					Underlying error: %s
+<span class="fc" id="L92">					See the Troubleshooting section of the PCGen README.&quot;&quot;&quot;.formatted(cause);</span>
+<span class="nc" id="L93">			case GENERIC -&gt; &quot;&quot;&quot;</span>
+					PCGen's graphical toolkit (JavaFX) failed to start.
+					Underlying error: %s
+<span class="nc" id="L96">					See the Troubleshooting section of the PCGen README.&quot;&quot;&quot;.formatted(cause);</span>
+		};
+	}
+
+	/**
+	 * Reports the toolkit-init failure to the user and exits. Logs the message
+	 * (with the throwable) always; additionally shows a Swing dialog when a
+	 * display is available. Does not return.
+	 *
+	 * @param failure the throwable raised while starting the JavaFX toolkit
+	 */
+	public static void reportAndExit(Throwable failure)
+	{
+<span class="nc" id="L109">		Kind kind = classify(failure);</span>
+<span class="nc" id="L110">		String message = buildMessage(kind, failure);</span>
+<span class="nc" id="L111">		Logging.errorPrint(message, failure);</span>
+<span class="nc bnc" id="L112" title="All 2 branches missed.">		if (!GraphicsEnvironment.isHeadless())</span>
+		{
+<span class="nc" id="L114">			JOptionPane.showMessageDialog(null, message, &quot;PCGen&quot;, JOptionPane.ERROR_MESSAGE);</span>
+		}
+<span class="nc" id="L116">		GracefulExit.exit(1);</span>
+<span class="nc" id="L117">	}</span>
+
+	private static String rootMessage(Throwable failure)
+	{
+<span class="fc" id="L121">		Throwable root = failure;</span>
+<span class="fc bfc" id="L122" title="All 2 branches covered.">		while (root.getCause() != null)</span>
+		{
+<span class="fc" id="L124">			root = root.getCause();</span>
+		}
+<span class="fc" id="L126">		String message = root.getMessage();</span>
+<span class="pc bpc" id="L127" title="1 of 2 branches missed.">		return (message != null) ? message : root.getClass().getName();</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

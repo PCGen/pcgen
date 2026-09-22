@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CNAbilitySelection.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.helper</a> &gt; <span class="el_source">CNAbilitySelection.java</span></div><h1>CNAbilitySelection.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) 2014 Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package pcgen.cdom.helper;
+
+import java.util.StringTokenizer;
+
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.ConcretePrereqObject;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.QualifyingObject;
+import pcgen.cdom.base.Reducible;
+import pcgen.cdom.content.CNAbility;
+import pcgen.cdom.content.CNAbilityFactory;
+import pcgen.cdom.enumeration.Nature;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
+import pcgen.core.SettingsHandler;
+import pcgen.rules.context.LoadContext;
+
+public final class CNAbilitySelection extends ConcretePrereqObject implements QualifyingObject, Reducible
+{
+
+	private final CNAbility cna;
+
+	private final String selection;
+
+	public CNAbilitySelection(CNAbility cna)
+	{
+<span class="fc" id="L45">		this(cna, null);</span>
+<span class="fc" id="L46">	}</span>
+
+	public CNAbilitySelection(CNAbility cna, String choice)
+<span class="fc" id="L49">	{</span>
+<span class="fc" id="L50">		Ability abil = cna.getAbility();</span>
+<span class="pc bpc" id="L51" title="1 of 4 branches missed.">		if (choice != null &amp;&amp; !abil.getSafe(ObjectKey.MULTIPLE_ALLOWED))</span>
+		{
+<span class="nc" id="L53">			throw new IllegalArgumentException(</span>
+				&quot;AbilitySelection &quot; + choice + &quot; with MULT:NO Ability &quot; + abil + &quot; must not have choices&quot;);
+		}
+<span class="pc bpc" id="L56" title="1 of 4 branches missed.">		if (choice == null &amp;&amp; abil.getSafe(ObjectKey.MULTIPLE_ALLOWED))</span>
+		{
+<span class="nc" id="L58">			throw new IllegalArgumentException(</span>
+				&quot;AbilitySelection with MULT:YES Ability &quot; + abil + &quot;: must have choices&quot;);
+		}
+<span class="fc" id="L61">		this.cna = cna;</span>
+<span class="fc" id="L62">		selection = choice;</span>
+<span class="fc" id="L63">	}</span>
+
+	public CNAbility getCNAbility()
+	{
+<span class="fc" id="L67">		return cna;</span>
+	}
+
+	public String getSelection()
+	{
+<span class="fc" id="L72">		return selection;</span>
+	}
+
+	public String getAbilityKey()
+	{
+<span class="nc" id="L77">		return cna.getAbilityKey();</span>
+	}
+
+	public boolean containsAssociation(String assoc)
+	{
+<span class="nc bnc" id="L82" title="All 4 branches missed.">		return (assoc == null) ? (selection == null) : assoc.equals(selection);</span>
+	}
+
+	public String getPersistentFormat()
+	{
+<span class="fc" id="L87">		StringBuilder sb = new StringBuilder(50);</span>
+<span class="fc" id="L88">		sb.append(&quot;CATEGORY=&quot;);</span>
+<span class="fc" id="L89">		sb.append(cna.getAbilityCategory().getKeyName());</span>
+<span class="fc" id="L90">		sb.append('|');</span>
+<span class="fc" id="L91">		sb.append(&quot;NATURE=&quot;);</span>
+<span class="fc" id="L92">		sb.append(cna.getNature());</span>
+<span class="fc" id="L93">		sb.append('|');</span>
+<span class="fc" id="L94">		sb.append(cna.getAbilityKey());</span>
+<span class="pc bpc" id="L95" title="1 of 2 branches missed.">		if (selection != null)</span>
+		{
+<span class="nc" id="L97">			sb.append('|');</span>
+<span class="nc" id="L98">			sb.append(selection);</span>
+		}
+<span class="fc" id="L100">		return sb.toString();</span>
+	}
+
+	public static CNAbilitySelection getAbilitySelectionFromPersistentFormat(LoadContext context,
+		String persistentFormat)
+	{
+<span class="fc" id="L106">		StringTokenizer st = new StringTokenizer(persistentFormat, Constants.PIPE);</span>
+<span class="fc" id="L107">		String catString = st.nextToken();</span>
+<span class="pc bpc" id="L108" title="1 of 2 branches missed.">		if (!catString.startsWith(&quot;CATEGORY=&quot;))</span>
+		{
+<span class="nc" id="L110">			throw new IllegalArgumentException(&quot;String in getAbilitySelectionFromPersistentFormat &quot;</span>
+				+ &quot;must start with CATEGORY=, found: &quot; + persistentFormat);
+		}
+<span class="fc" id="L113">		String cat = catString.substring(9);</span>
+<span class="fc" id="L114">		AbilityCategory ac = SettingsHandler.getGameAsProperty().get().getAbilityCategory(cat);</span>
+<span class="pc bpc" id="L115" title="1 of 2 branches missed.">		if (ac == null)</span>
+		{
+<span class="nc" id="L117">			throw new IllegalArgumentException(</span>
+				&quot;Category in getAbilitySelectionFromPersistentFormat &quot; + &quot;must exist found: &quot; + cat);
+		}
+<span class="fc" id="L120">		String natureString = st.nextToken();</span>
+<span class="pc bpc" id="L121" title="1 of 2 branches missed.">		if (!natureString.startsWith(&quot;NATURE=&quot;))</span>
+		{
+<span class="nc" id="L123">			throw new IllegalArgumentException(&quot;Second argument in String in getAbilitySelectionFromPersistentFormat &quot;</span>
+				+ &quot;must start with NATURE=, found: &quot; + persistentFormat);
+		}
+<span class="fc" id="L126">		String natString = natureString.substring(7);</span>
+<span class="fc" id="L127">		Nature nat = Nature.valueOf(natString);</span>
+<span class="fc" id="L128">		String ab = st.nextToken();</span>
+<span class="fc" id="L129">		Ability a = context.getReferenceContext().getManufacturerId(ac).getActiveObject(ab);</span>
+<span class="fc bfc" id="L130" title="All 2 branches covered.">		if (a == null)</span>
+		{
+<span class="fc" id="L132">			throw new IllegalArgumentException(&quot;Third argument in String in getAbilitySelectionFromPersistentFormat &quot;</span>
+				+ &quot;must be an Ability, but it was not found: &quot; + persistentFormat);
+		}
+<span class="fc" id="L135">		String sel = null;</span>
+<span class="pc bpc" id="L136" title="1 of 2 branches missed.">		if (st.hasMoreTokens())</span>
+		{
+			/*
+			 * No need to check for MULT:YES/NO here, as that is checked
+			 * implicitly in the construction of AbilitySelection below
+			 */
+<span class="nc" id="L142">			sel = st.nextToken();</span>
+		}
+<span class="pc bpc" id="L144" title="1 of 2 branches missed.">		else if (persistentFormat.endsWith(Constants.PIPE))</span>
+		{
+			// Handle the StringTokenizer ignoring blank tokens at the end
+<span class="nc" id="L147">			sel = &quot;&quot;;</span>
+		}
+<span class="pc bpc" id="L149" title="1 of 2 branches missed.">		if (st.hasMoreTokens())</span>
+		{
+<span class="nc" id="L151">			throw new IllegalArgumentException(&quot;String in getAbilitySelectionFromPersistentFormat &quot;</span>
+				+ &quot;must have 3 or 4 arguments, but found more: &quot; + persistentFormat);
+		}
+<span class="fc" id="L154">		CNAbility cna = CNAbilityFactory.getCNAbility(ac, nat, a);</span>
+<span class="fc" id="L155">		return new CNAbilitySelection(cna, sel);</span>
+	}
+
+	public String getFullAbilityKey()
+	{
+<span class="nc" id="L160">		StringBuilder sb = new StringBuilder(50);</span>
+<span class="nc" id="L161">		sb.append(cna.getAbilityKey());</span>
+<span class="nc bnc" id="L162" title="All 4 branches missed.">		if (selection != null &amp;&amp; !selection.isEmpty())</span>
+		{
+<span class="nc" id="L164">			sb.append('(');</span>
+<span class="nc" id="L165">			sb.append(selection);</span>
+<span class="nc" id="L166">			sb.append(')');</span>
+		}
+<span class="nc" id="L168">		return sb.toString();</span>
+	}
+
+	@Override
+	public String toString()
+	{
+<span class="nc" id="L174">		StringBuilder sb = new StringBuilder(50);</span>
+<span class="nc" id="L175">		sb.append(cna.getAbility().getDisplayName());</span>
+<span class="nc bnc" id="L176" title="All 4 branches missed.">		if (selection != null &amp;&amp; !selection.isEmpty())</span>
+		{
+<span class="nc" id="L178">			sb.append('(');</span>
+<span class="nc" id="L179">			sb.append(selection);</span>
+<span class="nc" id="L180">			sb.append(')');</span>
+		}
+<span class="nc" id="L182">		return sb.toString();</span>
+	}
+
+	@Override
+	public int hashCode()
+	{
+<span class="nc" id="L188">		return cna.hashCode();</span>
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+<span class="pc bpc" id="L194" title="1 of 2 branches missed.">		if (o instanceof CNAbilitySelection other)</span>
+		{
+<span class="fc bfc" id="L196" title="All 2 branches covered.">			if (selection == null)</span>
+			{
+<span class="pc bpc" id="L198" title="1 of 2 branches missed.">				if (other.selection != null)</span>
+				{
+<span class="nc" id="L200">					return false;</span>
+				}
+			}
+			else
+			{
+<span class="fc bfc" id="L205" title="All 2 branches covered.">				if (!selection.equals(other.selection))</span>
+				{
+<span class="fc" id="L207">					return false;</span>
+				}
+			}
+<span class="fc" id="L210">			return cna.equals(other.cna);</span>
+		}
+<span class="nc" id="L212">		return false;</span>
+	}
+
+	@Override
+	public CDOMObject getCDOMObject()
+	{
+<span class="nc" id="L218">		return cna.getCDOMObject();</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

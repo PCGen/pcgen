@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>StartingLanguageFacet.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.facet</a> &gt; <span class="el_source">StartingLanguageFacet.java</span></div><h1>StartingLanguageFacet.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) Thomas Parker, 2009.
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package pcgen.cdom.facet;
+
+import java.util.Collection;
+
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.base.AbstractSourcedListFacet;
+import pcgen.cdom.facet.event.DataFacetChangeEvent;
+import pcgen.cdom.facet.event.DataFacetChangeListener;
+import pcgen.cdom.facet.model.ClassFacet;
+import pcgen.cdom.facet.model.RaceFacet;
+import pcgen.cdom.facet.model.TemplateFacet;
+import pcgen.core.Language;
+
+/**
+ * StartingLanguageFacet is a Facet that tracks the Languages that are available
+ * to a Player Character from the LANGBONUS token.
+ * 
+ */
+<span class="fc" id="L38">public class StartingLanguageFacet extends AbstractSourcedListFacet&lt;CharID, Language&gt;</span>
+		implements DataFacetChangeListener&lt;CharID, CDOMObject&gt;
+{
+
+	private ClassFacet classFacet;
+
+	private RaceFacet raceFacet;
+
+	private TemplateFacet templateFacet;
+
+	/**
+	 * Adds available Languages to this facet when a CDOMObject added to a
+	 * Player Character makes Languages available to the Player Character.
+	 * 
+	 * Triggered when one of the Facets to which StartingLanguageFacet listens
+	 * fires a DataFacetChangeEvent to indicate a CDOMObject was added to a
+	 * Player Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 */
+	@Override
+	public void dataAdded(DataFacetChangeEvent&lt;CharID, CDOMObject&gt; dfce)
+	{
+<span class="fc" id="L63">		CDOMObject cdo = dfce.getCDOMObject();</span>
+<span class="fc" id="L64">		Collection&lt;CDOMReference&lt;Language&gt;&gt; list = cdo.getListMods(Language.STARTING_LIST);</span>
+<span class="fc bfc" id="L65" title="All 2 branches covered.">		if (list != null)</span>
+		{
+<span class="fc" id="L67">			CharID id = dfce.getCharID();</span>
+<span class="fc bfc" id="L68" title="All 2 branches covered.">			for (CDOMReference&lt;Language&gt; ref : list)</span>
+			{
+<span class="fc" id="L70">				addAll(id, ref.getContainedObjects(), cdo);</span>
+<span class="fc" id="L71">			}</span>
+		}
+<span class="fc" id="L73">	}</span>
+
+	/**
+	 * Removes available Languages from this facet when a CDOMObject removed
+	 * from a Player Character makes Languages available to the Player
+	 * Character.
+	 * 
+	 * Triggered when one of the Facets to which StartingLanguageFacet listens
+	 * fires a DataFacetChangeEvent to indicate a CDOMObject was removed from a
+	 * Player Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 */
+	@Override
+	public void dataRemoved(DataFacetChangeEvent&lt;CharID, CDOMObject&gt; dfce)
+	{
+<span class="fc" id="L91">		removeAll(dfce.getCharID(), dfce.getCDOMObject());</span>
+<span class="fc" id="L92">	}</span>
+
+	public void setClassFacet(ClassFacet classFacet)
+	{
+<span class="fc" id="L96">		this.classFacet = classFacet;</span>
+<span class="fc" id="L97">	}</span>
+
+	public void setRaceFacet(RaceFacet raceFacet)
+	{
+<span class="fc" id="L101">		this.raceFacet = raceFacet;</span>
+<span class="fc" id="L102">	}</span>
+
+	public void setTemplateFacet(TemplateFacet templateFacet)
+	{
+<span class="fc" id="L106">		this.templateFacet = templateFacet;</span>
+<span class="fc" id="L107">	}</span>
+
+	/**
+	 * Initializes the connections for StartingLanguageFacet to other facets.
+	 * 
+	 * This method is automatically called by the Spring framework during
+	 * initialization of the StartingLanguageFacet.
+	 */
+	public void init()
+	{
+<span class="fc" id="L117">		raceFacet.addDataFacetChangeListener(this);</span>
+<span class="fc" id="L118">		templateFacet.addDataFacetChangeListener(this);</span>
+<span class="fc" id="L119">		classFacet.addDataFacetChangeListener(this);</span>
+<span class="fc" id="L120">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

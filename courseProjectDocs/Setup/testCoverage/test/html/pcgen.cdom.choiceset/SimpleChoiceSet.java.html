@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SimpleChoiceSet.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.choiceset</a> &gt; <span class="el_source">SimpleChoiceSet.java</span></div><h1>SimpleChoiceSet.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2006 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ * 
+ * 
+ */
+package pcgen.cdom.choiceset;
+
+import java.util.Collection;
+import java.util.Comparator;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.TreeSet;
+
+import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.PrimitiveChoiceSet;
+import pcgen.cdom.enumeration.GroupingState;
+import pcgen.core.PlayerCharacter;
+
+/**
+ * A SimpleChoiceSet contains Objects
+ * 
+ * The contents of a SimpleChoiceSet is defined at construction of the
+ * SimpleChoiceSet. The contents of a SimpleChoiceSet is fixed, and will not
+ * vary by the PlayerCharacter used to resolve the SimpleChoiceSet.
+ * 
+ * @param &lt;T&gt;
+ *            The class of object this SimpleChoiceSet contains.
+ */
+public final class SimpleChoiceSet&lt;T&gt; implements PrimitiveChoiceSet&lt;T&gt;
+{
+
+	/**
+	 * The Comparator to use for this SimpleChoiceSet.
+	 */
+	private final Comparator&lt;? super T&gt; comparator;
+
+	/**
+	 * The underlying Set of objects in this SimpleChoiceSet
+	 */
+	private final Set&lt;T&gt; set;
+
+	/**
+	 * The separator
+	 */
+	private final String separator;
+
+	/**
+	 * Constructs a new SimpleChoiceSet which contains the Set of objects.
+	 * 
+	 * This constructor is both reference-semantic and value-semantic. Ownership
+	 * of the Collection provided to this constructor is not transferred and
+	 * this constructor will not modify the given Collection. Modification of
+	 * the Collection (after this constructor completes) does not result in
+	 * modifying the SimpleChoiceSet, and the SimpleChoiceSet will not modify
+	 * the given Collection. However, this SimpleChoiceSet will maintain hard
+	 * references to the objects contained within the given Collection.
+	 * 
+	 * @param col
+	 *            A Collection of objects contained within the SimpleChoiceSet
+	 * @throws IllegalArgumentException
+	 *             if the given Collection is null or empty.
+	 */
+	public SimpleChoiceSet(Collection&lt;? extends T&gt; col)
+	{
+<span class="nc" id="L82">		this(col, null, null);</span>
+<span class="nc" id="L83">	}</span>
+
+	/**
+	 * Constructs a new SimpleChoiceSet which contains the Set of objects.
+	 * 
+	 * This constructor is both reference-semantic and value-semantic. Ownership
+	 * of the Collection provided to this constructor is not transferred and
+	 * this constructor will not modify the given Collection. Modification of
+	 * the Collection (after this constructor completes) does not result in
+	 * modifying the SimpleChoiceSet, and the SimpleChoiceSet will not modify
+	 * the given Collection. However, this SimpleChoiceSet will maintain hard
+	 * references to the objects contained within the given Collection.
+	 * 
+	 * @param col
+	 *            A Collection of objects contained within the SimpleChoiceSet
+	 * @throws IllegalArgumentException
+	 *             if the given Collection is null or empty.
+	 */
+	public SimpleChoiceSet(Collection&lt;? extends T&gt; col, String separator)
+	{
+<span class="fc" id="L103">		this(col, null, separator);</span>
+<span class="fc" id="L104">	}</span>
+
+	/**
+	 * Constructs a new SimpleChoiceSet which contains the Set of objects and
+	 * uses the given Comparator to sort the objects.
+	 * 
+	 * This constructor is both reference-semantic and value-semantic. Ownership
+	 * of the Collection provided to this constructor is not transferred and
+	 * this constructor will not modify the given Collection. Modification of
+	 * the Collection (after this constructor completes) does not result in
+	 * modifying the SimpleChoiceSet, and the SimpleChoiceSet will not modify
+	 * the given Collection. However, this SimpleChoiceSet will maintain hard
+	 * references to the objects contained within the given Collection and the
+	 * given Comparator.
+	 * 
+	 * @param col
+	 *            A Collection of objects contained within the SimpleChoiceSet
+	 * @param comp
+	 *            A Comparator used to compare the objects in this
+	 *            SimpleChoiceSet
+	 * @throws IllegalArgumentException
+	 *             if the given Collection is null or empty.
+	 */
+	public SimpleChoiceSet(Collection&lt;? extends T&gt; col, Comparator&lt;? super T&gt; comp)
+	{
+<span class="nc" id="L129">		this(col, comp, null);</span>
+<span class="nc" id="L130">	}</span>
+
+	/**
+	 * Constructs a new SimpleChoiceSet which contains the Set of objects and
+	 * uses the given Comparator to sort the objects.
+	 * 
+	 * This constructor is both reference-semantic and value-semantic. Ownership
+	 * of the Collection provided to this constructor is not transferred and
+	 * this constructor will not modify the given Collection. Modification of
+	 * the Collection (after this constructor completes) does not result in
+	 * modifying the SimpleChoiceSet, and the SimpleChoiceSet will not modify
+	 * the given Collection. However, this SimpleChoiceSet will maintain hard
+	 * references to the objects contained within the given Collection and the
+	 * given Comparator.
+	 * 
+	 * @param col
+	 *            A Collection of objects contained within the SimpleChoiceSet
+	 * @param comp
+	 *            A Comparator used to compare the objects in this
+	 *            SimpleChoiceSet
+	 * @throws IllegalArgumentException
+	 *             if the given Collection is null or empty.
+	 */
+	public SimpleChoiceSet(Collection&lt;? extends T&gt; col, Comparator&lt;? super T&gt; comp, String sep)
+<span class="fc" id="L154">	{</span>
+<span class="fc" id="L155">		Objects.requireNonNull(col, &quot;Choice Collection cannot be null&quot;);</span>
+<span class="pc bpc" id="L156" title="1 of 2 branches missed.">		if (col.isEmpty())</span>
+		{
+<span class="nc" id="L158">			throw new IllegalArgumentException(&quot;Choice Collection cannot be empty&quot;);</span>
+		}
+<span class="fc" id="L160">		set = new LinkedHashSet&lt;&gt;(col);</span>
+<span class="pc bpc" id="L161" title="1 of 2 branches missed.">		if (set.size() != col.size())</span>
+		{
+<span class="nc" id="L163">			throw new IllegalArgumentException(&quot;Choice Collection cannot possess a duplicate item&quot;);</span>
+		}
+<span class="fc" id="L165">		comparator = comp;</span>
+<span class="pc bpc" id="L166" title="1 of 2 branches missed.">		separator = (sep == null) ? Constants.COMMA : sep;</span>
+<span class="fc" id="L167">	}</span>
+
+	/**
+	 * Returns a representation of this SimpleChoiceSet, suitable for storing in
+	 * an LST file.
+	 * 
+	 * @param useAny
+	 *            use &quot;ANY&quot; for the global &quot;ALL&quot; reference when creating the LST
+	 *            format
+	 * @return A representation of this SimpleChoiceSet, suitable for storing in
+	 *         an LST file.
+	 */
+	@Override
+	public String getLSTformat(boolean useAny)
+	{
+		Set&lt;T&gt; sortingSet;
+		try
+		{
+<span class="fc" id="L185">			sortingSet = new TreeSet&lt;&gt;(comparator);</span>
+<span class="fc" id="L186">			sortingSet.addAll(set);</span>
+		}
+<span class="nc" id="L188">		catch (ClassCastException cce)</span>
+		{
+<span class="nc" id="L190">			sortingSet = set;</span>
+<span class="fc" id="L191">		}</span>
+<span class="fc" id="L192">		return StringUtil.join(sortingSet, separator);</span>
+	}
+
+	/**
+	 * The class of object this SimpleChoiceSet contains.
+	 * 
+	 * @return The class of object this SimpleChoiceSet contains.
+	 */
+	@Override
+	public Class&lt;T&gt; getChoiceClass()
+	{
+<span class="nc bnc" id="L203" title="All 2 branches missed.">		return (Class&lt;T&gt;) (set == null ? null : set.iterator().next().getClass());</span>
+	}
+
+	/**
+	 * Returns a Set containing the Objects which this SimpleChoiceSet contains.
+	 * The contents of a SimpleChoiceSet is fixed, and will not vary by the
+	 * PlayerCharacter used to resolve the SimpleChoiceSet.
+	 * 
+	 * Ownership of the Set returned by this method will be transferred to the
+	 * calling object. Modification of the returned Set should not result in
+	 * modifying the SimpleChoiceSet, and modifying the SimpleChoiceSet after
+	 * the Set is returned should not modify the Set. However, the objects
+	 * contained within the set are transferred by reference, so modification of
+	 * the objects contained in the Set will result in modification of the
+	 * objects within this SimpleChoiceSet.
+	 * 
+	 * @param pc
+	 *            The PlayerCharacter for which the choices in this
+	 *            SimpleChoiceSet should be returned.
+	 * @return A Set containing the Objects which this SimpleChoiceSet contains.
+	 */
+	@Override
+	public Set&lt;T&gt; getSet(PlayerCharacter pc)
+	{
+<span class="nc" id="L227">		return new HashSet&lt;&gt;(set);</span>
+	}
+
+	@Override
+	public int hashCode()
+	{
+<span class="nc" id="L233">		return set.size();</span>
+	}
+
+	@Override
+	public boolean equals(Object obj)
+	{
+<span class="pc bpc" id="L239" title="1 of 2 branches missed.">		if (obj == this)</span>
+		{
+<span class="nc" id="L241">			return true;</span>
+		}
+<span class="pc bpc" id="L243" title="1 of 2 branches missed.">		if (obj instanceof SimpleChoiceSet&lt;?&gt; other)</span>
+		{
+<span class="fc" id="L245">			return set.equals(other.set);</span>
+		}
+<span class="nc" id="L247">		return false;</span>
+	}
+
+	/**
+	 * Returns the GroupingState for this SimpleChoiceSet. The GroupingState
+	 * indicates how this SimpleChoiceSet can be combined with other
+	 * PrimitiveChoiceSets.
+	 * 
+	 * @return The GroupingState for this SimpleChoiceSet.
+	 */
+	@Override
+	public GroupingState getGroupingState()
+	{
+<span class="fc" id="L260">		return GroupingState.ANY;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

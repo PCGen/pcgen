@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>LangBonusToken.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.lsttokens.kit</a> &gt; <span class="el_source">LangBonusToken.java</span></div><h1>LangBonusToken.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2008 (C) James Dempsey
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package plugin.lsttokens.kit;
+
+import java.util.List;
+import java.util.StringTokenizer;
+
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.reference.ReferenceUtilities;
+import pcgen.core.Language;
+import pcgen.core.kit.KitLangBonus;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.ParseResult;
+
+/**
+ * The Class {@code LangBonusToken} handles the LANGBONUS kit tag.
+ * 
+ * 
+ */
+<span class="fc" id="L38">public class LangBonusToken extends AbstractTokenWithSeparator&lt;KitLangBonus&gt; implements CDOMPrimaryToken&lt;KitLangBonus&gt;</span>
+{
+
+<span class="fc" id="L41">	private static final Class&lt;Language&gt; LANGUAGE_CLASS = Language.class;</span>
+
+	/**
+	 * Gets the name of the tag this class will parse.
+	 * 
+	 * @return Name of the tag this class handles
+	 */
+	@Override
+	public String getTokenName()
+	{
+<span class="fc" id="L51">		return &quot;LANGBONUS&quot;;</span>
+	}
+
+	@Override
+	public Class&lt;KitLangBonus&gt; getTokenClass()
+	{
+<span class="fc" id="L57">		return KitLangBonus.class;</span>
+	}
+
+	@Override
+	protected char separator()
+	{
+<span class="fc" id="L63">		return '|';</span>
+	}
+
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context, KitLangBonus kitLangBonus, String value)
+	{
+<span class="fc" id="L69">		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);</span>
+
+<span class="fc bfc" id="L71" title="All 2 branches covered.">		while (tok.hasMoreTokens())</span>
+		{
+<span class="fc" id="L73">			kitLangBonus.addLanguage(context.getReferenceContext().getCDOMReference(LANGUAGE_CLASS, tok.nextToken()));</span>
+		}
+<span class="fc" id="L75">		return ParseResult.SUCCESS;</span>
+	}
+
+	@Override
+	public String[] unparse(LoadContext context, KitLangBonus kitLangBonus)
+	{
+<span class="fc" id="L81">		List&lt;CDOMSingleRef&lt;Language&gt;&gt; languages = kitLangBonus.getLanguages();</span>
+<span class="pc bpc" id="L82" title="1 of 4 branches missed.">		if (languages == null || languages.isEmpty())</span>
+		{
+<span class="fc" id="L84">			return null;</span>
+		}
+<span class="fc" id="L86">		return new String[]{ReferenceUtilities.joinLstFormat(languages, Constants.PIPE)};</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RoleToken.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.lsttokens.race</a> &gt; <span class="el_source">RoleToken.java</span></div><h1>RoleToken.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) 2008 Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package plugin.lsttokens.race;
+
+import java.util.Collection;
+import java.util.StringTokenizer;
+
+import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.core.Race;
+import pcgen.core.SettingsHandler;
+import pcgen.rules.context.Changes;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.ParseResult;
+
+/**
+ * Class deals with CR Token
+ */
+<span class="nc" id="L37">public class RoleToken extends AbstractNonEmptyToken&lt;Race&gt; implements CDOMPrimaryToken&lt;Race&gt;</span>
+{
+
+	/**
+	 * Get the token name
+	 */
+	@Override
+	public String getTokenName()
+	{
+<span class="nc" id="L46">		return &quot;ROLE&quot;;</span>
+	}
+
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context, Race race, String value)
+	{
+<span class="nc" id="L52">		ParseResult pr = checkForIllegalSeparator('.', value);</span>
+<span class="nc bnc" id="L53" title="All 2 branches missed.">		if (!pr.passed())</span>
+		{
+<span class="nc" id="L55">			return pr;</span>
+		}
+
+<span class="nc" id="L58">		StringTokenizer aTok = new StringTokenizer(value, Constants.DOT, false);</span>
+<span class="nc bnc" id="L59" title="All 2 branches missed.">		while (aTok.hasMoreTokens())</span>
+		{
+<span class="nc" id="L61">			String role = aTok.nextToken();</span>
+<span class="nc bnc" id="L62" title="All 2 branches missed.">			if (SettingsHandler.getGameAsProperty().get().getMonsterRoleList().contains(role))</span>
+			{
+<span class="nc" id="L64">				context.getObjectContext().addToList(race, ListKey.MONSTER_ROLES, role);</span>
+			}
+			else
+			{
+<span class="nc" id="L68">				return new ParseResult.Fail(</span>
+<span class="nc" id="L69">					getTokenName() + &quot; '&quot; + role + &quot;' is not a known monster role for this game mode.&quot;);</span>
+			}
+<span class="nc" id="L71">		}</span>
+
+<span class="nc" id="L73">		return ParseResult.SUCCESS;</span>
+	}
+
+	/**
+	 * Unparse the ROLE token
+	 * 
+	 * @param context
+	 * @param race
+	 * @return String array representing the ROLE token
+	 */
+	@Override
+	public String[] unparse(LoadContext context, Race race)
+	{
+<span class="nc" id="L86">		Changes&lt;String&gt; changes = context.getObjectContext().getListChanges(race, ListKey.MONSTER_ROLES);</span>
+<span class="nc bnc" id="L87" title="All 4 branches missed.">		if (changes == null || changes.isEmpty())</span>
+		{
+<span class="nc" id="L89">			return null;</span>
+		}
+<span class="nc" id="L91">		StringBuilder sb = new StringBuilder();</span>
+<span class="nc" id="L92">		Collection&lt;?&gt; added = changes.getAdded();</span>
+<span class="nc" id="L93">		boolean globalClear = changes.includesGlobalClear();</span>
+<span class="nc bnc" id="L94" title="All 2 branches missed.">		if (globalClear)</span>
+		{
+<span class="nc" id="L96">			sb.append(Constants.LST_DOT_CLEAR);</span>
+		}
+<span class="nc bnc" id="L98" title="All 4 branches missed.">		if (added != null &amp;&amp; !added.isEmpty())</span>
+		{
+<span class="nc bnc" id="L100" title="All 2 branches missed.">			if (globalClear)</span>
+			{
+<span class="nc" id="L102">				sb.append(Constants.DOT);</span>
+			}
+<span class="nc" id="L104">			sb.append(StringUtil.join(added, Constants.DOT));</span>
+		}
+<span class="nc" id="L106">		Collection&lt;String&gt; removed = changes.getRemoved();</span>
+<span class="nc bnc" id="L107" title="All 4 branches missed.">		if (removed != null &amp;&amp; !removed.isEmpty())</span>
+		{
+<span class="nc bnc" id="L109" title="All 2 branches missed.">			if (sb.length() &gt; 0)</span>
+			{
+<span class="nc" id="L111">				sb.append(Constants.DOT);</span>
+			}
+<span class="nc" id="L113">			sb.append(&quot;REMOVE.&quot;);</span>
+<span class="nc" id="L114">			sb.append(StringUtil.join(removed, Constants.DOT));</span>
+		}
+<span class="nc bnc" id="L116" title="All 2 branches missed.">		if (sb.length() == 0)</span>
+		{
+<span class="nc" id="L118">			context.addWriteMessage(</span>
+<span class="nc" id="L119">				getTokenName() + &quot; was expecting non-empty changes to include &quot; + &quot;added items or global clear&quot;);</span>
+<span class="nc" id="L120">			return null;</span>
+		}
+<span class="nc" id="L122">		return new String[]{sb.toString()};</span>
+	}
+
+	/**
+	 * Get the token class
+	 * @return Token class of type Race
+	 */
+	@Override
+	public Class&lt;Race&gt; getTokenClass()
+	{
+<span class="nc" id="L132">		return Race.class;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

@@ -1,0 +1,1089 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Globals.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.core</a> &gt; <span class="el_source">Globals.java</span></div><h1>Globals.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2001 (C) Bryan McRoberts &lt;merton_monk@yahoo.com&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.core;
+
+import java.io.File;
+import java.io.IOException;
+import java.net.URI;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.StringTokenizer;
+import java.util.logging.Level;
+import java.util.stream.Collectors;
+import javax.swing.JFrame;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.SortKeyRequired;
+import pcgen.cdom.content.BaseDice;
+import pcgen.cdom.content.CNAbilityFactory;
+import pcgen.cdom.enumeration.FactKey;
+import pcgen.cdom.enumeration.FactSetKey;
+import pcgen.cdom.enumeration.MovementType;
+import pcgen.cdom.enumeration.RaceType;
+import pcgen.cdom.enumeration.SourceFormat;
+import pcgen.cdom.enumeration.Type;
+import pcgen.core.character.EquipSlot;
+import pcgen.core.chooser.CDOMChooserFacadeImpl;
+import pcgen.facade.core.ChooserFacade;
+import pcgen.gui2.facade.Gui2InfoFactory;
+import pcgen.rules.context.AbstractReferenceContext;
+import pcgen.rules.context.LoadContext;
+import pcgen.system.ConfigurationSettings;
+import pcgen.system.PCGenSettings;
+import pcgen.util.Logging;
+import pcgen.util.chooser.ChooserFactory;
+import pcgen.util.enumeration.VisionType;
+
+/**
+ * This is like the top level model container. However,
+ * it is build from static methods rather than instantiated.
+ */
+public final class Globals
+{
+	/** These are changed during normal operation */
+<span class="fc" id="L63">	private static final List&lt;PlayerCharacter&gt; PC_LIST = new ArrayList&lt;&gt;();</span>
+
+	/** NOTE: The defaultPath is duplicated in LstSystemLoader. */
+<span class="fc" id="L66">	private static final String DEFAULT_PCG_PATH = getUserFilesPath() + File.separator + &quot;characters&quot;; //$NON-NLS-1$</span>
+
+<span class="fc" id="L68">	private static final List&lt;String&gt; CUST_COLUMN_WIDTH = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L69">	private static SourceFormat sourceDisplay = SourceFormat.LONG;</span>
+<span class="fc" id="L70">	private static int selectedPaper = -1;</span>
+
+	/** we need maps for efficient lookups */
+<span class="fc" id="L73">	private static final Map&lt;URI, Campaign&gt; CAMPAIGN_MAP = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L74">	private static final Map&lt;String, Integer&gt; EQ_SLOT_MAP = new HashMap&lt;&gt;();</span>
+
+	// end of filter creation sets
+	private static JFrame rootFrame;
+
+	/** whether or not the GUI is used (false for command line) */
+<span class="fc" id="L80">	private static boolean useGUI = true;</span>
+
+	// Optimizations used by any code needing empty arrays.  All empty arrays
+	// of the same type are idempotent.
+
+	private Globals()
+	{
+	}
+
+	/**
+	 * This method is used to locate a Campaign object based on its file
+	 * name (in URL syntax).
+	 *
+	 * @param aName           String name of file, in URL.toString() format
+	 * @param complainOnError boolean true to log an error if the campaign
+	 *                        cannot be found
+	 * @return Campaign loaded from the given filename, or null if it
+	 *         cannot be found
+	 */
+	public static Campaign getCampaignByURI(final URI aName, final boolean complainOnError)
+	{
+<span class="nc" id="L101">		final Campaign campaign = CAMPAIGN_MAP.get(aName);</span>
+
+<span class="nc bnc" id="L103" title="All 4 branches missed.">		if ((campaign == null) &amp;&amp; complainOnError)</span>
+		{
+<span class="nc" id="L105">			Logging.errorPrint(&quot;Could not find campaign by filename: &quot; + aName);</span>
+		}
+
+<span class="nc" id="L108">		return campaign;</span>
+	}
+
+	/**
+	 * Get campaign list
+	 * @return campaign list
+	 */
+	public static List&lt;Campaign&gt; getCampaignList()
+	{
+<span class="nc" id="L117">		return List.copyOf(CAMPAIGN_MAP.values());</span>
+	}
+
+	/**
+	 * Get campaign by key
+	 * @param aKey
+	 * @return Campaign
+	 */
+	public static Campaign getCampaignKeyed(final String aKey)
+	{
+<span class="nc" id="L127">		final Campaign campaign = getCampaignKeyedSilently(aKey);</span>
+<span class="nc bnc" id="L128" title="All 2 branches missed.">		if (campaign == null)</span>
+		{
+<span class="nc" id="L130">			Logging.errorPrint(&quot;Could not find campaign: &quot; + aKey</span>
+				+ &quot; - no loaded .pcc file declares CAMPAIGN:&quot; + aKey + &quot;.&quot;
+				+ &quot; If this is third-party (non-OGL) data, install the .pcc into the&quot;
+<span class="nc" id="L133">				+ &quot; vendor data dir (&quot; + PCGenSettings.getVendorDataDir()</span>
+<span class="nc" id="L134">				+ &quot;) or homebrew data dir (&quot; + PCGenSettings.getHomebrewDataDir() + &quot;).&quot;);</span>
+		}
+
+<span class="nc" id="L137">		return campaign;</span>
+	}
+
+	/**
+	 * Get campaign by key
+	 * @param aKey
+	 * @return Campaign
+	 */
+	public static Campaign getCampaignKeyedSilently(final String aKey)
+	{
+<span class="nc" id="L147">		return getCampaignList().stream()</span>
+<span class="nc" id="L148">		                    .filter(campaign -&gt; campaign.getKeyName().equalsIgnoreCase(aKey))</span>
+<span class="nc" id="L149">		                    .findFirst()</span>
+<span class="nc" id="L150">		                    .orElse(null);</span>
+
+	}
+
+	/**
+	 * Finds all PObjects that match the passed in type.  All the types listed
+	 * in aType must match for the object to be returned.
+	 * @param aPObjectList List of PObjects to search
+	 * @param aType A &quot;.&quot; separated list of TYPEs to match
+	 * @return List of PObjects matching all TYPEs
+	 */
+	public static &lt;T extends CDOMObject&gt; List&lt;T&gt; getPObjectsOfType(final Collection&lt;T&gt; aPObjectList, final String aType)
+	{
+<span class="nc" id="L163">		final ArrayList&lt;T&gt; ret = new ArrayList&lt;&gt;(aPObjectList.size());</span>
+
+<span class="nc" id="L165">		final List&lt;String&gt; typeList = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L166">		final StringTokenizer tok = new StringTokenizer(aType, &quot;.&quot;);</span>
+<span class="nc bnc" id="L167" title="All 2 branches missed.">		while (tok.hasMoreTokens())</span>
+		{
+<span class="nc" id="L169">			typeList.add(tok.nextToken());</span>
+		}
+
+<span class="nc bnc" id="L172" title="All 2 branches missed.">		for (final T anObject : aPObjectList)</span>
+		{
+<span class="nc bnc" id="L174" title="All 2 branches missed.">			if (isMatch(typeList, anObject))</span>
+			{
+<span class="nc" id="L176">				ret.add(anObject);</span>
+			}
+<span class="nc" id="L178">		}</span>
+<span class="nc" id="L179">		ret.trimToSize();</span>
+<span class="nc" id="L180">		return ret;</span>
+	}
+
+	private static &lt;T extends CDOMObject&gt; boolean isMatch(List&lt;String&gt; typeList, T anObject)
+	{
+<span class="nc bnc" id="L185" title="All 2 branches missed.">		for (final String type : typeList)</span>
+		{
+<span class="nc bnc" id="L187" title="All 2 branches missed.">			final boolean sense = (type.charAt(0) != '!');</span>
+<span class="nc bnc" id="L188" title="All 2 branches missed.">			if (anObject.isType(type) != sense)</span>
+			{
+<span class="nc" id="L190">				return false;</span>
+			}
+<span class="nc" id="L192">		}</span>
+<span class="nc" id="L193">		return true;</span>
+	}
+
+	// END Game Modes Section.
+
+	/**
+	 * Get the default path
+	 * @return default path
+	 */
+	public static String getDefaultPath()
+	{
+<span class="fc" id="L204">		return ConfigurationSettings.getUserDir();</span>
+	}
+
+	/**
+	 * Get the default path
+	 * @return default path
+	 */
+	private static String getUserFilesPath()
+	{
+<span class="fc" id="L213">		return expandRelativePath(System.getProperty(&quot;user.home&quot;) + File.separator + &quot;.pcgen&quot;);</span>
+	}
+
+	/**
+	 * Returns the name of the Default Spell Book, or null if there is no default spell book.
+	 * @return default spellbook
+	 */
+	public static String getDefaultSpellBook()
+	{
+<span class="fc" id="L222">		GameMode game = SettingsHandler.getGameAsProperty().get();</span>
+<span class="pc bpc" id="L223" title="1 of 2 branches missed.">		if (game != null)</span>
+		{
+<span class="fc" id="L225">			return game.getDefaultSpellBook();</span>
+		}
+
+<span class="nc" id="L228">		return null;</span>
+	}
+
+	/**
+	 * Get equipment slot by name
+	 * @param aName
+	 * @return equipment slot
+	 */
+	public static EquipSlot getEquipSlotByName(final String aName)
+	{
+<span class="nc" id="L238">		return SystemCollections.getUnmodifiableEquipSlotList()</span>
+<span class="nc" id="L239">		                        .stream()</span>
+<span class="nc" id="L240">		                        .filter(es -&gt; es.getSlotName().equals(aName))</span>
+<span class="nc" id="L241">		                        .findFirst()</span>
+<span class="nc" id="L242">		                        .orElse(null);</span>
+	}
+
+	/**
+	 * Set equipment slot type count
+	 * @param aString
+	 * @param aNum
+	 */
+	public static void setEquipSlotTypeCount(final String aString, final int aNum)
+	{
+<span class="nc" id="L252">		EQ_SLOT_MAP.put(aString, aNum);</span>
+<span class="nc" id="L253">	}</span>
+
+	/**
+	 * returns the # of slots for an equipmentslots Type
+	 * The number of slots is define by the NUMSLOTS: line
+	 * in the game mode file equipmentslots.lst
+	 * @param aType
+	 * @return equipment slot type count
+	 */
+	public static int getEquipSlotTypeCount(final String aType)
+	{
+<span class="nc" id="L264">		return EQ_SLOT_MAP.computeIfAbsent(aType, s -&gt; 0);</span>
+	}
+
+	/**
+	 * Get the game mode point pool name
+	 * @return game mode point pool name
+	 */
+	public static String getGameModePointPoolName()
+	{
+<span class="nc" id="L273">		return SettingsHandler.getGameAsProperty().get().getPointPoolName();</span>
+	}
+
+	/**
+	 * TRUE if the game mode has a point pool
+	 * @return TRUE if the game mode has a point pool
+	 */
+	public static boolean getGameModeHasPointPool()
+	{
+<span class="nc bnc" id="L282" title="All 2 branches missed.">		return !getGameModePointPoolName().isEmpty();</span>
+	}
+
+	/**
+	 * Get game mode unit set
+	 * @return game mode unit set
+	 */
+	public static UnitSet getGameModeUnitSet()
+	{
+<span class="nc" id="L291">		return SettingsHandler.getGameAsProperty().get().getUnitSet();</span>
+	}
+
+	/**
+	 * Get PC List
+	 * @return List of Pcs
+	 */
+	public static List&lt;PlayerCharacter&gt; getPCList()
+	{
+<span class="nc" id="L300">		return PC_LIST;</span>
+	}
+
+	/**
+	 * Get paper count
+	 * @return paper count
+	 */
+	public static int getPaperCount()
+	{
+<span class="nc" id="L309">		return SettingsHandler.getGameAsProperty().get().getModeContext().getReferenceContext()</span>
+<span class="nc" id="L310">			.getConstructedObjectCount(PaperInfo.class);</span>
+	}
+
+	/**
+	 * Get paper info
+	 * @param infoType
+	 * @return paper info
+	 */
+	public static String getPaperInfo(final int infoType)
+	{
+<span class="nc" id="L320">		return getPaperInfo(selectedPaper, infoType);</span>
+	}
+
+	/**
+	 * Get paper info
+	 * @param idx
+	 * @param infoType
+	 * @return paper info
+	 */
+	public static String getPaperInfo(final int idx, final int infoType)
+	{
+<span class="nc bnc" id="L331" title="All 4 branches missed.">		if ((idx &lt; 0) || (idx &gt;= getPaperCount()))</span>
+		{
+<span class="nc" id="L333">			return null;</span>
+		}
+
+<span class="nc" id="L336">		return getSortedPaperInfo().get(idx).getPaperInfo(infoType);</span>
+	}
+
+	private static List&lt;PaperInfo&gt; getSortedPaperInfo()
+	{
+<span class="nc" id="L341">		List&lt;PaperInfo&gt; items = new ArrayList&lt;&gt;(SettingsHandler.getGameAsProperty().get().getModeContext().getReferenceContext()</span>
+<span class="nc" id="L342">			.getConstructedCDOMObjects(PaperInfo.class));</span>
+<span class="nc" id="L343">		items.sort(Comparator.comparing(SortKeyRequired::getSortKey));</span>
+<span class="nc" id="L344">		return items;</span>
+	}
+
+	/**
+	 * Sets the root frame
+	 * The root frame is the container in which all
+	 * other panels, frame etc are placed.
+	 *
+	 * @param frame the {@code PCGen_Frame1} which is to be root
+	 */
+	public static void setRootFrame(final JFrame frame)
+	{
+<span class="nc" id="L356">		rootFrame = frame;</span>
+<span class="nc" id="L357">	}</span>
+
+	/**
+	 * Returns the current root frame.
+	 *
+	 * @return the {@code rootFrame} property
+	 */
+	public static JFrame getRootFrame()
+	{
+<span class="nc" id="L366">		return rootFrame;</span>
+	}
+
+	/**
+	 * Get selected paper
+	 * @return selected paper
+	 */
+	public static int getSelectedPaper()
+	{
+<span class="nc" id="L375">		return selectedPaper;</span>
+	}
+
+	/**
+	 * Set source display
+	 * @param sourceType
+	 */
+	public static void setSourceDisplay(final SourceFormat sourceType)
+	{
+<span class="nc" id="L384">		sourceDisplay = sourceType;</span>
+<span class="nc" id="L385">	}</span>
+
+	/**
+	 * Get source display
+	 * @return source display
+	 */
+	public static SourceFormat getSourceDisplay()
+	{
+<span class="nc" id="L393">		return sourceDisplay;</span>
+	}
+
+	/**
+	 * Sets whether to use the GUI or not
+	 * @param aBool
+	 */
+	public static void setUseGUI(final boolean aBool)
+	{
+<span class="fc" id="L402">		useGUI = aBool;</span>
+<span class="fc" id="L403">	}</span>
+
+	/**
+	 * TRUE if using UI
+	 * @return TRUE if using UI
+	 */
+	static boolean getUseGUI()
+	{
+<span class="nc" id="L411">		return useGUI;</span>
+	}
+
+	/**
+	 * This method is called by the persistence layer to
+	 * add a campaign that it has located to the globl campaign list.
+	 *
+	 * @param campaign Campaign loaded from persistence to add to the
+	 *                 Global campaign list
+	 */
+	public static void addCampaign(final Campaign campaign)
+	{
+<span class="nc" id="L423">		CAMPAIGN_MAP.put(campaign.getSourceURI(), campaign);</span>
+<span class="nc" id="L424">	}</span>
+
+	/**
+	 * Adjust damage
+	 * @param aDamage
+	 * @return adjusted damage
+	 */
+	public static String adjustDamage(String aDamage, int sizeDiff)
+	{
+<span class="nc bnc" id="L433" title="All 2 branches missed.">		if (aDamage.isEmpty())</span>
+		{
+<span class="nc" id="L435">			return aDamage;</span>
+		}
+<span class="nc" id="L437">		final AbstractReferenceContext ref = getContext().getReferenceContext();</span>
+<span class="nc" id="L438">		BaseDice bd = ref.silentlyGetConstructedCDOMObject(BaseDice.class, aDamage);</span>
+<span class="nc" id="L439">		int multiplier = 0;</span>
+<span class="nc bnc" id="L440" title="All 2 branches missed.">		if (bd == null)</span>
+		{
+			// No exact BaseDice match — try interpreting aDamage as NdM and look
+			// up a 1dM step. If aDamage isn't parseable as a roll at all, we have
+			// nothing to scale; return it unchanged.
+			final RollInfo aRollInfo;
+			try
+			{
+<span class="nc" id="L448">				aRollInfo = new RollInfo(aDamage);</span>
+			}
+<span class="nc" id="L450">			catch (IllegalArgumentException e)</span>
+			{
+<span class="nc" id="L452">				return aDamage;</span>
+<span class="nc" id="L453">			}</span>
+<span class="nc" id="L454">			final String baseDice = &quot;1d&quot; + aRollInfo.getSides();</span>
+<span class="nc" id="L455">			bd = ref.silentlyGetConstructedCDOMObject(BaseDice.class, baseDice);</span>
+<span class="nc bnc" id="L456" title="All 2 branches missed.">			if (bd != null)</span>
+			{
+<span class="nc" id="L458">				multiplier = aRollInfo.getTimes();</span>
+			}
+<span class="nc" id="L460">		}</span>
+		else
+		{
+<span class="nc" id="L463">			multiplier = 1;</span>
+		}
+		RollInfo bi;
+<span class="nc bnc" id="L466" title="All 2 branches missed.">		if (bd == null)</span>
+		{
+			try
+			{
+<span class="nc" id="L470">				bi = new RollInfo(aDamage);</span>
+			}
+<span class="nc" id="L472">			catch (IllegalArgumentException e)</span>
+			{
+<span class="nc" id="L474">				return aDamage;</span>
+<span class="nc" id="L475">			}</span>
+		}
+		else
+		{
+			List&lt;RollInfo&gt; steps;
+<span class="nc bnc" id="L480" title="All 2 branches missed.">			if (sizeDiff &gt; 0)</span>
+			{
+<span class="nc" id="L482">				steps = bd.getUpSteps();</span>
+			}
+<span class="nc bnc" id="L484" title="All 2 branches missed.">			else if (sizeDiff &lt; 0)</span>
+			{
+<span class="nc" id="L486">				steps = bd.getDownSteps();</span>
+			}
+			else
+			{
+				// Not a warning?
+<span class="nc" id="L491">				return aDamage;</span>
+			}
+<span class="nc" id="L493">			final int difference = Math.abs(sizeDiff);</span>
+
+			final int index;
+<span class="nc bnc" id="L496" title="All 2 branches missed.">			if (steps.size() &gt; difference)</span>
+			{
+<span class="nc" id="L498">				index = difference - 1;</span>
+			}
+			else
+			{
+<span class="nc" id="L502">				index = steps.size() - 1;</span>
+			}
+<span class="nc" id="L504">			bi = steps.get(index);</span>
+		}
+<span class="nc bnc" id="L506" title="All 2 branches missed.">		if (multiplier &gt; 1)</span>
+		{
+<span class="nc" id="L508">			bi = new RollInfo(bi, multiplier);</span>
+		}
+<span class="nc" id="L510">		return bi.toString();</span>
+	}
+
+	/**
+	 * Return true if resizing the equipment will have any &quot;noticable&quot; effect
+	 * checks for cost modification, armor bonus, weight, capacity
+	 * @param typeList
+	 * @return TRUE or FALSE
+	 */
+	public static boolean canResizeHaveEffect(List&lt;String&gt; typeList)
+	{
+<span class="nc" id="L521">		final List&lt;String&gt; resizeTypeList = SettingsHandler.getGameAsProperty().get().getResizableTypeList().stream()</span>
+<span class="nc" id="L522">			.map(Type::toString).map(String::toUpperCase).collect(Collectors.toList());</span>
+<span class="nc" id="L523">		return typeList.stream().map(String::toUpperCase).anyMatch(resizeTypeList::contains);</span>
+	}
+
+	/**
+	 * Find out the state of a PRERULE check
+	 * @param aKey
+	 * @return true or false
+	 */
+	public static boolean checkRule(final String aKey)
+	{
+<span class="fc" id="L533">		final RuleCheck rule = SettingsHandler.getGameAsProperty().get().getModeContext().getReferenceContext()</span>
+<span class="fc" id="L534">			.silentlyGetConstructedCDOMObject(RuleCheck.class, aKey);</span>
+<span class="pc bpc" id="L535" title="1 of 2 branches missed.">		if (rule == null)</span>
+		{
+<span class="fc" id="L537">			return false;</span>
+		}
+<span class="nc bnc" id="L539" title="All 2 branches missed.">		if (SettingsHandler.hasRuleCheck(aKey))</span>
+		{
+<span class="nc" id="L541">			return SettingsHandler.getRuleCheck(aKey);</span>
+		}
+		else
+		{
+<span class="nc" id="L545">			return rule.getDefault();</span>
+		}
+	}
+
+	/**
+	 * This method is called by the persistence layer to clear the global
+	 * campaigns for a refresh.
+	 */
+	public static void clearCampaignsForRefresh()
+	{
+<span class="nc" id="L555">		emptyLists();</span>
+<span class="nc" id="L556">		CAMPAIGN_MAP.clear();</span>
+<span class="nc" id="L557">	}</span>
+
+	/**
+	 * Check if enough data has been loaded to support character creation.
+	 * Will also report to the log the number of items of each of the
+	 * necessary types that are currently loaded.
+	 * @return true or false
+	 */
+	public static boolean displayListsHappy()
+	{
+		// NOTE: If you add something here be sure to update the log output below
+<span class="nc" id="L568">		final boolean listsHappy = checkListsHappy();</span>
+
+<span class="nc bnc" id="L570" title="All 2 branches missed.">		final Level logLevel = listsHappy ? Logging.DEBUG : Logging.WARNING;</span>
+<span class="nc bnc" id="L571" title="All 2 branches missed.">		if (Logging.isLoggable(logLevel))</span>
+		{
+<span class="nc" id="L573">			Logging.log(logLevel, &quot;Number of objects loaded. The following should &quot; + &quot;all be greater than 0:&quot;);</span>
+<span class="nc" id="L574">			AbstractReferenceContext referenceContext = getContext().getReferenceContext();</span>
+<span class="nc" id="L575">			Logging.log(logLevel, &quot;Races=&quot; + referenceContext.getConstructedCDOMObjects(Race.class).size());</span>
+<span class="nc" id="L576">			Logging.log(logLevel, &quot;Classes=&quot; + referenceContext.getConstructedCDOMObjects(PCClass.class).size());</span>
+<span class="nc" id="L577">			Logging.log(logLevel, &quot;Skills=&quot; + referenceContext.getConstructedCDOMObjects(Skill.class).size());</span>
+<span class="nc" id="L578">			AbilityCategory featCategory = referenceContext.get(AbilityCategory.class, &quot;FEAT&quot;);</span>
+<span class="nc" id="L579">			Logging.log(logLevel,</span>
+<span class="nc" id="L580">				&quot;Feats=&quot; + referenceContext.getManufacturerId(featCategory).getConstructedObjectCount());</span>
+<span class="nc" id="L581">			Logging.log(logLevel, &quot;Equipment=&quot; + referenceContext.getConstructedCDOMObjects(Equipment.class).size());</span>
+<span class="nc" id="L582">			Logging.log(logLevel, &quot;ArmorProfs=&quot; + referenceContext.getConstructedCDOMObjects(ArmorProf.class).size());</span>
+<span class="nc" id="L583">			Logging.log(logLevel, &quot;ShieldProfs=&quot; + referenceContext.getConstructedCDOMObjects(ShieldProf.class).size());</span>
+<span class="nc" id="L584">			Logging.log(logLevel, &quot;WeaponProfs=&quot; + referenceContext.getConstructedCDOMObjects(WeaponProf.class).size());</span>
+<span class="nc" id="L585">			Logging.log(logLevel, &quot;Kits=&quot; + referenceContext.getConstructedCDOMObjects(Kit.class).size());</span>
+<span class="nc" id="L586">			Logging.log(logLevel, &quot;Templates=&quot; + referenceContext.getConstructedCDOMObjects(PCTemplate.class).size());</span>
+		}
+<span class="nc" id="L588">		return listsHappy;</span>
+	}
+
+	/**
+	 * Check if enough data has been loaded to support character creation.
+	 * @return true or false
+	 */
+	private static boolean checkListsHappy()
+	{
+		// NOTE: If you add something here be sure to update the log output in displayListsHappy above
+<span class="nc bnc" id="L598" title="All 2 branches missed.">		return !((getContext().getReferenceContext().getConstructedCDOMObjects(Race.class).isEmpty())</span>
+<span class="nc bnc" id="L599" title="All 2 branches missed.">			|| (getContext().getReferenceContext().getConstructedCDOMObjects(PCClass.class).isEmpty())</span>
+			//				|| (getContext().ref.getConstructedCDOMObjects(Skill.class).size() == 0)
+			//				|| (getContext().ref.getManufacturer(
+			//						Ability.class, AbilityCategory.FEAT).getConstructedObjectCount() == 0)
+<span class="nc bnc" id="L603" title="All 2 branches missed.">			|| (getContext().getReferenceContext().getConstructedCDOMObjects(Equipment.class).isEmpty())</span>
+<span class="nc bnc" id="L604" title="All 2 branches missed.">			|| (getContext().getReferenceContext().getConstructedCDOMObjects(WeaponProf.class).isEmpty()));</span>
+	}
+
+	/**
+	 * Clears all lists of game data.
+	 */
+	public static void emptyLists()
+	{
+		// These lists do not need cleared; they are tied to game mode
+		// alignmentList
+		// checkList
+		// gameModeList
+		// campaignList
+		// statList
+		// All other lists should be cleared!!!
+		//////////////////////////////////////
+		// DO NOT CLEAR THESE HERE!!!
+		// They only get loaded once.
+		//
+		//birthplaceList.clear();
+		//cityList.clear();
+		//hairStyleList.clear();
+		//helpContextFileList.clear();
+		//interestsList.clear();
+		//locationList.clear();
+		//paperInfo.clear();
+		//phobiaList.clear();
+		//phraseList.clear();
+		//schoolsList.clear();
+		//sizeAdjustmentList.clear();
+		//specialsList.clear();
+		//speechList.clear();
+		//traitList.clear();
+		//unitSet.clear();
+		//////////////////////////////////////
+
+		// Clear Maps (not strictly necessary, but done for consistency)
+<span class="fc" id="L641">		VisionType.clearConstants();</span>
+<span class="fc" id="L642">		FactKey.clearConstants();</span>
+<span class="fc" id="L643">		FactSetKey.clearConstants();</span>
+
+		// Perform other special cleanup
+<span class="fc" id="L646">		Equipment.clearEquipmentTypes();</span>
+<span class="fc" id="L647">		SettingsHandler.getGameAsProperty().get().clearLoadContext();</span>
+
+<span class="fc" id="L649">		RaceType.clearConstants();</span>
+<span class="fc" id="L650">		CNAbilityFactory.reset();</span>
+<span class="fc" id="L651">		MovementType.clearConstants();</span>
+<span class="fc" id="L652">	}</span>
+
+	/**
+	 * Execute post export commands for standard files
+	 * @param fileName
+	 */
+	public static void executePostExportCommandStandard(final String fileName)
+	{
+<span class="nc" id="L660">		final String postExportCommand = SettingsHandler.getPostExportCommandStandard();</span>
+<span class="nc" id="L661">		executePostExportCommand(fileName, postExportCommand);</span>
+<span class="nc" id="L662">	}</span>
+
+	/**
+	 * Execute post export commands for PDF
+	 * @param fileName
+	 */
+	public static void executePostExportCommandPDF(final String fileName)
+	{
+<span class="nc" id="L670">		final String postExportCommand = SettingsHandler.getPostExportCommandPDF();</span>
+<span class="nc" id="L671">		executePostExportCommand(fileName, postExportCommand);</span>
+<span class="nc" id="L672">	}</span>
+
+	/**
+	 * Execute any post export commands
+	 * @param fileName
+	 * @param postExportCommand
+	 */
+	private static void executePostExportCommand(final String fileName, final String postExportCommand)
+	{
+<span class="nc" id="L681">		final List&lt;String&gt; aList = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L682">		final StringTokenizer aTok = new StringTokenizer(postExportCommand, &quot; &quot;);</span>
+<span class="nc bnc" id="L683" title="All 2 branches missed.">		while (aTok.hasMoreTokens())</span>
+		{
+<span class="nc" id="L685">			aList.add(aTok.nextToken());</span>
+		}
+<span class="nc" id="L687">		final String[] cmdArray = new String[aList.size()];</span>
+<span class="nc bnc" id="L688" title="All 2 branches missed.">		for (int idx = 0; idx &lt; aList.size(); idx++)</span>
+		{
+<span class="nc" id="L690">			final String s = aList.get(idx);</span>
+<span class="nc bnc" id="L691" title="All 2 branches missed.">			if (s.contains(&quot;%&quot;))</span>
+			{
+<span class="nc" id="L693">				final String beforeString = s.substring(0, s.indexOf('%'));</span>
+<span class="nc" id="L694">				final String afterString = s.substring(s.indexOf('%') + 1);</span>
+<span class="nc" id="L695">				cmdArray[idx] = beforeString + fileName + afterString;</span>
+<span class="nc" id="L696">			}</span>
+			else
+			{
+<span class="nc" id="L699">				cmdArray[idx] = s;</span>
+			}
+		}
+
+<span class="nc bnc" id="L703" title="All 2 branches missed.">		if (cmdArray.length &gt; 0)</span>
+		{
+			try
+			{
+<span class="nc" id="L707">				Runtime.getRuntime().exec(cmdArray);</span>
+			}
+<span class="nc" id="L709">			catch (final IOException ex)</span>
+			{
+<span class="nc" id="L711">				Logging.errorPrint(&quot;Could not run &quot; + postExportCommand + &quot; after exporting &quot; + fileName, ex);</span>
+<span class="nc" id="L712">			}</span>
+		}
+<span class="nc" id="L714">	}</span>
+
+	/**
+	 * Select the paper
+	 * @param paperName
+	 * @return TRUE if OK
+	 */
+	public static boolean selectPaper(final String paperName)
+	{
+<span class="nc" id="L723">		List&lt;PaperInfo&gt; paperInfoObjects = getSortedPaperInfo();</span>
+<span class="nc bnc" id="L724" title="All 2 branches missed.">		for (int i = 0; i &lt; paperInfoObjects.size(); i++)</span>
+		{
+<span class="nc" id="L726">			final PaperInfo pi = paperInfoObjects.get(i);</span>
+
+<span class="nc bnc" id="L728" title="All 2 branches missed.">			if (pi.getName().equals(paperName))</span>
+			{
+<span class="nc" id="L730">				selectedPaper = i;</span>
+<span class="nc" id="L731">				PCGenSettings.getInstance().setProperty(PCGenSettings.PAPERSIZE, paperName);</span>
+
+<span class="nc" id="L733">				return true;</span>
+			}
+		}
+
+<span class="nc" id="L737">		selectedPaper = -1;</span>
+
+<span class="nc" id="L739">		return false;</span>
+	}
+
+	/**
+	 * Apply the user's preferences to the initial state of the Globals.
+	 */
+	public static void initPreferences()
+	{
+<span class="nc bnc" id="L747" title="All 2 branches missed.">		if (selectedPaper != -1)</span>
+		{
+			// Already initialized
+<span class="nc" id="L750">			return;</span>
+		}
+<span class="nc" id="L752">		final String papersize = PCGenSettings.getInstance().initProperty(PCGenSettings.PAPERSIZE, &quot;A4&quot;);</span>
+<span class="nc" id="L753">		selectPaper(papersize);</span>
+<span class="nc" id="L754">	}</span>
+
+	/**
+	 * Sorts chooser lists using the appropriate method, based on the type of the first item in either list.
+	 * Not pretty, but it works.
+	 *
+	 * @param availableList
+	 * @param selectedList
+	 */
+	public static void sortChooserLists(final List availableList, final List selectedList)
+	{
+		final boolean nonPObjectInList;
+
+<span class="nc bnc" id="L767" title="All 2 branches missed.">		if (!availableList.isEmpty())</span>
+		{
+<span class="nc bnc" id="L769" title="All 2 branches missed.">			nonPObjectInList = !(availableList.get(0) instanceof CDOMObject);</span>
+		}
+<span class="nc bnc" id="L771" title="All 2 branches missed.">		else if (!selectedList.isEmpty())</span>
+		{
+<span class="nc bnc" id="L773" title="All 2 branches missed.">			nonPObjectInList = !(selectedList.get(0) instanceof CDOMObject);</span>
+		}
+		else
+		{
+<span class="nc" id="L777">			nonPObjectInList = false;</span>
+		}
+
+<span class="nc bnc" id="L780" title="All 2 branches missed.">		if (nonPObjectInList)</span>
+		{
+<span class="nc" id="L782">			Collections.sort(availableList);</span>
+			// NOCHOICE feats add nulls to the selectedList
+<span class="nc bnc" id="L784" title="All 4 branches missed.">			if ((!selectedList.isEmpty()) &amp;&amp; (selectedList.get(0) != null))</span>
+			{
+<span class="nc" id="L786">				Collections.sort(selectedList);</span>
+			}
+		}
+		else
+		{
+<span class="nc" id="L791">			sortPObjectListByName(availableList);</span>
+<span class="nc" id="L792">			sortPObjectListByName(selectedList);</span>
+		}
+<span class="nc" id="L794">	}</span>
+
+	/**
+	 * Sort Pcgen Object list
+	 * @param aList
+	 * @return Sorted list of Pcgen Objects
+	 */
+	static List&lt;? extends CDOMObject&gt; sortPObjectList(final List&lt;? extends CDOMObject&gt; aList)
+	{
+<span class="nc" id="L803">		aList.sort(CDOMObject.P_OBJECT_COMP);</span>
+
+<span class="nc" id="L805">		return aList;</span>
+	}
+
+	/**
+	 * Sort Pcgen Object list by name
+	 * @param &lt;T&gt;
+	 *
+	 * @param aList
+	 * @return Sorted list of Pcgen Objects
+	 */
+	public static &lt;T extends CDOMObject&gt; List&lt;T&gt; sortPObjectListByName(final List&lt;T&gt; aList)
+	{
+<span class="nc" id="L817">		aList.sort(CDOMObject.P_OBJECT_NAME_COMP);</span>
+
+<span class="nc" id="L819">		return aList;</span>
+	}
+
+	static String getBonusFeatString()
+	{
+<span class="nc" id="L824">		final List&lt;String&gt; bonusFeatLevels = SettingsHandler.getGameAsProperty().get().getBonusFeatLevels();</span>
+<span class="nc bnc" id="L825" title="All 4 branches missed.">		if ((bonusFeatLevels == null) || bonusFeatLevels.isEmpty())</span>
+		{
+			// Default to no bonus feats.
+<span class="nc" id="L828">			return &quot;9999|0&quot;;</span>
+		}
+<span class="nc" id="L830">		return bonusFeatLevels.get(0);</span>
+	}
+
+	static int getBonusStatsForLevel(final int level, final PlayerCharacter aPC)
+	{
+<span class="nc" id="L835">		int num = 0;</span>
+
+<span class="nc bnc" id="L837" title="All 2 branches missed.">		for (final String s : SettingsHandler.getGameAsProperty().get().getBonusStatLevels())</span>
+		{
+<span class="nc" id="L839">			num = bonusParsing(s, level, num, aPC);</span>
+<span class="nc" id="L840">		}</span>
+
+<span class="nc" id="L842">		return num;</span>
+	}
+
+	/**
+	 * Get a choice from a list
+	 * @param title The title of the chooser dialog.
+	 * @param choiceList The list of possible choices.
+	 * @param selectedList The values already selected (none of which should be in the available list).
+	 * @param pool The number of choices the user can make.
+	 * @param pc The character the choice is being made for.
+	 * @return a choice
+	 */
+	public static &lt;T&gt; List&lt;T&gt; getChoiceFromList(final String title, final List&lt;T&gt; choiceList,
+		final List&lt;T&gt; selectedList, final int pool, final PlayerCharacter pc)
+	{
+<span class="nc" id="L857">		return getChoiceFromList(title, choiceList, selectedList, pool, false, false, pc);</span>
+	}
+
+	/**
+	 * Ask the user for a choice from a list.
+	 * @param title The title of the chooser dialog.
+	 * @param choiceList The list of possible choices.
+	 * @param selectedList The values already selected (none of which should be in the available list).
+	 * @param pool The number of choices the user can make.
+	 * @param forceChoice true if the user will be forced to make all choices.
+	 * @param preferRadioSelection true if this would be better presented as a radio button list
+	 * @param pc The character the choice is being made for.
+	 * @return The list of choices made by the user.
+	 */
+	public static &lt;T&gt; List&lt;T&gt; getChoiceFromList(final String title, final List&lt;T&gt; choiceList,
+		final List&lt;T&gt; selectedList, final int pool, final boolean forceChoice, final boolean preferRadioSelection,
+		final PlayerCharacter pc)
+	{
+<span class="nc" id="L875">		List&lt;T&gt; startingSelectedList = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L876" title="All 2 branches missed.">		if (selectedList != null)</span>
+		{
+<span class="nc" id="L878">			startingSelectedList = selectedList;</span>
+		}
+
+<span class="nc" id="L881">		final CDOMChooserFacadeImpl&lt;T&gt; chooserFacade =</span>
+				new CDOMChooserFacadeImpl&lt;&gt;(title, choiceList, startingSelectedList, pool);
+<span class="nc" id="L883">		chooserFacade.setAllowsDups(false);</span>
+<span class="nc" id="L884">		chooserFacade.setRequireCompleteSelection(forceChoice);</span>
+<span class="nc" id="L885">		chooserFacade.setInfoFactory(new Gui2InfoFactory(pc));</span>
+<span class="nc" id="L886">		chooserFacade.setDefaultView(ChooserFacade.ChooserTreeViewType.NAME);</span>
+<span class="nc" id="L887">		chooserFacade.setPreferRadioSelection(preferRadioSelection);</span>
+<span class="nc" id="L888">		ChooserFactory.getDelegate().showGeneralChooser(chooserFacade);</span>
+
+<span class="nc" id="L890">		return chooserFacade.getFinalSelected();</span>
+	}
+
+	static List&lt;String&gt; getCustColumnWidth()
+	{
+<span class="nc" id="L895">		return CUST_COLUMN_WIDTH;</span>
+	}
+
+	static String getDefaultPcgPath()
+	{
+<span class="nc" id="L900">		return expandRelativePath(DEFAULT_PCG_PATH);</span>
+	}
+
+	/**
+	 * returns the location of the &quot;filepaths.ini&quot; file
+	 * which could be one of several locations
+	 * depending on the OS and user preferences
+	 * @return option path
+	 */
+	static String getFilepathsPath()
+	{
+
+		// first see if it was specified on the command line
+<span class="fc" id="L913">		String aPath = System.getProperty(&quot;pcgen.filepaths&quot;); //$NON-NLS-1$</span>
+
+<span class="pc bpc" id="L915" title="1 of 2 branches missed.">		if (aPath == null)</span>
+		{
+<span class="fc" id="L917">			aPath = System.getProperty(&quot;user.dir&quot;) + File.separator + &quot;filepaths.ini&quot;; //$NON-NLS-1$ //$NON-NLS-2$;</span>
+		}
+		else
+		{
+<span class="nc" id="L921">			File testPath = new File(expandRelativePath(aPath));</span>
+<span class="nc bnc" id="L922" title="All 4 branches missed.">			if (testPath.exists() &amp;&amp; testPath.isDirectory())</span>
+			{
+<span class="nc" id="L924">				aPath = testPath.getAbsolutePath() + File.separator + &quot;filepaths.ini&quot;; //$NON-NLS-1$</span>
+<span class="nc" id="L925">				testPath = new File(aPath);</span>
+			}
+<span class="nc bnc" id="L927" title="All 4 branches missed.">			if (testPath.exists() &amp;&amp; !testPath.canWrite())</span>
+			{
+<span class="nc" id="L929">				Logging.errorPrint(&quot;WARNING: The filepaths file you specified is not updatable. &quot;</span>
+<span class="nc" id="L930">					+ &quot;Filepath changes will not be saved. File is &quot; + testPath.getAbsolutePath());</span>
+			}
+		}
+
+<span class="fc" id="L934">		return expandRelativePath(aPath);</span>
+	}
+
+	/**
+	 * returns the location of the &quot;filter.ini&quot; file
+	 * which could be one of several locations
+	 * depending on the OS and user preferences
+	 * @return filter path
+	 */
+	static String getFilterPath()
+	{
+
+		// first see if it was specified on the command line
+<span class="nc" id="L947">		String aPath = System.getProperty(&quot;pcgen.filter&quot;);</span>
+
+<span class="nc bnc" id="L949" title="All 2 branches missed.">		if (aPath == null)</span>
+		{
+<span class="nc" id="L951">			aPath = getFilePath(&quot;filter.ini&quot;);</span>
+		}
+		else
+		{
+<span class="nc" id="L955">			File testPath = new File(expandRelativePath(aPath));</span>
+<span class="nc bnc" id="L956" title="All 4 branches missed.">			if (testPath.exists() &amp;&amp; testPath.isDirectory())</span>
+			{
+<span class="nc" id="L958">				aPath = testPath.getAbsolutePath() + File.separator + &quot;filter.ini&quot;;</span>
+<span class="nc" id="L959">				testPath = new File(aPath);</span>
+			}
+<span class="nc bnc" id="L961" title="All 4 branches missed.">			if (testPath.exists() &amp;&amp; !testPath.canWrite())</span>
+			{
+<span class="nc" id="L963">				Logging.errorPrint(&quot;WARNING: The filter file you specified is not updatable. &quot;</span>
+<span class="nc" id="L964">					+ &quot;Filter changes will not be saved. File is &quot; + testPath.getAbsolutePath());</span>
+			}
+		}
+
+<span class="nc" id="L968">		return expandRelativePath(aPath);</span>
+	}
+
+	/**
+	 * returns the location of the &quot;options.ini&quot; file
+	 * which could be one of several locations
+	 * depending on the OS and user preferences
+	 * @return option path
+	 */
+	static String getOptionsPath()
+	{
+
+		// first see if it was specified on the command line
+<span class="nc" id="L981">		String aPath = System.getProperty(&quot;pcgen.options&quot;);</span>
+
+<span class="nc bnc" id="L983" title="All 2 branches missed.">		if (aPath == null)</span>
+		{
+<span class="nc" id="L985">			aPath = getFilePath(&quot;options.ini&quot;);</span>
+		}
+		else
+		{
+<span class="nc" id="L989">			File testPath = new File(expandRelativePath(aPath));</span>
+<span class="nc bnc" id="L990" title="All 4 branches missed.">			if (testPath.exists() &amp;&amp; testPath.isDirectory())</span>
+			{
+<span class="nc" id="L992">				aPath = testPath.getAbsolutePath() + File.separator + &quot;options.ini&quot;;</span>
+<span class="nc" id="L993">				testPath = new File(aPath);</span>
+			}
+<span class="nc bnc" id="L995" title="All 4 branches missed.">			if (testPath.exists() &amp;&amp; !testPath.canWrite())</span>
+			{
+<span class="nc" id="L997">				Logging.errorPrint(&quot;WARNING: The options file you specified is not updatable. &quot;</span>
+<span class="nc" id="L998">					+ &quot;Settings changes will not be saved. File is &quot; + testPath.getAbsolutePath());</span>
+			}
+		}
+
+<span class="nc" id="L1002">		return expandRelativePath(aPath);</span>
+	}
+
+	public static int getSkillMultiplierForLevel(final int level)
+	{
+<span class="nc" id="L1007">		final List&lt;String&gt; sml = SettingsHandler.getGameAsProperty().get().getSkillMultiplierLevels();</span>
+
+<span class="nc bnc" id="L1009" title="All 4 branches missed.">		if ((level &gt; sml.size()) || (level &lt;= 0))</span>
+		{
+<span class="nc" id="L1011">			return 1;</span>
+		}
+
+<span class="nc" id="L1014">		return Integer.parseInt(sml.get(level - 1));</span>
+	}
+
+	/**
+	 * Get a writable path for storing files
+	 * First check to see if it's been set in-program
+	 * Then check user home directory
+	 * Else use directory pcgen started from
+	 * @param aString
+	 * @return file path
+	 */
+	private static String getFilePath(final String aString)
+	{
+<span class="nc" id="L1027">		final String fType = SettingsHandler.getFilePaths();</span>
+
+<span class="nc bnc" id="L1029" title="All 4 branches missed.">		if ((fType == null) || fType.equals(&quot;pcgen&quot;))</span>
+		{
+			// we are either running PCGen for the first
+			// time or user wants default file locations
+<span class="nc" id="L1033">			return System.getProperty(&quot;user.dir&quot;) + File.separator + aString;</span>
+		}
+<span class="nc bnc" id="L1035" title="All 2 branches missed.">		else if (fType.equals(&quot;user&quot;))</span>
+		{
+			// use the users &quot;home&quot; directory + .pcgen
+<span class="nc" id="L1038">			return System.getProperty(&quot;user.home&quot;) + File.separator + &quot;.pcgen&quot; + File.separator + aString;</span>
+		}
+<span class="nc bnc" id="L1040" title="All 2 branches missed.">		else if (fType.equals(&quot;mac_user&quot;))</span>
+		{
+			// use the users &quot;home&quot; directory + standard Mac settings
+<span class="nc" id="L1043">			return System.getProperty(&quot;user.home&quot;) + &quot;/Library/Preferences/pcgen&quot; + File.separator + aString;</span>
+		}
+		else
+		{
+			// use the specified directory
+<span class="nc" id="L1048">			return fType + File.separator + aString;</span>
+		}
+	}
+
+	private static int bonusParsing(final String l, final int level, int num, final PlayerCharacter aPC)
+	{
+		// should be in format levelnum,rangenum[,numchoices]
+<span class="nc" id="L1055">		final StringTokenizer aTok = new StringTokenizer(l, &quot;|&quot;, false);</span>
+<span class="nc" id="L1056">		final int startLevel = Integer.parseInt(aTok.nextToken());</span>
+<span class="nc" id="L1057">		final String rangeLevelFormula = aTok.nextToken();</span>
+<span class="nc" id="L1058">		final int rangeLevel = aPC.getVariableValue(rangeLevelFormula, &quot;&quot;).intValue();</span>
+<span class="nc" id="L1059">		int numChoices = 1;</span>
+<span class="nc bnc" id="L1060" title="All 2 branches missed.">		if (aTok.hasMoreTokens())</span>
+		{
+<span class="nc" id="L1062">			numChoices = Integer.parseInt(aTok.nextToken());</span>
+		}
+
+<span class="nc bnc" id="L1065" title="All 8 branches missed.">		if ((level == startLevel)</span>
+			|| ((level &gt; startLevel) &amp;&amp; (rangeLevel &gt; 0) &amp;&amp; (((level - startLevel) % rangeLevel) == 0)))
+		{
+<span class="nc" id="L1068">			num += numChoices;</span>
+		}
+
+<span class="nc" id="L1071">		return num;</span>
+	}
+
+	private static String expandRelativePath(String path)
+	{
+<span class="pc bpc" id="L1076" title="1 of 2 branches missed.">		if (path.startsWith(&quot;@&quot;))</span>
+		{
+<span class="nc" id="L1078">			path = System.getProperty(&quot;user.dir&quot;) + File.separator + path.substring(1);</span>
+		}
+
+<span class="fc" id="L1081">		return path;</span>
+	}
+
+	public static LoadContext getContext()
+	{
+<span class="fc" id="L1086">		return SettingsHandler.getGameAsProperty().get().getContext();</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

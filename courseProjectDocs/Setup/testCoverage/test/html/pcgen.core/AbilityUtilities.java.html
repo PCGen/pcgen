@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AbilityUtilities.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.core</a> &gt; <span class="el_source">AbilityUtilities.java</span></div><h1>AbilityUtilities.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2001 (C) Bryan McRoberts &lt;merton_monk@yahoo.com&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.     See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.core;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+import pcgen.cdom.base.ChooseInformation;
+import pcgen.cdom.base.TransitionChoice;
+import pcgen.cdom.base.UserSelection;
+import pcgen.cdom.content.CNAbility;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.helper.CNAbilitySelection;
+import pcgen.core.analysis.AddObjectActions;
+import pcgen.core.chooser.ChoiceManagerList;
+import pcgen.core.chooser.ChooserUtilities;
+import pcgen.core.utils.CoreUtility;
+import pcgen.core.utils.LastGroupSeparator;
+import pcgen.core.utils.LastGroupSeparator.GroupingMismatchException;
+
+/**
+ * General utilities related to the Ability class.
+ */
+public final class AbilityUtilities
+{
+	private AbilityUtilities()
+	{
+	}
+
+	public static void finaliseAbility(PlayerCharacter aPC, CNAbilitySelection cnas)
+	{
+<span class="nc" id="L49">		CNAbility cna = cnas.getCNAbility();</span>
+<span class="nc" id="L50">		Ability ability = cna.getAbility();</span>
+
+		/*
+		 * This modifyChoice method is a bit like mod choices, but it uses a
+		 * different tag to set the chooser string.
+		 */
+<span class="nc" id="L56">		TransitionChoice&lt;CNAbility&gt; mc = ability.get(ObjectKey.MODIFY_CHOICE);</span>
+<span class="nc bnc" id="L57" title="All 2 branches missed.">		if (mc != null)</span>
+		{
+<span class="nc" id="L59">			mc.act(mc.driveChoice(aPC), ability, aPC);</span>
+		}
+
+<span class="nc bnc" id="L62" title="All 2 branches missed.">		for (TransitionChoice&lt;Kit&gt; kit : ability.getSafeListFor(ListKey.KIT_CHOICE))</span>
+		{
+<span class="nc" id="L64">			kit.act(kit.driveChoice(aPC), ability, aPC);</span>
+<span class="nc" id="L65">		}</span>
+
+<span class="nc" id="L67">		aPC.adjustMoveRates();</span>
+
+<span class="nc" id="L69">		AddObjectActions.globalChecks(ability, aPC);</span>
+		/*
+		 * Protection for CODE-1240. Note the better solution is when facets
+		 * are association aware and thus trigger a change when an
+		 * association is added. - thpr
+		 */
+<span class="nc" id="L75">		aPC.calcActiveBonuses();</span>
+<span class="nc" id="L76">	}</span>
+
+	/**
+	 * Extracts the choiceless form of a name, for example, with all choices removed
+	 *
+	 * @param name
+	 *
+	 * @return the name with sub-choices stripped from it
+	 */
+	public static String removeChoicesFromName(String name)
+	{
+<span class="nc" id="L87">		LastGroupSeparator lgs = new LastGroupSeparator(name);</span>
+<span class="nc" id="L88">		lgs.process();</span>
+<span class="nc" id="L89">		return lgs.getRoot().trim();</span>
+	}
+
+	/**
+	 * Takes a string of the form &quot;foo (bar, baz)&quot;, populates the array with [&quot;bar&quot;, &quot;baz&quot;]
+	 * and returns foo.  All strings returned by this function have had leading.trailing
+	 * whitespace removed.
+	 *
+	 * @param name      The full name with stuff in parenthesis
+	 * @param specifics a list which will contain the specifics after the operation has
+	 *                  completed
+	 *
+	 * @return the name with sub-choices stripped from it
+	 * @throws GroupingMismatchException If there are mismatched brackets
+	 */
+	public static String getUndecoratedName(final String name, final Collection&lt;String&gt; specifics)
+	{
+<span class="fc" id="L106">		LastGroupSeparator lgs = new LastGroupSeparator(name);</span>
+<span class="fc" id="L107">		String subName = lgs.process();</span>
+<span class="fc" id="L108">		String altName = lgs.getRoot();</span>
+
+<span class="fc" id="L110">		specifics.clear();</span>
+		// we want what is inside the outermost parenthesis.
+<span class="fc bfc" id="L112" title="All 2 branches covered.">		if (subName != null)</span>
+		{
+<span class="fc" id="L114">			specifics.addAll(CoreUtility.split(subName, ','));</span>
+		}
+<span class="fc" id="L116">		return altName.trim();</span>
+	}
+
+	/**
+	 * Whether an association has already been selected for this PC.
+	 * to the associated list of this
+	 *
+	 * @return true if the association has already been selected
+	 */
+	public static boolean alreadySelected(PlayerCharacter pc, Ability ability, String selection, boolean allowStack)
+	{
+<span class="fc" id="L127">		Collection&lt;CNAbility&gt; cnAbilities = pc.getMatchingCNAbilities(ability);</span>
+<span class="fc bfc" id="L128" title="All 2 branches covered.">		if (cnAbilities.isEmpty())</span>
+		{
+			//Don't have any form of it
+<span class="fc" id="L131">			return false;</span>
+		}
+<span class="pc bpc" id="L133" title="1 of 2 branches missed.">		if (!ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))</span>
+		{
+			//Based on key name / category match
+<span class="nc" id="L136">			return true;</span>
+		}
+<span class="pc bpc" id="L138" title="3 of 4 branches missed.">		if (allowStack &amp;&amp; ability.getSafe(ObjectKey.STACKS))</span>
+		{
+			//Must allow it because it stacks
+<span class="nc" id="L141">			return false;</span>
+		}
+<span class="fc" id="L143">		ChooseInformation&lt;?&gt; info = ability.get(ObjectKey.CHOOSE_INFO);</span>
+<span class="fc" id="L144">		Object decoded = info.decodeChoice(Globals.getContext(), selection);</span>
+<span class="fc bfc" id="L145" title="All 2 branches covered.">		for (CNAbility cna : cnAbilities)</span>
+		{
+<span class="fc" id="L147">			List&lt;?&gt; oldSelections = pc.getDetailedAssociations(cna);</span>
+<span class="pc bpc" id="L148" title="1 of 4 branches missed.">			if ((oldSelections != null) &amp;&amp; oldSelections.contains(decoded))</span>
+			{
+<span class="fc" id="L150">				return true;</span>
+			}
+<span class="fc" id="L152">		}</span>
+<span class="fc" id="L153">		return false;</span>
+	}
+
+	/**
+	 * Identify if the object passed in is a feat.
+	 * @param obj The object to be checked.
+	 * @return true if this is a feat, false if not.
+	 */
+	public static boolean isFeat(Object obj)
+	{
+<span class="nc bnc" id="L163" title="All 2 branches missed.">		if (!(obj instanceof Ability ability))</span>
+		{
+<span class="nc" id="L165">			return false;</span>
+		}
+<span class="nc bnc" id="L167" title="All 2 branches missed.">		if (ability.getCDOMCategory() == null)</span>
+		{
+<span class="nc" id="L169">			return false;</span>
+		}
+<span class="nc bnc" id="L171" title="All 2 branches missed.">		return (ability.getCDOMCategory() == AbilityCategory.FEAT)</span>
+<span class="nc bnc" id="L172" title="All 2 branches missed.">			|| (ability.getCDOMCategory().getParentCategory() == AbilityCategory.FEAT);</span>
+	}
+
+	public static Ability validateCNAList(List&lt;CNAbility&gt; list)
+	{
+<span class="nc" id="L177">		Ability a = null;</span>
+<span class="nc bnc" id="L178" title="All 2 branches missed.">		for (CNAbility cna : list)</span>
+		{
+<span class="nc bnc" id="L180" title="All 2 branches missed.">			if (a == null)</span>
+			{
+<span class="nc" id="L182">				a = cna.getAbility();</span>
+			}
+			else
+			{
+<span class="nc bnc" id="L186" title="All 2 branches missed.">				if (!cna.getAbility().getKeyName().equals(a.getKeyName())</span>
+<span class="nc bnc" id="L187" title="All 2 branches missed.">					|| !a.getCDOMCategory().equals(cna.getAbilityCategory().getParentCategory()))</span>
+				{
+<span class="nc" id="L189">					throw new IllegalArgumentException(</span>
+						&quot;CNAbility list must be a consistent list of Abilities (same object)&quot;);
+				}
+			}
+<span class="nc" id="L193">		}</span>
+<span class="nc" id="L194">		return a;</span>
+	}
+
+	public static void driveChooseAndAdd(CNAbility cna, PlayerCharacter pc, boolean toAdd)
+	{
+<span class="nc" id="L199">		Ability ability = cna.getAbility();</span>
+<span class="nc bnc" id="L200" title="All 2 branches missed.">		if (!ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))</span>
+		{
+<span class="nc" id="L202">			CNAbilitySelection cnas = new CNAbilitySelection(cna);</span>
+<span class="nc bnc" id="L203" title="All 2 branches missed.">			if (toAdd)</span>
+			{
+<span class="nc" id="L205">				pc.addAbility(cnas, UserSelection.getInstance(), UserSelection.getInstance());</span>
+			}
+			else
+			{
+<span class="nc" id="L209">				pc.removeAbility(cnas, UserSelection.getInstance(), UserSelection.getInstance());</span>
+			}
+		}
+<span class="nc" id="L212">		AbilityCategory category = (AbilityCategory) cna.getAbilityCategory();</span>
+		// how many sub-choices to make
+<span class="nc" id="L214">		ArrayList&lt;String&gt; reservedList = new ArrayList&lt;&gt;();</span>
+
+<span class="nc" id="L216">		ChoiceManagerList&lt;?&gt; aMan = ChooserUtilities.getConfiguredController(cna, pc, category, reservedList);</span>
+<span class="nc bnc" id="L217" title="All 2 branches missed.">		if (aMan != null)</span>
+		{
+<span class="nc" id="L219">			processSelection(pc, cna, aMan, toAdd);</span>
+<span class="nc" id="L220">			return;</span>
+		}
+		//TODO Log error? (or MULT:NO?)
+<span class="nc" id="L223">	}</span>
+
+	private static &lt;T&gt; void processSelection(PlayerCharacter pc, CNAbility cna, ChoiceManagerList&lt;T&gt; aMan,
+		boolean toAdd)
+	{
+<span class="nc" id="L228">		ArrayList&lt;T&gt; availableList = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L229">		ArrayList&lt;T&gt; selectedList = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L230">		aMan.getChoices(pc, availableList, selectedList);</span>
+
+<span class="nc bnc" id="L232" title="All 4 branches missed.">		if (availableList.isEmpty() &amp;&amp; selectedList.isEmpty())</span>
+		{
+			//TODO Log error? (ignored choice?)
+<span class="nc" id="L235">			return;</span>
+		}
+
+<span class="nc" id="L238">		List&lt;T&gt; origSelections = new ArrayList&lt;&gt;(selectedList);</span>
+<span class="nc" id="L239">		List&lt;T&gt; removedSelections = new ArrayList&lt;&gt;(selectedList);</span>
+<span class="nc" id="L240">		ArrayList&lt;String&gt; reservedList = new ArrayList&lt;&gt;();</span>
+
+		List&lt;T&gt; newSelections;
+<span class="nc bnc" id="L243" title="All 2 branches missed.">		if (toAdd)</span>
+		{
+<span class="nc" id="L245">			newSelections = aMan.doChooser(pc, availableList, selectedList, reservedList);</span>
+		}
+		else
+		{
+<span class="nc" id="L249">			newSelections = aMan.doChooserRemove(pc, availableList, selectedList, reservedList);</span>
+		}
+
+		//Need to use only the new ones
+<span class="nc bnc" id="L253" title="All 2 branches missed.">		for (T obj : newSelections)</span>
+		{
+<span class="nc" id="L255">			removedSelections.remove(obj);</span>
+<span class="nc" id="L256">		}</span>
+		//removedSelections.removeAll(newSelections);
+<span class="nc bnc" id="L258" title="All 2 branches missed.">		for (T obj : origSelections)</span>
+		{
+<span class="nc" id="L260">			newSelections.remove(obj);</span>
+<span class="nc" id="L261">		}</span>
+		//newSelections.removeAll(origSelections);
+
+<span class="nc bnc" id="L264" title="All 2 branches missed.">		for (T sel : newSelections)</span>
+		{
+<span class="nc" id="L266">			String selection = aMan.encodeChoice(sel);</span>
+<span class="nc" id="L267">			CNAbilitySelection cnas = new CNAbilitySelection(cna, selection);</span>
+<span class="nc" id="L268">			pc.addAbility(cnas, UserSelection.getInstance(), UserSelection.getInstance());</span>
+<span class="nc" id="L269">		}</span>
+<span class="nc bnc" id="L270" title="All 2 branches missed.">		for (T sel : removedSelections)</span>
+		{
+<span class="nc" id="L272">			String selection = aMan.encodeChoice(sel);</span>
+<span class="nc" id="L273">			CNAbilitySelection cnas = new CNAbilitySelection(cna, selection);</span>
+<span class="nc" id="L274">			pc.removeAbility(cnas, UserSelection.getInstance(), UserSelection.getInstance());</span>
+<span class="nc" id="L275">		}</span>
+<span class="nc" id="L276">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

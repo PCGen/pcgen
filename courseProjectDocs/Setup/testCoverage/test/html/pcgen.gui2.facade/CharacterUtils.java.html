@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CharacterUtils.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.gui2.facade</a> &gt; <span class="el_source">CharacterUtils.java</span></div><h1>CharacterUtils.java</h1><pre class="source lang-java linenums">/*
+ * Missing License Header, Copyright 2016 (C) Andrew Maitland &lt;amaitland@users.sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+
+package pcgen.gui2.facade;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import pcgen.core.Equipment;
+import pcgen.core.EquipmentList;
+import pcgen.core.Globals;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.RuleConstants;
+import pcgen.core.SizeAdjustment;
+import pcgen.core.utils.CoreUtility;
+import pcgen.system.LanguageBundle;
+import pcgen.util.Logging;
+
+final class CharacterUtils
+{
+	private CharacterUtils()
+	{
+	}
+
+	private static boolean isFreeClothing(Equipment eq, PlayerCharacter aPC, SizeAdjustment pcSizeAdj)
+	{
+<span class="nc bnc" id="L42" title="All 2 branches missed.">		return !eq.isType(&quot;Magic&quot;)</span>
+<span class="nc bnc" id="L43" title="All 2 branches missed.">				&amp;&amp; (CoreUtility.doublesEqual(eq.getCost(aPC).doubleValue(), 0.0))</span>
+<span class="nc bnc" id="L44" title="All 2 branches missed.">				&amp;&amp; pcSizeAdj.equals(eq.getSizeAdjustment());</span>
+	}
+
+	static void selectClothes(final PlayerCharacter aPC)
+	{
+<span class="nc bnc" id="L49" title="All 4 branches missed.">		if (Globals.checkRule(RuleConstants.FREECLOTHES) &amp;&amp; ((aPC.getDisplay().totalNonMonsterLevels()) == 1))</span>
+		{
+			//
+			// See what the PC is already carrying
+			//
+<span class="nc" id="L54">			List&lt;Equipment&gt; clothes = aPC.getEquipmentOfType(&quot;Clothing.Resizable&quot;, 3); //$NON-NLS-1$ </span>
+
+			//
+			// Check to see if any of the clothing the PC
+			// is carrying will actually fit and
+			// has a zero price attached
+			//
+<span class="nc" id="L61">			SizeAdjustment pcSizeAdj = aPC.getSizeAdjustment();</span>
+
+<span class="nc" id="L63">			boolean hasClothes = clothes.stream()</span>
+<span class="nc" id="L64">			                            .anyMatch(eq -&gt; isFreeClothing(eq, aPC, pcSizeAdj));</span>
+
+
+			// If the PC has no clothing items, or none that
+			// are sized to fit, then allow them to pick
+			// a free set
+
+<span class="nc bnc" id="L71" title="All 2 branches missed.">			if (!hasClothes)</span>
+			{
+<span class="nc" id="L73">				clothes = EquipmentList.getEquipmentOfType(&quot;Clothing.Resizable.Starting&quot;, &quot;Magic.Custom.Auto_Gen&quot;);</span>
+<span class="nc bnc" id="L74" title="All 2 branches missed.">				if (clothes.isEmpty())</span>
+				{
+<span class="nc" id="L76">					clothes = EquipmentList.getEquipmentOfType(&quot;Clothing.Resizable&quot;, &quot;Magic.Custom.Auto_Gen&quot;);</span>
+				}
+
+<span class="nc" id="L79">				List&lt;Equipment&gt; selectedClothes = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L80">				selectedClothes =</span>
+<span class="nc" id="L81">						Globals.getChoiceFromList(</span>
+<span class="nc" id="L82">							LanguageBundle.getString(&quot;in_sumSelectAFreeSetOfClothing&quot;), //$NON-NLS-1$ </span>
+					clothes, selectedClothes, 1, aPC);
+
+<span class="nc bnc" id="L85" title="All 2 branches missed.">				if (!selectedClothes.isEmpty())</span>
+				{
+<span class="nc" id="L87">					Equipment eq = selectedClothes.get(0);</span>
+
+<span class="nc bnc" id="L89" title="All 2 branches missed.">					if (eq != null)</span>
+					{
+<span class="nc" id="L91">						eq = eq.clone();</span>
+<span class="nc" id="L92">						eq.setQty(1.0);</span>
+
+						//
+						// Need to resize to fit?
+						//
+<span class="nc bnc" id="L97" title="All 2 branches missed.">						if (!pcSizeAdj.equals(eq.getSizeAdjustment()))</span>
+						{
+<span class="nc" id="L99">							eq.resizeItem(aPC, pcSizeAdj);</span>
+						}
+
+<span class="nc" id="L102">						eq.setCostMod('-' + eq.getCost(aPC).toString()); // make cost 0</span>
+
+<span class="nc bnc" id="L104" title="All 2 branches missed.">						if (aPC.getEquipmentNamed(eq.nameItemFromModifiers(aPC)) == null)</span>
+						{
+<span class="nc" id="L106">							aPC.addEquipment(eq);</span>
+						}
+						else
+						{
+<span class="nc" id="L110">							Logging.errorPrint(&quot;Cannot add duplicate equipment to PC&quot;); //$NON-NLS-1$</span>
+						}
+					}
+				}
+			}
+		}
+
+<span class="nc" id="L117">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

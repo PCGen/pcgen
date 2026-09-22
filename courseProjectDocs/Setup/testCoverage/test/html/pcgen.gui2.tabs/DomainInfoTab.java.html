@@ -1,0 +1,891 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DomainInfoTab.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.gui2.tabs</a> &gt; <span class="el_source">DomainInfoTab.java</span></div><h1>DomainInfoTab.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2010 Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ * 
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ * 
+ */
+package pcgen.gui2.tabs;
+
+import java.awt.BorderLayout;
+import java.awt.Component;
+import java.awt.event.ActionEvent;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
+
+import javax.swing.AbstractAction;
+import javax.swing.Box;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.ListSelectionModel;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.TableColumn;
+
+import pcgen.base.util.Indirect;
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.enumeration.FactSetKey;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.util.CControl;
+import pcgen.core.Deity;
+import pcgen.core.Domain;
+import pcgen.core.PCAlignment;
+import pcgen.core.QualifiedObject;
+import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.core.InfoFacade;
+import pcgen.facade.core.InfoFactory;
+import pcgen.facade.util.DefaultListFacade;
+import pcgen.facade.util.ListFacade;
+import pcgen.facade.util.ReferenceFacade;
+import pcgen.facade.util.event.ListEvent;
+import pcgen.facade.util.event.ListListener;
+import pcgen.facade.util.event.ReferenceEvent;
+import pcgen.facade.util.event.ReferenceListener;
+import pcgen.gui2.UIPropertyContext;
+import pcgen.gui2.filter.DisplayableFilter;
+import pcgen.gui2.filter.Filter;
+import pcgen.gui2.filter.FilterBar;
+import pcgen.gui2.filter.FilterButton;
+import pcgen.gui2.filter.FilterHandler;
+import pcgen.gui2.filter.FilteredListFacadeTableModel;
+import pcgen.gui2.filter.FilteredTreeViewTable;
+import pcgen.gui2.filter.SearchFilterPanel;
+import pcgen.gui2.tabs.models.CharacterTreeCellRenderer.Handler;
+import pcgen.gui2.tabs.models.QualifiedTreeCellRenderer;
+import pcgen.gui2.tools.FlippingSplitPane;
+import pcgen.gui2.tools.InfoPane;
+import pcgen.gui2.util.FontManipulation;
+import pcgen.gui2.util.JDynamicTable;
+import pcgen.gui2.util.table.DefaultDynamicTableColumnModel;
+import pcgen.gui2.util.table.DynamicTableColumnModel;
+import pcgen.gui2.util.table.TableUtils;
+import pcgen.gui2.util.treeview.DataView;
+import pcgen.gui2.util.treeview.DataViewColumn;
+import pcgen.gui2.util.treeview.DefaultDataViewColumn;
+import pcgen.gui2.util.treeview.TreeView;
+import pcgen.gui2.util.treeview.TreeViewModel;
+import pcgen.gui2.util.treeview.TreeViewPath;
+import pcgen.gui3.utilty.ColorUtilty;
+import pcgen.system.LanguageBundle;
+import pcgen.util.enumeration.Tab;
+
+/**
+ * This component handles deity and domain selection for a character.
+ */
+@SuppressWarnings(&quot;serial&quot;)
+public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab, TodoHandler
+{
+
+	private final FilteredTreeViewTable&lt;Object, Deity&gt; deityTable;
+	private final JDynamicTable domainTable;
+	private final JTable domainRowHeaderTable;
+	private final JLabel selectedDeity;
+	private final JButton selectDeity;
+	private final JLabel selectedDomain;
+	private final InfoPane deityInfo;
+	private final InfoPane domainInfo;
+	private DisplayableFilter&lt;CharacterFacade, QualifiedObject&lt;Domain&gt;&gt; domainFilter;
+	private final FilterButton&lt;Object, Deity&gt; qDeityButton;
+	private final FilterButton&lt;Object, QualifiedObject&lt;Domain&gt;&gt; qDomainButton;
+	private final QualifiedTreeCellRenderer qualifiedRenderer;
+
+	public DomainInfoTab()
+	{
+<span class="nc" id="L115">		super();</span>
+<span class="nc" id="L116">		this.deityTable = new FilteredTreeViewTable&lt;&gt;();</span>
+<span class="nc" id="L117">		this.domainTable = new JDynamicTable();</span>
+<span class="nc" id="L118">		this.domainRowHeaderTable = TableUtils.createDefaultTable();</span>
+<span class="nc" id="L119">		this.selectedDeity = new JLabel();</span>
+<span class="nc" id="L120">		this.selectDeity = new JButton();</span>
+<span class="nc" id="L121">		this.selectedDomain = new JLabel();</span>
+<span class="nc" id="L122">		this.deityInfo = new InfoPane(&quot;in_deityInfo&quot;); //$NON-NLS-1$</span>
+<span class="nc" id="L123">		this.domainInfo = new InfoPane(&quot;in_domainInfo&quot;); //$NON-NLS-1$</span>
+<span class="nc" id="L124">		this.qDeityButton = new FilterButton&lt;&gt;(&quot;DeityQualified&quot;);</span>
+<span class="nc" id="L125">		this.qDomainButton = new FilterButton&lt;&gt;(&quot;DomainQualified&quot;);</span>
+<span class="nc" id="L126">		this.qualifiedRenderer = new QualifiedTreeCellRenderer();</span>
+<span class="nc" id="L127">		initComponents();</span>
+<span class="nc" id="L128">	}</span>
+
+	private void initComponents()
+	{
+<span class="nc" id="L132">		setOrientation(VERTICAL_SPLIT);</span>
+
+<span class="nc" id="L134">		deityTable.setTreeCellRenderer(qualifiedRenderer);</span>
+<span class="nc" id="L135">		JPanel panel = new JPanel(new BorderLayout());</span>
+<span class="nc" id="L136">		FilterBar&lt;Object, Deity&gt; bar = new FilterBar&lt;&gt;();</span>
+<span class="nc" id="L137">		bar.addDisplayableFilter(new SearchFilterPanel());</span>
+<span class="nc" id="L138">		qDeityButton.setText(LanguageBundle.getString(&quot;in_igQualFilter&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L139">		bar.addDisplayableFilter(qDeityButton);</span>
+<span class="nc" id="L140">		deityTable.setDisplayableFilter(bar);</span>
+<span class="nc" id="L141">		panel.add(bar, BorderLayout.NORTH);</span>
+
+<span class="nc" id="L143">		ListSelectionModel selectionModel = deityTable.getSelectionModel();</span>
+<span class="nc" id="L144">		selectionModel.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);</span>
+<span class="nc" id="L145">		panel.add(new JScrollPane(deityTable), BorderLayout.CENTER);</span>
+
+<span class="nc" id="L147">		Box box = Box.createHorizontalBox();</span>
+<span class="nc" id="L148">		box.add(Box.createHorizontalGlue());</span>
+<span class="nc" id="L149">		box.add(new JLabel(LanguageBundle.getString(&quot;in_domDeityLabel&quot;))); //$NON-NLS-1$</span>
+<span class="nc" id="L150">		box.add(Box.createHorizontalStrut(5));</span>
+<span class="nc" id="L151">		box.add(selectedDeity);</span>
+<span class="nc" id="L152">		box.add(Box.createHorizontalStrut(5));</span>
+<span class="nc" id="L153">		box.add(selectDeity);</span>
+<span class="nc" id="L154">		box.add(Box.createHorizontalGlue());</span>
+<span class="nc" id="L155">		panel.add(box, BorderLayout.SOUTH);</span>
+
+<span class="nc" id="L157">		FlippingSplitPane splitPane = new FlippingSplitPane();</span>
+<span class="nc" id="L158">		splitPane.setLeftComponent(panel);</span>
+
+<span class="nc" id="L160">		panel = new JPanel(new BorderLayout());</span>
+<span class="nc" id="L161">		FilterBar&lt;CharacterFacade, QualifiedObject&lt;Domain&gt;&gt; dbar = new FilterBar&lt;&gt;();</span>
+<span class="nc" id="L162">		dbar.addDisplayableFilter(new SearchFilterPanel());</span>
+<span class="nc" id="L163">		qDomainButton.setText(LanguageBundle.getString(&quot;in_igQualFilter&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L164">		dbar.addDisplayableFilter(qDomainButton);</span>
+<span class="nc" id="L165">		domainFilter = dbar;</span>
+<span class="nc" id="L166">		panel.add(dbar, BorderLayout.NORTH);</span>
+
+<span class="nc" id="L168">		selectionModel = domainTable.getSelectionModel();</span>
+<span class="nc" id="L169">		selectionModel.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);</span>
+<span class="nc" id="L170">		domainTable.setAutoCreateColumnsFromModel(false);</span>
+<span class="nc" id="L171">		domainTable.setColumnModel(createDomainColumnModel());</span>
+
+<span class="nc" id="L173">		JScrollPane scrollPane = TableUtils.createCheckBoxSelectionPane(domainTable, domainRowHeaderTable);</span>
+<span class="nc" id="L174">		panel.add(scrollPane, BorderLayout.CENTER);</span>
+
+<span class="nc" id="L176">		box = Box.createHorizontalBox();</span>
+<span class="nc" id="L177">		box.add(Box.createHorizontalGlue());</span>
+<span class="nc" id="L178">		box.add(new JLabel(LanguageBundle.getString(&quot;in_domRemainDomLabel&quot;))); //$NON-NLS-1$</span>
+<span class="nc" id="L179">		box.add(Box.createHorizontalStrut(5));</span>
+<span class="nc" id="L180">		box.add(selectedDomain);</span>
+<span class="nc" id="L181">		box.add(Box.createHorizontalGlue());</span>
+
+<span class="nc" id="L183">		panel.add(box, BorderLayout.SOUTH);</span>
+
+<span class="nc" id="L185">		splitPane.setRightComponent(panel);</span>
+<span class="nc" id="L186">		setTopComponent(splitPane);</span>
+<span class="nc" id="L187">		splitPane = new FlippingSplitPane();</span>
+<span class="nc" id="L188">		splitPane.setLeftComponent(deityInfo);</span>
+<span class="nc" id="L189">		splitPane.setRightComponent(domainInfo);</span>
+<span class="nc" id="L190">		setBottomComponent(splitPane);</span>
+<span class="nc" id="L191">		setResizeWeight(0.65);</span>
+<span class="nc" id="L192">	}</span>
+
+	public DynamicTableColumnModel createDomainColumnModel()
+	{
+<span class="nc" id="L196">		DefaultDynamicTableColumnModel model = new DefaultDynamicTableColumnModel(1);</span>
+<span class="nc" id="L197">		TableColumn column = new TableColumn(0);</span>
+<span class="nc" id="L198">		column.setHeaderValue(LanguageBundle.getString(&quot;in_domains&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L199">		column.setPreferredWidth(150);</span>
+<span class="nc" id="L200">		model.addColumn(column);</span>
+<span class="nc" id="L201">		model.setVisible(column, true);</span>
+<span class="nc" id="L202">		column = new TableColumn(1);</span>
+<span class="nc" id="L203">		column.setHeaderValue(LanguageBundle.getString(&quot;in_descrip&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L204">		column.setPreferredWidth(150);</span>
+<span class="nc" id="L205">		model.setVisible(column, false);</span>
+<span class="nc" id="L206">		column = new TableColumn(2);</span>
+<span class="nc" id="L207">		column.setHeaderValue(LanguageBundle.getString(&quot;in_source&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L208">		column.setPreferredWidth(150);</span>
+<span class="nc" id="L209">		model.setVisible(column, false);</span>
+<span class="nc" id="L210">		return model;</span>
+	}
+
+	@Override
+	public ModelMap createModels(CharacterFacade character)
+	{
+<span class="nc" id="L216">		ModelMap models = new ModelMap();</span>
+<span class="nc" id="L217">		models.put(DeityTreeViewModel.class, new DeityTreeViewModel(character));</span>
+<span class="nc" id="L218">		models.put(DomainTableHandler.class, new DomainTableHandler(character));</span>
+<span class="nc" id="L219">		models.put(SelectDeityAction.class, new SelectDeityAction(character));</span>
+<span class="nc" id="L220">		models.put(DeityLabelHandler.class, new DeityLabelHandler(character, selectedDeity));</span>
+<span class="nc" id="L221">		models.put(DomainLabelHandler.class, new DomainLabelHandler(character, selectedDomain));</span>
+<span class="nc" id="L222">		models.put(DeityInfoHandler.class, new DeityInfoHandler(character));</span>
+<span class="nc" id="L223">		models.put(DomainInfoHandler.class, new DomainInfoHandler(character));</span>
+<span class="nc" id="L224">		models.put(DomainRenderer.class, new DomainRenderer(character));</span>
+<span class="nc" id="L225">		models.put(Handler.class, qualifiedRenderer.createHandler(character));</span>
+<span class="nc" id="L226">		models.put(QualifiedFilterHandler.class, new QualifiedFilterHandler(character));</span>
+<span class="nc" id="L227">		return models;</span>
+	}
+
+	@Override
+	public void restoreModels(ModelMap models)
+	{
+<span class="nc" id="L233">		models.get(DomainLabelHandler.class).install();</span>
+<span class="nc" id="L234">		models.get(DeityLabelHandler.class).install();</span>
+<span class="nc" id="L235">		models.get(QualifiedFilterHandler.class).install();</span>
+<span class="nc" id="L236">		models.get(DomainTableHandler.class).install();</span>
+<span class="nc" id="L237">		models.get(DomainInfoHandler.class).install();</span>
+<span class="nc" id="L238">		models.get(DeityInfoHandler.class).install();</span>
+<span class="nc" id="L239">		models.get(DomainRenderer.class).install();</span>
+<span class="nc" id="L240">		models.get(SelectDeityAction.class).install();</span>
+<span class="nc" id="L241">		models.get(Handler.class).install();</span>
+<span class="nc" id="L242">		deityTable.setTreeViewModel(models.get(DeityTreeViewModel.class));</span>
+<span class="nc" id="L243">		selectDeity.setAction(models.get(SelectDeityAction.class));</span>
+<span class="nc" id="L244">	}</span>
+
+	@Override
+	public void storeModels(ModelMap models)
+	{
+<span class="nc" id="L249">		models.get(DomainLabelHandler.class).uninstall();</span>
+<span class="nc" id="L250">		models.get(DeityLabelHandler.class).uninstall();</span>
+<span class="nc" id="L251">		models.get(DomainTableHandler.class).uninstall();</span>
+<span class="nc" id="L252">		models.get(DomainInfoHandler.class).uninstall();</span>
+<span class="nc" id="L253">		models.get(DeityInfoHandler.class).uninstall();</span>
+<span class="nc" id="L254">		models.get(SelectDeityAction.class).uninstall();</span>
+<span class="nc" id="L255">		models.get(Handler.class).uninstall();</span>
+<span class="nc" id="L256">	}</span>
+
+	@Override
+	public TabTitle getTabTitle()
+	{
+<span class="nc" id="L261">		return new TabTitle(Tab.DOMAINS);</span>
+	}
+
+	@Override
+	public void adviseTodo(String fieldName)
+	{
+<span class="nc bnc" id="L267" title="All 2 branches missed.">		if (&quot;Domains&quot;.equals(fieldName)) //$NON-NLS-1$</span>
+		{
+<span class="nc bnc" id="L269" title="All 2 branches missed.">			if (domainTable.getRowCount() &gt; 0)</span>
+			{
+<span class="nc" id="L271">				domainTable.requestFocusInWindow();</span>
+<span class="nc" id="L272">				domainTable.getSelectionModel().setSelectionInterval(0, 0);</span>
+<span class="nc" id="L273">				deityTable.getSelectionModel().clearSelection();</span>
+			}
+<span class="nc bnc" id="L275" title="All 2 branches missed.">			else if (deityTable.getRowCount() &gt; 0)</span>
+			{
+<span class="nc" id="L277">				deityTable.requestFocusInWindow();</span>
+<span class="nc" id="L278">				deityTable.getSelectionModel().setSelectionInterval(0, 0);</span>
+			}
+		}
+<span class="nc" id="L281">	}</span>
+
+	private class DomainRenderer extends DefaultTableCellRenderer
+	{
+
+		private final CharacterFacade character;
+
+		DomainRenderer(CharacterFacade character)
+<span class="nc" id="L289">		{</span>
+<span class="nc" id="L290">			this.character = character;</span>
+<span class="nc" id="L291">		}</span>
+
+		void install()
+		{
+<span class="nc" id="L295">			domainTable.setDefaultRenderer(Object.class, this);</span>
+<span class="nc" id="L296">		}</span>
+
+		@Override
+		public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus,
+			int row, int column)
+		{
+<span class="nc" id="L302">			super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);</span>
+<span class="nc bnc" id="L303" title="All 2 branches missed.">			if (value instanceof QualifiedObject</span>
+<span class="nc bnc" id="L304" title="All 2 branches missed.">				&amp;&amp; ((QualifiedObject&lt;?&gt;) value).getRawObject() instanceof Domain</span>
+<span class="nc bnc" id="L305" title="All 2 branches missed.">				&amp;&amp; !character.isQualifiedFor((QualifiedObject&lt;Domain&gt;) value))</span>
+			{
+<span class="nc" id="L307">				setForeground(ColorUtilty.colorToAWTColor(UIPropertyContext.getNotQualifiedColor()));</span>
+			}
+<span class="nc bnc" id="L309" title="All 2 branches missed.">			else if (!isSelected)</span>
+			{
+<span class="nc" id="L311">				setForeground(ColorUtilty.colorToAWTColor(UIPropertyContext.getQualifiedColor()));</span>
+			}
+<span class="nc bnc" id="L313" title="All 4 branches missed.">			if (value instanceof InfoFacade &amp;&amp; ((InfoFacade) value).isNamePI())</span>
+			{
+<span class="nc" id="L315">				setFont(FontManipulation.bold_italic(getFont()));</span>
+			}
+			else
+			{
+<span class="nc" id="L319">				setFont(FontManipulation.plain(getFont()));</span>
+			}
+<span class="nc" id="L321">			return this;</span>
+		}
+
+	}
+
+	private class DeityInfoHandler implements ListSelectionListener
+	{
+
+		private final CharacterFacade character;
+		private String text;
+
+		DeityInfoHandler(CharacterFacade character)
+<span class="nc" id="L333">		{</span>
+<span class="nc" id="L334">			this.character = character;</span>
+<span class="nc" id="L335">			this.text = &quot;&quot;; //$NON-NLS-1$</span>
+<span class="nc" id="L336">		}</span>
+
+		void install()
+		{
+<span class="nc" id="L340">			deityTable.getSelectionModel().addListSelectionListener(this);</span>
+<span class="nc" id="L341">			deityInfo.setText(text);</span>
+<span class="nc" id="L342">		}</span>
+
+		void uninstall()
+		{
+<span class="nc" id="L346">			deityTable.getSelectionModel().removeListSelectionListener(this);</span>
+<span class="nc" id="L347">		}</span>
+
+		@Override
+		public void valueChanged(ListSelectionEvent e)
+		{
+<span class="nc bnc" id="L352" title="All 2 branches missed.">			if (!e.getValueIsAdjusting())</span>
+			{
+<span class="nc" id="L354">				int selectedRow = deityTable.getSelectedRow();</span>
+<span class="nc bnc" id="L355" title="All 2 branches missed.">				if (selectedRow != -1)</span>
+				{
+<span class="nc" id="L357">					Object obj = deityTable.getModel().getValueAt(selectedRow, 0);</span>
+<span class="nc bnc" id="L358" title="All 2 branches missed.">					if (obj instanceof Deity)</span>
+					{
+<span class="nc" id="L360">						text = character.getInfoFactory().getHTMLInfo((Deity) obj);</span>
+<span class="nc" id="L361">						deityInfo.setText(text);</span>
+					}
+				}
+			}
+<span class="nc" id="L365">		}</span>
+
+	}
+
+	private class DomainInfoHandler implements ListSelectionListener
+	{
+
+		private final CharacterFacade character;
+		private String text;
+
+		DomainInfoHandler(CharacterFacade character)
+<span class="nc" id="L376">		{</span>
+<span class="nc" id="L377">			this.character = character;</span>
+<span class="nc" id="L378">			this.text = &quot;&quot;; //$NON-NLS-1$</span>
+<span class="nc" id="L379">		}</span>
+
+		void install()
+		{
+<span class="nc" id="L383">			domainTable.getSelectionModel().addListSelectionListener(this);</span>
+<span class="nc" id="L384">			domainInfo.setText(text);</span>
+<span class="nc" id="L385">		}</span>
+
+		void uninstall()
+		{
+<span class="nc" id="L389">			domainTable.getSelectionModel().removeListSelectionListener(this);</span>
+<span class="nc" id="L390">		}</span>
+
+		@Override
+		public void valueChanged(ListSelectionEvent e)
+		{
+<span class="nc bnc" id="L395" title="All 2 branches missed.">			if (!e.getValueIsAdjusting())</span>
+			{
+<span class="nc bnc" id="L397" title="All 2 branches missed.">				if (domainRowHeaderTable.isEditing())</span>
+				{
+<span class="nc" id="L399">					domainRowHeaderTable.getCellEditor().cancelCellEditing();</span>
+				}
+<span class="nc" id="L401">				int selectedRow = domainTable.getSelectedRow();</span>
+<span class="nc" id="L402">				QualifiedObject&lt;Domain&gt; domain = null;</span>
+<span class="nc bnc" id="L403" title="All 2 branches missed.">				if (selectedRow != -1)</span>
+				{
+<span class="nc" id="L405">					domain = (QualifiedObject&lt;Domain&gt;) domainTable.getModel().getValueAt(selectedRow, 0);</span>
+				}
+<span class="nc bnc" id="L407" title="All 2 branches missed.">				if (domain != null)</span>
+				{
+<span class="nc" id="L409">					text = character.getInfoFactory().getHTMLInfo(domain);</span>
+<span class="nc" id="L410">					domainInfo.setText(text);</span>
+				}
+			}
+<span class="nc" id="L413">		}</span>
+
+	}
+
+	private class SelectDeityAction extends AbstractAction
+	{
+
+		private final CharacterFacade character;
+
+		SelectDeityAction(CharacterFacade character)
+<span class="nc" id="L423">		{</span>
+<span class="nc" id="L424">			super(LanguageBundle.getString(&quot;in_select&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L425">			this.character = character;</span>
+<span class="nc" id="L426">		}</span>
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+<span class="nc" id="L431">			int selectedRow = deityTable.getSelectedRow();</span>
+<span class="nc bnc" id="L432" title="All 2 branches missed.">			if (selectedRow != -1)</span>
+			{
+<span class="nc" id="L434">				Object rowObj = deityTable.getModel().getValueAt(selectedRow, 0);</span>
+<span class="nc bnc" id="L435" title="All 2 branches missed.">				if (rowObj instanceof Deity deity)</span>
+				{
+<span class="nc" id="L437">					character.setDeity(deity);</span>
+				}
+			}
+<span class="nc" id="L440">		}</span>
+
+		void install()
+		{
+<span class="nc" id="L444">			deityTable.addActionListener(this);</span>
+<span class="nc" id="L445">		}</span>
+
+		void uninstall()
+		{
+<span class="nc" id="L449">			deityTable.removeActionListener(this);</span>
+<span class="nc" id="L450">		}</span>
+
+	}
+
+	private class QualifiedFilterHandler
+	{
+
+<span class="nc" id="L457">		private final Filter&lt;Object, QualifiedObject&lt;Domain&gt;&gt; domainFilter = new Filter&lt;&gt;()</span>
+<span class="nc" id="L458">		{</span>
+			@Override
+			public boolean accept(Object context, QualifiedObject&lt;Domain&gt; element)
+			{
+<span class="nc" id="L462">				return character.isQualifiedFor(element);</span>
+			}
+
+		};
+<span class="nc" id="L466">		private final Filter&lt;Object, Deity&gt; deityFilter = new Filter&lt;&gt;()</span>
+<span class="nc" id="L467">		{</span>
+			@Override
+			public boolean accept(Object context, Deity element)
+			{
+<span class="nc" id="L471">				return character.isQualifiedFor(element);</span>
+			}
+
+		};
+		private final CharacterFacade character;
+
+		QualifiedFilterHandler(CharacterFacade character)
+<span class="nc" id="L478">		{</span>
+<span class="nc" id="L479">			this.character = character;</span>
+<span class="nc" id="L480">		}</span>
+
+		void install()
+		{
+<span class="nc" id="L484">			qDomainButton.setFilter(domainFilter);</span>
+<span class="nc" id="L485">			qDeityButton.setFilter(deityFilter);</span>
+<span class="nc" id="L486">		}</span>
+
+	}
+
+	private class DomainTableHandler implements FilterHandler
+	{
+
+		private final DomainTableModel tableModel;
+
+		DomainTableHandler(CharacterFacade character)
+<span class="nc" id="L496">		{</span>
+<span class="nc" id="L497">			tableModel = new DomainTableModel(character);</span>
+<span class="nc" id="L498">		}</span>
+
+		void install()
+		{
+<span class="nc" id="L502">			domainFilter.setFilterHandler(this);</span>
+<span class="nc" id="L503">			tableModel.setFilter(domainFilter);</span>
+<span class="nc" id="L504">			domainTable.setModel(tableModel);</span>
+<span class="nc" id="L505">			domainRowHeaderTable.setModel(tableModel);</span>
+<span class="nc" id="L506">		}</span>
+
+		void uninstall()
+		{
+<span class="nc" id="L510">			tableModel.setFilter(null);</span>
+<span class="nc" id="L511">		}</span>
+
+		@Override
+		public void refilter()
+		{
+<span class="nc" id="L516">			tableModel.refilter();</span>
+<span class="nc" id="L517">		}</span>
+
+		@Override
+		public void scrollToTop()
+		{
+			// do nothing
+<span class="nc" id="L523">		}</span>
+
+		@Override
+		public void setSearchEnabled(boolean enable)
+		{
+<span class="nc" id="L528">		}</span>
+
+	}
+
+	private static class DomainLabelHandler implements ReferenceListener&lt;Integer&gt;
+	{
+
+		private final JLabel label;
+		private final ReferenceFacade&lt;Integer&gt; ref;
+
+		DomainLabelHandler(CharacterFacade character, JLabel label)
+<span class="nc" id="L539">		{</span>
+<span class="nc" id="L540">			ref = character.getRemainingDomainSelectionsRef();</span>
+<span class="nc" id="L541">			this.label = label;</span>
+<span class="nc" id="L542">		}</span>
+
+		void install()
+		{
+<span class="nc bnc" id="L546" title="All 2 branches missed.">			if (ref != null)</span>
+			{
+<span class="nc bnc" id="L548" title="All 2 branches missed.">				if (ref.get() != null)</span>
+				{
+<span class="nc" id="L550">					label.setText(ref.get().toString());</span>
+				}
+<span class="nc" id="L552">				ref.addReferenceListener(this);</span>
+			}
+<span class="nc" id="L554">		}</span>
+
+		void uninstall()
+		{
+<span class="nc bnc" id="L558" title="All 2 branches missed.">			if (ref != null)</span>
+			{
+<span class="nc" id="L560">				ref.removeReferenceListener(this);</span>
+			}
+<span class="nc" id="L562">		}</span>
+
+		@Override
+		public void referenceChanged(ReferenceEvent&lt;Integer&gt; e)
+		{
+<span class="nc" id="L567">			label.setText(e.getNewReference().toString());</span>
+<span class="nc" id="L568">		}</span>
+
+	}
+
+	private static class DeityLabelHandler implements ReferenceListener&lt;Deity&gt;
+	{
+
+		private final JLabel label;
+		private final ReferenceFacade&lt;Deity&gt; ref;
+
+		DeityLabelHandler(CharacterFacade character, JLabel label)
+<span class="nc" id="L579">		{</span>
+<span class="nc" id="L580">			ref = character.getDeityRef();</span>
+<span class="nc" id="L581">			this.label = label;</span>
+<span class="nc" id="L582">		}</span>
+
+		void install()
+		{
+<span class="nc" id="L586">			label.setFont(FontManipulation.plain(label.getFont()));</span>
+<span class="nc bnc" id="L587" title="All 2 branches missed.">			if (ref == null)</span>
+			{
+<span class="nc" id="L589">				return;</span>
+			}
+<span class="nc bnc" id="L591" title="All 2 branches missed.">			if (ref.get() != null)</span>
+			{
+<span class="nc" id="L593">				label.setText(ref.get().toString());</span>
+<span class="nc bnc" id="L594" title="All 2 branches missed.">				if (ref.get().isNamePI())</span>
+				{
+<span class="nc" id="L596">					label.setFont(FontManipulation.bold_italic(label.getFont()));</span>
+				}
+			}
+			else
+			{
+<span class="nc" id="L601">				label.setText(&quot;&quot;); //$NON-NLS-1$</span>
+			}
+<span class="nc" id="L603">			ref.addReferenceListener(this);</span>
+
+<span class="nc" id="L605">		}</span>
+
+		void uninstall()
+		{
+<span class="nc bnc" id="L609" title="All 2 branches missed.">			if (ref != null)</span>
+			{
+<span class="nc" id="L611">				ref.removeReferenceListener(this);</span>
+			}
+<span class="nc" id="L613">		}</span>
+
+		@Override
+		public void referenceChanged(ReferenceEvent&lt;Deity&gt; e)
+		{
+<span class="nc" id="L618">			label.setText(e.getNewReference().toString());</span>
+<span class="nc" id="L619">		}</span>
+
+	}
+
+	private static class DomainTableModel extends FilteredListFacadeTableModel&lt;QualifiedObject&lt;Domain&gt;&gt;
+	{
+
+<span class="nc" id="L626">		private final ListListener&lt;QualifiedObject&lt;Domain&gt;&gt; listListener = new ListListener&lt;&gt;()</span>
+<span class="nc" id="L627">		{</span>
+			@Override
+			public void elementAdded(ListEvent&lt;QualifiedObject&lt;Domain&gt;&gt; e)
+			{
+<span class="nc" id="L631">				elementsChanged(e);</span>
+<span class="nc" id="L632">			}</span>
+
+			@Override
+			public void elementRemoved(ListEvent&lt;QualifiedObject&lt;Domain&gt;&gt; e)
+			{
+<span class="nc" id="L637">				elementsChanged(e);</span>
+<span class="nc" id="L638">			}</span>
+
+			@Override
+			public void elementsChanged(ListEvent&lt;QualifiedObject&lt;Domain&gt;&gt; e)
+			{
+<span class="nc" id="L643">				fireTableRowsUpdated(0, sortedList.getSize() - 1);</span>
+<span class="nc" id="L644">			}</span>
+
+			@Override
+			public void elementModified(ListEvent&lt;QualifiedObject&lt;Domain&gt;&gt; e)
+			{
+<span class="nc" id="L649">			}</span>
+
+		};
+
+		DomainTableModel(CharacterFacade character)
+		{
+<span class="nc" id="L655">			super(character);</span>
+<span class="nc bnc" id="L656" title="All 2 branches missed.">			if (character.isFeatureEnabled(CControl.DOMAINFEATURE))</span>
+			{
+<span class="nc" id="L658">				setDelegate(character.getAvailableDomains());</span>
+<span class="nc" id="L659">				character.getDomains().addListListener(listListener);</span>
+			}
+<span class="nc" id="L661">		}</span>
+
+		@Override
+		public Class&lt;?&gt; getColumnClass(int columnIndex)
+		{
+<span class="nc bnc" id="L666" title="All 2 branches missed.">			if (columnIndex == -1)</span>
+			{
+<span class="nc" id="L668">				return Boolean.class;</span>
+			}
+<span class="nc" id="L670">			return super.getColumnClass(columnIndex);</span>
+		}
+
+		@Override
+		protected Object getValueAt(QualifiedObject&lt;Domain&gt; element, int column)
+		{
+<span class="nc bnc" id="L676" title="All 5 branches missed.">			return switch (column)</span>
+					{
+<span class="nc" id="L678">						case -1 -&gt; character.getDomains().containsElement(element);</span>
+<span class="nc" id="L679">						case 0 -&gt; element;</span>
+<span class="nc" id="L680">						case 1 -&gt; character.getInfoFactory().getDescription(element.getRawObject());</span>
+<span class="nc" id="L681">						case 2 -&gt; element.getRawObject().getSource();</span>
+<span class="nc" id="L682">						default -&gt; null;</span>
+					};
+		}
+
+		@Override
+		public int getColumnCount()
+		{
+<span class="nc" id="L689">			return 3;</span>
+		}
+
+		@Override
+		public boolean isCellEditable(int rowIndex, int columnIndex)
+		{
+<span class="nc bnc" id="L695" title="All 2 branches missed.">			if (columnIndex &gt;= 0)</span>
+			{
+<span class="nc" id="L697">				return false;</span>
+			}
+<span class="nc bnc" id="L699" title="All 2 branches missed.">			if (character.getRemainingDomainSelectionsRef().get() &gt; 0)</span>
+			{
+<span class="nc" id="L701">				return true;</span>
+			}
+<span class="nc" id="L703">			QualifiedObject&lt;Domain&gt; domain = sortedList.getElementAt(rowIndex);</span>
+<span class="nc" id="L704">			return character.getDomains().containsElement(domain);</span>
+		}
+
+		@Override
+		public void setValueAt(Object aValue, int rowIndex, int columnIndex)
+		{
+<span class="nc" id="L710">			QualifiedObject&lt;Domain&gt; domain = sortedList.getElementAt(rowIndex);</span>
+<span class="nc" id="L711">			Boolean bool = (Boolean) aValue;</span>
+<span class="nc bnc" id="L712" title="All 2 branches missed.">			if (bool)</span>
+			{
+<span class="nc" id="L714">				character.addDomain(domain);</span>
+			}
+			else
+			{
+<span class="nc" id="L718">				character.removeDomain(domain);</span>
+			}
+<span class="nc" id="L720">		}</span>
+
+	}
+
+	private static class DeityTreeViewModel implements TreeViewModel&lt;Deity&gt;, DataView&lt;Deity&gt;
+	{
+
+<span class="nc" id="L727">		private static final ListFacade&lt;TreeView&lt;Deity&gt;&gt; VIEWS =</span>
+<span class="nc" id="L728">				new DefaultListFacade&lt;&gt;(Arrays.asList(DeityTreeView.values()));</span>
+<span class="nc" id="L729">		private final List&lt;DefaultDataViewColumn&gt; columns =</span>
+<span class="nc" id="L730">				Arrays.asList(new DefaultDataViewColumn(&quot;in_alignLabel&quot;, Object.class), //$NON-NLS-1$</span>
+					new DefaultDataViewColumn(&quot;in_domains&quot;, String.class), //$NON-NLS-1$
+					new DefaultDataViewColumn(&quot;in_descrip&quot;, String.class), //$NON-NLS-1$
+					new DefaultDataViewColumn(&quot;in_pantheon&quot;, String.class), //$NON-NLS-1$
+					new DefaultDataViewColumn(&quot;in_favoredWeapon&quot;, String.class), //$NON-NLS-1$
+					new DefaultDataViewColumn(&quot;in_sourceLabel&quot;, String.class)); //$NON-NLS-1$
+		private final CharacterFacade character;
+		private final InfoFactory infoFactory;
+
+		DeityTreeViewModel(CharacterFacade character)
+<span class="nc" id="L740">		{</span>
+<span class="nc" id="L741">			this.character = character;</span>
+<span class="nc" id="L742">			this.infoFactory = character.getInfoFactory();</span>
+<span class="nc" id="L743">		}</span>
+
+		@Override
+		public ListFacade&lt;? extends TreeView&lt;Deity&gt;&gt; getTreeViews()
+		{
+<span class="nc" id="L748">			return VIEWS;</span>
+		}
+
+		@Override
+		public int getDefaultTreeViewIndex()
+		{
+<span class="nc" id="L754">			return 0;</span>
+		}
+
+		@Override
+		public DataView&lt;Deity&gt; getDataView()
+		{
+<span class="nc" id="L760">			return this;</span>
+		}
+
+		@Override
+		public ListFacade&lt;Deity&gt; getDataModel()
+		{
+<span class="nc" id="L766">			return character.getDataSet().getDeities();</span>
+		}
+
+		@Override
+		public Object getData(Deity obj, int column)
+		{
+<span class="nc bnc" id="L772" title="All 7 branches missed.">			return switch (column)</span>
+					{
+<span class="nc" id="L774">						case 0 -&gt; getAlignment(obj);</span>
+<span class="nc" id="L775">						case 1 -&gt; infoFactory.getDomains(obj);</span>
+<span class="nc" id="L776">						case 2 -&gt; infoFactory.getDescription(obj);</span>
+<span class="nc" id="L777">						case 3 -&gt; infoFactory.getPantheons(obj);</span>
+<span class="nc" id="L778">						case 4 -&gt; infoFactory.getFavoredWeapons(obj);</span>
+<span class="nc" id="L779">						case 5 -&gt; obj.getSource();</span>
+<span class="nc" id="L780">						default -&gt; null;</span>
+					};
+		}
+
+		@Override
+		public void setData(Object value, Deity element, int column)
+		{
+<span class="nc" id="L787">		}</span>
+
+		@Override
+		public List&lt;? extends DataViewColumn&gt; getDataColumns()
+		{
+<span class="nc" id="L792">			return columns;</span>
+		}
+
+		@Override
+		public String getPrefsKey()
+		{
+<span class="nc" id="L798">			return &quot;DeityTree&quot;; //$NON-NLS-1$</span>
+		}
+
+	}
+
+<span class="nc" id="L803">	private enum DeityTreeView implements TreeView&lt;Deity&gt;</span>
+	{
+
+<span class="nc" id="L806">		NAME(&quot;in_deity&quot;), //$NON-NLS-1$</span>
+<span class="nc" id="L807">		ALIGNMENT_NAME(&quot;in_alignmentDeity&quot;), //$NON-NLS-1$</span>
+<span class="nc" id="L808">		DOMAIN_NAME(&quot;in_domainDeity&quot;), //$NON-NLS-1$</span>
+<span class="nc" id="L809">		PANTHEON_NAME(&quot;in_pantheonDeity&quot;), //$NON-NLS-1$</span>
+<span class="nc" id="L810">		SOURCE_NAME(&quot;in_sourceDeity&quot;); //$NON-NLS-1$</span>
+		private final String name;
+
+		private DeityTreeView(String name)
+<span class="nc" id="L814">		{</span>
+<span class="nc" id="L815">			this.name = LanguageBundle.getString(name);</span>
+<span class="nc" id="L816">		}</span>
+
+		@Override
+		public String getViewName()
+		{
+<span class="nc" id="L821">			return name;</span>
+		}
+
+		@Override
+		public List&lt;TreeViewPath&lt;Deity&gt;&gt; getPaths(Deity pobj)
+		{
+<span class="nc" id="L827">			List&lt;TreeViewPath&lt;Deity&gt;&gt; paths = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L828" title="All 6 branches missed.">			switch (this)</span>
+			{
+				case NAME:
+<span class="nc" id="L831">					return Collections.singletonList(new TreeViewPath&lt;&gt;(pobj));</span>
+				case DOMAIN_NAME:
+<span class="nc bnc" id="L833" title="All 2 branches missed.">					for (String domain : getDomainNames(pobj))</span>
+					{
+<span class="nc" id="L835">						paths.add(new TreeViewPath&lt;&gt;(pobj, domain));</span>
+<span class="nc" id="L836">					}</span>
+<span class="nc" id="L837">					return paths;</span>
+				case ALIGNMENT_NAME:
+<span class="nc" id="L839">					return Collections.singletonList(new TreeViewPath&lt;&gt;(pobj, getAlignment(pobj)));</span>
+				case PANTHEON_NAME:
+<span class="nc bnc" id="L841" title="All 2 branches missed.">					for (String pantheon : getPantheons(pobj))</span>
+					{
+<span class="nc" id="L843">						paths.add(new TreeViewPath&lt;&gt;(pobj, pantheon));</span>
+<span class="nc" id="L844">					}</span>
+<span class="nc" id="L845">					return paths;</span>
+				case SOURCE_NAME:
+<span class="nc" id="L847">					return Collections.singletonList(new TreeViewPath&lt;&gt;(pobj, pobj.getSourceForNodeDisplay()));</span>
+				default:
+<span class="nc" id="L849">					throw new InternalError();</span>
+			}
+
+		}
+
+		List&lt;String&gt; getDomainNames(Deity pobj)
+		{
+<span class="nc" id="L856">			List&lt;String&gt; domains = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L857" title="All 2 branches missed.">			for (CDOMReference&lt;Domain&gt; ref : pobj.getSafeListMods(Deity.DOMAINLIST))</span>
+			{
+<span class="nc bnc" id="L859" title="All 2 branches missed.">				for (Domain d : ref.getContainedObjects())</span>
+				{
+<span class="nc" id="L861">					domains.add(String.valueOf(d));</span>
+<span class="nc" id="L862">				}</span>
+<span class="nc" id="L863">			}</span>
+<span class="nc" id="L864">			return domains;</span>
+		}
+
+		private Collection&lt;String&gt; getPantheons(Deity pobj)
+		{
+<span class="nc" id="L869">			Set&lt;String&gt; charDeityPantheon = new TreeSet&lt;&gt;();</span>
+<span class="nc" id="L870">			FactSetKey&lt;String&gt; fk = FactSetKey.valueOf(&quot;Pantheon&quot;);</span>
+<span class="nc bnc" id="L871" title="All 2 branches missed.">			for (Indirect&lt;String&gt; indirect : pobj.getSafeSetFor(fk))</span>
+			{
+<span class="nc" id="L873">				charDeityPantheon.add(indirect.get());</span>
+<span class="nc" id="L874">			}</span>
+<span class="nc" id="L875">			return charDeityPantheon;</span>
+		}
+
+	}
+
+	private static PCAlignment getAlignment(Deity pobj)
+	{
+<span class="nc" id="L882">		CDOMSingleRef&lt;PCAlignment&gt; ref = pobj.get(ObjectKey.ALIGNMENT);</span>
+<span class="nc bnc" id="L883" title="All 2 branches missed.">		if (ref == null)</span>
+		{
+<span class="nc" id="L885">			return null;</span>
+		}
+<span class="nc" id="L887">		return ref.get();</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

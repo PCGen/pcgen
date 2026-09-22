@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ClassToken.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.primitive.pcclass</a> &gt; <span class="el_source">ClassToken.java</span></div><h1>ClassToken.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2012 (C) James Dempsey
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package plugin.primitive.pcclass;
+
+import java.util.Collection;
+
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.Converter;
+import pcgen.cdom.base.PrimitiveFilter;
+import pcgen.cdom.enumeration.GroupingState;
+import pcgen.cdom.enumeration.StringKey;
+import pcgen.core.PCClass;
+import pcgen.core.PlayerCharacter;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.PrimitiveToken;
+
+/**
+ * ClassToken is a Primitive that filters based on the Class (this will include both Class
+ * and Subclass objects for a class).
+ */
+<span class="fc" id="L36">public class ClassToken implements PrimitiveToken&lt;PCClass&gt;, PrimitiveFilter&lt;PCClass&gt;</span>
+{
+<span class="fc" id="L38">	private static final Class&lt;PCClass&gt; PCCLASS_CLASS = PCClass.class;</span>
+	private String pcclass;
+	private CDOMReference&lt;PCClass&gt; allClasses;
+
+	@Override
+	public boolean initialize(LoadContext context, Class&lt;PCClass&gt; cl, String value, String args)
+	{
+<span class="fc bfc" id="L45" title="All 2 branches covered.">		if (args != null)</span>
+		{
+<span class="fc" id="L47">			return false;</span>
+		}
+<span class="fc" id="L49">		pcclass = value;</span>
+<span class="fc" id="L50">		allClasses = context.getReferenceContext().getCDOMAllReference(PCCLASS_CLASS);</span>
+<span class="fc" id="L51">		return true;</span>
+	}
+
+	@Override
+	public String getTokenName()
+	{
+<span class="fc" id="L57">		return &quot;CLASS&quot;;</span>
+	}
+
+	@Override
+	public Class&lt;PCClass&gt; getReferenceClass()
+	{
+<span class="fc" id="L63">		return PCCLASS_CLASS;</span>
+	}
+
+	@Override
+	public String getLSTformat(boolean useAny)
+	{
+<span class="fc" id="L69">		return getTokenName() + '=' + pcclass;</span>
+	}
+
+	@Override
+	public boolean allow(PlayerCharacter pc, PCClass cl)
+	{
+<span class="nc" id="L75">		return pcclass.equals(cl.get(StringKey.KEY_NAME));</span>
+	}
+
+	@Override
+	public GroupingState getGroupingState()
+	{
+<span class="fc" id="L81">		return GroupingState.ANY;</span>
+	}
+
+	@Override
+	public boolean equals(Object obj)
+	{
+<span class="pc bpc" id="L87" title="1 of 2 branches missed.">		if (obj == this)</span>
+		{
+<span class="nc" id="L89">			return true;</span>
+		}
+<span class="pc bpc" id="L91" title="1 of 2 branches missed.">		if (obj instanceof ClassToken other)</span>
+		{
+<span class="fc" id="L93">			return pcclass.equals(other.pcclass);</span>
+		}
+<span class="nc" id="L95">		return false;</span>
+	}
+
+	@Override
+	public int hashCode()
+	{
+<span class="pc bpc" id="L101" title="1 of 2 branches missed.">		return pcclass == null ? -7 : pcclass.hashCode();</span>
+	}
+
+	@Override
+	public &lt;R&gt; Collection&lt;? extends R&gt; getCollection(PlayerCharacter pc, Converter&lt;PCClass, R&gt; c)
+	{
+<span class="nc" id="L107">		return c.convert(allClasses, this);</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

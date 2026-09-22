@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SimpleAssociatedObject.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.base</a> &gt; <span class="el_source">SimpleAssociatedObject.java</span></div><h1>SimpleAssociatedObject.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2007, 2008 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.cdom.base;
+
+import java.util.Collection;
+
+import pcgen.cdom.enumeration.AssociationKey;
+
+/**
+ * SimpleAssociatedObject is a minimal implementation of the
+ * AssociatedPrereqObject interface.
+ */
+<span class="fc" id="L28">public class SimpleAssociatedObject extends ConcretePrereqObject implements AssociatedPrereqObject</span>
+{
+
+	/**
+	 * Helper AssociationSupport to support the Association functions of this
+	 * SimpleAssociatedObject
+	 */
+<span class="fc" id="L35">	private final AssociationSupport assoc = new AssociationSupport();</span>
+
+	/**
+	 * Returns the value associated with the given AssociationKey. Returns null
+	 * if this SimpleAssociatedObject contains no association for the given
+	 * AssociationKey.
+	 * 
+	 * @param &lt;T&gt;
+	 *            The type of the AssociationKey and the Class of the object to
+	 *            be returned
+	 * @param name
+	 *            The AssociationKey for which the associated value is to be
+	 *            returned
+	 * @return The value associated with the given AssociationKey.
+	 */
+	@Override
+	public &lt;T&gt; T getAssociation(AssociationKey&lt;T&gt; name)
+	{
+<span class="fc" id="L53">		return assoc.getAssociation(name);</span>
+	}
+
+	/**
+	 * Returns a Collection of the AssociationKeys that are in this
+	 * SimpleAssociatedObject.
+	 * 
+	 * This method is value-semantic, meaning that ownership of the Collection
+	 * returned by this method will be transferred to the calling object.
+	 * Modification of the returned Collection should not result in modifying
+	 * the SimpleAssociatedObject, and modifying the SimpleAssociatedObject
+	 * after the Collection is returned should not modify the Collection.
+	 * 
+	 * Note that it may be possible for an association to have a null value.
+	 * This method should include the AssociationKey for that association, if it
+	 * is present in the SimpleAssociatedObject, even if the value of the
+	 * association is null.
+	 * 
+	 * @return a Collection of the AssociationKeys that are in this
+	 *         SimpleAssociatedObject.
+	 */
+	@Override
+	public Collection&lt;AssociationKey&lt;?&gt;&gt; getAssociationKeys()
+	{
+<span class="fc" id="L77">		return assoc.getAssociationKeys();</span>
+	}
+
+	/**
+	 * Returns true if this SimpleAssociatedObject has any associations.
+	 * 
+	 * Note that it may be possible for an association to have a null value.
+	 * This method should return true if the association is present, even if
+	 * null.
+	 * 
+	 * @return true if this SimpleAssociatedObject has any associations; false
+	 *         otherwise.
+	 */
+	@Override
+	public boolean hasAssociations()
+	{
+<span class="nc" id="L93">		return assoc.hasAssociations();</span>
+	}
+
+	/**
+	 * Sets an Association (as defined by the given key) to the given value.
+	 * Overwrites any previous value associated with the given AssociationKey.
+	 * 
+	 * @param &lt;T&gt;
+	 *            The type of the AssociationKey and the Class of the object to
+	 *            be associated with the given AssociationKey.
+	 * @param name
+	 *            The AssociationKey used to form the association with the given
+	 *            value
+	 * @param value
+	 *            The value to be associated with the given AssociationKey
+	 */
+	@Override
+	public &lt;T&gt; void setAssociation(AssociationKey&lt;T&gt; name, T value)
+	{
+<span class="fc" id="L112">		assoc.setAssociation(name, value);</span>
+<span class="fc" id="L113">	}</span>
+
+	@Override
+	public int hashCode()
+	{
+<span class="nc" id="L118">		return assoc.hashCode();</span>
+	}
+
+	@Override
+	public boolean equals(Object obj)
+	{
+<span class="pc bpc" id="L124" title="1 of 2 branches missed.">		if (obj instanceof SimpleAssociatedObject other)</span>
+		{
+<span class="pc bpc" id="L126" title="2 of 4 branches missed.">			return assoc.equals(other.assoc) &amp;&amp; equalsPrereqObject(other);</span>
+		}
+<span class="nc" id="L128">		return false;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

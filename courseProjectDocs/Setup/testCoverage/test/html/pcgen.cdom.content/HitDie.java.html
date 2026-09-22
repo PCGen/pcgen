@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>HitDie.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.content</a> &gt; <span class="el_source">HitDie.java</span></div><h1>HitDie.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2007 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.cdom.content;
+
+import pcgen.cdom.base.ConcretePrereqObject;
+import pcgen.core.SettingsHandler;
+import pcgen.util.Logging;
+
+/**
+ * A HitDie is intended to be a type-safe wrapper for an integer hit die.
+ * 
+ * HitDie also provides other methods to support additional features for
+ * establish the sequence of HitDie objects.
+ */
+public final class HitDie extends ConcretePrereqObject implements Comparable&lt;HitDie&gt;
+{
+
+	/**
+	 * A HitDie for the integer constant ZERO. This is done in order to minimize
+	 * memory usage and construction speed in the many cases where a default
+	 * HitDie of ZERO is required.
+	 */
+<span class="fc" id="L38">	public static final HitDie ZERO = new HitDie(0);</span>
+
+	/**
+	 * The integer die for this HitDie
+	 */
+	private final int die;
+
+	/**
+	 * Constructs a new HitDie with the given int value.
+	 * 
+	 * @param dieSize
+	 *            The die size for this HitDie
+	 * @throws IllegalArgumentException
+	 *             if the given die size is negative
+	 */
+	public HitDie(int dieSize)
+<span class="fc" id="L54">	{</span>
+<span class="fc bfc" id="L55" title="All 2 branches covered.">		if (dieSize &lt; 0)</span>
+		{
+<span class="fc" id="L57">			throw new IllegalArgumentException(&quot;HitDie can not have a negative die size&quot;);</span>
+		}
+<span class="fc" id="L59">		die = dieSize;</span>
+<span class="fc" id="L60">	}</span>
+
+	/**
+	 * Returns the die size of this HitDie
+	 * 
+	 * @return The die size of this HitDie
+	 */
+	public int getDie()
+	{
+<span class="fc" id="L69">		return die;</span>
+	}
+
+	/**
+	 * Returns the next (i.e. next larger) HitDie in the globally defined
+	 * sequence of Hit Dice.
+	 * 
+	 * The behavior of this method is not defined if the HitDie on which this
+	 * method is called is not in the globally defined sequence of Hit Dice.
+	 * 
+	 * If this is the largest HitDie in the globally defined sequence of Hit
+	 * Dice, then this method will return the current HitDie.
+	 * 
+	 * @return the next HitDie in the globally defined sequence of Hit Dice.
+	 */
+	public HitDie getNext()
+	{
+<span class="nc" id="L86">		int[] dieSizes = SettingsHandler.getGameAsProperty().get().getDieSizes();</span>
+<span class="nc" id="L87">		int length = dieSizes.length;</span>
+<span class="nc bnc" id="L88" title="All 2 branches missed.">		for (int i = 0; i &lt; length; ++i)</span>
+		{
+<span class="nc bnc" id="L90" title="All 2 branches missed.">			if (die == dieSizes[i])</span>
+			{
+<span class="nc bnc" id="L92" title="All 2 branches missed.">				if (i == length - 1)</span>
+				{
+<span class="nc bnc" id="L94" title="All 2 branches missed.">					if (Logging.isDebugMode())</span>
+					{
+<span class="nc" id="L96">						Logging.debugPrint(&quot;Hit Die: &quot; + die + &quot; is Highest Hit Die in Die Sizes&quot;);</span>
+					}
+<span class="nc" id="L98">					return this;</span>
+				}
+				else
+				{
+<span class="nc" id="L102">					return new HitDie(dieSizes[i + 1]);</span>
+				}
+			}
+		}
+<span class="nc" id="L106">		Logging.errorPrint(&quot;Cannot find Hit Die: &quot; + die + &quot; in Global Die Sizes&quot;);</span>
+<span class="nc" id="L107">		return this;</span>
+	}
+
+	/**
+	 * Returns the previous (i.e. next smaller) HitDie in the globally defined
+	 * sequence of Hit Dice.
+	 * 
+	 * The behavior of this method is not defined if the HitDie on which this
+	 * method is called is not in the globally defined sequence of Hit Dice.
+	 * 
+	 * If this is the smallest HitDie in the globally defined sequence of Hit
+	 * Dice, then this method will return the current HitDie.
+	 * 
+	 * @return the previous HitDie in the globally defined sequence of Hit Dice.
+	 */
+	public HitDie getPrevious()
+	{
+<span class="nc" id="L124">		int[] dieSizes = SettingsHandler.getGameAsProperty().get().getDieSizes();</span>
+<span class="nc" id="L125">		int length = dieSizes.length;</span>
+<span class="nc bnc" id="L126" title="All 2 branches missed.">		for (int i = 0; i &lt; length; ++i)</span>
+		{
+<span class="nc bnc" id="L128" title="All 2 branches missed.">			if (die == dieSizes[i])</span>
+			{
+<span class="nc bnc" id="L130" title="All 2 branches missed.">				if (i == 0)</span>
+				{
+<span class="nc bnc" id="L132" title="All 2 branches missed.">					if (Logging.isDebugMode())</span>
+					{
+<span class="nc" id="L134">						Logging.debugPrint(&quot;Hit Die: &quot; + die + &quot; is Lowest Hit Die in Die Sizes&quot;);</span>
+					}
+				}
+				else
+				{
+<span class="nc" id="L139">					return new HitDie(dieSizes[i - 1]);</span>
+				}
+			}
+		}
+<span class="nc" id="L143">		Logging.errorPrint(&quot;Cannot find Hit Die: &quot; + die + &quot; in Global Die Sizes&quot;);</span>
+<span class="nc" id="L144">		return this;</span>
+	}
+
+	@Override
+	public int hashCode()
+	{
+<span class="nc" id="L150">		return die;</span>
+	}
+
+	@Override
+	public boolean equals(Object obj)
+	{
+<span class="pc bpc" id="L156" title="2 of 4 branches missed.">		return obj instanceof HitDie &amp;&amp; ((HitDie) obj).die == die;</span>
+	}
+
+	/**
+	 * Returns a String representation of this HitDie, primarily for purposes of
+	 * debugging. It is strongly advised that no dependency on this method be
+	 * created, as the return value may be changed without warning.
+	 */
+	@Override
+	public String toString()
+	{
+<span class="nc" id="L167">		return &quot;HitDie: &quot; + die;</span>
+	}
+
+	/**
+	 * Compares this HitDie to another HitDie.
+	 * 
+	 * @param other
+	 *            The HitDie to be compared to this HitDie.
+	 * @return 0 if this HitDie is equal to the given HitDie; -1 if this HitDie
+	 *         has a die size less than the given HitDie; +1 if this HitDie has
+	 *         a die size greater than the given HitDie
+	 * @throws NullPointerException
+	 *             if the given HitDie is null
+	 */
+	@Override
+	public int compareTo(HitDie other)
+	{
+<span class="nc" id="L184">		return Integer.compare(die, other.die);</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

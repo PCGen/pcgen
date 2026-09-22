@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>VariableUtilities.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.formula</a> &gt; <span class="el_source">VariableUtilities.java</span></div><h1>VariableUtilities.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) Thomas Parker, 2018-9.
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package pcgen.cdom.formula;
+
+
+import pcgen.base.formula.base.ScopeInstance;
+import pcgen.base.formula.base.ScopeInstanceFactory;
+import pcgen.base.formula.base.VarScoped;
+import pcgen.base.formula.base.VariableID;
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.LoadContextFacet;
+import pcgen.cdom.facet.ScopeFacet;
+import pcgen.cdom.facet.VariableStoreFacet;
+import pcgen.cdom.facet.event.DataFacetChangeEvent;
+import pcgen.cdom.facet.event.DataFacetChangeListener;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.context.VariableContext;
+
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+
+/**
+ * VariableUtilities are a class for monitoring events on variables.
+ */
+public final class VariableUtilities
+{
+
+	/**
+	 * The LoadContextFacet.
+	 */
+<span class="fc" id="L46">	private static final LoadContextFacet LOAD_CONTEXT_FACET =</span>
+<span class="fc" id="L47">			FacetLibrary.getFacet(LoadContextFacet.class);</span>
+
+	/**
+	 * The ScopeFacet.
+	 */
+<span class="fc" id="L52">	private static final ScopeFacet SCOPE_FACET = FacetLibrary.getFacet(ScopeFacet.class);</span>
+
+	/**
+	 * The VariableStoreFacet.
+	 */
+<span class="fc" id="L57">	private static final VariableStoreFacet RESULT_FACET = FacetLibrary.getFacet(VariableStoreFacet.class);</span>
+
+	private VariableUtilities()
+	{
+	}
+
+	/**
+	 * Returns the VariableID for a variable on the PlayerCharacter represented by the
+	 * given CharID.
+	 * 
+	 * @param id
+	 *            The CharID representing the PlayerCharacter that the variable is on
+	 * @param variableName
+	 *            The name of the variable for which the VariableID should be returned
+	 * @return The VariableID for the variable with the given name on the PlayerCharacter
+	 *         represented by the given CharID
+	 */
+	public static &lt;T&gt; VariableID&lt;T&gt; getGlobalVariableID(CharID id, String variableName)
+	{
+<span class="fc" id="L76">		ScopeInstance globalInstance = SCOPE_FACET.getGlobalScope(id);</span>
+<span class="fc" id="L77">		VariableContext varContext =</span>
+<span class="fc" id="L78">				LOAD_CONTEXT_FACET.getLoadContext(id.getDatasetID()).getVariableContext();</span>
+<span class="fc" id="L79">        return (VariableID&lt;T&gt;) varContext.getVariableID(globalInstance, variableName);</span>
+	}
+
+	/**
+	 * Defines a listener that should react to a change in a variable.
+	 * 
+	 * @param id
+	 *            The CharID on which the variable should be watched
+	 * @param variableName
+	 *            The name of the variable to be watched
+	 * @param listener
+	 *            The listener to receive an event when the value of the variable changes
+	 */
+	public static &lt;T&gt; void addListenerToVariable(CharID id, String variableName,
+		VariableListener&lt;T&gt; listener)
+	{
+<span class="fc" id="L95">		VariableID&lt;T&gt; varID = VariableUtilities.getGlobalVariableID(id, variableName);</span>
+<span class="fc" id="L96">		RESULT_FACET.get(id).addVariableListener(0, varID, listener);</span>
+<span class="fc" id="L97">	}</span>
+
+	/**
+	 * Removes a listener that should no longer see changes in a variable.
+	 * 
+	 * @param id
+	 *            The CharID on which the variable should be no longer be watched
+	 * @param listener
+	 *            The listener to be removed from receiving an event when the value of the
+	 *            variable changes
+	 * @param variableName
+	 *            The name of the variable to no longer be watched
+	 */
+	public static &lt;T&gt; void removeListenerFromVariable(CharID id,
+		VariableListener&lt;T&gt; listener, String variableName)
+	{
+<span class="nc" id="L113">		VariableID&lt;T&gt; varID = VariableUtilities.getGlobalVariableID(id, variableName);</span>
+<span class="nc" id="L114">		RESULT_FACET.get(id).removeVariableListener(0, varID, listener);</span>
+<span class="nc" id="L115">	}</span>
+
+	/**
+	 * Forwards a VariableChangeEvent to a DataFacetChangeListener as a
+	 * DataFacetChangeEvent.
+	 * 
+	 * @param id
+	 *            The CharID on which the change is occurring
+	 * @param vcEvent
+	 *            the VariableChangeEvent
+	 * @param listener
+	 *            The DataFacetChangeListener
+	 */
+	public static &lt;T&gt; void forwardVariableChangeToDFCL(CharID id,
+		VariableChangeEvent&lt;T&gt; vcEvent,
+		DataFacetChangeListener&lt;CharID, T&gt; listener)
+	{
+<span class="fc" id="L132">		T oldValue = vcEvent.getOldValue();</span>
+<span class="fc bfc" id="L133" title="All 2 branches covered.">		if (oldValue != null)</span>
+		{
+<span class="fc" id="L135">			DataFacetChangeEvent&lt;CharID, T&gt; removeEvent =</span>
+					new DataFacetChangeEvent&lt;&gt;(id, oldValue, RESULT_FACET,
+						DataFacetChangeEvent.DATA_REMOVED);
+<span class="fc" id="L138">			listener.dataRemoved(removeEvent);</span>
+		}
+<span class="fc" id="L140">		DataFacetChangeEvent&lt;CharID, T&gt; addEvent =</span>
+<span class="fc" id="L141">				new DataFacetChangeEvent&lt;&gt;(id, vcEvent.getNewValue(),</span>
+					RESULT_FACET, DataFacetChangeEvent.DATA_ADDED);
+<span class="fc" id="L143">		listener.dataAdded(addEvent);</span>
+<span class="fc" id="L144">	}</span>
+
+	/**
+	 * Returns a VariableID for a local variable on the PlayerCharacter represented by the
+	 * given CharID and on the object represented by the given ScopeInstance.
+	 * 
+	 * @param id
+	 *            The CharID representing the PlayerCharacter that the variable is
+	 *            contained within
+	 * @param scopeInst
+	 *            The ScopeInstance representing the object that the variable is on
+	 * @param name
+	 *            The name of the variable for which the VariableID should be returned
+	 * @return The VariableID for the variable with the given name on the local object
+	 *         represented by the given ScopeInstance
+	 */
+	public static &lt;T&gt; VariableID&lt;T&gt; getLocalVariableID(CharID id,
+		ScopeInstance scopeInst, String name)
+	{
+<span class="nc" id="L163">		LoadContext loadContext = LOAD_CONTEXT_FACET.getLoadContext(id.getDatasetID());</span>
+<span class="nc" id="L164">		return (VariableID&lt;T&gt;) loadContext.getVariableContext().getVariableID(scopeInst, name);</span>
+	}
+
+	/**
+	 * Returns a VariableID for a local variable on the PlayerCharacter represented by the
+	 * given CharID and on the given object.
+	 * 
+	 * @param id
+	 *            The CharID representing the PlayerCharacter that the variable is
+	 *            contained within
+	 * @param owner
+	 *            The owning VarScoped object that the variable is on
+	 * @param name
+	 *            The name of the variable for which the VariableID should be returned
+	 * @return The VariableID for the variable with the given name on the given object
+	 */
+	@SuppressFBWarnings(value = &quot;BC_UNCONFIRMED_CAST&quot;,
+		justification = &quot;VarScoped instances in pcgen are always PCGenScoped (PCGenScoped extends VarScoped)&quot;)
+	public static &lt;T&gt; VariableID&lt;T&gt; getLocalVariableID(CharID id, VarScoped owner,
+		String name)
+	{
+<span class="nc" id="L185">		ScopeInstanceFactory instFactory = SCOPE_FACET.get(id);</span>
+<span class="nc" id="L186">		PCGenScoped pcGenOwner = (PCGenScoped) owner;</span>
+<span class="nc" id="L187">		String localScopeName = pcGenOwner.getLocalScopeName().orElseThrow(</span>
+<span class="nc" id="L188">			() -&gt; new IllegalArgumentException(</span>
+				&quot;Cannot resolve local variable '&quot; + name + &quot;' on &quot;
+<span class="nc" id="L190">					+ owner.getClass().getSimpleName() + &quot; '&quot; + owner</span>
+					+ &quot;': object has no local scope name&quot;));
+<span class="nc" id="L192">		ScopeInstance scopeInst = instFactory.get(localScopeName, owner);</span>
+<span class="nc" id="L193">		return VariableUtilities.getLocalVariableID(id, scopeInst, name);</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

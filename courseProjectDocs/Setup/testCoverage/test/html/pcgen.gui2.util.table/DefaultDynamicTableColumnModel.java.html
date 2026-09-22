@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DefaultDynamicTableColumnModel.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.gui2.util.table</a> &gt; <span class="el_source">DefaultDynamicTableColumnModel.java</span></div><h1>DefaultDynamicTableColumnModel.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2008 (C) Connor Petty &lt;mistercpp2000@gmail.com&gt;
+ * 
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ * 
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ * 
+ */
+package pcgen.gui2.util.table;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import javax.swing.event.TableColumnModelEvent;
+import javax.swing.table.DefaultTableColumnModel;
+import javax.swing.table.TableColumn;
+import javax.swing.table.TableColumnModel;
+
+import pcgen.gui2.util.event.DynamicTableColumnModelListener;
+
+/**
+ *
+ */
+public class DefaultDynamicTableColumnModel extends DefaultTableColumnModel implements DynamicTableColumnModel
+{
+
+<span class="nc" id="L38">	private final List&lt;TableColumn&gt; availableColumns = new ArrayList&lt;&gt;(5);</span>
+<span class="nc" id="L39">	private final List&lt;TableColumn&gt; safeColumns = Collections.unmodifiableList(availableColumns);</span>
+	private int offset;
+
+	/**
+	 * This constructs an empty table model with an intial offset of {@code offset}.
+	 * When adding columns to the model, the first {@code offset} number of colums added will
+	 * be made always visible.
+	 * @param offset this is the number of always visible columns when this model is populated.
+	 */
+	public DefaultDynamicTableColumnModel(int offset)
+<span class="nc" id="L49">	{</span>
+<span class="nc" id="L50">		this.offset = offset;</span>
+<span class="nc" id="L51">	}</span>
+
+	/**
+	 * 
+	 * @param model the columns model to copy data from
+	 * @param offset describes the number of always visible columns
+	 */
+	public DefaultDynamicTableColumnModel(TableColumnModel model, int offset)
+	{
+<span class="nc" id="L60">		this(offset);</span>
+<span class="nc" id="L61">		ArrayList&lt;TableColumn&gt; allColumns = Collections.list(model.getColumns());</span>
+<span class="nc bnc" id="L62" title="All 2 branches missed.">		if (offset &lt; allColumns.size())</span>
+		{
+<span class="nc" id="L64">			tableColumns.addAll(allColumns.subList(0, offset));</span>
+<span class="nc" id="L65">			availableColumns.addAll(allColumns.subList(offset, allColumns.size()));</span>
+		}
+<span class="nc" id="L67">	}</span>
+
+	@Override
+	public void addDynamicTableColumnModelListener(DynamicTableColumnModelListener listener)
+	{
+<span class="nc" id="L72">		listenerList.add(DynamicTableColumnModelListener.class, listener);</span>
+<span class="nc" id="L73">	}</span>
+
+	@Override
+	public void removeDynamicTableColumnModelListener(DynamicTableColumnModelListener listener)
+	{
+<span class="nc" id="L78">		listenerList.remove(DynamicTableColumnModelListener.class, listener);</span>
+<span class="nc" id="L79">	}</span>
+
+	/**
+	 * Notifies all listeners that have registered interest for
+	 * notification on this event type.  The event instance
+	 * is lazily created using the parameters passed into
+	 * the fire method.
+	 * @param  e  the event received
+	 */
+	protected void fireAvailableColumnAdded(TableColumnModelEvent e)
+	{
+		// Guaranteed to return a non-null array
+<span class="nc" id="L91">		Object[] listeners = listenerList.getListenerList();</span>
+		// Process the listeners last to first, notifying
+		// those that are interested in this event
+<span class="nc bnc" id="L94" title="All 2 branches missed.">		for (int i = listeners.length - 2; i &gt;= 0; i -= 2)</span>
+		{
+<span class="nc bnc" id="L96" title="All 2 branches missed.">			if (listeners[i] == DynamicTableColumnModelListener.class)</span>
+			{
+<span class="nc" id="L98">				((DynamicTableColumnModelListener) listeners[i + 1]).availableColumnAdded(e);</span>
+			}
+		}
+<span class="nc" id="L101">	}</span>
+
+	/**
+	 * Notifies all listeners that have registered interest for
+	 * notification on this event type.  The event instance
+	 * is lazily created using the parameters passed into
+	 * the fire method.
+	 * @param  e  the event received
+	 */
+	protected void fireAvailableColumnRemoved(TableColumnModelEvent e)
+	{
+		// Guaranteed to return a non-null array
+<span class="nc" id="L113">		Object[] listeners = listenerList.getListenerList();</span>
+		// Process the listeners last to first, notifying
+		// those that are interested in this event
+<span class="nc bnc" id="L116" title="All 2 branches missed.">		for (int i = listeners.length - 2; i &gt;= 0; i -= 2)</span>
+		{
+<span class="nc bnc" id="L118" title="All 2 branches missed.">			if (listeners[i] == DynamicTableColumnModelListener.class)</span>
+			{
+<span class="nc" id="L120">				((DynamicTableColumnModelListener) listeners[i + 1]).availableColumnRemove(e);</span>
+			}
+		}
+<span class="nc" id="L123">	}</span>
+
+	@Override
+	public void addColumn(TableColumn column)
+	{
+<span class="nc bnc" id="L128" title="All 2 branches missed.">		if (getColumnCount() &lt; offset)</span>
+		{
+<span class="nc" id="L130">			super.addColumn(column);</span>
+		}
+		else
+		{
+<span class="nc" id="L134">			int index = availableColumns.size();</span>
+<span class="nc" id="L135">			availableColumns.add(column);</span>
+<span class="nc" id="L136">			fireAvailableColumnAdded(new TableColumnModelEvent(this, -1, index));</span>
+		}
+<span class="nc" id="L138">	}</span>
+
+	@Override
+	public void removeColumn(TableColumn column)
+	{
+<span class="nc" id="L143">		super.removeColumn(column);</span>
+<span class="nc bnc" id="L144" title="All 2 branches missed.">		if (availableColumns.contains(column))</span>
+		{
+<span class="nc" id="L146">			int index = availableColumns.indexOf(column);</span>
+<span class="nc" id="L147">			availableColumns.remove(column);</span>
+<span class="nc" id="L148">			fireAvailableColumnRemoved(new TableColumnModelEvent(this, index, -1));</span>
+		}
+<span class="nc" id="L150">	}</span>
+
+	@Override
+	public List&lt;TableColumn&gt; getAvailableColumns()
+	{
+<span class="nc" id="L155">		return safeColumns;</span>
+	}
+
+	@Override
+	public boolean isVisible(TableColumn column)
+	{
+<span class="nc" id="L161">		return tableColumns.contains(column);</span>
+	}
+
+	@Override
+	public void setVisible(TableColumn column, boolean visible)
+	{
+<span class="nc bnc" id="L167" title="All 4 branches missed.">		if (availableColumns.contains(column) &amp;&amp; isVisible(column) != visible)</span>
+		{
+<span class="nc bnc" id="L169" title="All 2 branches missed.">			if (visible)</span>
+			{
+<span class="nc" id="L171">				super.addColumn(column);</span>
+			}
+			else
+			{
+<span class="nc" id="L175">				super.removeColumn(column);</span>
+			}
+		}
+<span class="nc" id="L178">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

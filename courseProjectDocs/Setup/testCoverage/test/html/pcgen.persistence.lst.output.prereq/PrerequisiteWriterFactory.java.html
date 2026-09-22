@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PrerequisiteWriterFactory.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.persistence.lst.output.prereq</a> &gt; <span class="el_source">PrerequisiteWriterFactory.java</span></div><h1>PrerequisiteWriterFactory.java</h1><pre class="source lang-java linenums">/*
+ *
+ * Copyright 2004 (C) Frugal &lt;frugal@purplewombat.co.uk&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.       See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ *
+ *
+ *
+ *
+ */
+package pcgen.persistence.lst.output.prereq;
+
+import java.lang.reflect.InvocationTargetException;
+import java.util.HashMap;
+import java.util.Map;
+
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.system.PluginLoader;
+import pcgen.util.Logging;
+import plugin.pretokens.writer.PreMultWriter;
+
+/**
+ * A Factory for PreReq Writing
+ */
+public final class PrerequisiteWriterFactory implements PluginLoader
+{
+<span class="fc" id="L40">	private static PrerequisiteWriterFactory instance = null;</span>
+<span class="fc" id="L41">	private Map&lt;String, PrerequisiteWriterInterface&gt; parserLookup = new HashMap&lt;&gt;();</span>
+
+	private PrerequisiteWriterFactory()
+<span class="fc" id="L44">	{</span>
+		// Do Nothing
+<span class="fc" id="L46">	}</span>
+
+	/**
+	 * @return PrerequisiteWriterFactory
+	 */
+	public static PrerequisiteWriterFactory getInstance()
+	{
+<span class="fc bfc" id="L53" title="All 2 branches covered.">		if (instance == null)</span>
+		{
+<span class="fc" id="L55">			instance = new PrerequisiteWriterFactory();</span>
+		}
+<span class="fc" id="L57">		return instance;</span>
+	}
+
+	/**
+	 * @param kind
+	 * @return PrerequisiteWriterInterface
+	 */
+	public PrerequisiteWriterInterface getWriter(String kind)
+	{
+		PrerequisiteWriterInterface test;
+<span class="fc bfc" id="L67" title="All 2 branches covered.">		if (kind == null)</span>
+		{
+<span class="fc" id="L69">			test = new PreMultWriter();</span>
+		}
+		else
+		{
+<span class="fc" id="L73">			test = parserLookup.get(kind.toLowerCase());</span>
+<span class="pc bpc" id="L74" title="1 of 2 branches missed.">			if (test == null)</span>
+			{
+<span class="nc" id="L76">				Logging.errorPrintLocalised(&quot;PrerequisiteTestFactory.error.cannot_find_test&quot;, kind); //$NON-NLS-1$</span>
+			}
+		}
+<span class="fc" id="L79">		return test;</span>
+	}
+
+	/**
+	 * Register the test class with the factory .
+	 *
+	 * @param testClass the test class
+	 * @throws PersistenceLayerException the persistence layer exception
+	 */
+	public void register(PrerequisiteWriterInterface testClass) throws PersistenceLayerException
+	{
+<span class="fc" id="L90">		String kindHandled = testClass.kindHandled();</span>
+
+<span class="fc" id="L92">		Object test = parserLookup.get(kindHandled.toLowerCase());</span>
+
+<span class="pc bpc" id="L94" title="1 of 2 branches missed.">		if (test != null)</span>
+		{
+<span class="nc" id="L96">			throw new PersistenceLayerException(&quot;Error registering '&quot; + testClass.getClass().getName() + &quot;' as test '&quot;</span>
+<span class="nc" id="L97">				+ kindHandled + &quot;'. The test is already registered to '&quot; + test.getClass().getName() + &quot;'&quot;);</span>
+		}
+
+<span class="fc" id="L100">		parserLookup.put(kindHandled.toLowerCase(), testClass);</span>
+<span class="fc" id="L101">	}</span>
+
+	@Override
+	public void loadPlugin(Class&lt;?&gt; clazz) throws PersistenceLayerException, InstantiationException,
+		IllegalAccessException, NoSuchMethodException, InvocationTargetException
+	{
+<span class="nc" id="L107">		register((PrerequisiteWriterInterface) clazz.getConstructor().newInstance());</span>
+<span class="nc" id="L108">	}</span>
+
+	@Override
+	public Class[] getPluginClasses()
+	{
+<span class="nc" id="L113">		return new Class[]{PrerequisiteWriterInterface.class};</span>
+	}
+
+	public static void clear()
+	{
+<span class="fc bfc" id="L118" title="All 2 branches covered.">		if (instance != null)</span>
+		{
+<span class="fc" id="L120">			instance.parserLookup.clear();</span>
+		}
+<span class="fc" id="L122">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

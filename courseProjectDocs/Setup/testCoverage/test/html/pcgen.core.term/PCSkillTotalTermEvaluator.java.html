@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PCSkillTotalTermEvaluator.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.core.term</a> &gt; <span class="el_source">PCSkillTotalTermEvaluator.java</span></div><h1>PCSkillTotalTermEvaluator.java</h1><pre class="source lang-java linenums">/**
+ * Copyright (c) 2008 Andrew Wilson &lt;nuance@users.sourceforge.net&gt;.
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ * Created 09-Aug-2008 13:29:52
+ */
+
+package pcgen.core.term;
+
+import pcgen.core.Globals;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.Skill;
+import pcgen.core.analysis.SkillModifier;
+import pcgen.core.analysis.SkillRankControl;
+
+public class PCSkillTotalTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
+{
+	private final String total;
+
+	public PCSkillTotalTermEvaluator(String originalText, String total)
+<span class="nc" id="L34">	{</span>
+<span class="nc" id="L35">		this.originalText = originalText;</span>
+<span class="nc" id="L36">		this.total = total;</span>
+<span class="nc" id="L37">	}</span>
+
+	@Override
+	public Float resolve(PlayerCharacter pc)
+	{
+<span class="nc" id="L42">		Skill aSkill = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Skill.class, total);</span>
+
+<span class="nc" id="L44">		Float totalRank = SkillRankControl.getTotalRank(pc, aSkill);</span>
+<span class="nc" id="L45">		totalRank += SkillModifier.modifier(aSkill, pc);</span>
+
+<span class="nc bnc" id="L47" title="All 2 branches missed.">		return (aSkill == null) ? 0.0f : totalRank;</span>
+	}
+
+	@Override
+	public boolean isSourceDependant()
+	{
+<span class="nc" id="L53">		return false;</span>
+	}
+
+	public boolean isStatic()
+	{
+<span class="nc" id="L58">		return false;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

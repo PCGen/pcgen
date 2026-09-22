@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DefaultMapFacade.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.facade.util</a> &gt; <span class="el_source">DefaultMapFacade.java</span></div><h1>DefaultMapFacade.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2012 (C) Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.facade.util;
+
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+
+public class DefaultMapFacade&lt;K, V&gt; extends AbstractMapFacade&lt;K, V&gt;
+{
+
+	private final Map&lt;K, V&gt; map;
+
+	public DefaultMapFacade()
+<span class="nc" id="L31">	{</span>
+<span class="nc" id="L32">		this.map = new HashMap&lt;&gt;();</span>
+<span class="nc" id="L33">	}</span>
+
+	public DefaultMapFacade(Map&lt;? extends K, ? extends V&gt; map)
+<span class="nc" id="L36">	{</span>
+<span class="nc" id="L37">		this.map = new HashMap&lt;&gt;(map);</span>
+<span class="nc" id="L38">	}</span>
+
+	@Override
+	public Set&lt;K&gt; getKeys()
+	{
+<span class="nc" id="L43">		return Collections.unmodifiableSet(map.keySet());</span>
+	}
+
+	@Override
+	public V getValue(K key)
+	{
+<span class="nc" id="L49">		return map.get(key);</span>
+	}
+
+	public void putValue(K key, V value)
+	{
+<span class="nc" id="L54">		boolean hasKey = map.containsKey(key);</span>
+<span class="nc" id="L55">		V oldValue = map.put(key, value);</span>
+<span class="nc bnc" id="L56" title="All 2 branches missed.">		if (hasKey)</span>
+		{
+<span class="nc" id="L58">			fireValueChanged(this, key, oldValue, value);</span>
+		}
+		else
+		{
+<span class="nc" id="L62">			fireKeyAdded(this, key, value);</span>
+		}
+<span class="nc" id="L64">	}</span>
+
+	public void removeKey(K key)
+	{
+<span class="nc bnc" id="L68" title="All 2 branches missed.">		if (map.containsKey(key))</span>
+		{
+<span class="nc" id="L70">			V value = map.remove(key);</span>
+<span class="nc" id="L71">			fireKeyRemoved(this, key, value);</span>
+		}
+<span class="nc" id="L73">	}</span>
+
+	public void setContents(Map&lt;? extends K, ? extends V&gt; newMap)
+	{
+<span class="nc" id="L77">		map.clear();</span>
+<span class="nc" id="L78">		map.putAll(newMap);</span>
+<span class="nc" id="L79">		fireKeysChanged(this);</span>
+<span class="nc" id="L80">	}</span>
+
+	public void clear()
+	{
+<span class="nc" id="L84">		map.clear();</span>
+<span class="nc" id="L85">		fireKeysChanged(this);</span>
+<span class="nc" id="L86">	}</span>
+
+	@Override
+	public String toString()
+	{
+<span class="nc" id="L91">		return &quot;DefaultMapFacade [map=&quot; + map + &quot;]&quot;; //$NON-NLS-1$</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ParseResult.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.rules.persistence.token</a> &gt; <span class="el_source">ParseResult.java</span></div><h1>ParseResult.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) 2009 Mark Jeffries &lt;motorviper@users.sourceforge.net&gt;
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package pcgen.rules.persistence.token;
+
+import java.net.URI;
+import java.util.logging.Level;
+
+import pcgen.util.Logging;
+
+/**
+ * Interface to provide feedback on parsing operations.
+ */
+public interface ParseResult
+{
+	/**
+	 * Object to be returned from parsing operations that succeeded with no messages.
+	 */
+<span class="fc" id="L33">	public static Pass SUCCESS = new Pass();</span>
+
+	/*
+	 * Temporary object for reporting errors that should be investigated further.
+	 * See plugin.lsttokens.race.FeatToken.
+	 */
+<span class="fc" id="L39">	public static Fail INTERNAL_ERROR = new Fail(&quot;Internal error.&quot;);</span>
+
+	/**
+	 * State of the parse operation.
+	 * @return True if the parse was successful.
+	 */
+	public boolean passed();
+
+	/**
+	 * Log any messages associated with the operation.
+	 */
+	public void printMessages(URI uri);
+
+	/*
+	 * Temporary method for aiding conversion to use of ParseResult.
+	 * See pcgen.rules.persistence.token.ErrorParsingWrapper for use.
+	 */
+	public void addMessagesToLog(URI uri);
+
+	/**
+	 * Class representing a message from the parser.
+	 */
+	public static class QueuedMessage
+	{
+		public final Level level;
+		public final String message;
+		public final StackTraceElement[] stackTrace;
+
+		public QueuedMessage(Level lvl, String msg)
+<span class="fc" id="L68">		{</span>
+<span class="fc" id="L69">			level = lvl;</span>
+<span class="fc" id="L70">			message = msg;</span>
+<span class="fc" id="L71">			stackTrace = Thread.currentThread().getStackTrace();</span>
+<span class="fc" id="L72">		}</span>
+	}
+
+	/**
+	 * This is the class of the SUCCESS object.
+	 * Under normal use it should only be used for constructing this object.
+	 */
+<span class="fc" id="L79">	public class Pass implements ParseResult</span>
+	{
+		@Override
+		public boolean passed()
+		{
+<span class="fc" id="L84">			return true;</span>
+		}
+
+		@Override
+		public void addMessagesToLog(URI uri)
+		{
+			//No messages because we passed
+<span class="fc" id="L91">		}</span>
+
+		@Override
+		public void printMessages(URI uri)
+		{
+			//No messages because we passed
+<span class="nc" id="L97">		}</span>
+	}
+
+	/**
+	 * Simple class to handle feedback from parse operations that fail.
+	 */
+	public class Fail implements ParseResult
+	{
+		private final QueuedMessage error;
+
+		public Fail(String error)
+<span class="fc" id="L108">		{</span>
+<span class="fc" id="L109">			this.error = new QueuedMessage(Logging.LST_ERROR, error);</span>
+<span class="fc" id="L110">		}</span>
+
+		@Override
+		public boolean passed()
+		{
+<span class="fc" id="L115">			return false;</span>
+		}
+
+		public QueuedMessage getError()
+		{
+<span class="fc" id="L120">			return error;</span>
+		}
+
+		@Override
+		public void addMessagesToLog(URI uri)
+		{
+<span class="fc" id="L126">			Logging.addParseMessage(error.level, generateText(error, uri), error.stackTrace);</span>
+<span class="fc" id="L127">		}</span>
+
+		@Override
+		public void printMessages(URI uri)
+		{
+<span class="nc" id="L132">			Logging.log(error.level, generateText(error, uri), error.stackTrace);</span>
+<span class="nc" id="L133">		}</span>
+
+		@Override
+		public String toString()
+		{
+<span class="fc" id="L138">			return error.message;</span>
+		}
+	}
+
+	/**
+	 * Generate the text for a given QueuedMessage and URI, which is the text of the
+	 * QueuedMessed indicating the URI as the source of the message.
+	 * 
+	 * @param message
+	 *            The QueuedMessage to be processed
+	 * @param uri
+	 *            The URI indicating the source of the message
+	 * @return The text of the QueuedMessed indicating the URI as the source of the
+	 *         message
+	 */
+	public static String generateText(QueuedMessage message, URI uri)
+	{
+<span class="fc" id="L155">		return message.message + &quot; (Source: &quot; + uri + &quot; )&quot;;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

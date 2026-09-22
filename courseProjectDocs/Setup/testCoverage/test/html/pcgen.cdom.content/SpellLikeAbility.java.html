@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SpellLikeAbility.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.content</a> &gt; <span class="el_source">SpellLikeAbility.java</span></div><h1>SpellLikeAbility.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2012 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.cdom.content;
+
+import pcgen.cdom.formula.Formula;
+import pcgen.cdom.base.ConcretePrereqObject;
+import pcgen.cdom.base.QualifyingObject;
+import pcgen.core.spell.Spell;
+
+public class SpellLikeAbility extends ConcretePrereqObject implements QualifyingObject
+{
+	private final Spell spell;
+	private final Formula castTimes; // times the spell is in this list
+	private final String castTimeUnit; // the timeunit the times is for (day, week etc)
+	private final String fixedCasterLevel;
+	private final String dc;
+	private final String book;
+	private final String qualifiedKey;
+
+	public SpellLikeAbility(Spell sp, Formula times, String timeunit, String spellbook, String fixedLevel,
+		String fixedDC, String sourceident)
+<span class="nc" id="L37">	{</span>
+<span class="nc" id="L38">		spell = sp;</span>
+<span class="nc" id="L39">		castTimes = times;</span>
+<span class="nc" id="L40">		castTimeUnit = timeunit;</span>
+<span class="nc" id="L41">		book = spellbook;</span>
+<span class="nc" id="L42">		fixedCasterLevel = fixedLevel;</span>
+<span class="nc" id="L43">		dc = fixedDC;</span>
+<span class="nc" id="L44">		qualifiedKey = sourceident;</span>
+<span class="nc" id="L45">	}</span>
+
+	public Spell getSpell()
+	{
+<span class="nc" id="L49">		return spell;</span>
+	}
+
+	public Formula getCastTimes()
+	{
+<span class="nc" id="L54">		return castTimes;</span>
+	}
+
+	public String getCastTimeUnit()
+	{
+<span class="nc" id="L59">		return castTimeUnit;</span>
+	}
+
+	public String getFixedCasterLevel()
+	{
+<span class="nc" id="L64">		return fixedCasterLevel;</span>
+	}
+
+	public String getDC()
+	{
+<span class="nc" id="L69">		return dc;</span>
+	}
+
+	public String getSpellBook()
+	{
+<span class="nc" id="L74">		return book;</span>
+	}
+
+	public String getQualifiedKey()
+	{
+<span class="nc" id="L79">		return qualifiedKey;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

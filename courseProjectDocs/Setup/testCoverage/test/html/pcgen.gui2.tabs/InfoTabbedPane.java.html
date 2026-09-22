@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>InfoTabbedPane.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.gui2.tabs</a> &gt; <span class="el_source">InfoTabbedPane.java</span></div><h1>InfoTabbedPane.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2009 Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ * 
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ * 
+ */
+package pcgen.gui2.tabs;
+
+import java.awt.Component;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.PriorityQueue;
+import java.util.Queue;
+import java.util.WeakHashMap;
+import java.util.concurrent.Future;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+
+import javax.swing.Icon;
+import javax.swing.JOptionPane;
+import javax.swing.JTabbedPane;
+import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+
+import pcgen.base.util.DoubleKeyMap;
+import pcgen.cdom.util.CControl;
+import pcgen.core.GameMode;
+import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.core.TodoFacade;
+import pcgen.gui2.UIPropertyContext;
+import pcgen.gui2.tabs.CharacterInfoTab.ModelMap;
+import pcgen.gui2.tools.CharacterSelectionListener;
+import pcgen.gui2.util.DisplayAwareTab;
+import pcgen.system.LanguageBundle;
+import pcgen.util.Logging;
+import pcgen.util.enumeration.Tab;
+
+/**
+ * This class is the tabbed pane that contains all of the CharacterInfoTabs and
+ * manages the models for those tabs.
+ */
+@SuppressWarnings(&quot;serial&quot;)
+public final class InfoTabbedPane extends JTabbedPane implements CharacterSelectionListener, ChangeListener
+{
+
+	public static final int SUMMARY_TAB = 0;
+	public static final int RACE_TAB = 1;
+	public static final int TEMPLATE_TAB = 2;
+	public static final int CLASS_TAB = 3;
+	public static final int SKILL_TAB = 4;
+	public static final int ABILITIES_TAB = 5;
+	public static final int DOMAIN_TAB = 6;
+	public static final int SPELLS_TAB = 7;
+	public static final int INVENTORY_TAB = 8;
+	public static final int DESCRIPTION_TAB = 9;
+	public static final int CHARACTER_SHEET_TAB = 10;
+	private final DoubleKeyMap&lt;CharacterFacade, CharacterInfoTab, ModelMap&gt; stateMap;
+	private final Map&lt;CharacterFacade, Integer&gt; tabSelectionMap;
+	private final TabModelService modelService;
+<span class="nc" id="L82">	private final List&lt;CharacterInfoTab&gt; fullTabList = new ArrayList&lt;&gt;();</span>
+	private final DomainInfoTab domainInfoTab;
+	private int domainTabLocation;
+<span class="nc" id="L85">	private CharacterFacade currentCharacter = null;</span>
+
+	public InfoTabbedPane()
+<span class="nc" id="L88">	{</span>
+<span class="nc" id="L89">		this.stateMap = new DoubleKeyMap&lt;&gt;();</span>
+<span class="nc" id="L90">		this.tabSelectionMap = new WeakHashMap&lt;&gt;();</span>
+<span class="nc" id="L91">		this.modelService = new TabModelService();</span>
+<span class="nc" id="L92">		this.domainInfoTab = new DomainInfoTab();</span>
+<span class="nc" id="L93">		initComponent();</span>
+<span class="nc" id="L94">	}</span>
+
+	public void clearStateMap()
+	{
+		//Make sure that models get a chance to detach themselves from the UI before disgarding them
+<span class="nc bnc" id="L99" title="All 2 branches missed.">		if (currentCharacter != null)</span>
+		{
+<span class="nc" id="L101">			Map&lt;CharacterInfoTab, ModelMap&gt; states = stateMap.getMapFor(currentCharacter);</span>
+<span class="nc" id="L102">			states.forEach(CharacterInfoTab::storeModels);</span>
+		}
+<span class="nc" id="L104">		stateMap.clear();</span>
+<span class="nc" id="L105">		tabSelectionMap.clear();</span>
+<span class="nc" id="L106">		currentCharacter = null;</span>
+<span class="nc" id="L107">	}</span>
+
+	private void initComponent()
+	{
+<span class="nc" id="L111">		setTabPlacement(SwingConstants.TOP);</span>
+
+<span class="nc" id="L113">		SummaryInfoTab tab = new SummaryInfoTab();</span>
+<span class="nc" id="L114">		addTab(tab);</span>
+<span class="nc" id="L115">		tab.addPropertyChangeListener(new TabActionListener(tab));</span>
+<span class="nc" id="L116">		addTab(new RaceInfoTab());</span>
+<span class="nc" id="L117">		addTab(new TemplateInfoTab());</span>
+<span class="nc" id="L118">		addTab(new ClassInfoTab());</span>
+<span class="nc" id="L119">		addTab(new SkillInfoTab());</span>
+<span class="nc" id="L120">		addTab(new AbilitiesInfoTab());</span>
+<span class="nc" id="L121">		domainTabLocation = getTabCount();</span>
+<span class="nc" id="L122">		addTab(domainInfoTab);</span>
+<span class="nc" id="L123">		addTab(new SpellsInfoTab());</span>
+<span class="nc" id="L124">		addTab(new InventoryInfoTab());</span>
+<span class="nc" id="L125">		addTab(new DescriptionInfoTab());</span>
+<span class="nc" id="L126">		addTab(new TempBonusInfoTab());</span>
+<span class="nc" id="L127">		addTab(new CompanionInfoTab());</span>
+<span class="nc" id="L128">		addTab(new CharacterSheetInfoTab());</span>
+<span class="nc" id="L129">		addChangeListener(this);</span>
+<span class="nc" id="L130">	}</span>
+
+	private &lt;T extends Component &amp; CharacterInfoTab&gt; void addTab(T tab)
+	{
+<span class="nc" id="L134">		TabTitle tabTitle = tab.getTabTitle();</span>
+<span class="nc" id="L135">		String title = (String) tabTitle.getValue(TabTitle.TITLE);</span>
+<span class="nc" id="L136">		String tooltip = (String) tabTitle.getValue(TabTitle.TOOLTIP);</span>
+<span class="nc" id="L137">		Icon icon = (Icon) tabTitle.getValue(TabTitle.ICON);</span>
+<span class="nc" id="L138">		addTab(title, icon, tab, tooltip);</span>
+<span class="nc" id="L139">		fullTabList.add(tab);</span>
+<span class="nc" id="L140">		tabTitle.addPropertyChangeListener(new TabActionListener(tab));</span>
+<span class="nc" id="L141">	}</span>
+
+	@Override
+	public void setCharacter(CharacterFacade character)
+	{
+<span class="nc" id="L146">		modelService.cancelRestoreTasks();</span>
+<span class="nc bnc" id="L147" title="All 2 branches missed.">		if (!stateMap.containsKey(character))</span>
+		{
+			//This is the first time this character has been added, so initialize the tab states.
+<span class="nc bnc" id="L150" title="All 2 branches missed.">			for (int i = 0; i &lt; getTabCount(); i++)</span>
+			{
+<span class="nc" id="L152">				CharacterInfoTab tab = (CharacterInfoTab) getComponentAt(i);</span>
+<span class="nc" id="L153">				ModelMap models = tab.createModels(character);</span>
+<span class="nc" id="L154">				stateMap.put(character, tab, models);</span>
+			}
+<span class="nc" id="L156">			String key = UIPropertyContext.C_PROP_INITIAL_TAB;</span>
+<span class="nc" id="L157">			key = UIPropertyContext.createCharacterPropertyKey(character, key);</span>
+			//defaults to the summary tab if prop doesn't exist
+<span class="nc" id="L159">			int startingTab = UIPropertyContext.getInstance().getInt(key, SUMMARY_TAB);</span>
+<span class="nc" id="L160">			tabSelectionMap.put(character, startingTab);</span>
+		}
+<span class="nc bnc" id="L162" title="All 2 branches missed.">		if (currentCharacter != null)</span>
+		{
+<span class="nc" id="L164">			Map&lt;CharacterInfoTab, ModelMap&gt; states = stateMap.getMapFor(currentCharacter);</span>
+<span class="nc" id="L165">			modelService.storeModels(states);</span>
+			//Save tabSelection for this character
+<span class="nc" id="L167">			tabSelectionMap.put(currentCharacter, getSelectedIndex());</span>
+		}
+<span class="nc" id="L169">		currentCharacter = character;</span>
+
+<span class="nc" id="L171">		Map&lt;CharacterInfoTab, ModelMap&gt; states = stateMap.getMapFor(character);</span>
+<span class="nc" id="L172">		updateTabsForCharacter(character);</span>
+<span class="nc" id="L173">		int selectedIndex = tabSelectionMap.get(character);</span>
+<span class="nc" id="L174">		modelService.restoreModels(states, selectedIndex);</span>
+<span class="nc" id="L175">	}</span>
+
+	/**
+	 * Update the displayed tabs to reflect the settings of the game mode of the
+	 * character to which we are switching.
+	 *
+	 * @param character The character being displayed.
+	 */
+	private void updateTabsForCharacter(CharacterFacade character)
+	{
+<span class="nc" id="L185">		GameMode gameMode = character.getDataSet().getGameMode();</span>
+<span class="nc" id="L186">		int tabIndex = 0;</span>
+<span class="nc bnc" id="L187" title="All 2 branches missed.">		for (CharacterInfoTab charInfoTab : fullTabList)</span>
+		{
+<span class="nc" id="L189">			TabTitle tabTitle = charInfoTab.getTabTitle();</span>
+<span class="nc" id="L190">			Tab tab = tabTitle.getTab();</span>
+<span class="nc" id="L191">			String newName = gameMode.getTabName(tab);</span>
+<span class="nc bnc" id="L192" title="All 2 branches missed.">			if (!newName.equals(tabTitle.getValue(TabTitle.TITLE)))</span>
+			{
+<span class="nc" id="L194">				tabTitle.putValue(TabTitle.TITLE, newName);</span>
+			}
+<span class="nc bnc" id="L196" title="All 2 branches missed.">			if (gameMode.getTabShown(tab))</span>
+			{
+<span class="nc bnc" id="L198" title="All 2 branches missed.">				if (getComponentAt(tabIndex) != charInfoTab)</span>
+				{
+<span class="nc" id="L200">					String title = (String) tabTitle.getValue(TabTitle.TITLE);</span>
+<span class="nc" id="L201">					String tooltip = (String) tabTitle.getValue(TabTitle.TOOLTIP);</span>
+<span class="nc" id="L202">					Icon icon = (Icon) tabTitle.getValue(TabTitle.ICON);</span>
+<span class="nc" id="L203">					insertTab(title, icon, (Component) charInfoTab, tooltip, tabIndex);</span>
+				}
+<span class="nc" id="L205">				tabIndex++;</span>
+			}
+			else
+			{
+<span class="nc bnc" id="L209" title="All 2 branches missed.">				if (getComponentAt(tabIndex) == charInfoTab)</span>
+				{
+<span class="nc" id="L211">					remove(tabIndex);</span>
+				}
+
+			}
+<span class="nc" id="L215">		}</span>
+<span class="nc bnc" id="L216" title="All 2 branches missed.">		if (character.isFeatureEnabled(CControl.DOMAINFEATURE))</span>
+		{
+<span class="nc" id="L218">			TabTitle tabTitle = domainInfoTab.getTabTitle();</span>
+<span class="nc" id="L219">			String title = (String) tabTitle.getValue(TabTitle.TITLE);</span>
+<span class="nc" id="L220">			String tooltip = (String) tabTitle.getValue(TabTitle.TOOLTIP);</span>
+<span class="nc" id="L221">			Icon icon = (Icon) tabTitle.getValue(TabTitle.ICON);</span>
+<span class="nc" id="L222">			insertTab(title, icon, domainInfoTab, tooltip, domainTabLocation);</span>
+<span class="nc" id="L223">		}</span>
+		else
+		{
+<span class="nc" id="L226">			remove(domainInfoTab);</span>
+		}
+<span class="nc" id="L228">	}</span>
+
+	/**
+	 * Switch the current tab to be the one named, possibly including a sub tab
+	 * and then advise the user of the item to be done. generally the tab will
+	 * handle this but a fallback of a dialog will be used if the tab can't do
+	 * the advising.
+	 *
+	 * @param dest An arry of the tab name, the field name and optionally the
+	 * sub tab name.
+	 */
+	private void switchTabsAndAdviseTodo(String[] dest)
+	{
+<span class="nc" id="L241">		Tab tab = Tab.valueOf(dest[0]);</span>
+<span class="nc" id="L242">		String tabName = currentCharacter.getDataSet().getGameMode().getTabName(tab);</span>
+
+<span class="nc" id="L244">		Component selTab = null;</span>
+<span class="nc bnc" id="L245" title="All 2 branches missed.">		for (int i = 0; i &lt; getTabCount(); i++)</span>
+		{
+<span class="nc bnc" id="L247" title="All 2 branches missed.">			if (tabName.equals(getTitleAt(i)))</span>
+			{
+<span class="nc" id="L249">				setSelectedIndex(i);</span>
+<span class="nc" id="L250">				selTab = getComponent(i);</span>
+<span class="nc" id="L251">				break;</span>
+			}
+		}
+<span class="nc bnc" id="L254" title="All 2 branches missed.">		if (selTab == null)</span>
+		{
+<span class="nc" id="L256">			Logging.errorPrint(&quot;Failed to find tab &quot; + tabName); //$NON-NLS-1$</span>
+<span class="nc" id="L257">			return;</span>
+		}
+
+<span class="nc bnc" id="L260" title="All 4 branches missed.">		if (selTab instanceof JTabbedPane tabPane &amp;&amp; dest.length &gt; 2)</span>
+		{
+<span class="nc bnc" id="L262" title="All 2 branches missed.">			for (int i = 0; i &lt; tabPane.getTabCount(); i++)</span>
+			{
+<span class="nc bnc" id="L264" title="All 2 branches missed.">				if (dest[2].equals(tabPane.getTitleAt(i)))</span>
+				{
+<span class="nc" id="L266">					tabPane.setSelectedIndex(i);</span>
+<span class="nc" id="L267">					break;</span>
+				}
+			}
+		}
+
+<span class="nc bnc" id="L272" title="All 2 branches missed.">		if (selTab instanceof TodoHandler)</span>
+		{
+<span class="nc" id="L274">			((TodoHandler) selTab).adviseTodo(dest[1]);</span>
+		}
+		else
+		{
+<span class="nc" id="L278">			String message = LanguageBundle.getFormattedString(&quot;in_todoUseField&quot;, dest[1]); //$NON-NLS-1$</span>
+<span class="nc" id="L279">			JOptionPane.showMessageDialog(selTab, message, LanguageBundle.getString(&quot;in_tipsString&quot;), //$NON-NLS-1$</span>
+				JOptionPane.INFORMATION_MESSAGE);
+		}
+<span class="nc" id="L282">	}</span>
+
+	private void handleDisplayAware()
+	{
+		// The currently displayed tab has changed so if the new one wants to know about it, let it know 
+<span class="nc" id="L287">		Component comp = getSelectedComponent();</span>
+<span class="nc bnc" id="L288" title="All 2 branches missed.">		if (comp instanceof DisplayAwareTab)</span>
+		{
+<span class="nc" id="L290">			((DisplayAwareTab) comp).tabSelected();</span>
+		}
+<span class="nc" id="L292">	}</span>
+
+	@Override
+	public void stateChanged(ChangeEvent e)
+	{
+<span class="nc" id="L297">		handleDisplayAware();</span>
+<span class="nc" id="L298">	}</span>
+
+	public void characterRemoved(CharacterFacade character)
+	{
+<span class="nc" id="L302">		stateMap.removeAll(character);</span>
+<span class="nc" id="L303">	}</span>
+
+	/**
+	 * This class handles the concurrent processing of storing and restoring tab
+	 * models. Conceptually this process consists of two separate processing
+	 * queues. One queue is the orderly execution of restoring tab models which
+	 * takes place in a semi-concurrent manner. Each tab has its models
+	 * restored as a separate task on the EventDispatchThread which allows for
+	 * the UI to remain responsive to other events. If the user selects a
+	 * different character while tab models are being restored then the model
+	 * restoration is canceled and the tabs which completed restoration will be
+	 * processed to store their models. This is where the second queue is needed
+	 * because it contains the tabs which have completed their model
+	 * restoration. So on a character tab change the general process is as
+	 * follows:&lt;br&gt;
+	 * 1. cancel all restoration tasks that have not yet executed&lt;br&gt;
+	 * 2. clear the restoration queue&lt;br&gt;
+	 * 3. process the store queue&lt;br&gt;
+	 * 4. push all tabs onto the restoration process queue&lt;br&gt;
+	 *
+	 * The order in which tabs have their models restored is dependent on the
+	 * amount of time that it takes a tab to restore their model data. The tabs
+	 * that take the least amount of time to restore their models will be
+	 * executed first, the second least second, and so on. The calculation of
+	 * time taken is based on the amount of time the previous execution of
+	 * restoreModels() took.
+	 */
+	private class TabModelService extends ThreadPoolExecutor implements Comparator&lt;CharacterInfoTab&gt;
+	{
+
+		private final Map&lt;CharacterInfoTab, Long&gt; timingMap;
+		private final Queue&lt;CharacterInfoTab&gt; storeQueue;
+		private final Queue&lt;Future&lt;?&gt;&gt; restoreQueue;
+
+		TabModelService()
+<span class="nc" id="L338">		{</span>
+<span class="nc" id="L339">			super(1, 1, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue&lt;&gt;(), r -&gt; {</span>
+<span class="nc" id="L340">                Thread thread = new Thread(r);</span>
+<span class="nc" id="L341">                thread.setDaemon(true);</span>
+<span class="nc" id="L342">                thread.setName(&quot;tab-info-thread&quot;); //$NON-NLS-1$</span>
+<span class="nc" id="L343">                return thread;</span>
+            });
+<span class="nc" id="L345">			this.timingMap = new HashMap&lt;&gt;();</span>
+<span class="nc" id="L346">			storeQueue = new LinkedList&lt;&gt;();</span>
+<span class="nc" id="L347">			restoreQueue = new LinkedList&lt;&gt;();</span>
+<span class="nc" id="L348">		}</span>
+
+		@Override
+		public int compare(CharacterInfoTab o1, CharacterInfoTab o2)
+		{
+<span class="nc bnc" id="L353" title="All 4 branches missed.">			if (timingMap.containsKey(o1) &amp;&amp; timingMap.containsKey(o2))</span>
+			{
+<span class="nc" id="L355">				return Long.compare(timingMap.get(o1), timingMap.get(o2));</span>
+			}
+<span class="nc bnc" id="L357" title="All 2 branches missed.">			else if (timingMap.containsKey(o1))</span>
+			{
+<span class="nc" id="L359">				return 1;</span>
+			}
+<span class="nc bnc" id="L361" title="All 2 branches missed.">			else if (timingMap.containsKey(o2))</span>
+			{
+<span class="nc" id="L363">				return -1;</span>
+			}
+<span class="nc" id="L365">			return 0;</span>
+		}
+
+		private void restoreTab(CharacterInfoTab infoTab, ModelMap models)
+		{
+<span class="nc" id="L370">			long starttime = System.nanoTime();</span>
+<span class="nc" id="L371">			infoTab.restoreModels(models);</span>
+<span class="nc" id="L372">			long time = System.nanoTime() - starttime;</span>
+<span class="nc" id="L373">			timingMap.put(infoTab, time);</span>
+<span class="nc" id="L374">			storeQueue.add(infoTab);</span>
+<span class="nc" id="L375">		}</span>
+
+		void restoreModels(Map&lt;CharacterInfoTab, ModelMap&gt; states, int selectedIndex)
+		{
+<span class="nc" id="L379">			CharacterInfoTab firstTab = (CharacterInfoTab) getComponentAt(selectedIndex);</span>
+<span class="nc" id="L380">			restoreTab(firstTab, states.get(firstTab));</span>
+<span class="nc" id="L381">			int oldSelectedIndex = getSelectedIndex();</span>
+<span class="nc" id="L382">			setSelectedIndex(selectedIndex);</span>
+<span class="nc bnc" id="L383" title="All 2 branches missed.">			if (oldSelectedIndex == selectedIndex)</span>
+			{
+<span class="nc" id="L385">				handleDisplayAware();</span>
+			}
+
+<span class="nc" id="L388">			PriorityQueue&lt;CharacterInfoTab&gt; queue = new PriorityQueue&lt;&gt;(states.keySet().size(), this);</span>
+<span class="nc" id="L389">			queue.addAll(states.keySet());</span>
+<span class="nc" id="L390">			queue.remove(firstTab);</span>
+
+<span class="nc bnc" id="L392" title="All 2 branches missed.">			while (!queue.isEmpty())</span>
+			{
+<span class="nc" id="L394">				CharacterInfoTab infoTab = queue.poll();</span>
+<span class="nc" id="L395">				ModelMap models = states.get(infoTab);</span>
+<span class="nc" id="L396">				restoreQueue.add(submit(new RestoreModelsTask(infoTab, models)));</span>
+<span class="nc" id="L397">			}</span>
+<span class="nc" id="L398">		}</span>
+
+		void storeModels(Map&lt;CharacterInfoTab, ModelMap&gt; states)
+		{
+<span class="nc bnc" id="L402" title="All 2 branches missed.">			while (!storeQueue.isEmpty())</span>
+			{
+<span class="nc" id="L404">				CharacterInfoTab infoTab = storeQueue.poll();</span>
+<span class="nc" id="L405">				infoTab.storeModels(states.get(infoTab));</span>
+<span class="nc" id="L406">			}</span>
+<span class="nc" id="L407">		}</span>
+
+		void cancelRestoreTasks()
+		{
+<span class="nc bnc" id="L411" title="All 2 branches missed.">			while (!restoreQueue.isEmpty())</span>
+			{
+<span class="nc" id="L413">				restoreQueue.poll().cancel(true);</span>
+			}
+<span class="nc" id="L415">		}</span>
+
+		private class RestoreModelsTask implements Runnable
+		{
+
+			private final CharacterInfoTab infoTab;
+			private final ModelMap models;
+			private boolean executed;
+
+			RestoreModelsTask(CharacterInfoTab infoTab, ModelMap models)
+<span class="nc" id="L425">			{</span>
+<span class="nc" id="L426">				this.infoTab = infoTab;</span>
+<span class="nc" id="L427">				this.models = models;</span>
+<span class="nc" id="L428">				this.executed = false;</span>
+<span class="nc" id="L429">			}</span>
+
+			@Override
+			public void run()
+			{
+				try
+				{
+<span class="nc" id="L436">					SwingUtilities.invokeAndWait(() -&gt; {</span>
+<span class="nc bnc" id="L437" title="All 2 branches missed.">						if (!executed)</span>
+						{
+<span class="nc" id="L439">							restoreTab(infoTab, models);</span>
+						}
+<span class="nc" id="L441">					});</span>
+				}
+<span class="nc" id="L443">				catch (InterruptedException | InvocationTargetException ex)</span>
+				{
+<span class="nc" id="L445">					Logging.errorPrint(&quot;exception in InfoTabbedPane&quot;, ex);</span>
+				}
+				finally
+				{
+<span class="nc" id="L449">					executed = true;</span>
+				}
+<span class="nc" id="L451">			}</span>
+
+		}
+
+	}
+
+	private class TabActionListener implements PropertyChangeListener
+	{
+
+		private final Component component;
+
+		TabActionListener(Component component)
+<span class="nc" id="L463">		{</span>
+<span class="nc" id="L464">			this.component = component;</span>
+<span class="nc" id="L465">		}</span>
+
+		@Override
+		public void propertyChange(PropertyChangeEvent evt)
+		{
+<span class="nc" id="L470">			int index = indexOfComponent(component);</span>
+<span class="nc bnc" id="L471" title="All 2 branches missed.">			if (index &lt; 0)</span>
+			{
+<span class="nc" id="L473">				return;</span>
+			}
+<span class="nc" id="L475">			String propName = evt.getPropertyName();</span>
+<span class="nc bnc" id="L476" title="All 2 branches missed.">			if (TabTitle.TITLE.equals(propName))</span>
+			{
+<span class="nc" id="L478">				InfoTabbedPane.this.setTitleAt(index, (String) evt.getNewValue());</span>
+			}
+<span class="nc bnc" id="L480" title="All 2 branches missed.">			else if (TabTitle.ICON.equals(propName))</span>
+			{
+<span class="nc" id="L482">				InfoTabbedPane.this.setIconAt(index, (Icon) evt.getNewValue());</span>
+			}
+<span class="nc bnc" id="L484" title="All 2 branches missed.">			else if (TabTitle.TOOLTIP.equals(propName))</span>
+			{
+<span class="nc" id="L486">				InfoTabbedPane.this.setToolTipTextAt(index, (String) evt.getNewValue());</span>
+			}
+<span class="nc bnc" id="L488" title="All 2 branches missed.">			else if (TodoFacade.SWITCH_TABS.equals(propName))</span>
+			{
+<span class="nc" id="L490">				String destString = (String) evt.getNewValue();</span>
+<span class="nc" id="L491">				String[] dest = destString.split(&quot;/&quot;); //$NON-NLS-1$</span>
+<span class="nc" id="L492">				switchTabsAndAdviseTodo(dest);</span>
+			}
+<span class="nc" id="L494">		}</span>
+
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

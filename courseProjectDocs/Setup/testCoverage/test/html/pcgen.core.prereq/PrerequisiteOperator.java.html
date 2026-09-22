@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PrerequisiteOperator.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.core.prereq</a> &gt; <span class="el_source">PrerequisiteOperator.java</span></div><h1>PrerequisiteOperator.java</h1><pre class="source lang-java linenums">/*
+ *
+ * Copyright 2003 (C) Chris Ward &lt;frugal@purplewombat.co.uk&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.	   See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.core.prereq;
+
+import pcgen.core.utils.CoreUtility;
+import pcgen.system.LanguageBundle;
+
+<span class="fc" id="L24">public enum PrerequisiteOperator</span>
+{
+<span class="fc" id="L26">	GTEQ</span>
+	{
+		@Override
+		public String getFormulaSyntax()
+		{
+<span class="nc" id="L31">			return &quot;&gt;=&quot;;</span>
+		}
+
+		@Override
+		public PrerequisiteOperator invert()
+		{
+<span class="fc" id="L37">			return LT;</span>
+		}
+
+		@Override
+		public boolean booleanCompare(float a, float b)
+		{
+<span class="nc bnc" id="L43" title="All 2 branches missed.">			return a &gt;= b;</span>
+		}
+	},
+<span class="fc" id="L46">	GT</span>
+	{
+		@Override
+		public String getFormulaSyntax()
+		{
+<span class="nc" id="L51">			return &quot;&gt;&quot;;</span>
+		}
+
+		@Override
+		public PrerequisiteOperator invert()
+		{
+<span class="nc" id="L57">			return LTEQ;</span>
+		}
+
+		@Override
+		public boolean booleanCompare(float a, float b)
+		{
+<span class="nc bnc" id="L63" title="All 2 branches missed.">			return a &gt; b;</span>
+		}
+	},
+<span class="fc" id="L66">	EQ</span>
+	{
+		@Override
+		public String getFormulaSyntax()
+		{
+<span class="nc" id="L71">			return &quot;=&quot;;</span>
+		}
+
+		@Override
+		public PrerequisiteOperator invert()
+		{
+<span class="fc" id="L77">			return NEQ;</span>
+		}
+
+		@Override
+		public boolean booleanCompare(float a, float b)
+		{
+<span class="nc" id="L83">			return CoreUtility.doublesEqual(a, b);</span>
+		}
+	},
+<span class="fc" id="L86">	NEQ</span>
+	{
+		@Override
+		public String getFormulaSyntax()
+		{
+<span class="nc" id="L91">			return &quot;!=&quot;;</span>
+		}
+
+		@Override
+		public PrerequisiteOperator invert()
+		{
+<span class="nc" id="L97">			return EQ;</span>
+		}
+
+		@Override
+		public boolean booleanCompare(float a, float b)
+		{
+<span class="nc bnc" id="L103" title="All 2 branches missed.">			return !CoreUtility.doublesEqual(a, b);</span>
+		}
+	},
+<span class="fc" id="L106">	LT</span>
+	{
+		@Override
+		public String getFormulaSyntax()
+		{
+<span class="nc" id="L111">			return &quot;&lt;&quot;;</span>
+		}
+
+		@Override
+		public PrerequisiteOperator invert()
+		{
+<span class="nc" id="L117">			return GTEQ;</span>
+		}
+
+		@Override
+		public boolean booleanCompare(float a, float b)
+		{
+<span class="nc bnc" id="L123" title="All 2 branches missed.">			return a &lt; b;</span>
+		}
+	},
+<span class="fc" id="L126">	LTEQ</span>
+	{
+		@Override
+		public String getFormulaSyntax()
+		{
+<span class="nc" id="L131">			return &quot;&lt;=&quot;;</span>
+		}
+
+		@Override
+		public PrerequisiteOperator invert()
+		{
+<span class="nc" id="L137">			return GT;</span>
+		}
+
+		@Override
+		public boolean booleanCompare(float a, float b)
+		{
+<span class="nc bnc" id="L143" title="All 2 branches missed.">			return a &lt;= b;</span>
+		}
+	};
+
+	public abstract String getFormulaSyntax();
+
+	public abstract PrerequisiteOperator invert();
+
+	public String toDisplayString()
+	{
+<span class="nc" id="L153">		return LanguageBundle.getString(&quot;PrerequisiteOperator.display.&quot; + toString().toLowerCase());</span>
+	}
+
+	public int compare(final int leftHandOp, final int rightHandOp)
+	{
+<span class="nc" id="L158">		return (int) compare((float) leftHandOp, (float) rightHandOp);</span>
+	}
+
+	public float compare(final float leftHandOp, final float rightHandOp)
+	{
+<span class="nc" id="L163">		boolean passes = booleanCompare(leftHandOp, rightHandOp);</span>
+<span class="nc bnc" id="L164" title="All 2 branches missed.">		if (passes)</span>
+		{
+<span class="nc bnc" id="L166" title="All 4 branches missed.">			if (leftHandOp &lt; 0.0d || CoreUtility.doublesEqual(leftHandOp, 0))</span>
+			{
+<span class="nc" id="L168">				return 1;</span>
+			}
+<span class="nc" id="L170">			return leftHandOp;</span>
+		}
+<span class="nc" id="L172">		return 0;</span>
+	}
+
+	public abstract boolean booleanCompare(float leftHandOp, float rightHandOp);
+
+	public static PrerequisiteOperator getOperatorByName(final String operatorName) throws PrerequisiteException
+	{
+		try
+		{
+<span class="fc" id="L181">			return valueOf(operatorName.toUpperCase());</span>
+		}
+<span class="nc" id="L183">		catch (IllegalArgumentException e)</span>
+		{
+			/*
+			 * TODO Should we deprecate this behavior?
+			 */
+<span class="nc bnc" id="L188" title="All 2 branches missed.">			for (PrerequisiteOperator po : values())</span>
+			{
+<span class="nc bnc" id="L190" title="All 2 branches missed.">				if (po.getFormulaSyntax().equals(operatorName))</span>
+				{
+<span class="nc" id="L192">					return po;</span>
+				}
+			}
+		}
+<span class="nc" id="L196">		throw new PrerequisiteException(</span>
+<span class="nc" id="L197">			LanguageBundle.getFormattedString(</span>
+				&quot;PrerequisiteOperator.error.invalid_operator&quot;, operatorName)); //$NON-NLS-1$
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RacialToken.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.lsttokens.kit.prof</a> &gt; <span class="el_source">RacialToken.java</span></div><h1>RacialToken.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2006 (C) Aaron Divinsky &lt;boomer70@yahoo.com&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+
+package plugin.lsttokens.kit.prof;
+
+import pcgen.core.kit.KitProf;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.ParseResult;
+
+<span class="fc" id="L27">public class RacialToken extends AbstractNonEmptyToken&lt;KitProf&gt; implements CDOMPrimaryToken&lt;KitProf&gt;</span>
+{
+	/**
+	 * Gets the name of the tag this class will parse.
+	 * 
+	 * @return Name of the tag this class handles
+	 */
+	@Override
+	public String getTokenName()
+	{
+<span class="fc" id="L37">		return &quot;RACIAL&quot;;</span>
+	}
+
+	@Override
+	public Class&lt;KitProf&gt; getTokenClass()
+	{
+<span class="fc" id="L43">		return KitProf.class;</span>
+	}
+
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context, KitProf obj, String value)
+	{
+		Boolean set;
+<span class="fc" id="L50">		char firstChar = value.charAt(0);</span>
+<span class="pc bpc" id="L51" title="1 of 4 branches missed.">		if (firstChar == 'y' || firstChar == 'Y')</span>
+		{
+<span class="fc bfc" id="L53" title="All 4 branches covered.">			if (value.length() &gt; 1 &amp;&amp; !value.equalsIgnoreCase(&quot;YES&quot;))</span>
+			{
+<span class="fc" id="L55">				return new ParseResult.Fail(&quot;You should use 'YES' as the &quot; + getTokenName() + &quot;: &quot; + value);</span>
+			}
+<span class="fc" id="L57">			set = Boolean.TRUE;</span>
+		}
+		else
+		{
+<span class="pc bpc" id="L61" title="1 of 4 branches missed.">			if (firstChar != 'N' &amp;&amp; firstChar != 'n')</span>
+			{
+<span class="fc" id="L63">				return new ParseResult.Fail(&quot;You should use 'YES' or 'NO' as the &quot; + getTokenName() + &quot;: &quot; + value);</span>
+			}
+<span class="fc bfc" id="L65" title="All 4 branches covered.">			if (value.length() &gt; 1 &amp;&amp; !value.equalsIgnoreCase(&quot;NO&quot;))</span>
+			{
+<span class="fc" id="L67">				return new ParseResult.Fail(&quot;You should use 'YES' or 'NO' as the &quot; + getTokenName() + &quot;: &quot; + value);</span>
+			}
+<span class="fc" id="L69">			set = Boolean.FALSE;</span>
+		}
+<span class="fc" id="L71">		obj.setRacialProf(set);</span>
+<span class="fc" id="L72">		return ParseResult.SUCCESS;</span>
+	}
+
+	@Override
+	public String[] unparse(LoadContext context, KitProf obj)
+	{
+<span class="fc" id="L78">		Boolean mult = obj.getRacialProf();</span>
+<span class="fc bfc" id="L79" title="All 2 branches covered.">		if (mult == null)</span>
+		{
+<span class="fc" id="L81">			return null;</span>
+		}
+<span class="fc bfc" id="L83" title="All 2 branches covered.">		return new String[]{mult ? &quot;YES&quot; : &quot;NO&quot;};</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

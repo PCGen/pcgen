@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>JTreeViewTable.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.gui2.util</a> &gt; <span class="el_source">JTreeViewTable.java</span></div><h1>JTreeViewTable.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2010 Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ * 
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ * 
+ */
+package pcgen.gui2.util;
+
+import java.awt.Container;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+
+import javax.swing.BorderFactory;
+import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.JViewport;
+import javax.swing.ScrollPaneConstants;
+import javax.swing.event.TableColumnModelEvent;
+import javax.swing.table.TableColumn;
+import javax.swing.table.TableColumnModel;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.TreePath;
+
+import pcgen.facade.util.ListFacade;
+import pcgen.facade.util.event.ListEvent;
+import pcgen.facade.util.event.ListListener;
+import pcgen.gui2.UIPropertyContext;
+import pcgen.gui2.util.event.DynamicTableColumnModelListener;
+import pcgen.gui2.util.table.DefaultDynamicTableColumnModel;
+import pcgen.gui2.util.table.DynamicTableColumnModel;
+import pcgen.gui2.util.treeview.DataView;
+import pcgen.gui2.util.treeview.DataViewColumn;
+import pcgen.gui2.util.treeview.DataViewColumn.Visibility;
+import pcgen.gui2.util.treeview.TreeView;
+import pcgen.gui2.util.treeview.TreeViewModel;
+import pcgen.gui2.util.treeview.TreeViewTableModel;
+import pcgen.gui3.GuiUtility;
+import pcgen.system.PropertyContext;
+import pcgen.util.CollectionMaps;
+import pcgen.util.ListMap;
+
+import javafx.embed.swing.JFXPanel;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.control.Button;
+import javafx.scene.control.CheckMenuItem;
+import javafx.scene.control.ContextMenu;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.RadioMenuItem;
+import javafx.scene.control.SeparatorMenuItem;
+import javafx.scene.control.ToggleGroup;
+
+/**
+ * JTreeViewTable is a subclass of JTreeTable that uses a TreeViewModel instead
+ * of a TreeTableModel. The TreeViewModel is a oriented towards displaying
+ * arbitrary objects as a tree instead of TreeTableNodes. In addition, the
+ * TreeViewModel supports multiple viewing methods and column visibility
+ * controls.
+ * &lt;br&gt;Node: Methods whose usage would endanger the integrity of this class are
+ * the following:
+ * &lt;br&gt;getModel()
+ * &lt;br&gt;setModel(TableModel)
+ * &lt;br&gt;getTreeTableModel()
+ * &lt;br&gt;setTreeTableModel(TreeTableModel)
+ * &lt;br&gt;setTableHeader(JTableHeader)
+ * &lt;br&gt;setAutoCreateColumnsFromModel(boolean);
+ *
+ */
+public class JTreeViewTable&lt;T&gt; extends JTreeTable
+{
+
+	/**
+	 * Preferences key for the width of the tree view column.
+	 */
+	private static final String TREE_VIEW_COL_PREFS_KEY = &quot;TreeView&quot;;
+	/**
+	 * The preferences key for the selected tree view index.
+	 */
+	private static final String VIEW_INDEX_PREFS_KEY = &quot;viewIdx&quot;;
+
+	private final Button cornerButton;
+	private final JFXPanel wrappedCornerButton;
+	private DynamicTableColumnModel dynamicColumnModel;
+	protected TreeViewTableModel&lt;T&gt; treetableModel;
+	private TreeViewModel&lt;T&gt; viewModel;
+<span class="nc" id="L100">	protected CornerButtonPopupMenu cornerPopupMenu = new CornerButtonPopupMenu();</span>
+<span class="nc" id="L101">	private static final PropertyContext BASE_CONTEXT = UIPropertyContext.createContext(&quot;tablePrefs&quot;);</span>
+
+	/**
+	 * Create a new instance of JTreeViewTable
+	 */
+	public JTreeViewTable()
+<span class="nc" id="L107">	{</span>
+<span class="nc" id="L108">		setAutoCreateColumnsFromModel(false);</span>
+<span class="nc" id="L109">		setAutoCreateRowSorter(false);</span>
+<span class="nc" id="L110">		getTree().setLargeModel(true);</span>
+<span class="nc" id="L111">		this.cornerButton = new JTableMenuButton(cornerPopupMenu);</span>
+<span class="nc" id="L112">		this.wrappedCornerButton = GuiUtility.wrapParentAsJFXPanel(this.cornerButton);</span>
+<span class="nc" id="L113">	}</span>
+
+	private &lt;TM&gt; TreeViewTableModel&lt;TM&gt; createDefaultTreeViewTableModel(DataView&lt;TM&gt; dataView)
+	{
+<span class="nc" id="L117">		return new TreeViewTableModel&lt;&gt;(dataView);</span>
+	}
+
+	private CheckMenuItem createMenuItem(TableColumn column)
+	{
+<span class="nc" id="L122">		CheckMenuItem item = new CheckMenuItem();</span>
+<span class="nc" id="L123">		boolean visible = dynamicColumnModel.isVisible(column);</span>
+<span class="nc" id="L124">			item.setSelected(visible);</span>
+<span class="nc" id="L125">		MenuAction menuAction = new MenuAction(column, visible);</span>
+<span class="nc" id="L126">		item.setText(menuAction.getText());</span>
+<span class="nc" id="L127">		item.setOnAction(menuAction);</span>
+<span class="nc" id="L128">		return item;</span>
+	}
+
+	private static DynamicTableColumnModel createTableColumnModel(TreeView&lt;?&gt; startingView, DataView&lt;?&gt; dataView)
+	{
+		@SuppressWarnings(&quot;unchecked&quot;)
+<span class="nc" id="L134">		ListMap&lt;Visibility, TableColumn, List&lt;TableColumn&gt;&gt; listMap =</span>
+<span class="nc" id="L135">				CollectionMaps.createListMap(HashMap.class, ArrayList.class);</span>
+<span class="nc" id="L136">		int index = 1;</span>
+<span class="nc bnc" id="L137" title="All 2 branches missed.">		for (DataViewColumn column : dataView.getDataColumns())</span>
+		{
+<span class="nc" id="L139">			TableColumn tableColumn = new TableColumn(index++);</span>
+<span class="nc" id="L140">			tableColumn.setHeaderValue(column.getName());</span>
+<span class="nc" id="L141">			Visibility vis = column.getVisibility();</span>
+<span class="nc" id="L142">			listMap.add(vis, tableColumn);</span>
+<span class="nc" id="L143">		}</span>
+
+<span class="nc" id="L145">		List&lt;TableColumn&gt; columns = listMap.get(Visibility.ALWAYS_VISIBLE);</span>
+<span class="nc bnc" id="L146" title="All 2 branches missed.">		if (columns == null)</span>
+		{
+<span class="nc" id="L148">			columns = Collections.emptyList();</span>
+		}
+
+<span class="nc" id="L151">			DynamicTableColumnModel model =</span>
+<span class="nc" id="L152">				new DefaultDynamicTableColumnModel(columns.size() + 1);</span>
+<span class="nc" id="L153">		TableColumn viewColumn = new TableColumn();</span>
+<span class="nc" id="L154">		viewColumn.setHeaderValue(startingView.getViewName());</span>
+<span class="nc" id="L155">		viewColumn.setIdentifier(TREE_VIEW_COL_PREFS_KEY);</span>
+<span class="nc" id="L156">		viewColumn.setPreferredWidth(150);</span>
+
+<span class="nc" id="L158">		model.addColumn(viewColumn);</span>
+<span class="nc" id="L159">		model.setVisible(viewColumn, true);</span>
+
+<span class="nc bnc" id="L161" title="All 2 branches missed.">		for (TableColumn column : columns)</span>
+		{
+<span class="nc" id="L163">			column.setPreferredWidth(75);</span>
+<span class="nc" id="L164">			model.addColumn(column);</span>
+<span class="nc" id="L165">			model.setVisible(column, true);</span>
+<span class="nc" id="L166">		}</span>
+
+<span class="nc" id="L168">		columns = listMap.get(Visibility.INITIALLY_VISIBLE);</span>
+<span class="nc bnc" id="L169" title="All 2 branches missed.">		if (columns != null)</span>
+		{
+<span class="nc bnc" id="L171" title="All 2 branches missed.">			for (TableColumn column : columns)</span>
+			{
+<span class="nc" id="L173">				column.setPreferredWidth(75);</span>
+<span class="nc" id="L174">				model.addColumn(column);</span>
+<span class="nc" id="L175">				model.setVisible(column, true);</span>
+<span class="nc" id="L176">			}</span>
+		}
+
+<span class="nc" id="L179">		columns = listMap.get(Visibility.INITIALLY_INVISIBLE);</span>
+<span class="nc bnc" id="L180" title="All 2 branches missed.">		if (columns != null)</span>
+		{
+<span class="nc bnc" id="L182" title="All 2 branches missed.">			for (TableColumn column : columns)</span>
+			{
+<span class="nc" id="L184">				column.setPreferredWidth(75);</span>
+<span class="nc" id="L185">				model.addColumn(column);</span>
+<span class="nc" id="L186">				model.setVisible(column, false);</span>
+<span class="nc" id="L187">			}</span>
+		}
+<span class="nc" id="L189">		return model;</span>
+	}
+
+	@Override
+	protected void configureEnclosingScrollPane()
+	{
+<span class="nc" id="L195">		super.configureEnclosingScrollPane();</span>
+<span class="nc" id="L196">		Container p = getParent();</span>
+<span class="nc bnc" id="L197" title="All 2 branches missed.">		if (p instanceof JViewport)</span>
+		{
+<span class="nc" id="L199">			Container gp = p.getParent();</span>
+<span class="nc bnc" id="L200" title="All 2 branches missed.">			if (gp instanceof JScrollPane scrollPane)</span>
+			{
+				// Make certain we are the viewPort's view and not, for
+				// example, the rowHeaderView of the scrollPane -
+				// an implementor of fixed columns might do this.
+<span class="nc" id="L205">				JViewport viewport = scrollPane.getViewport();</span>
+<span class="nc bnc" id="L206" title="All 4 branches missed.">				if (viewport == null || viewport.getView() != this)</span>
+				{
+<span class="nc" id="L208">					return;</span>
+				}
+<span class="nc" id="L210">				scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);</span>
+<span class="nc" id="L211">				scrollPane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER,</span>
+						wrappedCornerButton);
+			}
+		}
+<span class="nc" id="L215">	}</span>
+
+	@Override
+	protected void unconfigureEnclosingScrollPane()
+	{
+<span class="nc" id="L220">		super.unconfigureEnclosingScrollPane();</span>
+<span class="nc" id="L221">		Container p = getParent();</span>
+<span class="nc bnc" id="L222" title="All 2 branches missed.">		if (p instanceof JViewport)</span>
+		{
+<span class="nc" id="L224">			Container gp = p.getParent();</span>
+<span class="nc bnc" id="L225" title="All 2 branches missed.">			if (gp instanceof JScrollPane scrollPane)</span>
+			{
+				// Make certain we are the viewPort's view and not, for
+				// example, the rowHeaderView of the scrollPane -
+				// an implementor of fixed columns might do this.
+<span class="nc" id="L230">				JViewport viewport = scrollPane.getViewport();</span>
+<span class="nc bnc" id="L231" title="All 4 branches missed.">				if (viewport == null || viewport.getView() != this)</span>
+				{
+<span class="nc" id="L233">					return;</span>
+				}
+<span class="nc" id="L235">				scrollPane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER, null);</span>
+			}
+		}
+<span class="nc" id="L238">	}</span>
+
+	/**
+	 * This returns data that is currently highlighted by the user. This may
+	 * include branch nodes which are of type Object and not the type managed by
+	 * the table model. Hence we cannot use &amp;lt;T&amp;gt; here.
+	 *
+	 * @return A list of selected leaf and branch rows.
+	 */
+	public List&lt;Object&gt; getSelectedData()
+	{
+<span class="nc" id="L249">		TreePath[] paths = getTree().getSelectionPaths();</span>
+<span class="nc bnc" id="L250" title="All 2 branches missed.">		if (paths == null)</span>
+		{
+<span class="nc" id="L252">			return Collections.emptyList();</span>
+		}
+<span class="nc" id="L254">		List&lt;Object&gt; data = new ArrayList&lt;&gt;(paths.length);</span>
+<span class="nc bnc" id="L255" title="All 2 branches missed.">		for (TreePath path : paths)</span>
+		{
+<span class="nc" id="L257">			DefaultMutableTreeNode node = (DefaultMutableTreeNode) path.getLastPathComponent();</span>
+<span class="nc" id="L258">			data.add(node.getUserObject());</span>
+		}
+<span class="nc" id="L260">		return data;</span>
+	}
+
+	/**
+	 * Returns the currently selected object, if any.
+	 *
+	 * @return the selected object or null if none selected.
+	 */
+	public Object getSelectedObject()
+	{
+<span class="nc" id="L270">		int selectedRow = getSelectedRow();</span>
+<span class="nc bnc" id="L271" title="All 2 branches missed.">		if (selectedRow != -1)</span>
+		{
+<span class="nc" id="L273">			return getModel().getValueAt(selectedRow, 0);</span>
+		}
+<span class="nc" id="L275">		return null;</span>
+	}
+
+	public void refreshModelData()
+	{
+<span class="nc bnc" id="L280" title="All 2 branches missed.">		if (treetableModel != null)</span>
+		{
+<span class="nc" id="L282">			treetableModel.refreshData();</span>
+		}
+<span class="nc" id="L284">		resizeAndRepaint();</span>
+<span class="nc" id="L285">	}</span>
+
+	/**
+	 * React to a non structural change in model data by repainting the table.
+	 * Will not collapse the tree or change which rows are displayed and will
+	 * not be sufficient if rows have been added or removed.
+	 */
+	public void updateDisplay()
+	{
+<span class="nc" id="L294">		resizeAndRepaint();</span>
+<span class="nc" id="L295">	}</span>
+
+	@Override
+	public void setColumnModel(TableColumnModel columnModel)
+	{
+<span class="nc bnc" id="L300" title="All 2 branches missed.">		if (this.dynamicColumnModel != null)</span>
+		{
+<span class="nc" id="L302">			this.dynamicColumnModel.removeDynamicTableColumnModelListener(cornerPopupMenu);</span>
+<span class="nc" id="L303">			cornerButton.setVisible(false);</span>
+		}
+<span class="nc" id="L305">		super.setColumnModel(columnModel);</span>
+<span class="nc" id="L306">	}</span>
+
+	public void setColumnModel(DynamicTableColumnModel columnModel)
+	{
+<span class="nc bnc" id="L310" title="All 2 branches missed.">		if (this.dynamicColumnModel != null)</span>
+		{
+<span class="nc" id="L312">			this.dynamicColumnModel.removeDynamicTableColumnModelListener(cornerPopupMenu);</span>
+		}
+<span class="nc" id="L314">		this.dynamicColumnModel = columnModel;</span>
+<span class="nc" id="L315">		columnModel.addDynamicTableColumnModelListener(cornerPopupMenu);</span>
+<span class="nc" id="L316">		super.setColumnModel(columnModel);</span>
+<span class="nc" id="L317">		cornerPopupMenu.resetComponents();</span>
+<span class="nc" id="L318">	}</span>
+
+	protected void setTreeView(TreeView&lt;? super T&gt; view)
+	{
+<span class="nc" id="L322">		TableColumn viewColumn = getColumn(TREE_VIEW_COL_PREFS_KEY);</span>
+<span class="nc" id="L323">		treetableModel.setSelectedTreeView(view);</span>
+<span class="nc" id="L324">		viewColumn.setHeaderValue(view.getViewName());</span>
+<span class="nc" id="L325">		sortModel();</span>
+<span class="nc" id="L326">		getTableHeader().repaint();</span>
+<span class="nc" id="L327">		PropertyContext context = BASE_CONTEXT.createChildContext(this.viewModel.getDataView().getPrefsKey());</span>
+
+<span class="nc" id="L329">		int index = getIndex(viewModel.getTreeViews(), view);</span>
+<span class="nc bnc" id="L330" title="All 2 branches missed.">		if (index &gt;= 0)</span>
+		{
+<span class="nc" id="L332">			context.setInt(VIEW_INDEX_PREFS_KEY, index);</span>
+		}
+<span class="nc" id="L334">	}</span>
+
+	/**
+	 * get the index of the view.
+	 *
+	 * @param treeViews The list of tree views.
+	 * @param view The view to be found
+	 * @return The index or -1 if not found.
+	 */
+	private int getIndex(ListFacade&lt;? extends TreeView&lt;T&gt;&gt; treeViews, TreeView&lt;? super T&gt; view)
+	{
+<span class="nc bnc" id="L345" title="All 2 branches missed.">		for (int i = 0; i &lt; treeViews.getSize(); i++)</span>
+		{
+<span class="nc" id="L347">			TreeView&lt;T&gt; treeView = treeViews.getElementAt(i);</span>
+<span class="nc bnc" id="L348" title="All 2 branches missed.">			if (treeView.equals(view))</span>
+			{
+<span class="nc" id="L350">				return i;</span>
+			}
+		}
+		// If not found it is most likely the text search view,
+<span class="nc" id="L354">		return -1;</span>
+	}
+
+	public TreeViewModel&lt;?&gt; getTreeViewModel()
+	{
+<span class="nc" id="L359">		return viewModel;</span>
+	}
+
+	public void setTreeViewModel(TreeViewModel&lt;T&gt; viewModel)
+	{
+<span class="nc" id="L364">		ListFacade&lt;? extends TreeView&lt;T&gt;&gt; views = viewModel.getTreeViews();</span>
+<span class="nc" id="L365">		PropertyContext context = BASE_CONTEXT.createChildContext(viewModel.getDataView().getPrefsKey());</span>
+<span class="nc" id="L366">		int viewIndex = context.initInt(VIEW_INDEX_PREFS_KEY, viewModel.getDefaultTreeViewIndex());</span>
+<span class="nc" id="L367">		TreeView&lt;? super T&gt; startingView = views.getElementAt(viewIndex);</span>
+<span class="nc" id="L368">		DataView&lt;T&gt; dataView = viewModel.getDataView();</span>
+<span class="nc" id="L369">		final TreeViewTableModel&lt;T&gt; model = createDefaultTreeViewTableModel(dataView);</span>
+<span class="nc" id="L370">		this.treetableModel = model;</span>
+<span class="nc bnc" id="L371" title="All 2 branches missed.">		if (this.viewModel != null)</span>
+		{
+<span class="nc" id="L373">			this.viewModel.getTreeViews().removeListListener(cornerPopupMenu);</span>
+		}
+<span class="nc" id="L375">		this.viewModel = viewModel;</span>
+
+<span class="nc" id="L377">		model.setDataModel(viewModel.getDataModel());</span>
+<span class="nc" id="L378">		model.setSelectedTreeView(startingView);</span>
+<span class="nc" id="L379">		setTreeTableModel(model);</span>
+<span class="nc" id="L380">		setColumnModel(createTableColumnModel(startingView, dataView));</span>
+<span class="nc" id="L381">		cornerPopupMenu.resetComponents();</span>
+<span class="nc" id="L382">		this.viewModel.getTreeViews().addListListener(cornerPopupMenu);</span>
+<span class="nc" id="L383">	}</span>
+
+	/**
+	 * @return The currently selected tree view.
+	 */
+	public TreeView&lt;? super T&gt; getSelectedTreeView()
+	{
+<span class="nc" id="L390">		return treetableModel.getSelectedTreeView();</span>
+	}
+
+	/**
+	 * This is the popup menu for the CornerButton which allows selection of the
+	 * selected tree view as well as the visible columns for the table.
+	 */
+<span class="nc" id="L397">	protected class CornerButtonPopupMenu extends ContextMenu</span>
+			implements ListListener&lt;TreeView&lt;T&gt;&gt;, DynamicTableColumnModelListener
+	{
+
+<span class="nc" id="L401">		private boolean treeViewsEnabled = true;</span>
+
+		@Override
+		public void availableColumnAdded(TableColumnModelEvent event)
+		{
+<span class="nc" id="L406">			resetComponents();</span>
+<span class="nc" id="L407">		}</span>
+
+		@Override
+		public void availableColumnRemove(TableColumnModelEvent event)
+		{
+<span class="nc" id="L412">			resetComponents();</span>
+<span class="nc" id="L413">		}</span>
+
+		@Override
+		public void elementAdded(ListEvent&lt;TreeView&lt;T&gt;&gt; e)
+		{
+<span class="nc" id="L418">			resetComponents();</span>
+<span class="nc" id="L419">		}</span>
+
+		@Override
+		public void elementRemoved(ListEvent&lt;TreeView&lt;T&gt;&gt; e)
+		{
+<span class="nc" id="L424">			resetComponents();</span>
+<span class="nc" id="L425">		}</span>
+
+		public void setTreeViewsEnabled(boolean enabled)
+		{
+<span class="nc" id="L429">			this.treeViewsEnabled = enabled;</span>
+<span class="nc" id="L430">			resetComponents();</span>
+<span class="nc" id="L431">		}</span>
+
+		@Override
+		public void elementsChanged(ListEvent&lt;TreeView&lt;T&gt;&gt; e)
+		{
+<span class="nc" id="L436">			resetComponents();</span>
+<span class="nc" id="L437">		}</span>
+
+		@Override
+		public void elementModified(ListEvent&lt;TreeView&lt;T&gt;&gt; e)
+		{
+<span class="nc" id="L442">		}</span>
+
+		private void resetComponents()
+		{
+<span class="nc" id="L446">			ListFacade&lt;? extends TreeView&lt;T&gt;&gt; views = viewModel.getTreeViews();</span>
+<span class="nc" id="L447">			PropertyContext context = BASE_CONTEXT.createChildContext(viewModel.getDataView().getPrefsKey());</span>
+<span class="nc" id="L448">			int viewIndex = context.initInt(VIEW_INDEX_PREFS_KEY, viewModel.getDefaultTreeViewIndex());</span>
+
+<span class="nc" id="L450">			ToggleGroup group = new ToggleGroup();</span>
+<span class="nc" id="L451">			TreeView&lt;? super T&gt; startingView = views.getElementAt(viewIndex);</span>
+<span class="nc" id="L452">			removeAll();</span>
+<span class="nc" id="L453">			JLabel treeLabel = new JLabel(&quot;Tree Views&quot;);</span>
+<span class="nc" id="L454">			treeLabel.setBorder(BorderFactory.createEmptyBorder(0, 4, 0, 0));</span>
+<span class="nc" id="L455">			add(treeLabel);</span>
+<span class="nc bnc" id="L456" title="All 2 branches missed.">			for (TreeView&lt;T&gt; treeview : views)</span>
+			{
+<span class="nc" id="L458">				RadioMenuItem item = new RadioMenuItem();</span>
+<span class="nc" id="L459">				ChangeViewAction changeViewAction = new ChangeViewAction(treeview);</span>
+<span class="nc" id="L460">				item.setOnAction(changeViewAction);</span>
+<span class="nc" id="L461">				item.setText(changeViewAction.getText());</span>
+<span class="nc bnc" id="L462" title="All 2 branches missed.">				item.setSelected(startingView == treeview);</span>
+<span class="nc bnc" id="L463" title="All 2 branches missed.">				item.setDisable(!treeViewsEnabled);</span>
+<span class="nc" id="L464">				item.setToggleGroup(group);</span>
+<span class="nc" id="L465">				getItems().add(item);</span>
+<span class="nc" id="L466">			}</span>
+<span class="nc" id="L467">			this.getItems().add(new SeparatorMenuItem());</span>
+<span class="nc" id="L468">			JLabel columnLabel = new JLabel(&quot;Columns&quot;);</span>
+<span class="nc" id="L469">			columnLabel.setBorder(BorderFactory.createEmptyBorder(0, 4, 0, 0));</span>
+<span class="nc" id="L470">			add(columnLabel);</span>
+<span class="nc" id="L471">			List&lt;TableColumn&gt; columns = dynamicColumnModel.getAvailableColumns();</span>
+<span class="nc bnc" id="L472" title="All 2 branches missed.">			for (TableColumn column : columns)</span>
+			{
+<span class="nc" id="L474">				MenuItem item = createMenuItem(column);</span>
+<span class="nc" id="L475">				this.getItems().add(item);</span>
+<span class="nc" id="L476">			}</span>
+<span class="nc bnc" id="L477" title="All 4 branches missed.">			cornerButton.setVisible(!columns.isEmpty() || !views.isEmpty());</span>
+<span class="nc" id="L478">		}</span>
+
+	}
+
+	private abstract static class NamedAction implements EventHandler&lt;ActionEvent&gt;
+	{
+		private final String text;
+
+		NamedAction(String text)
+<span class="nc" id="L487">		{</span>
+<span class="nc" id="L488">			this.text = text;</span>
+<span class="nc" id="L489">		}</span>
+
+		String getText()
+		{
+<span class="nc" id="L493">			return text;</span>
+		}
+	}
+
+	private final class MenuAction extends NamedAction
+	{
+
+		private boolean visible;
+		private final TableColumn column;
+
+		private MenuAction(TableColumn column, boolean visible)
+<span class="nc" id="L504">		{</span>
+<span class="nc" id="L505">			super(column.getHeaderValue().toString());</span>
+<span class="nc" id="L506">			this.visible = visible;</span>
+<span class="nc" id="L507">			this.column = column;</span>
+<span class="nc" id="L508">		}</span>
+
+		@Override
+		public void handle(ActionEvent e)
+		{
+<span class="nc bnc" id="L513" title="All 2 branches missed.">			dynamicColumnModel.setVisible(column, visible = !visible);</span>
+<span class="nc" id="L514">		}</span>
+
+	}
+
+	private final class ChangeViewAction extends NamedAction
+	{
+
+		private final TreeView&lt;? super T&gt; view;
+
+		ChangeViewAction(TreeView&lt;? super T&gt; view)
+<span class="nc" id="L524">		{</span>
+<span class="nc" id="L525">			super(view.getViewName());</span>
+<span class="nc" id="L526">			this.view = view;</span>
+<span class="nc" id="L527">		}</span>
+
+		@Override
+		public void handle(ActionEvent e)
+		{
+<span class="nc" id="L532">			setTreeView(view);</span>
+<span class="nc" id="L533">		}</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

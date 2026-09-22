@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PluginClassLoader.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.system</a> &gt; <span class="el_source">PluginClassLoader.java</span></div><h1>PluginClassLoader.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2009 Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ */
+package pcgen.system;
+
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
+import java.net.URLClassLoader;
+import java.nio.file.DirectoryStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.zip.ZipFile;
+
+import pcgen.base.util.HashMapToList;
+import pcgen.base.util.MapToList;
+import pcgen.util.Logging;
+
+import org.apache.commons.lang3.StringUtils;
+
+class PluginClassLoader extends PCGenTask
+{
+	private final File pluginDir;
+	private final MapToList&lt;Class&lt;?&gt;, PluginLoader&gt; loaderMap;
+<span class="nc" id="L48">	private final ExecutorService dispatcher = Executors.newSingleThreadExecutor(</span>
+<span class="nc" id="L49">			runnable -&gt; Thread.ofPlatform().name(&quot;Plugin-loading-thread&quot;).daemon().unstarted(runnable));</span>
+<span class="nc" id="L50">	private final LinkedList&lt;File&gt; jarFiles = new LinkedList&lt;&gt;();</span>
+<span class="nc" id="L51">	private int progress = 0;</span>
+
+	PluginClassLoader(File pluginDir)
+<span class="nc" id="L54">	{</span>
+<span class="nc" id="L55">		this.loaderMap = new HashMapToList&lt;&gt;();</span>
+<span class="nc" id="L56">		this.pluginDir = pluginDir;</span>
+<span class="nc" id="L57">	}</span>
+
+	@Override
+	public String getMessage()
+	{
+<span class="nc" id="L62">		return LanguageBundle.getString(&quot;in_taskLoadPlugins&quot;); //$NON-NLS-1$</span>
+	}
+
+	void addPluginLoader(PluginLoader loader)
+	{
+<span class="nc bnc" id="L67" title="All 2 branches missed.">		for (final Class&lt;?&gt; clazz : loader.getPluginClasses())</span>
+		{
+<span class="nc" id="L69">			loaderMap.addToListFor(clazz, loader);</span>
+		}
+<span class="nc" id="L71">	}</span>
+
+	private void loadClasses(final File pluginJar) throws IOException
+	{
+<span class="nc" id="L75">		try (JarClassLoader loader = new JarClassLoader(pluginJar.toURI().toURL());</span>
+<span class="nc" id="L76">				ZipFile file = new ZipFile(pluginJar))</span>
+		{
+<span class="nc" id="L78">			var jarClasses = file.stream()</span>
+<span class="nc" id="L79">					.filter(entry -&gt; entry.getName().endsWith(&quot;.class&quot;));</span>
+<span class="nc" id="L80">			final Collection&lt;String&gt; classList = new LinkedList&lt;&gt;();</span>
+<span class="nc" id="L81">			jarClasses.forEach(entry -&gt; {</span>
+<span class="nc" id="L82">				String name = StringUtils.removeEnd(entry.getName(), &quot;.class&quot;).replace('/', '.');</span>
+
+
+<span class="nc" id="L85">				try (var in = file.getInputStream(entry))</span>
+				{
+<span class="nc" id="L87">					byte[] buffer = in.readAllBytes();</span>
+<span class="nc" id="L88">					loader.storeClassDef(name, buffer);</span>
+<span class="nc" id="L89">					classList.add(name);</span>
+<span class="nc" id="L90">				} catch (IOException e)</span>
+				{
+<span class="nc" id="L92">					Logging.errorPrint(&quot;Error occurred while extracting a class file &quot; + name + &quot; from JAR: &quot; + pluginJar, e);</span>
+<span class="nc" id="L93">				}</span>
+<span class="nc" id="L94">			});</span>
+
+			/*
+			 * Loading files and loading classes can both be lengthy processes. This splits the tasks
+			 * so that class loading occurs in another thread, thus allowing both processes to
+			 * operate at the same time.
+			 */
+<span class="nc" id="L101">			dispatcher.execute(() -&gt;</span>
+			{
+<span class="nc" id="L103">				boolean pluginFound = false;</span>
+<span class="nc bnc" id="L104" title="All 2 branches missed.">				for (final String string : classList)</span>
+				{
+					try
+					{
+<span class="nc" id="L108">						pluginFound |= processClass(Class.forName(string, true, loader));</span>
+					}
+<span class="nc" id="L110">					catch (ClassNotFoundException | NoClassDefFoundError ex)</span>
+					{
+<span class="nc" id="L112">						Logging.errorPrint(&quot;Error occurred while loading plugin: &quot; + pluginJar.getName(), ex);</span>
+<span class="nc" id="L113">					}</span>
+<span class="nc" id="L114">				}</span>
+<span class="nc bnc" id="L115" title="All 2 branches missed.">				if (!pluginFound)</span>
+				{
+<span class="nc" id="L117">					Logging.log(Logging.WARNING, &quot;Plugin not found in &quot; + pluginJar.getName());</span>
+				}
+<span class="nc" id="L119">				progress++;</span>
+<span class="nc" id="L120">				setProgress(progress);</span>
+<span class="nc" id="L121">			});</span>
+		}
+<span class="nc" id="L123">	}</span>
+
+    private boolean processClass(Class&lt;?&gt; clazz)
+	{
+<span class="nc" id="L127">		boolean loaded = false;</span>
+<span class="nc bnc" id="L128" title="All 2 branches missed.">		for (final Class&lt;?&gt; key : loaderMap.getKeySet())</span>
+		{
+<span class="nc bnc" id="L130" title="All 4 branches missed.">			if ((key != null) &amp;&amp; !key.isAssignableFrom(clazz))</span>
+			{
+<span class="nc" id="L132">				continue;</span>
+			}
+<span class="nc bnc" id="L134" title="All 2 branches missed.">			for (final PluginLoader loader : loaderMap.getListFor(key))</span>
+			{
+				try
+				{
+<span class="nc" id="L138">					loader.loadPlugin(clazz);</span>
+				}
+<span class="nc" id="L140">				catch (final Exception ex)</span>
+				{
+<span class="nc" id="L142">					Logging.errorPrint(&quot;Error occurred while loading a plugin class: &quot; + clazz.getName(), ex);</span>
+				}
+				finally
+				{
+<span class="nc" id="L146">					loaded = true;</span>
+				}
+<span class="nc" id="L148">			}</span>
+<span class="nc" id="L149">		}</span>
+<span class="nc" id="L150">		return loaded;</span>
+	}
+
+	@Override
+	public void run()
+	{
+<span class="nc" id="L156">		loadPlugins();</span>
+<span class="nc" id="L157">	}</span>
+
+	void loadPlugins()
+	{
+<span class="nc" id="L161">		findJarFiles(pluginDir);</span>
+<span class="nc" id="L162">		setMaximum(jarFiles.size());</span>
+<span class="nc" id="L163">		loadClasses();</span>
+<span class="nc" id="L164">		Future&lt;?&gt; future = dispatcher.submit(dispatcher::shutdown);</span>
+		try
+		{
+			// This is done to cause this thread to wait until the shutdown task has been executed.
+<span class="nc" id="L168">			future.get();</span>
+		}
+<span class="nc" id="L170">		catch (ExecutionException | InterruptedException ex)</span>
+		{
+<span class="nc" id="L172">			Logging.errorPrint(&quot;Exception during shutdown&quot;, ex);</span>
+<span class="nc" id="L173">		}</span>
+<span class="nc" id="L174">	}</span>
+
+	private void findJarFiles(File pluginDir)
+	{
+<span class="nc bnc" id="L178" title="All 2 branches missed.">		if (!pluginDir.isDirectory())</span>
+		{
+<span class="nc" id="L180">			return;</span>
+		}
+
+<span class="nc" id="L183">		try (DirectoryStream&lt;Path&gt; stream = Files.newDirectoryStream(pluginDir.toPath(), &quot;*plugins.jar&quot;))</span>
+		{
+<span class="nc" id="L185">			stream.forEach(path -&gt; jarFiles.add(path.toFile()));</span>
+		}
+<span class="nc" id="L187">		catch (IOException e)</span>
+		{
+<span class="nc" id="L189">			Logging.errorPrint(&quot;Couldn't process the ./plugins/ folder.&quot;, e);</span>
+<span class="nc" id="L190">		}</span>
+<span class="nc" id="L191">	}</span>
+
+	private void loadClasses()
+	{
+<span class="nc" id="L195">		jarFiles.forEach(file -&gt; {</span>
+			try
+			{
+<span class="nc" id="L198">				loadClasses(file);</span>
+			}
+<span class="nc" id="L200">			catch (final IOException ex)</span>
+			{
+<span class="nc" id="L202">				Logging.errorPrint(&quot;Could not load classes from a file: &quot; + file.getAbsolutePath(), ex);</span>
+<span class="nc" id="L203">			}</span>
+<span class="nc" id="L204">		});</span>
+<span class="nc" id="L205">		jarFiles.clear();</span>
+<span class="nc" id="L206">	}</span>
+
+	private static final class JarClassLoader extends URLClassLoader
+	{
+<span class="nc" id="L210">		private final Map&lt;String, byte[]&gt; classDefinitions = new HashMap&lt;&gt;();</span>
+
+		private JarClassLoader(URL url)
+		{
+<span class="nc" id="L214">			super(new URL[]{url});</span>
+<span class="nc" id="L215">		}</span>
+
+		private void storeClassDef(String name, byte[] bytes)
+		{
+<span class="nc" id="L219">			classDefinitions.put(name, bytes);</span>
+<span class="nc" id="L220">		}</span>
+
+		@Override
+		protected Class&lt;?&gt; findClass(String name) throws ClassNotFoundException
+		{
+<span class="nc" id="L225">			byte[] bytes = classDefinitions.remove(name);</span>
+<span class="nc bnc" id="L226" title="All 2 branches missed.">			if (bytes == null)</span>
+			{
+<span class="nc" id="L228">				throw new ClassNotFoundException(&quot;The class with the name cannot be found: &quot; + name);</span>
+			}
+<span class="nc" id="L230">			return defineClass(name, bytes, 0, bytes.length);</span>
+		}
+
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

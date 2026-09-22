@@ -1,0 +1,682 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TokenLibrary.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.rules.persistence</a> &gt; <span class="el_source">TokenLibrary.java</span></div><h1>TokenLibrary.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2008 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ *
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.rules.persistence;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.NoSuchElementException;
+import java.util.Set;
+import java.util.TreeSet;
+
+import pcgen.base.lang.UnreachableError;
+import pcgen.base.util.CaseInsensitiveMap;
+import pcgen.base.util.DoubleKeyMap;
+import pcgen.base.util.TreeMapToList;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.GroupDefinition;
+import pcgen.cdom.base.Loadable;
+import pcgen.cdom.grouping.GroupingDefinition;
+import pcgen.core.PCClass;
+import pcgen.core.bonus.BonusObj;
+import pcgen.persistence.lst.LstToken;
+import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
+import pcgen.rules.persistence.token.CDOMCompatibilityToken;
+import pcgen.rules.persistence.token.CDOMInterfaceToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.CDOMSubToken;
+import pcgen.rules.persistence.token.CDOMToken;
+import pcgen.rules.persistence.token.ClassWrappedToken;
+import pcgen.rules.persistence.token.DeferredToken;
+import pcgen.rules.persistence.token.ModifierFactory;
+import pcgen.rules.persistence.token.PostDeferredToken;
+import pcgen.rules.persistence.token.PostValidationToken;
+import pcgen.rules.persistence.token.PreCompatibilityToken;
+import pcgen.rules.persistence.token.PrimitiveToken;
+import pcgen.rules.persistence.token.QualifierToken;
+import pcgen.rules.persistence.util.TokenFamily;
+import pcgen.system.PluginLoader;
+import pcgen.util.Logging;
+
+public final class TokenLibrary implements PluginLoader
+{
+
+<span class="fc" id="L65">	private static final Class&lt;PCClass&gt; PCCLASS_CLASS = PCClass.class;</span>
+<span class="fc" id="L66">	private static final Class&lt;CDOMObject&gt; CDOMOBJECT_CLASS = CDOMObject.class;</span>
+<span class="fc" id="L67">	private static final TreeMapToList&lt;Integer, PostDeferredToken&lt;? extends Loadable&gt;&gt; POST_DEFERRED_TOKENS =</span>
+			new TreeMapToList&lt;&gt;();
+<span class="fc" id="L69">	private static final TreeMapToList&lt;Integer, PostValidationToken&lt;? extends Loadable&gt;&gt; POST_VALIDATION_TOKENS =</span>
+			new TreeMapToList&lt;&gt;();
+<span class="fc" id="L71">	private static final DoubleKeyMap&lt;Class&lt;?&gt;, String, Class&lt;? extends QualifierToken&lt;?&gt;&gt;&gt; QUALIFIER_MAP =</span>
+			new DoubleKeyMap&lt;&gt;();
+<span class="fc" id="L73">	private static final DoubleKeyMap&lt;Class&lt;?&gt;, String, Class&lt;? extends PrimitiveToken&lt;?&gt;&gt;&gt; PRIMITIVE_MAP =</span>
+			new DoubleKeyMap&lt;&gt;();
+
+	/**
+	 * Contains legal GroupingDefinition objects loaded from plugins
+	 */
+<span class="fc" id="L79">	private static final DoubleKeyMap&lt;Class&lt;?&gt;, String, GroupingDefinition&lt;?&gt;&gt; GROUPING_MAP = new DoubleKeyMap&lt;&gt;();</span>
+<span class="fc" id="L80">	private static final DoubleKeyMap&lt;Class&lt;?&gt;, String, ModifierFactory&lt;?&gt;&gt; MODIFIER_MAP = new DoubleKeyMap&lt;&gt;();</span>
+
+	/**
+	 * Contains the interface tokens mapped by the token name.
+	 */
+<span class="fc" id="L85">	private static final Map&lt;String, CDOMInterfaceToken&lt;?, ?&gt;&gt; IF_TOKEN_MAP = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L86">	private static final Set&lt;TokenFamily&gt; TOKEN_FAMILIES = new TreeSet&lt;&gt;();</span>
+<span class="fc" id="L87">	private static final CaseInsensitiveMap&lt;Class&lt;? extends BonusObj&gt;&gt; BONUS_TAG_MAP = new CaseInsensitiveMap&lt;&gt;();</span>
+
+<span class="fc" id="L89">	private static TokenLibrary instance = null;</span>
+
+	static
+	{
+<span class="fc" id="L93">		reset();</span>
+<span class="fc" id="L94">	}</span>
+
+	public static void reset()
+	{
+<span class="fc" id="L98">		POST_DEFERRED_TOKENS.clear();</span>
+<span class="fc" id="L99">		QUALIFIER_MAP.clear();</span>
+<span class="fc" id="L100">		PRIMITIVE_MAP.clear();</span>
+<span class="fc" id="L101">		GROUPING_MAP.clear();</span>
+<span class="fc" id="L102">		MODIFIER_MAP.clear();</span>
+<span class="fc" id="L103">		IF_TOKEN_MAP.clear();</span>
+<span class="fc" id="L104">		BONUS_TAG_MAP.clear();</span>
+<span class="fc" id="L105">		TOKEN_FAMILIES.clear();</span>
+<span class="fc" id="L106">		TokenFamily.CURRENT.clearTokens();</span>
+<span class="fc" id="L107">		TOKEN_FAMILIES.add(TokenFamily.CURRENT);</span>
+<span class="fc" id="L108">		TokenFamily.REV514.clearTokens();</span>
+<span class="fc" id="L109">		TOKEN_FAMILIES.add(TokenFamily.REV514);</span>
+<span class="fc" id="L110">	}</span>
+
+	private TokenLibrary()
+	{
+		// Don't instantiate utility class
+	}
+
+	public static &lt;T&gt; PrimitiveToken&lt;T&gt; getPrimitive(Class&lt;T&gt; cl, String tokKey)
+	{
+<span class="fc" id="L119">		Iterator&lt;PrimitiveToken&lt;T&gt;&gt; it = new PrimitiveTokenIterator&lt;&gt;(cl, tokKey);</span>
+<span class="fc bfc" id="L120" title="All 2 branches covered.">		if (it.hasNext())</span>
+		{
+<span class="fc" id="L122">			return it.next();</span>
+		}
+<span class="fc" id="L124">		return null;</span>
+	}
+
+	/**
+	 * Returns the GroupingDefinition available with the given Format and grouping key.
+	 * 
+	 * @return The GroupingDefinition available with the given Format and grouping key.
+	 */
+	public static &lt;T&gt; GroupingDefinition&lt;T&gt; getGrouping(Class&lt;T&gt; inputClass,
+		String tokenKey)
+	{
+<span class="fc" id="L135">		boolean isDirect = true;</span>
+<span class="fc" id="L136">		Class&lt;? super T&gt; actingClass = inputClass;</span>
+<span class="pc bpc" id="L137" title="1 of 2 branches missed.">		while (actingClass != null)</span>
+		{
+<span class="fc" id="L139">			GroupingDefinition token = GROUPING_MAP.get(actingClass, tokenKey);</span>
+<span class="pc bpc" id="L140" title="1 of 4 branches missed.">			if ((token != null) &amp;&amp; (token.requiresDirect() == isDirect))</span>
+			{
+<span class="fc" id="L142">				return token;</span>
+			}
+<span class="fc" id="L144">			actingClass = actingClass.getSuperclass();</span>
+<span class="fc" id="L145">			isDirect = false;</span>
+<span class="fc" id="L146">		}</span>
+<span class="nc" id="L147">		return null;</span>
+	}
+
+	public static Collection&lt;PostDeferredToken&lt;? extends Loadable&gt;&gt; getPostDeferredTokens()
+	{
+<span class="fc" id="L152">		List&lt;PostDeferredToken&lt;? extends Loadable&gt;&gt; list = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L153" title="All 2 branches covered.">		for (Integer key : POST_DEFERRED_TOKENS.getKeySet())</span>
+		{
+<span class="fc" id="L155">			list.addAll(POST_DEFERRED_TOKENS.getListFor(key));</span>
+<span class="fc" id="L156">		}</span>
+<span class="fc" id="L157">		return list;</span>
+	}
+
+	public static void addToModifierMap(ModifierFactory&lt;?&gt; m)
+	{
+<span class="fc" id="L162">        ModifierFactory.class.isAssignableFrom(m.getClass());</span>
+<span class="fc" id="L163">        String name = m.getIdentification();</span>
+<span class="fc" id="L164">        Class&lt;?&gt; cl = m.getVariableFormat();</span>
+<span class="fc" id="L165">        ModifierFactory&lt;?&gt; prev = MODIFIER_MAP.put(cl, name, m);</span>
+<span class="pc bpc" id="L166" title="1 of 2 branches missed.">        if (prev != null)</span>
+        {
+<span class="nc" id="L168">            Logging.errorPrint(&quot;Found a second &quot; + name + &quot; Modifier for &quot; + cl);</span>
+        }
+<span class="fc" id="L170">    }</span>
+
+	public static &lt;T&gt; ModifierFactory&lt;T&gt; getModifier(Class&lt;T&gt; cl, String tokKey)
+	{
+<span class="fc" id="L174">		Iterator&lt;ModifierFactory&lt;T&gt;&gt; it = new ModifierIterator&lt;&gt;(cl, tokKey);</span>
+<span class="fc bfc" id="L175" title="All 2 branches covered.">		if (it.hasNext())</span>
+		{
+<span class="fc" id="L177">			return it.next();</span>
+		}
+		else
+		{
+<span class="fc" id="L181">			return null;</span>
+		}
+	}
+
+	public static Collection&lt;PostValidationToken&lt;? extends Loadable&gt;&gt; getPostValidationTokens()
+	{
+<span class="fc" id="L187">		List&lt;PostValidationToken&lt;? extends Loadable&gt;&gt; list = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L188" title="All 2 branches covered.">		for (Integer key : POST_VALIDATION_TOKENS.getKeySet())</span>
+		{
+<span class="fc" id="L190">			list.addAll(POST_VALIDATION_TOKENS.getListFor(key));</span>
+<span class="fc" id="L191">		}</span>
+<span class="fc" id="L192">		return list;</span>
+	}
+
+	public static void addToPrimitiveMap(PrimitiveToken&lt;?&gt; p)
+	{
+<span class="fc" id="L197">		Class newTokClass = p.getClass();</span>
+<span class="pc bpc" id="L198" title="1 of 2 branches missed.">		if (PrimitiveToken.class.isAssignableFrom(newTokClass))</span>
+		{
+<span class="fc" id="L200">			String name = p.getTokenName();</span>
+<span class="fc" id="L201">			Class cl = p.getReferenceClass();</span>
+<span class="fc" id="L202">			Class&lt;? extends PrimitiveToken&lt;?&gt;&gt; prev = PRIMITIVE_MAP.put(cl, name, newTokClass);</span>
+<span class="pc bpc" id="L203" title="1 of 2 branches missed.">			if (prev != null)</span>
+			{
+<span class="nc" id="L205">				Logging.errorPrint(&quot;Found a second &quot; + name + &quot; Primitive for &quot; + cl);</span>
+			}
+		}
+<span class="fc" id="L208">	}</span>
+
+	/**
+	 * Adds a new GroupingDefinition to this TokenLibrary.
+	 * 
+	 * @param definition
+	 *            The GroupingDefinition to be added to this TokenLibrary
+	 */
+	public static void addToGroupingMap(GroupingDefinition&lt;?&gt; definition)
+	{
+<span class="fc" id="L218">		String name = definition.getIdentification();</span>
+<span class="fc" id="L219">		Class&lt;?&gt; classScope = definition.getUsableLocation();</span>
+<span class="fc" id="L220">		GroupingDefinition&lt;?&gt; prev = GROUPING_MAP.put(classScope, name, definition);</span>
+<span class="pc bpc" id="L221" title="1 of 2 branches missed.">		if (prev != null)</span>
+		{
+<span class="nc" id="L223">			Logging.errorPrint(&quot;Found a second &quot; + name + &quot; Grouping for &quot; + classScope.getSimpleName());</span>
+		}
+<span class="fc" id="L225">	}</span>
+
+	/**
+	 * Adds a new QualifierToken to this TokenLibrary.
+	 * 
+	 * @param token
+	 *            The QualifierToken to be added to this TokenLibrary
+	 */
+	public static void addToQualifierMap(QualifierToken&lt;?&gt; token)
+	{
+<span class="fc" id="L235">		Class newTokClass = token.getClass();</span>
+<span class="fc" id="L236">		Class&lt;?&gt; cl = token.getReferenceClass();</span>
+<span class="fc" id="L237">		String name = token.getTokenName();</span>
+<span class="fc" id="L238">		Class&lt;? extends QualifierToken&gt; prev = QUALIFIER_MAP.put(cl, name, newTokClass);</span>
+<span class="pc bpc" id="L239" title="1 of 2 branches missed.">		if (prev != null)</span>
+		{
+<span class="nc" id="L241">			Logging.errorPrint(&quot;Found a second &quot; + name + &quot; Qualifier for &quot; + cl);</span>
+		}
+<span class="fc" id="L243">	}</span>
+
+	public static void addToTokenMap(Object newToken)
+	{
+<span class="fc bfc" id="L247" title="All 2 branches covered.">		if (newToken instanceof PostDeferredToken&lt;?&gt; pdt)</span>
+		{
+<span class="fc" id="L249">			POST_DEFERRED_TOKENS.addToListFor(pdt.getPriority(), pdt);</span>
+		}
+<span class="fc bfc" id="L251" title="All 2 branches covered.">		if (newToken instanceof PostValidationToken&lt;?&gt; pdt)</span>
+		{
+<span class="fc" id="L253">			POST_VALIDATION_TOKENS.addToListFor(pdt.getPriority(), pdt);</span>
+		}
+<span class="fc bfc" id="L255" title="All 2 branches covered.">		if (newToken instanceof CDOMCompatibilityToken&lt;?&gt; tok)</span>
+		{
+<span class="fc" id="L257">			TokenFamily fam = TokenFamily.getConstant(tok.compatibilityLevel(), tok.compatibilitySubLevel(),</span>
+<span class="fc" id="L258">				tok.compatibilityPriority());</span>
+<span class="pc bpc" id="L259" title="1 of 2 branches missed.">			if (fam.putToken(tok) != null)</span>
+			{
+<span class="nc" id="L261">				Logging.errorPrint(&quot;Duplicate &quot; + tok.getTokenClass().getSimpleName()</span>
+<span class="nc" id="L262">					+ &quot; Compatibility Token found for token &quot; + tok.getTokenName() + &quot; at compatibility level &quot;</span>
+<span class="nc" id="L263">					+ tok.compatibilityLevel() + '.' + tok.compatibilitySubLevel() + '.' + tok.compatibilityPriority());</span>
+			}
+<span class="fc" id="L265">			TOKEN_FAMILIES.add(fam);</span>
+<span class="pc bpc" id="L266" title="2 of 4 branches missed.">			if (fam.compareTo(TokenFamily.REV514) &lt;= 0 &amp;&amp; PCCLASS_CLASS.equals(tok.getTokenClass()))</span>
+			{
+				@SuppressWarnings(&quot;unchecked&quot;)
+<span class="nc" id="L269">				CDOMCompatibilityToken&lt;PCClass&gt; clTok = (CDOMCompatibilityToken&lt;PCClass&gt;) tok;</span>
+<span class="nc" id="L270">				addToTokenMap(new ClassWrappedToken(clTok));</span>
+			}
+		}
+<span class="fc bfc" id="L273" title="All 2 branches covered.">		if (newToken instanceof CDOMInterfaceToken&lt;?, ?&gt; tok)</span>
+		{
+<span class="fc" id="L275">			CDOMInterfaceToken&lt;?, ?&gt; existingToken = IF_TOKEN_MAP.put(tok.getTokenName(), tok);</span>
+<span class="pc bpc" id="L276" title="1 of 2 branches missed.">			if (existingToken != null)</span>
+			{
+<span class="nc" id="L278">				Logging.errorPrint(&quot;Duplicate &quot; + tok.getTokenClass().getSimpleName()</span>
+<span class="nc" id="L279">					+ &quot; Token found for interface token &quot; + tok.getTokenName() + &quot;. Classes were &quot;</span>
+<span class="nc" id="L280">					+ existingToken.getClass().getName() + &quot; and &quot; + newToken.getClass().getName());</span>
+			}
+		}
+<span class="fc" id="L283">		loadFamily(TokenFamily.CURRENT, newToken);</span>
+<span class="fc" id="L284">	}</span>
+
+	public static void loadFamily(TokenFamily family, Object newToken)
+	{
+<span class="fc bfc" id="L288" title="All 2 branches covered.">		if (newToken instanceof DeferredToken)</span>
+		{
+<span class="fc" id="L290">			family.addDeferredToken((DeferredToken&lt;?&gt;) newToken);</span>
+		}
+<span class="fc bfc" id="L292" title="All 2 branches covered.">		if (newToken instanceof CDOMPrimaryToken&lt;?&gt; tok)</span>
+		{
+<span class="fc" id="L294">			CDOMToken&lt;?&gt; existingToken = family.putToken(tok);</span>
+<span class="fc bfc" id="L295" title="All 2 branches covered.">			if (existingToken != null)</span>
+			{
+<span class="fc" id="L297">				Logging.errorPrint(&quot;Duplicate &quot; + tok.getTokenClass().getSimpleName() + &quot; Token found for token &quot;</span>
+<span class="fc" id="L298">					+ tok.getTokenName() + &quot;. Classes were &quot; + existingToken.getClass().getName() + &quot; and &quot;</span>
+<span class="fc" id="L299">					+ newToken.getClass().getName());</span>
+			}
+<span class="fc bfc" id="L301" title="All 2 branches covered.">			if (PCCLASS_CLASS.equals(tok.getTokenClass()))</span>
+			{
+				@SuppressWarnings(&quot;unchecked&quot;)
+<span class="fc" id="L304">				CDOMPrimaryToken&lt;PCClass&gt; clTok = (CDOMPrimaryToken&lt;PCClass&gt;) tok;</span>
+<span class="fc" id="L305">				addToTokenMap(new ClassWrappedToken(clTok));</span>
+			}
+		}
+<span class="fc bfc" id="L308" title="All 2 branches covered.">		if (newToken instanceof CDOMSecondaryToken&lt;?&gt; tok)</span>
+		{
+<span class="fc" id="L310">			CDOMSubToken&lt;?&gt; existingToken = family.putSubToken(tok);</span>
+<span class="fc bfc" id="L311" title="All 2 branches covered.">			if (existingToken != null)</span>
+			{
+<span class="fc" id="L313">				Logging.errorPrint(&quot;Duplicate &quot; + tok.getTokenClass().getSimpleName() + &quot; Token found for token &quot;</span>
+<span class="fc" id="L314">					+ tok.getParentToken() + ':' + tok.getTokenName() + &quot;. Classes were &quot;</span>
+<span class="fc" id="L315">					+ existingToken.getClass().getName() + &quot; and &quot; + newToken.getClass().getName());</span>
+			}
+		}
+<span class="fc bfc" id="L318" title="All 2 branches covered.">		if (newToken instanceof PrerequisiteParserInterface prereqToken)</span>
+		{
+<span class="fc" id="L320">			family.putPrerequisiteToken(prereqToken);</span>
+<span class="fc bfc" id="L321" title="All 2 branches covered.">			for (String s : prereqToken.kindsHandled())</span>
+			{
+				/*
+				 * TODO Theoretically these belong in REV514, but put into
+				 * current for unparse testing
+				 */
+<span class="fc" id="L327">				PreCompatibilityToken pos = new PreCompatibilityToken(s, prereqToken, false);</span>
+<span class="pc bpc" id="L328" title="1 of 2 branches missed.">				if (family.putToken(pos) != null)</span>
+				{
+<span class="nc" id="L330">					Logging.errorPrint(&quot;Duplicate &quot; + pos.getTokenClass().getSimpleName() + &quot; Token found for token &quot;</span>
+<span class="nc" id="L331">						+ pos.getTokenName());</span>
+				}
+<span class="pc bpc" id="L333" title="1 of 2 branches missed.">				if (family.putSubToken(pos) != null)</span>
+				{
+<span class="nc" id="L335">					Logging.errorPrint(&quot;Duplicate &quot; + pos.getTokenClass().getSimpleName() + &quot; Token found for token &quot;</span>
+<span class="nc" id="L336">						+ pos.getParentToken() + ':' + pos.getTokenName());</span>
+				}
+<span class="fc" id="L338">				family.putSubToken(pos);</span>
+<span class="fc" id="L339">				PreCompatibilityToken neg = new PreCompatibilityToken(s, prereqToken, true);</span>
+<span class="pc bpc" id="L340" title="1 of 2 branches missed.">				if (family.putToken(neg) != null)</span>
+				{
+<span class="nc" id="L342">					Logging.errorPrint(&quot;Duplicate &quot; + neg.getTokenClass().getSimpleName() + &quot; Token found for token &quot;</span>
+<span class="nc" id="L343">						+ neg.getTokenName());</span>
+				}
+<span class="pc bpc" id="L345" title="1 of 2 branches missed.">				if (family.putSubToken(neg) != null)</span>
+				{
+<span class="nc" id="L347">					Logging.errorPrint(&quot;Duplicate &quot; + neg.getTokenClass().getSimpleName() + &quot; Token found for token &quot;</span>
+<span class="nc" id="L348">						+ neg.getParentToken() + ':' + neg.getTokenName());</span>
+				}
+			}
+		}
+<span class="fc bfc" id="L352" title="All 2 branches covered.">		if (newToken instanceof GroupDefinition)</span>
+		{
+<span class="fc" id="L354">			family.addGroupDefinition((GroupDefinition&lt;?&gt;) newToken);</span>
+		}
+<span class="fc" id="L356">	}</span>
+
+	public static TokenLibrary getInstance()
+	{
+<span class="nc bnc" id="L360" title="All 2 branches missed.">		if (instance == null)</span>
+		{
+<span class="nc" id="L362">			instance = new TokenLibrary();</span>
+		}
+<span class="nc" id="L364">		return instance;</span>
+	}
+
+	@Override
+	public void loadPlugin(Class&lt;?&gt; clazz) throws Exception
+	{
+<span class="nc bnc" id="L370" title="All 2 branches missed.">		if (BonusObj.class.isAssignableFrom(clazz))</span>
+		{
+<span class="nc" id="L372">			addBonusClass(clazz);</span>
+		}
+
+<span class="nc" id="L375">		Object token = clazz.getDeclaredConstructor().newInstance();</span>
+<span class="nc bnc" id="L376" title="All 4 branches missed.">		if (LstToken.class.isAssignableFrom(clazz) || PrerequisiteParserInterface.class.isAssignableFrom(clazz))</span>
+		{
+<span class="nc" id="L378">			addToTokenMap(token);</span>
+		}
+<span class="nc bnc" id="L380" title="All 2 branches missed.">		if (QualifierToken.class.isAssignableFrom(clazz))</span>
+		{
+<span class="nc" id="L382">			addToQualifierMap((QualifierToken&lt;?&gt;) token);</span>
+		}
+<span class="nc bnc" id="L384" title="All 2 branches missed.">		if (PrimitiveToken.class.isAssignableFrom(clazz))</span>
+		{
+<span class="nc" id="L386">			addToPrimitiveMap((PrimitiveToken&lt;?&gt;) token);</span>
+		}
+<span class="nc bnc" id="L388" title="All 2 branches missed.">		if (GroupingDefinition.class.isAssignableFrom(clazz))</span>
+		{
+<span class="nc" id="L390">			addToGroupingMap((GroupingDefinition&lt;?&gt;) token);</span>
+		}
+<span class="nc bnc" id="L392" title="All 2 branches missed.">		if (ModifierFactory.class.isAssignableFrom(clazz))</span>
+		{
+<span class="nc" id="L394">			addToModifierMap((ModifierFactory&lt;?&gt;) token);</span>
+		}
+<span class="nc" id="L396">	}</span>
+
+	@Override
+	public Class[] getPluginClasses()
+	{
+<span class="nc" id="L401">		return new Class[]{LstToken.class, BonusObj.class, PrerequisiteParserInterface.class, ModifierFactory.class,</span>
+			GroupingDefinition.class};
+	}
+
+	abstract static class AbstractTokenIterator&lt;C, T&gt; implements Iterator&lt;T&gt;
+	{
+		// private static final Class&lt;Object&gt; OBJECT_CLASS = Object.class;
+
+		private final Class&lt;C&gt; rootClass;
+		private final String tokenKey;
+<span class="fc" id="L411">		private T nextToken = null;</span>
+<span class="fc" id="L412">		private boolean needNewToken = true;</span>
+		private Class&lt;?&gt; stopClass;
+		private final Iterator&lt;TokenFamily&gt; subIterator;
+
+		AbstractTokenIterator(Class&lt;C&gt; cl, String key)
+<span class="fc" id="L417">		{</span>
+<span class="fc" id="L418">			rootClass = cl;</span>
+<span class="fc" id="L419">			subIterator = TOKEN_FAMILIES.iterator();</span>
+<span class="fc" id="L420">			tokenKey = key;</span>
+<span class="fc" id="L421">		}</span>
+
+		@Override
+		public boolean hasNext()
+		{
+<span class="fc" id="L426">			setNextToken();</span>
+<span class="fc bfc" id="L427" title="All 2 branches covered.">			return !needNewToken;</span>
+		}
+
+		protected void setNextToken()
+		{
+<span class="fc bfc" id="L432" title="All 4 branches covered.">			while (needNewToken &amp;&amp; subIterator.hasNext())</span>
+			{
+<span class="fc" id="L434">				TokenFamily family = subIterator.next();</span>
+<span class="fc" id="L435">				Class&lt;?&gt; actingClass = rootClass;</span>
+<span class="fc" id="L436">				nextToken = grabToken(family, actingClass, tokenKey);</span>
+<span class="fc bfc" id="L437" title="All 6 branches covered.">				while (nextToken == null &amp;&amp; actingClass != null &amp;&amp; !actingClass.equals(stopClass))</span>
+				{
+<span class="fc" id="L439">					actingClass = getSuperClass(actingClass);</span>
+<span class="fc" id="L440">					nextToken = grabToken(family, actingClass, tokenKey);</span>
+				}
+<span class="fc bfc" id="L442" title="All 2 branches covered.">				if (stopClass == null)</span>
+				{
+<span class="fc" id="L444">					stopClass = actingClass;</span>
+				}
+<span class="fc bfc" id="L446" title="All 2 branches covered.">				needNewToken = nextToken == null;</span>
+<span class="fc" id="L447">			}</span>
+<span class="fc" id="L448">		}</span>
+
+		protected Class&lt;?&gt; getSuperClass(Class&lt;?&gt; actingClass)
+		{
+<span class="fc" id="L452">			return actingClass.getSuperclass();</span>
+		}
+
+		protected abstract T grabToken(TokenFamily family, Class&lt;?&gt; cl, String key);
+
+		@Override
+		public T next()
+		{
+<span class="fc" id="L460">			setNextToken();</span>
+<span class="pc bpc" id="L461" title="1 of 2 branches missed.">			if (needNewToken)</span>
+			{
+<span class="nc" id="L463">				throw new NoSuchElementException();</span>
+			}
+<span class="fc" id="L465">			needNewToken = true;</span>
+<span class="fc" id="L466">			return nextToken;</span>
+		}
+
+		@Override
+		public void remove()
+		{
+<span class="nc" id="L472">			throw new UnsupportedOperationException(&quot;Iterator does not support remove&quot;);</span>
+		}
+
+	}
+
+	static class TokenIterator&lt;C extends Loadable, T extends CDOMToken&lt;? super C&gt;&gt;
+			extends TokenLibrary.AbstractTokenIterator&lt;C, T&gt;
+	{
+
+		TokenIterator(Class&lt;C&gt; cl, String key)
+		{
+<span class="fc" id="L483">			super(cl, key);</span>
+<span class="fc" id="L484">		}</span>
+
+		@Override
+		protected T grabToken(TokenFamily family, Class&lt;?&gt; cl, String key)
+		{
+<span class="fc" id="L489">			return (T) family.getToken(cl, key);</span>
+		}
+
+	}
+
+	static class SubTokenIterator&lt;C, T extends CDOMSubToken&lt;? super C&gt;&gt; extends TokenLibrary.AbstractTokenIterator&lt;C, T&gt;
+	{
+
+		private final String subTokenKey;
+
+		SubTokenIterator(Class&lt;C&gt; cl, String key, String subKey)
+		{
+<span class="fc" id="L501">			super(cl, key);</span>
+<span class="fc" id="L502">			subTokenKey = subKey;</span>
+<span class="fc" id="L503">		}</span>
+
+		@Override
+		protected T grabToken(TokenFamily family, Class&lt;?&gt; cl, String key)
+		{
+<span class="fc" id="L508">			return (T) family.getSubToken(cl, key, subTokenKey);</span>
+		}
+
+	}
+
+	static class QualifierTokenIterator&lt;C extends CDOMObject, T extends QualifierToken&lt;? super C&gt;&gt;
+			extends TokenLibrary.AbstractTokenIterator&lt;C, T&gt;
+	{
+
+		QualifierTokenIterator(Class&lt;C&gt; cl, String key)
+		{
+<span class="fc" id="L519">			super(cl, key);</span>
+<span class="fc" id="L520">		}</span>
+
+		@Override
+		protected T grabToken(TokenFamily family, Class&lt;?&gt; cl, String key)
+		{
+<span class="fc bfc" id="L525" title="All 2 branches covered.">			if (!TokenFamily.CURRENT.equals(family))</span>
+			{
+<span class="fc" id="L527">				return null;</span>
+			}
+<span class="fc" id="L529">			Class&lt;? extends QualifierToken&gt; cl1 = QUALIFIER_MAP.get(cl, key);</span>
+<span class="fc bfc" id="L530" title="All 2 branches covered.">			if (cl1 == null)</span>
+			{
+<span class="fc" id="L532">				return null;</span>
+			}
+			try
+			{
+<span class="fc" id="L536">				return (T) cl1.newInstance();</span>
+			}
+<span class="nc" id="L538">			catch (InstantiationException e)</span>
+			{
+<span class="nc" id="L540">				throw new UnreachableError(&quot;new Instance on &quot; + cl1 + &quot; should not fail&quot;, e);</span>
+			}
+<span class="nc" id="L542">			catch (IllegalAccessException e)</span>
+			{
+<span class="nc" id="L544">				throw new UnreachableError(&quot;new Instance on &quot; + cl1 + &quot; should not fail due to access&quot;, e);</span>
+			}
+		}
+
+	}
+
+	static class PrimitiveTokenIterator&lt;C, T extends PrimitiveToken&lt;? super C&gt;&gt;
+			extends TokenLibrary.AbstractTokenIterator&lt;C, T&gt;
+	{
+
+		PrimitiveTokenIterator(Class&lt;C&gt; cl, String key)
+		{
+<span class="fc" id="L556">			super(cl, key);</span>
+<span class="fc" id="L557">		}</span>
+
+		@Override
+		protected T grabToken(TokenFamily family, Class&lt;?&gt; cl, String key)
+		{
+<span class="fc bfc" id="L562" title="All 2 branches covered.">			if (!TokenFamily.CURRENT.equals(family))</span>
+			{
+<span class="fc" id="L564">				return null;</span>
+			}
+<span class="fc" id="L566">			Class&lt;? extends PrimitiveToken&gt; cl1 = PRIMITIVE_MAP.get(cl, key);</span>
+<span class="fc bfc" id="L567" title="All 2 branches covered.">			if (cl1 == null)</span>
+			{
+<span class="fc" id="L569">				return null;</span>
+			}
+			try
+			{
+<span class="fc" id="L573">				return (T) cl1.newInstance();</span>
+			}
+<span class="nc" id="L575">			catch (InstantiationException e)</span>
+			{
+<span class="nc" id="L577">				throw new UnreachableError(&quot;new Instance on &quot; + cl1 + &quot; should not fail&quot;, e);</span>
+			}
+<span class="nc" id="L579">			catch (IllegalAccessException e)</span>
+			{
+<span class="nc" id="L581">				throw new UnreachableError(&quot;new Instance on &quot; + cl1 + &quot; should not fail due to access&quot;, e);</span>
+			}
+		}
+
+	}
+
+	static class ModifierIterator&lt;C, T extends ModifierFactory&lt;? super C&gt;&gt;
+			extends TokenLibrary.AbstractTokenIterator&lt;C, T&gt;
+	{
+
+		ModifierIterator(Class&lt;C&gt; cl, String key)
+		{
+<span class="fc" id="L593">			super(cl, key);</span>
+<span class="fc" id="L594">		}</span>
+
+		@Override
+		protected T grabToken(TokenFamily family, Class&lt;?&gt; cl, String key)
+		{
+<span class="fc bfc" id="L599" title="All 2 branches covered.">			if (!TokenFamily.CURRENT.equals(family))</span>
+			{
+<span class="fc" id="L601">				return null;</span>
+			}
+<span class="fc" id="L603">			return (T) MODIFIER_MAP.get(cl, key);</span>
+		}
+
+		@Override
+		protected Class&lt;?&gt; getSuperClass(Class&lt;?&gt; actingClass)
+		{
+<span class="fc bfc" id="L609" title="All 2 branches covered.">			if (actingClass.isArray())</span>
+			{
+<span class="fc" id="L611">				Class&lt;?&gt; component = actingClass.getComponentType();</span>
+<span class="fc" id="L612">				Class&lt;?&gt; parentComponent = getSuperClass(component);</span>
+<span class="fc" id="L613">				return Array.newInstance(parentComponent, 0).getClass();</span>
+			}
+<span class="fc" id="L615">			return super.getSuperClass(actingClass);</span>
+		}
+	}
+
+	static class PreTokenIterator extends TokenLibrary.AbstractTokenIterator&lt;CDOMObject, PrerequisiteParserInterface&gt;
+	{
+
+		PreTokenIterator(String key)
+		{
+<span class="nc" id="L624">			super(CDOMOBJECT_CLASS, key);</span>
+<span class="nc" id="L625">		}</span>
+
+		@Override
+		protected PrerequisiteParserInterface grabToken(TokenFamily family, Class&lt;?&gt; cl, String key)
+		{
+<span class="nc" id="L630">			return family.getPrerequisiteToken(key);</span>
+		}
+
+	}
+
+	/**
+	 * Add a CLASS via a BONUS.
+	 *
+	 * @param bonusClass the bonus class
+	 * @return true if successful
+	 * @throws InstantiationException the instantiation exception
+	 * @throws IllegalAccessException the illegal access exception
+	 */
+	public static boolean addBonusClass(Class bonusClass) throws InstantiationException, IllegalAccessException
+	{
+<span class="pc bpc" id="L645" title="1 of 2 branches missed.">		if (BonusObj.class.isAssignableFrom(bonusClass))</span>
+		{
+<span class="fc" id="L647">			final BonusObj bonusObj = (BonusObj) bonusClass.newInstance();</span>
+<span class="fc" id="L648">			BONUS_TAG_MAP.put(bonusObj.getBonusHandled(), bonusClass);</span>
+<span class="fc" id="L649">			return true;</span>
+		}
+<span class="nc" id="L651">		return false;</span>
+	}
+
+	public static Class&lt;? extends BonusObj&gt; getBonus(String bonusName)
+	{
+<span class="fc" id="L656">		return BONUS_TAG_MAP.get(bonusName);</span>
+	}
+
+	/**
+	 * Returns the CDOMInterfaceToken of the given name. null is returned if there is no
+	 * CDOMInterfaceToken of the given name.
+	 * 
+	 * @param name
+	 *            The name of the CDOMInterfaceToken to be returned
+	 * @return The CDOMInterfaceToken of the given name
+	 */
+	public static CDOMInterfaceToken&lt;?, ?&gt; getInterfaceToken(String name)
+	{
+<span class="fc" id="L669">		return IF_TOKEN_MAP.get(name);</span>
+	}
+
+	/**
+	 * Returns a Collection of the CDOMInterfaceToken objects in this TokenLibrary.
+	 * 
+	 * @return A Collection of the CDOMInterfaceToken objects in this TokenLibrary
+	 */
+	public static Collection&lt;CDOMInterfaceToken&lt;?, ?&gt;&gt; getInterfaceTokens()
+	{
+<span class="fc" id="L679">		return Collections.unmodifiableCollection(IF_TOKEN_MAP.values());</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

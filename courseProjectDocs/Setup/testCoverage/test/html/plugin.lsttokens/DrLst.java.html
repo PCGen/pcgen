@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DrLst.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.lsttokens</a> &gt; <span class="el_source">DrLst.java</span></div><h1>DrLst.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2008 (C) Thomas Parker &lt;thpr@users.sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package plugin.lsttokens;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Set;
+import java.util.StringTokenizer;
+import java.util.TreeSet;
+
+import pcgen.cdom.formula.Formula;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.base.Ungranted;
+import pcgen.cdom.content.DamageReduction;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.core.prereq.Prerequisite;
+import pcgen.rules.context.Changes;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.ComplexParseResult;
+import pcgen.rules.persistence.token.ParseResult;
+
+<span class="fc" id="L42">public class DrLst extends AbstractTokenWithSeparator&lt;CDOMObject&gt; implements CDOMPrimaryToken&lt;CDOMObject&gt;</span>
+{
+	@Override
+	public String getTokenName()
+	{
+<span class="fc" id="L47">		return &quot;DR&quot;;</span>
+	}
+
+	@Override
+	protected char separator()
+	{
+<span class="fc" id="L53">		return '|';</span>
+	}
+
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
+	{
+<span class="pc bpc" id="L59" title="1 of 2 branches missed.">		if (obj instanceof Ungranted)</span>
+		{
+<span class="nc" id="L61">			return new ParseResult.Fail(</span>
+<span class="nc" id="L62">				&quot;Cannot use &quot; + getTokenName() + &quot; on an Ungranted object type: &quot; + obj.getClass().getSimpleName());</span>
+		}
+<span class="pc bpc" id="L64" title="1 of 2 branches missed.">		if (Constants.LST_DOT_CLEAR.equals(value))</span>
+		{
+<span class="nc" id="L66">			context.getObjectContext().removeList(obj, ListKey.DAMAGE_REDUCTION);</span>
+<span class="nc" id="L67">			return ParseResult.SUCCESS;</span>
+		}
+
+<span class="fc" id="L70">		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);</span>
+<span class="fc" id="L71">		String drString = tok.nextToken();</span>
+<span class="fc" id="L72">		ParseResult pr = checkForIllegalSeparator('/', drString);</span>
+<span class="fc bfc" id="L73" title="All 2 branches covered.">		if (!pr.passed())</span>
+		{
+<span class="fc" id="L75">			return pr;</span>
+		}
+<span class="fc" id="L77">		String[] values = drString.split(&quot;/&quot;);</span>
+<span class="fc bfc" id="L78" title="All 2 branches covered.">		if (values.length != 2)</span>
+		{
+<span class="fc" id="L80">			ComplexParseResult cpr = new ComplexParseResult();</span>
+<span class="fc" id="L81">			cpr.addErrorMessage(getTokenName() + &quot; failed to build DamageReduction with value &quot; + value);</span>
+<span class="fc" id="L82">			cpr.addErrorMessage(&quot;  ...expected a String with one / as a separator&quot;);</span>
+<span class="fc" id="L83">			return cpr;</span>
+		}
+<span class="fc" id="L85">		Formula formula = FormulaFactory.getFormulaFor(values[0]);</span>
+<span class="pc bpc" id="L86" title="1 of 2 branches missed.">		if (!formula.isValid())</span>
+		{
+<span class="nc" id="L88">			return new ParseResult.Fail(&quot;Formula in &quot; + getTokenName() + &quot; was not valid: &quot; + formula.toString());</span>
+		}
+<span class="fc" id="L90">		DamageReduction dr = new DamageReduction(formula, values[1]);</span>
+
+<span class="fc bfc" id="L92" title="All 2 branches covered.">		if (tok.hasMoreTokens())</span>
+		{
+<span class="fc" id="L94">			String currentToken = tok.nextToken();</span>
+<span class="fc" id="L95">			Prerequisite prereq = getPrerequisite(currentToken);</span>
+<span class="fc bfc" id="L96" title="All 2 branches covered.">			if (prereq == null)</span>
+			{
+<span class="fc" id="L98">				return ParseResult.INTERNAL_ERROR;</span>
+			}
+<span class="fc" id="L100">			dr.addPrerequisite(prereq);</span>
+		}
+<span class="fc" id="L102">		context.getObjectContext().addToList(obj, ListKey.DAMAGE_REDUCTION, dr);</span>
+<span class="fc" id="L103">		return ParseResult.SUCCESS;</span>
+	}
+
+	@Override
+	public String[] unparse(LoadContext context, CDOMObject obj)
+	{
+<span class="fc" id="L109">		Changes&lt;DamageReduction&gt; changes = context.getObjectContext().getListChanges(obj, ListKey.DAMAGE_REDUCTION);</span>
+<span class="fc" id="L110">		Collection&lt;DamageReduction&gt; added = changes.getAdded();</span>
+<span class="fc" id="L111">		List&lt;String&gt; list = new ArrayList&lt;&gt;();</span>
+<span class="pc bpc" id="L112" title="1 of 2 branches missed.">		if (changes.includesGlobalClear())</span>
+		{
+<span class="nc" id="L114">			list.add(Constants.LST_DOT_CLEAR);</span>
+		}
+<span class="pc bpc" id="L116" title="1 of 4 branches missed.">		else if (added == null || added.isEmpty())</span>
+		{
+			// Zero indicates no Token (and no global clear, so nothing to do)
+<span class="fc" id="L119">			return null;</span>
+		}
+<span class="fc" id="L121">		Set&lt;String&gt; set = new TreeSet&lt;&gt;();</span>
+<span class="pc bpc" id="L122" title="1 of 2 branches missed.">		if (added != null)</span>
+		{
+<span class="fc bfc" id="L124" title="All 2 branches covered.">			for (DamageReduction lw : added)</span>
+			{
+<span class="fc" id="L126">				StringBuilder sb = new StringBuilder();</span>
+<span class="fc" id="L127">				sb.append(lw.getLSTformat());</span>
+<span class="fc bfc" id="L128" title="All 2 branches covered.">				if (lw.hasPrerequisites())</span>
+				{
+<span class="fc" id="L130">					sb.append(Constants.PIPE);</span>
+<span class="fc" id="L131">					sb.append(context.getPrerequisiteString(lw.getPrerequisiteList()));</span>
+				}
+<span class="fc" id="L133">				set.add(sb.toString());</span>
+<span class="fc" id="L134">			}</span>
+		}
+<span class="fc" id="L136">		list.addAll(set);</span>
+<span class="fc" id="L137">		return list.toArray(new String[0]);</span>
+	}
+
+	@Override
+	public Class&lt;CDOMObject&gt; getTokenClass()
+	{
+<span class="fc" id="L143">		return CDOMObject.class;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

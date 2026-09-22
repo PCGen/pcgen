@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TokenStore.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.persistence.lst</a> &gt; <span class="el_source">TokenStore.java</span></div><h1>TokenStore.java</h1><pre class="source lang-java linenums">/*
+ * Missing License Header, Copyright 2016 (C) Andrew Maitland &lt;amaitland@users.sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ */
+
+package pcgen.persistence.lst;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import pcgen.system.PluginLoader;
+import pcgen.util.Logging;
+
+/**
+ * A Store of LST tokens, has a map and list representation
+ */
+public final class TokenStore implements PluginLoader
+{
+	private static TokenStore inst;
+	private HashMap&lt;Class&lt;? extends LstToken&gt;, Map&lt;String, LstToken&gt;&gt; tokenTypeMap;
+	private final List&lt;Class&lt;? extends LstToken&gt;&gt; tokenTypeList;
+
+	private TokenStore()
+<span class="fc" id="L40">	{</span>
+<span class="fc" id="L41">		tokenTypeMap = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L42">		tokenTypeList = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L43">		populateTokenTypeList();</span>
+<span class="fc" id="L44">	}</span>
+
+	/**
+	 * Create an instance of TokenStore and return it.
+	 * @return an instance of TokenStore and return it.
+	 */
+	public static TokenStore inst()
+	{
+<span class="fc bfc" id="L52" title="All 2 branches covered.">		if (inst == null)</span>
+		{
+<span class="fc" id="L54">			inst = new TokenStore();</span>
+		}
+<span class="fc" id="L56">		return inst;</span>
+	}
+
+	public static void reset()
+	{
+<span class="fc bfc" id="L61" title="All 2 branches covered.">		if (inst != null)</span>
+		{
+<span class="fc" id="L63">			inst.tokenTypeList.clear();</span>
+<span class="fc" id="L64">			inst.tokenTypeMap.clear();</span>
+		}
+<span class="fc" id="L66">	}</span>
+
+	private void populateTokenTypeList()
+	{
+		//miscinfo.lst
+<span class="fc" id="L71">		tokenTypeList.add(GameModeLstToken.class);</span>
+
+		//level.lst
+<span class="fc" id="L74">		tokenTypeList.add(LevelLstToken.class);</span>
+
+		//equipIcon.lst
+<span class="fc" id="L77">		tokenTypeList.add(EquipIconLstToken.class);</span>
+
+		//equipmentslots.lst
+<span class="fc" id="L80">		tokenTypeList.add(EquipSlotLstToken.class);</span>
+
+		//install.lst
+<span class="fc" id="L83">		tokenTypeList.add(InstallLstToken.class);</span>
+
+		//migrate.lst
+<span class="fc" id="L86">		tokenTypeList.add(MigrationLstToken.class);</span>
+<span class="fc" id="L87">	}</span>
+
+	@Override
+	public void loadPlugin(Class&lt;?&gt; clazz) throws Exception
+	{
+<span class="nc" id="L92">		addToTokenMap((LstToken) clazz.newInstance());</span>
+<span class="nc" id="L93">	}</span>
+
+	@Override
+	public Class[] getPluginClasses()
+	{
+<span class="nc" id="L98">		return new Class[]{LstToken.class};</span>
+	}
+
+	/**
+	 * Add the new token to the token map
+	 * @param newToken
+	 */
+	public void addToTokenMap(LstToken newToken)
+	{
+<span class="fc bfc" id="L107" title="All 2 branches covered.">		for (Class&lt;? extends LstToken&gt; tokClass : tokenTypeList)</span>
+		{
+<span class="pc bpc" id="L109" title="1 of 2 branches missed.">			if (tokClass.isAssignableFrom(newToken.getClass()))</span>
+			{
+<span class="nc" id="L111">				Map&lt;String, LstToken&gt; tokenMap = getTokenMap(tokClass);</span>
+<span class="nc" id="L112">				LstToken test = tokenMap.put(newToken.getTokenName(), newToken);</span>
+
+<span class="nc bnc" id="L114" title="All 2 branches missed.">				if (test != null)</span>
+				{
+<span class="nc" id="L116">					Logging.errorPrint(&quot;More than one &quot; + tokClass.getName() + &quot; has the same token name: '&quot;</span>
+<span class="nc" id="L117">						+ newToken.getTokenName() + &quot;'. &quot; + &quot;Classes were &quot; + test.getClass().getName() + &quot; and &quot;</span>
+<span class="nc" id="L118">						+ newToken.getClass().getName());</span>
+				}
+			}
+<span class="fc" id="L121">		}</span>
+<span class="fc" id="L122">	}</span>
+
+	/**
+	 * Get the token map
+	 * @param tokInterface
+	 * @return the token map
+	 */
+	public Map&lt;String, LstToken&gt; getTokenMap(Class&lt;? extends LstToken&gt; tokInterface)
+	{
+<span class="nc" id="L131">		Map&lt;String, LstToken&gt; tokenMap = tokenTypeMap.get(tokInterface);</span>
+<span class="nc bnc" id="L132" title="All 2 branches missed.">		if (tokenMap == null)</span>
+		{
+<span class="nc" id="L134">			tokenMap = new HashMap&lt;&gt;();</span>
+<span class="nc" id="L135">			tokenTypeMap.put(tokInterface, tokenMap);</span>
+		}
+<span class="nc" id="L137">		return tokenMap;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

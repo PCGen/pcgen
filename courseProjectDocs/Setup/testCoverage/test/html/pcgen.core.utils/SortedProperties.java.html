@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SortedProperties.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.core.utils</a> &gt; <span class="el_source">SortedProperties.java</span></div><h1>SortedProperties.java</h1><pre class="source lang-java linenums">/*
+ *  This library is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU Lesser General Public
+ *  License as published by the Free Software Foundation; either
+ *  version 2.1 of the License, or (at your option) any later version.
+ *
+ *  This library is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ *  Lesser General Public License for more details.
+ *
+ *  You should have received a copy of the GNU Lesser General Public
+ *  License along with this library; if not, write to the Free Software
+ *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.core.utils;
+
+import java.io.BufferedWriter;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Properties;
+import java.util.SortedMap;
+import java.util.TreeMap;
+
+import pcgen.util.Logging;
+
+/**
+ * An subclass of Properties whose output is sorted
+ */
+<span class="fc" id="L33">public class SortedProperties extends Properties</span>
+{
+
+	/**
+	 * Store properties
+	 * @param out
+	 * @param header
+	 */
+	public void mystore(final FileOutputStream out, final String header)
+	{
+
+<span class="nc" id="L44">		final SortedMap&lt;Object, Object&gt; aMap = new TreeMap&lt;&gt;(this);</span>
+<span class="nc" id="L45">		final Iterator&lt;Map.Entry&lt;Object, Object&gt;&gt; entries = aMap.entrySet().iterator();</span>
+		Map.Entry&lt;Object, Object&gt; entry;
+
+<span class="nc" id="L48">		try(BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(out, &quot;8859_1&quot;)))</span>
+		{
+<span class="nc" id="L50">			bw.write(header);</span>
+<span class="nc" id="L51">			bw.newLine();</span>
+
+<span class="nc bnc" id="L53" title="All 2 branches missed.">			while (entries.hasNext())</span>
+			{
+<span class="nc" id="L55">				entry = entries.next();</span>
+
+				// The following characters must be escaped:
+				// #, !, = and :
+<span class="nc" id="L59">				final String aString = fixUp((String) entry.getValue());</span>
+<span class="nc" id="L60">				bw.write(convertStringToKey((String) entry.getKey()) + &quot;=&quot; + aString);</span>
+<span class="nc" id="L61">				bw.newLine();</span>
+<span class="nc" id="L62">			}</span>
+
+<span class="nc" id="L64">			bw.flush();</span>
+		}
+<span class="nc" id="L66">		catch (final IOException ex)</span>
+		{
+<span class="nc" id="L68">			Logging.errorPrint(&quot;Error writing to the options.ini file: &quot;, ex);</span>
+<span class="nc" id="L69">		}</span>
+<span class="nc" id="L70">	}</span>
+
+	private static String fixUp(final String aString)
+	{
+<span class="nc" id="L74">		final StringBuilder ab = new StringBuilder(aString.length());</span>
+
+<span class="nc bnc" id="L76" title="All 2 branches missed.">		for (int i = 0; i &lt; aString.length(); i++)</span>
+		{
+			// #, !, = and :
+<span class="nc bnc" id="L79" title="All 6 branches missed.">			if ((aString.charAt(i) == '#') || (aString.charAt(i) == '\\') || (aString.charAt(i) == '!')</span>
+<span class="nc bnc" id="L80" title="All 4 branches missed.">				|| (aString.charAt(i) == '=') || (aString.charAt(i) == ':'))</span>
+			{
+<span class="nc" id="L82">				ab.append(&quot;\\&quot;).append(aString.charAt(i));</span>
+			}
+			else
+			{
+<span class="nc" id="L86">				ab.append(aString.charAt(i));</span>
+			}
+		}
+
+<span class="nc" id="L90">		return ab.toString();</span>
+	}
+
+	/**
+	 * Convert the supplied string into a property key, escaping any 
+	 * terminator characters within the string.  
+	 * @param rawKey The text to be converted
+	 * @return The valid properties key
+	 */
+	private static String convertStringToKey(String rawKey)
+	{
+<span class="nc" id="L101">		String key = rawKey.replaceAll(&quot; &quot;, &quot;\\\\ &quot;);</span>
+<span class="nc" id="L102">		key = key.replaceAll(&quot;:&quot;, &quot;\\\\:&quot;);</span>
+<span class="nc" id="L103">		key = key.replaceAll(&quot;=&quot;, &quot;\\\\=&quot;);</span>
+<span class="nc" id="L104">		return key;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

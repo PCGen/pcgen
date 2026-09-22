@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ParameterTree.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.util</a> &gt; <span class="el_source">ParameterTree.java</span></div><h1>ParameterTree.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2007 (C) Andrew Wilson &lt;nuance@users.sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.     See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.util;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import org.nfunk.jep.ParseException;
+
+public class ParameterTree
+{
+	String contents;
+<span class="nc" id="L28">	ParameterTree left = null;</span>
+<span class="nc" id="L29">	ParameterTree right = null;</span>
+	public static final String OR_STRING = &quot;[or]&quot;;
+	public static final String AND_STRING = &quot;[and]&quot;;
+<span class="nc" id="L32">	private static String orPatString = &quot;\\[or\\]&quot;;</span>
+<span class="nc" id="L33">	private static String andPatString = &quot;\\[and\\]&quot;;</span>
+
+<span class="nc" id="L35">	private static String leftBracket = &quot;(&quot;;</span>
+<span class="nc" id="L36">	private static String leftPatString = &quot;\\(&quot;;</span>
+<span class="nc" id="L37">	private static String rightPatString = &quot;\\)&quot;;</span>
+
+<span class="nc" id="L39">	private static String patString = '(' + leftPatString + '|' + rightPatString + '|' + orPatString + '|' + andPatString + ')';</span>
+
+<span class="nc" id="L41">	public static final Pattern pat = Pattern.compile(patString);</span>
+
+	// the grouping pattern &amp; matcher
+<span class="nc" id="L44">	private static final String PAREN_STRING = '(' + leftPatString + '|' + rightPatString + ')';</span>
+<span class="nc" id="L45">	private static final Pattern PAREN_PATTERN = Pattern.compile(PAREN_STRING);</span>
+
+	// the opertor pattern &amp; matcher
+<span class="nc" id="L48">	private static final String OPERATOR_STRING = '(' + orPatString + '|' + andPatString + ')';</span>
+<span class="nc" id="L49">	private static final Pattern OPERATOR_PATTERN = Pattern.compile(OPERATOR_STRING);</span>
+
+	private static int getIndexOfClosingParen(final String s, final int start) throws ParseException
+	{
+<span class="nc" id="L53">		final Matcher aMat = PAREN_PATTERN.matcher(s);</span>
+
+<span class="nc" id="L55">		aMat.find(start);</span>
+<span class="nc" id="L56">		int level = 1;</span>
+
+<span class="nc bnc" id="L58" title="All 2 branches missed.">		while (level &gt; 0)</span>
+		{
+<span class="nc bnc" id="L60" title="All 2 branches missed.">			if (!aMat.find())</span>
+			{
+<span class="nc" id="L62">				throw new ParseException(&quot;unbalanced parenthesis in &quot; + s);</span>
+			}
+
+<span class="nc bnc" id="L65" title="All 2 branches missed.">			if (leftBracket.equalsIgnoreCase(aMat.group()))</span>
+			{
+<span class="nc" id="L67">				level++;</span>
+			}
+			else
+			{
+<span class="nc" id="L71">				level--;</span>
+			}
+		}
+
+<span class="nc" id="L75">		return aMat.end();</span>
+	}
+
+	public static ParameterTree makeTree(final String source) throws ParseException
+	{
+<span class="nc" id="L80">		final Matcher mat = ParameterTree.pat.matcher(source);</span>
+
+<span class="nc bnc" id="L82" title="All 2 branches missed.">		if (mat.find())</span>
+		{
+<span class="nc" id="L84">			return makeTree(source, false);</span>
+		}
+		else
+		{
+<span class="nc" id="L88">			return new ParameterTree(source);</span>
+		}
+	}
+
+	private static ParameterTree makeTree(final String source, final boolean operatorNeeded) throws ParseException
+	{
+<span class="nc" id="L94">		final Matcher pM = PAREN_PATTERN.matcher(source);</span>
+<span class="nc" id="L95">		final boolean hasP = pM.find();</span>
+
+		ParameterTree t;
+
+<span class="nc bnc" id="L99" title="All 2 branches missed.">		if (hasP)</span>
+		{
+<span class="nc" id="L101">			final String pre = source.substring(0, pM.start());</span>
+<span class="nc" id="L102">			final int end = getIndexOfClosingParen(source, pM.start());</span>
+
+<span class="nc bnc" id="L104" title="All 2 branches missed.">			if (pre.isEmpty())</span>
+			{
+
+<span class="nc" id="L107">				final String inside = source.substring(pM.end(), end - 1);</span>
+<span class="nc" id="L108">				t = makeTree(inside, false);</span>
+
+<span class="nc" id="L110">			}</span>
+			else
+			{
+
+<span class="nc" id="L114">				t = toTree(pre, operatorNeeded);</span>
+
+<span class="nc" id="L116">				final Matcher rM = OPERATOR_PATTERN.matcher(t.getContents());</span>
+
+<span class="nc bnc" id="L118" title="All 2 branches missed.">				if (rM.find())</span>
+				{
+
+<span class="nc bnc" id="L121" title="All 2 branches missed.">					if (t.getRightTree() == null)</span>
+					{
+						// Since we found an operator in the root of the tree, but
+						// the right subtree is null, then the parens must contain
+						// a complete expression (or the whole thing is illegal)
+						// so make a tree from the contents and append it here
+						// remember to strip off the outer parens.
+<span class="nc" id="L128">						final String inside = source.substring(pM.end(), end - 1);</span>
+<span class="nc" id="L129">						t.setRightTree(makeTree(inside, false));</span>
+<span class="nc" id="L130">					}</span>
+					else
+					{
+						// The root of the tree generated from the first section of the
+						// string has something in its right sub tree. That means the
+						// parenthesised expression is a part of that string (since
+						// if it ended with an operator that would be in a separate
+						// &quot;root&quot;)
+<span class="nc" id="L138">						final StringBuilder rNodeContents = new StringBuilder();</span>
+<span class="nc" id="L139">						rNodeContents.append(t.getRightTree().getContents());</span>
+<span class="nc" id="L140">						rNodeContents.append(source.substring(pM.start(), end));</span>
+						//TODO rNodeContents is then thrown away?
+<span class="nc" id="L142">					}</span>
+
+				}
+				else
+				{
+					// root of the generated tree doesn't contain an operator, so
+					// the paren expression should be tacked onto it.
+<span class="nc" id="L149">					final String parenExp = source.substring(pM.end() - 1, end);</span>
+<span class="nc" id="L150">					t.setContents(t.getContents() + parenExp);</span>
+				}
+			}
+
+<span class="nc bnc" id="L154" title="All 2 branches missed.">			if (end &lt; source.length())</span>
+			{
+<span class="nc" id="L156">				final String sEnd = source.substring(end);</span>
+<span class="nc" id="L157">				final ParameterTree r = makeTree(sEnd, true);</span>
+
+<span class="nc" id="L159">				ParameterTree c = r;</span>
+
+<span class="nc" id="L161">				final Matcher cM = OPERATOR_PATTERN.matcher(r.getContents());</span>
+
+<span class="nc bnc" id="L163" title="All 2 branches missed.">				if (!cM.find())</span>
+				{
+<span class="nc" id="L165">					throw new ParseException(&quot;expected \&quot;&quot; + source.substring(end) + &quot;\&quot; to begin with an operator&quot;);</span>
+				}
+
+<span class="nc bnc" id="L168" title="All 2 branches missed.">				while (c.getLeftTree() != null)</span>
+				{
+<span class="nc" id="L170">					c = c.getLeftTree();</span>
+				}
+
+<span class="nc" id="L173">				c.setLeftTree(t);</span>
+<span class="nc" id="L174">				t = r;</span>
+			}
+<span class="nc" id="L176">		}</span>
+		else
+		{
+<span class="nc" id="L179">			t = toTree(source, operatorNeeded);</span>
+		}
+
+<span class="nc" id="L182">		return t;</span>
+	}
+
+	private static ParameterTree toTree(final String source, final boolean operatorNeeded) throws ParseException
+	{
+<span class="nc" id="L187">		String s = source;</span>
+		// the opertor matcher
+<span class="nc" id="L189">		Matcher oM = OPERATOR_PATTERN.matcher(s);</span>
+<span class="nc" id="L190">		ParameterTree cT = new ParameterTree(&quot;&quot;); //current Tree</span>
+
+<span class="nc" id="L192">		boolean hasO = oM.find();</span>
+
+		// this is for operators, obviously
+<span class="nc bnc" id="L195" title="All 4 branches missed.">		if (hasO &amp;&amp; operatorNeeded)</span>
+		{
+<span class="nc bnc" id="L197" title="All 2 branches missed.">			if (oM.start() != 0)</span>
+			{
+<span class="nc" id="L199">				throw new ParseException(&quot;expected \&quot;&quot; + s + &quot;\&quot; to begin with an operator&quot;);</span>
+			}
+			else
+			{
+<span class="nc" id="L203">				cT = new ParameterTree(oM.group());</span>
+<span class="nc" id="L204">				final int end = oM.end();</span>
+<span class="nc" id="L205">				s = s.substring(end);</span>
+<span class="nc" id="L206">				oM = OPERATOR_PATTERN.matcher(s);</span>
+<span class="nc" id="L207">				hasO = oM.find();</span>
+			}
+		}
+
+<span class="nc" id="L211">		int start = 0;</span>
+
+<span class="nc bnc" id="L213" title="All 2 branches missed.">		while (hasO)</span>
+		{
+
+<span class="nc" id="L216">			final String pre = s.substring(start, oM.start());</span>
+
+<span class="nc" id="L218">			final ParameterTree P = new ParameterTree(pre); // pre Tree</span>
+<span class="nc" id="L219">			final ParameterTree R = new ParameterTree(oM.group()); // root Tree - must be an operator (it matched)</span>
+
+			// is the &quot;root&quot; of the current tree an operator
+<span class="nc" id="L222">			final Matcher cM = OPERATOR_PATTERN.matcher(cT.getContents());</span>
+
+<span class="nc bnc" id="L224" title="All 2 branches missed.">			if (cM.find())</span>
+			{
+<span class="nc" id="L226">				cT.setRightTree(P);</span>
+<span class="nc" id="L227">				R.setLeftTree(cT);</span>
+				// right branch of R is null
+			}
+			else
+			{
+<span class="nc" id="L232">				R.setLeftTree(P);</span>
+				// can discard current tree, it's empty (first iteration)
+			}
+
+			// root becomes new current tree
+<span class="nc" id="L237">			cT = R;</span>
+
+<span class="nc" id="L239">			start = oM.end();</span>
+<span class="nc" id="L240">			hasO = oM.find();</span>
+<span class="nc" id="L241">		}</span>
+
+		// no more operators, but string is not empty
+<span class="nc bnc" id="L244" title="All 2 branches missed.">		if (start &lt; s.length())</span>
+		{
+
+<span class="nc" id="L247">			final ParameterTree p = new ParameterTree(s.substring(start));</span>
+<span class="nc" id="L248">			final Matcher cM = OPERATOR_PATTERN.matcher(cT.getContents());</span>
+
+<span class="nc bnc" id="L250" title="All 2 branches missed.">			if (cM.find())</span>
+			{
+				// current tree has operator in root
+<span class="nc" id="L253">				cT.setRightTree(p);</span>
+			}
+			else
+			{
+				// current tree is the default empty tree created above
+<span class="nc" id="L258">				cT = p;</span>
+			}
+		}
+
+<span class="nc" id="L262">		return cT;</span>
+	}
+
+	/**
+	 * @param data The value that will end up in the node of the tree
+	 */
+	ParameterTree(final String data)
+	{
+<span class="nc" id="L270">		super();</span>
+<span class="nc" id="L271">		this.contents = data;</span>
+<span class="nc" id="L272">	}</span>
+
+	public void setContents(final String data)
+	{
+<span class="nc" id="L276">		this.contents = data;</span>
+<span class="nc" id="L277">	}</span>
+
+	/**
+	 * @return the Contents
+	 */
+	public String getContents()
+	{
+<span class="nc" id="L284">		return contents;</span>
+	}
+
+	/**
+	 * @return the left subtree
+	 */
+	public ParameterTree getLeftTree()
+	{
+<span class="nc" id="L292">		return left;</span>
+	}
+
+	/**
+	 * @param l the ParameterTree to add as the left sub tree
+	 */
+	public void setLeftTree(final ParameterTree l)
+	{
+<span class="nc" id="L300">		left = l;</span>
+<span class="nc" id="L301">	}</span>
+
+	/**
+	 * @return the right subtree
+	 */
+	public ParameterTree getRightTree()
+	{
+<span class="nc" id="L308">		return right;</span>
+	}
+
+	/**
+	 * @param r the ParameterTree to add as the right sub tree
+	 */
+	public void setRightTree(final ParameterTree r)
+	{
+<span class="nc" id="L316">		right = r;</span>
+<span class="nc" id="L317">	}</span>
+
+	@Override
+	public String toString()
+	{
+<span class="nc" id="L322">		final StringBuilder sb = new StringBuilder(200);</span>
+
+<span class="nc" id="L324">		sb.append('[');</span>
+<span class="nc" id="L325">		sb.append(contents);</span>
+<span class="nc" id="L326">		sb.append(' ');</span>
+
+<span class="nc bnc" id="L328" title="All 2 branches missed.">		if (left != null)</span>
+		{
+<span class="nc" id="L330">			sb.append(left.toString());</span>
+		}
+
+<span class="nc bnc" id="L333" title="All 2 branches missed.">		if (right != null)</span>
+		{
+<span class="nc" id="L335">			sb.append(right.toString());</span>
+		}
+
+<span class="nc" id="L338">		sb.append(']');</span>
+
+<span class="nc" id="L340">		return sb.toString();</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TotalWeightFacet.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.facet.analysis</a> &gt; <span class="el_source">TotalWeightFacet.java</span></div><h1>TotalWeightFacet.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) 2010 Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package pcgen.cdom.facet.analysis;
+
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.EquipmentFacet;
+import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.PlayerCharacterTrackingFacet;
+import pcgen.core.Equipment;
+import pcgen.core.Globals;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.RuleConstants;
+
+/**
+ * TotalWeightFacet performs calculations related to the total weight of
+ * Equipment carried by a Player Character (does not include the body weight of
+ * the Player Character).
+ * 
+ */
+<span class="fc" id="L34">public class TotalWeightFacet</span>
+{
+<span class="fc" id="L36">	private final PlayerCharacterTrackingFacet trackingFacet =</span>
+<span class="fc" id="L37">			FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);</span>
+
+	private EquipmentFacet equipmentFacet;
+
+	/**
+	 * Returns the total Equipment weight for the Player Character identified by
+	 * the given CharID.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character for which the
+	 *            total Equipment weight is to be returned
+	 * @return The total Equipment weight for the Player Character identified by
+	 *         the given CharID
+	 */
+	public Float getTotalWeight(CharID id)
+	{
+<span class="nc" id="L53">		float totalWeight = 0;</span>
+<span class="nc" id="L54">		final Float floatZero = 0.0f;</span>
+<span class="nc bnc" id="L55" title="All 2 branches missed.">		boolean firstClothing = !Globals.checkRule(RuleConstants.CLOTHINGENCUMBRANCE);</span>
+
+<span class="nc" id="L57">		PlayerCharacter pc = trackingFacet.getPC(id);</span>
+<span class="nc bnc" id="L58" title="All 2 branches missed.">		for (Equipment eq : equipmentFacet.getSet(id))</span>
+		{
+			// Loop through the list of top
+<span class="nc bnc" id="L61" title="All 4 branches missed.">			if ((eq.getCarried().compareTo(floatZero) &gt; 0) &amp;&amp; (eq.getParent() == null))</span>
+			{
+<span class="nc bnc" id="L63" title="All 2 branches missed.">				if (eq.getChildCount() &gt; 0)</span>
+				{
+<span class="nc" id="L65">					totalWeight += (eq.getWeightAsDouble(pc) + eq.getContainedWeight(pc));</span>
+				}
+				else
+				{
+<span class="nc bnc" id="L69" title="All 6 branches missed.">					if (firstClothing &amp;&amp; eq.isEquipped() &amp;&amp; eq.isType(&quot;CLOTHING&quot;))</span>
+					{
+						// The first equipped set of clothing should have a
+						// weight of 0. Feature #437410
+<span class="nc" id="L73">						firstClothing = false;</span>
+<span class="nc" id="L74">						totalWeight += (eq.getWeightAsDouble(pc) * Math.max(eq.getCarried() - 1, 0));</span>
+					}
+					else
+					{
+<span class="nc" id="L78">						totalWeight += (eq.getWeightAsDouble(pc) * eq.getCarried());</span>
+					}
+				}
+			}
+<span class="nc" id="L82">		}</span>
+
+<span class="nc" id="L84">		return totalWeight;</span>
+	}
+
+	public void setEquipmentFacet(EquipmentFacet equipmentFacet)
+	{
+<span class="fc" id="L89">		this.equipmentFacet = equipmentFacet;</span>
+<span class="fc" id="L90">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

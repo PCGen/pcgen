@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SpellcasterToken.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.primitive.pcclass</a> &gt; <span class="el_source">SpellcasterToken.java</span></div><h1>SpellcasterToken.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2010 (C) Thomas Parker &lt;thpr@users.sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package plugin.primitive.pcclass;
+
+import java.util.Collection;
+
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.Converter;
+import pcgen.cdom.base.PrimitiveFilter;
+import pcgen.cdom.enumeration.GroupingState;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.core.PCClass;
+import pcgen.core.PlayerCharacter;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.PrimitiveToken;
+
+/**
+ * SpellcasterToken is a Primitive that filters based on whether a Class is a spellcaster.
+ */
+<span class="fc" id="L35">public class SpellcasterToken implements PrimitiveToken&lt;PCClass&gt;, PrimitiveFilter&lt;PCClass&gt;</span>
+{
+
+<span class="fc" id="L38">	private static final Class&lt;PCClass&gt; PCCLASS_CLASS = PCClass.class;</span>
+	private CDOMReference&lt;PCClass&gt; allClasses;
+
+	@Override
+	public boolean initialize(LoadContext context, Class&lt;PCClass&gt; cl, String value, String args)
+	{
+<span class="fc" id="L44">		allClasses = context.getReferenceContext().getCDOMAllReference(PCCLASS_CLASS);</span>
+<span class="pc bpc" id="L45" title="1 of 4 branches missed.">		return (value == null) &amp;&amp; (args == null);</span>
+	}
+
+	@Override
+	public String getTokenName()
+	{
+<span class="fc" id="L51">		return &quot;SPELLCASTER&quot;;</span>
+	}
+
+	@Override
+	public Class&lt;PCClass&gt; getReferenceClass()
+	{
+<span class="fc" id="L57">		return PCCLASS_CLASS;</span>
+	}
+
+	@Override
+	public String getLSTformat(boolean useAny)
+	{
+<span class="fc" id="L63">		return &quot;SPELLCASTER&quot;;</span>
+	}
+
+	@Override
+	public boolean allow(PlayerCharacter pc, PCClass pcc)
+	{
+<span class="nc" id="L69">		return isSpellCaster(pcc);</span>
+	}
+
+	private boolean isSpellCaster(PCClass pcc)
+	{
+<span class="nc bnc" id="L74" title="All 2 branches missed.">		return pcc.getSafe(ObjectKey.USE_SPELL_SPELL_STAT)</span>
+<span class="nc bnc" id="L75" title="All 2 branches missed.">			|| pcc.getSafe(ObjectKey.CASTER_WITHOUT_SPELL_STAT)</span>
+<span class="nc bnc" id="L76" title="All 2 branches missed.">			|| (pcc.get(ObjectKey.SPELL_STAT) != null);</span>
+	}
+
+	@Override
+	public GroupingState getGroupingState()
+	{
+<span class="fc" id="L82">		return GroupingState.ANY;</span>
+	}
+
+	@Override
+	public boolean equals(Object obj)
+	{
+<span class="fc" id="L88">		return obj instanceof SpellcasterToken;</span>
+	}
+
+	@Override
+	public int hashCode()
+	{
+<span class="fc" id="L94">		return 123023;</span>
+	}
+
+	@Override
+	public &lt;R&gt; Collection&lt;? extends R&gt; getCollection(PlayerCharacter pc, Converter&lt;PCClass, R&gt; c)
+	{
+<span class="nc" id="L100">		return c.convert(allClasses, this);</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

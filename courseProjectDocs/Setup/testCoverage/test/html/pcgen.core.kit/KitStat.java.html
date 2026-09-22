@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>KitStat.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.core.kit</a> &gt; <span class="el_source">KitStat.java</span></div><h1>KitStat.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2005 (C) Aaron Divinsky &lt;boomer70@yahoo.com&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.core.kit;
+
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
+
+import pcgen.cdom.formula.Formula;
+import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.core.Kit;
+import pcgen.core.PCClass;
+import pcgen.core.PCStat;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.pclevelinfo.PCLevelInfo;
+
+/**
+ * KitStat
+ */
+<span class="fc" id="L40">public class KitStat extends BaseKit</span>
+{
+<span class="fc" id="L42">	private final Map&lt;CDOMSingleRef&lt;PCStat&gt;, Formula&gt; statMap = new HashMap&lt;&gt;();</span>
+
+	@Override
+	public String toString()
+	{
+<span class="fc" id="L47">		Set&lt;String&gt; set = new TreeSet&lt;&gt;();</span>
+<span class="fc bfc" id="L48" title="All 2 branches covered.">		for (Map.Entry&lt;CDOMSingleRef&lt;PCStat&gt;, Formula&gt; me : statMap.entrySet())</span>
+		{
+<span class="fc" id="L50">			set.add(me.getKey().getLSTformat(false) + '=' + me.getValue());</span>
+<span class="fc" id="L51">		}</span>
+<span class="fc" id="L52">		return StringUtil.join(set, Constants.PIPE);</span>
+	}
+
+	@Override
+	public boolean testApply(Kit aKit, PlayerCharacter aPC, List&lt;String&gt; warnings)
+	{
+<span class="nc bnc" id="L58" title="All 2 branches missed.">		for (Map.Entry&lt;CDOMSingleRef&lt;PCStat&gt;, Formula&gt; me : statMap.entrySet())</span>
+		{
+<span class="nc" id="L60">			PCStat mapStat = me.getKey().get();</span>
+<span class="nc" id="L61">			int sVal = me.getValue().resolve(aPC, &quot;&quot;).intValue();</span>
+<span class="nc bnc" id="L62" title="All 2 branches missed.">			for (PCStat currentStat : aPC.getStatSet())</span>
+			{
+<span class="nc bnc" id="L64" title="All 4 branches missed.">				if (!aPC.isNonAbility(currentStat) &amp;&amp; currentStat.equals(mapStat))</span>
+				{
+<span class="nc" id="L66">					aPC.setStat(currentStat, sVal);</span>
+<span class="nc bnc" id="L67" title="All 2 branches missed.">					if (&quot;INT&quot;.equals(currentStat.getKeyName()))</span>
+					{
+<span class="nc" id="L69">						recalculateSkillPoints(aPC);</span>
+					}
+					break;
+				}
+<span class="nc" id="L73">			}</span>
+<span class="nc" id="L74">		}</span>
+<span class="nc" id="L75">		return true;</span>
+	}
+
+	@Override
+	public void apply(PlayerCharacter aPC)
+	{
+<span class="nc" id="L81">		testApply(null, aPC, null);</span>
+<span class="nc" id="L82">	}</span>
+
+	@Override
+	public String getObjectName()
+	{
+<span class="nc" id="L87">		return &quot;Stats&quot;;</span>
+	}
+
+	private void recalculateSkillPoints(PlayerCharacter aPC)
+	{
+<span class="nc" id="L92">		final Collection&lt;PCClass&gt; classes = aPC.getClassSet();</span>
+<span class="nc" id="L93">		aPC.calcActiveBonuses();</span>
+<span class="nc bnc" id="L94" title="All 4 branches missed.">		if (classes != null &amp;&amp; !classes.isEmpty())</span>
+		{
+<span class="nc bnc" id="L96" title="All 2 branches missed.">			for (PCClass pcClass : classes)</span>
+			{
+<span class="nc" id="L98">				aPC.setSkillPool(pcClass, 0);</span>
+				// We don't limit this to MOD_TO_SKILLS classes as they may manually include the INT bonus in the
+				// skills.
+<span class="nc bnc" id="L101" title="All 2 branches missed.">				for (int j = 0; j &lt; aPC.getLevelInfoSize(); j++)</span>
+				{
+<span class="nc" id="L103">					final PCLevelInfo pcl = aPC.getLevelInfo(j);</span>
+<span class="nc bnc" id="L104" title="All 2 branches missed.">					if (pcl.getClassKeyName().equals(pcClass.getKeyName()))</span>
+					{
+<span class="nc" id="L106">						final int spMod = aPC.recalcSkillPointMod(pcClass, j + 1);</span>
+<span class="nc" id="L107">						int alreadySpent = pcl.getSkillPointsGained(aPC) - pcl.getSkillPointsRemaining();</span>
+<span class="nc" id="L108">						pcl.setSkillPointsGained(aPC, spMod);</span>
+<span class="nc" id="L109">						pcl.setSkillPointsRemaining(pcl.getSkillPointsGained(aPC) - alreadySpent);</span>
+<span class="nc" id="L110">						Integer currentPool = aPC.getSkillPool(pcClass);</span>
+<span class="nc bnc" id="L111" title="All 2 branches missed.">						int newSkillPool = (currentPool == null ? 0 : currentPool) + spMod;</span>
+<span class="nc" id="L112">						aPC.setSkillPool(pcClass, newSkillPool);</span>
+					}
+				}
+<span class="nc" id="L115">			}</span>
+		}
+<span class="nc" id="L117">	}</span>
+
+	public void addStat(CDOMSingleRef&lt;PCStat&gt; stat, Formula statValue)
+	{
+<span class="pc bpc" id="L121" title="1 of 2 branches missed.">		if (statMap.put(stat, statValue) != null)</span>
+		{
+<span class="nc" id="L123">			throw new IllegalArgumentException(&quot;Cannot redefine stat: &quot; + stat);</span>
+		}
+<span class="fc" id="L125">	}</span>
+
+	public boolean isEmpty()
+	{
+<span class="fc" id="L129">		return statMap.isEmpty();</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TotalSkillRankFacet.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.facet</a> &gt; <span class="el_source">TotalSkillRankFacet.java</span></div><h1>TotalSkillRankFacet.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) Thomas Parker, 2014.
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package pcgen.cdom.facet;
+
+import java.util.ArrayList;
+import java.util.IdentityHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.BonusSkillRankChangeFacet.SkillRankChangeEvent;
+import pcgen.cdom.facet.SkillRankFacet.SkillRankChangeListener;
+import pcgen.cdom.facet.base.AbstractStorageFacet;
+import pcgen.cdom.facet.event.AssociationChangeEvent;
+import pcgen.cdom.facet.event.AssociationChangeListener;
+import pcgen.core.Skill;
+
+/**
+ * TotalSkillRankFacet stores the total skill rank for Skills (includes user
+ * taken ranks and BONUS:SKILLRANK)
+ * 
+ */
+<span class="fc" id="L39">public class TotalSkillRankFacet extends AbstractStorageFacet&lt;CharID&gt;</span>
+		implements SkillRankChangeListener, pcgen.cdom.facet.BonusSkillRankChangeFacet.SkillRankChangeListener
+{
+<span class="fc" id="L42">	private static final Double DOUBLE_ZERO = 0.0d;</span>
+
+	private SkillRankFacet skillRankFacet;
+
+	private BonusSkillRankChangeFacet bonusSkillRankChangeFacet;
+
+	/**
+	 * Set the given association for the given object in this
+	 * AbstractAssociationFacet for the Player Character represented by the
+	 * given CharID
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which the
+	 *            given skill rank should be set
+	 * @param sk
+	 *            The skill for which the rank will be set
+	 * @param rank
+	 *            The rank for the given skill
+	 */
+	public void set(CharID id, Skill sk, Double rank)
+	{
+<span class="fc" id="L63">		Objects.requireNonNull(sk, &quot;Skill cannot be null&quot;);</span>
+<span class="fc" id="L64">		Objects.requireNonNull(rank, &quot;Rank cannot be null&quot;);</span>
+<span class="fc" id="L65">		Map&lt;Skill, Double&gt; map = getConstructingInfo(id);</span>
+<span class="fc" id="L66">		Double currentRank = map.get(sk);</span>
+<span class="fc bfc" id="L67" title="All 4 branches covered.">		boolean isNew = (currentRank == null) || (Double.compare(rank, currentRank) != 0);</span>
+<span class="fc bfc" id="L68" title="All 2 branches covered.">		if (isNew)</span>
+		{
+<span class="fc" id="L70">			map.put(sk, rank);</span>
+<span class="pc bpc" id="L71" title="1 of 2 branches missed.">			if (support != null)</span>
+			{
+<span class="fc" id="L73">				support.fireAssociationChange(id, sk, currentRank, rank);</span>
+			}
+		}
+<span class="fc" id="L76">	}</span>
+
+	/**
+	 * Removes the association for the given source object in this
+	 * AbstractAssociationFacet for the Player Character represented by the
+	 * given CharID.
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character from which the
+	 *            given item association should be removed
+	 * @param sk
+	 *            The skill for which the rank should be removed
+	 */
+	public void remove(CharID id, Skill sk)
+	{
+<span class="nc" id="L91">		Objects.requireNonNull(sk, &quot;Skill cannot be null&quot;);</span>
+<span class="nc" id="L92">		Map&lt;Skill, Double&gt; map = getInfo(id);</span>
+<span class="nc bnc" id="L93" title="All 2 branches missed.">		if (map == null)</span>
+		{
+<span class="nc" id="L95">			return;</span>
+		}
+<span class="nc" id="L97">		Double currentRank = map.get(sk);</span>
+<span class="nc bnc" id="L98" title="All 2 branches missed.">		if (currentRank == null)</span>
+		{
+<span class="nc" id="L100">			return;</span>
+		}
+<span class="nc bnc" id="L102" title="All 2 branches missed.">		if (support != null)</span>
+		{
+<span class="nc" id="L104">			support.fireAssociationChange(id, sk, currentRank, DOUBLE_ZERO);</span>
+		}
+<span class="nc" id="L106">	}</span>
+
+	/**
+	 * Copies the contents of the AbstractScopeFacet from one Player Character
+	 * to another Player Character, based on the given CharIDs representing
+	 * those Player Characters.
+	 * 
+	 * This is a method in AbstractScopeFacet in order to avoid exposing the
+	 * mutable Map object to other classes. This should not be inlined, as the
+	 * Map is internal information to AbstractScopeFacet and should not be
+	 * exposed to other classes.
+	 * 
+	 * Note also the copy is a one-time event and no references are maintained
+	 * between the Player Characters represented by the given CharIDs (meaning
+	 * once this copy takes place, any change to the AbstractScopeFacet of one
+	 * Player Character will only impact the Player Character where the
+	 * AbstractScopeFacet was changed).
+	 * 
+	 * @param source
+	 *            The CharID representing the Player Character from which the
+	 *            information should be copied
+	 * @param copy
+	 *            The CharID representing the Player Character to which the
+	 *            information should be copied
+	 */
+	@Override
+	public void copyContents(CharID source, CharID copy)
+	{
+<span class="nc" id="L134">		Map&lt;Skill, Double&gt; map = getInfo(source);</span>
+<span class="nc bnc" id="L135" title="All 2 branches missed.">		if (map != null)</span>
+		{
+<span class="nc" id="L137">			getConstructingInfo(copy).putAll(map);</span>
+		}
+<span class="nc" id="L139">	}</span>
+
+	/**
+	 * The AssociationChangeSupport object that manages the listeners that
+	 * receive AssociationChangeEvents from this AssociationChangeFacet.
+	 */
+	private AssociationChangeSupport support;
+
+	/**
+	 * Gets the association for the Player Character (identified by the given
+	 * CharID) and the given source object.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character for which the
+	 *            association get is being performed.
+	 * @param obj
+	 *            The source object for which the association get is being
+	 *            performed.
+	 * @return The association for the Player Character (identified by the given
+	 *         CharID) and the given source object
+	 */
+	public Double get(CharID id, Skill obj)
+	{
+<span class="fc" id="L162">		Objects.requireNonNull(obj, &quot;Object for getting association may not be null&quot;);</span>
+<span class="fc" id="L163">		Map&lt;Skill, Double&gt; map = getInfo(id);</span>
+<span class="pc bpc" id="L164" title="1 of 2 branches missed.">		if (map != null)</span>
+		{
+<span class="fc" id="L166">			return map.get(obj);</span>
+		}
+<span class="nc" id="L168">		return null;</span>
+	}
+
+	/**
+	 * AssociationChangeSupport is a support class that provides the actual
+	 * structure for adding and removing listeners to a class that can provide
+	 * updates for changes to Association Bonus values on a Player Character.
+	 * 
+	 */
+	public static class AssociationChangeSupport
+	{
+		private final Object source;
+
+		public AssociationChangeSupport(Object src)
+<span class="fc" id="L182">		{</span>
+<span class="fc" id="L183">			source = src;</span>
+<span class="fc" id="L184">		}</span>
+
+<span class="fc" id="L186">		private final List&lt;AssociationChangeListener&gt; listeners = new ArrayList&lt;&gt;();</span>
+
+		/**
+		 * Adds a new AssociationChangeListener to receive
+		 * AssociationChangeEventas from the change source. The given
+		 * AssociationChangeListener is subscribed to all Association Bonus
+		 * value changes.
+		 * 
+		 * Note that the AssociationChangeListeners are a list, meaning a given
+		 * AssociationChangeListener can be added more than once, and if that
+		 * occurs, it must be removed an equivalent number of times in order to
+		 * no longer receive events from this AssociationChangeSupport.
+		 * 
+		 * @param listener
+		 *            The AssociationChangeListener to receive
+		 *            AssociationChangeEvents from this AssociationChangeSupport
+		 */
+		public synchronized void addAssociationChangeListener(AssociationChangeListener listener)
+		{
+<span class="fc" id="L205">			listeners.add(listener);</span>
+<span class="fc" id="L206">		}</span>
+
+		/**
+		 * Removes a AssociationChangeListener so that it will no longer receive
+		 * AssociationChangeEvents from the source DataFacet.
+		 * 
+		 * @param listener
+		 *            The AssociationChangeListener to be removed
+		 */
+		public synchronized void removeAssociationChangeListener(AssociationChangeListener listener)
+		{
+<span class="nc" id="L217">			listeners.remove(listener);</span>
+<span class="nc" id="L218">		}</span>
+
+		public synchronized AssociationChangeListener[] getAssociationChangeListeners()
+		{
+<span class="nc" id="L222">			return (listeners.toArray(new AssociationChangeListener[0]));</span>
+		}
+
+		/**
+		 * Sends a AssociationChangeEvent to the AssociationChangeListeners that
+		 * are receiving AssociationChangeEvents from the change source.
+		 * 
+		 * @param id
+		 *            The CharID identifying the Player Character to which the
+		 *            AssociationChangeEvent relates.
+		 * @param skill
+		 *            The skill for which the Association Bonus value changed
+		 * @param oldValue
+		 *            The previous value of the Bonus value
+		 * @param newValue
+		 *            The new value of the Bonus value
+		 */
+		public void fireAssociationChange(CharID id, Skill skill, Number oldValue, Number newValue)
+		{
+<span class="fc" id="L241">			AssociationChangeEvent bce = new AssociationChangeEvent(id, skill, oldValue, newValue, source);</span>
+
+<span class="fc bfc" id="L243" title="All 2 branches covered.">			for (AssociationChangeListener target : listeners)</span>
+			{
+<span class="fc" id="L245">				target.bonusChange(bce);</span>
+<span class="fc" id="L246">			}</span>
+<span class="fc" id="L247">		}</span>
+	}
+
+	/**
+	 * Adds a new AssociationChangeListener to receive AssociationChangeEvents
+	 * from AssociationChangeFacet. The given AssociationChangeListener
+	 * subscribed to all Association Bonus changes.
+	 * 
+	 * Note that the AssociationChangeListeners are a list, meaning a given
+	 * AssociationChangeListener can be added more than once, and if that
+	 * occurs, it must be removed an equivalent number of times in order to no
+	 * longer receive events from this AssociationChangeFacet.
+	 * 
+	 * @param listener
+	 *            The AssociationChangeListener to receive
+	 *            AssociationChangeEvents from this AssociationChangeFacet
+	 */
+	public void addAssociationChangeListener(AssociationChangeListener listener)
+	{
+<span class="pc bpc" id="L266" title="1 of 2 branches missed.">		if (support == null)</span>
+		{
+<span class="fc" id="L268">			support = new AssociationChangeSupport(this);</span>
+		}
+<span class="fc" id="L270">		support.addAssociationChangeListener(listener);</span>
+<span class="fc" id="L271">	}</span>
+
+	/**
+	 * Removes a AssociationChangeListener so that it will no longer receive
+	 * AssociationChangeEvents from AssociationChangeFacet.
+	 * 
+	 * @param listener
+	 *            The AssociationChangeListener to be removed
+	 */
+	public void removeAssociationChangeListener(AssociationChangeListener listener)
+	{
+<span class="nc bnc" id="L282" title="All 2 branches missed.">		if (support == null)</span>
+		{
+<span class="nc" id="L284">			support = new AssociationChangeSupport(this);</span>
+		}
+<span class="nc" id="L286">		support.removeAssociationChangeListener(listener);</span>
+<span class="nc" id="L287">	}</span>
+
+	private Map&lt;Skill, Double&gt; getConstructingInfo(CharID id)
+	{
+<span class="fc" id="L291">		Map&lt;Skill, Double&gt; map = getInfo(id);</span>
+<span class="fc bfc" id="L292" title="All 2 branches covered.">		if (map == null)</span>
+		{
+<span class="fc" id="L294">			map = new IdentityHashMap&lt;&gt;();</span>
+<span class="fc" id="L295">			setCache(id, map);</span>
+		}
+<span class="fc" id="L297">		return map;</span>
+	}
+
+	private Map&lt;Skill, Double&gt; getInfo(CharID id)
+	{
+<span class="fc" id="L302">		return (Map&lt;Skill, Double&gt;) getCache(id);</span>
+	}
+
+	@Override
+	public void bonusChange(SkillRankChangeEvent srce)
+	{
+<span class="fc" id="L308">		CharID id = srce.getCharID();</span>
+<span class="fc" id="L309">		Skill skill = srce.getSkill();</span>
+<span class="fc" id="L310">		double newBonus = srce.getNewVal().doubleValue();</span>
+<span class="fc" id="L311">		float rank = skillRankFacet.getRank(id, skill);</span>
+<span class="fc" id="L312">		set(id, skill, rank + newBonus);</span>
+<span class="fc" id="L313">	}</span>
+
+	@Override
+	public void rankChanged(pcgen.cdom.facet.SkillRankFacet.SkillRankChangeEvent srce)
+	{
+<span class="nc" id="L318">		CharID id = srce.getCharID();</span>
+<span class="nc" id="L319">		Skill skill = srce.getSkill();</span>
+<span class="nc" id="L320">		float newRank = srce.getNewRank();</span>
+<span class="nc" id="L321">		double bonus = bonusSkillRankChangeFacet.getRank(id, skill);</span>
+<span class="nc" id="L322">		set(id, skill, newRank + bonus);</span>
+<span class="nc" id="L323">	}</span>
+
+	public void init()
+	{
+<span class="fc" id="L327">		skillRankFacet.addSkillRankChangeListener(this);</span>
+<span class="fc" id="L328">		bonusSkillRankChangeFacet.addSkillRankChangeListener(this);</span>
+<span class="fc" id="L329">	}</span>
+
+	public void setSkillRankFacet(SkillRankFacet skillRankFacet)
+	{
+<span class="fc" id="L333">		this.skillRankFacet = skillRankFacet;</span>
+<span class="fc" id="L334">	}</span>
+
+	public void setBonusSkillRankChangeFacet(BonusSkillRankChangeFacet bonusSkillRankChangeFacet)
+	{
+<span class="fc" id="L338">		this.bonusSkillRankChangeFacet = bonusSkillRankChangeFacet;</span>
+<span class="fc" id="L339">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

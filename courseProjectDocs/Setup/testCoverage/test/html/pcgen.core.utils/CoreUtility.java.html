@@ -1,0 +1,529 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CoreUtility.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.core.utils</a> &gt; <span class="el_source">CoreUtility.java</span></div><h1>CoreUtility.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2002 (C) Bryan McRoberts &lt;merton_monk@yahoo.com&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.core.utils;
+
+import java.io.File;
+import java.net.URI;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Comparator;
+import java.util.List;
+import java.util.regex.Pattern;
+
+import pcgen.cdom.base.Constants;
+import pcgen.core.Equipment;
+import pcgen.system.PCGenPropBundle;
+import pcgen.util.Logging;
+
+/**
+ * {@code CoreUtility}.
+ *
+ * Assorted generic-ish functionality moved from Globals and PlayerCharacter
+ * (the two biggest classes in the project.) Some of this code seems awfully
+ * similar, and should probably be further refactored.
+ *
+ */
+public final class CoreUtility
+{
+
+	private static final double EPSILON = 0.0001d;
+
+<span class="fc" id="L47">	public static final Comparator&lt;Equipment&gt; EQUIPMENT_COMPARATOR = new Comparator&lt;&gt;()</span>
+<span class="fc" id="L48">	{</span>
+		@Override
+		public int compare(final Equipment obj1, final Equipment obj2)
+		{
+<span class="nc" id="L52">			int o1i = obj1.getOutputIndex();</span>
+<span class="nc" id="L53">			int o2i = obj2.getOutputIndex();</span>
+
+			// Force unset items (index of 0) to appear at the end
+<span class="nc bnc" id="L56" title="All 2 branches missed.">			o1i = (o1i == 0) ? 999 : o1i;</span>
+<span class="nc bnc" id="L57" title="All 2 branches missed.">			o2i = (o2i == 0) ? 999 : o2i;</span>
+
+<span class="nc" id="L59">			final int result1 = Integer.compare(o1i, o2i);</span>
+
+<span class="nc bnc" id="L61" title="All 2 branches missed.">			if (result1 != 0)</span>
+			{
+<span class="nc" id="L63">				return result1;</span>
+			}
+
+<span class="nc" id="L66">			final int result2 = Integer.compare(obj1.getOutputSubindex(), obj2.getOutputSubindex());</span>
+
+<span class="nc bnc" id="L68" title="All 2 branches missed.">			if (result2 != 0)</span>
+			{
+<span class="nc" id="L70">				return result2;</span>
+			}
+
+<span class="nc" id="L73">			final int result3 = obj1.getName().compareToIgnoreCase(obj2.getName());</span>
+
+<span class="nc bnc" id="L75" title="All 2 branches missed.">			if (result3 != 0)</span>
+			{
+<span class="nc" id="L77">				return result3;</span>
+			}
+
+<span class="nc" id="L80">			final int result4 = obj1.getAppliedName().compareToIgnoreCase(obj2.getAppliedName());</span>
+
+<span class="nc bnc" id="L82" title="All 2 branches missed.">			if (result4 != 0)</span>
+			{
+<span class="nc" id="L84">				return result4;</span>
+			}
+
+<span class="nc" id="L87">			return obj1.getParentName().compareToIgnoreCase(obj2.getParentName());</span>
+		}
+
+		@Override
+		public boolean equals(final Object obj)
+		{
+<span class="nc" id="L93">			return false;</span>
+		}
+
+		@Override
+		public int hashCode()
+		{
+<span class="nc" id="L99">			return 0;</span>
+		}
+	};
+
+	private CoreUtility()
+	{
+	}
+
+	/**
+	 * return true if the protocol of the URL represented is FTP or HTTP
+	 *
+	 * @param uri
+	 *            the URI object to test for a network protocol
+	 * @return true if the protocol of this URI is FTP or HTTP
+	 */
+	public static boolean isNetURI(final URI uri)
+	{
+<span class="nc bnc" id="L116" title="All 2 branches missed.">		return !&quot;file&quot;.equals(uri.getScheme());</span>
+	}
+
+	/**
+	 * Capitalize the first letter of every word in a string
+	 *
+	 * @param aString
+	 *            the string to convert to Title case
+	 * @return a new string with the first letter of every word capitalised
+	 */
+	public static String capitalizeFirstLetter(final String aString)
+	{
+<span class="nc" id="L128">		boolean toUpper = true;</span>
+<span class="nc" id="L129">		final char[] a = aString.toLowerCase().toCharArray();</span>
+
+<span class="nc bnc" id="L131" title="All 2 branches missed.">		for (int i = 0; i &lt; a.length; ++i)</span>
+		{
+<span class="nc bnc" id="L133" title="All 2 branches missed.">			if (Character.isWhitespace(a[i]))</span>
+			{
+<span class="nc" id="L135">				toUpper = true;</span>
+			}
+			else
+			{
+<span class="nc bnc" id="L139" title="All 4 branches missed.">				if (toUpper &amp;&amp; Character.isLowerCase(a[i]))</span>
+				{
+<span class="nc" id="L141">					a[i] = Character.toUpperCase(a[i]);</span>
+				}
+
+<span class="nc" id="L144">				toUpper = false;</span>
+			}
+		}
+
+<span class="nc" id="L148">		return new String(a);</span>
+	}
+
+	/**
+	 * Compare two doubles within a given epsilon.
+	 *
+	 * @param a
+	 *            first operand
+	 * @param b
+	 *            second operand
+	 * @param eps
+	 *            the epsilon (or deadband)
+	 * @return TRUE {@literal if abs(a - b) &lt; eps}, else FALSE
+	 */
+	public static boolean compareDouble(final double a, final double b, final double eps)
+	{
+		// If the difference is less than epsilon, treat as equal.
+<span class="nc bnc" id="L165" title="All 2 branches missed.">		return Math.abs(a - b) &lt; eps;</span>
+	}
+
+	/**
+	 * Compare two doubles within an epsilon of 0.0001.
+	 *
+	 * @param a
+	 *            first operand
+	 * @param b
+	 *            second operand
+	 * @return TRUE if equal, else FALSE
+	 */
+	public static boolean doublesEqual(final double a, final double b)
+	{
+		// If the difference is less than epsilon, treat as equal.
+<span class="nc" id="L180">		return compareDouble(a, b, EPSILON);</span>
+	}
+
+	/**
+	 * protect the floor function from the vagaries of floating point precision.
+	 * @param d the double that we would like the floor value for
+	 * @return the floor after adding epsilon
+	 */
+	public static double epsilonFloor(double d)
+	{
+<span class="nc" id="L190">		return Math.floor(d + EPSILON);</span>
+	}
+
+	/**
+	 * Changes a path to make sure all instances of \ or / are replaced with
+	 * File.separatorChar.
+	 *
+	 * @param argFileName
+	 *            The path to be fixed
+	 * @return String
+	 */
+	public static String fixFilenamePath(final String argFileName)
+	{
+<span class="fc" id="L203">		return argFileName.replace('/', File.separatorChar).replace('\\', File.separatorChar);</span>
+	}
+
+	/**
+	 * Get the inner most String end
+	 *
+	 * @param aString
+	 *            The string to be searched for the innermost (
+	 * @return inner most String end
+	 */
+	public static int innerMostStringEnd(final String aString)
+	{
+<span class="fc" id="L215">		int index = 0;</span>
+<span class="fc" id="L216">		int hi = 0;</span>
+<span class="fc" id="L217">		int current = 0;</span>
+
+<span class="fc bfc" id="L219" title="All 2 branches covered.">		for (int i = 0; i &lt; aString.length(); ++i)</span>
+		{
+<span class="fc bfc" id="L221" title="All 2 branches covered.">			if (aString.charAt(i) == '(')</span>
+			{
+<span class="fc" id="L223">				++current;</span>
+
+<span class="pc bpc" id="L225" title="1 of 2 branches missed.">				if (current &gt; hi)</span>
+				{
+<span class="fc" id="L227">					hi = current;</span>
+				}
+			}
+<span class="fc bfc" id="L230" title="All 2 branches covered.">			else if (aString.charAt(i) == ')')</span>
+			{
+<span class="pc bpc" id="L232" title="1 of 2 branches missed.">				if (current == hi)</span>
+				{
+<span class="fc" id="L234">					index = i;</span>
+				}
+
+<span class="fc" id="L237">				--current;</span>
+			}
+		}
+
+<span class="fc" id="L241">		return index;</span>
+	}
+
+	/**
+	 * Get the innermost String start
+	 *
+	 * @param aString
+	 *            the string sto be searched for the ) that closes the innermost
+	 *            parenthesised expression
+	 *
+	 * @return innermost String start
+	 */
+	public static int innerMostStringStart(final String aString)
+	{
+<span class="fc" id="L255">		int index = 0;</span>
+<span class="fc" id="L256">		int hi = 0;</span>
+<span class="fc" id="L257">		int current = 0;</span>
+
+<span class="fc bfc" id="L259" title="All 2 branches covered.">		for (int i = 0; i &lt; aString.length(); ++i)</span>
+		{
+<span class="fc bfc" id="L261" title="All 2 branches covered.">			if (aString.charAt(i) == '(')</span>
+			{
+<span class="fc" id="L263">				++current;</span>
+
+<span class="pc bpc" id="L265" title="1 of 2 branches missed.">				if (current &gt;= hi)</span>
+				{
+<span class="fc" id="L267">					hi = current;</span>
+<span class="fc" id="L268">					index = i;</span>
+				}
+			}
+<span class="fc bfc" id="L271" title="All 2 branches covered.">			else if (aString.charAt(i) == ')')</span>
+			{
+<span class="fc" id="L273">				--current;</span>
+			}
+		}
+
+<span class="fc" id="L277">		return index;</span>
+	}
+
+	/**
+	 * Return the english suffix for a given ordinal value
+	 *
+	 * @param iValue
+	 *            the ordinal value
+	 * @return ordinal suffix (st, nd, etc.)
+	 */
+	public static String ordinal(final int iValue)
+	{
+<span class="nc" id="L289">		String suffix = &quot;th&quot;;</span>
+
+<span class="nc bnc" id="L291" title="All 4 branches missed.">		if ((iValue &lt; 4) || (iValue &gt; 20))</span>
+		{
+<span class="nc bnc" id="L293" title="All 4 branches missed.">			switch (iValue % 10)</span>
+			{
+<span class="nc" id="L295">				case 1 -&gt; suffix = &quot;st&quot;;</span>
+<span class="nc" id="L296">				case 2 -&gt; suffix = &quot;nd&quot;;</span>
+<span class="nc" id="L297">				case 3 -&gt; suffix = &quot;rd&quot;;</span>
+				default -&gt; {
+				}
+			}
+		}
+
+<span class="nc" id="L303">		return Integer.toString(iValue) + suffix;</span>
+	}
+
+	/**
+	 * Turn a 'separator' separated string into a ArrayList of strings, each
+	 * corresponding to one trimmed 'separator'-separated portion of the
+	 * original string.
+	 *
+	 * @param aString
+	 *            The string to be split
+	 * @param separator
+	 *            The separator that separates the string.
+	 * @return a List of Strings
+	 */
+	public static List&lt;String&gt; split(final String aString, final char separator)
+	{
+<span class="fc" id="L319">		final List&lt;String&gt; temp = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L320">		final String sepStr = Pattern.quote(String.valueOf(separator));</span>
+
+<span class="fc bfc" id="L322" title="All 2 branches covered.">		if (aString.trim().isEmpty())</span>
+		{
+<span class="fc" id="L324">			return temp;</span>
+		}
+
+<span class="fc bfc" id="L327" title="All 2 branches covered.">		for (final String s : Arrays.asList(aString.split(sepStr)))</span>
+		{
+<span class="fc" id="L329">			temp.add(s.trim());</span>
+<span class="fc" id="L330">		}</span>
+
+<span class="fc" id="L332">		return temp;</span>
+	}
+
+	/**
+	 * Merge the equipment list
+	 *
+	 * @param equip
+	 *            the collection of Equipment
+	 * @param merge
+	 *            The type of merge to perform
+	 *
+	 * @return merged list
+	 */
+	public static List&lt;Equipment&gt; mergeEquipmentList(final Collection&lt;Equipment&gt; equip, final int merge)
+	{
+<span class="nc" id="L347">		List&lt;Equipment&gt; workingList = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L348" title="All 2 branches missed.">		for (Equipment e : equip)</span>
+		{
+<span class="nc" id="L350">			workingList.add(e.clone());</span>
+<span class="nc" id="L351">		}</span>
+<span class="nc" id="L352">		workingList.sort(EQUIPMENT_COMPARATOR);</span>
+
+		// no merging, just sorting (calling this is really stupid,
+		// just use the sort above)
+<span class="nc bnc" id="L356" title="All 2 branches missed.">		if (merge == Constants.MERGE_NONE)</span>
+		{
+<span class="nc" id="L358">			return workingList;</span>
+		}
+
+<span class="nc" id="L361">		int endIndex = workingList.size();</span>
+
+<span class="nc bnc" id="L363" title="All 2 branches missed.">		for (int i = 0; i &lt; endIndex; i++)</span>
+		{
+<span class="nc" id="L365">			final Equipment eq1 = workingList.get(i);</span>
+<span class="nc" id="L366">			double eQty = eq1.qty();</span>
+
+<span class="nc bnc" id="L368" title="All 2 branches missed.">			for (int j = i + 1; j &lt; endIndex; j++)</span>
+			{
+<span class="nc" id="L370">				final Equipment eq2 = workingList.get(j);</span>
+
+				// no container merge or Temporary Bonus generated equipment
+				// must not merge
+<span class="nc bnc" id="L374" title="All 6 branches missed.">				if (eq1.isContainer() || eq1.isType(&quot;TEMPORARY&quot;) || eq2.isType(&quot;TEMPORARY&quot;))</span>
+				{
+<span class="nc" id="L376">					continue;</span>
+				}
+
+<span class="nc bnc" id="L379" title="All 2 branches missed.">				if (eq1.getName().equals(eq2.getName()))</span>
+				{
+					// merge all like equipment together
+<span class="nc bnc" id="L382" title="All 4 branches missed.">					if (merge == Constants.MERGE_ALL</span>
+
+						// merge like equipment within same container
+<span class="nc bnc" id="L385" title="All 2 branches missed.">						|| (merge == Constants.MERGE_LOCATION &amp;&amp; (eq1.getLocation() == eq2.getLocation())</span>
+<span class="nc bnc" id="L386" title="All 2 branches missed.">							&amp;&amp; eq1.getParentName().equals(eq2.getParentName())))</span>
+					{
+<span class="nc" id="L388">						workingList.remove(eq2);</span>
+<span class="nc" id="L389">						eQty += eq2.qty();</span>
+<span class="nc" id="L390">						endIndex--;</span>
+					}
+				}
+			}
+
+<span class="nc" id="L395">			workingList.get(i).setQty(eQty);</span>
+		}
+
+<span class="nc" id="L398">		return workingList;</span>
+	}
+
+	/**
+	 * Compare the two PCGen versions.
+	 *
+	 * @param ver
+	 *            The first version
+	 * @param compVer
+	 *            The second version
+	 * @return the value 0 if the PCG versions are equal; a value less than 0 if
+	 *         the first version is less than the second version; and a value
+	 *         greater than 0 if the first version is greater than the second
+	 *         version.
+	 */
+	public static int compareVersions(int[] ver, int[] compVer)
+	{
+<span class="fc bfc" id="L415" title="All 2 branches covered.">		if (ver[0] != compVer[0])</span>
+		{
+<span class="fc" id="L417">			return Integer.compare(ver[0], compVer[0]);</span>
+		}
+<span class="fc bfc" id="L419" title="All 2 branches covered.">		if (ver[1] != compVer[1])</span>
+		{
+<span class="fc" id="L421">			return Integer.compare(ver[1], compVer[1]);</span>
+		}
+<span class="fc" id="L423">		return Integer.compare(ver[2], compVer[2]);</span>
+	}
+
+	/**
+	 * Compare the two PCGen versions.
+	 *
+	 * @param ver
+	 *            The first version
+	 * @param compVer
+	 *            The second version
+	 * @return the value 0 if the PCG versions are equal; a value less than 0 if
+	 *         the first version is less than the second version; and a value
+	 *         greater than 0 if the first version is greater than the second
+	 *         version.
+	 */
+	public static int compareVersions(String ver, String compVer)
+	{
+<span class="nc bnc" id="L440" title="All 2 branches missed.">		if (!ver.equals(compVer))</span>
+		{
+<span class="nc" id="L442">			return compareVersions(convertVersionToNumber(ver), convertVersionToNumber(compVer));</span>
+		}
+<span class="nc" id="L444">		return 0;</span>
+	}
+
+	/**
+	 * Check if a version is earlier or equal to the current pcgen version.
+	 *
+	 * @param version
+	 *            PCGen version to be checked.
+	 * @return True if the version is before or equal to the current pcgen
+	 *         version.
+	 */
+	public static boolean isPriorToCurrent(String version)
+	{
+<span class="nc bnc" id="L457" title="All 2 branches missed.">		return CoreUtility.compareVersions(version, PCGenPropBundle.getVersionNumber()) &lt;= 0;</span>
+	}
+
+	/**
+	 * Convert a PCGen version to its numerical format.
+	 *
+	 * @param version
+	 *            the String version
+	 * @return the version as an array of 3 ints
+	 */
+	public static int[] convertVersionToNumber(String version)
+	{
+<span class="fc" id="L469">		int[] intVer = {0, 0, 0};</span>
+
+		// extract the tokens from the version line
+<span class="fc" id="L472">		String[] tokens = version.split(&quot; |\\.|\\-&quot;, 4); //$NON-NLS-1$</span>
+
+<span class="pc bpc" id="L474" title="1 of 4 branches missed.">		for (int idx = 0; idx &lt; 3 &amp;&amp; idx &lt; tokens.length; idx++)</span>
+		{
+			try
+			{
+<span class="fc" id="L478">				intVer[idx] = Integer.parseInt(tokens[idx]);</span>
+			}
+<span class="nc" id="L480">			catch (NumberFormatException e)</span>
+			{
+<span class="nc bnc" id="L482" title="All 4 branches missed.">				if (idx == 2 &amp;&amp; (tokens[idx].startsWith(&quot;RC&quot;)))</span>
+				{
+<span class="nc" id="L484">					Logging.debugPrint(&quot;we are not concerned about Release candidates&quot;);</span>
+				}
+				else
+				{
+					// Something in the first 3 digits was not an integer
+<span class="nc" id="L489">					Logging.errorPrint(&quot;Invalid PCGen version: &quot; + version);</span>
+				}
+<span class="fc" id="L491">			}</span>
+		}
+<span class="fc" id="L493">		return intVer;</span>
+	}
+
+	/**
+	 * Checks if the supplied version shares the same major and minor versions
+	 * as the currently running version of PCGen.
+	 *
+	 * @param ver
+	 *            the version to check
+	 * @return true, if it is the current minor version
+	 */
+	public static boolean isCurrMinorVer(String ver)
+	{
+<span class="nc bnc" id="L506" title="All 2 branches missed.">		if (ver.equals(PCGenPropBundle.getVersionNumber()))</span>
+		{
+<span class="nc" id="L508">			return true;</span>
+		}
+<span class="nc" id="L510">		int[] inVer = convertVersionToNumber(ver);</span>
+<span class="nc" id="L511">		int[] currVer = convertVersionToNumber(PCGenPropBundle.getVersionNumber());</span>
+<span class="nc bnc" id="L512" title="All 4 branches missed.">		return (inVer[0] == currVer[0] &amp;&amp; inVer[1] == currVer[1]);</span>
+	}
+
+	/**
+	 * Check if the two versions are different only in release number. i.e.
+	 * they have the same major and minor versions.
+	 *
+	 * @param ver1 A PCGen version number to be compared.
+	 * @param ver2 A PCGen version number to be compared.
+	 * @return true if they have the same major and minor versions.
+	 */
+	public static boolean sameMajorMinorVer(int[] ver1, int[] ver2)
+	{
+<span class="pc bpc" id="L525" title="1 of 4 branches missed.">		return (ver1[0] == ver2[0] &amp;&amp; ver1[1] == ver2[1]);</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

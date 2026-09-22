@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CorePerspectiveDB.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.meta</a> &gt; <span class="el_source">CorePerspectiveDB.java</span></div><h1>CorePerspectiveDB.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) Thomas Parker, 2013-14.
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package pcgen.cdom.meta;
+
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+
+import pcgen.base.util.DoubleKeyMap;
+import pcgen.base.util.HashMapToList;
+import pcgen.cdom.base.QualifyingObject;
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.base.AbstractItemConvertingFacet;
+import pcgen.cdom.facet.base.AbstractQualifiedListFacet;
+import pcgen.cdom.facet.base.AbstractSingleSourceListFacet;
+import pcgen.cdom.facet.base.AbstractSourcedListFacet;
+
+public final class CorePerspectiveDB
+{
+
+	private CorePerspectiveDB()
+	{
+		//Do not construct utility class
+	}
+
+<span class="fc" id="L41">	private static DoubleKeyMap&lt;CorePerspective, Object, FacetView&lt;?&gt;&gt; map = new DoubleKeyMap&lt;&gt;();</span>
+<span class="fc" id="L42">	private static HashMap&lt;CorePerspective, FacetView&lt;?&gt;&gt; rootmap = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L43">	private static HashMap&lt;Object, FacetView&lt;?&gt;&gt; facetToView = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L44">	private static Map&lt;Object, CorePerspective&gt; facetToPerspective = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L45">	private static HashMapToList&lt;Object, Object&gt; virtualParents = new HashMapToList&lt;&gt;();</span>
+
+	public static &lt;S, D&gt; Object register(CorePerspective perspective, FacetBehavior behavior,
+		AbstractItemConvertingFacet&lt;S, D&gt; facet)
+	{
+<span class="fc" id="L50">		FacetView&lt;Object&gt; view = new ConvertingFacetView&lt;&gt;(facet);</span>
+<span class="fc" id="L51">		finishRegistration(perspective, behavior, view, facet);</span>
+<span class="fc" id="L52">		return view;</span>
+	}
+
+	public static &lt;T&gt; Object register(CorePerspective perspective, FacetBehavior behavior,
+		AbstractSourcedListFacet&lt;CharID, T&gt; facet)
+	{
+<span class="fc" id="L58">		FacetView&lt;T&gt; view = new ListFacetView&lt;&gt;(facet);</span>
+<span class="fc" id="L59">		finishRegistration(perspective, behavior, view, facet);</span>
+<span class="fc" id="L60">		return view;</span>
+	}
+
+	public static &lt;T&gt; Object register(CorePerspective perspective, FacetBehavior behavior,
+		AbstractSingleSourceListFacet&lt;T, ?&gt; facet)
+	{
+<span class="fc" id="L66">		FacetView&lt;T&gt; view = new SingleSourceListFacetView&lt;&gt;(facet);</span>
+<span class="fc" id="L67">		finishRegistration(perspective, behavior, view, facet);</span>
+<span class="fc" id="L68">		return view;</span>
+	}
+
+	public static &lt;T extends QualifyingObject&gt; Object register(CorePerspective perspective, FacetBehavior behavior,
+		AbstractQualifiedListFacet&lt;T&gt; facet)
+	{
+<span class="fc" id="L74">		FacetView&lt;T&gt; view = new QualifiedFacetView&lt;&gt;(facet);</span>
+<span class="fc" id="L75">		finishRegistration(perspective, behavior, view, facet);</span>
+<span class="fc" id="L76">		return view;</span>
+	}
+
+	private static void finishRegistration(CorePerspective perspective, FacetBehavior behavior, FacetView&lt;?&gt; view,
+		Object f)
+	{
+<span class="fc" id="L82">		Object location = behavior;</span>
+<span class="pc bpc" id="L83" title="1 of 2 branches missed.">		if (f instanceof PerspectiveLocation)</span>
+		{
+<span class="fc" id="L85">			location = new Location(behavior, ((PerspectiveLocation) f).getIdentity());</span>
+		}
+<span class="fc" id="L87">		map.put(perspective, location, view);</span>
+<span class="fc" id="L88">		facetToView.put(f, view);</span>
+<span class="fc" id="L89">		facetToPerspective.put(f, perspective);</span>
+<span class="fc bfc" id="L90" title="All 2 branches covered.">		if (FacetBehavior.MODEL.equals(behavior))</span>
+		{
+<span class="fc" id="L92">			rootmap.put(perspective, view);</span>
+		}
+<span class="fc" id="L94">	}</span>
+
+	private static final class Location
+	{
+
+		private final String location;
+
+		private Location(FacetBehavior behavior, String source)
+<span class="fc" id="L102">		{</span>
+<span class="fc" id="L103">			location = String.valueOf(behavior) + &quot; (&quot; + source + &quot;)&quot;;</span>
+<span class="fc" id="L104">		}</span>
+
+		@Override
+		public String toString()
+		{
+<span class="nc" id="L109">			return location;</span>
+		}
+	}
+
+	public static Collection&lt;Object&gt; getLocations(CorePerspective perspective)
+	{
+<span class="nc" id="L115">		return map.getSecondaryKeySet(perspective);</span>
+	}
+
+	public static &lt;T&gt; FacetView&lt;T&gt; getView(CorePerspective perspective, Object location)
+	{
+		@SuppressWarnings(&quot;unchecked&quot;)
+<span class="nc" id="L121">		FacetView&lt;T&gt; facetView = (FacetView&lt;T&gt;) map.get(perspective, location);</span>
+<span class="nc" id="L122">		return facetView;</span>
+	}
+
+	public static &lt;T&gt; FacetView&lt;T&gt; getRootFacet(CorePerspective perspective)
+	{
+		@SuppressWarnings(&quot;unchecked&quot;)
+<span class="nc" id="L128">		FacetView&lt;T&gt; facetView = (FacetView&lt;T&gt;) rootmap.get(perspective);</span>
+<span class="nc" id="L129">		return facetView;</span>
+	}
+
+	public static &lt;T&gt; FacetView&lt;T&gt; getViewOfFacet(Object o)
+	{
+		@SuppressWarnings(&quot;unchecked&quot;)
+<span class="nc" id="L135">		FacetView&lt;T&gt; facetView = (FacetView&lt;T&gt;) facetToView.get(o);</span>
+<span class="nc" id="L136">		return facetView;</span>
+	}
+
+	public static &lt;T&gt; CorePerspective getPerspectiveOfFacet(Object o)
+	{
+<span class="nc" id="L141">		return facetToPerspective.get(o);</span>
+	}
+
+	public static void registerVirtualParent(Object obj, Object parent)
+	{
+<span class="fc" id="L146">		FacetView&lt;?&gt; view = facetToView.get(obj);</span>
+<span class="pc bpc" id="L147" title="1 of 2 branches missed.">		if (view == null)</span>
+		{
+<span class="nc" id="L149">			throw new IllegalStateException(&quot;Cannot register virtual parent when object is not yet registered&quot;);</span>
+		}
+<span class="fc" id="L151">		virtualParents.addToListFor(view, parent);</span>
+<span class="fc" id="L152">	}</span>
+
+	public static Collection&lt;Object&gt; getVirtualParents(Object obj)
+	{
+<span class="nc" id="L156">		return virtualParents.getListFor(obj);</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

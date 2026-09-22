@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SubstitutionLevelSupport.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.core.analysis</a> &gt; <span class="el_source">SubstitutionLevelSupport.java</span></div><h1>SubstitutionLevelSupport.java</h1><pre class="source lang-java linenums">/*
+ * Missing License Header, Copyright 2016 (C) Andrew Maitland &lt;amaitland@users.sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.core.analysis;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.core.Globals;
+import pcgen.core.PCClass;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.SubstitutionClass;
+import pcgen.persistence.lst.PCClassLoader;
+import pcgen.persistence.lst.SourceEntry;
+import pcgen.persistence.lst.utils.DeferredLine;
+
+public final class SubstitutionLevelSupport
+{
+
+	private SubstitutionLevelSupport()
+	{
+	}
+
+	private static boolean levelArrayQualifies(int level, final PlayerCharacter pc, final String aLine,
+		final SourceEntry tempSource, CDOMObject source)
+	{
+<span class="nc" id="L43">		final PCClassLoader classLoader = new PCClassLoader();</span>
+<span class="nc" id="L44">		PCClass dummyClass = new PCClass();</span>
+
+<span class="nc" id="L46">		classLoader.parseLine(Globals.getContext(), dummyClass, aLine, tempSource);</span>
+<span class="nc" id="L47">		return dummyClass.getOriginalClassLevel(level).qualifies(pc, source);</span>
+	}
+
+	/**
+	 * Apply the level mods to a class
+	 * @param aClass
+	 */
+	public static void applyLevelArrayModsToLevel(SubstitutionClass sc, final PCClass aClass, final int aLevel,
+		final PlayerCharacter aPC)
+	{
+<span class="nc" id="L57">		List&lt;DeferredLine&gt; levelArray = sc.getListFor(ListKey.SUB_CLASS_LEVEL);</span>
+<span class="nc bnc" id="L58" title="All 2 branches missed.">		if (levelArray == null)</span>
+		{
+<span class="nc" id="L60">			return;</span>
+		}
+
+<span class="nc" id="L63">		List&lt;DeferredLine&gt; newLevels = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L64" title="All 2 branches missed.">		for (DeferredLine line : levelArray)</span>
+		{
+<span class="nc" id="L66">			String aLine = line.lstLine;</span>
+<span class="nc" id="L67">			final int modLevel = Integer.parseInt(aLine.substring(0, aLine.indexOf('\t')));</span>
+
+<span class="nc bnc" id="L69" title="All 2 branches missed.">			if (aLevel == modLevel)</span>
+			{
+<span class="nc bnc" id="L71" title="All 2 branches missed.">				if (levelArrayQualifies(aLevel, aPC, aLine, line.source, aClass))</span>
+				{
+<span class="nc" id="L73">					newLevels.add(line);</span>
+				}
+			}
+<span class="nc" id="L76">		}</span>
+
+		// find all qualifying level lines for this level
+		// and put into newLevels list.
+<span class="nc bnc" id="L80" title="All 2 branches missed.">		if (!newLevels.isEmpty())</span>
+		{
+<span class="nc" id="L82">			aPC.setSubstitutionLevel(aClass, sc.getOriginalClassLevel(aLevel));</span>
+		}
+<span class="nc" id="L84">	}</span>
+
+	public static boolean qualifiesForSubstitutionLevel(PCClass cl, SubstitutionClass sc, PlayerCharacter pc, int level)
+	{
+<span class="nc" id="L88">		List&lt;DeferredLine&gt; levelArray = sc.getListFor(ListKey.SUB_CLASS_LEVEL);</span>
+<span class="nc bnc" id="L89" title="All 2 branches missed.">		if (levelArray == null)</span>
+		{
+<span class="nc" id="L91">			return false;</span>
+		}
+
+<span class="nc bnc" id="L94" title="All 2 branches missed.">		for (DeferredLine line : levelArray)</span>
+		{
+<span class="nc" id="L96">			String aLine = line.lstLine;</span>
+<span class="nc" id="L97">			final int modLevel = Integer.parseInt(aLine.substring(0, aLine.indexOf('\t')));</span>
+
+<span class="nc bnc" id="L99" title="All 2 branches missed.">			if (level == modLevel)</span>
+			{
+<span class="nc bnc" id="L101" title="All 2 branches missed.">				if (!levelArrayQualifies(level, pc, aLine, line.source, cl))</span>
+				{
+<span class="nc" id="L103">					return false;</span>
+				}
+			}
+<span class="nc" id="L106">		}</span>
+
+<span class="nc" id="L108">		return true;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

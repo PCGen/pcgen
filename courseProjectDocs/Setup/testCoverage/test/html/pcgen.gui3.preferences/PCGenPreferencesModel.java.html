@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PCGenPreferencesModel.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.gui3.preferences</a> &gt; <span class="el_source">PCGenPreferencesModel.java</span></div><h1>PCGenPreferencesModel.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2019 (C) Eitan Adler &lt;lists@eitanadler.com&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+
+package pcgen.gui3.preferences;
+
+import pcgen.cdom.base.Constants;
+import pcgen.gui2.prefs.CharacterStatsPanel;
+import pcgen.gui2.prefs.HouseRulesPanel;
+import pcgen.gui2.prefs.LanguagePanel;
+import pcgen.gui2.prefs.LocationPanel;
+import pcgen.gui2.prefs.OutputPanel;
+import pcgen.gui2.prefs.PCGenPrefsPanel;
+import pcgen.gui3.JFXPanelFromResource;
+import pcgen.system.LanguageBundle;
+
+import javafx.embed.swing.JFXPanel;
+import javafx.scene.control.TreeItem;
+
+public final class PCGenPreferencesModel
+{
+
+	private PCGenPreferencesModel()
+	{
+	}
+
+	/**
+	 * A wrapper for a JFXPanel to pretend to be a PCGenPrefsPanel
+	 * TODO: move this to a better place or figure out a way not to need this
+	 */
+	private static final class EmptyPrefPanel extends PCGenPrefsPanel
+	{
+		private final String title;
+
+		EmptyPrefPanel(String title, JFXPanel innerPanel)
+<span class="nc" id="L50">		{</span>
+<span class="nc" id="L51">			this.title = title;</span>
+<span class="nc" id="L52">			this.add(innerPanel);</span>
+<span class="nc" id="L53">		}</span>
+
+		@Override
+		public String getTitle()
+		{
+<span class="nc" id="L58">			return title;</span>
+		}
+
+		@Override
+		public void applyOptionValuesToControls()
+		{
+			// do nothing
+<span class="nc" id="L65">		}</span>
+
+		@Override
+		public void setOptionsBasedOnControls()
+		{
+			// do nothing
+<span class="nc" id="L71">		}</span>
+	}
+
+	// Resource strings
+<span class="nc" id="L75">	private static final String IN_APPERANCE = LanguageBundle.getString(&quot;in_Prefs_appearance&quot;); //$NON-NLS-1$</span>
+<span class="nc" id="L76">	private static final String IN_CHARACTER = LanguageBundle.getString(&quot;in_Prefs_character&quot;); //$NON-NLS-1$</span>
+
+	static TreeItem&lt;PCGenPrefsPanel&gt; buildEmptyPanel(String title, String messageText)
+	{
+<span class="nc" id="L80">		final var panel =</span>
+				new JFXPanelFromResource&lt;&gt;(
+						CenteredLabelPanelController.class,
+						&quot;CenteredLabelPanel.fxml&quot;
+				);
+<span class="nc" id="L85">		panel.getController().setText(messageText);</span>
+<span class="nc" id="L86">		EmptyPrefPanel emptyPrefPanel = new EmptyPrefPanel(title, panel);</span>
+<span class="nc" id="L87">		return new TreeItem&lt;&gt;(emptyPrefPanel);</span>
+	}
+
+	public static TreeItem&lt;PCGenPrefsPanel&gt; buildRoot()
+	{
+<span class="nc" id="L92">		TreeItem&lt;PCGenPrefsPanel&gt; rootNode = buildEmptyPanel(&quot;root&quot;, &quot;root&quot;);</span>
+
+		// Build the selection tree
+<span class="nc" id="L95">		TreeItem&lt;PCGenPrefsPanel&gt; characterNode =</span>
+<span class="nc" id="L96">				buildEmptyPanel(IN_CHARACTER, LanguageBundle.getString(&quot;in_Prefs_charTip&quot;));</span>
+
+<span class="nc" id="L98">		PCGenPrefsPanel characterStatsPanel = new CharacterStatsPanel();</span>
+<span class="nc" id="L99">		characterNode.getChildren().add(new TreeItem&lt;&gt;(characterStatsPanel));</span>
+
+<span class="nc" id="L101">		PCGenPrefsPanel hitPointsPanel = new ConvertedJavaFXPanel&lt;&gt;(</span>
+				HitPointsPreferencesController.class,
+				&quot;HitPointsPreferencesPanel.fxml&quot;,
+				&quot;in_Prefs_hp&quot;
+		);
+<span class="nc" id="L106">		characterNode.getChildren().add(new TreeItem&lt;&gt;(hitPointsPanel));</span>
+<span class="nc" id="L107">		PCGenPrefsPanel houseRulesPanel = new HouseRulesPanel();</span>
+<span class="nc" id="L108">		characterNode.getChildren().add(new TreeItem&lt;&gt;(houseRulesPanel));</span>
+<span class="nc" id="L109">		PCGenPrefsPanel monsterPanel = new ConvertedJavaFXPanel&lt;&gt;(</span>
+				MonsterPreferencesPanelController.class,
+				&quot;MonsterPreferencesPanel.fxml&quot;,
+				&quot;in_Prefs_monsters&quot;);
+<span class="nc" id="L113">		characterNode.getChildren().add(new TreeItem&lt;&gt;(monsterPanel));</span>
+<span class="nc" id="L114">		PCGenPrefsPanel defaultsPanel = new ConvertedJavaFXPanel&lt;&gt;(</span>
+				DefaultsPreferencesPanelController.class,
+				&quot;DefaultsPreferencesPanel.fxml&quot;,
+				&quot;in_Prefs_defaults&quot;);
+<span class="nc" id="L118">		characterNode.getChildren().add(new TreeItem&lt;&gt;(defaultsPanel));</span>
+<span class="nc" id="L119">		rootNode.getChildren().add(characterNode);</span>
+
+<span class="nc" id="L121">		TreeItem&lt;PCGenPrefsPanel&gt; appearanceNode = buildEmptyPanel(</span>
+				IN_APPERANCE,
+<span class="nc" id="L123">				LanguageBundle.getString(&quot;in_Prefs_appearanceTip&quot;)</span>
+		);
+
+<span class="nc" id="L126">		PCGenPrefsPanel colorsPanel = new ConvertedJavaFXPanel&lt;&gt;(</span>
+				ColorsPreferencesPanelController.class,
+				&quot;ColorsPreferencesPanel.fxml&quot;,
+				&quot;in_Prefs_color&quot;
+		);
+
+<span class="nc" id="L132">		appearanceNode.getChildren().add(new TreeItem&lt;&gt;(colorsPanel));</span>
+<span class="nc" id="L133">		PCGenPrefsPanel displayOptionsPanel = new ConvertedJavaFXPanel&lt;&gt;(</span>
+				DisplayOptionsPreferencesPanelController.class,
+				&quot;DisplayOptionsPreferencesPanel.fxml&quot;,
+				&quot;in_Prefs_displayOpts&quot;
+		);
+<span class="nc" id="L138">		appearanceNode.getChildren().add(new TreeItem&lt;&gt;(displayOptionsPanel));</span>
+<span class="nc" id="L139">		PCGenPrefsPanel levelUpPanel = new ConvertedJavaFXPanel&lt;&gt;(</span>
+				LevelUpPreferencesPanelController.class,
+				&quot;LevelUpPreferencesPanel.fxml&quot;,
+				&quot;in_Prefs_levelUp&quot;
+		);
+<span class="nc" id="L144">		appearanceNode.getChildren().add(new TreeItem&lt;&gt;(levelUpPanel));</span>
+<span class="nc" id="L145">		rootNode.getChildren().add(appearanceNode);</span>
+
+<span class="nc" id="L147">		TreeItem&lt;PCGenPrefsPanel&gt; pcGenNode = buildEmptyPanel(Constants.APPLICATION_NAME,</span>
+<span class="nc" id="L148">				LanguageBundle.getString(&quot;in_Prefs_pcgenTip&quot;));</span>
+
+		// PCGen panels
+<span class="nc" id="L151">		PCGenPrefsPanel equipmentPanel = new ConvertedJavaFXPanel&lt;&gt;(</span>
+				EquipmentPreferencesPanelController.class,
+				&quot;EquipmentPreferencesPanel.fxml&quot;,
+				&quot;in_Prefs_equipment&quot;
+		);
+<span class="nc" id="L156">		pcGenNode.getChildren().add(new TreeItem&lt;&gt;(equipmentPanel));</span>
+<span class="nc" id="L157">		PCGenPrefsPanel languagePanel = new LanguagePanel();</span>
+<span class="nc" id="L158">		pcGenNode.getChildren().add(new TreeItem&lt;&gt;(languagePanel));</span>
+<span class="nc" id="L159">		PCGenPrefsPanel locationPanel = new LocationPanel();</span>
+
+<span class="nc" id="L161">		pcGenNode.getChildren().add(new TreeItem&lt;&gt;(locationPanel));</span>
+<span class="nc" id="L162">		PCGenPrefsPanel inputPanel = new ConvertedJavaFXPanel&lt;&gt;(</span>
+				InputPreferencesPanelController.class,
+				&quot;InputPreferencesPanel.fxml&quot;,
+				&quot;in_Prefs_input&quot;
+		);
+<span class="nc" id="L167">		pcGenNode.getChildren().add(new TreeItem&lt;&gt;(inputPanel));</span>
+<span class="nc" id="L168">		PCGenPrefsPanel outputPanel = new OutputPanel();</span>
+<span class="nc" id="L169">		pcGenNode.getChildren().add(new TreeItem&lt;&gt;(outputPanel));</span>
+<span class="nc" id="L170">		ConvertedJavaFXPanel&lt;SourcesPreferencesPanelController&gt; sourcesPanel =</span>
+				new ConvertedJavaFXPanel&lt;&gt;(
+						SourcesPreferencesPanelController.class,
+						&quot;SourcesPreferencesPanel.fxml&quot;,
+						&quot;in_Prefs_sources&quot;
+				);
+<span class="nc" id="L176">		pcGenNode.getChildren().add(new TreeItem&lt;&gt;(sourcesPanel));</span>
+<span class="nc" id="L177">		rootNode.getChildren().add(pcGenNode);</span>
+
+<span class="nc" id="L179">		String in_gamemode = LanguageBundle.getString(&quot;in_mnuSettingsCampaign&quot;);</span>
+<span class="nc" id="L180">		TreeItem&lt;PCGenPrefsPanel&gt; gameModeNode = buildEmptyPanel(</span>
+						in_gamemode,
+<span class="nc" id="L182">						LanguageBundle.getString(&quot;in_mnuSettingsCampaignTip&quot;)</span>
+				);
+
+<span class="nc" id="L185">		ConvertedJavaFXPanel&lt;CopySettingsPanelController&gt; convertedCopySettingsPanel = new ConvertedJavaFXPanel&lt;&gt;(</span>
+				CopySettingsPanelController.class,
+				&quot;CopySettingsPanel.fxml&quot;,
+				&quot;in_Prefs_copy&quot;
+		);
+
+<span class="nc" id="L191">		gameModeNode.getChildren().add(new TreeItem&lt;&gt;(convertedCopySettingsPanel));</span>
+<span class="nc" id="L192">		rootNode.getChildren().add(gameModeNode);</span>
+
+		// Copy Settings
+<span class="nc" id="L195">		CopySettingsPanelController copySettingsPanelController  = convertedCopySettingsPanel.getController();</span>
+<span class="nc" id="L196">		copySettingsPanelController.registerAffectedPanel(characterStatsPanel);</span>
+<span class="nc" id="L197">		copySettingsPanelController.registerAffectedPanel(defaultsPanel);</span>
+<span class="nc" id="L198">		copySettingsPanelController.registerAffectedPanel(languagePanel);</span>
+
+
+
+<span class="nc" id="L202">		return rootNode;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

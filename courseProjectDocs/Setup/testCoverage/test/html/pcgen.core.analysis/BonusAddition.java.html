@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BonusAddition.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.core.analysis</a> &gt; <span class="el_source">BonusAddition.java</span></div><h1>BonusAddition.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2008 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * Copyright 2001 (C) Bryan McRoberts &lt;merton_monk@yahoo.com&gt;
+ * 
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.core.analysis;
+
+import pcgen.cdom.base.CDOMObject;
+import pcgen.core.Globals;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.bonus.Bonus;
+import pcgen.core.bonus.BonusObj;
+import pcgen.util.Logging;
+
+public final class BonusAddition
+{
+	private BonusAddition()
+	{
+	}
+
+	/**
+	 * Apply the bonus to a character. The bonus can optionally only be added
+	 * once no matter how many associated choices this object has. This is
+	 * normally used where a bonus is added for each associated choice.
+	 * 
+	 * @param bonusString
+	 *            The unparsed bonus to be added.
+	 * @param chooseString
+	 *            The choice to be added.
+	 * @param aPC
+	 *            The character to apply thr bonus to.
+	 */
+	public static void applyBonus(String bonusString, String chooseString, PlayerCharacter aPC, CDOMObject target)
+	{
+<span class="nc" id="L48">		bonusString = makeBonusString(bonusString, chooseString, aPC);</span>
+
+<span class="nc" id="L50">		final BonusObj aBonus = Bonus.newBonus(Globals.getContext(), bonusString);</span>
+<span class="nc bnc" id="L51" title="All 2 branches missed.">		if (aBonus != null)</span>
+		{
+<span class="nc" id="L53">			aPC.addSaveableBonus(aBonus, target);</span>
+		}
+<span class="nc" id="L55">	}</span>
+
+	/**
+	 * Remove the bonus from this objects list of bonuses.
+	 * 
+	 * @param bonusString
+	 *            The string representing the bonus
+	 * @param aPC
+	 *            The player character to remove th bonus from.
+	 */
+	public static void removeBonus(String bonusString, PlayerCharacter aPC, CDOMObject target)
+	{
+<span class="nc" id="L67">		BonusObj toRemove = null;</span>
+<span class="nc" id="L68">		BonusObj aBonus = Bonus.newBonus(Globals.getContext(), bonusString);</span>
+<span class="nc" id="L69">		String bonusStrRep = String.valueOf(aBonus);</span>
+
+<span class="nc bnc" id="L71" title="All 2 branches missed.">		for (BonusObj listBonus : aPC.getSaveableBonusList(target))</span>
+		{
+<span class="nc bnc" id="L73" title="All 2 branches missed.">			if (listBonus.toString().equals(bonusStrRep))</span>
+			{
+<span class="nc" id="L75">				toRemove = listBonus;</span>
+			}
+<span class="nc" id="L77">		}</span>
+
+<span class="nc bnc" id="L79" title="All 2 branches missed.">		if (toRemove != null)</span>
+		{
+<span class="nc" id="L81">			aPC.removeSaveableBonus(toRemove, target);</span>
+		}
+		else
+		{
+<span class="nc" id="L85">			Logging.errorPrint(&quot;removeBonus: Could not find bonus: &quot; + bonusString + &quot; in bonusList &quot;</span>
+<span class="nc" id="L86">				+ aPC.getSaveableBonusList(target));</span>
+		}
+<span class="nc" id="L88">	}</span>
+
+	private static String makeBonusString(String bonusString, String chooseString, PlayerCharacter aPC)
+	{
+		// assumption is that the chooseString is in the form
+		// class/type[space]level
+<span class="nc" id="L94">		int i = chooseString.lastIndexOf(' ');</span>
+<span class="nc" id="L95">		String classString = &quot;&quot;;</span>
+<span class="nc" id="L96">		String levelString = &quot;&quot;;</span>
+
+<span class="nc bnc" id="L98" title="All 2 branches missed.">		if (bonusString.startsWith(&quot;BONUS:&quot;))</span>
+		{
+<span class="nc" id="L100">			bonusString = bonusString.substring(6);</span>
+		}
+
+<span class="nc" id="L103">		boolean lockIt = bonusString.endsWith(&quot;.LOCK&quot;);</span>
+
+<span class="nc bnc" id="L105" title="All 2 branches missed.">		if (lockIt)</span>
+		{
+<span class="nc" id="L107">			bonusString = bonusString.substring(0, bonusString.lastIndexOf(&quot;.LOCK&quot;));</span>
+		}
+
+<span class="nc bnc" id="L110" title="All 2 branches missed.">		if (i &gt;= 0)</span>
+		{
+<span class="nc" id="L112">			classString = chooseString.substring(0, i);</span>
+
+<span class="nc bnc" id="L114" title="All 2 branches missed.">			if (i &lt; chooseString.length())</span>
+			{
+<span class="nc" id="L116">				levelString = chooseString.substring(i + 1);</span>
+			}
+		}
+
+<span class="nc bnc" id="L120" title="All 2 branches missed.">		while (bonusString.lastIndexOf(&quot;TYPE=%&quot;) &gt;= 0)</span>
+		{
+<span class="nc" id="L122">			i = bonusString.lastIndexOf(&quot;TYPE=%&quot;);</span>
+<span class="nc" id="L123">			bonusString = bonusString.substring(0, i + 5) + classString + bonusString.substring(i + 6);</span>
+		}
+
+<span class="nc bnc" id="L126" title="All 2 branches missed.">		while (bonusString.lastIndexOf(&quot;CLASS=%&quot;) &gt;= 0)</span>
+		{
+<span class="nc" id="L128">			i = bonusString.lastIndexOf(&quot;CLASS=%&quot;);</span>
+<span class="nc" id="L129">			bonusString = bonusString.substring(0, i + 6) + classString + bonusString.substring(i + 7);</span>
+		}
+
+<span class="nc bnc" id="L132" title="All 2 branches missed.">		while (bonusString.lastIndexOf(&quot;LEVEL=%&quot;) &gt;= 0)</span>
+		{
+<span class="nc" id="L134">			i = bonusString.lastIndexOf(&quot;LEVEL=%&quot;);</span>
+<span class="nc" id="L135">			bonusString = bonusString.substring(0, i + 6) + levelString + bonusString.substring(i + 7);</span>
+		}
+
+<span class="nc bnc" id="L138" title="All 2 branches missed.">		if (lockIt)</span>
+		{
+<span class="nc" id="L140">			i = bonusString.lastIndexOf('|');</span>
+
+<span class="nc" id="L142">			Float val = aPC.getVariableValue(bonusString.substring(i + 1), &quot;&quot;);</span>
+<span class="nc" id="L143">			bonusString = bonusString.substring(0, i) + &quot;|&quot; + val;</span>
+		}
+
+<span class="nc" id="L146">		return bonusString;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

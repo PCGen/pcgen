@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DelegatingDataSet.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.gui2.facade</a> &gt; <span class="el_source">DelegatingDataSet.java</span></div><h1>DelegatingDataSet.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2014 Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ * 
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ * 
+ */
+package pcgen.gui2.facade;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import pcgen.core.AbilityCategory;
+import pcgen.core.BodyStructure;
+import pcgen.core.Campaign;
+import pcgen.core.Deity;
+import pcgen.core.GameMode;
+import pcgen.core.Kit;
+import pcgen.core.PCAlignment;
+import pcgen.core.PCClass;
+import pcgen.core.PCStat;
+import pcgen.core.PCTemplate;
+import pcgen.core.Race;
+import pcgen.core.SizeAdjustment;
+import pcgen.core.Skill;
+import pcgen.facade.core.AbilityFacade;
+import pcgen.facade.core.DataSetFacade;
+import pcgen.facade.core.EquipmentFacade;
+import pcgen.facade.core.GearBuySellFacade;
+import pcgen.facade.util.AbstractMapFacade;
+import pcgen.facade.util.DelegatingListFacade;
+import pcgen.facade.util.ListFacade;
+import pcgen.facade.util.MapFacade;
+import pcgen.facade.util.event.MapEvent;
+import pcgen.facade.util.event.MapListener;
+
+/**
+ * This class implements a {@code DataSetFacade} by delegating to another
+ * DataSetFacade. This class is the DataSetFacade returned by the
+ * {@code CharacterFacadeImpl} and is necessary to protect outside event
+ * listeners from directly listening to the real DataSetFacade. By adding this
+ * delegate layer, upon closing a character, the CFI can sever connections
+ * between the DelegatingDataSet and the actual DataSetFacade thus preventing an
+ * memory leaks that could occur from an outside event listener.
+ */
+public class DelegatingDataSet implements DataSetFacade
+{
+
+	private final DelegatingListFacade&lt;Race&gt; races;
+	private final DelegatingListFacade&lt;PCClass&gt; classes;
+	private final DelegatingListFacade&lt;Skill&gt; skills;
+	private final DelegatingListFacade&lt;Deity&gt; deities;
+	private final DelegatingListFacade&lt;PCTemplate&gt; templates;
+	private final DelegatingListFacade&lt;PCAlignment&gt; alignments;
+	private final DelegatingListFacade&lt;Kit&gt; kits;
+	private final DelegatingListFacade&lt;PCStat&gt; stats;
+	private final DelegatingAbilitiesMap abilities;
+	private final DelegatingListFacade&lt;Campaign&gt; campaigns;
+	private final DelegatingListFacade&lt;BodyStructure&gt; bodyStructures;
+	private final DelegatingListFacade&lt;EquipmentFacade&gt; equipment;
+	private final DelegatingListFacade&lt;String&gt; xpTableNames;
+	private final DelegatingListFacade&lt;GearBuySellFacade&gt; gearBuySellSchemes;
+	private final DelegatingListFacade&lt;String&gt; characterTypes;
+	private final DelegatingListFacade&lt;SizeAdjustment&gt; sizes;
+
+	private final DataSetFacade delegate;
+
+	public DelegatingDataSet(DataSetFacade delegate)
+<span class="nc" id="L83">	{</span>
+<span class="nc" id="L84">		this.delegate = delegate;</span>
+<span class="nc" id="L85">		this.abilities = new DelegatingAbilitiesMap(delegate.getAbilities());</span>
+<span class="nc" id="L86">		this.races = new DelegatingListFacade&lt;&gt;(delegate.getRaces());</span>
+<span class="nc" id="L87">		this.classes = new DelegatingListFacade&lt;&gt;(delegate.getClasses());</span>
+<span class="nc" id="L88">		this.deities = new DelegatingListFacade&lt;&gt;(delegate.getDeities());</span>
+<span class="nc" id="L89">		this.skills = new DelegatingListFacade&lt;&gt;(delegate.getSkills());</span>
+<span class="nc" id="L90">		this.templates = new DelegatingListFacade&lt;&gt;(delegate.getTemplates());</span>
+<span class="nc" id="L91">		this.alignments = new DelegatingListFacade&lt;&gt;(delegate.getAlignments());</span>
+<span class="nc" id="L92">		this.kits = new DelegatingListFacade&lt;&gt;(delegate.getKits());</span>
+<span class="nc" id="L93">		this.stats = new DelegatingListFacade&lt;&gt;(delegate.getStats());</span>
+<span class="nc" id="L94">		this.campaigns = new DelegatingListFacade&lt;&gt;(delegate.getCampaigns());</span>
+<span class="nc" id="L95">		this.bodyStructures = new DelegatingListFacade&lt;&gt;(delegate.getEquipmentLocations());</span>
+<span class="nc" id="L96">		this.equipment = new DelegatingListFacade&lt;&gt;(delegate.getEquipment());</span>
+<span class="nc" id="L97">		this.xpTableNames = new DelegatingListFacade&lt;&gt;(delegate.getXPTableNames());</span>
+<span class="nc" id="L98">		this.gearBuySellSchemes = new DelegatingListFacade&lt;&gt;(delegate.getGearBuySellSchemes());</span>
+<span class="nc" id="L99">		this.characterTypes = new DelegatingListFacade&lt;&gt;(delegate.getCharacterTypes());</span>
+<span class="nc" id="L100">		this.sizes = new DelegatingListFacade&lt;&gt;(delegate.getSizes());</span>
+
+<span class="nc" id="L102">	}</span>
+
+	public void detachDelegates()
+	{
+<span class="nc" id="L106">		abilities.detach();</span>
+<span class="nc" id="L107">		races.setDelegate(null);</span>
+<span class="nc" id="L108">		classes.setDelegate(null);</span>
+<span class="nc" id="L109">		deities.setDelegate(null);</span>
+<span class="nc" id="L110">		skills.setDelegate(null);</span>
+<span class="nc" id="L111">		templates.setDelegate(null);</span>
+<span class="nc" id="L112">		alignments.setDelegate(null);</span>
+<span class="nc" id="L113">		kits.setDelegate(null);</span>
+<span class="nc" id="L114">		stats.setDelegate(null);</span>
+<span class="nc" id="L115">		campaigns.setDelegate(null);</span>
+<span class="nc" id="L116">		bodyStructures.setDelegate(null);</span>
+<span class="nc" id="L117">		equipment.setDelegate(null);</span>
+<span class="nc" id="L118">		xpTableNames.setDelegate(null);</span>
+<span class="nc" id="L119">		gearBuySellSchemes.setDelegate(null);</span>
+<span class="nc" id="L120">		characterTypes.setDelegate(null);</span>
+<span class="nc" id="L121">		sizes.setDelegate(null);</span>
+<span class="nc" id="L122">	}</span>
+
+	@Override
+	public MapFacade&lt;AbilityCategory, ListFacade&lt;AbilityFacade&gt;&gt; getAbilities()
+	{
+<span class="nc" id="L127">		return abilities;</span>
+	}
+
+	private static class DelegatingAbilitiesMap extends AbstractMapFacade&lt;AbilityCategory, ListFacade&lt;AbilityFacade&gt;&gt;
+			implements MapListener&lt;AbilityCategory, ListFacade&lt;AbilityFacade&gt;&gt;
+	{
+
+		private final Map&lt;AbilityCategory, DelegatingListFacade&lt;AbilityFacade&gt;&gt; abilitiesMap;
+
+		private final MapFacade&lt;AbilityCategory, ListFacade&lt;AbilityFacade&gt;&gt; abilitiesDelegate;
+
+		DelegatingAbilitiesMap(MapFacade&lt;AbilityCategory, ListFacade&lt;AbilityFacade&gt;&gt; abilitiesDelegate)
+<span class="nc" id="L139">		{</span>
+<span class="nc" id="L140">			this.abilitiesDelegate = abilitiesDelegate;</span>
+<span class="nc" id="L141">			this.abilitiesMap = new HashMap&lt;&gt;();</span>
+<span class="nc" id="L142">			populateMap();</span>
+<span class="nc" id="L143">			abilitiesDelegate.addMapListener(this);</span>
+<span class="nc" id="L144">		}</span>
+
+		void detach()
+		{
+<span class="nc" id="L148">			abilitiesDelegate.removeMapListener(this);</span>
+<span class="nc bnc" id="L149" title="All 2 branches missed.">			for (DelegatingListFacade&lt;AbilityFacade&gt; list : abilitiesMap.values())</span>
+			{
+<span class="nc" id="L151">				list.setDelegate(null);</span>
+<span class="nc" id="L152">			}</span>
+<span class="nc" id="L153">		}</span>
+
+		@Override
+		public Set&lt;AbilityCategory&gt; getKeys()
+		{
+<span class="nc" id="L158">			return abilitiesDelegate.getKeys();</span>
+		}
+
+		@Override
+		public ListFacade&lt;AbilityFacade&gt; getValue(AbilityCategory key)
+		{
+<span class="nc" id="L164">			return abilitiesMap.get(key);</span>
+		}
+
+		@Override
+		public void keyAdded(MapEvent&lt;AbilityCategory, ListFacade&lt;AbilityFacade&gt;&gt; e)
+		{
+<span class="nc" id="L170">			AbilityCategory key = e.getKey();</span>
+<span class="nc" id="L171">			DelegatingListFacade&lt;AbilityFacade&gt; newValue = new DelegatingListFacade&lt;&gt;(e.getNewValue());</span>
+<span class="nc" id="L172">			abilitiesMap.put(key, newValue);</span>
+<span class="nc" id="L173">			fireKeyAdded(this, key, newValue);</span>
+<span class="nc" id="L174">		}</span>
+
+		@Override
+		public void keyRemoved(MapEvent&lt;AbilityCategory, ListFacade&lt;AbilityFacade&gt;&gt; e)
+		{
+<span class="nc" id="L179">			AbilityCategory key = e.getKey();</span>
+<span class="nc" id="L180">			DelegatingListFacade&lt;AbilityFacade&gt; oldValue = abilitiesMap.remove(key);</span>
+<span class="nc" id="L181">			fireKeyRemoved(this, key, oldValue);</span>
+<span class="nc" id="L182">			oldValue.setDelegate(null);</span>
+<span class="nc" id="L183">		}</span>
+
+		@Override
+		public void keyModified(MapEvent&lt;AbilityCategory, ListFacade&lt;AbilityFacade&gt;&gt; e)
+		{
+<span class="nc" id="L188">			fireKeyModified(this, e.getKey(), abilitiesMap.get(e.getKey()));</span>
+<span class="nc" id="L189">		}</span>
+
+		@Override
+		public void valueChanged(MapEvent&lt;AbilityCategory, ListFacade&lt;AbilityFacade&gt;&gt; e)
+		{
+<span class="nc" id="L194">			AbilityCategory key = e.getKey();</span>
+<span class="nc" id="L195">			DelegatingListFacade&lt;AbilityFacade&gt; oldValue = abilitiesMap.get(key);</span>
+<span class="nc" id="L196">			DelegatingListFacade&lt;AbilityFacade&gt; newValue = new DelegatingListFacade&lt;&gt;(e.getNewValue());</span>
+<span class="nc" id="L197">			abilitiesMap.put(key, newValue);</span>
+<span class="nc" id="L198">			fireValueChanged(this, key, oldValue, newValue);</span>
+<span class="nc" id="L199">			oldValue.setDelegate(null);</span>
+<span class="nc" id="L200">		}</span>
+
+		@Override
+		public void valueModified(MapEvent&lt;AbilityCategory, ListFacade&lt;AbilityFacade&gt;&gt; e)
+		{
+<span class="nc" id="L205">			fireValueModified(this, e.getKey(), abilitiesMap.get(e.getKey()));</span>
+<span class="nc" id="L206">		}</span>
+
+		private void populateMap()
+		{
+<span class="nc bnc" id="L210" title="All 2 branches missed.">			for (AbilityCategory key : abilitiesDelegate.getKeys())</span>
+			{
+<span class="nc" id="L212">				DelegatingListFacade&lt;AbilityFacade&gt; value = new DelegatingListFacade&lt;&gt;(abilitiesDelegate.getValue(key));</span>
+<span class="nc" id="L213">				abilitiesMap.put(key, value);</span>
+<span class="nc" id="L214">			}</span>
+<span class="nc" id="L215">		}</span>
+
+		@Override
+		public void keysChanged(MapEvent&lt;AbilityCategory, ListFacade&lt;AbilityFacade&gt;&gt; e)
+		{
+<span class="nc" id="L220">			ArrayList&lt;DelegatingListFacade&lt;AbilityFacade&gt;&gt; deadLists = new ArrayList&lt;&gt;(abilitiesMap.values());</span>
+<span class="nc" id="L221">			abilitiesMap.clear();</span>
+<span class="nc" id="L222">			populateMap();</span>
+<span class="nc bnc" id="L223" title="All 2 branches missed.">			for (DelegatingListFacade&lt;AbilityFacade&gt; delegatingListFacade : deadLists)</span>
+			{
+<span class="nc" id="L225">				delegatingListFacade.setDelegate(null);</span>
+<span class="nc" id="L226">			}</span>
+<span class="nc" id="L227">		}</span>
+
+	}
+
+	@Override
+	public List&lt;AbilityFacade&gt; getPrereqAbilities(AbilityFacade abilityFacade)
+	{
+<span class="nc" id="L234">		return delegate.getPrereqAbilities(abilityFacade);</span>
+	}
+
+	@Override
+	public ListFacade&lt;Skill&gt; getSkills()
+	{
+<span class="nc" id="L240">		return skills;</span>
+	}
+
+	@Override
+	public ListFacade&lt;Race&gt; getRaces()
+	{
+<span class="nc" id="L246">		return races;</span>
+	}
+
+	@Override
+	public ListFacade&lt;PCClass&gt; getClasses()
+	{
+<span class="nc" id="L252">		return classes;</span>
+	}
+
+	@Override
+	public ListFacade&lt;Deity&gt; getDeities()
+	{
+<span class="nc" id="L258">		return deities;</span>
+	}
+
+	@Override
+	public ListFacade&lt;PCTemplate&gt; getTemplates()
+	{
+<span class="nc" id="L264">		return templates;</span>
+	}
+
+	@Override
+	public ListFacade&lt;Campaign&gt; getCampaigns()
+	{
+<span class="nc" id="L270">		return campaigns;</span>
+	}
+
+	@Override
+	public GameMode getGameMode()
+	{
+<span class="nc" id="L276">		return delegate.getGameMode();</span>
+	}
+
+	@Override
+	public ListFacade&lt;PCAlignment&gt; getAlignments()
+	{
+<span class="nc" id="L282">		return alignments;</span>
+	}
+
+	@Override
+	public ListFacade&lt;PCStat&gt; getStats()
+	{
+<span class="nc" id="L288">		return stats;</span>
+	}
+
+	@Override
+	public Skill getSpeakLanguageSkill()
+	{
+<span class="nc" id="L294">		return delegate.getSpeakLanguageSkill();</span>
+	}
+
+	@Override
+	public ListFacade&lt;EquipmentFacade&gt; getEquipment()
+	{
+<span class="nc" id="L300">		return equipment;</span>
+	}
+
+	@Override
+	public void addEquipment(EquipmentFacade equip)
+	{
+<span class="nc" id="L306">		delegate.addEquipment(equip);</span>
+<span class="nc" id="L307">	}</span>
+
+	@Override
+	public ListFacade&lt;BodyStructure&gt; getEquipmentLocations()
+	{
+<span class="nc" id="L312">		return bodyStructures;</span>
+	}
+
+	@Override
+	public ListFacade&lt;String&gt; getXPTableNames()
+	{
+<span class="nc" id="L318">		return xpTableNames;</span>
+	}
+
+	@Override
+	public ListFacade&lt;String&gt; getCharacterTypes()
+	{
+<span class="nc" id="L324">		return characterTypes;</span>
+	}
+
+	@Override
+	public ListFacade&lt;GearBuySellFacade&gt; getGearBuySellSchemes()
+	{
+<span class="nc" id="L330">		return gearBuySellSchemes;</span>
+	}
+
+	@Override
+	public ListFacade&lt;Kit&gt; getKits()
+	{
+<span class="nc" id="L336">		return kits;</span>
+	}
+
+	@Override
+	public ListFacade&lt;SizeAdjustment&gt; getSizes()
+	{
+<span class="nc" id="L342">		return sizes;</span>
+	}
+
+	@Override
+	public void refreshEquipment()
+	{
+<span class="nc" id="L348">		delegate.refreshEquipment();</span>
+<span class="nc" id="L349">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

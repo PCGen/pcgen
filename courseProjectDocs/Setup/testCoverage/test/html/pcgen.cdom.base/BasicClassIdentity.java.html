@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BasicClassIdentity.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.base</a> &gt; <span class="el_source">BasicClassIdentity.java</span></div><h1>BasicClassIdentity.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2012-18 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.cdom.base;
+
+import java.util.Objects;
+
+/**
+ * A BasicClassIdentity is a ClassIdentity designed to wrap a Class. This has no further
+ * information designed to be considered or loaded into the object at construction.
+ * 
+ * @param &lt;T&gt;
+ *            The Format (Class) of the object represented by this ClassIdentity.
+ */
+public final class BasicClassIdentity&lt;T&gt; implements ClassIdentity&lt;T&gt;
+{
+
+	/**
+	 * The underlying Class for this BasicClassIdentity. This is what the
+	 * BasicClassIdentity represents.
+	 */
+	private final Class&lt;T&gt; underlyingClass;
+
+	/**
+	 * Constructs a new BasicClassIdentity for the given Class.
+	 * 
+	 * @param cl
+	 *            The Class for which a BasicClassIdentity should be constructed
+	 */
+	public BasicClassIdentity(Class&lt;T&gt; cl)
+<span class="fc" id="L45">	{</span>
+		/*
+		 * CONSIDER In theory, a Categorized object isn't great if it lands here, but we
+		 * have the challenge of an initial load where the CATEGORY is a separate token.
+		 * So that will now happen and can't be an error condition.
+		 * 
+		 * It might be best if a specific file can't have more than one CATEGORY (and thus
+		 * CATEGORY can't be reassigned), although that could also be annoying to the data
+		 * team. Needs further evaluation after Dynamic is fully used in new data and we
+		 * see just how many abilities there really are...
+		 * 
+		 * An alternative is to have a prefix on the line in an ABILITY file that has the
+		 * Category (much like Dynamic objects) rather than having it as a separate token.
+		 * Either way, both this situation as well as the whole &quot;can reassign a CATEGORY&quot;
+		 * are unique exceptions that it would be nice to get rid of someday.
+		 */
+<span class="fc" id="L61">		underlyingClass = Objects.requireNonNull(cl);</span>
+		try
+		{
+<span class="fc" id="L64">			underlyingClass.newInstance();</span>
+		}
+<span class="nc" id="L66">		catch (InstantiationException | IllegalAccessException e)</span>
+		{
+<span class="nc" id="L68">			throw new IllegalArgumentException(</span>
+<span class="nc" id="L69">				&quot;Class &quot; + cl.getCanonicalName() + &quot; for BasicClassIdentity must have public zero argument constructor&quot;,</span>
+				e);
+<span class="fc" id="L71">		}</span>
+<span class="fc" id="L72">	}</span>
+
+	@Override
+	public String getName()
+	{
+<span class="fc" id="L77">		return underlyingClass.getSimpleName();</span>
+	}
+
+	@Override
+	public Class&lt;T&gt; getReferenceClass()
+	{
+<span class="fc" id="L83">		return underlyingClass;</span>
+	}
+
+	@Override
+	public T newInstance()
+	{
+		try
+		{
+<span class="fc" id="L91">			return underlyingClass.newInstance();</span>
+		}
+<span class="nc" id="L93">		catch (InstantiationException | IllegalAccessException e)</span>
+		{
+			//InternalError due to check in constructor
+<span class="nc" id="L96">			throw new InternalError(e);</span>
+		}
+	}
+
+	@Override
+	public String getReferenceDescription()
+	{
+<span class="fc" id="L103">		return underlyingClass.getSimpleName();</span>
+	}
+
+	@Override
+	public boolean isMember(T item)
+	{
+		//TODO Does this fail for SubClass? Do we care?
+<span class="fc" id="L110">		return underlyingClass.equals(item.getClass());</span>
+	}
+
+	@Override
+	public String toString()
+	{
+<span class="nc" id="L116">		return &quot;Identity: &quot; + getReferenceDescription();</span>
+	}
+
+	@Override
+	public int hashCode()
+	{
+<span class="fc" id="L122">		return underlyingClass.hashCode();</span>
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+<span class="pc bpc" id="L128" title="1 of 2 branches missed.">		if (o instanceof BasicClassIdentity&lt;?&gt; other)</span>
+		{
+<span class="fc" id="L130">			return underlyingClass.equals(other.underlyingClass);</span>
+		}
+<span class="nc" id="L132">		return false;</span>
+	}
+
+	/**
+	 * Returns a BasicClassIdentity for the given Class.
+	 * 
+	 * @param cl
+	 *            The Class for which a BasicClassIdentity should be returned
+	 */
+	public static &lt;T&gt; ClassIdentity&lt;T&gt; getIdentity(Class&lt;T&gt; cl)
+	{
+<span class="fc" id="L143">		return new BasicClassIdentity&lt;&gt;(cl);</span>
+	}
+
+	@Override
+	public String getPersistentFormat()
+	{
+<span class="fc" id="L149">		return getName().toUpperCase();</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

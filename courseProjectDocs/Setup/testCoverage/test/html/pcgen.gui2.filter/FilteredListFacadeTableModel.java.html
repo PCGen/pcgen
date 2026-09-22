@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FilteredListFacadeTableModel.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.gui2.filter</a> &gt; <span class="el_source">FilteredListFacadeTableModel.java</span></div><h1>FilteredListFacadeTableModel.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2011 Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ * 
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ * 
+ */
+package pcgen.gui2.filter;
+
+import java.util.Comparator;
+
+import javax.swing.table.AbstractTableModel;
+
+import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.util.ListFacade;
+import pcgen.facade.util.SortedListFacade;
+import pcgen.facade.util.event.ListEvent;
+import pcgen.facade.util.event.ListListener;
+import pcgen.gui2.util.table.Row;
+import pcgen.gui2.util.table.SortableTableModel;
+
+public abstract class FilteredListFacadeTableModel&lt;E&gt; extends AbstractTableModel
+		implements SortableTableModel, ListListener&lt;E&gt;
+{
+
+	protected final SortedListFacade&lt;E&gt; sortedList;
+	private final FilteredListFacade&lt;CharacterFacade, E&gt; filteredList;
+	protected final CharacterFacade character;
+
+	public FilteredListFacadeTableModel()
+	{
+<span class="nc" id="L43">		this(null);</span>
+<span class="nc" id="L44">	}</span>
+
+	public FilteredListFacadeTableModel(CharacterFacade character)
+<span class="nc" id="L47">	{</span>
+<span class="nc" id="L48">		this.character = character;</span>
+<span class="nc" id="L49">		this.filteredList = new FilteredListFacade&lt;&gt;();</span>
+<span class="nc" id="L50">		filteredList.setContext(character);</span>
+<span class="nc" id="L51">		this.sortedList = new SortedListFacade&lt;&gt;((Comparator&lt;Object&gt;) (o1, o2) -&gt; 0);</span>
+<span class="nc" id="L52">		sortedList.addListListener(this);</span>
+<span class="nc" id="L53">		sortedList.setDelegate(filteredList);</span>
+<span class="nc" id="L54">	}</span>
+
+	protected void setDelegate(ListFacade&lt;E&gt; delegate)
+	{
+<span class="nc" id="L58">		filteredList.setDelegate(delegate);</span>
+<span class="nc" id="L59">	}</span>
+
+	public void setFilter(Filter&lt;? super CharacterFacade, ? super E&gt; filter)
+	{
+<span class="nc" id="L63">		filteredList.setFilter(filter);</span>
+<span class="nc" id="L64">	}</span>
+
+	public void refilter()
+	{
+<span class="nc" id="L68">		filteredList.refilter();</span>
+<span class="nc" id="L69">	}</span>
+
+	@Override
+	public int getRowCount()
+	{
+<span class="nc" id="L74">		return sortedList.getSize();</span>
+	}
+
+	@Override
+	public Object getValueAt(int rowIndex, int columnIndex)
+	{
+<span class="nc" id="L80">		return getValueAt(sortedList.getElementAt(rowIndex), columnIndex);</span>
+	}
+
+	protected abstract Object getValueAt(E element, int column);
+
+	@Override
+	public void sortModel(Comparator&lt;Row&gt; comparator)
+	{
+<span class="nc bnc" id="L88" title="All 2 branches missed.">		if (comparator == null)</span>
+		{
+<span class="nc" id="L90">			return;</span>
+		}
+<span class="nc" id="L92">		sortedList.setComparator(new RowComparator(comparator));</span>
+<span class="nc" id="L93">	}</span>
+
+	@Override
+	public void elementAdded(ListEvent&lt;E&gt; e)
+	{
+<span class="nc" id="L98">		fireTableRowsInserted(e.getIndex(), e.getIndex());</span>
+<span class="nc" id="L99">	}</span>
+
+	@Override
+	public void elementRemoved(ListEvent&lt;E&gt; e)
+	{
+<span class="nc" id="L104">		fireTableRowsDeleted(e.getIndex(), e.getIndex());</span>
+<span class="nc" id="L105">	}</span>
+
+	@Override
+	public void elementsChanged(ListEvent&lt;E&gt; e)
+	{
+<span class="nc" id="L110">		fireTableDataChanged();</span>
+<span class="nc" id="L111">	}</span>
+
+	@Override
+	public void elementModified(ListEvent&lt;E&gt; e)
+	{
+<span class="nc" id="L116">		fireTableRowsUpdated(e.getIndex(), e.getIndex());</span>
+<span class="nc" id="L117">	}</span>
+
+	private class ElementRow implements Row
+	{
+
+		private final E element;
+
+		ElementRow(E element)
+<span class="nc" id="L125">		{</span>
+<span class="nc" id="L126">			this.element = element;</span>
+<span class="nc" id="L127">		}</span>
+
+		@Override
+		public Object getValueAt(int column)
+		{
+<span class="nc" id="L132">			return FilteredListFacadeTableModel.this.getValueAt(element, column);</span>
+		}
+
+	}
+
+	private class RowComparator implements Comparator&lt;E&gt;
+	{
+
+		private final Comparator&lt;Row&gt; comp;
+
+		RowComparator(Comparator&lt;Row&gt; comparator)
+<span class="nc" id="L143">		{</span>
+<span class="nc" id="L144">			super();</span>
+<span class="nc" id="L145">			this.comp = comparator;</span>
+<span class="nc" id="L146">		}</span>
+
+		@Override
+		public int compare(E o1, E o2)
+		{
+<span class="nc" id="L151">			return comp.compare(new ElementRow(o1), new ElementRow(o2));</span>
+		}
+
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

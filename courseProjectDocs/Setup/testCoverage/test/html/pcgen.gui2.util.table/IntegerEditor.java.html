@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>IntegerEditor.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.gui2.util.table</a> &gt; <span class="el_source">IntegerEditor.java</span></div><h1>IntegerEditor.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) 1995, 2008, Oracle and/or its affiliates. All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ *
+ *   - Redistributions of source code must retain the above copyright
+ *     notice, this list of conditions and the following disclaimer.
+ *
+ *   - Redistributions in binary form must reproduce the above copyright
+ *     notice, this list of conditions and the following disclaimer in the
+ *     documentation and/or other materials provided with the distribution.
+ *
+ *   - Neither the name of Oracle or the names of its
+ *     contributors may be used to endorse or promote products derived
+ *     from this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS
+ * IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+ * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+ * PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+ * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+ * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+ * PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+package pcgen.gui2.util.table;
+
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
+import java.text.NumberFormat;
+import java.text.ParseException;
+
+import javax.swing.AbstractAction;
+import javax.swing.DefaultCellEditor;
+import javax.swing.JFormattedTextField;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.KeyStroke;
+import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
+import javax.swing.text.DefaultFormatterFactory;
+import javax.swing.text.NumberFormatter;
+
+import pcgen.util.Logging;
+
+/**
+ * Implements a cell editor that uses a formatted text field
+ * to edit Integer values.
+ */
+public class IntegerEditor extends DefaultCellEditor
+{
+
+	private final JFormattedTextField ftf;
+	private final NumberFormat integerFormat;
+	private final Integer minimum;
+	private final Integer maximum;
+
+	public IntegerEditor(int min, int max)
+	{
+<span class="nc" id="L67">		super(new JFormattedTextField());</span>
+<span class="nc" id="L68">		ftf = (JFormattedTextField) getComponent();</span>
+<span class="nc" id="L69">		minimum = min;</span>
+<span class="nc" id="L70">		maximum = max;</span>
+
+		//Set up the editor for the integer cells.
+<span class="nc" id="L73">		integerFormat = NumberFormat.getIntegerInstance();</span>
+<span class="nc" id="L74">		NumberFormatter intFormatter = new NumberFormatter(integerFormat);</span>
+<span class="nc" id="L75">		intFormatter.setFormat(integerFormat);</span>
+<span class="nc" id="L76">		intFormatter.setMinimum(minimum);</span>
+<span class="nc" id="L77">		intFormatter.setMaximum(maximum);</span>
+
+<span class="nc" id="L79">		ftf.setFormatterFactory(new DefaultFormatterFactory(intFormatter));</span>
+<span class="nc" id="L80">		ftf.setValue(minimum);</span>
+<span class="nc" id="L81">		ftf.setHorizontalAlignment(SwingConstants.TRAILING);</span>
+<span class="nc" id="L82">		ftf.setFocusLostBehavior(JFormattedTextField.PERSIST);</span>
+
+		//React when the user presses Enter while the editor is
+		//active.  (Tab is handled as specified by
+		//JFormattedTextField's focusLostBehavior property.)
+<span class="nc" id="L87">		ftf.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), &quot;check&quot;);</span>
+<span class="nc" id="L88">		ftf.getActionMap().put(&quot;check&quot;, new AbstractAction()</span>
+<span class="nc" id="L89">		{</span>
+
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+<span class="nc bnc" id="L94" title="All 2 branches missed.">				if (!ftf.isEditValid())</span>
+				{ //The text is invalid.
+<span class="nc bnc" id="L96" title="All 2 branches missed.">					if (userSaysRevert())</span>
+					{ //reverted
+<span class="nc" id="L98">						ftf.postActionEvent(); //inform the editor</span>
+					}
+				}
+				else
+				{
+					try
+					{ //The text is valid,
+<span class="nc" id="L105">						ftf.commitEdit(); //so use it.</span>
+<span class="nc" id="L106">						ftf.postActionEvent(); //stop editing</span>
+					}
+<span class="nc" id="L108">					catch (java.text.ParseException exc)</span>
+					{
+<span class="nc" id="L110">					}</span>
+				}
+<span class="nc" id="L112">			}</span>
+
+		});
+<span class="nc" id="L115">	}</span>
+
+	//Override to invoke setValue on the formatted text field.
+	@Override
+	public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected, int row, int column)
+	{
+<span class="nc" id="L121">		JFormattedTextField textField =</span>
+<span class="nc" id="L122">				(JFormattedTextField) super.getTableCellEditorComponent(table, value, isSelected, row, column);</span>
+<span class="nc" id="L123">		textField.setValue(value);</span>
+<span class="nc" id="L124">		return textField;</span>
+	}
+
+	//Override to ensure that the value remains an Integer.
+	@Override
+	public Object getCellEditorValue()
+	{
+<span class="nc" id="L131">		JFormattedTextField textField = (JFormattedTextField) getComponent();</span>
+<span class="nc" id="L132">		Object o = textField.getValue();</span>
+<span class="nc bnc" id="L133" title="All 2 branches missed.">		if (o instanceof Integer)</span>
+		{
+<span class="nc" id="L135">			return o;</span>
+		}
+<span class="nc bnc" id="L137" title="All 2 branches missed.">		else if (o instanceof Number)</span>
+		{
+<span class="nc" id="L139">			return ((Number) o).intValue();</span>
+		}
+		else
+		{
+			try
+			{
+<span class="nc" id="L145">				return integerFormat.parseObject(o.toString());</span>
+			}
+<span class="nc" id="L147">			catch (ParseException exc)</span>
+			{
+<span class="nc" id="L149">				Logging.errorPrint(&quot;getCellEditorValue: can't parse o: &quot; + o);</span>
+<span class="nc" id="L150">				return null;</span>
+			}
+		}
+	}
+
+	//Override to check whether the edit is valid,
+	//setting the value if it is and complaining if
+	//it isn't.  If it's OK for the editor to go
+	//away, we need to invoke the superclass's version
+	//of this method so that everything gets cleaned up.
+	@Override
+	public boolean stopCellEditing()
+	{
+<span class="nc" id="L163">		JFormattedTextField textField = (JFormattedTextField) getComponent();</span>
+<span class="nc bnc" id="L164" title="All 2 branches missed.">		if (textField.isEditValid())</span>
+		{
+			try
+			{
+<span class="nc" id="L168">				textField.commitEdit();</span>
+			}
+<span class="nc" id="L170">			catch (java.text.ParseException exc)</span>
+			{
+<span class="nc" id="L172">			}</span>
+
+		}
+		else
+		{ //text is invalid
+<span class="nc bnc" id="L177" title="All 2 branches missed.">			if (!userSaysRevert())</span>
+			{ //user wants to edit
+<span class="nc" id="L179">				return false; //don't let the editor go away</span>
+			}
+		}
+<span class="nc" id="L182">		return super.stopCellEditing();</span>
+	}
+
+	/**
+	 * Lets the user know that the text they entered is
+	 * bad. Returns true if the user elects to revert to
+	 * the last good value.  Otherwise, returns false,
+	 * indicating that the user wants to continue editing.
+	 */
+	protected boolean userSaysRevert()
+	{
+<span class="nc" id="L193">		ftf.selectAll();</span>
+<span class="nc" id="L194">		Object[] options = {&quot;Edit&quot;, &quot;Revert&quot;};</span>
+<span class="nc" id="L195">		int answer = JOptionPane.showOptionDialog(SwingUtilities.getWindowAncestor(ftf),</span>
+			&quot;The value must be an integer between &quot; + minimum + &quot; and &quot; + maximum + &quot;.\n&quot;
+				+ &quot;You can either continue editing &quot; + &quot;or revert to the last valid value.&quot;,
+			&quot;Invalid Text Entered&quot;, JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE, null, options, options[1]);
+
+<span class="nc bnc" id="L200" title="All 2 branches missed.">		if (answer == 1)</span>
+		{ //Revert!
+<span class="nc" id="L202">			ftf.setValue(ftf.getValue());</span>
+<span class="nc" id="L203">			return true;</span>
+		}
+<span class="nc" id="L205">		return false;</span>
+	}
+
+	/**
+	 * @return The optimal size for this cell editor.
+	 */
+	public Dimension getPreferredSize()
+	{
+<span class="nc" id="L213">		Component comp = getComponent();</span>
+<span class="nc bnc" id="L214" title="All 2 branches missed.">		if (comp != null)</span>
+		{
+<span class="nc" id="L216">			return comp.getPreferredSize();</span>
+		}
+
+<span class="nc" id="L219">		return new Dimension(40, 25);</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

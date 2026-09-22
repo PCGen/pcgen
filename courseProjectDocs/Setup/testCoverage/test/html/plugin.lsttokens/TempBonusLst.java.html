@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TempBonusLst.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.lsttokens</a> &gt; <span class="el_source">TempBonusLst.java</span></div><h1>TempBonusLst.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) 2013 Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package plugin.lsttokens;
+
+import java.util.regex.Pattern;
+
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.Ungranted;
+import pcgen.core.spell.Spell;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.ParseResult;
+
+<span class="nc" id="L31">public class TempBonusLst extends AbstractNonEmptyToken&lt;CDOMObject&gt; implements CDOMPrimaryToken&lt;CDOMObject&gt;</span>
+{
+
+	@Override
+	public String getTokenName()
+	{
+<span class="nc" id="L37">		return &quot;TEMPBONUS&quot;;</span>
+	}
+
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context, CDOMObject obj, String value)
+	{
+<span class="nc bnc" id="L43" title="All 4 branches missed.">		if ((obj instanceof Ungranted) &amp;&amp; !(obj instanceof Spell))</span>
+		{
+<span class="nc" id="L45">			return new ParseResult.Fail(</span>
+<span class="nc" id="L46">				&quot;Cannot use &quot; + getTokenName() + &quot; on an Ungranted object type: &quot; + obj.getClass().getSimpleName());</span>
+		}
+<span class="nc" id="L48">		final String v = value.replaceAll(Pattern.quote(&quot;&lt;this&gt;&quot;), obj.getKeyName());</span>
+<span class="nc" id="L49">		int pipeLoc = v.indexOf(Constants.PIPE);</span>
+<span class="nc bnc" id="L50" title="All 2 branches missed.">		if (pipeLoc == -1)</span>
+		{
+<span class="nc" id="L52">			return new ParseResult.Fail(getTokenName() + &quot; requires a SubToken&quot;);</span>
+		}
+<span class="nc" id="L54">		return context.processSubToken(obj, getTokenName(), v.substring(0, pipeLoc), v.substring(pipeLoc + 1));</span>
+	}
+
+	@Override
+	public String[] unparse(LoadContext context, CDOMObject obj)
+	{
+<span class="nc" id="L60">		return context.unparseSubtoken(obj, getTokenName());</span>
+	}
+
+	@Override
+	public Class&lt;CDOMObject&gt; getTokenClass()
+	{
+<span class="nc" id="L66">		return CDOMObject.class;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

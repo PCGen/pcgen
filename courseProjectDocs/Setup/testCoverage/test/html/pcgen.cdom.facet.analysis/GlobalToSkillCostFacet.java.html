@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GlobalToSkillCostFacet.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.facet.analysis</a> &gt; <span class="el_source">GlobalToSkillCostFacet.java</span></div><h1>GlobalToSkillCostFacet.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) Thomas Parker, 2014.
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package pcgen.cdom.facet.analysis;
+
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.DataSetID;
+import pcgen.cdom.enumeration.SkillCost;
+import pcgen.cdom.facet.base.AbstractSubScopeFacet;
+import pcgen.cdom.facet.event.DataFacetChangeEvent;
+import pcgen.cdom.facet.event.DataFacetChangeListener;
+import pcgen.cdom.facet.event.ScopeFacetChangeEvent;
+import pcgen.cdom.facet.event.ScopeFacetChangeListener;
+import pcgen.cdom.facet.input.GlobalAddedSkillCostFacet;
+import pcgen.cdom.facet.input.MasterUsableSkillFacet;
+import pcgen.cdom.facet.model.ClassFacet;
+import pcgen.core.PCClass;
+import pcgen.core.Skill;
+
+<span class="fc" id="L34">public class GlobalToSkillCostFacet extends AbstractSubScopeFacet&lt;PCClass, SkillCost, Skill&gt;</span>
+		implements ScopeFacetChangeListener&lt;CharID, SkillCost, Skill&gt;, DataFacetChangeListener&lt;CharID, PCClass&gt;
+{
+
+	private ClassFacet classFacet;
+
+	private GlobalSkillCostFacet globalSkillCostFacet;
+
+	private GlobalAddedSkillCostFacet globalAddedSkillCostFacet;
+
+	private MasterUsableSkillFacet masterUsableSkillFacet;
+
+	@Override
+	public void dataAdded(ScopeFacetChangeEvent&lt;CharID, SkillCost, Skill&gt; dfce)
+	{
+<span class="fc" id="L49">		CharID id = dfce.getCharID();</span>
+<span class="fc" id="L50">		SkillCost cost = dfce.getScope();</span>
+<span class="fc" id="L51">		Skill sk = dfce.getCDOMObject();</span>
+<span class="fc" id="L52">		Object source = dfce.getSource();</span>
+<span class="pc bpc" id="L53" title="1 of 2 branches missed.">		for (PCClass cl : classFacet.getSet(id))</span>
+		{
+<span class="nc" id="L55">			add(id, cl, cost, sk, source);</span>
+<span class="nc" id="L56">		}</span>
+<span class="fc" id="L57">	}</span>
+
+	@Override
+	public void dataRemoved(ScopeFacetChangeEvent&lt;CharID, SkillCost, Skill&gt; dfce)
+	{
+<span class="fc" id="L62">		CharID id = dfce.getCharID();</span>
+<span class="fc" id="L63">		SkillCost cost = dfce.getScope();</span>
+<span class="fc" id="L64">		Skill sk = dfce.getCDOMObject();</span>
+<span class="fc" id="L65">		Object source = dfce.getSource();</span>
+<span class="pc bpc" id="L66" title="1 of 2 branches missed.">		for (PCClass cl : classFacet.getSet(id))</span>
+		{
+<span class="nc" id="L68">			remove(id, cl, cost, sk, source);</span>
+<span class="nc" id="L69">		}</span>
+<span class="fc" id="L70">	}</span>
+
+	@Override
+	public void dataAdded(DataFacetChangeEvent&lt;CharID, PCClass&gt; dfce)
+	{
+<span class="nc" id="L75">		CharID id = dfce.getCharID();</span>
+<span class="nc" id="L76">		PCClass cl = dfce.getCDOMObject();</span>
+<span class="nc" id="L77">		DataSetID dsID = id.getDatasetID();</span>
+<span class="nc bnc" id="L78" title="All 2 branches missed.">		for (Skill sk : masterUsableSkillFacet.getSet(dsID))</span>
+		{
+<span class="nc" id="L80">			add(id, cl, SkillCost.CROSS_CLASS, sk, masterUsableSkillFacet);</span>
+<span class="nc" id="L81">		}</span>
+<span class="nc bnc" id="L82" title="All 2 branches missed.">		for (SkillCost cost : globalSkillCostFacet.getScopes(id))</span>
+		{
+<span class="nc bnc" id="L84" title="All 2 branches missed.">			for (Skill sk : globalSkillCostFacet.getSet(id, cost))</span>
+			{
+<span class="nc" id="L86">				add(id, cl, cost, sk, globalSkillCostFacet);</span>
+<span class="nc" id="L87">			}</span>
+<span class="nc" id="L88">		}</span>
+<span class="nc bnc" id="L89" title="All 2 branches missed.">		for (SkillCost cost : globalAddedSkillCostFacet.getScopes(id))</span>
+		{
+<span class="nc bnc" id="L91" title="All 2 branches missed.">			for (Skill sk : globalAddedSkillCostFacet.getSet(id, cost))</span>
+			{
+<span class="nc" id="L93">				add(id, cl, cost, sk, globalAddedSkillCostFacet);</span>
+<span class="nc" id="L94">			}</span>
+<span class="nc" id="L95">		}</span>
+<span class="nc" id="L96">	}</span>
+
+	@Override
+	public void dataRemoved(DataFacetChangeEvent&lt;CharID, PCClass&gt; dfce)
+	{
+<span class="nc" id="L101">		CharID id = dfce.getCharID();</span>
+<span class="nc" id="L102">		PCClass cl = dfce.getCDOMObject();</span>
+<span class="nc" id="L103">		DataSetID dsID = id.getDatasetID();</span>
+<span class="nc bnc" id="L104" title="All 2 branches missed.">		for (Skill sk : masterUsableSkillFacet.getSet(dsID))</span>
+		{
+<span class="nc" id="L106">			remove(id, cl, SkillCost.CROSS_CLASS, sk, masterUsableSkillFacet);</span>
+<span class="nc" id="L107">		}</span>
+<span class="nc bnc" id="L108" title="All 2 branches missed.">		for (SkillCost cost : globalSkillCostFacet.getScopes(id))</span>
+		{
+<span class="nc bnc" id="L110" title="All 2 branches missed.">			for (Skill sk : globalSkillCostFacet.getSet(id, cost))</span>
+			{
+<span class="nc" id="L112">				remove(id, cl, cost, sk, globalSkillCostFacet);</span>
+<span class="nc" id="L113">			}</span>
+<span class="nc" id="L114">		}</span>
+<span class="nc bnc" id="L115" title="All 2 branches missed.">		for (SkillCost cost : globalAddedSkillCostFacet.getScopes(id))</span>
+		{
+<span class="nc bnc" id="L117" title="All 2 branches missed.">			for (Skill sk : globalAddedSkillCostFacet.getSet(id, cost))</span>
+			{
+<span class="nc" id="L119">				remove(id, cl, cost, sk, globalAddedSkillCostFacet);</span>
+<span class="nc" id="L120">			}</span>
+<span class="nc" id="L121">		}</span>
+<span class="nc" id="L122">	}</span>
+
+	public void setGlobalSkillCostFacet(GlobalSkillCostFacet globalSkillCostFacet)
+	{
+<span class="fc" id="L126">		this.globalSkillCostFacet = globalSkillCostFacet;</span>
+<span class="fc" id="L127">	}</span>
+
+	public void setGlobalAddedSkillCostFacet(GlobalAddedSkillCostFacet globalAddedSkillCostFacet)
+	{
+<span class="fc" id="L131">		this.globalAddedSkillCostFacet = globalAddedSkillCostFacet;</span>
+<span class="fc" id="L132">	}</span>
+
+	public void setClassFacet(ClassFacet classFacet)
+	{
+<span class="fc" id="L136">		this.classFacet = classFacet;</span>
+<span class="fc" id="L137">	}</span>
+
+	public void setMasterUsableSkillFacet(MasterUsableSkillFacet masterUsableSkillFacet)
+	{
+<span class="fc" id="L141">		this.masterUsableSkillFacet = masterUsableSkillFacet;</span>
+<span class="fc" id="L142">	}</span>
+
+	public void init()
+	{
+<span class="fc" id="L146">		classFacet.addDataFacetChangeListener(this);</span>
+<span class="fc" id="L147">		globalSkillCostFacet.addScopeFacetChangeListener(this);</span>
+<span class="fc" id="L148">		globalAddedSkillCostFacet.addScopeFacetChangeListener(this);</span>
+<span class="fc" id="L149">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

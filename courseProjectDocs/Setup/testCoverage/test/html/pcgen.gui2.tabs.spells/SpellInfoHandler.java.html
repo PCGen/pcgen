@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SpellInfoHandler.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.gui2.tabs.spells</a> &gt; <span class="el_source">SpellInfoHandler.java</span></div><h1>SpellInfoHandler.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2011 Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ * 
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ * 
+ */
+package pcgen.gui2.tabs.spells;
+
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+
+import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.core.SpellSupportFacade.RootNode;
+import pcgen.facade.core.SpellSupportFacade.SpellNode;
+import pcgen.gui2.tools.InfoPane;
+import pcgen.gui2.util.JTreeViewTable;
+
+import org.apache.commons.lang3.StringUtils;
+
+class SpellInfoHandler implements ListSelectionListener
+{
+
+	private CharacterFacade character;
+	private final JTreeViewTable&lt;?&gt; availableTable;
+	private final JTreeViewTable&lt;?&gt; selectedTable;
+	private final InfoPane spellsPane;
+	private String currText;
+
+	SpellInfoHandler(CharacterFacade character, JTreeViewTable&lt;?&gt; table1, JTreeViewTable&lt;?&gt; table2,
+		InfoPane spellsPane)
+<span class="nc" id="L43">	{</span>
+<span class="nc" id="L44">		this.spellsPane = spellsPane;</span>
+<span class="nc" id="L45">		this.availableTable = table1;</span>
+<span class="nc" id="L46">		this.selectedTable = table2;</span>
+<span class="nc" id="L47">		this.character = character;</span>
+<span class="nc" id="L48">		this.currText = &quot;&quot;; //$NON-NLS-1$</span>
+<span class="nc" id="L49">	}</span>
+
+	void install()
+	{
+<span class="nc" id="L53">		availableTable.getSelectionModel().addListSelectionListener(this);</span>
+<span class="nc" id="L54">		selectedTable.getSelectionModel().addListSelectionListener(this);</span>
+<span class="nc" id="L55">		spellsPane.setText(currText);</span>
+<span class="nc" id="L56">	}</span>
+
+	void uninstall()
+	{
+<span class="nc" id="L60">		availableTable.getSelectionModel().removeListSelectionListener(this);</span>
+<span class="nc" id="L61">		selectedTable.getSelectionModel().removeListSelectionListener(this);</span>
+<span class="nc" id="L62">	}</span>
+
+	@Override
+	public void valueChanged(ListSelectionEvent e)
+	{
+<span class="nc bnc" id="L67" title="All 2 branches missed.">		if (!e.getValueIsAdjusting())</span>
+		{
+			Object obj;
+<span class="nc bnc" id="L70" title="All 2 branches missed.">			if (e.getSource() == availableTable.getSelectionModel())</span>
+			{
+<span class="nc" id="L72">				obj = availableTable.getSelectedObject();</span>
+			}
+			else
+			{
+<span class="nc" id="L76">				obj = selectedTable.getSelectedObject();</span>
+			}
+<span class="nc bnc" id="L78" title="All 2 branches missed.">			if (obj instanceof SpellNode node)</span>
+			{
+<span class="nc" id="L80">				String text = character.getInfoFactory().getHTMLInfo(node.getSpell());</span>
+<span class="nc" id="L81">				currText = text;</span>
+<span class="nc" id="L82">				spellsPane.setText(text);</span>
+<span class="nc" id="L83">			}</span>
+<span class="nc bnc" id="L84" title="All 2 branches missed.">			else if (obj instanceof RootNode node)</span>
+			{
+<span class="nc" id="L86">				String text = character.getInfoFactory().getSpellBookInfo(node.getName());</span>
+<span class="nc bnc" id="L87" title="All 2 branches missed.">				if (!StringUtils.isEmpty(text))</span>
+				{
+<span class="nc" id="L89">					currText = text;</span>
+<span class="nc" id="L90">					spellsPane.setText(text);</span>
+				}
+			}
+		}
+<span class="nc" id="L94">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

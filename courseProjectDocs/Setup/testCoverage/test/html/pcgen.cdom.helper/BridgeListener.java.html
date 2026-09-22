@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BridgeListener.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.helper</a> &gt; <span class="el_source">BridgeListener.java</span></div><h1>BridgeListener.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) Thomas Parker, 2017-18.
+ * 
+ * This program is free software; you can redistribute it and/or modify it under the terms
+ * of the GNU Lesser General Public License as published by the Free Software Foundation;
+ * either version 2.1 of the License, or (at your option) any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT ANY
+ * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+ * PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License along with
+ * this library; if not, write to the Free Software Foundation, Inc., 51 Franklin Street,
+ * Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package pcgen.cdom.helper;
+
+import java.util.List;
+import java.util.Objects;
+
+import pcgen.base.util.ArrayUtilities;
+import pcgen.base.util.Tuple;
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.base.AbstractSourcedListFacet;
+import pcgen.cdom.formula.PCGenScoped;
+import pcgen.cdom.formula.VariableChangeEvent;
+import pcgen.cdom.formula.VariableListener;
+import pcgen.facade.util.event.ReferenceEvent;
+import pcgen.facade.util.event.ReferenceListener;
+
+/**
+ * A BridgeListener converts from a VariableListener to then inject items into an
+ * AbstractSourcedListFacet acting in the traditional Facet events.
+ */
+public class BridgeListener
+		implements VariableListener&lt;Object&gt;, ReferenceListener&lt;Object&gt;
+{
+	/**
+	 * The AbstractSourcedListFacet to which objects will be forwarded
+	 */
+	private final AbstractSourcedListFacet&lt;CharID, PCGenScoped&gt; variableBridgeFacet;
+
+	/**
+	 * The CharID that this BridgeListener is serving
+	 */
+	private final CharID id;
+
+	/**
+	 * The source granting the variable this BridgeListener maintains
+	 */
+	private final Object source;
+
+	/**
+	 * Constructs a new BridgeListener for the given CharID which will use the given
+	 * AbstractSourcedListFacet
+	 * 
+	 * @param id
+	 *            The CharID that this BridgeListener is serving
+	 * @param variableBridgeFacet
+	 *            The AbstractSourcedListFacet to be used as a bridge to the traditional
+	 *            Facet events
+	 */
+	public BridgeListener(CharID id,
+		AbstractSourcedListFacet&lt;CharID, PCGenScoped&gt; variableBridgeFacet, Object source)
+<span class="fc" id="L65">	{</span>
+<span class="fc" id="L66">		this.variableBridgeFacet = Objects.requireNonNull(variableBridgeFacet);</span>
+<span class="fc" id="L67">		this.id = Objects.requireNonNull(id);</span>
+<span class="fc" id="L68">		this.source = Objects.requireNonNull(source);</span>
+<span class="fc" id="L69">	}</span>
+
+	@Override
+	public void variableChanged(VariableChangeEvent&lt;Object&gt; vcEvent)
+	{
+<span class="fc" id="L74">		processChange(vcEvent.getOldValue(), vcEvent.getNewValue());</span>
+<span class="fc" id="L75">	}</span>
+
+	@Override
+	public void referenceChanged(ReferenceEvent&lt;Object&gt; e)
+	{
+<span class="fc" id="L80">		processChange(e.getOldReference(), e.getNewReference());</span>
+<span class="fc" id="L81">	}</span>
+
+	private void processChange(Object oldValue, Object newValue)
+	{
+		/*
+		 * CONSIDER This is a hard-coding based on array - which is quirky
+		 */
+<span class="fc bfc" id="L88" title="All 2 branches covered.">		if (newValue.getClass().isArray())</span>
+		{
+<span class="fc" id="L90">			Tuple&lt;List&lt;Object&gt;, List&lt;Object&gt;&gt; difference =</span>
+<span class="fc" id="L91">					ArrayUtilities.calculateIdentityDifference(</span>
+						(Object[]) oldValue, (Object[]) newValue);
+<span class="fc bfc" id="L93" title="All 2 branches covered.">			for (Object toRemove : difference.getFirst())</span>
+			{
+<span class="fc" id="L95">				variableBridgeFacet.remove(id, (PCGenScoped) toRemove, source);</span>
+<span class="fc" id="L96">			}</span>
+<span class="fc bfc" id="L97" title="All 2 branches covered.">			for (Object toAdd : difference.getSecond())</span>
+			{
+<span class="fc" id="L99">				variableBridgeFacet.add(id, (PCGenScoped) toAdd, source);</span>
+<span class="fc" id="L100">			}</span>
+<span class="fc" id="L101">		}</span>
+		else
+		{
+<span class="fc bfc" id="L104" title="All 2 branches covered.">			if (oldValue != null)</span>
+			{
+<span class="fc" id="L106">				variableBridgeFacet.remove(id, (PCGenScoped) oldValue, source);</span>
+			}
+<span class="fc" id="L108">			variableBridgeFacet.add(id, (PCGenScoped) newValue, source);</span>
+		}
+<span class="fc" id="L110">	}</span>
+
+	@Override
+	public int hashCode()
+	{
+<span class="fc" id="L115">		return (id.hashCode() * 31 + variableBridgeFacet.hashCode()) * 31 + source.hashCode();</span>
+	}
+
+	@Override
+	public boolean equals(Object obj)
+	{
+<span class="fc bfc" id="L121" title="All 2 branches covered.">		if (obj instanceof BridgeListener other)</span>
+		{
+<span class="fc bfc" id="L123" title="All 2 branches covered.">			return id.equals(other.id)</span>
+<span class="pc bpc" id="L124" title="1 of 2 branches missed.">				&amp;&amp; variableBridgeFacet.equals(other.variableBridgeFacet)</span>
+<span class="pc bpc" id="L125" title="1 of 2 branches missed.">				&amp;&amp; source.equals(other.source);</span>
+		}
+<span class="fc" id="L127">		return false;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

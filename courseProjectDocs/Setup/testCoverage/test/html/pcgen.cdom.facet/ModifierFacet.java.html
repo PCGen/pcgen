@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ModifierFacet.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.facet</a> &gt; <span class="el_source">ModifierFacet.java</span></div><h1>ModifierFacet.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) Thomas Parker, 2014
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package pcgen.cdom.facet;
+
+import java.util.Optional;
+
+import pcgen.cdom.calculation.FormulaModifier;
+import pcgen.base.formula.base.ScopeInstance;
+import pcgen.base.formula.base.VarScoped;
+import pcgen.base.solver.Modifier;
+import pcgen.base.util.FormatManager;
+import pcgen.cdom.content.VarModifier;
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.event.DataFacetChangeEvent;
+import pcgen.cdom.facet.event.DataFacetChangeListener;
+import pcgen.cdom.facet.model.VarScopedFacet;
+import pcgen.cdom.formula.PCGenScoped;
+import pcgen.cdom.formula.local.DefinedWrappingModifier;
+import pcgen.cdom.formula.local.ModifierDecoration;
+import pcgen.cdom.formula.scope.PCGenScope;
+import pcgen.rules.context.LoadContext;
+
+/**
+ * ModifierFacet checks each item added to a PlayerCharacter to see if it has
+ * MODIFY: entries on the object, and if so, adds them to the Solver system.
+ */
+<span class="fc" id="L42">public class ModifierFacet implements DataFacetChangeListener&lt;CharID, PCGenScoped&gt;</span>
+{
+	private ScopeFacet scopeFacet;
+
+	private VarScopedFacet varScopedFacet;
+
+	private SolverManagerFacet solverManagerFacet;
+
+<span class="fc" id="L50">	private LoadContextFacet loadContextFacet = FacetLibrary.getFacet(LoadContextFacet.class);</span>
+
+	@Override
+	public void dataAdded(DataFacetChangeEvent&lt;CharID, PCGenScoped&gt; dfce)
+	{
+<span class="fc" id="L55">		CharID id = dfce.getCharID();</span>
+<span class="fc" id="L56">		PCGenScoped obj = dfce.getCDOMObject();</span>
+<span class="fc" id="L57">		VarModifier&lt;?&gt;[] modifiers = obj.getModifierArray();</span>
+<span class="pc bpc" id="L58" title="1 of 2 branches missed.">		if (modifiers.length &gt; 0)</span>
+		{
+<span class="nc" id="L60">			ScopeInstance inst = scopeFacet.get(id, obj);</span>
+<span class="nc bnc" id="L61" title="All 2 branches missed.">			for (VarModifier&lt;?&gt; vm : modifiers)</span>
+			{
+<span class="nc" id="L63">				processAddition(id, obj, vm, inst);</span>
+			}
+		}
+<span class="fc" id="L66">	}</span>
+
+	private &lt;T&gt; void processAddition(CharID id, VarScoped obj, VarModifier&lt;T&gt; vm, ScopeInstance inst)
+	{
+<span class="nc" id="L70">		solverManagerFacet.addModifier(id, vm, obj, getModifier(id, inst, vm.getModifier(), obj), inst);</span>
+<span class="nc" id="L71">	}</span>
+
+	private &lt;T&gt; Modifier&lt;T&gt; getModifier(CharID id, ScopeInstance source, FormulaModifier&lt;T&gt; modifier,
+		VarScoped thisValue)
+	{
+<span class="nc" id="L76">		PCGenScope legalScope = (PCGenScope) source.getImplementedScope();</span>
+<span class="nc" id="L77">		LoadContext context = loadContextFacet.get(id.getDatasetID()).get();</span>
+		Modifier&lt;T&gt; returnValue;
+<span class="nc" id="L79">		Optional&lt;FormatManager&lt;?&gt;&gt; formatManager = legalScope.getFormatManager(context);</span>
+<span class="nc bnc" id="L80" title="All 2 branches missed.">		if (formatManager.isPresent())</span>
+		{
+<span class="nc" id="L82">			returnValue = new DefinedWrappingModifier&lt;&gt;(modifier, &quot;this&quot;,</span>
+<span class="nc" id="L83">				thisValue, formatManager.get());</span>
+		}
+		else
+		{
+<span class="nc" id="L87">			returnValue = new ModifierDecoration&lt;&gt;(modifier);</span>
+		}
+<span class="nc" id="L89">		return returnValue;</span>
+	}
+
+	@Override
+	public void dataRemoved(DataFacetChangeEvent&lt;CharID, PCGenScoped&gt; dfce)
+	{
+<span class="fc" id="L95">		CharID id = dfce.getCharID();</span>
+<span class="fc" id="L96">		PCGenScoped obj = dfce.getCDOMObject();</span>
+<span class="fc" id="L97">		VarModifier&lt;?&gt;[] modifiers = obj.getModifierArray();</span>
+<span class="pc bpc" id="L98" title="1 of 2 branches missed.">		if (modifiers.length &gt; 0)</span>
+		{
+<span class="nc" id="L100">			ScopeInstance inst = scopeFacet.get(id, obj);</span>
+<span class="nc bnc" id="L101" title="All 2 branches missed.">			for (VarModifier&lt;?&gt; vm : modifiers)</span>
+			{
+<span class="nc" id="L103">				processRemoval(id, obj, vm, inst);</span>
+			}
+		}
+<span class="fc" id="L106">	}</span>
+
+	private &lt;T&gt; void processRemoval(CharID id, VarScoped obj, VarModifier&lt;T&gt; vm, ScopeInstance inst)
+	{
+<span class="nc" id="L110">		solverManagerFacet.removeModifier(id, vm, obj, getModifier(id, inst, vm.getModifier(), obj), inst);</span>
+<span class="nc" id="L111">	}</span>
+
+	public void setScopeFacet(ScopeFacet scopeFacet)
+	{
+<span class="fc" id="L115">		this.scopeFacet = scopeFacet;</span>
+<span class="fc" id="L116">	}</span>
+
+	public void setSolverManagerFacet(SolverManagerFacet solverManagerFacet)
+	{
+<span class="fc" id="L120">		this.solverManagerFacet = solverManagerFacet;</span>
+<span class="fc" id="L121">	}</span>
+
+	public void setVarScopedFacet(VarScopedFacet varScopedFacet)
+	{
+<span class="fc" id="L125">		this.varScopedFacet = varScopedFacet;</span>
+<span class="fc" id="L126">	}</span>
+
+	/**
+	 * Initializes the connections for ModifierFacet to other facets.
+	 * 
+	 * This method is automatically called by the Spring framework during
+	 * initialization of the ModifierFacet.
+	 */
+	public void init()
+	{
+<span class="fc" id="L136">		varScopedFacet.addDataFacetChangeListener(this);</span>
+<span class="fc" id="L137">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

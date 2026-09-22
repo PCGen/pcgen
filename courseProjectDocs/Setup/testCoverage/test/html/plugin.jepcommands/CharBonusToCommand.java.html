@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CharBonusToCommand.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.jepcommands</a> &gt; <span class="el_source">CharBonusToCommand.java</span></div><h1>CharBonusToCommand.java</h1><pre class="source lang-java linenums">package plugin.jepcommands;
+
+import java.util.Stack;
+
+import pcgen.core.PlayerCharacter;
+import pcgen.core.VariableProcessor;
+import pcgen.util.PCGenCommand;
+
+import org.nfunk.jep.ParseException;
+
+/**
+ * Deals with JEP command for charbonusto
+ *  
+ * eg. charbonusto(&quot;PCLEVEL&quot;, &quot;Wizard&quot;);
+ * eg. charbonusto(&quot;Wizard&quot;);
+ */
+public class CharBonusToCommand extends PCGenCommand
+{
+
+	/** Constructor*/
+	public CharBonusToCommand()
+<span class="nc" id="L22">	{</span>
+<span class="nc" id="L23">		numberOfParameters = -1;</span>
+<span class="nc" id="L24">	}</span>
+
+	/**
+	 * Gets the name of the function handled by this class.
+	 * @return The name of the function.
+	 */
+	@Override
+	public String getFunctionName()
+	{
+<span class="nc" id="L33">		return &quot;CHARBONUSTO&quot;;</span>
+	}
+
+	/**
+	 * Runs charbonusto on the inStack. The parameter is popped
+	 * off the {@code inStack}, and the variable's value is
+	 * pushed back to the top of {@code inStack}.
+	 * @param inStack the jep stack
+	 * @throws ParseException
+	 */
+	@SuppressWarnings(&quot;unchecked&quot;) //Uses JEP, which doesn't use generics
+	@Override
+	public void run(final Stack inStack) throws ParseException
+	{
+		// check the stack
+<span class="nc" id="L48">		checkStack(inStack);</span>
+
+		// get the parameter from the stack
+		final Object param1;
+		final Object param2;
+
+		//
+		// have to do this in reverse order...this is a stack afterall
+		//
+<span class="nc bnc" id="L57" title="All 2 branches missed.">		if (curNumberOfParameters == 1)</span>
+		{
+<span class="nc" id="L59">			param2 = inStack.pop();</span>
+<span class="nc" id="L60">			param1 = &quot;PCLEVEL&quot;;</span>
+		}
+<span class="nc bnc" id="L62" title="All 2 branches missed.">		else if (curNumberOfParameters == 2)</span>
+		{
+<span class="nc" id="L64">			param2 = inStack.pop();</span>
+<span class="nc" id="L65">			param1 = inStack.pop();</span>
+		}
+		else
+		{
+<span class="nc" id="L69">			throw new ParseException(&quot;Invalid parameter count&quot;);</span>
+		}
+
+<span class="nc bnc" id="L72" title="All 4 branches missed.">		if ((param1 instanceof String) &amp;&amp; (param2 instanceof String))</span>
+		{
+<span class="nc" id="L74">			PlayerCharacter pc = null;</span>
+<span class="nc bnc" id="L75" title="All 2 branches missed.">			if (parent instanceof VariableProcessor)</span>
+			{
+<span class="nc" id="L77">				pc = ((VariableProcessor) parent).getPc();</span>
+			}
+<span class="nc bnc" id="L79" title="All 2 branches missed.">			else if (parent instanceof PlayerCharacter)</span>
+			{
+<span class="nc" id="L81">				pc = (PlayerCharacter) parent;</span>
+			}
+<span class="nc bnc" id="L83" title="All 2 branches missed.">			if (pc == null)</span>
+			{
+<span class="nc" id="L85">				throw new ParseException(&quot;Invalid parent (no PC): &quot; + parent.getClass().getName());</span>
+			}
+
+<span class="nc" id="L88">			final Object result = pc.getTotalBonusTo((String) param1, (String) param2);</span>
+
+<span class="nc" id="L90">			inStack.push(result);</span>
+<span class="nc" id="L91">		}</span>
+		else
+		{
+<span class="nc" id="L94">			throw new ParseException(&quot;Invalid parameter type&quot;);</span>
+		}
+<span class="nc" id="L96">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AttackInfo.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.core.analysis</a> &gt; <span class="el_source">AttackInfo.java</span></div><h1>AttackInfo.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2003 (C) Devon Jones &lt;soulcatcher@evilsoft.org&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.     See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.core.analysis;
+
+import pcgen.core.PlayerCharacter;
+import pcgen.core.display.CharacterDisplay;
+import pcgen.util.Delta;
+import pcgen.util.enumeration.AttackType;
+
+public final class AttackInfo
+{
+
+	private AttackInfo()
+	{
+	}
+
+	/**
+	 * Get Attack Information for a PC.  
+	 * This will return the attack token value requested for the supplied
+	 * character. Note the return value is always a formatted string such as +8
+	 * or +8/+3
+	 *
+	 * @param pc The character to retrieve the attack value for.
+	 * @param attackType The type of attack to be returned
+	 *                    - GRAPPLE, MELLEE, RANGED or UNARMED
+	 * @param modifier The modified to the attack - BASE, EPIC, MISC,
+	 *                  SIZE, STAT, TOTAL or an empty string
+	 * @return The token value.
+	 */
+	public static String getAttackInfo(PlayerCharacter pc, AttackType attackType, String modifier)
+	{
+<span class="nc bnc" id="L47" title="All 2 branches missed.">		if (modifier.equals(&quot;TOTAL&quot;))</span>
+		{
+<span class="nc bnc" id="L49" title="All 2 branches missed.">			if (attackType.equals(AttackType.RANGED))</span>
+			{
+<span class="nc" id="L51">				int total = getTotalToken(pc, attackType);</span>
+<span class="nc" id="L52">				return pc.getAttackString(AttackType.RANGED, total);</span>
+			}
+<span class="nc bnc" id="L54" title="All 2 branches missed.">			else if (attackType.equals(AttackType.UNARMED))</span>
+			{
+<span class="nc" id="L56">				int total = getTotalToken(pc, AttackType.MELEE);</span>
+				// TODO: Is this correct for 3.0 also?
+<span class="nc" id="L58">				return pc.getAttackString(AttackType.MELEE, total);</span>
+				//return pc.getAttackString(Constants.ATTACKSTRING_UNARMED, total);
+			}
+			else
+			{
+<span class="nc" id="L63">				int total = getTotalToken(pc, attackType);</span>
+<span class="nc" id="L64">				return pc.getAttackString(AttackType.MELEE, total);</span>
+			}
+		}
+<span class="nc" id="L67">		return getSubToken(pc, attackType, modifier);</span>
+	}
+
+	/**
+	 * Get total ATTACK token
+	 * @param pc
+	 * @param at
+	 * @return total ATTACK token
+	 */
+	public static int getTotalToken(PlayerCharacter pc, AttackType at)
+	{
+<span class="nc" id="L78">		final int tohitBonus =</span>
+<span class="nc" id="L79">				(int) pc.getTotalBonusTo(&quot;TOHIT&quot;, &quot;TOHIT&quot;) + (int) pc.getTotalBonusTo(&quot;TOHIT&quot;, &quot;TYPE.&quot; + at);</span>
+<span class="nc" id="L80">		final int totalBonus =</span>
+<span class="nc" id="L81">				(int) pc.getTotalBonusTo(&quot;COMBAT&quot;, &quot;TOHIT&quot;) + (int) pc.getTotalBonusTo(&quot;COMBAT&quot;, &quot;TOHIT.&quot; + at);</span>
+<span class="nc" id="L82">		return tohitBonus + totalBonus;</span>
+	}
+
+	public static String getSubToken(PlayerCharacter pc, AttackType attackType, String modifier)
+	{
+<span class="nc bnc" id="L87" title="All 7 branches missed.">        switch (modifier)</span>
+        {
+            case &quot;BASE&quot;:
+<span class="nc" id="L90">                return Delta.toString(getBaseToken(pc));</span>
+            case &quot;EPIC&quot;:
+<span class="nc" id="L92">                return Delta.toString(getEpicToken(pc));</span>
+            case &quot;MISC&quot;:
+<span class="nc" id="L94">                return Delta.toString(getMiscToken(pc, attackType));</span>
+            case &quot;SIZE&quot;:
+<span class="nc" id="L96">                return Delta.toString(getSizeToken(pc, attackType));</span>
+            case &quot;STAT&quot;:
+<span class="nc" id="L98">                return Delta.toString(getStatToken(pc.getDisplay(), attackType));</span>
+            case &quot;TOTAL&quot;:
+                // TOTAL is handled in getParsedToken()
+                //int total = getTotalToken(pc, &quot;MELEE&quot;);
+                //return pc.getAttackString(Constants.ATTACKSTRING_MELEE, total);
+<span class="nc" id="L103">                break;</span>
+            default:
+<span class="nc" id="L105">                return pc.getAttackString(attackType);</span>
+        }
+<span class="nc" id="L107">		return &quot;&quot;;</span>
+	}
+
+	/**
+	 * Get the base ATTACK token
+	 * @param pc
+	 * @return base ATTACK token
+	 */
+	public static int getBaseToken(PlayerCharacter pc)
+	{
+<span class="nc" id="L117">		return pc.baseAttackBonus();</span>
+	}
+
+	/**
+	 * Get the epic ATTACK token
+	 * @param pc
+	 * @return epic ATTACK token
+	 */
+	public static int getEpicToken(PlayerCharacter pc)
+	{
+<span class="nc" id="L127">		return (int) pc.getBonusDueToType(&quot;COMBAT&quot;, &quot;TOHIT&quot;, &quot;EPIC&quot;);</span>
+	}
+
+	/**
+	 * Get the misc ATTACK token
+	 * @param pc
+	 * @param at
+	 * @return misc ATTACK token
+	 */
+	public static int getMiscToken(PlayerCharacter pc, AttackType at)
+	{
+<span class="nc" id="L138">		int tohitBonus = ((int) pc.getTotalBonusTo(&quot;TOHIT&quot;, &quot;TOHIT&quot;) + (int) pc.getTotalBonusTo(&quot;TOHIT&quot;, &quot;TYPE.&quot; + at))</span>
+<span class="nc" id="L139">			- (int) pc.getDisplay().getStatBonusTo(&quot;TOHIT&quot;, &quot;TYPE.&quot; + at)</span>
+<span class="nc" id="L140">			- (int) pc.getSizeAdjustmentBonusTo(&quot;TOHIT&quot;, &quot;TOHIT&quot;);</span>
+<span class="nc" id="L141">		int miscBonus =</span>
+<span class="nc" id="L142">				((int) pc.getTotalBonusTo(&quot;COMBAT&quot;, &quot;TOHIT&quot;) + (int) pc.getTotalBonusTo(&quot;COMBAT&quot;, &quot;TOHIT.&quot; + at))</span>
+<span class="nc" id="L143">					- (int) pc.getDisplay().getStatBonusTo(&quot;COMBAT&quot;, &quot;TOHIT.&quot; + at)</span>
+<span class="nc" id="L144">					- (int) pc.getSizeAdjustmentBonusTo(&quot;COMBAT&quot;, &quot;TOHIT&quot;)</span>
+<span class="nc" id="L145">					- (int) pc.getSizeAdjustmentBonusTo(&quot;COMBAT&quot;, &quot;TOHIT.&quot; + at)</span>
+<span class="nc" id="L146">					- (int) pc.getBonusDueToType(&quot;COMBAT&quot;, &quot;TOHIT&quot;, &quot;EPIC&quot;);</span>
+<span class="nc" id="L147">		return miscBonus + tohitBonus;</span>
+	}
+
+	/**
+	 * Get the size ATTACK token
+	 * @param pc
+	 * @param aType
+	 * @return size ATTACK token
+	 */
+	public static int getSizeToken(PlayerCharacter pc, AttackType aType)
+	{
+<span class="nc" id="L158">		int tohitBonus = (int) pc.getSizeAdjustmentBonusTo(&quot;TOHIT&quot;, &quot;TOHIT&quot;)</span>
+<span class="nc" id="L159">			+ (int) pc.getSizeAdjustmentBonusTo(&quot;TOHIT&quot;, &quot;TYPE.&quot; + aType);</span>
+<span class="nc" id="L160">		int sizeBonus = (int) pc.getSizeAdjustmentBonusTo(&quot;COMBAT&quot;, &quot;TOHIT&quot;)</span>
+<span class="nc" id="L161">			+ (int) pc.getSizeAdjustmentBonusTo(&quot;COMBAT&quot;, &quot;TOHIT.&quot; + aType);</span>
+
+<span class="nc" id="L163">		return sizeBonus + tohitBonus;</span>
+	}
+
+	/**
+	 * get stat ATTACK token
+	 * @return stat ATTACK token
+	 */
+	public static int getStatToken(CharacterDisplay display, AttackType at)
+	{
+<span class="nc" id="L172">		final int tohitBonus = (int) display.getStatBonusTo(&quot;TOHIT&quot;, &quot;TYPE.&quot; + at);</span>
+<span class="nc" id="L173">		final int statBonus = (int) display.getStatBonusTo(&quot;COMBAT&quot;, &quot;TOHIT.&quot; + at);</span>
+
+<span class="nc" id="L175">		return statBonus + tohitBonus;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DatasetVariable.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.content</a> &gt; <span class="el_source">DatasetVariable.java</span></div><h1>DatasetVariable.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2014 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.cdom.content;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import pcgen.base.util.FormatManager;
+import pcgen.cdom.formula.scope.PCGenScope;
+import pcgen.util.Logging;
+
+/**
+ * A DatasetVariable is a variable within the new formula system, as defined by
+ * the data.
+ */
+<span class="fc" id="L31">public class DatasetVariable extends UserContent</span>
+{
+
+	/**
+	 * A Pattern indicating a legal name for a variable
+	 */
+<span class="fc" id="L37">	private static final Pattern ISLEGAL = Pattern.compile(&quot;\\A[A-Za-z]\\w*\\z&quot;);</span>
+
+	/**
+	 * The format of this variable.
+	 */
+	private FormatManager&lt;?&gt; format;
+
+	/**
+	 * The PCGenScope in which the variable is legal.
+	 */
+	private PCGenScope scope;
+
+	@Override
+	public String getDisplayName()
+	{
+<span class="fc" id="L52">		return getKeyName();</span>
+	}
+
+	/**
+	 * Sets the PCGenScope in which the variable is legal.
+	 * 
+	 * @param scope
+	 *            The PCGenScope in which the variable is legal
+	 */
+	public void setScope(PCGenScope scope)
+	{
+<span class="pc bpc" id="L63" title="1 of 2 branches missed.">		if (scope==null)</span>
+		{
+<span class="nc" id="L65">			Logging.errorPrint(&quot;Scope should not be null!&quot;);</span>
+<span class="nc" id="L66">			return;</span>
+		}
+<span class="fc" id="L68">		this.scope = scope;</span>
+<span class="fc" id="L69">	}</span>
+
+	/**
+	 * Returns the PCGenScope in which the variable is legal.
+	 * 
+	 * @return The PCGenScope in which the variable is legal
+	 */
+	public PCGenScope getScope()
+	{
+<span class="fc" id="L78">		return scope;</span>
+	}
+
+	/**
+	 * Returns true if the given proposed name matches the legal pattern of
+	 * variable names. The pattern the name must match is: (1) Must start with a
+	 * letter (2) Must have only A-Z a-z 0-9 and underscore.
+	 * 
+	 * @param proposedName
+	 *            the proposed name of a variable
+	 * @return true if the given proposed name matches the legal pattern of
+	 *         variable names; false otherwise
+	 */
+	public static boolean isLegalName(String proposedName)
+	{
+<span class="fc" id="L93">		Matcher m = ISLEGAL.matcher(proposedName);</span>
+<span class="fc" id="L94">		return m.find();</span>
+	}
+
+	/**
+	 * Returns the Format for this DatasetVariable.
+	 * 
+	 * @return The Format for this DatasetVariable
+	 */
+	public FormatManager&lt;?&gt; getFormat()
+	{
+<span class="fc" id="L104">		return format;</span>
+	}
+
+	/**
+	 * Sets the Format for this DatasetVariable.
+	 * 
+	 * @param format
+	 *            The Format for this DatasetVariable
+	 */
+	public void setFormat(FormatManager&lt;?&gt; format)
+	{
+<span class="pc bpc" id="L115" title="1 of 2 branches missed.">		if (format==null)</span>
+		{
+<span class="nc" id="L117">			Logging.errorPrint(&quot;format should not be null!&quot;);</span>
+<span class="nc" id="L118">			return;</span>
+		}
+<span class="fc" id="L120">		this.format = format;</span>
+<span class="fc" id="L121">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

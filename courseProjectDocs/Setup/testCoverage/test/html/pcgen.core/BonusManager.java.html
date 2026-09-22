@@ -1,0 +1,1369 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BonusManager.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.core</a> &gt; <span class="el_source">BonusManager.java</span></div><h1>BonusManager.java</h1><pre class="source lang-java linenums">/*
+ * BonusManager
+ * Copyright 2009 (c) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * Copyright 2001 (C) Bryan McRoberts &lt;merton_monk@yahoo.com&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.core;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.IdentityHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+import java.util.StringTokenizer;
+import java.util.TreeSet;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.regex.Pattern;
+import java.util.stream.Collectors;
+
+import pcgen.cdom.formula.Formula;
+import pcgen.cdom.base.BonusContainer;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.enumeration.StringKey;
+import pcgen.core.analysis.ChooseActivation;
+import pcgen.core.bonus.BonusObj;
+import pcgen.core.bonus.BonusPair;
+import pcgen.core.bonus.util.MissingObject;
+import pcgen.core.display.BonusDisplay;
+import pcgen.core.prereq.Prerequisite;
+import pcgen.core.utils.CoreUtility;
+import pcgen.util.Delta;
+import pcgen.util.Logging;
+
+public class BonusManager
+{
+	/** %LIST - Replace one value selected into this spot */
+	private static final String VALUE_TOKEN_REPLACEMENT = &quot;%LIST&quot;; //$NON-NLS-1$
+	/** LIST - Replace all the values selected into this spot */
+	private static final String LIST_TOKEN_REPLACEMENT = &quot;LIST&quot;; //$NON-NLS-1$
+
+<span class="fc" id="L60">	private static final String VALUE_TOKEN_PATTERN = Pattern.quote(VALUE_TOKEN_REPLACEMENT);</span>
+
+	private static final String VAR_TOKEN_REPLACEMENT = &quot;%VAR&quot;; //$NON-NLS-1$
+
+<span class="fc" id="L64">	private static final String VAR_TOKEN_PATTERN = Pattern.quote(VAR_TOKEN_REPLACEMENT);</span>
+
+<span class="fc" id="L66">	private static final List&lt;String&gt; NO_ASSOC_LIST = Collections.singletonList(&quot;&quot;);</span>
+
+<span class="fc" id="L68">	private Map&lt;String, String&gt; activeBonusMap = new ConcurrentHashMap&lt;&gt;();</span>
+
+<span class="fc" id="L70">	private Map&lt;String, Double&gt; cachedActiveBonusSumsMap = new ConcurrentHashMap&lt;&gt;();</span>
+
+<span class="fc" id="L72">	private Map&lt;BonusObj, Object&gt; activeBonusBySource = new IdentityHashMap&lt;&gt;();</span>
+
+<span class="fc" id="L74">	private final Map&lt;BonusObj, TempBonusInfo&gt; tempBonusBySource = new IdentityHashMap&lt;&gt;();</span>
+
+<span class="fc" id="L76">	private final Set&lt;String&gt; tempBonusFilters = new TreeSet&lt;&gt;();</span>
+
+	private final PlayerCharacter pc;
+	private Map&lt;String, String&gt; checkpointMap;
+
+	public BonusManager(PlayerCharacter p)
+<span class="fc" id="L82">	{</span>
+<span class="fc" id="L83">		pc = p;</span>
+<span class="fc" id="L84">	}</span>
+
+	/**
+	 * @param fullyQualifiedBonusType
+	 * @return Total bonus for prefix from the activeBonus HashMap
+	 */
+	private double sumActiveBonusMap(String fullyQualifiedBonusType)
+	{
+<span class="fc" id="L92">		double bonus = 0;</span>
+<span class="pc bpc" id="L93" title="1 of 2 branches missed.">		if (fullyQualifiedBonusType == null)</span>
+		{
+<span class="nc" id="L95">			Logging.errorPrint(&quot;Unable to sum BONUS when request is null&quot;);</span>
+<span class="nc" id="L96">			return bonus;</span>
+		}
+
+<span class="fc" id="L99">		fullyQualifiedBonusType = fullyQualifiedBonusType.toUpperCase();</span>
+<span class="pc bpc" id="L100" title="1 of 2 branches missed.">		if (cachedActiveBonusSumsMap.containsKey(fullyQualifiedBonusType))</span>
+		{
+<span class="nc" id="L102">			return cachedActiveBonusSumsMap.get(fullyQualifiedBonusType);</span>
+		}
+
+<span class="fc" id="L105">		final List&lt;String&gt; aList = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L106">		boolean found = false;</span>
+
+<span class="pc bpc" id="L108" title="1 of 2 branches missed.">		for (String fullyQualifedCurrentBonus : activeBonusMap.keySet())</span>
+		{
+			// aKey is either of the form:
+			// COMBAT.AC
+			// or
+			// COMBAT.AC:Luck
+			// or
+			// COMBAT.AC:Armor.REPLACE
+<span class="nc bnc" id="L116" title="All 2 branches missed.">			if (aList.contains(fullyQualifedCurrentBonus))</span>
+			{
+<span class="nc" id="L118">				continue;</span>
+			}
+
+<span class="nc bnc" id="L121" title="All 2 branches missed.">			if (fullyQualifedCurrentBonus == null)</span>
+			{
+<span class="nc" id="L123">				Logging.errorPrint(</span>
+					&quot;null BONUS: loaded into activeBonusMap. &quot; + fullyQualifiedBonusType + &quot; was requested&quot;);
+<span class="nc" id="L125">				continue;</span>
+			}
+
+<span class="nc" id="L128">			String currentTypedBonusNameInfo = fullyQualifedCurrentBonus;</span>
+
+			// rString could be something like:
+			// COMBAT.AC:Armor.REPLACE
+			// So need to remove the .STACK or .REPLACE
+			// to get a match for prefix like: COMBAT.AC:Armor
+<span class="nc bnc" id="L134" title="All 2 branches missed.">			if (currentTypedBonusNameInfo.endsWith(&quot;.STACK&quot;))</span>
+			{
+<span class="nc" id="L136">				currentTypedBonusNameInfo =</span>
+<span class="nc" id="L137">						currentTypedBonusNameInfo.substring(0, currentTypedBonusNameInfo.length() - 6);</span>
+			}
+<span class="nc bnc" id="L139" title="All 2 branches missed.">			else if (currentTypedBonusNameInfo.endsWith(&quot;.REPLACE&quot;))</span>
+			{
+<span class="nc" id="L141">				currentTypedBonusNameInfo =</span>
+<span class="nc" id="L142">						currentTypedBonusNameInfo.substring(0, currentTypedBonusNameInfo.length() - 8);</span>
+			}
+
+            // if prefix is of the form:
+			// COMBAT.AC
+			// then is must match rstring:
+			// COMBAT.AC
+			// COMBAT.AC:Luck
+			// COMBAT.AC:Armor.REPLACE
+			// However, it must not match
+			// COMBAT.ACCHECK
+<span class="nc bnc" id="L153" title="All 2 branches missed.">			if ((currentTypedBonusNameInfo.length() &gt; fullyQualifiedBonusType.length())</span>
+<span class="nc bnc" id="L154" title="All 2 branches missed.">				&amp;&amp; !currentTypedBonusNameInfo.startsWith(fullyQualifiedBonusType + &quot;:&quot;))</span>
+			{
+<span class="nc" id="L156">				continue;</span>
+			}
+
+<span class="nc bnc" id="L159" title="All 2 branches missed.">			if (currentTypedBonusNameInfo.startsWith(fullyQualifiedBonusType))</span>
+			{
+<span class="nc" id="L161">				found = true;</span>
+<span class="nc" id="L162">				aList.add(currentTypedBonusNameInfo);</span>
+<span class="nc" id="L163">				aList.add(currentTypedBonusNameInfo + &quot;.STACK&quot;);</span>
+<span class="nc" id="L164">				aList.add(currentTypedBonusNameInfo + &quot;.REPLACE&quot;);</span>
+
+<span class="nc" id="L166">				final double aBonus = getActiveBonusForMapKey(currentTypedBonusNameInfo, Double.NaN);</span>
+<span class="nc" id="L167">				final double replaceBonus = getActiveBonusForMapKey(currentTypedBonusNameInfo + &quot;.REPLACE&quot;, Double.NaN);</span>
+<span class="nc" id="L168">				final double stackBonus = getActiveBonusForMapKey(currentTypedBonusNameInfo + &quot;.STACK&quot;, 0);</span>
+				//
+				// Using NaNs in order to be able to get the max
+				// between an undefined bonus and a negative
+				//
+<span class="nc bnc" id="L173" title="All 2 branches missed.">				if (Double.isNaN(aBonus)) // no bonusKey</span>
+				{
+<span class="nc bnc" id="L175" title="All 2 branches missed.">					if (!Double.isNaN(replaceBonus))</span>
+					{
+						// no bonusKey, but there
+						// is a replaceKey
+<span class="nc" id="L179">						bonus += replaceBonus;</span>
+					}
+				}
+<span class="nc bnc" id="L182" title="All 2 branches missed.">				else if (Double.isNaN(replaceBonus))</span>
+				{
+					// is a bonusKey and no replaceKey
+<span class="nc" id="L185">					bonus += aBonus;</span>
+				}
+				else
+				{
+					// is a bonusKey and a replaceKey
+<span class="nc" id="L190">					bonus += Math.max(aBonus, replaceBonus);</span>
+				}
+
+				// always add stackBonus
+<span class="nc" id="L194">				bonus += stackBonus;</span>
+			}
+<span class="nc" id="L196">		}</span>
+
+		// cache value only if it has been positively found
+<span class="pc bpc" id="L199" title="1 of 2 branches missed.">		if (found)</span>
+		{
+<span class="nc" id="L201">			cachedActiveBonusSumsMap.put(fullyQualifiedBonusType, bonus);</span>
+		}
+<span class="fc" id="L203">		return bonus;</span>
+	}
+
+	/**
+	 * Searches the activeBonus HashMap for aKey
+	 * 
+	 * @param fullyQualifiedBonusType
+	 * @param defaultValue
+	 * 
+	 * @return defaultValue if aKey not found
+	 */
+	private double getActiveBonusForMapKey(String fullyQualifiedBonusType, final double defaultValue)
+	{
+<span class="nc" id="L216">		fullyQualifiedBonusType = fullyQualifiedBonusType.toUpperCase();</span>
+
+<span class="nc" id="L218">		final String regVal = activeBonusMap.get(fullyQualifiedBonusType);</span>
+
+<span class="nc bnc" id="L220" title="All 2 branches missed.">		if (regVal != null)</span>
+		{
+<span class="nc" id="L222">			return Double.parseDouble(regVal);</span>
+		}
+
+<span class="nc" id="L225">		return defaultValue;</span>
+	}
+
+	public double getBonusDueToType(String bonusName, String bonusInfo, String bonusType)
+	{
+<span class="nc" id="L230">		final String typeString = bonusName + &quot;.&quot; + bonusInfo + &quot;:&quot; + bonusType;</span>
+
+<span class="nc" id="L232">		return sumActiveBonusMap(typeString);</span>
+	}
+
+	public double getTotalBonusTo(String bonusName, String bonusInfo)
+	{
+<span class="fc" id="L237">		final String prefix = bonusName + '.' + bonusInfo;</span>
+
+<span class="fc" id="L239">		return sumActiveBonusMap(prefix);</span>
+	}
+
+	public String getSpellBonusType(String bonusName, String bonusInfo)
+	{
+<span class="nc" id="L244">		String prefix = bonusName + '.' + bonusInfo;</span>
+<span class="nc" id="L245">		prefix = prefix.toUpperCase();</span>
+
+<span class="nc bnc" id="L247" title="All 2 branches missed.">		for (String fullyQualifedBonusType : activeBonusMap.keySet())</span>
+		{
+<span class="nc" id="L249">			String typedBonusNameInfo = fullyQualifedBonusType;</span>
+
+			// rString could be something like:
+			// COMBAT.AC:Armor.REPLACE
+			// So need to remove the .STACK or .REPLACE
+			// to get a match for prefix like: COMBAT.AC:Armor
+<span class="nc bnc" id="L255" title="All 2 branches missed.">			if (fullyQualifedBonusType.endsWith(&quot;.STACK&quot;))</span>
+			{
+<span class="nc" id="L257">				typedBonusNameInfo = fullyQualifedBonusType.substring(0, fullyQualifedBonusType.length() - 6);</span>
+			}
+<span class="nc bnc" id="L259" title="All 2 branches missed.">			else if (fullyQualifedBonusType.endsWith(&quot;.REPLACE&quot;))</span>
+			{
+<span class="nc" id="L261">				typedBonusNameInfo = fullyQualifedBonusType.substring(0, fullyQualifedBonusType.length() - 8);</span>
+			}
+
+			// if prefix is of the form:
+			// COMBAT.AC
+			// then it must match
+			// COMBAT.AC
+			// COMBAT.AC:Luck
+			// COMBAT.AC:Armor.REPLACE
+			// However, it must not match
+			// COMBAT.ACCHECK
+<span class="nc bnc" id="L272" title="All 4 branches missed.">			if ((typedBonusNameInfo.length() &gt; prefix.length()) &amp;&amp; !typedBonusNameInfo.startsWith(prefix + &quot;:&quot;))</span>
+			{
+<span class="nc" id="L274">				continue;</span>
+			}
+
+<span class="nc bnc" id="L277" title="All 2 branches missed.">			if (typedBonusNameInfo.startsWith(prefix))</span>
+			{
+<span class="nc" id="L279">				final int typeIndex = typedBonusNameInfo.indexOf(':');</span>
+<span class="nc bnc" id="L280" title="All 2 branches missed.">				if (typeIndex &gt; 0)</span>
+				{
+<span class="nc" id="L282">					return (fullyQualifedBonusType.substring(typeIndex + 1)); // use aKey to get</span>
+					// .REPLACE or
+					// .STACK
+				}
+<span class="nc" id="L286">				return Constants.EMPTY_STRING; // no type;</span>
+			}
+
+<span class="nc" id="L289">		}</span>
+
+<span class="nc" id="L291">		return Constants.EMPTY_STRING; // just return no type</span>
+	}
+
+	/**
+	 * Build the bonus HashMap from all active BonusObj's
+	 */
+	void buildActiveBonusMap()
+	{
+<span class="fc" id="L299">		activeBonusMap = new ConcurrentHashMap&lt;&gt;();</span>
+<span class="fc" id="L300">		cachedActiveBonusSumsMap = new ConcurrentHashMap&lt;&gt;();</span>
+<span class="fc" id="L301">		Map&lt;String, String&gt; nonStackMap = new ConcurrentHashMap&lt;&gt;();</span>
+<span class="fc" id="L302">		Map&lt;String, String&gt; stackMap = new ConcurrentHashMap&lt;&gt;();</span>
+<span class="fc" id="L303">		Set&lt;BonusObj&gt; processedBonuses = Collections.newSetFromMap(new IdentityHashMap&lt;&gt;());</span>
+
+		//Logging.log(Logging.INFO, &quot;=== Start bonus processing.&quot;);
+
+		//
+		// We do a first pass of just the &quot;static&quot; bonuses
+		// as they require less computation and no recursion
+<span class="pc bpc" id="L310" title="1 of 2 branches missed.">		for (BonusObj bonus : getActiveBonusList())</span>
+		{
+<span class="nc bnc" id="L312" title="All 2 branches missed.">			if (!bonus.isValueStatic())</span>
+			{
+<span class="nc" id="L314">				continue;</span>
+			}
+
+<span class="nc" id="L317">			final Object source = getSourceObject(bonus);</span>
+
+<span class="nc bnc" id="L319" title="All 2 branches missed.">			if (source == null)</span>
+			{
+<span class="nc bnc" id="L321" title="All 2 branches missed.">				if (Logging.isDebugMode())</span>
+				{
+<span class="nc" id="L323">					Logging.debugPrint(&quot;BONUS: &quot; + bonus + &quot; ignored due to no creator&quot;);</span>
+				}
+				continue;
+			}
+
+			// Keep track of which bonuses have been calculated
+			//Logging.log(Logging.INFO, &quot;Processing bonus &quot; + bonus + &quot; - static.&quot;);
+<span class="nc" id="L330">			processedBonuses.add(bonus);</span>
+<span class="nc bnc" id="L331" title="All 2 branches missed.">			for (BonusPair bp : getStringListFromBonus(bonus))</span>
+			{
+<span class="nc" id="L333">				final double iBonus = bp.resolve(pc).doubleValue();</span>
+<span class="nc" id="L334">				setActiveBonusStack(iBonus, bp.fullyQualifiedBonusType, nonStackMap, stackMap);</span>
+<span class="nc" id="L335">				totalBonusesForType(nonStackMap, stackMap, bp.fullyQualifiedBonusType, activeBonusMap);</span>
+
+<span class="nc bnc" id="L337" title="All 2 branches missed.">				if (Logging.isDebugMode())</span>
+				{
+					String id;
+<span class="nc bnc" id="L340" title="All 2 branches missed.">					if (source instanceof CDOMObject)</span>
+					{
+<span class="nc" id="L342">						id = ((CDOMObject) source).getDisplayName();</span>
+					}
+					else
+					{
+<span class="nc" id="L346">						id = source.toString();</span>
+					}
+<span class="nc" id="L348">					Logging.debugPrint(&quot;BONUS: &quot; + id + &quot; : &quot; + iBonus + &quot; : &quot; + bp.fullyQualifiedBonusType);</span>
+				}
+<span class="nc" id="L350">			}</span>
+<span class="nc" id="L351">		}</span>
+
+		//
+		// Now we do all the BonusObj's that require calculations
+<span class="pc bpc" id="L355" title="1 of 2 branches missed.">		for (BonusObj bonus : getActiveBonusList())</span>
+		{
+<span class="nc bnc" id="L357" title="All 2 branches missed.">			if (processedBonuses.contains(bonus))</span>
+			{
+<span class="nc" id="L359">				continue;</span>
+			}
+
+<span class="nc" id="L362">			final CDOMObject anObj = (CDOMObject) getSourceObject(bonus);</span>
+
+<span class="nc bnc" id="L364" title="All 2 branches missed.">			if (anObj == null)</span>
+			{
+<span class="nc" id="L366">				continue;</span>
+			}
+
+			try
+			{
+<span class="nc" id="L371">				processBonus(bonus, Collections.newSetFromMap(new IdentityHashMap&lt;&gt;()), processedBonuses, nonStackMap,</span>
+					stackMap);
+			}
+<span class="nc" id="L374">			catch (Exception e)</span>
+			{
+<span class="nc" id="L376">				Logging.errorPrint(e.getLocalizedMessage(), e);</span>
+<span class="nc" id="L377">				continue;</span>
+<span class="nc" id="L378">			}</span>
+<span class="nc" id="L379">		}</span>
+<span class="fc" id="L380">	}</span>
+
+	/**
+	 * Combines the non-stacking bonus maximum and stacking 
+	 * bonus totals to a total bonus for the bonus type. 
+	 *  
+	 * @param nonStackMap
+	 *            The map of non-stacking (i.e. highest wins) bonuses being built up.
+	 * @param stackMap
+	 *            The map of stacking (i.e. total all) bonuses being built up.
+	 * @param fullyQualifiedBonusType
+	 *            The type of the bonus e.g. STAT.DEX:LUCK
+	 * @param targetMap
+	 *            The map of bonuses (stack+non-stack) being built up which will be populated with the total bonus.
+	 */
+	private static void totalBonusesForType(Map&lt;String, String&gt; nonStackMap, Map&lt;String, String&gt; stackMap,
+	                                        String fullyQualifiedBonusType, Map&lt;String, String&gt; targetMap)
+	{
+<span class="nc bnc" id="L398" title="All 2 branches missed.">		if (fullyQualifiedBonusType != null)</span>
+		{
+<span class="nc" id="L400">			fullyQualifiedBonusType = fullyQualifiedBonusType.toUpperCase();</span>
+		}
+<span class="nc" id="L402">		String nonStackString = nonStackMap.get(fullyQualifiedBonusType);</span>
+<span class="nc bnc" id="L403" title="All 2 branches missed.">		Float nonStackVal = nonStackString == null ? 0.0f : Float.parseFloat(nonStackString);</span>
+<span class="nc" id="L404">		String stackString = stackMap.get(fullyQualifiedBonusType);</span>
+<span class="nc bnc" id="L405" title="All 2 branches missed.">		Float stackVal = stackString == null ? 0.0f : Float.parseFloat(stackString);</span>
+<span class="nc" id="L406">		Float FullValue = nonStackVal + stackVal;</span>
+<span class="nc" id="L407">		putActiveBonusMap(fullyQualifiedBonusType, String.valueOf(FullValue), targetMap);</span>
+<span class="nc" id="L408">	}</span>
+
+	public Collection&lt;BonusObj&gt; getActiveBonusList()
+	{
+<span class="fc" id="L412">		return activeBonusBySource.keySet();</span>
+	}
+
+	public void setActiveBonusList()
+	{
+<span class="fc" id="L417">		activeBonusBySource = getAllActiveBonuses();</span>
+<span class="fc" id="L418">	}</span>
+
+	public String listBonusesFor(String bonusName, String bonusInfo)
+	{
+<span class="nc" id="L422">		final String prefix = bonusName + '.' + bonusInfo;</span>
+<span class="nc" id="L423">		final StringBuilder buf = new StringBuilder();</span>
+<span class="nc" id="L424">		final Collection&lt;String&gt; aList = new ArrayList&lt;&gt;();</span>
+
+		// final List&lt;TypedBonus&gt; bonuses = theBonusMap.get(prefix);
+		// if ( bonuses == null )
+		// {
+		// return Constants.EMPTY_STRING;
+		// }
+		// final List&lt;String&gt; bonusStrings =
+		// TypedBonus.totalBonusesByType(bonuses);
+		// return CoreUtility.commaDelimit(bonusStrings);
+
+<span class="nc" id="L435">		final Set&lt;String&gt; keys = activeBonusMap.keySet()</span>
+<span class="nc" id="L436">		                                       .stream()</span>
+<span class="nc" id="L437">		                                       .filter(fullyQualifiedBonusType -&gt;</span>
+<span class="nc" id="L438">				                                       fullyQualifiedBonusType.startsWith(prefix))</span>
+<span class="nc" id="L439">		                                       .collect(Collectors.toCollection(() -&gt; new TreeSet&lt;&gt;()));</span>
+<span class="nc bnc" id="L440" title="All 2 branches missed.">		for (String fullyQualifiedBonusType : keys)</span>
+		{
+			// make a list of keys that end with .REPLACE
+<span class="nc bnc" id="L443" title="All 2 branches missed.">			if (fullyQualifiedBonusType.endsWith(&quot;.REPLACE&quot;))</span>
+			{
+<span class="nc" id="L445">				aList.add(fullyQualifiedBonusType);</span>
+			}
+			else
+			{
+<span class="nc" id="L449">				String reason = &quot;&quot;;</span>
+
+<span class="nc bnc" id="L451" title="All 2 branches missed.">				if (fullyQualifiedBonusType.length() &gt; prefix.length())</span>
+				{
+<span class="nc" id="L453">					reason = fullyQualifiedBonusType.substring(prefix.length() + 1);</span>
+				}
+
+<span class="nc" id="L456">				final int b = (int) getActiveBonusForMapKey(fullyQualifiedBonusType, 0);</span>
+
+<span class="nc bnc" id="L458" title="All 2 branches missed.">				if (b == 0)</span>
+				{
+<span class="nc" id="L460">					continue;</span>
+				}
+
+<span class="nc bnc" id="L463" title="All 4 branches missed.">				if (!&quot;NULL&quot;.equals(reason) &amp;&amp; (!reason.isEmpty()))</span>
+				{
+<span class="nc bnc" id="L465" title="All 2 branches missed.">					if (buf.length() &gt; 0)</span>
+					{
+<span class="nc" id="L467">						buf.append(&quot;, &quot;);</span>
+					}
+<span class="nc" id="L469">					buf.append(reason).append(' ');</span>
+				}
+<span class="nc" id="L471">				buf.append(Delta.toString(b));</span>
+			}
+<span class="nc" id="L473">		}</span>
+
+		// Now adjust the bonus if the .REPLACE value
+		// replaces the value without .REPLACE
+<span class="nc bnc" id="L477" title="All 2 branches missed.">		for (String fullyQualifiedBonusType_Replace : aList)</span>
+		{
+<span class="nc bnc" id="L479" title="All 2 branches missed.">			if (fullyQualifiedBonusType_Replace.length() &gt; 7)</span>
+			{
+<span class="nc" id="L481">				final String aKey =</span>
+<span class="nc" id="L482">						fullyQualifiedBonusType_Replace.substring(0, fullyQualifiedBonusType_Replace.length() - 8);</span>
+<span class="nc" id="L483">				final double replaceBonus = getActiveBonusForMapKey(fullyQualifiedBonusType_Replace, 0);</span>
+<span class="nc" id="L484">				double aBonus = getActiveBonusForMapKey(aKey, 0);</span>
+<span class="nc" id="L485">				aBonus += getActiveBonusForMapKey(aKey + &quot;.STACK&quot;, 0);</span>
+
+<span class="nc" id="L487">				final int b = (int) Math.max(aBonus, replaceBonus);</span>
+
+<span class="nc bnc" id="L489" title="All 2 branches missed.">				if (b == 0)</span>
+				{
+<span class="nc" id="L491">					continue;</span>
+				}
+
+<span class="nc bnc" id="L494" title="All 2 branches missed.">				if (buf.length() &gt; 0)</span>
+				{
+<span class="nc" id="L496">					buf.append(&quot;, &quot;);</span>
+				}
+
+<span class="nc" id="L499">				final String reason = aKey.substring(prefix.length() + 1);</span>
+
+<span class="nc bnc" id="L501" title="All 2 branches missed.">				if (!&quot;NULL&quot;.equals(reason))</span>
+				{
+<span class="nc" id="L503">					buf.append(reason).append(' ');</span>
+				}
+
+<span class="nc" id="L506">				buf.append(Delta.toString(b));</span>
+			}
+<span class="nc" id="L508">		}</span>
+
+<span class="nc" id="L510">		return buf.toString();</span>
+	}
+
+	/**
+	 * - Get's a list of dependencies from aBonus - Finds all active bonuses
+	 * that add to those dependencies and have not been processed and
+	 * recursively calls itself - Once recursed in, it adds the computed bonus
+	 * to activeBonusMap
+	 * 
+	 * @param aBonus
+	 *            The bonus to be processed.
+	 * @param prevProcessed
+	 *            The list of bonuses which have already been processed in this
+	 *            stack of calls to processBonus.
+	 * @param processedBonuses
+	 *            The list of bonuses which have already been processed overall.
+	 * @param nonStackMap
+	 *            The map of non-stacking (i.e. highest wins) bonuses being built up.
+	 * @param stackMap
+	 *            The map of stacking (i.e. total all) bonuses being built up.
+	 */
+	private void processBonus(final BonusObj aBonus, final Set&lt;BonusObj&gt; prevProcessed, Set&lt;BonusObj&gt; processedBonuses,
+		Map&lt;String, String&gt; nonStackMap, Map&lt;String, String&gt; stackMap)
+	{
+		// Make sure we don't get into an infinite loop - can occur due to LST
+		// coding or best guess dependancy mapping
+<span class="nc bnc" id="L536" title="All 2 branches missed.">		if (prevProcessed.contains(aBonus))</span>
+		{
+<span class="nc bnc" id="L538" title="All 2 branches missed.">			if (Logging.isDebugMode())</span>
+			{
+<span class="nc" id="L540">				Logging.log(Logging.DEBUG, &quot;Ignoring bonus loop for &quot; //$NON-NLS-1$</span>
+					+ aBonus + &quot; as it was already processed. Bonuses already processed: &quot; //$NON-NLS-1$
+					+ prevProcessed);
+<span class="nc" id="L543">				Logging.log(Logging.DEBUG, &quot; Depend map is &quot; + aBonus.listDependsMap()); //$NON-NLS-1$</span>
+			}
+<span class="nc" id="L545">			return;</span>
+		}
+<span class="nc" id="L547">		prevProcessed.add(aBonus);</span>
+
+<span class="nc" id="L549">		final List&lt;BonusObj&gt; aList = new ArrayList&lt;&gt;();</span>
+
+		// Go through all bonuses and check to see if they add to
+		// aBonus's dependencies and have not already been processed
+<span class="nc bnc" id="L553" title="All 2 branches missed.">		for (BonusObj newBonus : getActiveBonusList())</span>
+		{
+<span class="nc bnc" id="L555" title="All 2 branches missed.">			if (processedBonuses.contains(newBonus))</span>
+			{
+<span class="nc" id="L557">				continue;</span>
+			}
+
+<span class="nc bnc" id="L560" title="All 2 branches missed.">			if (aBonus.getDependsOn(newBonus.getUnparsedBonusInfoList())</span>
+<span class="nc bnc" id="L561" title="All 2 branches missed.">				|| aBonus.getDependsOnBonusName(newBonus.getBonusName()))</span>
+			{
+<span class="nc" id="L563">				aList.add(newBonus);</span>
+			}
+<span class="nc" id="L565">		}</span>
+
+		// go through all the BonusObj's that aBonus depends on
+		// and process them first
+<span class="nc bnc" id="L569" title="All 2 branches missed.">		for (BonusObj newBonus : aList)</span>
+		{
+			// Recursively call itself
+<span class="nc" id="L572">			processBonus(newBonus, prevProcessed, processedBonuses, nonStackMap, stackMap);</span>
+<span class="nc" id="L573">		}</span>
+
+		// Double check that it hasn't been processed yet
+<span class="nc bnc" id="L576" title="All 2 branches missed.">		if (processedBonuses.contains(aBonus))</span>
+		{
+<span class="nc" id="L578">			return;</span>
+		}
+
+		// Add to processed list
+		//Logging.log(Logging.INFO, &quot;Processing bonus &quot; + aBonus + &quot; depends on &quot; + aBonus.listDependsMap());
+<span class="nc" id="L583">		processedBonuses.add(aBonus);</span>
+
+<span class="nc" id="L585">		final CDOMObject anObj = (CDOMObject) getSourceObject(aBonus);</span>
+
+<span class="nc bnc" id="L587" title="All 2 branches missed.">		if (anObj == null)</span>
+		{
+<span class="nc" id="L589">			prevProcessed.remove(aBonus);</span>
+<span class="nc" id="L590">			return;</span>
+		}
+
+		// calculate bonus and add to activeBonusMap
+<span class="nc bnc" id="L594" title="All 2 branches missed.">		for (BonusPair bp : getStringListFromBonus(aBonus))</span>
+		{
+<span class="nc" id="L596">			final double iBonus = bp.resolve(pc).doubleValue();</span>
+<span class="nc" id="L597">			setActiveBonusStack(iBonus, bp.fullyQualifiedBonusType, nonStackMap, stackMap);</span>
+<span class="nc" id="L598">			totalBonusesForType(nonStackMap, stackMap, bp.fullyQualifiedBonusType, activeBonusMap);</span>
+			//			Logging.debugPrint(&quot;vBONUS: &quot; + anObj.getDisplayName() + &quot; : &quot;
+			//					+ iBonus + &quot; : &quot; + bp.fullyQualifiedBonusType);
+<span class="nc" id="L601">		}</span>
+<span class="nc" id="L602">		prevProcessed.remove(aBonus);</span>
+<span class="nc" id="L603">	}</span>
+
+	/**
+	 * Figures out if a bonus should stack based on type, then adds it to the
+	 * supplied map.
+	 * 
+	 * @param bonus
+	 *            The value of the bonus.
+	 * @param fullyQualifiedBonusType
+	 *            The type of the bonus e.g. STAT.DEX:LUCK
+	 * @param nonStackbonusMap
+	 *            The map of non-stacking (i.e. highest wins) bonuses being built up.
+	 * @param stackingBonusMap
+	 *            The map of stacking (i.e. total all) bonuses being built up.
+	 */
+	private static void setActiveBonusStack(double bonus,
+	                                        String fullyQualifiedBonusType,
+	                                        Map&lt;String, String&gt; nonStackbonusMap,
+	                                        Map&lt;String, String&gt; stackingBonusMap)
+	{
+<span class="nc bnc" id="L623" title="All 2 branches missed.">		if (fullyQualifiedBonusType != null)</span>
+		{
+<span class="nc" id="L625">			fullyQualifiedBonusType = fullyQualifiedBonusType.toUpperCase();</span>
+
+			// only specific bonuses can actually be fractional
+			// -&gt; TODO should define this in external file
+<span class="nc bnc" id="L629" title="All 4 branches missed.">			if (!fullyQualifiedBonusType.startsWith(&quot;ITEMWEIGHT&quot;) &amp;&amp; !fullyQualifiedBonusType.startsWith(&quot;ITEMCOST&quot;)</span>
+<span class="nc bnc" id="L630" title="All 4 branches missed.">				&amp;&amp; !fullyQualifiedBonusType.startsWith(&quot;ITEMCAPACITY&quot;) &amp;&amp; !fullyQualifiedBonusType.startsWith(&quot;LOADMULT&quot;)</span>
+<span class="nc bnc" id="L631" title="All 4 branches missed.">				&amp;&amp; !fullyQualifiedBonusType.startsWith(&quot;FEAT&quot;) &amp;&amp; (!fullyQualifiedBonusType.contains(&quot;DAMAGEMULT&quot;)))</span>
+			{
+<span class="nc" id="L633">				bonus = ((int) bonus); // TODO: never used</span>
+			}
+		}
+		else
+		{
+<span class="nc" id="L638">			return;</span>
+		}
+
+		// default to non-stacking bonuses
+<span class="nc" id="L642">		int index = -1;</span>
+
+		// bonusType is either of form:
+		// COMBAT.AC
+		// or
+		// COMBAT.AC:Luck
+		// or
+		// COMBAT.AC:Armor.REPLACE
+		//
+<span class="nc" id="L651">		final StringTokenizer aTok = new StringTokenizer(fullyQualifiedBonusType, &quot;:&quot;);</span>
+
+<span class="nc bnc" id="L653" title="All 2 branches missed.">		if (aTok.countTokens() == 2)</span>
+		{
+			// need 2nd token to see if it should stack
+			final String aString;
+<span class="nc" id="L657">			aTok.nextToken();</span>
+<span class="nc" id="L658">			aString = aTok.nextToken();</span>
+
+<span class="nc bnc" id="L660" title="All 2 branches missed.">			if (aString != null)</span>
+			{
+<span class="nc" id="L662">				index = SettingsHandler.getGameAsProperty().get().getUnmodifiableBonusStackList().indexOf(aString); // e.g.</span>
+				// Dodge
+			}
+<span class="nc" id="L665">		}</span>
+		else
+		{
+			// un-named (or un-TYPE'd) bonuses stack
+<span class="nc" id="L669">			index = 1;</span>
+		}
+
+		// .STACK means stack with everything
+		// .REPLACE means stack with other .REPLACE
+<span class="nc bnc" id="L674" title="All 4 branches missed.">		if (fullyQualifiedBonusType.endsWith(&quot;.STACK&quot;) || fullyQualifiedBonusType.endsWith(&quot;.REPLACE&quot;))</span>
+		{
+<span class="nc" id="L676">			index = 1;</span>
+		}
+
+		// If it's a negative bonus, it always needs to be added
+<span class="nc bnc" id="L680" title="All 2 branches missed.">		if (bonus &lt; 0)</span>
+		{
+<span class="nc" id="L682">			index = 1;</span>
+		}
+
+<span class="nc bnc" id="L685" title="All 2 branches missed.">		if (index == -1) // a non-stacking bonus</span>
+		{
+<span class="nc" id="L687">			final String aVal = nonStackbonusMap.get(fullyQualifiedBonusType);</span>
+
+<span class="nc bnc" id="L689" title="All 2 branches missed.">			if (aVal == null)</span>
+			{
+<span class="nc" id="L691">				putActiveBonusMap(fullyQualifiedBonusType, String.valueOf(bonus), nonStackbonusMap);</span>
+			}
+			else
+			{
+<span class="nc" id="L695">				float existingBonus = Float.parseFloat(aVal);</span>
+<span class="nc" id="L696">				putActiveBonusMap(fullyQualifiedBonusType, String.valueOf(Math.max(bonus, existingBonus)),</span>
+					nonStackbonusMap);
+			}
+<span class="nc" id="L699">		}</span>
+		else
+		// a stacking bonus
+		{
+<span class="nc" id="L703">			final String aVal = stackingBonusMap.get(fullyQualifiedBonusType);</span>
+
+<span class="nc bnc" id="L705" title="All 2 branches missed.">			if (aVal == null)</span>
+			{
+<span class="nc" id="L707">				putActiveBonusMap(fullyQualifiedBonusType, String.valueOf(bonus), stackingBonusMap);</span>
+			}
+			else
+			{
+<span class="nc" id="L711">				putActiveBonusMap(fullyQualifiedBonusType, String.valueOf(bonus + Float.parseFloat(aVal)),</span>
+					stackingBonusMap);
+			}
+		}
+<span class="nc" id="L715">	}</span>
+
+	/**
+	 * Put the provided bonus key and value into the supplied bonus map. Some
+	 * sanity checking is done on the key.
+	 * 
+	 * @param fullyQualifiedBonusType
+	 *            The bonus key
+	 * @param bonusValue
+	 *            The value of the bonus
+	 * @param bonusMap
+	 *            The map of bonuses being built.
+	 */
+	private static void putActiveBonusMap(final String fullyQualifiedBonusType,
+	                                      final String bonusValue,
+	                                      Map&lt;String, String&gt; bonusMap)
+	{
+		//
+		// This is a bad idea...will add whatever the bonus is to ALL skills
+		//
+<span class="nc bnc" id="L735" title="All 2 branches missed.">		if (fullyQualifiedBonusType.equalsIgnoreCase(&quot;SKILL.LIST&quot;))</span>
+		{
+<span class="nc" id="L737">			return;</span>
+		}
+<span class="nc" id="L739">		bonusMap.put(fullyQualifiedBonusType, bonusValue);</span>
+<span class="nc" id="L740">	}</span>
+
+	public int getPartialStatBonusFor(PCStat stat, boolean useTemp, boolean useEquip)
+	{
+<span class="nc" id="L744">		String statAbbr = stat.getKeyName();</span>
+<span class="nc" id="L745">		final String prefix = &quot;STAT.&quot; + statAbbr;</span>
+<span class="nc" id="L746">		Map&lt;String, String&gt; bonusMap = new HashMap&lt;&gt;();</span>
+<span class="nc" id="L747">		Map&lt;String, String&gt; nonStackMap = new ConcurrentHashMap&lt;&gt;();</span>
+<span class="nc" id="L748">		Map&lt;String, String&gt; stackMap = new ConcurrentHashMap&lt;&gt;();</span>
+
+<span class="nc bnc" id="L750" title="All 2 branches missed.">		for (BonusObj bonus : getActiveBonusList())</span>
+		{
+<span class="nc bnc" id="L752" title="All 4 branches missed.">			if (pc.isApplied(bonus) &amp;&amp; bonus.getBonusName().equals(&quot;STAT&quot;))</span>
+			{
+<span class="nc" id="L754">				boolean found = false;</span>
+<span class="nc" id="L755">				Object co = getSourceObject(bonus);</span>
+<span class="nc bnc" id="L756" title="All 2 branches missed.">				for (Object element : bonus.getBonusInfoList())</span>
+				{
+<span class="nc bnc" id="L758" title="All 4 branches missed.">					if (element instanceof PCStat &amp;&amp; element.equals(stat))</span>
+					{
+<span class="nc" id="L760">						found = true;</span>
+<span class="nc" id="L761">						break;</span>
+					}
+					// TODO: This should be put into a proper object when
+					// parisng.
+<span class="nc bnc" id="L765" title="All 2 branches missed.">					if (element instanceof MissingObject)</span>
+					{
+<span class="nc" id="L767">						String name = ((MissingObject) element).getObjectName();</span>
+<span class="nc bnc" id="L768" title="All 6 branches missed.">						if ((&quot;%LIST&quot;.equals(name) || &quot;LIST&quot;.equals(name)) &amp;&amp; co instanceof CDOMObject creator)</span>
+						{
+<span class="nc bnc" id="L770" title="All 2 branches missed.">							for (String assoc : pc.getConsolidatedAssociationList(creator))</span>
+							{
+								//TODO Case sensitivity?
+<span class="nc bnc" id="L773" title="All 2 branches missed.">								if (assoc.contains(statAbbr))</span>
+								{
+<span class="nc" id="L775">									found = true;</span>
+<span class="nc" id="L776">									break;</span>
+								}
+<span class="nc" id="L778">							}</span>
+						}
+					}
+<span class="nc" id="L781">				}</span>
+<span class="nc bnc" id="L782" title="All 2 branches missed.">				if (!found)</span>
+				{
+<span class="nc" id="L784">					continue;</span>
+				}
+
+				// The bonus has been applied to the target stat
+				// Should it be included?
+				boolean addIt;
+<span class="nc bnc" id="L790" title="All 4 branches missed.">				if (co instanceof Equipment || co instanceof EquipmentModifier)</span>
+				{
+<span class="nc" id="L792">					addIt = useEquip;</span>
+				}
+<span class="nc bnc" id="L794" title="All 2 branches missed.">				else if (co instanceof Ability)</span>
+				{
+<span class="nc" id="L796">					List&lt;String&gt; types = ((Ability) co).getTypes();</span>
+<span class="nc bnc" id="L797" title="All 2 branches missed.">					if (types.contains(&quot;Equipment&quot;))</span>
+					{
+<span class="nc" id="L799">						addIt = useEquip;</span>
+					}
+					else
+					{
+<span class="nc" id="L803">						addIt = true;</span>
+					}
+<span class="nc" id="L805">				}</span>
+<span class="nc bnc" id="L806" title="All 2 branches missed.">				else if (tempBonusBySource.containsKey(bonus))</span>
+				{
+<span class="nc" id="L808">					addIt = useTemp;</span>
+				}
+				else
+				{
+<span class="nc" id="L812">					addIt = true;</span>
+				}
+<span class="nc bnc" id="L814" title="All 2 branches missed.">				if (addIt)</span>
+				{
+					// Grab the list of relevant types so that we can build up
+					// the
+					// bonuses with the stacking rules applied.
+<span class="nc bnc" id="L819" title="All 2 branches missed.">					for (BonusPair bp : getStringListFromBonus(bonus))</span>
+					{
+<span class="nc bnc" id="L821" title="All 2 branches missed.">						if (bp.fullyQualifiedBonusType.startsWith(prefix))</span>
+						{
+<span class="nc" id="L823">							setActiveBonusStack(bp.resolve(pc).doubleValue(), bp.fullyQualifiedBonusType, nonStackMap,</span>
+								stackMap);
+<span class="nc" id="L825">							totalBonusesForType(nonStackMap, stackMap, bp.fullyQualifiedBonusType, bonusMap);</span>
+						}
+<span class="nc" id="L827">					}</span>
+				}
+			}
+<span class="nc" id="L830">		}</span>
+		// Sum the included bonuses to the stat to get our result.
+<span class="nc" id="L832">		int total = 0;</span>
+<span class="nc bnc" id="L833" title="All 2 branches missed.">		for (final String s : bonusMap.values())</span>
+		{
+<span class="nc" id="L835">			total += Float.parseFloat(s);</span>
+<span class="nc" id="L836">		}</span>
+<span class="nc" id="L837">		return total;</span>
+	}
+
+	public BonusManager buildDeepClone(PlayerCharacter apc)
+	{
+<span class="nc" id="L842">		BonusManager clone = new BonusManager(apc);</span>
+<span class="nc" id="L843">		clone.activeBonusBySource.putAll(activeBonusBySource);</span>
+<span class="nc" id="L844">		clone.tempBonusBySource.putAll(tempBonusBySource);</span>
+<span class="nc" id="L845">		clone.activeBonusMap.putAll(activeBonusMap);</span>
+<span class="nc" id="L846">		clone.tempBonusFilters.addAll(tempBonusFilters);</span>
+<span class="nc" id="L847">		return clone;</span>
+	}
+
+	public void checkpointBonusMap()
+	{
+<span class="fc" id="L852">		checkpointMap = activeBonusMap;</span>
+<span class="fc" id="L853">	}</span>
+
+	public boolean compareToCheckpoint()
+	{
+<span class="pc bpc" id="L857" title="2 of 4 branches missed.">		return checkpointMap != null &amp;&amp; checkpointMap.equals(activeBonusMap);</span>
+	}
+
+	public Map&lt;BonusObj, TempBonusInfo&gt; getTempBonusMap()
+	{
+<span class="nc" id="L862">		return new IdentityHashMap&lt;&gt;(tempBonusBySource);</span>
+	}
+
+	public Map&lt;String, String&gt; getBonuses(String bonusName, String bonusInfo)
+	{
+<span class="nc" id="L867">		Map&lt;String, String&gt; returnMap = new HashMap&lt;&gt;();</span>
+<span class="nc" id="L868">		String prefix = bonusName + &quot;.&quot; + bonusInfo + &quot;.&quot;;</span>
+
+<span class="nc bnc" id="L870" title="All 2 branches missed.">		for (Map.Entry&lt;String, String&gt; entry : activeBonusMap.entrySet())</span>
+		{
+<span class="nc" id="L872">			String fullyQualifiedBonusType = entry.getKey();</span>
+
+<span class="nc bnc" id="L874" title="All 2 branches missed.">			if (fullyQualifiedBonusType.startsWith(prefix))</span>
+			{
+<span class="nc" id="L876">				returnMap.put(fullyQualifiedBonusType, entry.getValue());</span>
+			}
+<span class="nc" id="L878">		}</span>
+<span class="nc" id="L879">		return returnMap;</span>
+	}
+
+	public TempBonusInfo addTempBonus(BonusObj bonus, Object source, Object target)
+	{
+<span class="nc" id="L884">		TempBonusInfo tempBonusInfo = new TempBonusInfo(source, target);</span>
+<span class="nc" id="L885">		tempBonusBySource.put(bonus, tempBonusInfo);</span>
+<span class="nc" id="L886">		return tempBonusInfo;</span>
+	}
+
+	public void removeTempBonus(BonusObj bonus)
+	{
+<span class="nc" id="L891">		tempBonusBySource.remove(bonus);</span>
+<span class="nc" id="L892">	}</span>
+
+	List&lt;String&gt; getNamedTempBonusList()
+	{
+<span class="nc" id="L896">		final List&lt;String&gt; aList = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L897">		Map&lt;BonusObj, TempBonusInfo&gt; filteredTempBonusList = getFilteredTempBonusList();</span>
+
+<span class="nc bnc" id="L899" title="All 2 branches missed.">		for (Map.Entry&lt;BonusObj, TempBonusInfo&gt; me : filteredTempBonusList.entrySet())</span>
+		{
+<span class="nc" id="L901">			BonusObj aBonus = me.getKey();</span>
+<span class="nc bnc" id="L902" title="All 2 branches missed.">			if (aBonus == null)</span>
+			{
+<span class="nc" id="L904">				continue;</span>
+			}
+
+<span class="nc bnc" id="L907" title="All 2 branches missed.">			if (!pc.isApplied(aBonus))</span>
+			{
+<span class="nc" id="L909">				continue;</span>
+			}
+
+<span class="nc" id="L912">			final CDOMObject aCreator = (CDOMObject) me.getValue().source;</span>
+
+<span class="nc bnc" id="L914" title="All 2 branches missed.">			if (aCreator == null)</span>
+			{
+<span class="nc" id="L916">				continue;</span>
+			}
+
+<span class="nc" id="L919">			final String aName = aCreator.getKeyName();</span>
+
+<span class="nc bnc" id="L921" title="All 2 branches missed.">			if (!aList.contains(aName))</span>
+			{
+<span class="nc" id="L923">				aList.add(aName);</span>
+			}
+<span class="nc" id="L925">		}</span>
+
+<span class="nc" id="L927">		return aList;</span>
+	}
+
+	public List&lt;String&gt; getNamedTempBonusDescList()
+	{
+<span class="nc" id="L932">		final List&lt;String&gt; aList = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L933">		Map&lt;BonusObj, TempBonusInfo&gt; filteredTempBonusList = getFilteredTempBonusList();</span>
+
+<span class="nc bnc" id="L935" title="All 2 branches missed.">		for (Map.Entry&lt;BonusObj, TempBonusInfo&gt; me : filteredTempBonusList.entrySet())</span>
+		{
+<span class="nc" id="L937">			BonusObj aBonus = me.getKey();</span>
+<span class="nc bnc" id="L938" title="All 2 branches missed.">			if (aBonus == null)</span>
+			{
+<span class="nc" id="L940">				continue;</span>
+			}
+
+<span class="nc bnc" id="L943" title="All 2 branches missed.">			if (!pc.isApplied(aBonus))</span>
+			{
+<span class="nc" id="L945">				continue;</span>
+			}
+
+<span class="nc" id="L948">			final CDOMObject aCreator = (CDOMObject) me.getValue().source;</span>
+
+<span class="nc bnc" id="L950" title="All 2 branches missed.">			if (aCreator == null)</span>
+			{
+<span class="nc" id="L952">				continue;</span>
+			}
+
+<span class="nc" id="L955">			String aDesc = aCreator.getSafe(StringKey.TEMP_DESCRIPTION);</span>
+
+<span class="nc bnc" id="L957" title="All 2 branches missed.">			if (!aList.contains(aDesc))</span>
+			{
+<span class="nc" id="L959">				aList.add(aDesc);</span>
+			}
+<span class="nc" id="L961">		}</span>
+
+<span class="nc" id="L963">		return aList;</span>
+	}
+
+	private Map&lt;BonusObj, TempBonusInfo&gt; getFilteredTempBonusList()
+	{
+<span class="fc" id="L968">		final Map&lt;BonusObj, TempBonusInfo&gt; ret = new IdentityHashMap&lt;&gt;();</span>
+<span class="pc bpc" id="L969" title="1 of 2 branches missed.">		for (Map.Entry&lt;BonusObj, TempBonusInfo&gt; me : tempBonusBySource.entrySet())</span>
+		{
+<span class="nc" id="L971">			BonusObj bonus = me.getKey();</span>
+<span class="nc" id="L972">			TempBonusInfo ti = me.getValue();</span>
+<span class="nc bnc" id="L973" title="All 2 branches missed.">			if (!tempBonusFilters.contains(BonusDisplay.getBonusDisplayName(ti)))</span>
+			{
+<span class="nc" id="L975">				ret.put(bonus, ti);</span>
+			}
+<span class="nc" id="L977">		}</span>
+<span class="fc" id="L978">		return ret;</span>
+	}
+
+	public Set&lt;String&gt; getTempBonusFilters()
+	{
+<span class="nc" id="L983">		return tempBonusFilters;</span>
+	}
+
+	public void addTempBonusFilter(String bonusStr)
+	{
+<span class="nc" id="L988">		tempBonusFilters.add(bonusStr);</span>
+<span class="nc" id="L989">	}</span>
+
+	public void removeTempBonusFilter(String bonusStr)
+	{
+<span class="nc" id="L993">		tempBonusFilters.remove(bonusStr);</span>
+<span class="nc" id="L994">	}</span>
+
+	private Map&lt;BonusObj, Object&gt; getTempBonuses()
+	{
+<span class="fc" id="L998">		Map&lt;BonusObj, Object&gt; map = new IdentityHashMap&lt;&gt;();</span>
+<span class="fc" id="L999">		getFilteredTempBonusList().forEach((bonus, value) -&gt; {</span>
+<span class="nc" id="L1000">			pc.setApplied(bonus, false);</span>
+
+<span class="nc" id="L1002">			Object source = value.source;</span>
+<span class="nc bnc" id="L1003" title="All 2 branches missed.">			CDOMObject cdomsource = (source instanceof CDOMObject) ? (CDOMObject) source : null;</span>
+<span class="nc bnc" id="L1004" title="All 2 branches missed.">			if (bonus.qualifies(pc, cdomsource))</span>
+			{
+<span class="nc" id="L1006">				pc.setApplied(bonus, true);</span>
+			}
+
+<span class="nc bnc" id="L1009" title="All 2 branches missed.">			if (pc.isApplied(bonus))</span>
+			{
+<span class="nc" id="L1011">				map.put(bonus, source);</span>
+			}
+<span class="nc" id="L1013">		});</span>
+<span class="fc" id="L1014">		return map;</span>
+	}
+
+	public Map&lt;BonusObj, TempBonusInfo&gt; getTempBonusMap(String aCreator, String aTarget)
+	{
+<span class="nc" id="L1019">		final Map&lt;BonusObj, TempBonusInfo&gt; aMap = new IdentityHashMap&lt;&gt;();</span>
+
+<span class="nc bnc" id="L1021" title="All 2 branches missed.">		for (Map.Entry&lt;BonusObj, TempBonusInfo&gt; me : tempBonusBySource.entrySet())</span>
+		{
+<span class="nc" id="L1023">			BonusObj bonus = me.getKey();</span>
+<span class="nc" id="L1024">			TempBonusInfo tbi = me.getValue();</span>
+<span class="nc" id="L1025">			final Object aTO = tbi.target;</span>
+<span class="nc" id="L1026">			final Object aCO = tbi.source;</span>
+
+<span class="nc" id="L1028">			String targetName = Constants.EMPTY_STRING;</span>
+<span class="nc" id="L1029">			String creatorName = Constants.EMPTY_STRING;</span>
+
+<span class="nc bnc" id="L1031" title="All 2 branches missed.">			if (aCO instanceof CDOMObject)</span>
+			{
+<span class="nc" id="L1033">				creatorName = ((CDOMObject) aCO).getKeyName();</span>
+			}
+
+<span class="nc bnc" id="L1036" title="All 2 branches missed.">			if (aTO instanceof PlayerCharacter)</span>
+			{
+<span class="nc" id="L1038">				targetName = ((PlayerCharacter) aTO).getName();</span>
+			}
+<span class="nc bnc" id="L1040" title="All 2 branches missed.">			else if (aTO instanceof CDOMObject)</span>
+			{
+<span class="nc" id="L1042">				targetName = ((CDOMObject) aTO).getKeyName();</span>
+			}
+
+<span class="nc bnc" id="L1045" title="All 4 branches missed.">			if (creatorName.equals(aCreator) &amp;&amp; targetName.equals(aTarget))</span>
+			{
+<span class="nc" id="L1047">				aMap.put(bonus, tbi);</span>
+			}
+<span class="nc" id="L1049">		}</span>
+
+<span class="nc" id="L1051">		return aMap;</span>
+	}
+
+	public String getBonusContext(BonusObj bo, boolean shortForm)
+	{
+<span class="nc" id="L1056">		final StringBuilder sb = new StringBuilder(50);</span>
+
+<span class="nc" id="L1058">		boolean bEmpty = true;</span>
+<span class="nc" id="L1059">		sb.append('[');</span>
+<span class="nc bnc" id="L1060" title="All 2 branches missed.">		if (bo.hasPrerequisites())</span>
+		{
+<span class="nc bnc" id="L1062" title="All 2 branches missed.">			for (Prerequisite p : bo.getPrerequisiteList())</span>
+			{
+<span class="nc bnc" id="L1064" title="All 2 branches missed.">				if (!bEmpty)</span>
+				{
+<span class="nc" id="L1066">					sb.append(',');</span>
+				}
+<span class="nc" id="L1068">				sb.append(p.getDescription(shortForm));</span>
+<span class="nc" id="L1069">				bEmpty = false;</span>
+<span class="nc" id="L1070">			}</span>
+		}
+
+<span class="nc" id="L1073">		String type = bo.getTypeString();</span>
+<span class="nc bnc" id="L1074" title="All 2 branches missed.">		if (!type.isEmpty())</span>
+		{
+<span class="nc bnc" id="L1076" title="All 2 branches missed.">			if (!shortForm)</span>
+			{
+<span class="nc bnc" id="L1078" title="All 2 branches missed.">				if (!bEmpty)</span>
+				{
+<span class="nc" id="L1080">					sb.append('|');</span>
+				}
+<span class="nc" id="L1082">				sb.append(&quot;TYPE=&quot;);</span>
+<span class="nc" id="L1083">				bEmpty = false;</span>
+			}
+<span class="nc bnc" id="L1085" title="All 4 branches missed.">			if (!shortForm || sb.charAt(sb.length() - 1) == '[')</span>
+			{
+<span class="nc" id="L1087">				sb.append(type);</span>
+<span class="nc" id="L1088">				bEmpty = false;</span>
+			}
+		}
+
+		//
+		// If there is nothing shown in between the [], then show the Bonus's
+		// type
+		//
+<span class="nc bnc" id="L1096" title="All 2 branches missed.">		if (!bEmpty)</span>
+		{
+<span class="nc" id="L1098">			sb.append('|');</span>
+		}
+<span class="nc" id="L1100">		sb.append(getSourceString(bo));</span>
+<span class="nc" id="L1101">		sb.append(']');</span>
+
+<span class="nc" id="L1103">		return sb.toString();</span>
+	}
+
+	private String getSourceString(BonusObj bo)
+	{
+<span class="nc" id="L1108">		Object source = getSourceObject(bo);</span>
+<span class="nc bnc" id="L1109" title="All 2 branches missed.">		if (source == null)</span>
+		{
+<span class="nc" id="L1111">			return &quot;NONE&quot;;</span>
+		}
+<span class="nc bnc" id="L1113" title="All 2 branches missed.">		if (source instanceof PlayerCharacter)</span>
+		{
+<span class="nc" id="L1115">			return ((PlayerCharacter) source).getName();</span>
+		}
+		else
+		// if (source instanceof PObject)
+		{
+<span class="nc" id="L1120">			return source.toString();</span>
+		}
+	}
+
+	private Object getSourceObject(BonusObj bo)
+	{
+<span class="nc" id="L1126">		Object source = activeBonusBySource.get(bo);</span>
+<span class="nc bnc" id="L1127" title="All 2 branches missed.">		if (source == null)</span>
+		{
+<span class="nc" id="L1129">			TempBonusInfo tbi = tempBonusBySource.get(bo);</span>
+<span class="nc bnc" id="L1130" title="All 2 branches missed.">			if (tbi != null)</span>
+			{
+<span class="nc" id="L1132">				source = tbi.source;</span>
+			}
+		}
+<span class="nc" id="L1135">		return source;</span>
+	}
+
+	public List&lt;BonusPair&gt; getStringListFromBonus(BonusObj bo)
+	{
+<span class="nc" id="L1140">		Object creatorObj = getSourceObject(bo);</span>
+
+		List&lt;String&gt; associatedList;
+		CDOMObject anObj;
+<span class="nc bnc" id="L1144" title="All 2 branches missed.">		if (creatorObj instanceof CDOMObject)</span>
+		{
+<span class="nc" id="L1146">			anObj = (CDOMObject) creatorObj;</span>
+<span class="nc" id="L1147">			associatedList = pc.getConsolidatedAssociationList(anObj);</span>
+<span class="nc bnc" id="L1148" title="All 4 branches missed.">			if (associatedList == null || associatedList.isEmpty())</span>
+			{
+<span class="nc" id="L1150">				associatedList = NO_ASSOC_LIST;</span>
+			}
+		}
+		else
+		{
+<span class="nc" id="L1155">			associatedList = NO_ASSOC_LIST;</span>
+		}
+
+<span class="nc" id="L1158">		List&lt;BonusPair&gt; bonusList = new ArrayList&lt;&gt;();</span>
+
+		// Must use getBonusName because it contains the unaltered bonusType
+<span class="nc" id="L1161">		String bonusName = bo.getBonusName();</span>
+<span class="nc" id="L1162">		String[] bonusInfoArray = bo.getBonusInfo().split(&quot;,&quot;);</span>
+<span class="nc" id="L1163">		String bonusType = bo.getTypeString();</span>
+
+<span class="nc bnc" id="L1165" title="All 2 branches missed.">		for (String assoc : associatedList)</span>
+		{
+			String replacedName;
+<span class="nc bnc" id="L1168" title="All 2 branches missed.">			if (bonusName.contains(VALUE_TOKEN_REPLACEMENT))</span>
+			{
+<span class="nc" id="L1170">				replacedName = bonusName.replaceAll(VALUE_TOKEN_PATTERN, assoc);</span>
+			}
+			else
+			{
+<span class="nc" id="L1174">				replacedName = bonusName;</span>
+			}
+<span class="nc" id="L1176">			List&lt;String&gt; replacedInfoList = new ArrayList&lt;&gt;(4);</span>
+<span class="nc bnc" id="L1177" title="All 2 branches missed.">			for (String bonusInfo : bonusInfoArray)</span>
+			{
+<span class="nc bnc" id="L1179" title="All 2 branches missed.">				if (bonusInfo.contains(VALUE_TOKEN_REPLACEMENT))</span>
+				{
+<span class="nc" id="L1181">					replacedInfoList.add(bonusInfo.replaceAll(VALUE_TOKEN_PATTERN, assoc));</span>
+				}
+<span class="nc bnc" id="L1183" title="All 2 branches missed.">				else if (bonusInfo.contains(VAR_TOKEN_REPLACEMENT))</span>
+				{
+<span class="nc" id="L1185">					replacedInfoList.add(bonusName.replaceAll(VAR_TOKEN_PATTERN, assoc));</span>
+				}
+<span class="nc bnc" id="L1187" title="All 2 branches missed.">				else if (bonusInfo.equals(LIST_TOKEN_REPLACEMENT))</span>
+				{
+<span class="nc" id="L1189">					replacedInfoList.add(assoc);</span>
+				}
+				else
+				{
+<span class="nc" id="L1193">					replacedInfoList.add(bonusInfo);</span>
+				}
+			}
+			Formula newFormula;
+<span class="nc bnc" id="L1197" title="All 2 branches missed.">			if (bo.isValueStatic())</span>
+			{
+<span class="nc" id="L1199">				newFormula = bo.getFormula();</span>
+			}
+			else
+			{
+<span class="nc" id="L1203">				String value = bo.getValue();</span>
+
+				// A %LIST substitution also needs to be done in the val
+				// section
+<span class="nc" id="L1207">				int listIndex = value.indexOf(VALUE_TOKEN_REPLACEMENT);</span>
+<span class="nc" id="L1208">				String thisValue = value;</span>
+<span class="nc bnc" id="L1209" title="All 2 branches missed.">				if (listIndex &gt;= 0)</span>
+				{
+<span class="nc" id="L1211">					thisValue = value.replaceAll(VALUE_TOKEN_PATTERN, assoc);</span>
+				}
+				//Need to protect against a selection not being made with a %LIST
+<span class="nc bnc" id="L1214" title="All 2 branches missed.">				if (thisValue.isEmpty())</span>
+				{
+<span class="nc" id="L1216">					thisValue = &quot;0&quot;;</span>
+				}
+<span class="nc" id="L1218">				newFormula = FormulaFactory.getFormulaFor(thisValue);</span>
+			}
+<span class="nc bnc" id="L1220" title="All 2 branches missed.">			for (String replacedInfo : replacedInfoList)</span>
+			{
+<span class="nc" id="L1222">				StringBuilder sb = new StringBuilder(100);</span>
+<span class="nc" id="L1223">				sb.append(replacedName).append('.').append(replacedInfo);</span>
+<span class="nc bnc" id="L1224" title="All 2 branches missed.">				if (bo.hasTypeString())</span>
+				{
+<span class="nc" id="L1226">					sb.append(':').append(bonusType);</span>
+				}
+<span class="nc" id="L1228">				bonusList.add(new BonusPair(sb.toString(), newFormula, creatorObj));</span>
+<span class="nc" id="L1229">			}</span>
+<span class="nc" id="L1230">		}</span>
+
+<span class="nc" id="L1232">		return bonusList;</span>
+	}
+
+	public static class TempBonusInfo
+	{
+		public final Object source;
+		public final Object target;
+
+		public TempBonusInfo(Object src, Object tgt)
+<span class="nc" id="L1241">		{</span>
+<span class="nc" id="L1242">			source = src;</span>
+<span class="nc" id="L1243">			target = tgt;</span>
+<span class="nc" id="L1244">		}</span>
+	}
+
+	double calcBonusesWithCost(Iterable&lt;BonusObj&gt; list)
+	{
+<span class="nc" id="L1249">		double totalBonus = 0;</span>
+
+<span class="nc bnc" id="L1251" title="All 2 branches missed.">		for (BonusObj aBonus : list)</span>
+		{
+<span class="nc" id="L1253">			final CDOMObject anObj = (CDOMObject) getSourceObject(aBonus);</span>
+
+<span class="nc bnc" id="L1255" title="All 2 branches missed.">			if (anObj == null)</span>
+			{
+<span class="nc" id="L1257">				continue;</span>
+			}
+
+<span class="nc" id="L1260">			double iBonus = 0;</span>
+
+<span class="nc bnc" id="L1262" title="All 2 branches missed.">			if (aBonus.qualifies(pc, anObj))</span>
+			{
+<span class="nc" id="L1264">				iBonus = aBonus.resolve(pc, anObj.getQualifiedKey()).doubleValue();</span>
+			}
+
+			int k;
+<span class="nc bnc" id="L1268" title="All 2 branches missed.">			if (ChooseActivation.hasNewChooseToken(anObj))</span>
+			{
+<span class="nc" id="L1270">				k = 0;</span>
+
+<span class="nc bnc" id="L1272" title="All 2 branches missed.">				for (String aString : pc.getConsolidatedAssociationList(anObj))</span>
+				{
+<span class="nc bnc" id="L1274" title="All 2 branches missed.">					if (aString.equalsIgnoreCase(aBonus.getBonusInfo()))</span>
+					{
+<span class="nc" id="L1276">						++k;</span>
+					}
+<span class="nc" id="L1278">				}</span>
+			}
+			else
+			{
+<span class="nc" id="L1282">				k = 1;</span>
+			}
+
+<span class="nc bnc" id="L1285" title="All 4 branches missed.">			if ((k == 0) &amp;&amp; !CoreUtility.doublesEqual(iBonus, 0))</span>
+			{
+<span class="nc" id="L1287">				totalBonus += iBonus;</span>
+			}
+			else
+			{
+<span class="nc" id="L1291">				totalBonus += (iBonus * k);</span>
+			}
+<span class="nc" id="L1293">		}</span>
+
+<span class="nc" id="L1295">		return totalBonus;</span>
+	}
+
+	public boolean hasTempBonusesApplied(CDOMObject mod)
+	{
+<span class="nc" id="L1300">		return tempBonusBySource.values().stream()</span>
+<span class="nc" id="L1301">		                        .anyMatch(tbi -&gt; tbi.source.equals(mod));</span>
+	}
+
+	private Map&lt;BonusObj, Object&gt; getAllActiveBonuses()
+	{
+<span class="fc" id="L1306">		Map&lt;BonusObj, Object&gt; ret = new IdentityHashMap&lt;&gt;();</span>
+<span class="fc bfc" id="L1307" title="All 2 branches covered.">		for (final BonusContainer pobj : pc.getBonusContainerList())</span>
+		{
+			// We exclude equipmods here as their bonuses are already counted in
+			// the equipment they belong to.
+<span class="pc bpc" id="L1311" title="1 of 4 branches missed.">			if (pobj != null &amp;&amp; !(pobj instanceof EquipmentModifier))</span>
+			{
+<span class="fc" id="L1313">				boolean use = true;</span>
+<span class="pc bpc" id="L1314" title="1 of 2 branches missed.">				if (pobj instanceof PCClass)</span>
+				{
+					// Class bonuses are only included if the level is greater
+					// than 0
+					// This is because 0 levels of a class can be added to
+					// access spell casting etc
+<span class="nc bnc" id="L1320" title="All 2 branches missed.">					use = pc.getLevel(((PCClass) pobj)) &gt; 0;</span>
+				}
+<span class="pc bpc" id="L1322" title="1 of 2 branches missed.">				if (use)</span>
+				{
+<span class="fc" id="L1324">					pobj.activateBonuses(pc);</span>
+<span class="fc" id="L1325">					List&lt;BonusObj&gt; abs = pobj.getActiveBonuses(pc);</span>
+<span class="pc bpc" id="L1326" title="1 of 2 branches missed.">					for (BonusObj bo : abs)</span>
+					{
+<span class="nc" id="L1328">						ret.put(bo, pobj);</span>
+<span class="nc" id="L1329">					}</span>
+				}
+			}
+<span class="fc" id="L1332">		}</span>
+
+<span class="pc bpc" id="L1334" title="1 of 2 branches missed.">		if (pc.getUseTempMods())</span>
+		{
+<span class="fc" id="L1336">			ret.putAll(getTempBonuses());</span>
+		}
+<span class="fc" id="L1338">		return ret;</span>
+	}
+
+	/**
+	 * Report the change in bonuses from the last checkpoint to the log.
+	 */
+	public void logChangeFromCheckpoint()
+	{
+<span class="nc" id="L1346">		Map&lt;String, String&gt; addedMap = new HashMap&lt;&gt;(activeBonusMap);</span>
+<span class="nc bnc" id="L1347" title="All 2 branches missed.">		for (Entry&lt;String, String&gt; prevEntry : checkpointMap.entrySet())</span>
+		{
+<span class="nc" id="L1349">			String addedValue = addedMap.get(prevEntry.getKey());</span>
+<span class="nc bnc" id="L1350" title="All 2 branches missed.">			if (prevEntry.getValue().equals(addedValue))</span>
+			{
+<span class="nc" id="L1352">				addedMap.remove(prevEntry.getKey());</span>
+			}
+<span class="nc" id="L1354">		}</span>
+<span class="nc" id="L1355">		Map&lt;String, String&gt; removedMap = new HashMap&lt;&gt;(checkpointMap);</span>
+<span class="nc bnc" id="L1356" title="All 2 branches missed.">		for (Entry&lt;String, String&gt; prevEntry : activeBonusMap.entrySet())</span>
+		{
+<span class="nc" id="L1358">			String addedValue = removedMap.get(prevEntry.getKey());</span>
+<span class="nc bnc" id="L1359" title="All 2 branches missed.">			if (prevEntry.getValue().equals(addedValue))</span>
+			{
+<span class="nc" id="L1361">				removedMap.remove(prevEntry.getKey());</span>
+			}
+<span class="nc" id="L1363">		}</span>
+
+<span class="nc" id="L1365">		Logging.errorPrint(&quot;..Bonuses removed last round: &quot; + removedMap);</span>
+<span class="nc" id="L1366">		Logging.errorPrint(&quot;..Bonuses added last round: &quot; + addedMap);</span>
+<span class="nc" id="L1367">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TypeToken.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.lsttokens.gamemode.abilitycategory</a> &gt; <span class="el_source">TypeToken.java</span></div><h1>TypeToken.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) 2010 Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package plugin.lsttokens.gamemode.abilitycategory;
+
+import java.util.Set;
+import java.util.StringTokenizer;
+
+import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.Type;
+import pcgen.core.AbilityCategory;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.DeferredToken;
+import pcgen.rules.persistence.token.ParseResult;
+import pcgen.util.Logging;
+
+<span class="nc" id="L34">public class TypeToken extends AbstractNonEmptyToken&lt;AbilityCategory&gt;</span>
+		implements CDOMPrimaryToken&lt;AbilityCategory&gt;, DeferredToken&lt;AbilityCategory&gt;
+{
+
+	@Override
+	public String getTokenName()
+	{
+<span class="nc" id="L41">		return &quot;TYPE&quot;;</span>
+	}
+
+	@Override
+	public ParseResult parseNonEmptyToken(LoadContext context, AbilityCategory ac, String value)
+	{
+<span class="nc bnc" id="L47" title="All 2 branches missed.">		if (&quot;*&quot;.equals(value))</span>
+		{
+<span class="nc" id="L49">			ac.setAllAbilityTypes(true);</span>
+<span class="nc" id="L50">			return ParseResult.SUCCESS;</span>
+		}
+
+<span class="nc" id="L53">		ParseResult pr = checkForIllegalSeparator('.', value);</span>
+<span class="nc bnc" id="L54" title="All 2 branches missed.">		if (!pr.passed())</span>
+		{
+<span class="nc" id="L56">			return pr;</span>
+		}
+
+<span class="nc" id="L59">		StringTokenizer st = new StringTokenizer(value, Constants.DOT);</span>
+<span class="nc bnc" id="L60" title="All 2 branches missed.">		while (st.hasMoreTokens())</span>
+		{
+<span class="nc" id="L62">			String typeString = st.nextToken();</span>
+<span class="nc bnc" id="L63" title="All 2 branches missed.">			if (&quot;*&quot;.equals(typeString))</span>
+			{
+<span class="nc" id="L65">				return new ParseResult.Fail(&quot;Use of named types along with TYPE:* in category &quot; + ac.getDisplayName()</span>
+					+ &quot; is invalid.  Found: &quot; + value);
+			}
+			else
+			{
+<span class="nc" id="L70">				ac.addAbilityType(Type.getConstant(typeString));</span>
+			}
+<span class="nc" id="L72">		}</span>
+<span class="nc" id="L73">		return ParseResult.SUCCESS;</span>
+	}
+
+	@Override
+	public String[] unparse(LoadContext context, AbilityCategory ac)
+	{
+<span class="nc bnc" id="L79" title="All 2 branches missed.">		if (ac.isAllAbilityTypes())</span>
+		{
+<span class="nc" id="L81">			return new String[]{&quot;*&quot;};</span>
+		}
+<span class="nc" id="L83">		Set&lt;Type&gt; types = ac.getTypes();</span>
+<span class="nc bnc" id="L84" title="All 2 branches missed.">		if (types.isEmpty())</span>
+		{
+<span class="nc" id="L86">			return null;</span>
+		}
+<span class="nc" id="L88">		return new String[]{StringUtil.join(types, Constants.DOT)};</span>
+	}
+
+	@Override
+	public Class&lt;AbilityCategory&gt; getTokenClass()
+	{
+<span class="nc" id="L94">		return AbilityCategory.class;</span>
+	}
+
+	@Override
+	public Class&lt;AbilityCategory&gt; getDeferredTokenClass()
+	{
+<span class="nc" id="L100">		return AbilityCategory.class;</span>
+	}
+
+	@Override
+	public boolean process(LoadContext context, AbilityCategory ac)
+	{
+<span class="nc bnc" id="L106" title="All 2 branches missed.">		if (ac.isAllAbilityTypes())</span>
+		{
+<span class="nc bnc" id="L108" title="All 2 branches missed.">			if (!ac.getTypes().isEmpty())</span>
+			{
+<span class="nc" id="L110">				Logging.log(Logging.LST_ERROR,</span>
+<span class="nc" id="L111">					&quot;Use of named types along with TYPE:* in category &quot; + ac.getDisplayName() + &quot; is invalid.&quot;);</span>
+<span class="nc" id="L112">				return false;</span>
+			}
+<span class="nc bnc" id="L114" title="All 2 branches missed.">			if (ac.hasDirectReferences())</span>
+			{
+<span class="nc" id="L116">				Logging.log(Logging.LST_ERROR,</span>
+<span class="nc" id="L117">					&quot;Use of ABILITYLIST along with TYPE:* in category &quot; + ac.getDisplayName() + &quot; is invalid.&quot;);</span>
+<span class="nc" id="L118">				return false;</span>
+			}
+		}
+<span class="nc" id="L121">		return true;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

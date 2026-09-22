@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>NameGenLazyData.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.core.namegen</a> &gt; <span class="el_source">NameGenLazyData.java</span></div><h1>NameGenLazyData.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2026 Vest &lt;Vest@users.noreply.github.com&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ */
+package pcgen.core.namegen;
+
+import java.io.File;
+import java.io.IOException;
+import java.io.UncheckedIOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Set;
+
+/**
+ * On-demand backend that mirrors what {@link NameGenData} exposes but only
+ * parses each XML file when one of its rulesets is actually used. Built on
+ * top of {@link NameGenIndex} (cheap per-file pre-scan) and the per-file
+ * full-parse helpers in {@link NameGenDataLoader}.
+ *
+ * &lt;p&gt;A {@link RuleSet} returned to a caller is always fully materialised
+ * (its {@link RuleSet#rules() rules} list is real, not a stub). The {@code
+ * GETRULE} cross-references it contains keep working through
+ * {@link RulePart.RuleSetRef}'s shared map; that map grows as more files are
+ * parsed, so a ruleset that today references a not-yet-loaded ruleset will
+ * resolve once that target's owning file is parsed.
+ *
+ * &lt;p&gt;Not thread-safe. The UI calls into this serially on the FX thread.
+ */
+public final class NameGenLazyData
+{
+	private final File dataDir;
+	private final NameGenIndex index;
+
+	// Live, mutable accumulators populated as files are parsed.
+<span class="fc" id="L44">	private final Map&lt;String, NameList&gt; lists = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L45">	private final Map&lt;String, RuleSet&gt; rulesets = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L46">	private final List&lt;NameGenData.UnresolvedReference&gt; unresolved = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L47">	private final Set&lt;File&gt; parsedFiles = new LinkedHashSet&lt;&gt;();</span>
+<span class="fc" id="L48">	private final Set&lt;File&gt; inProgressFiles = new LinkedHashSet&lt;&gt;();</span>
+
+	private NameGenLazyData(File dataDir, NameGenIndex index)
+<span class="fc" id="L51">	{</span>
+<span class="fc" id="L52">		this.dataDir = dataDir;</span>
+<span class="fc" id="L53">		this.index = index;</span>
+<span class="fc" id="L54">	}</span>
+
+	/**
+	 * Build a lazy data layer over {@code dataDir}. Performs the StAX
+	 * pre-scan immediately; XML bodies are not parsed until needed.
+	 */
+	public static NameGenLazyData open(File dataDir) throws IOException
+	{
+<span class="fc" id="L62">		NameGenIndex index = NameGenIndex.scan(dataDir);</span>
+<span class="fc" id="L63">		return new NameGenLazyData(dataDir, index);</span>
+	}
+
+	/**
+	 * Sorted display category titles, exactly as a UI combo would show.
+	 * Reads only index metadata — no XML bodies parsed.
+	 */
+	public List&lt;String&gt; categoryTitles()
+	{
+<span class="fc" id="L72">		return List.copyOf(index.rulesetIdsByCategory().keySet());</span>
+	}
+
+	/**
+	 * Ruleset metadata for every ruleset declared under {@code category}.
+	 * Reads index only — no parse triggered. Returns an empty list if the
+	 * category is unknown.
+	 */
+	public List&lt;NameGenIndex.RuleSetMeta&gt; rulesetMetaFor(String category)
+	{
+<span class="fc" id="L82">		return index.rulesetIdsByCategory().getOrDefault(category, List.of()).stream()</span>
+<span class="fc" id="L83">				.map(index.rulesetsById()::get)</span>
+<span class="fc" id="L84">				.filter(Objects::nonNull)</span>
+<span class="fc" id="L85">				.toList();</span>
+	}
+
+	/**
+	 * Returns whether the ruleset id {@code candidate} is also declared
+	 * under the {@code Sex: &lt;gender&gt;} bucket. Reads index only — no parse
+	 * triggered.
+	 */
+	public boolean isInGenderBucket(String candidateId, String gender)
+	{
+<span class="fc" id="L95">		List&lt;String&gt; ids = index.rulesetIdsByCategory()</span>
+<span class="fc" id="L96">				.getOrDefault(&quot;Sex: &quot; + gender, List.of());</span>
+<span class="fc" id="L97">		return ids.contains(candidateId);</span>
+	}
+
+	/**
+	 * Genders declared for ruleset id {@code rulesetId}. Reads index only.
+	 */
+	public List&lt;String&gt; gendersForRuleset(String rulesetId)
+	{
+<span class="fc" id="L105">		NameGenIndex.RuleSetMeta meta = index.rulesetsById().get(rulesetId);</span>
+<span class="pc bpc" id="L106" title="1 of 2 branches missed.">		if (meta == null)</span>
+		{
+<span class="nc" id="L108">			return List.of();</span>
+		}
+<span class="fc" id="L110">		return meta.categoryTitles().stream()</span>
+<span class="fc" id="L111">				.filter(cat -&gt; cat.startsWith(&quot;Sex:&quot;))</span>
+<span class="fc" id="L112">				.map(cat -&gt; cat.substring(&quot;Sex:&quot;.length()).trim())</span>
+<span class="fc" id="L113">				.toList();</span>
+	}
+
+	/**
+	 * Fully-materialised {@link RuleSet} for {@code rulesetId}. Triggers
+	 * parsing of the owning file (and any files it transitively references
+	 * via {@code GETLIST}/{@code GETRULE}). Returns {@code null} if the id
+	 * is unknown.
+	 */
+	public RuleSet ruleSet(String rulesetId)
+	{
+<span class="fc" id="L124">		File owner = index.fileForRuleset(rulesetId);</span>
+<span class="pc bpc" id="L125" title="1 of 2 branches missed.">		if (owner == null)</span>
+		{
+<span class="nc" id="L127">			return null;</span>
+		}
+<span class="fc" id="L129">		ensureFileParsed(owner);</span>
+<span class="fc" id="L130">		return rulesets.get(rulesetId);</span>
+	}
+
+	/**
+	 * Live ruleset map — every entry is fully materialised.
+	 */
+	Map&lt;String, RuleSet&gt; liveRulesets()
+	{
+<span class="fc" id="L138">		return rulesets;</span>
+	}
+
+	/**
+	 * Live name-list map — entries appear as their owning files are parsed.
+	 */
+	Map&lt;String, NameList&gt; liveLists()
+	{
+<span class="fc" id="L146">		return lists;</span>
+	}
+
+	/**
+	 * All ruleset metadata known to the index.
+	 */
+	Map&lt;String, NameGenIndex.RuleSetMeta&gt; rulesetMeta()
+	{
+<span class="fc" id="L154">		return index.rulesetsById();</span>
+	}
+
+	/**
+	 * Index's category map (raw): category title -&gt; ruleset ids.
+	 */
+	Map&lt;String, List&lt;String&gt;&gt; rulesetIdsByCategory()
+	{
+<span class="fc" id="L162">		return index.rulesetIdsByCategory();</span>
+	}
+
+	/**
+	 * Live unresolved-references list, mutated as files get parsed.
+	 */
+	public List&lt;NameGenData.UnresolvedReference&gt; unresolvedReferences()
+	{
+<span class="fc" id="L170">		return Collections.unmodifiableList(unresolved);</span>
+	}
+
+	/**
+	 * Files parsed so far. Useful for benchmarks/tests.
+	 */
+	public Set&lt;File&gt; parsedFiles()
+	{
+<span class="fc" id="L178">		return Collections.unmodifiableSet(parsedFiles);</span>
+	}
+
+	private String crossFileRuleSetTitle(String rulesetId)
+	{
+<span class="fc" id="L183">		NameGenIndex.RuleSetMeta meta = index.rulesetsById().get(rulesetId);</span>
+<span class="pc bpc" id="L184" title="1 of 2 branches missed.">		return meta == null ? null : meta.title();</span>
+	}
+
+	/**
+	 * Idempotently parse {@code file} and every file it transitively pulls
+	 * in via {@code GETLIST}/{@code GETRULE}. The {@code parsedFiles} guard
+	 * keeps us from reparsing; {@code inProgressFiles} short-circuits
+	 * cycles between mutually-referencing files. {@link RulePart.RuleSetRef}
+	 * resolves through a shared map at generation time, so a cycle just
+	 * means one ruleset's reference temporarily points at an unbuilt
+	 * target — populated correctly once the outer call's phase 2 returns.
+	 */
+	private void ensureFileParsed(File file)
+	{
+<span class="pc bpc" id="L198" title="1 of 4 branches missed.">		if (parsedFiles.contains(file) || inProgressFiles.contains(file))</span>
+		{
+<span class="fc" id="L200">			return;</span>
+		}
+		// Two-phase parse so cross-file GETLIST/GETRULE references can be
+		// satisfied before this file's rule bodies are built. Phase 1
+		// registers this file's &lt;LIST&gt;s into the live map and returns the
+		// idrefs this file points at. We then transitively parse any
+		// referenced files (which goes through the same two-phase dance).
+		// Phase 2 finally builds this file's rulesets, by which time every
+		// referenced list/ruleset is in the live maps.
+<span class="fc" id="L209">		inProgressFiles.add(file);</span>
+		NameGenDataLoader.LazyFilePrepared prepared;
+		try
+		{
+			try
+			{
+<span class="fc" id="L215">				prepared = NameGenDataLoader.prepareFileForLazy(file, dataDir, lists);</span>
+<span class="nc" id="L216">			} catch (IOException e)</span>
+			{
+<span class="nc" id="L218">				throw new UncheckedIOException(e);</span>
+<span class="fc" id="L219">			}</span>
+			// Mark as parsed BEFORE recursing, otherwise a cycle (file A's
+			// rules reference file B which references file A) causes
+			// infinite recursion. The in-progress guard already short-
+			// circuits, but adding to parsedFiles here also lets us return
+			// early on identity-cycles without redoing prepare.
+<span class="fc" id="L225">			parsedFiles.add(file);</span>
+
+<span class="fc bfc" id="L227" title="All 2 branches covered.">			for (String idref : prepared.referencedListIds())</span>
+			{
+<span class="fc bfc" id="L229" title="All 2 branches covered.">				if (lists.containsKey(idref))</span>
+				{
+<span class="fc" id="L231">					continue;</span>
+				}
+<span class="fc" id="L233">				File target = index.fileForList(idref);</span>
+<span class="pc bpc" id="L234" title="1 of 2 branches missed.">				if (target != null)</span>
+				{
+<span class="fc" id="L236">					ensureFileParsed(target);</span>
+				}
+<span class="fc" id="L238">			}</span>
+<span class="fc bfc" id="L239" title="All 2 branches covered.">			for (String idref : prepared.referencedRuleSetIds())</span>
+			{
+<span class="fc bfc" id="L241" title="All 2 branches covered.">				if (rulesets.containsKey(idref))</span>
+				{
+<span class="fc" id="L243">					continue;</span>
+				}
+<span class="fc" id="L245">				File target = index.fileForRuleset(idref);</span>
+<span class="pc bpc" id="L246" title="1 of 2 branches missed.">				if (target != null)</span>
+				{
+<span class="fc" id="L248">					ensureFileParsed(target);</span>
+				}
+<span class="fc" id="L250">			}</span>
+
+			// Phase 2: build this file's rulesets now that every cross-file
+			// dependency has been registered.
+<span class="fc" id="L254">			NameGenDataLoader.buildRuleSetsForLazy(prepared, lists, rulesets, unresolved,</span>
+					this::crossFileRuleSetTitle);
+		} finally
+		{
+<span class="fc" id="L258">			inProgressFiles.remove(file);</span>
+		}
+<span class="fc" id="L260">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

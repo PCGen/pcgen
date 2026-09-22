@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AbstractPrerequisiteParser.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.persistence.lst.prereq</a> &gt; <span class="el_source">AbstractPrerequisiteParser.java</span></div><h1>AbstractPrerequisiteParser.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2001 (C) Bryan McRoberts &lt;merton_monk@yahoo.com&gt;
+ * Copyright 2003 (C) Chris Ward &lt;frugal@purplewombat.co.uk&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.       See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ *
+ *
+ */
+package pcgen.persistence.lst.prereq;
+
+import pcgen.core.prereq.Prerequisite;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.persistence.token.ParseResult;
+
+<span class="fc" id="L28">public abstract class AbstractPrerequisiteParser implements PrerequisiteParserInterface</span>
+{
+	/**
+	 * Parses the PreRequisite.
+	 * 
+	 * @param kind the kind of the prerequisite (less the &quot;PRE&quot; prefix).
+	 * @param formula The body of the prerequisite.
+	 * @param invertResult Whether the prerequisite should invert the result.
+	 * @param overrideQualify
+	 *           if set true, this prerequisite will be enforced in spite
+	 *           of any &quot;QUALIFY&quot; tag that may be present.
+	 * @return PreReq 
+	 * @throws PersistenceLayerException 
+	 */
+	@Override
+	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+		throws PersistenceLayerException
+	{
+		// Check to make sure that this class can parse this token
+<span class="fc" id="L47">		boolean foundTag = false;</span>
+
+<span class="pc bpc" id="L49" title="1 of 2 branches missed.">		for (int i = 0; i &lt; kindsHandled().length; i++)</span>
+		{
+<span class="fc" id="L51">			String arrayElement = kindsHandled()[i];</span>
+
+<span class="fc bfc" id="L53" title="All 2 branches covered.">			if (arrayElement.equalsIgnoreCase(kind))</span>
+			{
+<span class="fc" id="L55">				foundTag = true;</span>
+
+<span class="fc" id="L57">				break;</span>
+			}
+		}
+
+<span class="pc bpc" id="L61" title="1 of 2 branches missed.">		if (!foundTag)</span>
+		{
+<span class="nc" id="L63">			throw new PersistenceLayerException(</span>
+<span class="nc" id="L64">				this.getClass().getName() + &quot; can not parse a Prerequisite tag of '&quot; + kind + &quot;:&quot; + formula + &quot;'&quot;);</span>
+		}
+
+		// If we can parse this token then set the kind and invert flag.
+<span class="fc" id="L68">		Prerequisite prereq = new Prerequisite();</span>
+<span class="fc" id="L69">		prereq.setKind(kind);</span>
+
+<span class="fc" id="L71">		prereq.setOverrideQualify(overrideQualify);</span>
+<span class="fc" id="L72">		return prereq;</span>
+	}
+
+	/**
+	 * Checks a string to see if any separators are used correctly.
+	 * @param separator The separator that is used in the string.
+	 * @param value     The string to check.
+	 * @return  A parse result of success if the string uses separators correctly.
+	 */
+	protected ParseResult checkForIllegalSeparator(String kind, char separator, String value)
+	{
+<span class="pc bpc" id="L83" title="1 of 2 branches missed.">		if (value.charAt(0) == separator)</span>
+		{
+<span class="nc" id="L85">			return new ParseResult.Fail(&quot;PRE&quot; + kind + &quot; arguments may not start with &quot; + separator + &quot; : &quot; + value);</span>
+		}
+<span class="pc bpc" id="L87" title="1 of 2 branches missed.">		if (value.charAt(value.length() - 1) == separator)</span>
+		{
+<span class="nc" id="L89">			return new ParseResult.Fail(&quot;PRE&quot; + kind + &quot; arguments may not end with &quot; + separator + &quot; : &quot; + value);</span>
+		}
+<span class="pc bpc" id="L91" title="1 of 2 branches missed.">		if (value.contains(String.valueOf(new char[]{separator, separator})))</span>
+		{
+<span class="nc" id="L93">			return new ParseResult.Fail(</span>
+				&quot;PRE&quot; + kind + &quot; arguments uses double separator &quot; + separator + separator + &quot; : &quot; + value);
+		}
+<span class="fc" id="L96">		return ParseResult.SUCCESS;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

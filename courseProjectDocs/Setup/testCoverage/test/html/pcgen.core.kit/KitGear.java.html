@@ -1,0 +1,531 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>KitGear.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.core.kit</a> &gt; <span class="el_source">KitGear.java</span></div><h1>KitGear.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2001 (C) Greg Bingleman &lt;byngl@hotmail.com&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.core.kit;
+
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
+
+import pcgen.cdom.formula.Formula;
+import pcgen.util.NamedFormula;
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.helper.EqModRef;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.util.CControl;
+import pcgen.core.Equipment;
+import pcgen.core.EquipmentModifier;
+import pcgen.core.EquipmentUtilities;
+import pcgen.core.Globals;
+import pcgen.core.Kit;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.SizeAdjustment;
+import pcgen.core.character.EquipSet;
+import pcgen.output.channel.ChannelUtilities;
+
+/**
+ * {@code KitGear}.
+ */
+<span class="fc" id="L47">public final class KitGear extends BaseKit</span>
+{
+	private Formula quantity;
+	private Integer maxCost;
+	private CDOMReference&lt;Equipment&gt; equip;
+	private List&lt;EqModRef&gt; mods;
+<span class="fc" id="L53">	private String theLocationStr = null;</span>
+	private Boolean sizeToPC;
+	private CDOMSingleRef&lt;SizeAdjustment&gt; size;
+
+	// These members store the state of an instance of this class.  They are
+	// not cloned.
+	private Formula actingQuantity;
+	private Integer actingCost;
+	private List&lt;EqModRef&gt; actingMods;
+	private String actingLocation;
+	private SizeAdjustment actingSize;
+
+<span class="fc" id="L65">	private Equipment theEquipment = null;</span>
+<span class="fc" id="L66">	private int theQty = 0;</span>
+<span class="fc" id="L67">	private String theLocation = &quot;&quot;;</span>
+<span class="fc" id="L68">	private BigDecimal theCost = BigDecimal.ZERO;</span>
+
+	/**
+	 * Set the location of the gear
+	 * @param aLocation
+	 */
+	public void setLocation(final String aLocation)
+	{
+<span class="fc" id="L76">		theLocationStr = aLocation;</span>
+<span class="fc" id="L77">	}</span>
+
+	/**
+	 * Get the location of the gear
+	 * @return location of the gear
+	 */
+	public String getLocation()
+	{
+<span class="fc" id="L85">		return theLocationStr;</span>
+	}
+
+	@Override
+	public String toString()
+	{
+<span class="nc" id="L91">		final StringBuilder info = new StringBuilder(100);</span>
+
+<span class="nc bnc" id="L93" title="All 2 branches missed.">		if (quantity != null)</span>
+		{
+<span class="nc" id="L95">			String qtyStr = String.valueOf(quantity);</span>
+<span class="nc bnc" id="L96" title="All 2 branches missed.">			if (!&quot;1&quot;.equals(qtyStr))</span>
+			{
+<span class="nc" id="L98">				info.append(quantity).append('x');</span>
+			}
+		}
+
+<span class="nc bnc" id="L102" title="All 2 branches missed.">		info.append(equip == null ? &quot;null&quot; : equip.getLSTformat(false));</span>
+
+<span class="nc bnc" id="L104" title="All 2 branches missed.">		if (mods != null)</span>
+		{
+<span class="nc" id="L106">			info.append(&quot; (&quot;);</span>
+<span class="nc" id="L107">			boolean needsSlash = false;</span>
+<span class="nc bnc" id="L108" title="All 2 branches missed.">			for (EqModRef modRef : mods)</span>
+			{
+<span class="nc bnc" id="L110" title="All 2 branches missed.">				if (needsSlash)</span>
+				{
+<span class="nc" id="L112">					info.append('/');</span>
+				}
+<span class="nc" id="L114">				needsSlash = true;</span>
+<span class="nc" id="L115">				info.append(modRef.getRef().getLSTformat(false));</span>
+<span class="nc bnc" id="L116" title="All 2 branches missed.">				for (String s : modRef.getChoices())</span>
+				{
+<span class="nc" id="L118">					info.append(Constants.PIPE).append(s);</span>
+<span class="nc" id="L119">				}</span>
+<span class="nc" id="L120">			}</span>
+<span class="nc" id="L121">			info.append(')');</span>
+		}
+
+<span class="nc" id="L124">		return info.toString();</span>
+	}
+
+	private void processLookups(Kit aKit, PlayerCharacter aPC)
+	{
+<span class="nc" id="L129">		Collection&lt;NamedFormula&gt; lookups = getLookups();</span>
+<span class="nc bnc" id="L130" title="All 2 branches missed.">		if (lookups == null)</span>
+		{
+<span class="nc" id="L132">			return;</span>
+		}
+<span class="nc bnc" id="L134" title="All 2 branches missed.">		for (NamedFormula lookup : lookups)</span>
+		{
+<span class="nc" id="L136">			KitTable kt = aKit.getTable(lookup.getName());</span>
+<span class="nc" id="L137">			KitGear gear = kt.getEntry(aPC, lookup.getFormula().resolve(aPC, &quot;&quot;).intValue());</span>
+<span class="nc" id="L138">			gear.processLookups(aKit, aPC);</span>
+<span class="nc" id="L139">			overlayGear(gear);</span>
+<span class="nc" id="L140">		}</span>
+<span class="nc" id="L141">	}</span>
+
+	private void overlayGear(KitGear gear)
+	{
+<span class="nc bnc" id="L145" title="All 2 branches missed.">		if (gear.quantity != null)</span>
+		{
+<span class="nc" id="L147">			actingQuantity = gear.quantity;</span>
+		}
+<span class="nc bnc" id="L149" title="All 2 branches missed.">		if (gear.maxCost != null)</span>
+		{
+<span class="nc" id="L151">			actingCost = gear.maxCost;</span>
+		}
+<span class="nc bnc" id="L153" title="All 2 branches missed.">		if (gear.mods != null)</span>
+		{
+<span class="nc" id="L155">			actingMods.addAll(gear.mods);</span>
+		}
+<span class="nc bnc" id="L157" title="All 2 branches missed.">		if (gear.theLocationStr != null)</span>
+		{
+<span class="nc" id="L159">			actingLocation = gear.theLocationStr;</span>
+		}
+<span class="nc bnc" id="L161" title="All 2 branches missed.">		if (gear.size != null)</span>
+		{
+<span class="nc" id="L163">			actingSize = gear.size.get();</span>
+		}
+<span class="nc" id="L165">	}</span>
+
+	@Override
+	public boolean testApply(Kit aKit, PlayerCharacter aPC, List&lt;String&gt; warnings)
+	{
+<span class="nc" id="L170">		actingQuantity = quantity;</span>
+<span class="nc" id="L171">		actingCost = maxCost;</span>
+<span class="nc bnc" id="L172" title="All 2 branches missed.">		actingMods = mods == null ? null : new ArrayList&lt;&gt;(mods);</span>
+<span class="nc" id="L173">		actingLocation = theLocationStr;</span>
+<span class="nc bnc" id="L174" title="All 2 branches missed.">		if (size != null)</span>
+		{
+<span class="nc" id="L176">			actingSize = size.get();</span>
+		}
+
+<span class="nc" id="L179">		theEquipment = null;</span>
+<span class="nc" id="L180">		theQty = 0;</span>
+<span class="nc" id="L181">		theLocation = &quot;&quot;;</span>
+<span class="nc" id="L182">		theCost = BigDecimal.ZERO;</span>
+
+<span class="nc" id="L184">		processLookups(aKit, aPC);</span>
+
+<span class="nc" id="L186">		int aBuyRate = aKit.getBuyRate(aPC);</span>
+<span class="nc" id="L187">		BigDecimal pcGold = new BigDecimal(ChannelUtilities</span>
+<span class="nc" id="L188">			.readControlledChannel(aPC.getCharID(), CControl.GOLDINPUT).toString());</span>
+<span class="nc" id="L189">		final BigDecimal fixedTotalCost = aKit.getTotalCost(aPC);</span>
+<span class="nc bnc" id="L190" title="All 2 branches missed.">		if (fixedTotalCost != null)</span>
+		{
+			// We are going to charge fr the kit once, rather than for every piece of gear
+<span class="nc" id="L193">			aBuyRate = 0;</span>
+		}
+
+<span class="nc" id="L196">		List&lt;Equipment&gt; eqList = new ArrayList&lt;&gt;(equip.getContainedObjects());</span>
+<span class="nc bnc" id="L197" title="All 2 branches missed.">		if (actingCost != null)</span>
+		{
+<span class="nc" id="L199">			final BigDecimal bdMaxCost = new BigDecimal(Integer.toString(actingCost));</span>
+<span class="nc bnc" id="L200" title="All 2 branches missed.">			eqList.removeIf(equipment -&gt; equipment.getCost(aPC).compareTo(bdMaxCost) &gt; 0);</span>
+		}
+<span class="nc bnc" id="L202" title="All 2 branches missed.">		if (eqList.size() == 1)</span>
+		{
+<span class="nc" id="L204">			theEquipment = eqList.get(0);</span>
+		}
+		else
+		{
+<span class="nc" id="L208">			List&lt;Equipment&gt; selected = new ArrayList&lt;&gt;(1);</span>
+<span class="nc" id="L209">			selected = Globals.getChoiceFromList(&quot;Choose equipment&quot;, eqList, selected, 1, aPC);</span>
+<span class="nc bnc" id="L210" title="All 2 branches missed.">			if (selected.size() == 1)</span>
+			{
+<span class="nc" id="L212">				theEquipment = selected.get(0);</span>
+			}
+		}
+
+		//
+		// TODO: Check to see if the user has selected an item that
+		// requires modification (MOD:R)
+
+<span class="nc" id="L220">		theEquipment = theEquipment.clone();</span>
+
+		//
+		// Resize item for character--never resize weapons or ammo, unless it's a
+		// natural (weapon)
+<span class="nc" id="L225">		boolean tryResize = false;</span>
+
+<span class="nc" id="L227">		SizeAdjustment sizeToSet = aPC.getSizeAdjustment();</span>
+
+<span class="nc bnc" id="L229" title="All 2 branches missed.">		if (actingSize == null)</span>
+		{
+<span class="nc bnc" id="L231" title="All 6 branches missed.">			if (theEquipment.isType(&quot;Natural&quot;) || (sizeToPC != null &amp;&amp; sizeToPC)</span>
+<span class="nc bnc" id="L232" title="All 4 branches missed.">				|| (!theEquipment.isWeapon() &amp;&amp; !theEquipment.isAmmunition()))</span>
+			{
+<span class="nc" id="L234">				tryResize = Globals.canResizeHaveEffect(theEquipment.typeList());</span>
+			}
+		}
+		else
+		{
+<span class="nc bnc" id="L239" title="All 4 branches missed.">			if (sizeToPC != null &amp;&amp; sizeToPC)</span>
+			{
+<span class="nc" id="L241">				tryResize = Globals.canResizeHaveEffect(theEquipment.typeList());</span>
+			}
+			else
+			{
+<span class="nc" id="L245">				sizeToSet = actingSize;</span>
+<span class="nc" id="L246">				tryResize = true;</span>
+			}
+		}
+
+<span class="nc bnc" id="L250" title="All 2 branches missed.">		if (tryResize)</span>
+		{
+<span class="nc" id="L252">			theEquipment.resizeItem(aPC, sizeToSet);</span>
+		}
+		else
+		{
+			// We need setBase() called.  The only way to do that is to resize.
+			// We will set the size to itself.
+<span class="nc" id="L258">			theEquipment.resizeItem(aPC, theEquipment.getSizeAdjustment());</span>
+		}
+
+		//
+		// Find and add any equipment modifiers
+		//
+<span class="nc bnc" id="L264" title="All 2 branches missed.">		if (actingMods != null)</span>
+		{
+<span class="nc bnc" id="L266" title="All 2 branches missed.">			for (EqModRef modref : actingMods)</span>
+			{
+				/*
+				 * Going to do this the long way for now to avoid ugly entanglements
+				 */
+<span class="nc" id="L271">				StringBuilder sb = new StringBuilder(50);</span>
+<span class="nc" id="L272">				EquipmentModifier eqMod = modref.getRef().get();</span>
+<span class="nc" id="L273">				sb.append(eqMod.getKeyName());</span>
+<span class="nc bnc" id="L274" title="All 2 branches missed.">				for (String assoc : modref.getChoices())</span>
+				{
+<span class="nc" id="L276">					sb.append(Constants.PIPE).append(eval(aPC, assoc));</span>
+<span class="nc" id="L277">				}</span>
+<span class="nc" id="L278">				theEquipment.addEqModifiers(sb.toString(), true);</span>
+<span class="nc" id="L279">			}</span>
+		}
+
+<span class="nc bnc" id="L282" title="All 4 branches missed.">		if (tryResize || (actingMods != null))</span>
+		{
+<span class="nc" id="L284">			theEquipment.nameItemFromModifiers(aPC);</span>
+		}
+
+<span class="nc bnc" id="L287" title="All 2 branches missed.">		if (actingQuantity == null)</span>
+		{
+<span class="nc" id="L289">			theQty = 1;</span>
+		}
+		else
+		{
+<span class="nc" id="L293">			theQty = actingQuantity.resolve(aPC, &quot;&quot;).intValue();</span>
+		}
+<span class="nc" id="L295">		int origQty = theQty;</span>
+<span class="nc" id="L296">		final BigDecimal eqCost = theEquipment.getCost(aPC);</span>
+<span class="nc bnc" id="L297" title="All 2 branches missed.">		if (aBuyRate != 0)</span>
+		{
+<span class="nc" id="L299">            final BigDecimal bdBuyRate =</span>
+<span class="nc" id="L300">                    new BigDecimal(Integer.toString(aBuyRate)).multiply(new BigDecimal(&quot;0.01&quot;));</span>
+
+            // Check to see if the PC can afford to buy this equipment. If
+            // not, then decrement the quantity and try again.
+<span class="nc" id="L304">            theCost = eqCost.multiply(new BigDecimal(Integer.toString(theQty))).multiply(bdBuyRate);</span>
+
+<span class="nc bnc" id="L306" title="All 2 branches missed.">            while (theQty &gt; 0)</span>
+            {
+<span class="nc bnc" id="L308" title="All 2 branches missed.">                if (theCost.compareTo(pcGold) &lt;= 0) // PC has enough?</span>
+                {
+<span class="nc" id="L310">                    break;</span>
+                }
+
+<span class="nc" id="L313">                theCost = eqCost.multiply(new BigDecimal(Integer.toString(--theQty))).multiply(bdBuyRate);</span>
+            }
+
+<span class="nc" id="L316">    		BigDecimal currentGold = new BigDecimal(ChannelUtilities</span>
+<span class="nc" id="L317">    			.readControlledChannel(aPC.getCharID(), CControl.GOLDINPUT).toString());</span>
+<span class="nc" id="L318">			ChannelUtilities.setControlledChannel(aPC.getCharID(),</span>
+<span class="nc" id="L319">				CControl.GOLDINPUT, currentGold.subtract(theCost));</span>
+		}
+
+<span class="nc" id="L322">		boolean outOfFunds = false;</span>
+<span class="nc bnc" id="L323" title="All 2 branches missed.">		if (theQty != origQty)</span>
+		{
+<span class="nc" id="L325">			outOfFunds = true;</span>
+		}
+
+<span class="nc bnc" id="L328" title="All 2 branches missed.">		if (outOfFunds)</span>
+		{
+<span class="nc" id="L330">			warnings.add(&quot;GEAR: Could not purchase &quot; + (origQty - theQty) + &quot; &quot; + theEquipment.getName()</span>
+				+ &quot;. Not enough funds.&quot;);
+		}
+
+		//
+		// Can't buy none
+		//
+<span class="nc bnc" id="L337" title="All 2 branches missed.">		if (theQty == 0)</span>
+		{
+<span class="nc" id="L339">			return false;</span>
+		}
+
+<span class="nc" id="L342">		Equipment testApplyEquipment = theEquipment.clone();</span>
+		// Temporarily add the equipment so we can see if we can equip it.
+<span class="nc" id="L344">		testApplyEquipment.setQty(Float.valueOf(theQty));</span>
+<span class="nc" id="L345">		aPC.addEquipment(testApplyEquipment);</span>
+<span class="nc" id="L346">		Equipment theTarget = null;</span>
+<span class="nc bnc" id="L347" title="All 2 branches missed.">		if (actingLocation != null)</span>
+		{
+<span class="nc" id="L349">			theLocation = actingLocation;</span>
+<span class="nc bnc" id="L350" title="All 2 branches missed.">			if (!theLocation.equalsIgnoreCase(&quot;DEFAULT&quot;)</span>
+<span class="nc bnc" id="L351" title="All 2 branches missed.">				&amp;&amp; !theLocation.equalsIgnoreCase(Constants.EQUIP_LOCATION_CARRIED)</span>
+<span class="nc bnc" id="L352" title="All 2 branches missed.">				&amp;&amp; !theLocation.equalsIgnoreCase(Constants.EQUIP_LOCATION_NOTCARRIED)</span>
+<span class="nc bnc" id="L353" title="All 2 branches missed.">				&amp;&amp; !theLocation.equalsIgnoreCase(Constants.EQUIP_LOCATION_EQUIPPED))</span>
+			{
+<span class="nc" id="L355">				theTarget = EquipmentUtilities.findEquipmentByBaseKey(aPC.getEquipmentMasterList(), theLocation);</span>
+			}
+<span class="nc bnc" id="L357" title="All 2 branches missed.">			else if (theLocation.equalsIgnoreCase(&quot;DEFAULT&quot;))</span>
+			{
+<span class="nc" id="L359">				theLocation = &quot;&quot;;</span>
+			}
+
+<span class="nc" id="L362">			EquipSet eSet = null;</span>
+<span class="nc bnc" id="L363" title="All 2 branches missed.">			if (theTarget != null)</span>
+			{
+<span class="nc" id="L365">				eSet = aPC.getEquipSetForItem(aPC.getEquipSetByIdPath(EquipSet.DEFAULT_SET_PATH), theTarget);</span>
+			}
+<span class="nc bnc" id="L367" title="All 2 branches missed.">			if (eSet == null)</span>
+			{
+<span class="nc" id="L369">				eSet = aPC.getEquipSetByIdPath(EquipSet.DEFAULT_SET_PATH);</span>
+			}
+<span class="nc bnc" id="L371" title="All 2 branches missed.">			if (eSet == null)</span>
+			{
+<span class="nc" id="L373">				warnings.add(</span>
+<span class="nc" id="L374">					&quot;GEAR: Could not find location &quot; + theLocation + &quot; for gear &quot; + testApplyEquipment.getName() + &quot;.&quot;);</span>
+<span class="nc" id="L375">				return false;</span>
+			}
+			else
+			{
+<span class="nc" id="L379">				EquipSet eqSet =</span>
+<span class="nc" id="L380">						aPC.addEquipToTarget(eSet, theTarget, theLocation, testApplyEquipment, -1.0f);</span>
+<span class="nc bnc" id="L381" title="All 2 branches missed.">				if (eqSet == null)</span>
+				{
+<span class="nc" id="L383">					warnings.add(&quot;GEAR: Could not equip &quot; + testApplyEquipment.getName() + &quot; to &quot; + theLocation);</span>
+				}
+			}
+		}
+<span class="nc" id="L387">		return true;</span>
+	}
+
+	@Override
+	public void apply(PlayerCharacter aPC)
+	{
+<span class="nc" id="L393">		final Equipment existing = aPC.getEquipmentNamed(theEquipment.getName());</span>
+
+<span class="nc bnc" id="L395" title="All 2 branches missed.">		if (existing == null)</span>
+		{
+<span class="nc" id="L397">			theEquipment.setQty(Float.valueOf(theQty));</span>
+
+<span class="nc" id="L399">			aPC.addEquipment(theEquipment);</span>
+<span class="nc" id="L400">			Globals.getContext().getReferenceContext().importObject(theEquipment);</span>
+		}
+		else
+		{
+<span class="nc" id="L404">			existing.setQty(existing.qty() + theQty);</span>
+		}
+
+		// If the target is null, try and grab it incase it is there now
+<span class="nc" id="L408">		Equipment theTarget = null;</span>
+		EquipSet eSet;
+<span class="nc bnc" id="L410" title="All 2 branches missed.">		if (!theLocation.equalsIgnoreCase(Constants.EQUIP_LOCATION_CARRIED)</span>
+<span class="nc bnc" id="L411" title="All 2 branches missed.">			&amp;&amp; !theLocation.equalsIgnoreCase(Constants.EQUIP_LOCATION_NOTCARRIED)</span>
+<span class="nc bnc" id="L412" title="All 2 branches missed.">			&amp;&amp; !theLocation.equalsIgnoreCase(Constants.EQUIP_LOCATION_EQUIPPED))</span>
+		{
+<span class="nc" id="L414">			theTarget = EquipmentUtilities.findEquipmentByBaseKey(aPC.getEquipmentMasterList(), theLocation);</span>
+<span class="nc bnc" id="L415" title="All 2 branches missed.">			if (theTarget == null)</span>
+			{
+<span class="nc" id="L417">				theLocation = Constants.EQUIP_LOCATION_CARRIED;</span>
+			}
+		}
+<span class="nc bnc" id="L420" title="All 2 branches missed.">		if (theTarget == null)</span>
+		{
+<span class="nc" id="L422">			eSet = aPC.getEquipSetByIdPath(EquipSet.DEFAULT_SET_PATH);</span>
+		}
+		else
+		{
+<span class="nc" id="L426">			eSet = aPC.getEquipSetForItem(aPC.getEquipSetByIdPath(EquipSet.DEFAULT_SET_PATH), theTarget);</span>
+		}
+
+		//
+		// Equip the item to the default EquipSet.
+		//
+<span class="nc" id="L432">		aPC.addEquipToTarget(eSet, theTarget, theLocation, theEquipment, (float) theQty);</span>
+
+<span class="nc" id="L434">		BigDecimal currentGold = new BigDecimal(ChannelUtilities</span>
+<span class="nc" id="L435">			.readControlledChannel(aPC.getCharID(), CControl.GOLDINPUT).toString());</span>
+<span class="nc" id="L436">		ChannelUtilities.setControlledChannel(aPC.getCharID(),</span>
+<span class="nc" id="L437">			CControl.GOLDINPUT, currentGold.subtract(theCost));</span>
+<span class="nc" id="L438">	}</span>
+
+	@Override
+	public String getObjectName()
+	{
+<span class="nc" id="L443">		return &quot;Gear&quot;;</span>
+	}
+
+	public void setQuantity(Formula formula)
+	{
+<span class="fc" id="L448">		quantity = formula;</span>
+<span class="fc" id="L449">	}</span>
+
+	public Formula getQuantity()
+	{
+<span class="fc" id="L453">		return quantity;</span>
+	}
+
+	public void setMaxCost(Integer quan)
+	{
+<span class="fc" id="L458">		maxCost = quan;</span>
+<span class="fc" id="L459">	}</span>
+
+	public Integer getMaxCost()
+	{
+<span class="fc" id="L463">		return maxCost;</span>
+	}
+
+	public void setEquipment(CDOMReference&lt;Equipment&gt; reference)
+	{
+<span class="fc" id="L468">		equip = reference;</span>
+<span class="fc" id="L469">	}</span>
+
+	public CDOMReference&lt;Equipment&gt; getEquipment()
+	{
+<span class="fc" id="L473">		return equip;</span>
+	}
+
+	public void setSizeToPC(Boolean b)
+	{
+<span class="fc" id="L478">		sizeToPC = b;</span>
+<span class="fc" id="L479">	}</span>
+
+	public Boolean getSizeToPC()
+	{
+<span class="fc" id="L483">		return sizeToPC;</span>
+	}
+
+	public void setSize(CDOMSingleRef&lt;SizeAdjustment&gt; sa)
+	{
+<span class="fc" id="L488">		size = sa;</span>
+<span class="fc" id="L489">	}</span>
+
+	public CDOMSingleRef&lt;SizeAdjustment&gt; getSize()
+	{
+<span class="fc" id="L493">		return size;</span>
+	}
+
+	private List&lt;NamedFormula&gt; lookupList;
+
+	public void loadLookup(String tableEntry, Formula f)
+	{
+<span class="fc bfc" id="L500" title="All 2 branches covered.">		if (lookupList == null)</span>
+		{
+<span class="fc" id="L502">			lookupList = new LinkedList&lt;&gt;();</span>
+		}
+<span class="fc" id="L504">		lookupList.add(new NamedFormula(tableEntry, f));</span>
+<span class="fc" id="L505">	}</span>
+
+	public Collection&lt;NamedFormula&gt; getLookups()
+	{
+<span class="fc" id="L509">		return lookupList;</span>
+	}
+
+	public void addModRef(EqModRef modRef)
+	{
+<span class="fc bfc" id="L514" title="All 2 branches covered.">		if (mods == null)</span>
+		{
+<span class="fc" id="L516">			mods = new LinkedList&lt;&gt;();</span>
+		}
+<span class="fc" id="L518">		mods.add(modRef);</span>
+<span class="fc" id="L519">	}</span>
+
+	public boolean hasEqMods()
+	{
+<span class="pc bpc" id="L523" title="1 of 4 branches missed.">		return mods != null &amp;&amp; !mods.isEmpty();</span>
+	}
+
+	public List&lt;EqModRef&gt; getEqMods()
+	{
+<span class="fc" id="L528">		return Collections.unmodifiableList(mods);</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

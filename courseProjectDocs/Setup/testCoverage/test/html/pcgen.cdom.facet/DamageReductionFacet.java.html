@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DamageReductionFacet.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.facet</a> &gt; <span class="el_source">DamageReductionFacet.java</span></div><h1>DamageReductionFacet.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) Thomas Parker, 2009.
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package pcgen.cdom.facet;
+
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
+import java.util.regex.Pattern;
+
+import pcgen.base.lang.StringUtil;
+import pcgen.base.util.CaseInsensitiveMap;
+import pcgen.base.util.TreeMapToList;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.content.DamageReduction;
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.facet.base.AbstractSourcedListFacet;
+import pcgen.cdom.facet.event.DataFacetChangeEvent;
+import pcgen.cdom.facet.event.DataFacetChangeListener;
+
+/**
+ * DamageReductionFacet is a Facet that tracks the DamageReduction objects that
+ * have been granted to a Player Character.
+ * 
+ */
+<span class="fc" id="L42">public class DamageReductionFacet extends AbstractSourcedListFacet&lt;CharID, DamageReduction&gt;</span>
+		implements DataFacetChangeListener&lt;CharID, CDOMObject&gt;
+{
+
+<span class="fc" id="L46">	private static final Pattern OR_PATTERN = Pattern.compile(&quot; [oO][rR] &quot;);</span>
+<span class="fc" id="L47">	private static final Pattern AND_PATTERN = Pattern.compile(&quot; [aA][nN][dD] &quot;);</span>
+
+	private PrerequisiteFacet prerequisiteFacet;
+
+	private FormulaResolvingFacet formulaResolvingFacet;
+
+	private BonusCheckingFacet bonusCheckingFacet;
+
+	private CDOMObjectConsolidationFacet consolidationFacet;
+
+	/**
+	 * Extracts DamageReduction objects from CDOMObjects granted to a Player
+	 * Character. The DamageReduction objects are granted to the Player
+	 * Character.
+	 * 
+	 * Triggered when one of the Facets to which DamageReductionFacet listens
+	 * fires a DataFacetChangeEvent to indicate a CDOMObject was added to a
+	 * Player Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 */
+	@Override
+	public void dataAdded(DataFacetChangeEvent&lt;CharID, CDOMObject&gt; dfce)
+	{
+<span class="fc" id="L73">		CDOMObject cdo = dfce.getCDOMObject();</span>
+<span class="fc" id="L74">		List&lt;DamageReduction&gt; drs = cdo.getListFor(ListKey.DAMAGE_REDUCTION);</span>
+<span class="fc bfc" id="L75" title="All 2 branches covered.">		if (drs != null)</span>
+		{
+<span class="fc" id="L77">			addAll(dfce.getCharID(), drs, cdo);</span>
+		}
+<span class="fc" id="L79">	}</span>
+
+	/**
+	 * Extracts DamageReduction objects from CDOMObjects removed from a Player
+	 * Character. The DamageReduction objects are removed from to the Player
+	 * Character.
+	 * 
+	 * Triggered when one of the Facets to which DamageReductionFacet listens
+	 * fires a DataFacetChangeEvent to indicate a CDOMObject was removed from a
+	 * Player Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 */
+	@Override
+	public void dataRemoved(DataFacetChangeEvent&lt;CharID, CDOMObject&gt; dfce)
+	{
+<span class="fc" id="L97">		removeAll(dfce.getCharID(), dfce.getCDOMObject());</span>
+<span class="fc" id="L98">	}</span>
+
+	private CaseInsensitiveMap&lt;Integer&gt; getDRMap(CharID id, Map&lt;DamageReduction, Set&lt;Object&gt;&gt; componentMap)
+	{
+<span class="fc" id="L102">		CaseInsensitiveMap&lt;Integer&gt; andMap = new CaseInsensitiveMap&lt;&gt;();</span>
+<span class="pc bpc" id="L103" title="1 of 4 branches missed.">		if (componentMap == null || componentMap.isEmpty())</span>
+		{
+<span class="fc" id="L105">			return andMap;</span>
+		}
+<span class="fc" id="L107">		CaseInsensitiveMap&lt;Integer&gt; orMap = new CaseInsensitiveMap&lt;&gt;();</span>
+<span class="fc bfc" id="L108" title="All 2 branches covered.">		for (Map.Entry&lt;DamageReduction, Set&lt;Object&gt;&gt; me : componentMap.entrySet())</span>
+		{
+<span class="fc" id="L110">			DamageReduction dr = me.getKey();</span>
+<span class="fc bfc" id="L111" title="All 2 branches covered.">			for (Object source : me.getValue())</span>
+			{
+<span class="pc bpc" id="L113" title="1 of 2 branches missed.">				if (prerequisiteFacet.qualifies(id, dr, source))</span>
+				{
+<span class="pc bpc" id="L115" title="1 of 2 branches missed.">					String sourceString = (source instanceof CDOMObject) ? ((CDOMObject) source).getQualifiedKey() : &quot;&quot;;</span>
+<span class="fc" id="L116">					int rawDrValue = formulaResolvingFacet.resolve(id, dr.getReduction(), sourceString).intValue();</span>
+<span class="fc" id="L117">					String bypass = dr.getBypass();</span>
+<span class="fc bfc" id="L118" title="All 2 branches covered.">					if (OR_PATTERN.matcher(bypass).find())</span>
+					{
+<span class="fc" id="L120">						Integer current = orMap.get(bypass);</span>
+<span class="pc bpc" id="L121" title="1 of 4 branches missed.">						if ((current == null) || (current &lt; rawDrValue))</span>
+						{
+<span class="fc" id="L123">							orMap.put(dr.getBypass(), rawDrValue);</span>
+						}
+<span class="fc" id="L125">					}</span>
+					else
+					{
+						/*
+						 * TODO Shouldn't this expansion be done in the DR
+						 * token? (since it's static?)
+						 */
+<span class="fc" id="L132">						String[] splits = AND_PATTERN.split(bypass);</span>
+<span class="fc bfc" id="L133" title="All 2 branches covered.">						if (splits.length == 1)</span>
+						{
+<span class="fc" id="L135">							Integer current = andMap.get(dr.getBypass());</span>
+<span class="fc bfc" id="L136" title="All 4 branches covered.">							if ((current == null) || (current &lt; rawDrValue))</span>
+							{
+<span class="fc" id="L138">								andMap.put(dr.getBypass(), rawDrValue);</span>
+							}
+<span class="fc" id="L140">						}</span>
+						else
+						{
+<span class="fc bfc" id="L143" title="All 2 branches covered.">							for (String split : splits)</span>
+							{
+<span class="fc" id="L145">								Integer current = andMap.get(split);</span>
+<span class="fc bfc" id="L146" title="All 4 branches covered.">								if ((current == null) || (current &lt; rawDrValue))</span>
+								{
+<span class="fc" id="L148">									andMap.put(split, rawDrValue);</span>
+								}
+							}
+						}
+					}
+				}
+<span class="fc" id="L154">			}</span>
+<span class="fc" id="L155">		}</span>
+
+		// For each 'or'
+		// Case 1: A greater or equal DR for any value in the OR
+		// e.g. 10/good + 5/magic or good = 10/good
+		// Case 2: A smaller DR for any value in the OR
+		// e.g. 10/magic or good + 5/good = 10/magic or good; 5/good
+		// e.g. 10/magic or good or lawful + 5/good = 10/good; 5/magic or good
+<span class="fc bfc" id="L163" title="All 2 branches covered.">		for (Map.Entry&lt;Object, Integer&gt; me : orMap.entrySet())</span>
+		{
+<span class="fc" id="L165">			String origBypass = me.getKey().toString();</span>
+<span class="fc" id="L166">			Integer reduction = me.getValue();</span>
+<span class="fc" id="L167">			String[] orValues = OR_PATTERN.split(origBypass);</span>
+<span class="fc" id="L168">			boolean shouldAdd = true;</span>
+<span class="fc bfc" id="L169" title="All 2 branches covered.">			for (String orValue : orValues)</span>
+			{
+				// See if we already have a value for this type from the 'and'
+				// processing.
+<span class="fc" id="L173">				Integer andDR = andMap.get(orValue);</span>
+<span class="pc bpc" id="L174" title="1 of 4 branches missed.">				if (andDR != null &amp;&amp; andDR &gt;= reduction)</span>
+				{
+<span class="fc" id="L176">					shouldAdd = false;</span>
+<span class="fc" id="L177">					break;</span>
+				}
+			}
+<span class="fc bfc" id="L180" title="All 2 branches covered.">			if (shouldAdd)</span>
+			{
+<span class="fc" id="L182">				andMap.put(origBypass, reduction);</span>
+			}
+<span class="fc" id="L184">		}</span>
+<span class="fc" id="L185">		return andMap;</span>
+	}
+
+	/**
+	 * Returns the Damage Reduction String for the Player Character identified
+	 * by the given CharID.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character for which the
+	 *            Damage Reduction should be returned.
+	 * @return the Damage Reduction String for the Player Character identified
+	 *         by the given CharID
+	 */
+	public String getDRString(CharID id)
+	{
+<span class="nc" id="L200">		return getDRString(id, getCachedMap(id));</span>
+	}
+
+	/*
+	 * Weird exposure for TemplateModifier (don't like this)
+	 * 
+	 * TODO This really needs to be in the output layer, not in the facets
+	 */
+	public String getDRString(CharID id, Map&lt;DamageReduction, Set&lt;Object&gt;&gt; cachedMap)
+	{
+<span class="fc" id="L210">		CaseInsensitiveMap&lt;Integer&gt; map = getDRMap(id, cachedMap);</span>
+<span class="fc" id="L211">		TreeMapToList&lt;Integer, String&gt; hml = new TreeMapToList&lt;&gt;();</span>
+<span class="fc bfc" id="L212" title="All 2 branches covered.">		for (Map.Entry&lt;Object, Integer&gt; me : map.entrySet())</span>
+		{
+<span class="fc" id="L214">			String key = me.getKey().toString();</span>
+<span class="fc" id="L215">			int value = me.getValue();</span>
+<span class="fc" id="L216">			value += (int) bonusCheckingFacet.getBonus(id, &quot;DR&quot;, key);</span>
+<span class="fc" id="L217">			hml.addToListFor(value, key);</span>
+<span class="fc" id="L218">		}</span>
+<span class="fc bfc" id="L219" title="All 2 branches covered.">		for (Integer reduction : hml.getKeySet())</span>
+		{
+<span class="fc bfc" id="L221" title="All 2 branches covered.">			if (hml.sizeOfListFor(reduction) &gt; 1)</span>
+			{
+<span class="fc" id="L223">				Set&lt;String&gt; set = new TreeSet&lt;&gt;();</span>
+<span class="fc bfc" id="L224" title="All 2 branches covered.">				for (String s : hml.getListFor(reduction))</span>
+				{
+<span class="fc bfc" id="L226" title="All 2 branches covered.">					if (!OR_PATTERN.matcher(s).find())</span>
+					{
+<span class="fc" id="L228">						hml.removeFromListFor(reduction, s);</span>
+<span class="fc" id="L229">						set.add(s);</span>
+					}
+<span class="fc" id="L231">				}</span>
+<span class="fc" id="L232">				hml.addToListFor(reduction, StringUtil.join(set, &quot; and &quot;));</span>
+			}
+<span class="fc" id="L234">		}</span>
+
+<span class="fc" id="L236">		StringBuilder sb = new StringBuilder(40);</span>
+<span class="fc" id="L237">		boolean needSeparator = false;</span>
+<span class="fc bfc" id="L238" title="All 2 branches covered.">		for (Integer reduction : hml.getKeySet())</span>
+		{
+<span class="fc" id="L240">			Set&lt;String&gt; set = new TreeSet&lt;&gt;();</span>
+<span class="fc bfc" id="L241" title="All 2 branches covered.">			for (String s : hml.getListFor(reduction))</span>
+			{
+<span class="fc" id="L243">				set.add(reduction + &quot;/&quot; + s);</span>
+<span class="fc" id="L244">			}</span>
+<span class="fc bfc" id="L245" title="All 2 branches covered.">			if (needSeparator)</span>
+			{
+<span class="fc" id="L247">				sb.insert(0, &quot;; &quot;);</span>
+			}
+<span class="fc" id="L249">			needSeparator = true;</span>
+<span class="fc" id="L250">			sb.insert(0, StringUtil.join(set, &quot;; &quot;));</span>
+<span class="fc" id="L251">		}</span>
+<span class="fc" id="L252">		return sb.toString();</span>
+	}
+
+	/**
+	 * Gets the Damage Reduction value for the given Damage Reduction key and
+	 * Player Character identified by the given CharID.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character for which the
+	 *            Damage Reduction for the given key will be returned
+	 * @param key
+	 *            The key identifying which Damage Reduction value will be
+	 *            returned
+	 * @return The Damage Reduction value for the given Damage Reduction key and
+	 *         Player Character identified by the given CharID
+	 */
+	public Integer getDR(CharID id, String key)
+	{
+<span class="nc" id="L270">		return getNonBonusDR(id, key) + (int) bonusCheckingFacet.getBonus(id, &quot;DR&quot;, key);</span>
+	}
+
+	/**
+	 * Gets the Damage Reduction value, ignoring all bonuses, for the given
+	 * Damage Reduction key and Player Character identified by the given CharID.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character for which the
+	 *            Damage Reduction for the given key will be returned
+	 * @param key
+	 *            The key identifying which Damage Reduction value will be
+	 *            returned
+	 * @return The Damage Reduction value, ignoring all bonuses, for the given
+	 *         Damage Reduction key and Player Character identified by the given
+	 *         CharID
+	 */
+	private int getNonBonusDR(CharID id, String key)
+	{
+<span class="nc" id="L289">		Integer drValue = getDRMap(id, getCachedMap(id)).get(key);</span>
+<span class="nc bnc" id="L290" title="All 2 branches missed.">		return (drValue == null) ? 0 : drValue;</span>
+	}
+
+	public void setPrerequisiteFacet(PrerequisiteFacet prerequisiteFacet)
+	{
+<span class="fc" id="L295">		this.prerequisiteFacet = prerequisiteFacet;</span>
+<span class="fc" id="L296">	}</span>
+
+	public void setFormulaResolvingFacet(FormulaResolvingFacet formulaResolvingFacet)
+	{
+<span class="fc" id="L300">		this.formulaResolvingFacet = formulaResolvingFacet;</span>
+<span class="fc" id="L301">	}</span>
+
+	public void setBonusCheckingFacet(BonusCheckingFacet bonusCheckingFacet)
+	{
+<span class="fc" id="L305">		this.bonusCheckingFacet = bonusCheckingFacet;</span>
+<span class="fc" id="L306">	}</span>
+
+	public void setConsolidationFacet(CDOMObjectConsolidationFacet consolidationFacet)
+	{
+<span class="fc" id="L310">		this.consolidationFacet = consolidationFacet;</span>
+<span class="fc" id="L311">	}</span>
+
+	/**
+	 * Initializes the connections for DamageReductionFacet to other facets.
+	 * 
+	 * This method is automatically called by the Spring framework during
+	 * initialization of the DamageReductionFacet.
+	 */
+	public void init()
+	{
+<span class="fc" id="L321">		consolidationFacet.addDataFacetChangeListener(this);</span>
+<span class="fc" id="L322">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

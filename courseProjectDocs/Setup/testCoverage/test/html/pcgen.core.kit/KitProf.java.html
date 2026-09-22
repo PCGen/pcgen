@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>KitProf.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.core.kit</a> &gt; <span class="el_source">KitProf.java</span></div><h1>KitProf.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2001 (C) Greg Bingleman &lt;byngl@hotmail.com&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.core.kit;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+
+import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.PersistentTransitionChoice;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.core.Globals;
+import pcgen.core.Kit;
+import pcgen.core.PCClass;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.Race;
+import pcgen.core.WeaponProf;
+
+/**
+ * {@code KitFeat}.
+ */
+<span class="fc" id="L40">public final class KitProf extends BaseKit</span>
+{
+	private Integer choiceCount;
+
+<span class="fc" id="L44">	private final List&lt;CDOMSingleRef&lt;WeaponProf&gt;&gt; profList = new ArrayList&lt;&gt;();</span>
+	private Boolean racialProf;
+
+	// These members store the state of an instance of this class.  They are
+	// not cloned.
+<span class="fc" id="L49">	private CDOMObject thePObject = null;</span>
+<span class="fc" id="L50">	private List&lt;WeaponProf&gt; weaponProfs = null;</span>
+
+	/**
+	 * True if it is a racial proficiency
+	 * @return True if it is a racial proficiency
+	 */
+	public boolean isRacial()
+	{
+<span class="nc bnc" id="L58" title="All 4 branches missed.">		return racialProf != null &amp;&amp; racialProf;</span>
+	}
+
+	/**
+	 * Set racial proficiency flag
+	 * @param argRacial
+	 */
+	public void setRacialProf(Boolean argRacial)
+	{
+<span class="fc" id="L67">		racialProf = argRacial;</span>
+<span class="fc" id="L68">	}</span>
+
+	@Override
+	public String toString()
+	{
+<span class="nc" id="L73">		final int maxSize = profList.size();</span>
+<span class="nc" id="L74">		final StringBuilder info = new StringBuilder(maxSize * 10);</span>
+
+<span class="nc bnc" id="L76" title="All 4 branches missed.">		if ((getSafeCount() != 1) || (maxSize != 1))</span>
+		{
+<span class="nc" id="L78">			info.append(getSafeCount()).append(&quot; of &quot;);</span>
+		}
+
+<span class="nc" id="L81">		info.append(StringUtil.join(profList, &quot;, &quot;));</span>
+
+<span class="nc" id="L83">		return info.toString();</span>
+	}
+
+	@Override
+	public boolean testApply(Kit aKit, PlayerCharacter aPC, List&lt;String&gt; warnings)
+	{
+<span class="nc" id="L89">		thePObject = null;</span>
+<span class="nc" id="L90">		weaponProfs = null;</span>
+
+<span class="nc" id="L92">		PersistentTransitionChoice&lt;WeaponProf&gt; wpPTC = null;</span>
+<span class="nc bnc" id="L93" title="All 2 branches missed.">		if (isRacial())</span>
+		{
+<span class="nc" id="L95">			final Race pcRace = aPC.getRace();</span>
+
+<span class="nc bnc" id="L97" title="All 2 branches missed.">			if (pcRace == null)</span>
+			{
+<span class="nc" id="L99">				warnings.add(&quot;PROF: PC has no race&quot;);</span>
+
+<span class="nc" id="L101">				return false;</span>
+			}
+<span class="nc bnc" id="L103" title="All 2 branches missed.">			if (!aPC.hasBonusWeaponProfs(pcRace))</span>
+			{
+<span class="nc" id="L105">				warnings.add(&quot;PROF: Race has already selected bonus weapon proficiency&quot;);</span>
+
+<span class="nc" id="L107">				return false;</span>
+			}
+<span class="nc" id="L109">			thePObject = pcRace;</span>
+<span class="nc" id="L110">			wpPTC = getPTC(pcRace);</span>
+<span class="nc bnc" id="L111" title="All 2 branches missed.">			if (wpPTC == null)</span>
+			{
+<span class="nc" id="L113">				warnings.add(&quot;PROF: PC race has no WEAPONBONUS&quot;);</span>
+
+<span class="nc" id="L115">				return false;</span>
+			}
+<span class="nc" id="L117">		}</span>
+		else
+		{
+<span class="nc" id="L120">			Collection&lt;PCClass&gt; pcClasses = aPC.getClassSet();</span>
+<span class="nc bnc" id="L121" title="All 4 branches missed.">			if (pcClasses == null || pcClasses.isEmpty())</span>
+			{
+<span class="nc" id="L123">				warnings.add(&quot;PROF: No owning class found.&quot;);</span>
+
+<span class="nc" id="L125">				return false;</span>
+			}
+
+			// Search for a class that has bonusWeaponProfs.
+<span class="nc" id="L129">			PCClass pcClass = null;</span>
+<span class="nc bnc" id="L130" title="All 2 branches missed.">            for (PCClass aClass : pcClasses)</span>
+            {
+<span class="nc" id="L132">                pcClass = aClass;</span>
+<span class="nc" id="L133">                wpPTC = getPTC(pcClass);</span>
+<span class="nc bnc" id="L134" title="All 2 branches missed.">                if (wpPTC != null)</span>
+                {
+<span class="nc" id="L136">                    break;</span>
+                }
+<span class="nc" id="L138">            }</span>
+<span class="nc bnc" id="L139" title="All 2 branches missed.">			if (wpPTC == null)</span>
+			{
+<span class="nc" id="L141">				warnings.add(&quot;PROF: PC classes have no WEAPONBONUS&quot;);</span>
+
+<span class="nc" id="L143">				return false;</span>
+			}
+<span class="nc" id="L145">			thePObject = pcClass;</span>
+<span class="nc bnc" id="L146" title="All 2 branches missed.">			if (!aPC.hasBonusWeaponProfs(pcClass))</span>
+			{
+<span class="nc" id="L148">				warnings.add(&quot;PROF: Class has already selected bonus weapon proficiency&quot;);</span>
+
+<span class="nc" id="L150">				return false;</span>
+			}
+		}
+
+<span class="nc" id="L154">		final List&lt;WeaponProf&gt; aProfList = new ArrayList&lt;&gt;();</span>
+
+<span class="nc" id="L156">		Collection&lt;?&gt; choices = wpPTC.getChoices().getSet(aPC);</span>
+<span class="nc bnc" id="L157" title="All 2 branches missed.">		for (CDOMSingleRef&lt;WeaponProf&gt; profKey : profList)</span>
+		{
+<span class="nc" id="L159">			WeaponProf wp = profKey.get();</span>
+<span class="nc bnc" id="L160" title="All 2 branches missed.">			if (choices.contains(wp))</span>
+			{
+<span class="nc" id="L162">				wpPTC.act(Collections.singleton(wp), thePObject, aPC);</span>
+			}
+			else
+			{
+<span class="nc" id="L166">				warnings.add(&quot;PROF: Weapon proficiency \&quot;&quot; + wp.getKeyName() + &quot;\&quot; is not in list of choices&quot;);</span>
+			}
+<span class="nc" id="L168">		}</span>
+
+<span class="nc" id="L170">		int numberOfChoices = getSafeCount();</span>
+
+		//
+		// Can't choose more entries than there are...
+		//
+<span class="nc bnc" id="L175" title="All 2 branches missed.">		if (numberOfChoices &gt; aProfList.size())</span>
+		{
+<span class="nc" id="L177">			numberOfChoices = aProfList.size();</span>
+		}
+
+<span class="nc bnc" id="L180" title="All 2 branches missed.">		if (numberOfChoices == 0)</span>
+		{
+<span class="nc" id="L182">			return false;</span>
+		}
+
+		List&lt;WeaponProf&gt; xs;
+
+		//
+		// Force user to make enough selections
+		//
+		while (true)
+		{
+<span class="nc" id="L192">			xs = Globals.getChoiceFromList(&quot;Choose Proficiencies&quot;, aProfList, new ArrayList&lt;&gt;(), numberOfChoices,</span>
+				aPC);
+
+<span class="nc bnc" id="L195" title="All 2 branches missed.">			if (!xs.isEmpty())</span>
+			{
+<span class="nc" id="L197">				break;</span>
+			}
+		}
+
+		//
+		// Add to list of things to add to the character
+		//
+<span class="nc bnc" id="L204" title="All 2 branches missed.">		for (WeaponProf prof : xs)</span>
+		{
+<span class="nc bnc" id="L206" title="All 2 branches missed.">			if (weaponProfs == null)</span>
+			{
+<span class="nc" id="L208">				weaponProfs = new ArrayList&lt;&gt;();</span>
+			}
+<span class="nc" id="L210">			weaponProfs.add(prof);</span>
+<span class="nc" id="L211">		}</span>
+<span class="nc" id="L212">		return false;</span>
+	}
+
+	private PersistentTransitionChoice&lt;WeaponProf&gt; getPTC(CDOMObject cdo)
+	{
+<span class="nc" id="L217">		List&lt;PersistentTransitionChoice&lt;?&gt;&gt; adds = cdo.getListFor(ListKey.ADD);</span>
+<span class="nc bnc" id="L218" title="All 2 branches missed.">		for (PersistentTransitionChoice&lt;?&gt; ptc : adds)</span>
+		{
+<span class="nc bnc" id="L220" title="All 2 branches missed.">			if (ptc.getChoiceClass().equals(WeaponProf.class))</span>
+			{
+<span class="nc" id="L222">				return (PersistentTransitionChoice&lt;WeaponProf&gt;) ptc;</span>
+			}
+<span class="nc" id="L224">		}</span>
+<span class="nc" id="L225">		return null;</span>
+	}
+
+	@Override
+	public void apply(PlayerCharacter aPC)
+	{
+<span class="nc" id="L231">		PersistentTransitionChoice&lt;WeaponProf&gt; wpPTC = getPTC(thePObject);</span>
+<span class="nc" id="L232">		Collection&lt;?&gt; choices = wpPTC.getChoices().getSet(aPC);</span>
+<span class="nc bnc" id="L233" title="All 2 branches missed.">		for (CDOMSingleRef&lt;WeaponProf&gt; profKey : profList)</span>
+		{
+<span class="nc" id="L235">			WeaponProf wp = profKey.get();</span>
+<span class="nc bnc" id="L236" title="All 2 branches missed.">			if (choices.contains(wp))</span>
+			{
+<span class="nc" id="L238">				wpPTC.act(Collections.singleton(wp), thePObject, aPC);</span>
+			}
+<span class="nc" id="L240">		}</span>
+<span class="nc" id="L241">	}</span>
+
+	@Override
+	public String getObjectName()
+	{
+<span class="nc" id="L246">		return &quot;Proficiencies&quot;;</span>
+	}
+
+	public void setCount(Integer quan)
+	{
+<span class="fc" id="L251">		choiceCount = quan;</span>
+<span class="fc" id="L252">	}</span>
+
+	public Integer getCount()
+	{
+<span class="fc" id="L256">		return choiceCount;</span>
+	}
+
+	public int getSafeCount()
+	{
+<span class="nc bnc" id="L261" title="All 2 branches missed.">		return choiceCount == null ? 1 : choiceCount;</span>
+	}
+
+	public void addProficiency(CDOMSingleRef&lt;WeaponProf&gt; ref)
+	{
+<span class="fc" id="L266">		profList.add(ref);</span>
+<span class="fc" id="L267">	}</span>
+
+	public Collection&lt;CDOMSingleRef&lt;WeaponProf&gt;&gt; getProficiencies()
+	{
+<span class="fc" id="L271">		return profList;</span>
+	}
+
+	public Boolean getRacialProf()
+	{
+<span class="fc" id="L276">		return racialProf;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

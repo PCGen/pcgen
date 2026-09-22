@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>LoadValidator.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.rules.context</a> &gt; <span class="el_source">LoadValidator.java</span></div><h1>LoadValidator.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2009 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.rules.context;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import pcgen.base.util.HashMapToList;
+import pcgen.cdom.base.ClassIdentity;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.reference.Qualifier;
+import pcgen.cdom.reference.UnconstructedValidator;
+import pcgen.core.Campaign;
+
+public class LoadValidator implements UnconstructedValidator
+{
+	private final List&lt;Campaign&gt; campaignList;
+	private HashMapToList&lt;String, String&gt; simpleMap;
+
+	public LoadValidator(List&lt;Campaign&gt; campaigns)
+<span class="nc" id="L36">	{</span>
+<span class="nc" id="L37">		campaignList = new ArrayList&lt;&gt;(campaigns);</span>
+<span class="nc" id="L38">	}</span>
+
+	@Override
+	public &lt;T&gt; boolean allowUnconstructed(ClassIdentity&lt;T&gt; cl, String s)
+	{
+<span class="nc bnc" id="L43" title="All 2 branches missed.">		if (simpleMap == null)</span>
+		{
+<span class="nc" id="L45">			buildSimpleMap();</span>
+		}
+<span class="nc" id="L47">		List&lt;String&gt; list = simpleMap.getListFor(cl.getPersistentFormat());</span>
+<span class="nc bnc" id="L48" title="All 2 branches missed.">		if (list != null)</span>
+		{
+<span class="nc bnc" id="L50" title="All 2 branches missed.">			for (String key : list)</span>
+			{
+<span class="nc bnc" id="L52" title="All 2 branches missed.">				if (key.equalsIgnoreCase(s))</span>
+				{
+<span class="nc" id="L54">					return true;</span>
+				}
+<span class="nc" id="L56">			}</span>
+		}
+<span class="nc" id="L58">		return false;</span>
+	}
+
+	private void buildSimpleMap()
+	{
+<span class="nc" id="L63">		simpleMap = new HashMapToList&lt;&gt;();</span>
+<span class="nc bnc" id="L64" title="All 2 branches missed.">		for (Campaign c : campaignList)</span>
+		{
+<span class="nc bnc" id="L66" title="All 2 branches missed.">			for (Qualifier q : c.getSafeListFor(ListKey.FORWARDREF))</span>
+			{
+<span class="nc" id="L68">				simpleMap.addToListFor(q.getQualifiedReference().getPersistentFormat(),</span>
+<span class="nc" id="L69">					q.getQualifiedReference().getLSTformat(false));</span>
+<span class="nc" id="L70">			}</span>
+<span class="nc" id="L71">		}</span>
+<span class="nc" id="L72">	}</span>
+
+	@Override
+	public boolean allowDuplicates(Class&lt;?&gt; cl)
+	{
+<span class="nc bnc" id="L77" title="All 2 branches missed.">		for (Campaign c : campaignList)</span>
+		{
+<span class="nc bnc" id="L79" title="All 2 branches missed.">			if (c.containsInList(ListKey.DUPES_ALLOWED, cl))</span>
+			{
+<span class="nc" id="L81">				return true;</span>
+			}
+<span class="nc" id="L83">		}</span>
+<span class="nc" id="L84">		return false;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

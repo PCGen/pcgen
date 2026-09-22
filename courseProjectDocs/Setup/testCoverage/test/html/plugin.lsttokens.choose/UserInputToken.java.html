@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UserInputToken.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.lsttokens.choose</a> &gt; <span class="el_source">UserInputToken.java</span></div><h1>UserInputToken.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2007 (C) Thomas Parker &lt;thpr@users.sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package plugin.lsttokens.choose;
+
+import pcgen.cdom.formula.Formula;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.ChooseInformation;
+import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.base.UserChooseInformation;
+import pcgen.cdom.enumeration.FormulaKey;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.ParseResult;
+import pcgen.util.Logging;
+
+/**
+ * New chooser plugin, handles User Input.
+ */
+<span class="fc" id="L35">public class UserInputToken implements CDOMSecondaryToken&lt;CDOMObject&gt;</span>
+{
+
+	@Override
+	public String getTokenName()
+	{
+<span class="fc" id="L41">		return &quot;USERINPUT&quot;;</span>
+	}
+
+	@Override
+	public String getParentToken()
+	{
+<span class="fc" id="L47">		return &quot;CHOOSE&quot;;</span>
+	}
+
+	@Override
+	public ParseResult parseToken(LoadContext context, CDOMObject obj, String value)
+	{
+		String title;
+<span class="fc bfc" id="L54" title="All 2 branches covered.">		if (value != null)</span>
+		{
+<span class="fc" id="L56">			int pipeLoc = value.indexOf('|');</span>
+			String titleString;
+<span class="pc bpc" id="L58" title="1 of 2 branches missed.">			if (pipeLoc == -1)</span>
+			{
+<span class="fc" id="L60">				titleString = value;</span>
+			}
+			else
+			{
+<span class="nc" id="L64">				String countString = value.substring(0, pipeLoc);</span>
+<span class="nc" id="L65">				Logging.deprecationPrint(&quot;CHOOSE:USERINPUT with count is deprecated, &quot;</span>
+					+ &quot;please use SELECT: to identify the quantity of selections&quot;, context);
+				int firstarg;
+				try
+				{
+<span class="nc" id="L70">					firstarg = Integer.parseInt(countString);</span>
+				}
+<span class="nc" id="L72">				catch (NumberFormatException nfe)</span>
+				{
+<span class="nc" id="L74">					return new ParseResult.Fail(&quot;If CHOOSE:&quot; + getTokenName() + &quot; contains a pipe, &quot;</span>
+						+ &quot;first argument must be an Integer : &quot; + value);
+<span class="nc" id="L76">				}</span>
+<span class="nc" id="L77">				Formula count = FormulaFactory.getFormulaFor(firstarg);</span>
+<span class="nc" id="L78">				context.getObjectContext().put(obj, FormulaKey.NUMCHOICES, count);</span>
+<span class="nc" id="L79">				context.getObjectContext().put(obj, FormulaKey.SELECT, count);</span>
+<span class="nc" id="L80">				titleString = value.substring(pipeLoc + 1);</span>
+			}
+<span class="pc bpc" id="L82" title="1 of 2 branches missed.">			if (!titleString.startsWith(&quot;TITLE=&quot;))</span>
+			{
+<span class="nc" id="L84">				return new ParseResult.Fail(&quot;CHOOSE:&quot; + getTokenName() + &quot; in &quot; + obj.getClass() + ' '</span>
+<span class="nc" id="L85">					+ obj.getKeyName() + &quot; had invalid arguments: &quot; + value);</span>
+			}
+<span class="fc" id="L87">			title = titleString.substring(6);</span>
+<span class="pc bpc" id="L88" title="1 of 2 branches missed.">			if (title.startsWith(&quot;\&quot;&quot;))</span>
+			{
+<span class="nc" id="L90">				title = title.substring(1, title.length() - 1);</span>
+			}
+<span class="fc" id="L92">		}</span>
+		else
+		{
+			// No args - legal
+<span class="fc" id="L96">			title = getDefaultTitle();</span>
+		}
+<span class="fc" id="L98">		UserChooseInformation ci = new UserChooseInformation(title);</span>
+<span class="fc" id="L99">		context.getObjectContext().put(obj, ObjectKey.CHOOSE_INFO, ci);</span>
+<span class="fc" id="L100">		return ParseResult.SUCCESS;</span>
+	}
+
+	@Override
+	public String[] unparse(LoadContext context, CDOMObject cdo)
+	{
+<span class="fc" id="L106">		ChooseInformation&lt;?&gt; ci = context.getObjectContext().getObject(cdo, ObjectKey.CHOOSE_INFO);</span>
+<span class="pc bpc" id="L107" title="2 of 4 branches missed.">		if ((ci == null) || !ci.getName().equals(UserChooseInformation.UCI_NAME))</span>
+		{
+<span class="nc" id="L109">			return null;</span>
+		}
+<span class="fc" id="L111">		String title = ci.getTitle();</span>
+<span class="fc" id="L112">		String result = &quot;&quot;;</span>
+<span class="fc bfc" id="L113" title="All 2 branches covered.">		if (!title.equals(getDefaultTitle()))</span>
+		{
+<span class="fc" id="L115">			result = &quot;TITLE=&quot; + title;</span>
+		}
+<span class="fc" id="L117">		return new String[]{result};</span>
+	}
+
+	private String getDefaultTitle()
+	{
+<span class="fc" id="L122">		return &quot;Provide User Input&quot;;</span>
+	}
+
+	@Override
+	public Class&lt;CDOMObject&gt; getTokenClass()
+	{
+<span class="fc" id="L128">		return CDOMObject.class;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

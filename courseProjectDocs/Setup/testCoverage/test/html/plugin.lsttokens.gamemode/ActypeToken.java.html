@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ActypeToken.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.lsttokens.gamemode</a> &gt; <span class="el_source">ActypeToken.java</span></div><h1>ActypeToken.java</h1><pre class="source lang-java linenums">/*
+ * ActypeToken.java
+ * Copyright 2005 (C) Greg Bingleman &lt;byngl@hotmail.com&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package plugin.lsttokens.gamemode;
+
+import java.net.URI;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.StringTokenizer;
+
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.content.ACControl;
+import pcgen.core.GameMode;
+import pcgen.core.prereq.Prerequisite;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.GameModeLstToken;
+import pcgen.persistence.lst.prereq.PreParserFactory;
+import pcgen.util.Logging;
+
+/**
+ * {@code ActypeToken}
+ * 
+ */
+<span class="nc" id="L40">public class ActypeToken implements GameModeLstToken</span>
+{
+
+	@Override
+	public String getTokenName()
+	{
+<span class="nc" id="L46">		return &quot;ACTYPE&quot;;</span>
+	}
+
+	@Override
+	public boolean parse(GameMode gameMode, String value, URI source)
+	{
+<span class="nc" id="L52">		final StringTokenizer aTok = new StringTokenizer(value, &quot;\t&quot;);</span>
+
+<span class="nc bnc" id="L54" title="All 2 branches missed.">		if (!aTok.hasMoreTokens())</span>
+		{
+<span class="nc" id="L56">			Logging.errorPrint(&quot;Empty tag in miscinfo.ACTYPE&quot;);</span>
+
+<span class="nc" id="L58">			return false;</span>
+		}
+
+<span class="nc" id="L61">		final String acType = aTok.nextToken();</span>
+
+<span class="nc bnc" id="L63" title="All 2 branches missed.">		while (aTok.hasMoreTokens())</span>
+		{
+<span class="nc" id="L65">			final String aString = aTok.nextToken();</span>
+
+<span class="nc bnc" id="L67" title="All 2 branches missed.">			if (aString.startsWith(&quot;ADD:&quot;))</span>
+			{
+<span class="nc" id="L69">				Collection&lt;ACControl&gt; controls = parseACControl(aString.substring(4));</span>
+<span class="nc bnc" id="L70" title="All 2 branches missed.">				if (controls == null)</span>
+				{
+<span class="nc" id="L72">					return false;</span>
+				}
+<span class="nc" id="L74">				gameMode.addACAdds(acType, controls);</span>
+<span class="nc" id="L75">			}</span>
+<span class="nc bnc" id="L76" title="All 2 branches missed.">			else if (aString.startsWith(&quot;REMOVE:&quot;))</span>
+			{
+<span class="nc" id="L78">				Collection&lt;ACControl&gt; controls = parseACControl(aString.substring(7));</span>
+<span class="nc bnc" id="L79" title="All 2 branches missed.">				if (controls == null)</span>
+				{
+<span class="nc" id="L81">					return false;</span>
+				}
+<span class="nc" id="L83">				gameMode.addACRemoves(acType, controls);</span>
+<span class="nc" id="L84">			}</span>
+			else
+			{
+<span class="nc" id="L87">				Logging.errorPrint(&quot;Incorrect tag in miscinfo.ACTYPE: &quot; + aString);</span>
+<span class="nc" id="L88">				return false;</span>
+			}
+<span class="nc" id="L90">		}</span>
+<span class="nc" id="L91">		return true;</span>
+	}
+
+	private Collection&lt;ACControl&gt; parseACControl(String str)
+	{
+<span class="nc" id="L96">		StringTokenizer st = new StringTokenizer(str, Constants.PIPE);</span>
+<span class="nc" id="L97">		List&lt;ACControl&gt; acTypes = new ArrayList&lt;&gt;();</span>
+		String token;
+		while (true)
+		{
+<span class="nc" id="L101">			token = st.nextToken();</span>
+<span class="nc bnc" id="L102" title="All 2 branches missed.">			if (PreParserFactory.isPreReqString(token))</span>
+			{
+<span class="nc" id="L104">				break;</span>
+			}
+<span class="nc" id="L106">			acTypes.add(new ACControl(token));</span>
+<span class="nc bnc" id="L107" title="All 2 branches missed.">			if (!st.hasMoreTokens())</span>
+			{
+<span class="nc" id="L109">				return acTypes;</span>
+			}
+		}
+<span class="nc bnc" id="L112" title="All 2 branches missed.">		if (acTypes.isEmpty())</span>
+		{
+<span class="nc" id="L114">			Logging.errorPrint(&quot;No types found in actype control: &quot; + str);</span>
+<span class="nc" id="L115">			return null;</span>
+		}
+		while (true)
+		{
+			try
+			{
+<span class="nc" id="L121">				PreParserFactory factory = PreParserFactory.getInstance();</span>
+<span class="nc" id="L122">				Prerequisite prereq = factory.parse(token);</span>
+<span class="nc bnc" id="L123" title="All 2 branches missed.">				for (ACControl acc : acTypes)</span>
+				{
+<span class="nc" id="L125">					acc.addPrerequisite(prereq);</span>
+<span class="nc" id="L126">				}</span>
+			}
+<span class="nc" id="L128">			catch (PersistenceLayerException ple)</span>
+			{
+<span class="nc" id="L130">				Logging.errorPrint(ple.getMessage(), ple);</span>
+<span class="nc" id="L131">				return null;</span>
+<span class="nc" id="L132">			}</span>
+<span class="nc bnc" id="L133" title="All 2 branches missed.">			if (!st.hasMoreTokens())</span>
+			{
+<span class="nc" id="L135">				break;</span>
+			}
+<span class="nc" id="L137">			token = st.nextToken();</span>
+<span class="nc bnc" id="L138" title="All 2 branches missed.">			if (!PreParserFactory.isPreReqString(token))</span>
+			{
+<span class="nc" id="L140">				Logging.errorPrint(&quot;ERROR: Type found after&quot; + &quot; PRExxx in actype control: &quot; + str);</span>
+<span class="nc" id="L141">				return null;</span>
+			}
+		}
+<span class="nc" id="L144">		return acTypes;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

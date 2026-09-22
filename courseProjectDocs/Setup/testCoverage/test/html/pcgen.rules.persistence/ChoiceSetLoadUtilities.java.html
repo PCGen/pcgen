@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ChoiceSetLoadUtilities.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.rules.persistence</a> &gt; <span class="el_source">ChoiceSetLoadUtilities.java</span></div><h1>ChoiceSetLoadUtilities.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2008 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ *
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.rules.persistence;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+import pcgen.base.text.ParsingSeparator;
+import pcgen.base.util.ObjectContainer;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.GroupDefinition;
+import pcgen.cdom.base.Loadable;
+import pcgen.cdom.base.PrimitiveCollection;
+import pcgen.cdom.grouping.GroupingCollection;
+import pcgen.cdom.grouping.GroupingDefinition;
+import pcgen.cdom.grouping.GroupingInfo;
+import pcgen.cdom.grouping.GroupingScopeFilter;
+import pcgen.cdom.primitive.CompoundAndPrimitive;
+import pcgen.cdom.primitive.CompoundOrPrimitive;
+import pcgen.cdom.primitive.NegatingPrimitive;
+import pcgen.cdom.primitive.ObjectContainerPrimitive;
+import pcgen.cdom.reference.CDOMGroupRef;
+import pcgen.cdom.reference.PatternMatchingReference;
+import pcgen.cdom.reference.SelectionCreator;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.TokenLibrary.QualifierTokenIterator;
+import pcgen.rules.persistence.token.PrimitiveToken;
+import pcgen.rules.persistence.token.QualifierToken;
+import pcgen.util.Logging;
+
+public final class ChoiceSetLoadUtilities
+{
+
+	private static final String FOUND_ERR_IN_QUAL_CHOICE = &quot;Found error in Qualifier Choice: &quot;;
+	private static final String FOUND_ERR_IN_PRIM_CHOICE = &quot;Found error in Primitive Choice: &quot;;
+
+	private ChoiceSetLoadUtilities()
+	{
+		//Don't instantiate utility class
+	}
+
+	public static &lt;T extends CDOMObject&gt; PrimitiveCollection&lt;T&gt; getChoiceSet(LoadContext context,
+		SelectionCreator&lt;T&gt; sc, String joinedOr)
+	{
+<span class="fc" id="L62">		List&lt;PrimitiveCollection&lt;T&gt;&gt; orList = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L63">		ParsingSeparator pipe = new ParsingSeparator(joinedOr, '|');</span>
+<span class="fc" id="L64">		pipe.addGroupingPair('[', ']');</span>
+<span class="fc" id="L65">		pipe.addGroupingPair('(', ')');</span>
+
+<span class="fc bfc" id="L67" title="All 2 branches covered.">		for (; pipe.hasNext();)</span>
+		{
+<span class="fc" id="L69">			String joinedAnd = pipe.next();</span>
+<span class="fc bfc" id="L70" title="All 2 branches covered.">			if (hasIllegalSeparator(',', joinedAnd))</span>
+			{
+<span class="fc" id="L72">				return null;</span>
+			}
+<span class="fc" id="L74">			List&lt;PrimitiveCollection&lt;T&gt;&gt; andList = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L75">			ParsingSeparator comma = new ParsingSeparator(joinedAnd, ',');</span>
+<span class="fc" id="L76">			comma.addGroupingPair('[', ']');</span>
+<span class="fc" id="L77">			comma.addGroupingPair('(', ')');</span>
+<span class="fc bfc" id="L78" title="All 2 branches covered.">			for (; comma.hasNext();)</span>
+			{
+<span class="fc" id="L80">				String primitive = comma.next();</span>
+<span class="pc bpc" id="L81" title="2 of 4 branches missed.">				if (primitive == null || primitive.isEmpty())</span>
+				{
+<span class="nc" id="L83">					Logging.addParseMessage(Logging.LST_ERROR, &quot;Choice argument was null or empty: &quot; + primitive);</span>
+<span class="nc" id="L84">					return null;</span>
+				}
+<span class="fc" id="L86">				QualifierToken&lt;T&gt; qual = getQualifier(context, sc, primitive);</span>
+<span class="fc bfc" id="L87" title="All 2 branches covered.">				if (qual == null)</span>
+				{
+<span class="fc" id="L89">					PrimitiveCollection&lt;T&gt; pcf = getSimplePrimitive(context, sc, primitive);</span>
+<span class="fc bfc" id="L90" title="All 2 branches covered.">					if (pcf == null)</span>
+					{
+<span class="fc" id="L92">						Logging.addParseMessage(Logging.LST_ERROR, &quot;Choice argument was not valid: &quot; + primitive);</span>
+<span class="fc" id="L93">						return null;</span>
+					}
+					else
+					{
+<span class="fc" id="L97">						andList.add(pcf);</span>
+					}
+<span class="fc" id="L99">				}</span>
+				else
+				{
+<span class="fc" id="L102">					andList.add(qual);</span>
+				}
+<span class="fc" id="L104">			}</span>
+<span class="pc bpc" id="L105" title="1 of 2 branches missed.">			if (!andList.isEmpty())</span>
+			{
+<span class="fc bfc" id="L107" title="All 2 branches covered.">				if (andList.size() == 1)</span>
+				{
+<span class="fc" id="L109">					orList.add(andList.get(0));</span>
+				}
+				else
+				{
+<span class="fc" id="L113">					orList.add(new CompoundAndPrimitive&lt;&gt;(andList));</span>
+				}
+			}
+<span class="fc" id="L116">		}</span>
+<span class="pc bpc" id="L117" title="1 of 2 branches missed.">		if (orList.isEmpty())</span>
+		{
+<span class="nc" id="L119">			return null;</span>
+		}
+<span class="fc bfc" id="L121" title="All 2 branches covered.">		else if (orList.size() == 1)</span>
+		{
+<span class="fc" id="L123">			return orList.get(0);</span>
+		}
+		else
+		{
+<span class="fc" id="L127">			return new CompoundOrPrimitive&lt;&gt;(orList);</span>
+		}
+	}
+
+	private static boolean hasIllegalSeparator(char separator, String value)
+	{
+<span class="fc bfc" id="L133" title="All 2 branches covered.">		if (value.charAt(0) == separator)</span>
+		{
+<span class="fc" id="L135">			Logging.addParseMessage(Logging.LST_ERROR,</span>
+				&quot;Choice arguments may not start with &quot; + separator + &quot; : &quot; + value);
+<span class="fc" id="L137">			return true;</span>
+		}
+<span class="fc bfc" id="L139" title="All 2 branches covered.">		if (value.charAt(value.length() - 1) == separator)</span>
+		{
+<span class="fc" id="L141">			Logging.addParseMessage(Logging.LST_ERROR,</span>
+				&quot;Choice arguments may not end with &quot; + separator + &quot; : &quot; + value);
+<span class="fc" id="L143">			return true;</span>
+		}
+<span class="fc bfc" id="L145" title="All 2 branches covered.">		if (value.contains(String.valueOf(new char[]{separator, separator})))</span>
+		{
+<span class="fc" id="L147">			Logging.addParseMessage(Logging.LST_ERROR,</span>
+				&quot;Choice arguments uses double separator &quot; + separator + separator + &quot; : &quot; + value);
+<span class="fc" id="L149">			return true;</span>
+		}
+<span class="fc" id="L151">		return false;</span>
+	}
+
+	public static &lt;T extends CDOMObject&gt; PrimitiveCollection&lt;T&gt; getPrimitive(LoadContext context,
+		SelectionCreator&lt;T&gt; sc, String joinedOr)
+	{
+<span class="pc bpc" id="L157" title="1 of 4 branches missed.">		if (joinedOr.isEmpty() || hasIllegalSeparator('|', joinedOr))</span>
+		{
+<span class="fc" id="L159">			return null;</span>
+		}
+<span class="fc" id="L161">		List&lt;PrimitiveCollection&lt;T&gt;&gt; pcfOrList = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L162">		ParsingSeparator pipe = new ParsingSeparator(joinedOr, '|');</span>
+<span class="fc" id="L163">		pipe.addGroupingPair('[', ']');</span>
+<span class="fc" id="L164">		pipe.addGroupingPair('(', ')');</span>
+<span class="fc bfc" id="L165" title="All 2 branches covered.">		for (; pipe.hasNext();)</span>
+		{
+<span class="fc" id="L167">			String joinedAnd = pipe.next();</span>
+<span class="pc bpc" id="L168" title="1 of 4 branches missed.">			if (joinedAnd.isEmpty() || hasIllegalSeparator(',', joinedAnd))</span>
+			{
+<span class="fc" id="L170">				return null;</span>
+			}
+<span class="fc" id="L172">			List&lt;PrimitiveCollection&lt;T&gt;&gt; pcfAndList = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L173">			ParsingSeparator comma = new ParsingSeparator(joinedAnd, ',');</span>
+<span class="fc" id="L174">			comma.addGroupingPair('[', ']');</span>
+<span class="fc" id="L175">			comma.addGroupingPair('(', ')');</span>
+<span class="fc bfc" id="L176" title="All 2 branches covered.">			for (; comma.hasNext();)</span>
+			{
+<span class="fc" id="L178">				String primitive = comma.next();</span>
+<span class="pc bpc" id="L179" title="2 of 4 branches missed.">				if (primitive == null || primitive.isEmpty())</span>
+				{
+<span class="nc" id="L181">					Logging.addParseMessage(Logging.LST_ERROR, &quot;Choice argument was null or empty: &quot; + primitive);</span>
+<span class="nc" id="L182">					return null;</span>
+				}
+<span class="fc" id="L184">				PrimitiveCollection&lt;T&gt; pcf = getSimplePrimitive(context, sc, primitive);</span>
+<span class="fc bfc" id="L185" title="All 2 branches covered.">				if (pcf == null)</span>
+				{
+<span class="fc" id="L187">					Logging.addParseMessage(Logging.LST_ERROR, &quot;Choice argument was not valid: &quot; + primitive);</span>
+<span class="fc" id="L188">					return null;</span>
+				}
+				else
+				{
+<span class="fc" id="L192">					pcfAndList.add(pcf);</span>
+				}
+<span class="fc" id="L194">			}</span>
+<span class="fc bfc" id="L195" title="All 2 branches covered.">			if (pcfAndList.size() == 1)</span>
+			{
+<span class="fc" id="L197">				pcfOrList.add(pcfAndList.get(0));</span>
+			}
+			else
+			{
+<span class="fc" id="L201">				pcfOrList.add(new CompoundAndPrimitive&lt;&gt;(pcfAndList));</span>
+			}
+<span class="fc" id="L203">		}</span>
+<span class="fc bfc" id="L204" title="All 2 branches covered.">		if (pcfOrList.size() == 1)</span>
+		{
+<span class="fc" id="L206">			return pcfOrList.get(0);</span>
+		}
+		else
+		{
+<span class="fc" id="L210">			return new CompoundOrPrimitive&lt;&gt;(pcfOrList);</span>
+		}
+	}
+
+	public static PrimitiveInfo getPrimitiveInfo(String key)
+	{
+<span class="fc" id="L216">		int openBracketLoc = key.indexOf('[');</span>
+<span class="fc" id="L217">		int closeBracketLoc = key.indexOf(']');</span>
+<span class="fc" id="L218">		int equalLoc = key.indexOf('=');</span>
+<span class="fc" id="L219">		PrimitiveInfo pi = new PrimitiveInfo();</span>
+<span class="fc" id="L220">		pi.key = key;</span>
+<span class="fc bfc" id="L221" title="All 2 branches covered.">		if (openBracketLoc == -1)</span>
+		{
+<span class="pc bpc" id="L223" title="1 of 2 branches missed.">			if (closeBracketLoc != -1)</span>
+			{
+<span class="nc" id="L225">				Logging.errorPrint(FOUND_ERR_IN_PRIM_CHOICE + key + &quot; has a close bracket but no open bracket&quot;);</span>
+<span class="nc" id="L226">				return null;</span>
+			}
+<span class="fc bfc" id="L228" title="All 2 branches covered.">			if (equalLoc == -1)</span>
+			{
+<span class="fc" id="L230">				pi.tokKey = key;</span>
+<span class="fc" id="L231">				pi.tokValue = null;</span>
+			}
+			else
+			{
+<span class="fc" id="L235">				pi.tokKey = key.substring(0, equalLoc);</span>
+<span class="fc" id="L236">				pi.tokValue = key.substring(equalLoc + 1);</span>
+<span class="fc bfc" id="L237" title="All 2 branches covered.">				if (pi.tokValue.isEmpty())</span>
+				{
+<span class="fc" id="L239">					Logging.errorPrint(FOUND_ERR_IN_PRIM_CHOICE + key + &quot; has equals but no target value&quot;);</span>
+<span class="fc" id="L240">					return null;</span>
+				}
+			}
+<span class="fc" id="L243">			pi.tokRestriction = null;</span>
+		}
+		else
+		{
+<span class="pc bpc" id="L247" title="1 of 2 branches missed.">			if (closeBracketLoc == -1)</span>
+			{
+<span class="nc" id="L249">				Logging.errorPrint(FOUND_ERR_IN_PRIM_CHOICE + key + &quot; has an open bracket but no close bracket&quot;);</span>
+<span class="nc" id="L250">				return null;</span>
+			}
+<span class="fc bfc" id="L252" title="All 2 branches covered.">			if (closeBracketLoc != key.length() - 1)</span>
+			{
+<span class="fc" id="L254">				Logging.errorPrint(FOUND_ERR_IN_PRIM_CHOICE + key + &quot; had close bracket, but had characters &quot;</span>
+					+ &quot;following the close bracket&quot;);
+<span class="fc" id="L256">				return null;</span>
+			}
+<span class="fc bfc" id="L258" title="All 4 branches covered.">			if (equalLoc == -1 || equalLoc &gt; openBracketLoc)</span>
+			{
+<span class="fc" id="L260">				pi.tokKey = key.substring(0, openBracketLoc);</span>
+<span class="fc" id="L261">				pi.tokValue = null;</span>
+<span class="fc" id="L262">				pi.tokRestriction = key.substring(openBracketLoc + 1, closeBracketLoc);</span>
+			}
+			else
+			{
+<span class="fc" id="L266">				pi.tokKey = key.substring(0, equalLoc);</span>
+<span class="fc" id="L267">				pi.tokValue = key.substring(equalLoc + 1, openBracketLoc);</span>
+<span class="fc" id="L268">				pi.tokRestriction = key.substring(openBracketLoc + 1, closeBracketLoc);</span>
+			}
+		}
+<span class="fc" id="L271">		return pi;</span>
+	}
+
+	public static &lt;T extends Loadable&gt; PrimitiveCollection&lt;T&gt; getSimplePrimitive(LoadContext context,
+		SelectionCreator&lt;T&gt; sc, String key)
+	{
+<span class="fc" id="L277">		PrimitiveInfo pi = getPrimitiveInfo(key);</span>
+<span class="fc bfc" id="L278" title="All 2 branches covered.">		if (pi == null)</span>
+		{
+<span class="fc" id="L280">			return null;</span>
+		}
+<span class="fc" id="L282">		Class&lt;T&gt; refClass = sc.getReferenceClass(); //check against reference class of GroupDefinition</span>
+<span class="fc" id="L283">		PrimitiveCollection&lt;T&gt; prim = getTokenPrimitive(context, refClass, pi);</span>
+<span class="fc bfc" id="L284" title="All 2 branches covered.">		if (prim == null)</span>
+		{
+<span class="fc" id="L286">			prim = getDynamicGroup(context, pi, refClass);</span>
+		}
+<span class="fc bfc" id="L288" title="All 2 branches covered.">		if (prim == null)</span>
+		{
+<span class="fc" id="L290">			return getTraditionalPrimitive(sc, pi);</span>
+		}
+<span class="fc" id="L292">		return prim;</span>
+	}
+
+	private static &lt;T extends Loadable&gt; PrimitiveCollection&lt;T&gt; getDynamicGroup(LoadContext context, PrimitiveInfo pi,
+		Class&lt;T&gt; refClass)
+	{
+<span class="fc" id="L298">		GroupDefinition&lt;T&gt; fgd = context.getGroup(refClass, pi.tokKey);</span>
+<span class="pc bpc" id="L299" title="1 of 2 branches missed.">		if (fgd == null)</span>
+		{
+<span class="fc" id="L301">			return null;</span>
+		}
+<span class="nc" id="L303">		ObjectContainer&lt;T&gt; p = fgd.getPrimitive(context, pi.tokValue);</span>
+<span class="nc" id="L304">		return new ObjectContainerPrimitive&lt;&gt;(p);</span>
+	}
+
+	public static &lt;T&gt; PrimitiveCollection&lt;T&gt; getTokenPrimitive(LoadContext context, Class&lt;T&gt; cl, PrimitiveInfo pi)
+	{
+<span class="fc" id="L309">		PrimitiveToken&lt;T&gt; prim = TokenLibrary.getPrimitive(cl, pi.tokKey);</span>
+<span class="fc bfc" id="L310" title="All 4 branches covered.">		if ((prim != null) &amp;&amp; !prim.initialize(context, cl, pi.tokValue, pi.tokRestriction))</span>
+		{
+<span class="fc" id="L312">			return null;</span>
+		}
+<span class="fc" id="L314">		return prim;</span>
+	}
+
+	public static &lt;T extends Loadable&gt; PrimitiveCollection&lt;T&gt; getTraditionalPrimitive(SelectionCreator&lt;T&gt; sc,
+		PrimitiveInfo pi)
+	{
+<span class="fc" id="L320">		String tokKey = pi.tokKey;</span>
+<span class="fc bfc" id="L321" title="All 2 branches covered.">		if (pi.tokRestriction != null)</span>
+		{
+<span class="fc" id="L323">			Logging.errorPrint(&quot;Didn't expect tokRestriction on &quot; + tokKey + &quot; here: &quot; + pi.tokRestriction);</span>
+<span class="fc" id="L324">			return null;</span>
+		}
+<span class="fc" id="L326">		String tokValue = pi.tokValue;</span>
+<span class="fc bfc" id="L327" title="All 2 branches covered.">		if (&quot;TYPE&quot;.equals(tokKey))</span>
+		{
+<span class="fc" id="L329">			return TokenUtilities.getTypeReference(sc, tokValue);</span>
+		}
+<span class="fc bfc" id="L331" title="All 2 branches covered.">		if (&quot;!TYPE&quot;.equals(tokKey))</span>
+		{
+<span class="fc" id="L333">			CDOMGroupRef&lt;T&gt; typeReference = TokenUtilities.getTypeReference(sc, tokValue);</span>
+<span class="fc bfc" id="L334" title="All 2 branches covered.">			if (typeReference == null)</span>
+			{
+<span class="fc" id="L336">				return null;</span>
+			}
+<span class="fc" id="L338">			return new NegatingPrimitive&lt;&gt;(typeReference, sc.getAllReference());</span>
+		}
+<span class="fc bfc" id="L340" title="All 2 branches covered.">		if (tokValue != null)</span>
+		{
+<span class="fc" id="L342">			Logging.errorPrint(&quot;Didn't expect Arguments here: &quot; + tokValue + &quot; was found in &quot; + pi.key);</span>
+		}
+<span class="fc bfc" id="L344" title="All 2 branches covered.">		if (&quot;ALL&quot;.equals(tokKey))</span>
+		{
+<span class="fc" id="L346">			return sc.getAllReference();</span>
+		}
+<span class="fc" id="L348">		String key = pi.key;</span>
+<span class="fc bfc" id="L349" title="All 2 branches covered.">		if (key.startsWith(Constants.LST_TYPE_DOT))</span>
+		{
+<span class="fc" id="L351">			return TokenUtilities.getTypeReference(sc, key.substring(5));</span>
+		}
+<span class="pc bpc" id="L353" title="1 of 2 branches missed.">		if (key.startsWith(Constants.LST_NOT_TYPE_DOT))</span>
+		{
+<span class="nc" id="L355">			return new NegatingPrimitive&lt;&gt;(TokenUtilities.getTypeReference(sc, key.substring(6)), sc.getAllReference());</span>
+		}
+<span class="pc bpc" id="L357" title="1 of 2 branches missed.">		if (key.indexOf('%') == -1)</span>
+		{
+<span class="fc" id="L359">			return sc.getReference(key);</span>
+		}
+		else
+		{
+<span class="nc" id="L363">			return new PatternMatchingReference&lt;&gt;(sc.getAllReference(), key);</span>
+		}
+	}
+
+<span class="fc" id="L367">	public static class PrimitiveInfo</span>
+	{
+		public String key;
+		public String tokKey;
+		public String tokValue;
+		public String tokRestriction;
+	}
+
+	public static &lt;T extends CDOMObject&gt; QualifierToken&lt;T&gt; getQualifier(LoadContext loadContext, SelectionCreator&lt;T&gt; sc,
+		String key)
+	{
+<span class="pc bpc" id="L378" title="2 of 4 branches missed.">		if (key == null || key.isEmpty())</span>
+		{
+<span class="nc" id="L380">			Logging.errorPrint(FOUND_ERR_IN_PRIM_CHOICE + &quot;item was null or empty&quot;);</span>
+<span class="nc" id="L381">			return null;</span>
+		}
+<span class="fc" id="L383">		int openBracketLoc = key.indexOf('[');</span>
+<span class="fc" id="L384">		int closeBracketLoc = key.indexOf(']');</span>
+<span class="fc" id="L385">		int equalLoc = key.indexOf('=');</span>
+<span class="fc bfc" id="L386" title="All 2 branches covered.">		boolean startsNot = key.charAt(0) == '!';</span>
+		String tokKey;
+		String tokValue;
+		String tokRestriction;
+<span class="fc bfc" id="L390" title="All 2 branches covered.">		if (openBracketLoc == -1)</span>
+		{
+<span class="pc bpc" id="L392" title="1 of 2 branches missed.">			if (closeBracketLoc != -1)</span>
+			{
+<span class="nc" id="L394">				Logging.errorPrint(FOUND_ERR_IN_QUAL_CHOICE + key + &quot; has a close bracket but no open bracket&quot;);</span>
+<span class="nc" id="L395">				return null;</span>
+			}
+<span class="fc bfc" id="L397" title="All 2 branches covered.">			if (equalLoc == -1)</span>
+			{
+<span class="fc" id="L399">				tokKey = key;</span>
+<span class="fc" id="L400">				tokValue = null;</span>
+			}
+			else
+			{
+<span class="fc" id="L404">				tokKey = key.substring(0, equalLoc);</span>
+<span class="fc" id="L405">				tokValue = key.substring(equalLoc + 1);</span>
+			}
+<span class="fc" id="L407">			tokRestriction = null;</span>
+		}
+		else
+		{
+<span class="pc bpc" id="L411" title="1 of 2 branches missed.">			if (closeBracketLoc == -1)</span>
+			{
+<span class="nc" id="L413">				Logging.errorPrint(FOUND_ERR_IN_QUAL_CHOICE + key + &quot; has an open bracket but no close bracket&quot;);</span>
+<span class="nc" id="L414">				return null;</span>
+			}
+<span class="fc bfc" id="L416" title="All 2 branches covered.">			if (closeBracketLoc != key.length() - 1)</span>
+			{
+<span class="fc" id="L418">				Logging.errorPrint(FOUND_ERR_IN_QUAL_CHOICE + key + &quot; had close bracket, but had characters &quot;</span>
+					+ &quot;following the close bracket&quot;);
+<span class="fc" id="L420">				return null;</span>
+			}
+<span class="fc bfc" id="L422" title="All 2 branches covered.">			if (closeBracketLoc - openBracketLoc == 1)</span>
+			{
+<span class="fc" id="L424">				Logging.errorPrint(</span>
+					FOUND_ERR_IN_QUAL_CHOICE + key + &quot; has an open bracket &quot; + &quot;immediately followed by close bracket&quot;);
+<span class="fc" id="L426">				return null;</span>
+			}
+<span class="fc bfc" id="L428" title="All 4 branches covered.">			if (equalLoc == -1 || equalLoc &gt; openBracketLoc)</span>
+			{
+<span class="fc" id="L430">				tokKey = key.substring(0, openBracketLoc);</span>
+<span class="fc" id="L431">				tokValue = null;</span>
+			}
+			else
+			{
+<span class="fc" id="L435">				tokKey = key.substring(0, equalLoc);</span>
+<span class="fc" id="L436">				tokValue = key.substring(equalLoc + 1, openBracketLoc);</span>
+			}
+<span class="fc" id="L438">			tokRestriction = key.substring(openBracketLoc + 1, closeBracketLoc);</span>
+		}
+<span class="fc bfc" id="L440" title="All 2 branches covered.">		if (startsNot)</span>
+		{
+<span class="fc" id="L442">			tokKey = tokKey.substring(1);</span>
+		}
+<span class="fc" id="L444">		for (Iterator&lt;QualifierToken&lt;T&gt;&gt; it = new QualifierTokenIterator&lt;&gt;(sc.getReferenceClass(), tokKey); it</span>
+<span class="fc bfc" id="L445" title="All 2 branches covered.">			.hasNext();)</span>
+		{
+<span class="fc" id="L447">			QualifierToken&lt;T&gt; token = it.next();</span>
+<span class="fc bfc" id="L448" title="All 2 branches covered.">			if (token.initialize(loadContext, sc, tokValue, tokRestriction, startsNot))</span>
+			{
+<span class="fc" id="L450">				return token;</span>
+			}
+<span class="fc" id="L452">			Logging.addParseMessage(Logging.LST_ERROR, &quot;Failed in parsing typeStr: &quot; + key);</span>
+<span class="fc" id="L453">		}</span>
+<span class="fc" id="L454">		return null;</span>
+	}
+
+	/**
+	 * Returns a GroupingCollection based on the given GroupingInfo interpreted within the
+	 * given LoadContext.
+	 * 
+	 * @param context
+	 *            The LoadContext in which the given GroupingInfo will be interpreted
+	 * @param info
+	 *            The GroupingInfo that contains the instructions for what the returned
+	 *            GroupingCollection should contain
+	 * @return A GroupingCollection based on the given GroupingInfo interpreted within the
+	 *         given LoadContext
+	 */
+	public static &lt;T, G&gt; GroupingCollection&lt;G&gt; getDynamicGroup(LoadContext context,
+		GroupingInfo&lt;G&gt; info)
+	{
+<span class="fc" id="L472">		Class&lt;G&gt; groupingClass = info.getManagedClass(context);</span>
+<span class="fc" id="L473">		String groupType = info.getCharacteristic();</span>
+<span class="fc bfc" id="L474" title="All 2 branches covered.">		if (info.getCharacteristic() == null)</span>
+		{
+<span class="fc bfc" id="L476" title="All 2 branches covered.">			if (&quot;ALL&quot;.equals(info.getValue()))</span>
+			{
+<span class="fc" id="L478">				groupType = &quot;ALL&quot;;</span>
+			}
+			else
+			{
+<span class="fc" id="L482">				groupType = &quot;KEY&quot;;</span>
+			}
+		}
+<span class="fc" id="L485">		GroupingDefinition&lt;G&gt; groupingDefinition =</span>
+<span class="fc" id="L486">				TokenLibrary.getGrouping(groupingClass, groupType);</span>
+<span class="fc" id="L487">		GroupingCollection&lt;G&gt; collection = groupingDefinition.process(context, info);</span>
+<span class="fc" id="L488">		return new GroupingScopeFilter&lt;&gt;(info.getScope(), collection);</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

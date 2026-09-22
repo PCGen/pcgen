@@ -1,0 +1,888 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PCGenActionMap.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.gui2</a> &gt; <span class="el_source">PCGenActionMap.java</span></div><h1>PCGenActionMap.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2008 Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ * 
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ * 
+ */
+package pcgen.gui2;
+
+import java.awt.event.ActionEvent;
+import java.io.File;
+import java.io.IOException;
+import java.util.Objects;
+
+import javax.swing.ActionMap;
+import javax.swing.JOptionPane;
+
+import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.core.SourceSelectionFacade;
+import pcgen.facade.util.ReferenceFacade;
+import pcgen.facade.util.event.ReferenceEvent;
+import pcgen.facade.util.event.ReferenceListener;
+import pcgen.gui2.coreview.CoreViewFrame;
+import pcgen.gui2.dialog.DataInstaller;
+import pcgen.gui2.dialog.KitSelectionDialog;
+import pcgen.gui2.dialog.PrintPreviewDialog;
+import pcgen.gui2.solverview.SolverViewFrame;
+import pcgen.gui2.tools.DesktopBrowserLauncher;
+import pcgen.gui2.tools.Icons;
+import pcgen.gui2.tools.PCGenAction;
+import pcgen.gui3.GuiAssertions;
+import pcgen.gui3.PanelFromResource;
+import pcgen.gui3.dialog.CalculatorDialogController;
+import pcgen.gui3.dialog.DebugDialog;
+import pcgen.gui3.dialog.ExportDialogController;
+import pcgen.system.CharacterManager;
+import pcgen.system.ConfigurationSettings;
+import pcgen.system.LanguageBundle;
+import pcgen.util.Logging;
+
+import javafx.application.Platform;
+
+/**
+ * The PCGenActionMap is the action map for the PCGenFrame, and as such
+ * hold all of the actions that the PCGenFrame uses. The purpose of this
+ * class is to hold all of the regarding actions for the menubar, toolbar,
+ * and accessory popup menus that may use them. Since all of the action
+ * handlers are Action objects they can be disabled or enabled to cause
+ * all buttons that use the actions to update themselves accordingly.
+ */
+public final class PCGenActionMap extends ActionMap
+{
+
+	//the File menu commands
+	public static final String FILE_COMMAND = &quot;file&quot;;
+	public static final String NEW_COMMAND = FILE_COMMAND + &quot;.new&quot;;
+	public static final String OPEN_COMMAND = FILE_COMMAND + &quot;.open&quot;;
+	public static final String OPEN_RECENT_COMMAND = FILE_COMMAND + &quot;.openrecent&quot;;
+	public static final String CLOSE_COMMAND = FILE_COMMAND + &quot;.close&quot;;
+	public static final String CLOSEALL_COMMAND = FILE_COMMAND + &quot;.closeall&quot;;
+	public static final String SAVE_COMMAND = FILE_COMMAND + &quot;.save&quot;;
+	public static final String SAVEAS_COMMAND = FILE_COMMAND + &quot;.saveas&quot;;
+	public static final String SAVEALL_COMMAND = FILE_COMMAND + &quot;.saveall&quot;;
+	public static final String REVERT_COMMAND = FILE_COMMAND + &quot;.reverttosaved&quot;;
+	public static final String PARTY_COMMAND = FILE_COMMAND + &quot;.party&quot;;
+	public static final String OPEN_PARTY_COMMAND = PARTY_COMMAND + &quot;.open&quot;;
+	public static final String OPEN_RECENT_PARTY_COMMAND = PARTY_COMMAND + &quot;.openrecent&quot;;
+	public static final String CLOSE_PARTY_COMMAND = PARTY_COMMAND + &quot;.close&quot;;
+	public static final String SAVE_PARTY_COMMAND = PARTY_COMMAND + &quot;.save&quot;;
+	public static final String SAVEAS_PARTY_COMMAND = PARTY_COMMAND + &quot;.saveas&quot;;
+	public static final String PRINT_COMMAND = FILE_COMMAND + &quot;.print&quot;;
+	public static final String EXPORT_COMMAND = FILE_COMMAND + &quot;.export&quot;;
+	public static final String EXIT_COMMAND = FILE_COMMAND + &quot;.exit&quot;;
+	//the Edit menu commands
+	public static final String EDIT_COMMAND = &quot;edit&quot;;
+	public static final String ADD_KIT_COMMAND = EDIT_COMMAND + &quot;.addkit&quot;;
+	public static final String TEMP_BONUS_COMMAND = EDIT_COMMAND + &quot;.tempbonus&quot;;
+	public static final String EQUIPMENTSET_COMMAND = EDIT_COMMAND + &quot;.equipmentset&quot;;
+	//the Source menu commands
+	public static final String SOURCES_COMMAND = &quot;sources&quot;;
+	public static final String SOURCES_LOAD_COMMAND = SOURCES_COMMAND + &quot;.load&quot;;
+	public static final String SOURCES_LOAD_SELECT_COMMAND = SOURCES_COMMAND + &quot;.select&quot;;
+	public static final String SOURCES_RELOAD_COMMAND = SOURCES_COMMAND + &quot;.reload&quot;;
+	public static final String SOURCES_UNLOAD_COMMAND = SOURCES_COMMAND + &quot;.unload&quot;;
+	public static final String INSTALL_DATA_COMMAND = SOURCES_COMMAND + &quot;.installData&quot;;
+	//the tools menu commands
+	public static final String TOOLS_COMMAND = &quot;tools&quot;;
+	public static final String PREFERENCES_COMMAND = TOOLS_COMMAND + &quot;.preferences&quot;;
+	public static final String LOG_COMMAND = TOOLS_COMMAND + &quot;.log&quot;;
+	public static final String LOGGING_LEVEL_COMMAND = TOOLS_COMMAND + &quot;.loggingLevel&quot;;
+	public static final String CALCULATOR_COMMAND = TOOLS_COMMAND + &quot;.calculator&quot;;
+	public static final String COREVIEW_COMMAND = TOOLS_COMMAND + &quot;.coreview&quot;;
+	public static final String SOLVERVIEW_COMMAND = TOOLS_COMMAND + &quot;.solverview&quot;;
+	//the help menu commands
+	public static final String HELP_COMMAND = &quot;help&quot;;
+	public static final String HELP_DOCS_COMMAND = HELP_COMMAND + &quot;.docs&quot;;
+	public static final String HELP_OGL_COMMAND = HELP_COMMAND + &quot;.ogl&quot;;
+	public static final String HELP_TIPOFTHEDAY_COMMAND = HELP_COMMAND + &quot;.tod&quot;;
+	public static final String HELP_ABOUT_COMMAND = HELP_COMMAND + &quot;.about&quot;;
+	private final PCGenFrame frame;
+
+	public static final String MNU_TOOLS = &quot;mnuTools&quot;; //$NON-NLS-1$
+	public static final String MNU_TOOLS_PREFERENCES = &quot;mnuToolsPreferences&quot;; //$NON-NLS-1$
+	public static final String MNU_EDIT = &quot;mnuEdit&quot;; //$NON-NLS-1$
+	public static final String MNU_FILE = &quot;mnuFile&quot;; //$NON-NLS-1$
+
+	/**
+	 * The context indicating what items are currently loaded/being processed in the UI
+	 */
+	private final UIContext uiContext;
+
+	public PCGenActionMap(PCGenFrame frame, UIContext uiContext)
+<span class="nc" id="L124">	{</span>
+<span class="nc" id="L125">		this.uiContext = Objects.requireNonNull(uiContext);</span>
+<span class="nc" id="L126">		this.frame = frame;</span>
+<span class="nc" id="L127">		initActions();</span>
+<span class="nc" id="L128">	}</span>
+
+	private void initActions()
+	{
+<span class="nc" id="L132">		put(FILE_COMMAND, new FileAction());</span>
+<span class="nc" id="L133">		put(NEW_COMMAND, new NewAction());</span>
+<span class="nc" id="L134">		put(OPEN_COMMAND, new OpenAction());</span>
+<span class="nc" id="L135">		put(OPEN_RECENT_COMMAND, new OpenRecentAction());</span>
+<span class="nc" id="L136">		put(CLOSE_COMMAND, new CloseAction());</span>
+<span class="nc" id="L137">		put(CLOSEALL_COMMAND, new CloseAllAction());</span>
+<span class="nc" id="L138">		put(SAVE_COMMAND, new SaveAction());</span>
+<span class="nc" id="L139">		put(SAVEAS_COMMAND, new SaveAsAction());</span>
+<span class="nc" id="L140">		put(SAVEALL_COMMAND, new SaveAllAction());</span>
+<span class="nc" id="L141">		put(REVERT_COMMAND, new RevertAction());</span>
+
+<span class="nc" id="L143">		put(PARTY_COMMAND, new PartyAction());</span>
+<span class="nc" id="L144">		put(OPEN_PARTY_COMMAND, new OpenPartyAction());</span>
+<span class="nc" id="L145">		put(OPEN_RECENT_PARTY_COMMAND, new OpenRecentAction());</span>
+<span class="nc" id="L146">		put(CLOSE_PARTY_COMMAND, new ClosePartyAction());</span>
+<span class="nc" id="L147">		put(SAVE_PARTY_COMMAND, new SavePartyAction());</span>
+<span class="nc" id="L148">		put(SAVEAS_PARTY_COMMAND, new SaveAsPartyAction());</span>
+
+<span class="nc" id="L150">		put(PRINT_COMMAND, new PrintAction());</span>
+<span class="nc" id="L151">		put(EXPORT_COMMAND, new ExportAction());</span>
+<span class="nc" id="L152">		put(EXIT_COMMAND, new ExitAction());</span>
+
+<span class="nc" id="L154">		put(EDIT_COMMAND, new EditAction());</span>
+<span class="nc" id="L155">		put(ADD_KIT_COMMAND, new AddKitAction());</span>
+<span class="nc" id="L156">		put(EQUIPMENTSET_COMMAND, new EquipmentSetAction());</span>
+<span class="nc" id="L157">		put(TEMP_BONUS_COMMAND, new TempBonusAction());</span>
+<span class="nc" id="L158">		put(PREFERENCES_COMMAND, new PreferencesAction());</span>
+<span class="nc" id="L159">		put(LOG_COMMAND, new DebugAction());</span>
+<span class="nc" id="L160">		put(LOGGING_LEVEL_COMMAND, new LoggingLevelAction());</span>
+<span class="nc" id="L161">		put(CALCULATOR_COMMAND, new CalculatorAction());</span>
+<span class="nc" id="L162">		put(COREVIEW_COMMAND, new CoreViewAction());</span>
+<span class="nc" id="L163">		put(SOLVERVIEW_COMMAND, new SolverViewAction());</span>
+<span class="nc" id="L164">		put(INSTALL_DATA_COMMAND, new InstallDataAction());</span>
+<span class="nc" id="L165">		put(SOURCES_LOAD_SELECT_COMMAND, new LoadSourcesSelectAction());</span>
+<span class="nc" id="L166">		put(SOURCES_RELOAD_COMMAND, new ReloadSourcesAction());</span>
+<span class="nc" id="L167">		put(SOURCES_UNLOAD_COMMAND, new UnloadSourcesAction());</span>
+
+<span class="nc" id="L169">		put(HELP_COMMAND, new HelpAction());</span>
+<span class="nc" id="L170">		put(HELP_DOCS_COMMAND, new DocsHelpAction());</span>
+<span class="nc" id="L171">		put(HELP_OGL_COMMAND, new OGLHelpAction());</span>
+<span class="nc" id="L172">		put(HELP_TIPOFTHEDAY_COMMAND, new TipOfTheDayHelpAction());</span>
+<span class="nc" id="L173">		put(HELP_ABOUT_COMMAND, new AboutHelpAction(frame));</span>
+<span class="nc" id="L174">	}</span>
+
+	private static final class EditAction extends PCGenAction
+	{
+
+		private EditAction()
+		{
+<span class="nc" id="L181">			super(MNU_EDIT);</span>
+<span class="nc" id="L182">		}</span>
+
+	}
+
+	private final class AddKitAction extends CharacterAction
+	{
+
+		private AddKitAction()
+<span class="nc" id="L190">		{</span>
+<span class="nc" id="L191">			super(&quot;mnuEditAddKit&quot;);</span>
+<span class="nc" id="L192">			setEnabled(false);</span>
+<span class="nc" id="L193">		}</span>
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+<span class="nc" id="L198">			KitSelectionDialog kitDialog = new KitSelectionDialog(frame, frame.getSelectedCharacterRef().get());</span>
+<span class="nc" id="L199">			kitDialog.setLocationRelativeTo(frame);</span>
+<span class="nc" id="L200">			kitDialog.setVisible(true);</span>
+<span class="nc" id="L201">		}</span>
+
+	}
+
+	private static final class EquipmentSetAction extends PCGenAction
+	{
+
+		private EquipmentSetAction()
+		{
+<span class="nc" id="L210">			super(&quot;mnuEditEquipmentSet&quot;);</span>
+<span class="nc" id="L211">		}</span>
+
+	}
+
+	private static final class TempBonusAction extends PCGenAction
+	{
+
+		private TempBonusAction()
+		{
+<span class="nc" id="L220">			super(&quot;mnuEditTempBonus&quot;);</span>
+<span class="nc" id="L221">		}</span>
+
+	}
+
+	private static final class PreferencesAction extends PCGenAction
+	{
+
+		private PreferencesAction()
+		{
+<span class="nc" id="L230">			super(MNU_TOOLS_PREFERENCES, Icons.Preferences16);</span>
+<span class="nc" id="L231">		}</span>
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+<span class="nc" id="L236">			PCGenUIManager.displayPreferencesDialog();</span>
+<span class="nc" id="L237">		}</span>
+
+	}
+
+	private static final class DebugAction extends PCGenAction
+	{
+
+		private DebugAction()
+		{
+<span class="nc" id="L246">			super(&quot;mnuToolsLog&quot;, LOG_COMMAND, &quot;F10&quot;);</span>
+<span class="nc" id="L247">		}</span>
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+<span class="nc" id="L252">			GuiAssertions.assertIsNotJavaFXThread();</span>
+<span class="nc" id="L253">			Platform.runLater(DebugDialog::show);</span>
+<span class="nc" id="L254">		}</span>
+
+	}
+
+	private static final class CalculatorAction extends PCGenAction
+	{
+
+		private CalculatorAction()
+		{
+<span class="nc" id="L263">			super(&quot;mnuToolsCalculator&quot;, CALCULATOR_COMMAND, &quot;F11&quot;);</span>
+<span class="nc" id="L264">		}</span>
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+<span class="nc" id="L269">			var dialog = new PanelFromResource&lt;&gt;(CalculatorDialogController.class, &quot;CalculatorDialog.fxml&quot;);</span>
+<span class="nc" id="L270">			dialog.showAsStage(LanguageBundle.getString(&quot;mnuToolsCalculator&quot;));</span>
+<span class="nc" id="L271">		}</span>
+	}
+
+	private final class CoreViewAction extends CharacterAction
+	{
+
+		private CoreViewAction()
+<span class="nc" id="L278">		{</span>
+<span class="nc" id="L279">			super(&quot;mnuToolsCoreView&quot;, COREVIEW_COMMAND, &quot;Shift-F11&quot;);</span>
+<span class="nc" id="L280">		}</span>
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+<span class="nc" id="L285">			CharacterFacade cf = frame.getSelectedCharacterRef().get();</span>
+<span class="nc" id="L286">			CoreViewFrame cvf = new CoreViewFrame(cf);</span>
+<span class="nc" id="L287">			cvf.setVisible(true);</span>
+<span class="nc" id="L288">		}</span>
+
+	}
+
+	private final class SolverViewAction extends CharacterAction
+	{
+
+		private SolverViewAction()
+<span class="nc" id="L296">		{</span>
+<span class="nc" id="L297">			super(&quot;mnuToolsSolverView&quot;, SOLVERVIEW_COMMAND, &quot;Ctrl-F11&quot;);</span>
+<span class="nc" id="L298">		}</span>
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+<span class="nc" id="L303">			SolverViewFrame svf = new SolverViewFrame();</span>
+<span class="nc" id="L304">			svf.setVisible(true);</span>
+<span class="nc" id="L305">		}</span>
+
+	}
+
+	private static final class LoggingLevelAction extends PCGenAction
+	{
+
+		private LoggingLevelAction()
+		{
+<span class="nc" id="L314">			super(&quot;mnuLoggingLevel&quot;);</span>
+<span class="nc" id="L315">		}</span>
+
+	}
+
+	/**
+	 * The tools menu action to open the install data dialog.
+	 */
+	private static final class InstallDataAction extends PCGenAction
+	{
+
+		private InstallDataAction()
+		{
+<span class="nc" id="L327">			super(&quot;mnuSourcesInstallData&quot;);</span>
+<span class="nc" id="L328">		}</span>
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+<span class="nc" id="L333">			DataInstaller di = new DataInstaller();</span>
+<span class="nc" id="L334">			di.setVisible(true);</span>
+<span class="nc" id="L335">		}</span>
+
+	}
+
+	private static final class FileAction extends PCGenAction
+	{
+
+		private FileAction()
+		{
+<span class="nc" id="L344">			super(MNU_FILE);</span>
+<span class="nc" id="L345">		}</span>
+
+	}
+
+	private final class NewAction extends PCGenAction
+	{
+
+		private final ReferenceFacade&lt;?&gt; ref;
+
+		private NewAction()
+<span class="nc" id="L355">		{</span>
+<span class="nc" id="L356">			super(&quot;mnuFileNew&quot;, NEW_COMMAND, &quot;shortcut N&quot;, Icons.New16);</span>
+<span class="nc" id="L357">			ref = frame.getLoadedDataSetRef();</span>
+<span class="nc" id="L358">			ref.addReferenceListener(new SourceListener());</span>
+<span class="nc bnc" id="L359" title="All 2 branches missed.">			setEnabled(ref.get() != null);</span>
+<span class="nc" id="L360">		}</span>
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+<span class="nc" id="L365">			frame.createNewCharacter(null);</span>
+<span class="nc" id="L366">		}</span>
+
+<span class="nc" id="L368">		private final class SourceListener implements ReferenceListener&lt;Object&gt;</span>
+		{
+
+			@Override
+			public void referenceChanged(ReferenceEvent&lt;Object&gt; e)
+			{
+<span class="nc bnc" id="L374" title="All 2 branches missed.">				setEnabled(e.getNewReference() != null);</span>
+<span class="nc" id="L375">			}</span>
+
+		}
+
+	}
+
+	private final class OpenAction extends PCGenAction
+	{
+
+		private OpenAction()
+<span class="nc" id="L385">		{</span>
+<span class="nc" id="L386">			super(&quot;mnuFileOpen&quot;, OPEN_COMMAND, &quot;shortcut O&quot;, Icons.Open16);</span>
+<span class="nc" id="L387">		}</span>
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+<span class="nc" id="L392">			frame.showOpenCharacterChooser();</span>
+<span class="nc" id="L393">		}</span>
+
+	}
+
+	private static final class OpenRecentAction extends PCGenAction
+	{
+
+		private OpenRecentAction()
+		{
+<span class="nc" id="L402">			super(&quot;mnuOpenRecent&quot;);</span>
+<span class="nc" id="L403">		}</span>
+
+	}
+
+	private final class CloseAction extends CharacterAction
+	{
+
+		private CloseAction()
+<span class="nc" id="L411">		{</span>
+<span class="nc" id="L412">			super(&quot;mnuFileClose&quot;, CLOSE_COMMAND, &quot;shortcut W&quot;, Icons.Close16);</span>
+<span class="nc" id="L413">		}</span>
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+<span class="nc" id="L418">			frame.closeCharacter(frame.getSelectedCharacterRef().get());</span>
+<span class="nc" id="L419">		}</span>
+
+	}
+
+	private final class CloseAllAction extends CharacterAction
+	{
+
+		private CloseAllAction()
+<span class="nc" id="L427">		{</span>
+<span class="nc" id="L428">			super(&quot;mnuFileCloseAll&quot;, CLOSEALL_COMMAND, Icons.CloseAll16);</span>
+<span class="nc" id="L429">		}</span>
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+<span class="nc" id="L434">			frame.closeAllCharacters();</span>
+<span class="nc" id="L435">		}</span>
+
+	}
+
+	private final class SaveAction extends PCGenAction implements ReferenceListener&lt;CharacterFacade&gt;
+	{
+
+<span class="nc" id="L442">		private final FileRefListener fileListener = new FileRefListener();</span>
+
+		private SaveAction()
+<span class="nc" id="L445">		{</span>
+<span class="nc" id="L446">			super(&quot;mnuFileSave&quot;, SAVE_COMMAND, &quot;shortcut S&quot;, Icons.Save16);</span>
+<span class="nc" id="L447">			ReferenceFacade&lt;CharacterFacade&gt; ref = frame.getSelectedCharacterRef();</span>
+<span class="nc" id="L448">			ref.addReferenceListener(this);</span>
+<span class="nc" id="L449">			checkEnabled(ref.get());</span>
+<span class="nc" id="L450">		}</span>
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+<span class="nc" id="L455">			final CharacterFacade pc = frame.getSelectedCharacterRef().get();</span>
+<span class="nc bnc" id="L456" title="All 2 branches missed.">			if (pc == null)</span>
+			{
+<span class="nc" id="L458">				return;</span>
+			}
+<span class="nc" id="L460">			frame.saveCharacter(pc);</span>
+<span class="nc" id="L461">		}</span>
+
+		@Override
+		public void referenceChanged(ReferenceEvent&lt;CharacterFacade&gt; e)
+		{
+<span class="nc" id="L466">			CharacterFacade oldRef = e.getOldReference();</span>
+<span class="nc bnc" id="L467" title="All 2 branches missed.">			if (oldRef != null)</span>
+			{
+<span class="nc" id="L469">				oldRef.getFileRef().removeReferenceListener(fileListener);</span>
+			}
+<span class="nc" id="L471">			checkEnabled(e.getNewReference());</span>
+<span class="nc" id="L472">		}</span>
+
+		private void checkEnabled(CharacterFacade character)
+		{
+<span class="nc bnc" id="L476" title="All 2 branches missed.">			if (character != null)</span>
+			{
+<span class="nc" id="L478">				ReferenceFacade&lt;File&gt; file = character.getFileRef();</span>
+<span class="nc" id="L479">				file.addReferenceListener(fileListener);</span>
+<span class="nc bnc" id="L480" title="All 2 branches missed.">				setEnabled(file.get() != null);</span>
+<span class="nc" id="L481">			}</span>
+			else
+			{
+<span class="nc" id="L484">				setEnabled(false);</span>
+			}
+<span class="nc" id="L486">		}</span>
+
+<span class="nc" id="L488">		private final class FileRefListener implements ReferenceListener&lt;File&gt;</span>
+		{
+
+			@Override
+			public void referenceChanged(ReferenceEvent&lt;File&gt; e)
+			{
+<span class="nc bnc" id="L494" title="All 2 branches missed.">				setEnabled(e.getNewReference() != null);</span>
+<span class="nc" id="L495">			}</span>
+
+		}
+
+	}
+
+	private final class SaveAsAction extends CharacterAction
+	{
+
+		private SaveAsAction()
+<span class="nc" id="L505">		{</span>
+<span class="nc" id="L506">			super(&quot;mnuFileSaveAs&quot;, SAVEAS_COMMAND, &quot;shift-shortcut S&quot;, Icons.SaveAs16);</span>
+<span class="nc" id="L507">		}</span>
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+<span class="nc" id="L512">			frame.showSaveCharacterChooser(frame.getSelectedCharacterRef().get());</span>
+<span class="nc" id="L513">		}</span>
+
+	}
+
+	private final class SaveAllAction extends CharacterAction
+	{
+
+		private SaveAllAction()
+<span class="nc" id="L521">		{</span>
+<span class="nc" id="L522">			super(&quot;mnuFileSaveAll&quot;, SAVEALL_COMMAND, Icons.SaveAll16);</span>
+<span class="nc" id="L523">		}</span>
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+<span class="nc" id="L528">			frame.saveAllCharacters();</span>
+<span class="nc" id="L529">		}</span>
+
+	}
+
+	private final class RevertAction extends CharacterAction
+	{
+
+		private RevertAction()
+<span class="nc" id="L537">		{</span>
+<span class="nc" id="L538">			super(&quot;mnuFileRevertToSaved&quot;, REVERT_COMMAND, &quot;shortcut R&quot;);</span>
+<span class="nc" id="L539">		}</span>
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+<span class="nc" id="L544">			frame.revertCharacter(frame.getSelectedCharacterRef().get());</span>
+<span class="nc" id="L545">		}</span>
+
+	}
+
+	private static final class PartyAction extends PCGenAction
+	{
+
+		private PartyAction()
+		{
+<span class="nc" id="L554">			super(&quot;mnuFileParty&quot;);</span>
+<span class="nc" id="L555">		}</span>
+
+	}
+
+	private final class OpenPartyAction extends PCGenAction
+	{
+
+		private OpenPartyAction()
+<span class="nc" id="L563">		{</span>
+<span class="nc" id="L564">			super(&quot;mnuFilePartyOpen&quot;, OPEN_PARTY_COMMAND, Icons.Open16);</span>
+<span class="nc" id="L565">		}</span>
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+<span class="nc" id="L570">			frame.showOpenPartyChooser();</span>
+<span class="nc" id="L571">		}</span>
+
+	}
+
+	private final class ClosePartyAction extends PCGenAction
+	{
+
+		private ClosePartyAction()
+<span class="nc" id="L579">		{</span>
+<span class="nc" id="L580">			super(&quot;mnuFilePartyClose&quot;, CLOSE_PARTY_COMMAND, Icons.Close16);</span>
+<span class="nc" id="L581">		}</span>
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+<span class="nc" id="L586">			frame.closeAllCharacters();</span>
+<span class="nc" id="L587">		}</span>
+
+	}
+
+	private final class SavePartyAction extends CharacterAction
+	{
+
+		private SavePartyAction()
+<span class="nc" id="L595">		{</span>
+<span class="nc" id="L596">			super(&quot;mnuFilePartySave&quot;, SAVE_PARTY_COMMAND, Icons.Save16);</span>
+<span class="nc" id="L597">		}</span>
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+<span class="nc bnc" id="L602" title="All 4 branches missed.">			if (frame.saveAllCharacters() &amp;&amp; !CharacterManager.saveCurrentParty())</span>
+			{
+<span class="nc" id="L604">				frame.showSavePartyChooser();</span>
+			}
+<span class="nc" id="L606">		}</span>
+
+	}
+
+	private final class SaveAsPartyAction extends CharacterAction
+	{
+
+		private SaveAsPartyAction()
+<span class="nc" id="L614">		{</span>
+<span class="nc" id="L615">			super(&quot;mnuFilePartySaveAs&quot;, SAVEAS_PARTY_COMMAND, Icons.SaveAs16);</span>
+<span class="nc" id="L616">		}</span>
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+<span class="nc" id="L621">			frame.showSavePartyChooser();</span>
+<span class="nc" id="L622">		}</span>
+
+	}
+
+	private final class PrintAction extends CharacterAction
+	{
+
+		private PrintAction()
+<span class="nc" id="L630">		{</span>
+<span class="nc" id="L631">			super(&quot;mnuFilePrint&quot;, PRINT_COMMAND, &quot;shortcut P&quot;, Icons.Print16);</span>
+<span class="nc" id="L632">		}</span>
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+<span class="nc" id="L637">			PrintPreviewDialog.showPrintPreviewDialog(frame);</span>
+<span class="nc" id="L638">		}</span>
+
+	}
+
+	private final class ExportAction extends CharacterAction
+	{
+
+		private ExportAction()
+<span class="nc" id="L646">		{</span>
+<span class="nc" id="L647">			super(&quot;mnuFileExport&quot;, EXPORT_COMMAND, &quot;shift-shortcut P&quot;, Icons.Export16);</span>
+<span class="nc" id="L648">		}</span>
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+<span class="nc" id="L653">			GuiAssertions.assertIsNotJavaFXThread();</span>
+<span class="nc" id="L654">			PanelFromResource&lt;ExportDialogController&gt; panel =</span>
+					new PanelFromResource&lt;&gt;(ExportDialogController.class, &quot;ExportDialog.fxml&quot;);
+<span class="nc" id="L656">			panel.showAsStage(&quot;Export a PC or Party&quot;);</span>
+<span class="nc" id="L657">		}</span>
+
+	}
+
+	private static final class ExitAction extends PCGenAction
+	{
+
+		private ExitAction()
+		{
+<span class="nc" id="L666">			super(&quot;mnuFileExit&quot;, EXIT_COMMAND, &quot;shortcut Q&quot;);</span>
+<span class="nc" id="L667">		}</span>
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+<span class="nc" id="L672">			PCGenUIManager.closePCGen();</span>
+<span class="nc" id="L673">		}</span>
+
+	}
+
+	private final class LoadSourcesSelectAction extends PCGenAction
+	{
+
+		private LoadSourcesSelectAction()
+<span class="nc" id="L681">		{</span>
+<span class="nc" id="L682">			super(&quot;mnuSourcesLoadSelect&quot;, SOURCES_LOAD_COMMAND, &quot;shortcut L&quot;);</span>
+<span class="nc" id="L683">		}</span>
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+<span class="nc" id="L688">			frame.showSourceSelectionDialog();</span>
+<span class="nc" id="L689">		}</span>
+
+	}
+
+	private final class ReloadSourcesAction extends PCGenAction implements ReferenceListener&lt;SourceSelectionFacade&gt;
+	{
+
+		private ReloadSourcesAction()
+<span class="nc" id="L697">		{</span>
+<span class="nc" id="L698">			super(&quot;mnuSourcesReload&quot;, SOURCES_RELOAD_COMMAND, &quot;shift-shortcut R&quot;);</span>
+<span class="nc" id="L699">			ReferenceFacade&lt;SourceSelectionFacade&gt; currentSourceSelectionRef =</span>
+<span class="nc" id="L700">					uiContext.getCurrentSourceSelectionRef();</span>
+<span class="nc" id="L701">			currentSourceSelectionRef.addReferenceListener(this);</span>
+<span class="nc" id="L702">			checkEnabled(currentSourceSelectionRef.get());</span>
+<span class="nc" id="L703">		}</span>
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+<span class="nc" id="L708">			SourceSelectionFacade sources =</span>
+<span class="nc" id="L709">					uiContext.getCurrentSourceSelectionRef().get();</span>
+<span class="nc bnc" id="L710" title="All 2 branches missed.">			if (sources != null)</span>
+			{
+<span class="nc" id="L712">				frame.unloadSources();</span>
+<span class="nc" id="L713">				frame.loadSourceSelection(sources);</span>
+			}
+<span class="nc" id="L715">		}</span>
+
+		@Override
+		public void referenceChanged(ReferenceEvent&lt;SourceSelectionFacade&gt; e)
+		{
+<span class="nc" id="L720">			checkEnabled(e.getNewReference());</span>
+<span class="nc" id="L721">		}</span>
+
+		private void checkEnabled(SourceSelectionFacade sources)
+		{
+<span class="nc bnc" id="L725" title="All 4 branches missed.">			setEnabled(sources != null &amp;&amp; !sources.getCampaigns().isEmpty());</span>
+<span class="nc" id="L726">		}</span>
+
+	}
+
+	private final class UnloadSourcesAction extends PCGenAction implements ReferenceListener&lt;SourceSelectionFacade&gt;
+	{
+
+		private UnloadSourcesAction()
+<span class="nc" id="L734">		{</span>
+<span class="nc" id="L735">			super(&quot;mnuSourcesUnload&quot;, SOURCES_UNLOAD_COMMAND, &quot;shortcut U&quot;);</span>
+<span class="nc" id="L736">			ReferenceFacade&lt;SourceSelectionFacade&gt; currentSourceSelectionRef =</span>
+<span class="nc" id="L737">					uiContext.getCurrentSourceSelectionRef();</span>
+<span class="nc" id="L738">			currentSourceSelectionRef.addReferenceListener(this);</span>
+<span class="nc" id="L739">			checkEnabled(currentSourceSelectionRef.get());</span>
+<span class="nc" id="L740">		}</span>
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+<span class="nc" id="L745">			frame.unloadSources();</span>
+<span class="nc" id="L746">		}</span>
+
+		@Override
+		public void referenceChanged(ReferenceEvent&lt;SourceSelectionFacade&gt; e)
+		{
+<span class="nc" id="L751">			checkEnabled(e.getNewReference());</span>
+<span class="nc" id="L752">		}</span>
+
+		private void checkEnabled(SourceSelectionFacade sources)
+		{
+<span class="nc bnc" id="L756" title="All 4 branches missed.">			setEnabled(sources != null &amp;&amp; !sources.getCampaigns().isEmpty());</span>
+<span class="nc" id="L757">		}</span>
+
+	}
+
+	private static final class HelpAction extends PCGenAction
+	{
+
+		private HelpAction()
+		{
+<span class="nc" id="L766">			super(&quot;mnuHelp&quot;, HELP_COMMAND);</span>
+<span class="nc" id="L767">		}</span>
+
+	}
+
+	private final class DocsHelpAction extends PCGenAction
+	{
+
+		private DocsHelpAction()
+<span class="nc" id="L775">		{</span>
+<span class="nc" id="L776">			super(&quot;mnuHelpDocumentation&quot;, HELP_DOCS_COMMAND, &quot;F1&quot;, Icons.Help16);</span>
+<span class="nc" id="L777">		}</span>
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+			try
+			{
+<span class="nc" id="L784">				DesktopBrowserLauncher.viewInBrowser(new File(ConfigurationSettings.getDocsDir(), &quot;index.html&quot;));</span>
+			}
+<span class="nc" id="L786">			catch (IOException ex)</span>
+			{
+<span class="nc" id="L788">				Logging.errorPrint(&quot;Could not open docs in external browser&quot;, ex);</span>
+<span class="nc" id="L789">				JOptionPane.showMessageDialog(frame, LanguageBundle.getString(&quot;in_menuDocsNotOpenMsg&quot;),</span>
+<span class="nc" id="L790">					LanguageBundle.getString(&quot;in_menuDocsNotOpenTitle&quot;), JOptionPane.ERROR_MESSAGE);</span>
+<span class="nc" id="L791">			}</span>
+<span class="nc" id="L792">		}</span>
+
+	}
+
+	private final class OGLHelpAction extends PCGenAction
+	{
+
+		private OGLHelpAction()
+<span class="nc" id="L800">		{</span>
+<span class="nc" id="L801">			super(&quot;mnuHelpOGL&quot;, HELP_OGL_COMMAND);</span>
+<span class="nc" id="L802">		}</span>
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+<span class="nc" id="L807">			frame.showOGLDialog();</span>
+<span class="nc" id="L808">		}</span>
+
+	}
+
+	private static final class TipOfTheDayHelpAction extends PCGenAction
+	{
+
+		private TipOfTheDayHelpAction()
+		{
+<span class="nc" id="L817">			super(&quot;mnuHelpTipOfTheDay&quot;, HELP_TIPOFTHEDAY_COMMAND, Icons.TipOfTheDay16);</span>
+<span class="nc" id="L818">		}</span>
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+<span class="nc" id="L823">			PCGenFrame.showTipsOfTheDay();</span>
+<span class="nc" id="L824">		}</span>
+
+	}
+
+	private static final class AboutHelpAction extends PCGenAction
+	{
+
+		PCGenFrame frame;
+		private AboutHelpAction(PCGenFrame frame)
+		{
+<span class="nc" id="L834">			super(&quot;mnuHelpAbout&quot;, HELP_ABOUT_COMMAND, Icons.About16);</span>
+<span class="nc" id="L835">			this.frame = frame;</span>
+<span class="nc" id="L836">		}</span>
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+<span class="nc" id="L841">			frame.showAboutDialog();</span>
+<span class="nc" id="L842">		}</span>
+	}
+
+
+	private abstract class CharacterAction extends PCGenAction
+	{
+
+		private final ReferenceFacade&lt;?&gt; ref;
+
+		private CharacterAction(String prop)
+		{
+<span class="nc" id="L853">			this(prop, null, null, null);</span>
+<span class="nc" id="L854">		}</span>
+
+		private CharacterAction(String prop, String command, String accelerator)
+		{
+<span class="nc" id="L858">			this(prop, command, accelerator, null);</span>
+<span class="nc" id="L859">		}</span>
+
+		private CharacterAction(String prop, String command, Icons icon)
+		{
+<span class="nc" id="L863">			this(prop, command, null, icon);</span>
+<span class="nc" id="L864">		}</span>
+
+		private CharacterAction(String prop, String command, String accelerator, Icons icon)
+<span class="nc" id="L867">		{</span>
+<span class="nc" id="L868">			super(prop, command, accelerator, icon);</span>
+<span class="nc" id="L869">			ref = frame.getSelectedCharacterRef();</span>
+<span class="nc" id="L870">			ref.addReferenceListener(new CharacterListener());</span>
+<span class="nc bnc" id="L871" title="All 2 branches missed.">			setEnabled(ref.get() != null);</span>
+<span class="nc" id="L872">		}</span>
+
+<span class="nc" id="L874">		private final class CharacterListener implements ReferenceListener&lt;Object&gt;</span>
+		{
+
+			@Override
+			public void referenceChanged(ReferenceEvent&lt;Object&gt; e)
+			{
+<span class="nc bnc" id="L880" title="All 2 branches missed.">				setEnabled(e.getNewReference() != null);</span>
+<span class="nc" id="L881">			}</span>
+
+		}
+
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

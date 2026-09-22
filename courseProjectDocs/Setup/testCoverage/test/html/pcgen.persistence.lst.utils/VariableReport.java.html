@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>VariableReport.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.persistence.lst.utils</a> &gt; <span class="el_source">VariableReport.java</span></div><h1>VariableReport.java</h1><pre class="source lang-java linenums">/*
+ * Copyright James Dempsey, 2013
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ *
+ */
+package pcgen.persistence.lst.utils;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Writer;
+import java.net.URI;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+import java.util.TreeMap;
+
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.core.Campaign;
+import pcgen.core.GameMode;
+import pcgen.core.Globals;
+import pcgen.core.SystemCollections;
+import pcgen.io.PCGFile;
+import pcgen.persistence.lst.CampaignSourceEntry;
+import pcgen.system.ConfigurationSettings;
+
+import freemarker.template.Configuration;
+import freemarker.template.Template;
+import freemarker.template.TemplateException;
+import org.apache.commons.lang3.StringUtils;
+
+/**
+ * The Class {@code VariableReport} produces a report on variable
+ * definitions within the PCGen LST data.
+ *
+ * 
+ */
+
+<span class="nc" id="L62">public class VariableReport</span>
+{
+
+	/**
+	 * Produce the variable report in the requested formats.
+	 * 
+	 * @param reportNameMap A map of formats to be output and the names of 
+	 * the files to contain the report for the format. 
+	 * @throws IOException If the template cannot be accessed or the file cannot be written to.
+	 * @throws TemplateException If there is an error in processing the template.
+	 */
+	public void runReport(Map&lt;ReportFormat, String&gt; reportNameMap) throws IOException, TemplateException
+	{
+<span class="nc" id="L75">		List&lt;GameMode&gt; games = SystemCollections.getUnmodifiableGameModeList();</span>
+<span class="nc" id="L76">		Map&lt;String, List&lt;VarDefine&gt;&gt; gameModeVarMap = new TreeMap&lt;&gt;();</span>
+<span class="nc" id="L77">		Map&lt;String, Integer&gt; gameModeVarCountMap = new TreeMap&lt;&gt;();</span>
+<span class="nc bnc" id="L78" title="All 2 branches missed.">		for (GameMode gameMode : games)</span>
+		{
+<span class="nc" id="L80">			List&lt;VarDefine&gt; varList = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L81">			Map&lt;String, Integer&gt; varCountMap = new HashMap&lt;&gt;();</span>
+<span class="nc" id="L82">			Set&lt;File&gt; processedLstFiles = new HashSet&lt;&gt;();</span>
+<span class="nc" id="L83">			List&lt;Campaign&gt; campaignsForGameMode = getCampaignsForGameMode(gameMode);</span>
+<span class="nc bnc" id="L84" title="All 2 branches missed.">			for (Campaign campaign : campaignsForGameMode)</span>
+			{
+<span class="nc" id="L86">				processCampaign(campaign, varList, varCountMap, processedLstFiles);</span>
+<span class="nc" id="L87">			}</span>
+<span class="nc" id="L88">			Collections.sort(varList);</span>
+<span class="nc" id="L89">			gameModeVarMap.put(gameMode.getName(), varList);</span>
+<span class="nc" id="L90">			gameModeVarCountMap.put(gameMode.getName(), varCountMap.size());</span>
+<span class="nc" id="L91">		}</span>
+
+<span class="nc bnc" id="L93" title="All 2 branches missed.">		for (Entry&lt;ReportFormat, String&gt; reportRequest : reportNameMap.entrySet())</span>
+		{
+<span class="nc" id="L95">			try (Writer file = new FileWriter(new File(reportRequest.getValue()), StandardCharsets.UTF_8))</span>
+			{
+<span class="nc" id="L97">				outputReport(gameModeVarMap, gameModeVarCountMap, reportRequest.getKey(), file);</span>
+			}
+<span class="nc" id="L99">		}</span>
+<span class="nc" id="L100">	}</span>
+
+	/**
+	 * Output the variable report for the supplied data in a particular format.
+	 * 
+	 * @param gameModeVarMap The map of variable definitions for each game mode. 
+	 * @param gameModeVarCountMap The map of the number of variables for each game mode.
+	 * @param reportFormat The format in which to output the report.
+	 * @param outputWriter The writer to output the report to.
+	 * @throws IOException If the template cannot be accessed or the writer cannot be written to.
+	 * @throws TemplateException If there is an error in processing the template.
+	 */
+	public void outputReport(Map&lt;String, List&lt;VarDefine&gt;&gt; gameModeVarMap, Map&lt;String, Integer&gt; gameModeVarCountMap,
+		ReportFormat reportFormat, Writer outputWriter) throws IOException, TemplateException
+	{
+		// Configuration
+<span class="nc" id="L116">		Configuration cfg = new Configuration();</span>
+<span class="nc" id="L117">		int dataPathLen = ConfigurationSettings.getPccFilesDir().length();</span>
+
+		// Set Directory for templates
+<span class="nc" id="L120">		File codeDir = new File(&quot;code&quot;);</span>
+<span class="nc" id="L121">		File templateDir = new File(codeDir, &quot;templates&quot;);</span>
+<span class="nc" id="L122">		cfg.setDirectoryForTemplateLoading(templateDir);</span>
+		// load template
+<span class="nc" id="L124">		Template template = cfg.getTemplate(reportFormat.getTemplate());</span>
+
+		// data-model
+<span class="nc" id="L127">		Map&lt;String, Object&gt; input = new HashMap&lt;&gt;();</span>
+<span class="nc" id="L128">		input.put(&quot;gameModeVarMap&quot;, gameModeVarMap);</span>
+<span class="nc" id="L129">		input.put(&quot;gameModeVarCountMap&quot;, gameModeVarCountMap);</span>
+<span class="nc" id="L130">		input.put(&quot;pathIgnoreLen&quot;, dataPathLen + 1);</span>
+
+		// Process the template
+<span class="nc" id="L133">		template.process(input, outputWriter);</span>
+<span class="nc" id="L134">		outputWriter.flush();</span>
+
+<span class="nc" id="L136">	}</span>
+
+	private List&lt;Campaign&gt; getCampaignsForGameMode(GameMode game)
+	{
+<span class="nc" id="L140">		List&lt;String&gt; gameModeList = new ArrayList&lt;&gt;(game.getAllowedModes());</span>
+
+		// Only add those campaigns in the user's chosen folder and game mode
+<span class="nc" id="L143">		List&lt;Campaign&gt; allCampaigns = Globals.getCampaignList();</span>
+<span class="nc" id="L144">		Set&lt;Campaign&gt; gameModeCampaigns = new HashSet&lt;&gt;();</span>
+<span class="nc bnc" id="L145" title="All 2 branches missed.">		for (Campaign campaign : allCampaigns)</span>
+		{
+<span class="nc bnc" id="L147" title="All 2 branches missed.">			if (campaign.containsAnyInList(ListKey.GAME_MODE, gameModeList))</span>
+			{
+<span class="nc" id="L149">				gameModeCampaigns.add(campaign);</span>
+<span class="nc bnc" id="L150" title="All 2 branches missed.">				for (CampaignSourceEntry fName : campaign.getSafeListFor(ListKey.FILE_PCC))</span>
+				{
+<span class="nc" id="L152">					URI uri = fName.getURI();</span>
+<span class="nc bnc" id="L153" title="All 2 branches missed.">					if (PCGFile.isPCGenCampaignFile(uri))</span>
+					{
+<span class="nc" id="L155">						Campaign c = Globals.getCampaignByURI(uri, false);</span>
+<span class="nc bnc" id="L156" title="All 2 branches missed.">						if (c != null)</span>
+						{
+<span class="nc" id="L158">							gameModeCampaigns.add(c);</span>
+						}
+					}
+<span class="nc" id="L161">				}</span>
+			}
+<span class="nc" id="L163">		}</span>
+
+<span class="nc" id="L165">		return new ArrayList&lt;&gt;(gameModeCampaigns);</span>
+	}
+
+	private List&lt;File&gt; processCampaign(Campaign campaign, List&lt;VarDefine&gt; varList, Map&lt;String, Integer&gt; varCountMap,
+		Set&lt;File&gt; processedLstFiles) throws FileNotFoundException, IOException
+	{
+<span class="nc" id="L171">		List&lt;CampaignSourceEntry&gt; cseList = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L172">		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_LST_EXCLUDE));</span>
+<span class="nc" id="L173">		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_RACE));</span>
+		//TODO: Handle class with a special processor that tracks the class, sublass and level 
+<span class="nc" id="L175">		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_CLASS));</span>
+<span class="nc" id="L176">		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_COMPANION_MOD));</span>
+<span class="nc" id="L177">		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_SKILL));</span>
+<span class="nc" id="L178">		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_ABILITY_CATEGORY));</span>
+<span class="nc" id="L179">		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_ABILITY));</span>
+<span class="nc" id="L180">		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_FEAT));</span>
+<span class="nc" id="L181">		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_DEITY));</span>
+<span class="nc" id="L182">		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_DOMAIN));</span>
+<span class="nc" id="L183">		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_WEAPON_PROF));</span>
+<span class="nc" id="L184">		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_ARMOR_PROF));</span>
+<span class="nc" id="L185">		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_SHIELD_PROF));</span>
+<span class="nc" id="L186">		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_EQUIP));</span>
+<span class="nc" id="L187">		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_SPELL));</span>
+<span class="nc" id="L188">		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_LANGUAGE));</span>
+<span class="nc" id="L189">		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_TEMPLATE));</span>
+<span class="nc" id="L190">		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_EQUIP_MOD));</span>
+<span class="nc" id="L191">		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_KIT));</span>
+<span class="nc" id="L192">		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_BIO_SET));</span>
+<span class="nc" id="L193">		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_VARIABLE));</span>
+<span class="nc" id="L194">		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_DYNAMIC));</span>
+<span class="nc" id="L195">		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_DATACTRL));</span>
+<span class="nc" id="L196">		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_GLOBALMOD));</span>
+
+<span class="nc" id="L198">		List&lt;File&gt; missingLstFiles = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L199" title="All 2 branches missed.">		for (CampaignSourceEntry cse : cseList)</span>
+		{
+<span class="nc" id="L201">			File lstFile = new File(cse.getURI());</span>
+<span class="nc bnc" id="L202" title="All 2 branches missed.">			if (!lstFile.exists())</span>
+			{
+<span class="nc" id="L204">				missingLstFiles.add(lstFile);</span>
+<span class="nc" id="L205">				continue;</span>
+			}
+<span class="nc bnc" id="L207" title="All 2 branches missed.">			if (processedLstFiles.contains(lstFile))</span>
+			{
+<span class="nc" id="L209">				continue;</span>
+			}
+<span class="nc" id="L211">			processedLstFiles.add(lstFile);</span>
+<span class="nc" id="L212">			processLstFile(varList, varCountMap, lstFile);</span>
+<span class="nc" id="L213">		}</span>
+
+<span class="nc" id="L215">		return missingLstFiles;</span>
+	}
+
+	private void processLstFile(List&lt;VarDefine&gt; varList, Map&lt;String, Integer&gt; varCountMap, File file)
+		throws FileNotFoundException, IOException
+	{
+<span class="nc" id="L221">		try (BufferedReader br = new BufferedReader(new FileReader(file, StandardCharsets.UTF_8)))</span>
+		{
+<span class="nc" id="L223">			Map&lt;String, String&gt; varUseMap = new HashMap&lt;&gt;();</span>
+<span class="nc" id="L224">			String line = br.readLine();</span>
+
+<span class="nc bnc" id="L226" title="All 2 branches missed.">			while (line != null)</span>
+			{
+<span class="nc bnc" id="L228" title="All 2 branches missed.">				if (line.startsWith(&quot;###VAR:&quot;))</span>
+				{
+					// ###VAR:SomeVar&lt;tab&gt;USE:Explanation of usage of SomeVar
+<span class="nc" id="L231">					String[] varUse = line.trim().split(&quot;\t&quot;);</span>
+<span class="nc bnc" id="L232" title="All 4 branches missed.">					if (varUse.length &gt;= 2 &amp;&amp; varUse[1].startsWith(&quot;USE:&quot;))</span>
+					{
+<span class="nc" id="L234">						varUseMap.put(varUse[0].substring(7), varUse[1].substring(4));</span>
+					}
+<span class="nc" id="L236">				}</span>
+<span class="nc bnc" id="L237" title="All 4 branches missed.">				else if (!line.startsWith(&quot;#&quot;) &amp;&amp; StringUtils.isNotBlank(line))</span>
+				{
+<span class="nc" id="L239">					String[] tokens = line.split(&quot;\t&quot;);</span>
+<span class="nc" id="L240">					String object = tokens[0];</span>
+<span class="nc bnc" id="L241" title="All 2 branches missed.">					for (String tok : tokens)</span>
+					{
+<span class="nc bnc" id="L243" title="All 2 branches missed.">						if (tok.startsWith(&quot;DEFINE:&quot;))</span>
+						{
+<span class="nc" id="L245">							String[] define = tok.split(&quot;[:|]&quot;);</span>
+<span class="nc" id="L246">							String varName = define[1];</span>
+<span class="nc bnc" id="L247" title="All 4 branches missed.">							if (!varName.startsWith(&quot;LOCK.&quot;) &amp;&amp; !varName.startsWith(&quot;UNLOCK.&quot;))</span>
+							{
+<span class="nc" id="L249">								varList.add(new VarDefine(varName, object, file, varUseMap.get(varName)));</span>
+<span class="nc" id="L250">								Integer count = varCountMap.get(varName);</span>
+<span class="nc bnc" id="L251" title="All 2 branches missed.">								if (count == null)</span>
+								{
+<span class="nc" id="L253">									count = 0;</span>
+								}
+<span class="nc" id="L255">								count++;</span>
+<span class="nc" id="L256">								varCountMap.put(varName, count);</span>
+							}
+						}
+					}
+				}
+
+<span class="nc" id="L262">				line = br.readLine();</span>
+			}
+		}
+<span class="nc" id="L265">	}</span>
+
+	/**
+	 * A format in which the variable report can be produced. Matches the format 
+	 * to the FreeMarker template to be used for that format.
+	 */
+<span class="nc" id="L271">	public enum ReportFormat</span>
+	{
+		/** Report formatted for web viewing. */
+<span class="nc" id="L274">		HTML(&quot;variable-report-html.ftl&quot;),</span>
+		/** Report formatted for spreadsheet viewing. */
+<span class="nc" id="L276">		CSV(&quot;variable-report-csv.ftl&quot;);</span>
+
+		private final String template;
+
+		ReportFormat(String template)
+<span class="nc" id="L281">		{</span>
+<span class="nc" id="L282">			this.template = template;</span>
+<span class="nc" id="L283">		}</span>
+
+		/**
+		 * @return the FreeMarker template used to produce the format
+		 */
+		public String getTemplate()
+		{
+<span class="nc" id="L290">			return template;</span>
+		}
+	}
+
+	/**
+	 * The Class {@code VarDefine} contains a single definition of
+	 * a variable.
+	 */
+	public static class VarDefine implements Comparable&lt;VarDefine&gt;
+	{
+
+		private final String varName;
+		private final String definingObject;
+		private File definingFile;
+		private String use;
+
+		/**
+		 * Create a new instance of VarDefine.
+		 * @param varName The name of the variable.
+		 * @param definingObject The name of the object defining the variable.
+		 * @param definingFile The file in which the variable is defined.
+		 * @param use The use as described by the author of the variable.
+		 */
+		public VarDefine(String varName, String definingObject, File definingFile, String use)
+<span class="nc" id="L314">		{</span>
+<span class="nc" id="L315">			this.varName = varName;</span>
+<span class="nc" id="L316">			this.definingObject = definingObject;</span>
+<span class="nc" id="L317">			this.definingFile = definingFile;</span>
+<span class="nc" id="L318">			this.use = use;</span>
+<span class="nc" id="L319">		}</span>
+
+		@Override
+		public int hashCode()
+		{
+<span class="nc" id="L324">			final int prime = 31;</span>
+<span class="nc" id="L325">			int result = 1;</span>
+<span class="nc bnc" id="L326" title="All 2 branches missed.">			result = prime * result + ((varName == null) ? 0 : varName.hashCode());</span>
+<span class="nc bnc" id="L327" title="All 2 branches missed.">			result = prime * result + ((definingObject == null) ? 0 : definingObject.hashCode());</span>
+<span class="nc" id="L328">			return result;</span>
+		}
+
+		@Override
+		public boolean equals(Object obj)
+		{
+<span class="nc bnc" id="L334" title="All 2 branches missed.">			if (this == obj)</span>
+			{
+<span class="nc" id="L336">				return true;</span>
+			}
+<span class="nc bnc" id="L338" title="All 2 branches missed.">			if (obj == null)</span>
+			{
+<span class="nc" id="L340">				return false;</span>
+			}
+<span class="nc bnc" id="L342" title="All 2 branches missed.">			if (!(obj instanceof VarDefine other))</span>
+			{
+<span class="nc" id="L344">				return false;</span>
+			}
+<span class="nc bnc" id="L346" title="All 2 branches missed.">			if (varName == null)</span>
+			{
+<span class="nc bnc" id="L348" title="All 2 branches missed.">				if (other.varName != null)</span>
+				{
+<span class="nc" id="L350">					return false;</span>
+				}
+			}
+<span class="nc bnc" id="L353" title="All 2 branches missed.">			else if (!varName.equals(other.varName))</span>
+			{
+<span class="nc" id="L355">				return false;</span>
+			}
+<span class="nc bnc" id="L357" title="All 2 branches missed.">			if (definingObject == null)</span>
+			{
+<span class="nc bnc" id="L359" title="All 2 branches missed.">                return other.definingObject == null;</span>
+			}
+			else
+			{
+<span class="nc" id="L363">				return definingObject.equals(other.definingObject);</span>
+			}
+        }
+
+		@Override
+		public int compareTo(VarDefine other)
+		{
+<span class="nc bnc" id="L370" title="All 2 branches missed.">			if (varName == null)</span>
+			{
+<span class="nc bnc" id="L372" title="All 2 branches missed.">				if (other.varName != null)</span>
+				{
+<span class="nc" id="L374">					return -1;</span>
+				}
+<span class="nc" id="L376">				return 0;</span>
+			}
+<span class="nc bnc" id="L378" title="All 2 branches missed.">			else if (other.varName == null)</span>
+			{
+<span class="nc" id="L380">				return 1;</span>
+			}
+
+<span class="nc" id="L383">			return varName.compareToIgnoreCase(other.varName);</span>
+		}
+
+		@Override
+		public String toString()
+		{
+<span class="nc" id="L389">			return &quot;VarDefine [varName=&quot;</span>
+					+ varName
+					+ &quot;, definingObject=&quot;
+					+ definingObject
+					+ &quot;, definingFile=&quot;
+					+ definingFile
+					+ &quot;, use=&quot;
+					+ use
+					+ ']';
+		}
+
+		/**
+		 * @return the varName
+		 */
+		public String getVarName()
+		{
+<span class="nc" id="L405">			return varName;</span>
+		}
+
+		/**
+		 * @return the definingObject
+		 */
+		public String getDefiningObject()
+		{
+<span class="nc" id="L413">			return definingObject;</span>
+		}
+
+		/**
+		 * @return the definingFile
+		 */
+		public File getDefiningFile()
+		{
+<span class="nc" id="L421">			return definingFile;</span>
+		}
+
+		/**
+		 * @param definingFile the definingFile to set
+		 */
+		public void setDefiningFile(File definingFile)
+		{
+<span class="nc" id="L429">			this.definingFile = definingFile;</span>
+<span class="nc" id="L430">		}</span>
+
+		/**
+		 * @return the use
+		 */
+		public String getUse()
+		{
+<span class="nc" id="L437">			return use;</span>
+		}
+
+		/**
+		 * @param use the use to set
+		 */
+		public void setUse(String use)
+		{
+<span class="nc" id="L445">			this.use = use;</span>
+<span class="nc" id="L446">		}</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

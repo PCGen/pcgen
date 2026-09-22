@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ContainsToken.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.lsttokens.equipment</a> &gt; <span class="el_source">ContainsToken.java</span></div><h1>ContainsToken.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) 2008 Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package plugin.lsttokens.equipment;
+
+import java.math.BigDecimal;
+import java.util.Collection;
+import java.util.StringTokenizer;
+
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.helper.Capacity;
+import pcgen.core.Equipment;
+import pcgen.rules.context.Changes;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.ParseResult;
+import pcgen.util.BigDecimalHelper;
+
+/**
+ * Deals with CONTAINS token
+ */
+<span class="fc" id="L40">public class ContainsToken extends AbstractTokenWithSeparator&lt;Equipment&gt; implements CDOMPrimaryToken&lt;Equipment&gt;</span>
+{
+
+	@Override
+	public String getTokenName()
+	{
+<span class="fc" id="L46">		return &quot;CONTAINS&quot;;</span>
+	}
+
+	@Override
+	protected char separator()
+	{
+<span class="fc" id="L52">		return '|';</span>
+	}
+
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context, Equipment eq, String value)
+	{
+<span class="fc" id="L58">		StringTokenizer pipeTok = new StringTokenizer(value, Constants.PIPE);</span>
+
+<span class="fc" id="L60">		context.getObjectContext().removeList(eq, ListKey.CAPACITY);</span>
+<span class="fc" id="L61">		String weightCapacity = pipeTok.nextToken();</span>
+
+<span class="fc" id="L63">		boolean hadAsterisk = false;</span>
+<span class="fc bfc" id="L64" title="All 2 branches covered.">		if (weightCapacity.charAt(0) == Constants.CHAR_ASTERISK)</span>
+		{
+<span class="fc" id="L66">			hadAsterisk = true;</span>
+<span class="fc" id="L67">			context.getObjectContext().put(eq, ObjectKey.CONTAINER_CONSTANT_WEIGHT, Boolean.TRUE);</span>
+<span class="fc" id="L68">			weightCapacity = weightCapacity.substring(1);</span>
+		}
+
+<span class="fc" id="L71">		int percentLoc = weightCapacity.indexOf(Constants.PERCENT);</span>
+<span class="fc bfc" id="L72" title="All 2 branches covered.">		if (percentLoc != weightCapacity.lastIndexOf(Constants.PERCENT))</span>
+		{
+<span class="fc" id="L74">			return new ParseResult.Fail(&quot;Cannot have two weight reduction &quot; + &quot;characters (indicated by %): &quot; + value);</span>
+		}
+<span class="fc bfc" id="L76" title="All 2 branches covered.">		if (percentLoc != -1)</span>
+		{
+<span class="fc bfc" id="L78" title="All 2 branches covered.">			if (hadAsterisk)</span>
+			{
+<span class="fc" id="L80">				return new ParseResult.Fail(&quot;Cannot have Constant Weight (indicated by *) &quot;</span>
+					+ &quot;and weight reduction (indicated by %): &quot; + value);
+			}
+<span class="fc" id="L83">			String redString = weightCapacity.substring(0, percentLoc);</span>
+<span class="fc" id="L84">			weightCapacity = weightCapacity.substring(percentLoc + 1);</span>
+
+			try
+			{
+<span class="fc" id="L88">				context.getObjectContext().put(eq, IntegerKey.CONTAINER_REDUCE_WEIGHT, Integer.valueOf(redString));</span>
+			}
+<span class="fc" id="L90">			catch (NumberFormatException ex)</span>
+			{
+<span class="fc" id="L92">				return new ParseResult.Fail(&quot;Weight Reduction (indicated by %) must be an integer: &quot; + value);</span>
+<span class="fc" id="L93">			}</span>
+		}
+
+		BigDecimal weightCap;
+<span class="fc bfc" id="L97" title="All 2 branches covered.">		if (&quot;UNLIM&quot;.equals(weightCapacity))</span>
+		{
+<span class="fc" id="L99">			weightCap = Capacity.UNLIMITED;</span>
+		}
+		else
+		{
+			try
+			{
+<span class="fc" id="L105">				weightCap = BigDecimalHelper.trimBigDecimal(new BigDecimal(weightCapacity));</span>
+<span class="fc bfc" id="L106" title="All 2 branches covered.">				if (BigDecimal.ZERO.compareTo(weightCap) &gt; 0)</span>
+				{
+<span class="fc" id="L108">					return new ParseResult.Fail(&quot;Weight Capacity must be &gt;= 0: &quot; + weightCapacity</span>
+						+ &quot;\n  Use 'UNLIM' (not -1) for unlimited Count&quot;);
+				}
+			}
+<span class="fc" id="L112">			catch (NumberFormatException ex)</span>
+			{
+<span class="fc" id="L114">				return new ParseResult.Fail(&quot;Weight Capacity must be 'UNLIM or a number &gt;= 0: &quot; + weightCapacity);</span>
+<span class="fc" id="L115">			}</span>
+		}
+<span class="fc" id="L117">		context.getObjectContext().put(eq, ObjectKey.CONTAINER_WEIGHT_CAPACITY, weightCap);</span>
+
+<span class="fc" id="L119">		Capacity totalCap = null;</span>
+<span class="fc" id="L120">		boolean limited = true;</span>
+<span class="fc bfc" id="L121" title="All 2 branches covered.">		if (!pipeTok.hasMoreTokens())</span>
+		{
+<span class="fc" id="L123">			limited = false;</span>
+<span class="fc" id="L124">			totalCap = Capacity.ANY;</span>
+		}
+
+<span class="fc" id="L127">		BigDecimal limitedCapacity = BigDecimal.ZERO;</span>
+
+<span class="fc bfc" id="L129" title="All 2 branches covered.">		while (pipeTok.hasMoreTokens())</span>
+		{
+<span class="fc" id="L131">			String typeString = pipeTok.nextToken();</span>
+<span class="fc" id="L132">			int equalLoc = typeString.indexOf(Constants.EQUALS);</span>
+<span class="fc bfc" id="L133" title="All 2 branches covered.">			if (equalLoc != typeString.lastIndexOf(Constants.EQUALS))</span>
+			{
+<span class="fc" id="L135">				return new ParseResult.Fail(&quot;Two many = signs&quot;);</span>
+			}
+<span class="fc bfc" id="L137" title="All 2 branches covered.">			if (equalLoc == -1)</span>
+			{
+<span class="fc" id="L139">				limited = false;</span>
+<span class="fc" id="L140">				context.getObjectContext().addToList(eq, ListKey.CAPACITY,</span>
+					new Capacity(typeString, Capacity.UNLIMITED));
+			}
+			else
+			{
+<span class="fc" id="L145">				String itemType = typeString.substring(0, equalLoc);</span>
+<span class="fc" id="L146">				String itemNumString = typeString.substring(equalLoc + 1);</span>
+				BigDecimal itemNumber;
+<span class="pc bpc" id="L148" title="1 of 2 branches missed.">				if (&quot;UNLIM&quot;.equals(itemNumString))</span>
+				{
+<span class="nc" id="L150">					limited = false;</span>
+<span class="nc" id="L151">					itemNumber = Capacity.UNLIMITED;</span>
+				}
+				else
+				{
+					try
+					{
+<span class="fc" id="L157">						itemNumber = BigDecimalHelper.trimBigDecimal(new BigDecimal(itemNumString));</span>
+					}
+<span class="fc" id="L159">					catch (NumberFormatException ex)</span>
+					{
+<span class="fc" id="L161">						return new ParseResult.Fail(</span>
+							&quot;Item Number for &quot; + itemType + &quot; must be 'UNLIM' or a number &gt; 0: &quot; + itemNumString);
+<span class="fc" id="L163">					}</span>
+<span class="fc bfc" id="L164" title="All 2 branches covered.">					if (BigDecimal.ZERO.compareTo(itemNumber) &gt;= 0)</span>
+					{
+<span class="fc" id="L166">						return new ParseResult.Fail(&quot;Cannot have negative quantity of &quot; + itemType + &quot;: &quot; + value);</span>
+					}
+				}
+<span class="pc bpc" id="L169" title="1 of 2 branches missed.">				if (limited)</span>
+				{
+<span class="fc" id="L171">					limitedCapacity = limitedCapacity.add(itemNumber);</span>
+				}
+<span class="fc" id="L173">				context.getObjectContext().addToList(eq, ListKey.CAPACITY, new Capacity(itemType, itemNumber));</span>
+			}
+<span class="fc" id="L175">		}</span>
+
+<span class="fc bfc" id="L177" title="All 2 branches covered.">		if (totalCap == null)</span>
+		{
+<span class="fc bfc" id="L179" title="All 2 branches covered.">			BigDecimal totalCapacity = limited ? limitedCapacity : Capacity.UNLIMITED;</span>
+<span class="fc" id="L180">			totalCap = Capacity.getTotalCapacity(totalCapacity);</span>
+		}
+
+<span class="fc" id="L183">		context.getObjectContext().put(eq, ObjectKey.TOTAL_CAPACITY, totalCap);</span>
+<span class="fc" id="L184">		return ParseResult.SUCCESS;</span>
+	}
+
+	@Override
+	public String[] unparse(LoadContext context, Equipment eq)
+	{
+<span class="fc" id="L190">		Changes&lt;Capacity&gt; changes = context.getObjectContext().getListChanges(eq, ListKey.CAPACITY);</span>
+<span class="fc" id="L191">		Capacity totalCapacity = context.getObjectContext().getObject(eq, ObjectKey.TOTAL_CAPACITY);</span>
+<span class="pc bpc" id="L192" title="2 of 6 branches missed.">		if (totalCapacity == null &amp;&amp; (changes == null || changes.isEmpty()))</span>
+		{
+<span class="fc" id="L194">			return null;</span>
+		}
+<span class="fc" id="L196">		StringBuilder sb = new StringBuilder();</span>
+
+<span class="fc" id="L198">		Boolean b = context.getObjectContext().getObject(eq, ObjectKey.CONTAINER_CONSTANT_WEIGHT);</span>
+<span class="pc bpc" id="L199" title="1 of 4 branches missed.">		if (b != null &amp;&amp; b)</span>
+		{
+<span class="fc" id="L201">			sb.append(Constants.CHAR_ASTERISK);</span>
+		}
+
+<span class="fc" id="L204">		Integer reducePercent = context.getObjectContext().getInteger(eq, IntegerKey.CONTAINER_REDUCE_WEIGHT);</span>
+<span class="fc bfc" id="L205" title="All 2 branches covered.">		if (reducePercent != null)</span>
+		{
+<span class="fc" id="L207">			sb.append(reducePercent).append(Constants.PERCENT);</span>
+		}
+
+<span class="fc" id="L210">		BigDecimal cap = context.getObjectContext().getObject(eq, ObjectKey.CONTAINER_WEIGHT_CAPACITY);</span>
+<span class="pc bpc" id="L211" title="1 of 2 branches missed.">		if (cap == null)</span>
+		{
+			// CONSIDER ERROR??
+<span class="nc" id="L214">			return null;</span>
+		}
+<span class="fc bfc" id="L216" title="All 2 branches covered.">		if (Capacity.UNLIMITED.equals(cap))</span>
+		{
+<span class="fc" id="L218">			sb.append(&quot;UNLIM&quot;);</span>
+		}
+		else
+		{
+<span class="fc" id="L222">			sb.append(cap);</span>
+		}
+
+<span class="fc" id="L225">		Collection&lt;Capacity&gt; capacityList = changes.getAdded();</span>
+<span class="fc bfc" id="L226" title="All 2 branches covered.">		if (capacityList == null)</span>
+		{
+<span class="pc bpc" id="L228" title="1 of 2 branches missed.">			if (Capacity.UNLIMITED.equals(totalCapacity.getCapacity()))</span>
+			{
+				// Special Case: Nothing additional
+<span class="fc" id="L231">				return new String[]{sb.toString()};</span>
+			}
+		}
+<span class="fc" id="L234">		BigDecimal limitedCapacity = BigDecimal.ZERO;</span>
+<span class="fc" id="L235">		boolean limited = true;</span>
+<span class="fc bfc" id="L236" title="All 2 branches covered.">		for (Capacity c : capacityList)</span>
+		{
+<span class="fc" id="L238">			String capType = c.getType();</span>
+<span class="fc" id="L239">			sb.append(Constants.PIPE);</span>
+<span class="fc" id="L240">			BigDecimal thisCap = c.getCapacity();</span>
+<span class="fc" id="L241">			sb.append(capType);</span>
+<span class="fc bfc" id="L242" title="All 2 branches covered.">			if (Capacity.UNLIMITED.equals(thisCap))</span>
+			{
+<span class="fc" id="L244">				limited = false;</span>
+			}
+			else
+			{
+<span class="pc bpc" id="L248" title="1 of 2 branches missed.">				if (limited)</span>
+				{
+<span class="fc" id="L250">					limitedCapacity = limitedCapacity.add(thisCap);</span>
+				}
+<span class="fc" id="L252">				sb.append(Constants.EQUALS).append(thisCap);</span>
+			}
+<span class="fc" id="L254">		}</span>
+<span class="fc bfc" id="L255" title="All 2 branches covered.">		if (!limitedCapacity.equals(totalCapacity.getCapacity())</span>
+<span class="pc bpc" id="L256" title="1 of 2 branches missed.">			&amp;&amp; !Capacity.UNLIMITED.equals(totalCapacity.getCapacity()))</span>
+		{
+			// Need to write out total
+<span class="nc" id="L259">			sb.append(&quot;Total&quot;).append(Constants.EQUALS).append(totalCapacity.getCapacity());</span>
+		}
+<span class="fc" id="L261">		return new String[]{sb.toString()};</span>
+	}
+
+	@Override
+	public Class&lt;Equipment&gt; getTokenClass()
+	{
+<span class="fc" id="L267">		return Equipment.class;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

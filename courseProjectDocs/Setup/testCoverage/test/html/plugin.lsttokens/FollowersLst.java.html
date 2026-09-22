@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FollowersLst.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.lsttokens</a> &gt; <span class="el_source">FollowersLst.java</span></div><h1>FollowersLst.java</h1><pre class="source lang-java linenums">/*
+ * FollowersLst.java
+ * Copyright 2006 (C) Aaron Divinsky &lt;boomer70@yahoo.com&gt;
+ * Copyright 2008 (C) Thomas Parker &lt;thpr@users.sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package plugin.lsttokens;
+
+import java.util.TreeSet;
+
+import pcgen.cdom.formula.Formula;
+import pcgen.base.text.ParsingSeparator;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.base.Ungranted;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.helper.FollowerLimit;
+import pcgen.cdom.list.CompanionList;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.rules.context.Changes;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.ParseResult;
+
+/**
+ * This class implements support for the FOLLOWERS LST token.
+ * &lt;p&gt;
+ * &lt;b&gt;Tag Name&lt;/b&gt;: {@code FOLLOWERS}:x|y&lt;br&gt;
+ * &lt;b&gt;Variables Used (x)&lt;/b&gt;: Text (The type of companion the limit will apply
+ * to).&lt;br&gt;
+ * &lt;b&gt;Variables Used (y)&lt;/b&gt;: Number, variable or formula (Number of this type
+ * of companion the master can have)
+ * &lt;p&gt;
+ * &lt;b&gt;What it does:&lt;/b&gt;&lt;br&gt;
+ * &lt;ul&gt;
+ * &lt;li&gt;Limits the number of the specified type of companion the master can
+ * have.&lt;/li&gt;
+ * &lt;li&gt;Optional, if this tag is not present no limits are placed on the number
+ * of companions the character can have.&lt;/li&gt;
+ * &lt;li&gt;If more than one tag is encountered the highest value is used.&lt;/li&gt;
+ * &lt;li&gt;The value can be adjusted with the {@code BONUS:FOLLOWERS} tag&lt;/li&gt;
+ * &lt;/ul&gt;
+ * &lt;b&gt;Where it is used:&lt;/b&gt;&lt;br&gt;
+ * Global tag, would most often be used in class and feat (ability) files,
+ * should also be enabled for templates and Domains.
+ * &lt;p&gt;
+ * &lt;b&gt;Examples:&lt;/b&gt;&lt;br&gt;
+ * {@code FOLLOWERS:Familiar|1}&lt;br&gt;
+ * A character is allowed only 1 companion of type Familiar
+ */
+<span class="fc" id="L65">public class FollowersLst implements CDOMPrimaryToken&lt;CDOMObject&gt;</span>
+{
+	/**
+	 *
+	 * @return token name
+	 */
+	@Override
+	public String getTokenName()
+	{
+<span class="fc" id="L74">		return &quot;FOLLOWERS&quot;; //$NON-NLS-1$</span>
+	}
+
+	@Override
+	public ParseResult parseToken(LoadContext context, CDOMObject obj, String value)
+	{
+<span class="pc bpc" id="L80" title="1 of 2 branches missed.">		if (obj instanceof Ungranted)</span>
+		{
+<span class="nc" id="L82">			return new ParseResult.Fail(</span>
+<span class="nc" id="L83">				&quot;Cannot use &quot; + getTokenName() + &quot; on an Ungranted object type: &quot; + obj.getClass().getSimpleName());</span>
+		}
+<span class="pc bpc" id="L85" title="1 of 4 branches missed.">		if ((value == null) || value.isEmpty())</span>
+		{
+<span class="fc" id="L87">			return new ParseResult.Fail(&quot;Argument in &quot; + getTokenName() + &quot; cannot be empty&quot;);</span>
+		}
+<span class="fc" id="L89">		ParsingSeparator sep = new ParsingSeparator(value, '|');</span>
+<span class="fc" id="L90">		sep.addGroupingPair('[', ']');</span>
+<span class="fc" id="L91">		sep.addGroupingPair('(', ')');</span>
+
+<span class="fc" id="L93">		String followerType = sep.next();</span>
+<span class="fc bfc" id="L94" title="All 2 branches covered.">		if (followerType.isEmpty())</span>
+		{
+<span class="fc" id="L96">			return new ParseResult.Fail(&quot;Follower Type in &quot; + getTokenName() + &quot; cannot be empty&quot;);</span>
+		}
+<span class="fc bfc" id="L98" title="All 2 branches covered.">		if (!sep.hasNext())</span>
+		{
+<span class="fc" id="L100">			return new ParseResult.Fail(</span>
+<span class="fc" id="L101">				getTokenName() + &quot; has no PIPE character: &quot; + &quot;Must be of the form &lt;follower type&gt;|&lt;formula&gt;&quot;);</span>
+		}
+<span class="fc" id="L103">		String followerNumber = sep.next();</span>
+<span class="fc bfc" id="L104" title="All 2 branches covered.">		if (sep.hasNext())</span>
+		{
+<span class="fc" id="L106">			return new ParseResult.Fail(</span>
+<span class="fc" id="L107">				getTokenName() + &quot; has too many PIPE characters: &quot; + &quot;Must be of the form &lt;follower type&gt;|&lt;formula&quot;);</span>
+		}
+<span class="fc bfc" id="L109" title="All 2 branches covered.">		if (followerNumber.isEmpty())</span>
+		{
+<span class="fc" id="L111">			return new ParseResult.Fail(&quot;Follower Count in &quot; + getTokenName() + &quot; cannot be empty&quot;);</span>
+		}
+<span class="fc" id="L113">		CDOMSingleRef&lt;CompanionList&gt; cl =</span>
+<span class="fc" id="L114">				context.getReferenceContext().getCDOMReference(CompanionList.class, followerType);</span>
+<span class="fc" id="L115">		Formula num = FormulaFactory.getFormulaFor(followerNumber);</span>
+<span class="pc bpc" id="L116" title="1 of 2 branches missed.">		if (!num.isValid())</span>
+		{
+<span class="nc" id="L118">			return new ParseResult.Fail(</span>
+<span class="nc" id="L119">				&quot;Number of Followers in &quot; + getTokenName() + &quot; was not valid: &quot; + num.toString());</span>
+		}
+<span class="fc" id="L121">		context.getObjectContext().addToList(obj, ListKey.FOLLOWERS, new FollowerLimit(cl, num));</span>
+<span class="fc" id="L122">		return ParseResult.SUCCESS;</span>
+	}
+
+	@Override
+	public String[] unparse(LoadContext context, CDOMObject obj)
+	{
+<span class="fc" id="L128">		Changes&lt;FollowerLimit&gt; changes = context.getObjectContext().getListChanges(obj, ListKey.FOLLOWERS);</span>
+<span class="pc bpc" id="L129" title="1 of 4 branches missed.">		if (changes == null || changes.isEmpty())</span>
+		{
+<span class="fc" id="L131">			return null;</span>
+		}
+<span class="fc" id="L133">		TreeSet&lt;String&gt; returnSet = new TreeSet&lt;&gt;();</span>
+<span class="fc bfc" id="L134" title="All 2 branches covered.">		for (FollowerLimit fl : changes.getAdded())</span>
+		{
+<span class="fc" id="L136">			String followerType = fl.getCompanionList().getLSTformat(false);</span>
+<span class="fc" id="L137">			Formula followerNumber = fl.getValue();</span>
+<span class="fc" id="L138">			returnSet.add(followerType + Constants.PIPE + followerNumber.toString());</span>
+<span class="fc" id="L139">		}</span>
+<span class="fc" id="L140">		return returnSet.toArray(new String[0]);</span>
+	}
+
+	@Override
+	public Class&lt;CDOMObject&gt; getTokenClass()
+	{
+<span class="fc" id="L146">		return CDOMObject.class;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

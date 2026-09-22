@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ChooserUtilities.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.core.chooser</a> &gt; <span class="el_source">ChooserUtilities.java</span></div><h1>ChooserUtilities.java</h1><pre class="source lang-java linenums">/*
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ * Copyright 2005 Andrew Wilson &lt;nuance@sourceforge.net&gt;
+ */
+
+package pcgen.core.chooser;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import pcgen.cdom.formula.Formula;
+import pcgen.cdom.base.ChooseDriver;
+import pcgen.cdom.base.ChooseInformation;
+import pcgen.cdom.content.CNAbility;
+import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.SettingsHandler;
+import pcgen.core.Skill;
+
+/**
+ * The guts of chooser moved from PObject
+ * 
+ */
+
+public final class ChooserUtilities
+{
+	private ChooserUtilities()
+	{
+	}
+
+	/**
+	 * Deal with CHOOSE tags. The actual items the choice will be made from are
+	 * based on the choiceString, as applied to current character. Choices
+	 * already made (getAssociatedList) are indicated in the selectedList. This
+	 * method may also be used to build a list of choices available and choices
+	 * already made by passing false in the process parameter
+	 * 
+	 * @param availableList
+	 *            the list of things not already chosen
+	 * @param selectedList
+	 *            the list of things already chosen
+	 * @param aPC
+	 *            the PC that owns the Ability
+	 * @param addIt
+	 *            Whether to add or remove a choice from this Ability
+	 * @param category
+	 *            The AbilityCategory whose pool will be charged for the ability
+	 *            (if any). May be null.
+	 * 
+	 * @return true if we processed the list of choices, false if we used the
+	 *         routine to build the list of choices without processing them.
+	 */
+	public static boolean modChoices(final ChooseDriver aPObject, List availableList, final List selectedList,
+		final PlayerCharacter aPC, final boolean addIt, final AbilityCategory category)
+	{
+<span class="nc" id="L70">		availableList.clear();</span>
+<span class="nc" id="L71">		selectedList.clear();</span>
+<span class="nc" id="L72">		List reservedList = new ArrayList();</span>
+
+<span class="nc" id="L74">		ChoiceManagerList aMan = getConfiguredController(aPObject, aPC, category, reservedList);</span>
+<span class="nc bnc" id="L75" title="All 2 branches missed.">		if (aMan == null)</span>
+		{
+<span class="nc" id="L77">			return false;</span>
+		}
+
+<span class="nc" id="L80">		aMan.getChoices(aPC, availableList, selectedList);</span>
+
+<span class="nc bnc" id="L82" title="All 4 branches missed.">		if (!availableList.isEmpty() || !selectedList.isEmpty())</span>
+		{
+<span class="nc bnc" id="L84" title="All 2 branches missed.">			if (addIt)</span>
+			{
+<span class="nc" id="L86">				final List newSelections = aMan.doChooser(aPC, availableList, selectedList, reservedList);</span>
+<span class="nc" id="L87">				return aMan.applyChoices(aPC, newSelections);</span>
+			}
+			else
+			{
+<span class="nc" id="L91">				aMan.doChooserRemove(aPC, availableList, selectedList, reservedList);</span>
+			}
+<span class="nc" id="L93">			return true;</span>
+		}
+<span class="nc" id="L95">		return false;</span>
+	}
+
+	public static &lt;T&gt; ChoiceManagerList&lt;T&gt; getConfiguredController(final ChooseDriver aPObject,
+		final PlayerCharacter aPC, final AbilityCategory category, List&lt;String&gt; reservedList)
+	{
+<span class="nc" id="L101">		ChoiceManagerList aMan = getChoiceManager(aPObject, aPC);</span>
+<span class="nc bnc" id="L102" title="All 2 branches missed.">		if (aMan == null)</span>
+		{
+<span class="nc" id="L104">			return null;</span>
+		}
+
+<span class="nc bnc" id="L107" title="All 2 branches missed.">		if (aPObject instanceof CNAbility driver)</span>
+		{
+<span class="nc" id="L109">			Ability a = driver.getAbility();</span>
+			AbilityCategory cat;
+<span class="nc bnc" id="L111" title="All 2 branches missed.">			if (category == null)</span>
+			{
+<span class="nc" id="L113">				cat = SettingsHandler.getGameAsProperty().get().getAbilityCategory(a.getCategory());</span>
+			}
+			else
+			{
+<span class="nc" id="L117">				cat = category;</span>
+			}
+<span class="nc" id="L119">			aMan.setController(new AbilityChooseController(a, cat, aPC, aMan));</span>
+<span class="nc" id="L120">			List&lt;CNAbility&gt; abilities = aPC.getMatchingCNAbilities(a);</span>
+<span class="nc bnc" id="L121" title="All 2 branches missed.">			for (CNAbility cna : abilities)</span>
+			{
+<span class="nc" id="L123">				reservedList.addAll(aPC.getAssociationList(cna));</span>
+<span class="nc" id="L124">			}</span>
+<span class="nc" id="L125">		}</span>
+<span class="nc bnc" id="L126" title="All 2 branches missed.">		else if (aPObject instanceof Skill s)</span>
+		{
+<span class="nc" id="L128">			aMan.setController(new SkillChooseController(s, aPC));</span>
+		}
+<span class="nc" id="L130">		return aMan;</span>
+	}
+
+	/**
+	 * Make a ChoiceManager Object for the chooser appropriate for
+	 * aPObject.getChoiceString();
+	 * 
+	 * @param aPObject
+	 * @param aPC
+	 * 
+	 * @return an initialized ChoiceManager
+	 */
+	public static ChoiceManagerList getChoiceManager(ChooseDriver aPObject, PlayerCharacter aPC)
+	{
+<span class="nc" id="L144">		ChooseInformation&lt;?&gt; chooseInfo = aPObject.getChooseInfo();</span>
+<span class="nc bnc" id="L145" title="All 2 branches missed.">		if (chooseInfo != null)</span>
+		{
+<span class="nc" id="L147">			Formula selectionsPerUnitCost = aPObject.getSelectFormula();</span>
+<span class="nc" id="L148">			int cost = selectionsPerUnitCost.resolve(aPC, &quot;&quot;).intValue();</span>
+<span class="nc" id="L149">			return chooseInfo.getChoiceManager(aPObject, cost);</span>
+		}
+<span class="nc" id="L151">		return null;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

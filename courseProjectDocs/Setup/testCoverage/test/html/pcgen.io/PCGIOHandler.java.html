@@ -1,0 +1,585 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PCGIOHandler.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.io</a> &gt; <span class="el_source">PCGIOHandler.java</span></div><h1>PCGIOHandler.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2002 (C) Thomas Behr &lt;ravenlock@gmx.de&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ *
+ *
+ */
+package pcgen.io;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
+import java.math.BigDecimal;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.content.CNAbility;
+import pcgen.cdom.enumeration.Nature;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.inst.PCClassLevel;
+import pcgen.core.AbilityCategory;
+import pcgen.core.Campaign;
+import pcgen.core.Equipment;
+import pcgen.core.GameMode;
+import pcgen.core.PCClass;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.character.EquipSet;
+import pcgen.facade.core.SourceSelectionFacade;
+import pcgen.system.LanguageBundle;
+import pcgen.system.PCGenPropBundle;
+import pcgen.system.PCGenSettings;
+import pcgen.util.FileHelper;
+import pcgen.util.Logging;
+
+import org.apache.commons.lang3.StringUtils;
+import org.jetbrains.annotations.Nullable;
+
+/**
+ * {@code PCGIOHandler}&lt;br&gt;
+ * Reading and Writing PlayerCharacters in PCGen's own format (PCG).
+ */
+<span class="nc" id="L71">public final class PCGIOHandler extends IOHandler</span>
+{
+
+<span class="nc" id="L74">    private final List&lt;String&gt; errors = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L75">    private final List&lt;String&gt; warnings = new ArrayList&lt;&gt;();</span>
+
+    /**
+     * Selector
+     * &lt;p&gt;
+     * &lt;br&gt;author: Thomas Behr 18-03-02
+     *
+     * @return a list of error messages
+     */
+    public List&lt;String&gt; getErrors()
+    {
+<span class="nc" id="L86">        return errors;</span>
+    }
+
+    /**
+     * Convenience Method
+     * &lt;p&gt;
+     * &lt;br&gt;author: Thomas Behr 18-03-02
+     *
+     * @return a list of messages
+     */
+    public List&lt;String&gt; getMessages()
+    {
+<span class="nc" id="L98">        final List&lt;String&gt; messages = new ArrayList&lt;&gt;();</span>
+
+<span class="nc" id="L100">        messages.addAll(errors);</span>
+<span class="nc" id="L101">        messages.addAll(warnings);</span>
+
+<span class="nc" id="L103">        return messages;</span>
+    }
+
+    /**
+     * Selector
+     * &lt;p&gt;
+     * &lt;br&gt;author: Thomas Behr 15-03-02
+     *
+     * @return a list of warning messages
+     */
+    public List&lt;String&gt; getWarnings()
+    {
+<span class="nc" id="L115">        return warnings;</span>
+    }
+
+    /**
+     * Reads the contents of the given PlayerCharacter from a stream
+     * &lt;p&gt;
+     * &lt;br&gt;author: Thomas Behr 11-03-02
+     *
+     * @param pcToBeRead the PlayerCharacter to store the read data
+     * @param in         the stream to be read from
+     * @param validate
+     */
+    @Override
+    public void read(PlayerCharacter pcToBeRead, InputStream in, final boolean validate)
+    {
+<span class="nc" id="L130">        warnings.clear();</span>
+
+<span class="nc" id="L132">        final List&lt;String&gt; lines = readPcgLines(in);</span>
+<span class="nc" id="L133">        boolean isPCGVersion2 = isPCGCersion2(lines);</span>
+
+<span class="nc" id="L135">        pcToBeRead.setImporting(true);</span>
+
+<span class="nc" id="L137">        final String[] pcgLines = lines.toArray(new String[0]);</span>
+<span class="nc bnc" id="L138" title="All 2 branches missed.">        if (isPCGVersion2)</span>
+        {
+<span class="nc" id="L140">            final PCGParser parser = new PCGVer2Parser(pcToBeRead);</span>
+            try
+            {
+                // parse it all
+<span class="nc" id="L144">                parser.parsePCG(pcgLines);</span>
+<span class="nc" id="L145">            } catch (PCGParseException pcgex)</span>
+            {
+<span class="nc" id="L147">                Logging.errorPrint(&quot;Error loading character: &quot; + pcgex.getMessage() + &quot;\n Method &quot; + pcgex.getMethod()</span>
+<span class="nc" id="L148">                        + &quot; was unable to parse line &quot; + pcgex.getLine());</span>
+<span class="nc" id="L149">                errors.add(LanguageBundle.getFormattedString(&quot;in_pcgIoErrorReport&quot;, pcgex.getMessage())); //$NON-NLS-1$</span>
+<span class="nc" id="L150">            }</span>
+
+<span class="nc" id="L152">            warnings.addAll(parser.getWarnings());</span>
+
+            // we are now all done with the import parsing, so turn off
+            // the Importing flag and then do some sanity checks
+<span class="nc" id="L156">            pcToBeRead.setImporting(false);</span>
+
+            try
+            {
+<span class="nc" id="L160">                sanityChecks(pcToBeRead, parser);</span>
+<span class="nc" id="L161">            } catch (NumberFormatException ex)</span>
+            {
+<span class="nc" id="L163">                errors.add(ex.getMessage() + Constants.LINE_SEPARATOR + &quot;Method: sanityChecks&quot;);</span>
+<span class="nc" id="L164">            }</span>
+
+<span class="nc" id="L166">            pcToBeRead.setDirty(false);</span>
+<span class="nc" id="L167">        } else</span>
+        {
+<span class="nc" id="L169">            errors.add(&quot;Cannot open PCG file&quot;);</span>
+        }
+<span class="nc" id="L171">    }</span>
+
+    private boolean isPCGCersion2(List&lt;String&gt; lines)
+    {
+<span class="nc bnc" id="L175" title="All 2 branches missed.">        for (String aLine : lines)</span>
+        {
+<span class="nc bnc" id="L177" title="All 2 branches missed.">            if (aLine.startsWith(IOConstants.TAG_PCGVERSION))</span>
+            {
+<span class="nc" id="L179">                return true;</span>
+            }
+<span class="nc" id="L181">        }</span>
+<span class="nc" id="L182">        return false;</span>
+    }
+
+    /**
+     * @param in
+     * @return String lines
+     */
+    private List&lt;String&gt; readPcgLines(InputStream in)
+    {
+<span class="nc" id="L191">        final List&lt;String&gt; lines = new ArrayList&lt;&gt;();</span>
+
+        // try reading in all the lines in the .pcg file
+<span class="nc" id="L194">        try (BufferedReader br = new BufferedReader(new InputStreamReader(in, StandardCharsets.UTF_8)))</span>
+        {
+
+            String aLine;
+
+<span class="nc bnc" id="L199" title="All 2 branches missed.">            while ((aLine = br.readLine()) != null)</span>
+            {
+<span class="nc" id="L201">                lines.add(aLine);</span>
+                //isPCGVersion2 |= aLine.startsWith(IOConstants.TAG_PCGVERSION);
+            }
+<span class="nc" id="L204">        } catch (IOException ioe)</span>
+        {
+<span class="nc" id="L206">            Logging.errorPrint(&quot;Exception in PCGIOHandler::read&quot;, ioe);</span>
+<span class="nc" id="L207">        }</span>
+<span class="nc" id="L208">        return lines;</span>
+    }
+
+    /**
+     * Writes the contents of the given PlayerCharacter to a stream
+     * &lt;p&gt;
+     * &lt;br&gt;author: Thomas Behr 11-03-02
+     *
+     * @param pcToBeWritten the PlayerCharacter to write
+     * @param out           the stream to be written to
+     * @deprecated The write to a file method should be used in preference as it has safe backup handling.
+     */
+    @Deprecated
+    @Override
+    public void write(PlayerCharacter pcToBeWritten, GameMode mode, List&lt;Campaign&gt; campaigns, OutputStream out)
+    {
+        final String pcgString;
+<span class="nc" id="L225">        pcgString = (new PCGVer2Creator(pcToBeWritten, mode, campaigns)).createPCGString();</span>
+
+<span class="nc" id="L227">        try (BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(out, StandardCharsets.UTF_8)))</span>
+        {
+<span class="nc" id="L229">            bw.write(pcgString);</span>
+<span class="nc" id="L230">            bw.flush();</span>
+
+<span class="nc" id="L232">            pcToBeWritten.setDirty(false);</span>
+<span class="nc" id="L233">        } catch (IOException ioe)</span>
+        {
+<span class="nc" id="L235">            Logging.errorPrint(&quot;Exception in PCGIOHandler::write&quot;, ioe);</span>
+<span class="nc" id="L236">        }</span>
+<span class="nc" id="L237">    }</span>
+
+    /**
+     * Writes the contents of the given PlayerCharacter to a file. This method also includes
+     * safely backing up the original character file, but only once we know we have
+     * successfully exported the character to a string ready for writing. This means that if
+     * the save fails, the file system is untouched.
+     *
+     * @param pcToBeWritten the PlayerCharacter to write
+     * @param mode          The character's game mode.
+     * @param campaigns     The character's sources.
+     * @param outFile       The file to write the character to.
+     */
+    public void write(PlayerCharacter pcToBeWritten, GameMode mode, List&lt;Campaign&gt; campaigns, File outFile)
+    {
+        final String pcgString;
+<span class="nc" id="L253">        pcgString = (new PCGVer2Creator(pcToBeWritten, mode, campaigns)).createPCGString();</span>
+
+        // Do backup now that we have the character ready to save
+<span class="nc" id="L256">        createBackupForFile(outFile);</span>
+
+        // Now save the character
+
+<span class="nc" id="L260">        try (FileWriter fileWriter = new FileWriter(outFile, StandardCharsets.UTF_8);</span>
+<span class="nc" id="L261">             Writer bw = new BufferedWriter(fileWriter))</span>
+        {
+<span class="nc" id="L263">            pcToBeWritten.setDirty(false);</span>
+<span class="nc" id="L264">            bw.write(pcgString);</span>
+<span class="nc" id="L265">        } catch (IOException ioe)</span>
+        {
+<span class="nc" id="L267">            Logging.errorPrint(&quot;Exception in PCGIOHandler::write&quot;, ioe);</span>
+<span class="nc" id="L268">        }</span>
+<span class="nc" id="L269">    }</span>
+
+    /*
+     * ###############################################################
+     * private helper methods
+     * ###############################################################
+     */
+    private void sanityChecks(PlayerCharacter currentPC, PCGParser parser)
+    {
+        // Hit point sanity check
+<span class="nc" id="L279">        boolean fixMade = false;</span>
+
+<span class="nc" id="L281">        resolveDuplicateEquipmentSets(currentPC);</span>
+
+        // First make sure the &quot;working&quot; equipment list
+        // is in effect for all the bonuses it may add
+<span class="nc" id="L285">        currentPC.setCalcEquipmentList();</span>
+
+        // make sure the bonuses from companions are applied
+<span class="nc" id="L288">        currentPC.setCalcFollowerBonus();</span>
+
+        // pre-calculate all the bonuses
+<span class="nc" id="L291">        currentPC.calcActiveBonuses();</span>
+
+<span class="nc" id="L293">        final int oldHp = currentPC.hitPoints();</span>
+
+        // Recalc the feat pool if required
+<span class="nc bnc" id="L296" title="All 2 branches missed.">        if (parser.isCalcFeatPoolAfterLoad())</span>
+        {
+<span class="nc" id="L298">            double baseFeatPool = parser.getBaseFeatPool();</span>
+<span class="nc" id="L299">            double featPoolBonus = currentPC.getRemainingFeatPoints(true);</span>
+<span class="nc" id="L300">            baseFeatPool -= featPoolBonus;</span>
+<span class="nc" id="L301">            currentPC.setUserPoolBonus(AbilityCategory.FEAT, new BigDecimal(String.valueOf(baseFeatPool)));</span>
+        }
+
+<span class="nc bnc" id="L304" title="All 2 branches missed.">        for (CNAbility aFeat : currentPC.getPoolAbilities(AbilityCategory.FEAT, Nature.NORMAL))</span>
+        {
+<span class="nc bnc" id="L306" title="All 4 branches missed.">            if (aFeat.getAbility().getSafe(ObjectKey.MULTIPLE_ALLOWED) &amp;&amp; !currentPC.hasAssociations(aFeat))</span>
+            {
+<span class="nc" id="L308">                warnings.add(&quot;Multiple selection feat found with no selections (&quot; + aFeat.getAbility().getDisplayName()</span>
+                        + &quot;). Correct on Feat tab.&quot;);
+            }
+<span class="nc" id="L311">        }</span>
+
+        // Get templates - give it the biggest HD
+        // sk4p 11 Dec 2002
+
+        //PCTemplate aTemplate = null;
+<span class="nc bnc" id="L317" title="All 2 branches missed.">        if (currentPC.hasClass())</span>
+        {
+<span class="nc bnc" id="L319" title="All 2 branches missed.">            for (PCClass pcClass : currentPC.getClassSet())</span>
+            {
+                // Ignore if no levels
+<span class="nc bnc" id="L322" title="All 2 branches missed.">                if (currentPC.getLevel(pcClass) &lt; 1)</span>
+                {
+<span class="nc" id="L324">                    continue;</span>
+                }
+
+                // Walk through the levels for this class
+
+<span class="nc bnc" id="L329" title="All 2 branches missed.">                for (int i = 1; i &lt;= currentPC.getLevel(pcClass); i++)</span>
+                {
+<span class="nc" id="L331">                    int baseSides = currentPC.getLevelHitDie(pcClass, i).getDie();</span>
+                    //TODO i-1 is strange see CODE-1925
+<span class="nc" id="L333">                    PCClassLevel pcl = currentPC.getActiveClassLevel(pcClass, i - 1);</span>
+<span class="nc" id="L334">                    Integer hp = currentPC.getHP(pcl);</span>
+<span class="nc bnc" id="L335" title="All 2 branches missed.">                    int iRoll = hp == null ? 0 : hp;</span>
+<span class="nc" id="L336">                    int iSides = baseSides + (int) pcClass.getBonusTo(&quot;HD&quot;, &quot;MAX&quot;, i, currentPC);</span>
+
+<span class="nc bnc" id="L338" title="All 2 branches missed.">                    if (iRoll &gt; iSides)</span>
+                    {
+<span class="nc" id="L340">                        currentPC.setHP(pcl, iSides);</span>
+<span class="nc" id="L341">                        fixMade = true;</span>
+                    }
+                }
+<span class="nc" id="L344">            }</span>
+        }
+
+<span class="nc bnc" id="L347" title="All 2 branches missed.">        if (fixMade)</span>
+        {
+<span class="nc" id="L349">            final String message = &quot;Fixed illegal value in hit points. &quot; + &quot;Current character hit points: &quot;</span>
+<span class="nc" id="L350">                    + currentPC.hitPoints() + &quot; not &quot; + oldHp;</span>
+<span class="nc" id="L351">            warnings.add(message);</span>
+        }
+
+        // Sometimes another class, feat, item, whatever can affect
+        // what spells or whatever would have been available for a
+        // class, so this simply lets the level advancement routine
+        // take into account all the details known about a character
+        // now that the import is completed. The level isn't affected.
+        //  merton_monk@yahoo.com 2/15/2002
+        //
+<span class="nc bnc" id="L361" title="All 2 branches missed.">        for (PCClass pcClass : currentPC.getClassSet())</span>
+        {
+<span class="nc" id="L363">            currentPC.calcActiveBonuses();</span>
+<span class="nc" id="L364">            currentPC.calculateKnownSpellsForClassLevel(pcClass);</span>
+<span class="nc" id="L365">        }</span>
+
+        //
+        // need to calc the movement rates
+<span class="nc" id="L369">        currentPC.adjustMoveRates();</span>
+
+        // re-calculate all the bonuses
+<span class="nc" id="L372">        currentPC.calcActiveBonuses();</span>
+
+        // make sure we are not dirty
+<span class="nc" id="L375">        currentPC.setDirty(false);</span>
+<span class="nc" id="L376">    }</span>
+
+    /**
+     * Check all equipment sets to ensure there are no duplicate paths. Where a
+     * duplicate path is found, report it and try to move one non-container to
+     * a new path.
+     *
+     * @param currentPC The character being loaded.
+     */
+    private void resolveDuplicateEquipmentSets(PlayerCharacter currentPC)
+    {
+<span class="nc" id="L387">        boolean anyMoved = false;</span>
+<span class="nc" id="L388">        Iterable&lt;EquipSet&gt; equipSetList = new ArrayList&lt;&gt;(currentPC.getDisplay().getEquipSet());</span>
+<span class="nc" id="L389">        Map&lt;String, EquipSet&gt; idMap = new HashMap&lt;&gt;();</span>
+<span class="nc bnc" id="L390" title="All 2 branches missed.">        for (final EquipSet es : equipSetList)</span>
+        {
+<span class="nc" id="L392">            String idPath = es.getIdPath();</span>
+<span class="nc bnc" id="L393" title="All 2 branches missed.">            if (idMap.containsKey(idPath))</span>
+            {
+<span class="nc" id="L395">                EquipSet existingEs = idMap.get(idPath);</span>
+<span class="nc" id="L396">                EquipSet esToBeMoved = chooseItemToBeMoved(existingEs, es);</span>
+<span class="nc bnc" id="L397" title="All 2 branches missed.">                if (esToBeMoved == null)</span>
+                {
+<span class="nc" id="L399">                    warnings.add(</span>
+<span class="nc" id="L400">                            String.format(&quot;Found two equipment items equipped to the &quot; + &quot;path %s. Items were %s and %s.&quot;,</span>
+<span class="nc" id="L401">                                    idPath, es.getItem(), existingEs.getItem()));</span>
+<span class="nc" id="L402">                    continue;</span>
+                }
+
+                // change the item's location
+<span class="nc" id="L406">                currentPC.moveEquipSetToNewPath(esToBeMoved);</span>
+<span class="nc bnc" id="L407" title="All 2 branches missed.">                EquipSet esStaying = esToBeMoved == es ? existingEs : es;</span>
+
+                // As we always move the non container, move any items it
+                // erroneously held to the item remaining in place
+<span class="nc bnc" id="L411" title="All 2 branches missed.">                for (int j = esToBeMoved.getItem().getContainedEquipmentCount() - 1; j &gt;= 0; j--)</span>
+                {
+<span class="nc" id="L413">                    Equipment containedItem = esToBeMoved.getItem().getContainedEquipment(j);</span>
+<span class="nc" id="L414">                    esToBeMoved.getItem().removeChild(currentPC, containedItem);</span>
+<span class="nc" id="L415">                    esStaying.getItem().insertChild(currentPC, containedItem);</span>
+                }
+
+<span class="nc" id="L418">                Logging.log(Logging.WARNING,</span>
+<span class="nc" id="L419">                        String.format(&quot;Moved item %s from path %s to %s as it &quot; + &quot;clashed with %s&quot;, esToBeMoved.getItem(),</span>
+<span class="nc bnc" id="L420" title="All 2 branches missed.">                                idPath, esToBeMoved.getIdPath(), esToBeMoved == es ? existingEs.getItem() : es.getItem()));</span>
+<span class="nc" id="L421">                idMap.put(es.getIdPath(), es);</span>
+<span class="nc" id="L422">                idMap.put(existingEs.getIdPath(), existingEs);</span>
+<span class="nc" id="L423">                anyMoved = true;</span>
+
+<span class="nc" id="L425">            } else</span>
+            {
+<span class="nc" id="L427">                idMap.put(idPath, es);</span>
+            }
+<span class="nc" id="L429">        }</span>
+
+<span class="nc bnc" id="L431" title="All 2 branches missed.">        if (anyMoved)</span>
+        {
+<span class="nc" id="L433">            warnings.add(&quot;Some equipment was moved as it was incorrectly stored.&quot; + &quot; Please see the log for details.&quot;);</span>
+        }
+<span class="nc" id="L435">    }</span>
+
+    /**
+     * Pick one of two equipment sets sharing a path to be moved to a new path.
+     * Only non containers will be moved to avoid issues with contents.
+     *
+     * @param equipSet1 The first equipment set at a path.
+     * @param equipSet2 The second equipment set at a path.
+     * @return The equipment set that should be move,d or null if none are safe.
+     */
+    private EquipSet chooseItemToBeMoved(EquipSet equipSet1, EquipSet equipSet2)
+    {
+<span class="nc bnc" id="L447" title="All 2 branches missed.">        if (!equipSet2.getItem().isContainer())</span>
+        {
+<span class="nc" id="L449">            return equipSet2;</span>
+        }
+<span class="nc bnc" id="L451" title="All 2 branches missed.">        if (!equipSet1.getItem().isContainer())</span>
+        {
+<span class="nc" id="L453">            return equipSet1;</span>
+        }
+        // Currently be really conservative
+<span class="nc" id="L456">        return null;</span>
+    }
+
+    /**
+     * reads from the given partyFile and returns the list of
+     * character files for this party
+     *
+     * @param partyFile a .pcp party file
+     * @return a list of files containing the characters in this party
+     */
+    @SuppressWarnings(&quot;PMD.UnusedLocalVariable&quot;)
+    public static List&lt;File&gt; readCharacterFileList(File partyFile)
+    {
+        List&lt;String&gt; lines;
+<span class="nc" id="L470">        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(partyFile, StandardCharsets.UTF_8)))</span>
+        {
+<span class="nc" id="L472">            lines = bufferedReader.lines().collect(Collectors.toList());</span>
+<span class="nc" id="L473">        } catch (IOException ex)</span>
+        {
+<span class="nc" id="L475">            Logging.errorPrint(&quot;Exception in IOHandler::read when reading&quot;, ex);</span>
+<span class="nc" id="L476">            return null;</span>
+<span class="nc" id="L477">        }</span>
+<span class="nc bnc" id="L478" title="All 2 branches missed.">        if (lines.size() &lt; 2)</span>
+        {
+<span class="nc" id="L480">            Logging.errorPrint(&quot;Character files missing in &quot; + partyFile.getAbsolutePath());</span>
+<span class="nc" id="L481">            return null;</span>
+        }
+        //Read and throw away version info. May change to actually use later
+<span class="nc" id="L484">        String versionInfo = lines.get(0);</span>
+        //read character filename data
+<span class="nc" id="L486">        String charFiles = lines.get(1);</span>
+<span class="nc" id="L487">        String[] files = charFiles.split(&quot;,&quot;);</span>
+
+<span class="nc" id="L489">        List&lt;File&gt; fileList = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L490" title="All 2 branches missed.">        for (final String fileName : files)</span>
+        {
+            // try to find it in the party's directory
+<span class="nc" id="L493">            File characterFile = new File(partyFile.getParent(), fileName);</span>
+<span class="nc bnc" id="L494" title="All 2 branches missed.">            if (!characterFile.exists())</span>
+            {
+                // try using the global pcg path
+<span class="nc" id="L497">                characterFile = new File(PCGenSettings.getPcgDir(), fileName);</span>
+            }
+<span class="nc bnc" id="L499" title="All 2 branches missed.">            if (!characterFile.exists())</span>
+            {
+                // try it as an absolute path
+<span class="nc" id="L502">                characterFile = new File(fileName);</span>
+            }
+<span class="nc bnc" id="L504" title="All 2 branches missed.">            if (characterFile.exists())</span>
+            {
+<span class="nc" id="L506">                fileList.add(characterFile);</span>
+            } else
+            {
+<span class="nc" id="L509">                Logging.errorPrint(&quot;Character file does not exist: &quot; + fileName);</span>
+            }
+        }
+<span class="nc" id="L512">        return fileList;</span>
+    }
+
+    public static void write(File partyFile, List&lt;File&gt; characterFiles)
+    {
+<span class="fc" id="L517">        String versionLine = &quot;VERSION:&quot; + PCGenPropBundle.getVersionNumber();</span>
+<span class="fc" id="L518">        String[] files = new String[characterFiles.size()];</span>
+<span class="fc" id="L519">        Arrays.setAll(files, i -&gt; FileHelper.findRelativePath(partyFile, characterFiles.get(i)));</span>
+<span class="fc" id="L520">        String filesLine = StringUtils.join(files, ',');</span>
+        try
+        {
+<span class="fc" id="L523">            String eol = System.lineSeparator();</span>
+<span class="fc" id="L524">            Files.writeString(partyFile.toPath(), versionLine + eol + filesLine + eol, StandardCharsets.UTF_8);</span>
+<span class="nc" id="L525">        } catch (IOException ex)</span>
+        {
+<span class="nc" id="L527">            Logging.errorPrint(&quot;Could not save the party file: &quot; + partyFile.getAbsolutePath(), ex);</span>
+<span class="fc" id="L528">        }</span>
+<span class="fc" id="L529">    }</span>
+
+    /**
+     * Read in the list of sources required for the character.
+     *
+     * @param pcgFile The character file
+     * @return The list of sources
+     */
+    public SourceSelectionFacade readSources(File pcgFile)
+    {
+
+<span class="nc" id="L540">        try (InputStream in = new FileInputStream(pcgFile))</span>
+        {
+<span class="nc" id="L542">            return internalReadSources(in);</span>
+<span class="nc" id="L543">        } catch (IOException ex)</span>
+        {
+<span class="nc" id="L545">            Logging.errorPrint(&quot;Exception in IOHandler::read when reading&quot;, ex);</span>
+        }
+<span class="nc" id="L547">        return null;</span>
+    }
+
+    @Nullable
+    private SourceSelectionFacade internalReadSources(InputStream in)
+    {
+        // Read lines from file
+<span class="nc" id="L554">        final List&lt;String&gt; lines = readPcgLines(in);</span>
+
+        // Verify it is ver2
+<span class="nc" id="L557">        boolean isPCGVersion2 = isPCGCersion2(lines);</span>
+
+<span class="nc" id="L559">        final String[] pcgLines = lines.toArray(new String[0]);</span>
+
+<span class="nc bnc" id="L561" title="All 2 branches missed.">        if (isPCGVersion2)</span>
+        {
+            //PlayerCharacter aPC = new PlayerCharacter();
+<span class="nc" id="L564">            final PCGParser parser = new PCGVer2Parser(null);</span>
+            try
+            {
+                // Extract list of sources
+<span class="nc" id="L568">                return parser.parcePCGSourceOnly(pcgLines);</span>
+<span class="nc" id="L569">            } catch (PCGParseException pcgex)</span>
+            {
+<span class="nc" id="L571">                errors.add(pcgex.getMessage() + Constants.LINE_SEPARATOR + &quot;Method: &quot; + pcgex.getMethod() + '\n'</span>
+<span class="nc" id="L572">                        + &quot;Line: &quot; + pcgex.getLine());</span>
+            }
+
+<span class="nc" id="L575">            warnings.addAll(parser.getWarnings());</span>
+<span class="nc" id="L576">        } else</span>
+        {
+<span class="nc" id="L578">            errors.add(&quot;Cannot open PCG file&quot;);</span>
+        }
+
+<span class="nc" id="L581">        return null;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

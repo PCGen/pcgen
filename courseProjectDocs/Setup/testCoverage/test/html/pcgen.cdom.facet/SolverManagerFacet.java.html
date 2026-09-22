@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SolverManagerFacet.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.facet</a> &gt; <span class="el_source">SolverManagerFacet.java</span></div><h1>SolverManagerFacet.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) Thomas Parker, 2015.
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package pcgen.cdom.facet;
+
+import java.util.List;
+
+import pcgen.base.formula.base.ScopeInstance;
+import pcgen.base.formula.base.VarScoped;
+import pcgen.base.formula.base.VariableID;
+import pcgen.base.solver.Modifier;
+import pcgen.base.solver.ProcessStep;
+import pcgen.base.solver.SolverManager;
+import pcgen.cdom.content.VarModifier;
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.base.AbstractItemFacet;
+import pcgen.rules.context.VariableContext;
+
+/**
+ * This stores the SolverManager for each PlayerCharacter.
+ */
+<span class="fc" id="L36">public class SolverManagerFacet extends AbstractItemFacet&lt;CharID, SolverManager&gt;</span>
+{
+	/**
+	 * The global LoadContextFacet used to get VariableIDs
+	 */
+<span class="fc" id="L41">	private final LoadContextFacet loadContextFacet = FacetLibrary.getFacet(LoadContextFacet.class);</span>
+
+	private ScopeFacet scopeFacet;
+
+	public &lt;T&gt; List&lt;ProcessStep&lt;T&gt;&gt; diagnose(CharID id, VariableID&lt;T&gt; varID)
+	{
+<span class="nc" id="L47">		return get(id).diagnose(varID);</span>
+	}
+
+	public &lt;T&gt; boolean addModifier(CharID id, VarModifier&lt;T&gt; vm, VarScoped thisValue, Modifier&lt;T&gt; modifier,
+		ScopeInstance source)
+	{
+<span class="nc" id="L53">		VariableContext varContext = loadContextFacet.getLoadContext(id.getDatasetID()).getVariableContext();</span>
+<span class="nc" id="L54">		ScopeInstance scope = resolveScope(id, vm, thisValue, varContext);</span>
+<span class="nc" id="L55">		VariableID&lt;T&gt; varID = (VariableID&lt;T&gt;) varContext.getVariableID(scope, vm.getVarName());</span>
+<span class="nc" id="L56">		SolverManager sm = get(id);</span>
+<span class="nc" id="L57">		sm.addModifier(varID, modifier, source);</span>
+<span class="nc" id="L58">		sm.processSolver(varID);</span>
+<span class="nc" id="L59">		return true;</span>
+	}
+
+	/**
+	 * Removes a Modifier from the PC.
+	 */
+	public &lt;T&gt; void removeModifier(CharID id, VarModifier&lt;T&gt; vm, VarScoped thisValue, Modifier&lt;T&gt; modifier,
+		ScopeInstance source)
+	{
+<span class="nc" id="L68">		VariableContext varContext = loadContextFacet.getLoadContext(id.getDatasetID()).getVariableContext();</span>
+<span class="nc" id="L69">		ScopeInstance scope = resolveScope(id, vm, thisValue, varContext);</span>
+<span class="nc" id="L70">		VariableID&lt;T&gt; varID = (VariableID&lt;T&gt;) varContext.getVariableID(scope, vm.getVarName());</span>
+<span class="nc" id="L71">		SolverManager sm = get(id);</span>
+<span class="nc" id="L72">		sm.removeModifier(varID, modifier, source);</span>
+<span class="nc" id="L73">		sm.processSolver(varID);</span>
+<span class="nc" id="L74">	}</span>
+
+	private &lt;T&gt; ScopeInstance resolveScope(CharID id, VarModifier&lt;T&gt; vm, VarScoped thisValue,
+		VariableContext varContext)
+	{
+<span class="nc bnc" id="L79" title="All 2 branches missed.">		if (vm.getLegalScope().isGlobal()</span>
+<span class="nc bnc" id="L80" title="All 2 branches missed.">			|| varContext.isLegalVariableID(scopeFacet.getGlobalScope(id).getImplementedScope(), vm.getVarName()))</span>
+		{
+<span class="nc" id="L82">			return scopeFacet.getGlobalScope(id);</span>
+		}
+<span class="nc" id="L84">		return scopeFacet.get(id, vm.getFullLegalScopeName(), thisValue);</span>
+	}
+
+	public void setScopeFacet(ScopeFacet scopeFacet)
+	{
+<span class="fc" id="L89">		this.scopeFacet = scopeFacet;</span>
+<span class="fc" id="L90">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TodoManager.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.gui2.facade</a> &gt; <span class="el_source">TodoManager.java</span></div><h1>TodoManager.java</h1><pre class="source lang-java linenums">/**
+ * Copyright James Dempsey, 2011
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.gui2.facade;
+
+import pcgen.facade.core.TodoFacade;
+import pcgen.facade.util.DefaultListFacade;
+import pcgen.facade.util.ListFacade;
+
+/**
+ * The Class {@code TodoManager} tracks an unordered list of user tasks.
+ * Each task is a TodoFacade instance which should have enough information to 
+ * direct the user to the field where they can achieve the task.  
+ *
+ * 
+ */
+@SuppressWarnings(&quot;TodoComment&quot;)
+public class TodoManager
+{
+	private final DefaultListFacade&lt;TodoFacade&gt; todoList;
+
+	TodoManager()
+<span class="nc" id="L37">	{</span>
+<span class="nc" id="L38">		todoList = new DefaultListFacade&lt;&gt;();</span>
+<span class="nc" id="L39">	}</span>
+
+	synchronized ListFacade&lt;TodoFacade&gt; getTodoList()
+	{
+<span class="nc" id="L43">		return todoList;</span>
+	}
+
+	/**
+	 * Add a task to be done to the todo list, if it is not already there.
+	 * @param item The item to be added
+	 */
+	synchronized void addTodo(TodoFacade item)
+	{
+<span class="nc bnc" id="L52" title="All 2 branches missed.">		if (findTodoByMessage(item.getMessageKey(), item.getFieldName()) == null)</span>
+		{
+<span class="nc" id="L54">			todoList.addElement(item);</span>
+		}
+<span class="nc" id="L56">	}</span>
+
+	/**
+	 * Remove a task to be done from the todo list.
+	 * @param messageKey The message key of the item to be removed
+	 */
+	synchronized void removeTodo(String messageKey)
+	{
+<span class="nc" id="L64">		todoList.removeElement(findTodoByMessage(messageKey, null));</span>
+<span class="nc" id="L65">	}</span>
+
+	/**
+	 * Remove a task to be done from the todo list.
+	 * @param messageKey The message key of the item to be removed
+	 * @param fieldName The field name of the item to be removed, may be null to match any.
+	 */
+	synchronized void removeTodo(String messageKey, String fieldName)
+	{
+<span class="nc" id="L74">		todoList.removeElement(findTodoByMessage(messageKey, fieldName));</span>
+<span class="nc" id="L75">	}</span>
+
+	/**
+	 * Search the todo list for an item with the specified messageKey.
+	 * @param messageKey The key to be searched for
+	 * @param fieldName The field name to be searched for, may be null to match any.
+	 * @return The TodoFacade item, or null if none found.
+	 */
+	private TodoFacade findTodoByMessage(String messageKey, String fieldName)
+	{
+<span class="nc bnc" id="L85" title="All 2 branches missed.">		if (messageKey != null)</span>
+		{
+<span class="nc bnc" id="L87" title="All 2 branches missed.">			for (TodoFacade item : todoList)</span>
+			{
+<span class="nc bnc" id="L89" title="All 2 branches missed.">				if (messageKey.equals(item.getMessageKey()))</span>
+				{
+<span class="nc bnc" id="L91" title="All 4 branches missed.">					if ((fieldName == null) || fieldName.equals(item.getFieldName()))</span>
+					{
+<span class="nc" id="L93">						return item;</span>
+					}
+				}
+<span class="nc" id="L96">			}</span>
+		}
+
+<span class="nc" id="L99">		return null;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AssociationSupport.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.core</a> &gt; <span class="el_source">AssociationSupport.java</span></div><h1>AssociationSupport.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2008 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.core;
+
+import java.util.Collections;
+import java.util.IdentityHashMap;
+import java.util.List;
+
+import pcgen.base.util.DoubleKeyMap;
+import pcgen.base.util.DoubleKeyMapToList;
+import pcgen.cdom.enumeration.AssociationKey;
+import pcgen.cdom.enumeration.AssociationListKey;
+
+<span class="fc" id="L29">public class AssociationSupport implements Cloneable</span>
+{
+
+<span class="fc" id="L32">	private DoubleKeyMapToList assocMTL = new DoubleKeyMapToList(IdentityHashMap.class, IdentityHashMap.class);</span>
+<span class="fc" id="L33">	private DoubleKeyMap assocMap = new DoubleKeyMap(IdentityHashMap.class, IdentityHashMap.class);</span>
+
+	public &lt;T&gt; void addAssoc(Object obj, AssociationListKey&lt;T&gt; ak, T o)
+	{
+<span class="fc" id="L37">		assocMTL.addToListFor(obj, ak, o);</span>
+<span class="fc" id="L38">	}</span>
+
+	public &lt;T&gt; void removeAssoc(Object obj, AssociationListKey&lt;T&gt; ak, T o)
+	{
+<span class="nc" id="L42">		assocMTL.removeFromListFor(obj, ak, o);</span>
+<span class="nc" id="L43">	}</span>
+
+	public &lt;T&gt; List&lt;T&gt; removeAllAssocs(Object obj, AssociationListKey&lt;T&gt; ak)
+	{
+<span class="nc" id="L47">		return assocMTL.removeListFor(obj, ak);</span>
+	}
+
+	public int getAssocCount(Object obj, AssociationListKey&lt;?&gt; ak)
+	{
+<span class="nc" id="L52">		return assocMTL.sizeOfListFor(obj, ak);</span>
+	}
+
+	public boolean hasAssocs(Object obj, AssociationListKey&lt;?&gt; ak)
+	{
+<span class="nc" id="L57">		return assocMTL.containsListFor(obj, ak);</span>
+	}
+
+	public &lt;T&gt; List&lt;T&gt; getAssocList(Object obj, AssociationListKey&lt;T&gt; ak)
+	{
+<span class="fc" id="L62">		return assocMTL.getListFor(obj, ak);</span>
+	}
+
+	public &lt;T&gt; boolean containsAssoc(Object obj, AssociationListKey&lt;T&gt; ak, T o)
+	{
+<span class="nc" id="L67">		return assocMTL.containsInList(obj, ak, o);</span>
+	}
+
+	public &lt;T&gt; void setAssoc(Object obj, AssociationKey&lt;T&gt; ak, T o)
+	{
+<span class="nc" id="L72">		assocMap.put(obj, ak, o);</span>
+<span class="nc" id="L73">	}</span>
+
+	public &lt;T&gt; void removeAssoc(Object obj, AssociationKey&lt;T&gt; ak)
+	{
+<span class="nc" id="L77">		assocMap.remove(obj, ak);</span>
+<span class="nc" id="L78">	}</span>
+
+	public boolean hasAssocs(Object obj, AssociationKey&lt;?&gt; ak)
+	{
+<span class="nc" id="L82">		return assocMap.containsKey(obj, ak);</span>
+	}
+
+	public &lt;T&gt; T getAssoc(Object obj, AssociationKey&lt;T&gt; ak)
+	{
+<span class="nc" id="L87">		return (T) assocMap.get(obj, ak);</span>
+	}
+
+	@Override
+	public AssociationSupport clone() throws CloneNotSupportedException
+	{
+<span class="nc" id="L93">		AssociationSupport as = (AssociationSupport) super.clone();</span>
+<span class="nc" id="L94">		as.assocMTL = assocMTL.clone();</span>
+<span class="nc" id="L95">		as.assocMap = assocMap.clone();</span>
+<span class="nc" id="L96">		return as;</span>
+	}
+
+	public void convertAssociations(Object oldTarget, Object newTarget)
+	{
+<span class="nc bnc" id="L101" title="All 2 branches missed.">		for (Object secKey : assocMap.getSecondaryKeySet(oldTarget))</span>
+		{
+<span class="nc" id="L103">			assocMap.put(newTarget, secKey, assocMap.remove(oldTarget, secKey));</span>
+<span class="nc" id="L104">		}</span>
+<span class="nc bnc" id="L105" title="All 2 branches missed.">		for (Object secKey : assocMTL.getSecondaryKeySet(oldTarget))</span>
+		{
+<span class="nc" id="L107">			assocMTL.addAllToListFor(newTarget, secKey, assocMTL.removeListFor(oldTarget, secKey));</span>
+<span class="nc" id="L108">		}</span>
+<span class="nc" id="L109">	}</span>
+
+	public boolean containsAssocList(Object o, AssociationListKey&lt;?&gt; alk)
+	{
+<span class="nc" id="L113">		return assocMTL.containsListFor(o, alk);</span>
+	}
+
+	public &lt;T extends Comparable&lt;T&gt;&gt; void sortAssocList(Object obj, AssociationListKey&lt;T&gt; ak)
+	{
+<span class="nc" id="L118">		List list = assocMTL.removeListFor(obj, ak);</span>
+<span class="nc bnc" id="L119" title="All 2 branches missed.">		if (list != null)</span>
+		{
+<span class="nc" id="L121">			Collections.sort(list);</span>
+<span class="nc" id="L122">			assocMTL.addAllToListFor(obj, ak, list);</span>
+		}
+<span class="nc" id="L124">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DeityToken.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.exporttokens.deprecated</a> &gt; <span class="el_source">DeityToken.java</span></div><h1>DeityToken.java</h1><pre class="source lang-java linenums">/*
+ * DeityToken.java
+ * Copyright 2003 (C) Devon Jones &lt;soulcatcher@evilsoft.org&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.     See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package plugin.exporttokens.deprecated;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+import java.util.StringTokenizer;
+import java.util.TreeSet;
+
+import pcgen.base.lang.StringUtil;
+import pcgen.base.util.Indirect;
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.FactKey;
+import pcgen.cdom.enumeration.FactSetKey;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.SourceFormat;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.reference.ReferenceUtilities;
+import pcgen.cdom.util.CControl;
+import pcgen.core.Deity;
+import pcgen.core.Globals;
+import pcgen.core.PCAlignment;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.SpecialAbility;
+import pcgen.core.WeaponProf;
+import pcgen.core.analysis.OutputNameFormatting;
+import pcgen.core.display.CharacterDisplay;
+import pcgen.io.ExportHandler;
+import pcgen.io.exporttoken.Token;
+import pcgen.output.channel.ChannelUtilities;
+import pcgen.util.Logging;
+
+/**
+ * Deal with tokens:
+ * DEITY (Defaults to OUTPUTNAME)
+ * DEITY.NAME
+ * DEITY.OUTPUTNAME
+ * DEITY.DOMAINLIST
+ * DEITY.ALIGNMENT
+ * DEITY.APPEARANCE
+ * DEITY.DESCRIPTION
+ * DEITY.HOLYITEM
+ * DEITY.FAVOREDWEAPON
+ * DEITY.PANTHEONLIST
+ * DEITY.SOURCE
+ * DEITY.SA
+ * DEITY.TITLE
+ * DEITY.WORSHIPPERS
+ */
+<span class="nc" id="L69">public class DeityToken extends Token</span>
+{
+	/** Token name */
+	public static final String TOKENNAME = &quot;DEITY&quot;;
+
+	@Override
+	public String getTokenName()
+	{
+<span class="nc" id="L77">		return TOKENNAME;</span>
+	}
+
+	@Override
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	{
+<span class="nc" id="L83">		String retString = &quot;&quot;;</span>
+
+<span class="nc" id="L85">		CharacterDisplay display = pc.getDisplay();</span>
+<span class="nc" id="L86">		Deity deity = (Deity) ChannelUtilities</span>
+<span class="nc" id="L87">			.readControlledChannel(pc.getCharID(), CControl.DEITYINPUT);</span>
+<span class="nc bnc" id="L88" title="All 2 branches missed.">		if (deity != null)</span>
+		{
+<span class="nc" id="L90">			StringTokenizer aTok = new StringTokenizer(tokenSource, &quot;.&quot;, false);</span>
+<span class="nc" id="L91">			String subTag = &quot;OUTPUTNAME&quot;;</span>
+
+<span class="nc bnc" id="L93" title="All 2 branches missed.">			if (aTok.countTokens() &gt; 1)</span>
+			{
+<span class="nc" id="L95">				aTok.nextToken();</span>
+<span class="nc" id="L96">				subTag = aTok.nextToken();</span>
+			}
+
+<span class="nc bnc" id="L99" title="All 2 branches missed.">			if (&quot;NAME&quot;.equals(subTag))</span>
+			{
+<span class="nc" id="L101">				retString = deity.getDisplayName();</span>
+			}
+<span class="nc bnc" id="L103" title="All 2 branches missed.">			else if (&quot;OUTPUTNAME&quot;.equals(subTag))</span>
+			{
+<span class="nc" id="L105">				retString = OutputNameFormatting.getOutputName(deity);</span>
+			}
+<span class="nc bnc" id="L107" title="All 2 branches missed.">			else if (&quot;DOMAINLIST&quot;.equals(subTag))</span>
+			{
+<span class="nc" id="L109">				retString = getDomainListToken(deity);</span>
+			}
+<span class="nc bnc" id="L111" title="All 2 branches missed.">			else if (&quot;FOLLOWERALIGNMENT&quot;.equals(subTag))</span>
+			{
+<span class="nc" id="L113">				Logging.errorPrint(&quot;Output Sheet uses DEITY.FOLLOWERALIGN: &quot; + &quot;Function has been removed from PCGen&quot;);</span>
+			}
+<span class="nc bnc" id="L115" title="All 2 branches missed.">			else if (&quot;ALIGNMENT&quot;.equals(subTag))</span>
+			{
+<span class="nc" id="L117">				CDOMSingleRef&lt;PCAlignment&gt; al = deity.get(ObjectKey.ALIGNMENT);</span>
+<span class="nc bnc" id="L118" title="All 2 branches missed.">				retString = al == null ? &quot;&quot; : al.get().getKeyName();</span>
+<span class="nc" id="L119">			}</span>
+<span class="nc bnc" id="L120" title="All 2 branches missed.">			else if (&quot;APPEARANCE&quot;.equals(subTag))</span>
+			{
+<span class="nc" id="L122">				FactKey&lt;String&gt; fk = FactKey.valueOf(&quot;Appearance&quot;);</span>
+<span class="nc" id="L123">				String str = deity.getResolved(fk);</span>
+<span class="nc bnc" id="L124" title="All 2 branches missed.">				retString = (str == null) ? &quot;&quot; : str;</span>
+<span class="nc" id="L125">			}</span>
+<span class="nc bnc" id="L126" title="All 2 branches missed.">			else if (&quot;DESCRIPTION&quot;.equals(subTag))</span>
+			{
+<span class="nc" id="L128">				retString = pc.getDescription(deity);</span>
+			}
+<span class="nc bnc" id="L130" title="All 2 branches missed.">			else if (&quot;HOLYITEM&quot;.equals(subTag))</span>
+			{
+<span class="nc" id="L132">				FactKey&lt;String&gt; fk = FactKey.valueOf(&quot;Symbol&quot;);</span>
+<span class="nc" id="L133">				String str = deity.getResolved(fk);</span>
+<span class="nc bnc" id="L134" title="All 2 branches missed.">				retString = (str == null) ? &quot;&quot; : str;</span>
+<span class="nc" id="L135">			}</span>
+<span class="nc bnc" id="L136" title="All 2 branches missed.">			else if (&quot;FAVOREDWEAPON&quot;.equals(subTag))</span>
+			{
+<span class="nc" id="L138">				List&lt;CDOMReference&lt;WeaponProf&gt;&gt; dwp = deity.getSafeListFor(ListKey.DEITYWEAPON);</span>
+<span class="nc" id="L139">				retString = ReferenceUtilities.joinLstFormat(dwp, Constants.PIPE, true);</span>
+<span class="nc" id="L140">			}</span>
+<span class="nc bnc" id="L141" title="All 2 branches missed.">			else if (&quot;PANTHEONLIST&quot;.equals(subTag))</span>
+			{
+<span class="nc" id="L143">				FactSetKey&lt;String&gt; fk = FactSetKey.valueOf(&quot;Pantheon&quot;);</span>
+<span class="nc" id="L144">				Set&lt;String&gt; pset = new TreeSet&lt;&gt;();</span>
+<span class="nc bnc" id="L145" title="All 2 branches missed.">				for (Indirect&lt;String&gt; indirect : deity.getSafeSetFor(fk))</span>
+				{
+<span class="nc" id="L147">					pset.add(indirect.get());</span>
+<span class="nc" id="L148">				}</span>
+<span class="nc" id="L149">				retString = StringUtil.join(pset, &quot;, &quot;);</span>
+<span class="nc" id="L150">			}</span>
+<span class="nc bnc" id="L151" title="All 2 branches missed.">			else if (&quot;SOURCE&quot;.equals(subTag))</span>
+			{
+<span class="nc" id="L153">				retString = SourceFormat.getFormattedString(deity, Globals.getSourceDisplay(), true);</span>
+			}
+<span class="nc bnc" id="L155" title="All 2 branches missed.">			else if (&quot;SA&quot;.equals(subTag))</span>
+			{
+<span class="nc" id="L157">				retString = getSAToken(deity, display);</span>
+			}
+<span class="nc bnc" id="L159" title="All 2 branches missed.">			else if (&quot;TITLE&quot;.equals(subTag))</span>
+			{
+<span class="nc" id="L161">				FactKey&lt;String&gt; fk = FactKey.valueOf(&quot;Title&quot;);</span>
+<span class="nc" id="L162">				String str = deity.getResolved(fk);</span>
+<span class="nc bnc" id="L163" title="All 2 branches missed.">				retString = (str == null) ? &quot;&quot; : str;</span>
+<span class="nc" id="L164">			}</span>
+<span class="nc bnc" id="L165" title="All 2 branches missed.">			else if (&quot;WORSHIPPERS&quot;.equals(subTag))</span>
+			{
+<span class="nc" id="L167">				FactKey&lt;String&gt; fk = FactKey.valueOf(&quot;Worshippers&quot;);</span>
+<span class="nc" id="L168">				String str = deity.getResolved(fk);</span>
+<span class="nc bnc" id="L169" title="All 2 branches missed.">				retString = (str == null) ? &quot;&quot; : str;</span>
+			}
+		}
+
+<span class="nc" id="L173">		return retString;</span>
+	}
+
+	/**
+	 * Get domain list sub token
+	 * @param deity
+	 * @return domain list sub token
+	 */
+	public static String getDomainListToken(Deity deity)
+	{
+<span class="nc" id="L183">		return ReferenceUtilities.joinDisplayFormat(deity.getSafeListMods(Deity.DOMAINLIST), &quot;, &quot;);</span>
+	}
+
+	/**
+	 * Get the SA sub token
+	 * @param deity
+	 * @return the SA sub token
+	 */
+	public static String getSAToken(Deity deity, CharacterDisplay display)
+	{
+<span class="nc" id="L193">		final List&lt;SpecialAbility&gt; saList = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L194">		saList.addAll(display.getResolvedUserSpecialAbilities(deity));</span>
+<span class="nc" id="L195">		saList.addAll(display.getResolvedSpecialAbilities(deity));</span>
+
+<span class="nc bnc" id="L197" title="All 2 branches missed.">		if (saList.isEmpty())</span>
+		{
+<span class="nc" id="L199">			return Constants.EMPTY_STRING;</span>
+		}
+
+<span class="nc" id="L202">		StringBuilder returnString = new StringBuilder();</span>
+<span class="nc" id="L203">		boolean firstLine = true;</span>
+<span class="nc bnc" id="L204" title="All 2 branches missed.">		for (SpecialAbility sa : saList)</span>
+		{
+<span class="nc bnc" id="L206" title="All 2 branches missed.">			if (!firstLine)</span>
+			{
+<span class="nc" id="L208">				returnString.append(&quot;, &quot;); //$NON-NLS-1$</span>
+			}
+
+<span class="nc" id="L211">			firstLine = false;</span>
+
+<span class="nc" id="L213">			returnString.append(sa.getDisplayName());</span>
+<span class="nc" id="L214">		}</span>
+
+<span class="nc" id="L216">		return returnString.toString();</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

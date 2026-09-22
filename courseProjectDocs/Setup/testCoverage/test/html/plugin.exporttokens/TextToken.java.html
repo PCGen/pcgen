@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TextToken.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.exporttokens</a> &gt; <span class="el_source">TextToken.java</span></div><h1>TextToken.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2006 (C) James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.     See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package plugin.exporttokens;
+
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.StringWriter;
+import java.math.BigDecimal;
+import java.util.Locale;
+import java.util.StringTokenizer;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import pcgen.core.PlayerCharacter;
+import pcgen.io.ExportHandler;
+import pcgen.io.exporttoken.Token;
+import pcgen.util.Logging;
+
+/**
+ * {@code TextToken} produces the output for the output token TEXT.
+ * 
+ * Possible tag formats are:&lt;pre&gt;
+ * TEXT.x.y
+ * &lt;/pre&gt;
+ * 
+ * Where x is the action and y is the export tag to be processed.
+ */
+<span class="nc" id="L43">public class TextToken extends Token</span>
+{
+	/** Token Name */
+	public static final String TOKENNAME = &quot;TEXT&quot;;
+
+	@Override
+	public String getTokenName()
+	{
+<span class="nc" id="L51">		return TOKENNAME;</span>
+	}
+
+	@Override
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	{
+
+<span class="nc" id="L58">		StringTokenizer aTok = new StringTokenizer(tokenSource, &quot;.&quot;);</span>
+<span class="nc" id="L59">		aTok.nextToken(); //this should be VAR</span>
+
+<span class="nc" id="L61">		StringBuilder action = new StringBuilder();</span>
+<span class="nc" id="L62">		StringBuilder varName = new StringBuilder();</span>
+<span class="nc bnc" id="L63" title="All 2 branches missed.">		if (aTok.hasMoreElements())</span>
+		{
+<span class="nc" id="L65">			action = new StringBuilder(aTok.nextToken());</span>
+<span class="nc bnc" id="L66" title="All 2 branches missed.">			if (action.toString().startsWith(&quot;REPLACE&quot;))</span>
+			{
+				// Make sure that any &quot;.&quot; in the token itself stay together
+<span class="nc bnc" id="L69" title="All 2 branches missed.">				while (action.charAt(action.length() - 1) != '}')</span>
+				{
+<span class="nc" id="L71">					action.append('.').append(aTok.nextToken());</span>
+				}
+			}
+		}
+<span class="nc bnc" id="L75" title="All 2 branches missed.">		if (aTok.hasMoreElements())</span>
+		{
+<span class="nc" id="L77">			varName.append(aTok.nextToken());</span>
+		}
+<span class="nc bnc" id="L79" title="All 2 branches missed.">		while (aTok.hasMoreElements())</span>
+		{
+<span class="nc" id="L81">			varName.append('.').append(aTok.nextToken());</span>
+		}
+
+<span class="nc" id="L84">		StringWriter writer = new StringWriter();</span>
+<span class="nc" id="L85">		BufferedWriter bw = new BufferedWriter(writer);</span>
+<span class="nc" id="L86">		eh.replaceToken(varName.toString(), bw, pc);</span>
+		try
+		{
+<span class="nc" id="L89">			bw.flush();</span>
+		}
+<span class="nc" id="L91">		catch (IOException e)</span>
+		{
+<span class="nc" id="L93">			Logging.errorPrint(&quot;TextToken error&quot;, e);</span>
+<span class="nc" id="L94">		}</span>
+<span class="nc" id="L95">		String retString = writer.getBuffer().toString();</span>
+
+<span class="nc bnc" id="L97" title="All 4 branches missed.">		if (action.toString().equalsIgnoreCase(&quot;UPPER&quot;) || action.toString().equalsIgnoreCase(&quot;UPPERCASE&quot;))</span>
+		{
+<span class="nc" id="L99">			retString = retString.toUpperCase(Locale.getDefault());</span>
+		}
+<span class="nc bnc" id="L101" title="All 4 branches missed.">		else if (action.toString().equalsIgnoreCase(&quot;LOWER&quot;) || action.toString().equalsIgnoreCase(&quot;LOWERCASE&quot;))</span>
+		{
+<span class="nc" id="L103">			retString = retString.toLowerCase(Locale.getDefault());</span>
+		}
+<span class="nc bnc" id="L105" title="All 4 branches missed.">		else if (action.toString().equalsIgnoreCase(&quot;SENTENCE&quot;) || action.toString().equalsIgnoreCase(&quot;SENTENCECASE&quot;))</span>
+		{
+<span class="nc" id="L107">			retString = changeToSentenceCase(retString);</span>
+		}
+<span class="nc bnc" id="L109" title="All 4 branches missed.">		else if (action.toString().equalsIgnoreCase(&quot;TITLE&quot;) || action.toString().equalsIgnoreCase(&quot;TITLECASE&quot;))</span>
+		{
+<span class="nc" id="L111">			retString = changeToTitleCase(retString);</span>
+		}
+<span class="nc bnc" id="L113" title="All 2 branches missed.">		else if (action.toString().equalsIgnoreCase(&quot;NUMSUFFIX&quot;))</span>
+		{
+<span class="nc" id="L115">			retString = buildNumSuffix(retString);</span>
+		}
+<span class="nc bnc" id="L117" title="All 2 branches missed.">		else if (action.toString().equalsIgnoreCase(&quot;LENGTH&quot;))</span>
+		{
+<span class="nc" id="L119">			retString = String.valueOf(retString.length());</span>
+		}
+		// TEXT.REPLACEALL{regex,newtext} or
+		// TEXT.REPLACEFIRST{regex,newtext}
+<span class="nc bnc" id="L123" title="All 2 branches missed.">		else if (action.toString().startsWith(&quot;REPLACE&quot;))</span>
+		{
+<span class="nc" id="L125">			final String replaceType = action.substring(7, action.toString().indexOf('{'));</span>
+<span class="nc" id="L126">			String args = action.substring(action.toString().indexOf('{') + 1, action.length() - 1);</span>
+<span class="nc" id="L127">			int patternEnd = 0;</span>
+
+			for (;;)
+			{
+<span class="nc" id="L131">				patternEnd = args.indexOf(',', patternEnd);</span>
+<span class="nc bnc" id="L132" title="All 2 branches missed.">				if (patternEnd &lt;= 0)</span>
+				{
+<span class="nc" id="L134">					break;</span>
+				}
+<span class="nc bnc" id="L136" title="All 2 branches missed.">				if (args.charAt(patternEnd - 1) != '\\')</span>
+				{
+<span class="nc" id="L138">					break;</span>
+				}
+<span class="nc" id="L140">				String temp = args.substring(0, patternEnd - 1);</span>
+<span class="nc" id="L141">				args = temp + args.substring(patternEnd);</span>
+<span class="nc" id="L142">			}</span>
+<span class="nc bnc" id="L143" title="All 2 branches missed.">			if (patternEnd &lt;= 0)</span>
+			{
+<span class="nc" id="L145">				Logging.errorPrint(&quot;Invalid REPLACE token&quot;);</span>
+			}
+<span class="nc" id="L147">			String pattern = args.substring(0, patternEnd);</span>
+<span class="nc" id="L148">			pattern = pattern.replaceAll(&quot;__LP__&quot;, &quot;\\(&quot;).replaceAll(&quot;__RP__&quot;, &quot;\\)&quot;).replaceAll(&quot;__PLUS__&quot;, &quot;+&quot;);</span>
+<span class="nc" id="L149">			final String replacement =</span>
+<span class="nc" id="L150">					args.substring(patternEnd + 1).trim().replaceFirst(&quot;^\&quot;&quot;, &quot;&quot;).replaceFirst(&quot;\&quot;$&quot;, &quot;&quot;);</span>
+<span class="nc bnc" id="L151" title="All 2 branches missed.">			if (replaceType.equalsIgnoreCase(&quot;ALL&quot;))</span>
+			{
+<span class="nc" id="L153">				retString = retString.replaceAll(pattern, replacement);</span>
+			}
+<span class="nc bnc" id="L155" title="All 2 branches missed.">			else if (replaceType.equalsIgnoreCase(&quot;FIRST&quot;))</span>
+			{
+<span class="nc" id="L157">				retString = retString.replaceFirst(pattern, replacement);</span>
+			}
+		}
+<span class="nc" id="L160">		return retString;</span>
+	}
+
+	/**
+	 * Change the supplied string to sentence case.
+	 * 
+	 * @param value The value to be modified. 
+	 * @return The value in sentence case.
+	 */
+	private static String changeToSentenceCase(String value)
+	{
+<span class="nc" id="L171">		String temp = value.toLowerCase(Locale.getDefault());</span>
+<span class="nc" id="L172">		String[] sentence = temp.split(&quot;\\.&quot;);</span>
+<span class="nc" id="L173">		StringBuilder res = new StringBuilder(value.length());</span>
+<span class="nc" id="L174">		Pattern p = Pattern.compile(&quot;\\s*&quot;);</span>
+<span class="nc bnc" id="L175" title="All 2 branches missed.">		for (int i = 0; i &lt; sentence.length; i++)</span>
+		{
+<span class="nc bnc" id="L177" title="All 2 branches missed.">			if (i &gt; 0)</span>
+			{
+<span class="nc" id="L179">				res.append('.');</span>
+			}
+<span class="nc bnc" id="L181" title="All 2 branches missed.">			if (!sentence[i].trim().isEmpty())</span>
+			{
+<span class="nc" id="L183">				Matcher m = p.matcher(sentence[i]);</span>
+<span class="nc" id="L184">				int pos = 0;</span>
+<span class="nc bnc" id="L185" title="All 2 branches missed.">				if (m.find())</span>
+				{
+<span class="nc" id="L187">					pos = m.end();</span>
+				}
+<span class="nc bnc" id="L189" title="All 2 branches missed.">				if (pos &gt; 0)</span>
+				{
+<span class="nc" id="L191">					res.append(sentence[i], 0, pos);</span>
+				}
+<span class="nc" id="L193">				res.append(sentence[i].substring(pos, pos + 1).toUpperCase(Locale.getDefault()));</span>
+<span class="nc" id="L194">				res.append(sentence[i].substring(pos + 1));</span>
+<span class="nc" id="L195">			}</span>
+			else
+			{
+<span class="nc" id="L198">				res.append(sentence[i]);</span>
+			}
+		}
+<span class="nc" id="L201">		return res.toString();</span>
+	}
+
+	/**
+	 * Change the supplied string to sentence case.
+	 * 
+	 * @param value The value to be modified. 
+	 * @return The value in sentence case.
+	 */
+	private static String changeToTitleCase(String value)
+	{
+<span class="nc" id="L212">		String temp = value.toLowerCase(Locale.getDefault());</span>
+<span class="nc" id="L213">		char[] chars = temp.toCharArray();</span>
+<span class="nc" id="L214">		StringBuilder res = new StringBuilder(value.length());</span>
+<span class="nc" id="L215">		boolean start = true;</span>
+<span class="nc bnc" id="L216" title="All 2 branches missed.">		for (char c : chars)</span>
+		{
+<span class="nc" id="L218">			boolean whiteSpace = Character.isWhitespace(c);</span>
+
+<span class="nc bnc" id="L220" title="All 4 branches missed.">			if (start &amp;&amp; !whiteSpace)</span>
+			{
+<span class="nc" id="L222">				res.append(Character.toUpperCase(c));</span>
+<span class="nc" id="L223">				start = false;</span>
+			}
+			else
+			{
+<span class="nc" id="L227">				start = whiteSpace;</span>
+<span class="nc" id="L228">				res.append(c);</span>
+			}
+		}
+<span class="nc" id="L231">		return res.toString();</span>
+	}
+
+	/**
+	 * Build the suffix for the provided number.
+	 * 
+	 * @param number The number to generate the suffix for.
+	 * @return The suffix (or an empty string if not a number)
+	 */
+	private static String buildNumSuffix(String number)
+	{
+		String result;
+		int intVal;
+		try
+		{
+<span class="nc" id="L246">			intVal = new BigDecimal(number).intValue();</span>
+		}
+<span class="nc" id="L248">		catch (NumberFormatException e)</span>
+		{
+			// Not a number, so no suffix
+<span class="nc" id="L251">			return &quot;&quot;;</span>
+<span class="nc" id="L252">		}</span>
+<span class="nc bnc" id="L253" title="All 4 branches missed.">		if (intVal % 10 == 1 &amp;&amp; intVal % 100 != 11)</span>
+		{
+<span class="nc" id="L255">			result = &quot;st&quot;;</span>
+		}
+<span class="nc bnc" id="L257" title="All 4 branches missed.">		else if (intVal % 10 == 2 &amp;&amp; intVal % 100 != 12)</span>
+		{
+<span class="nc" id="L259">			result = &quot;nd&quot;;</span>
+		}
+<span class="nc bnc" id="L261" title="All 4 branches missed.">		else if (intVal % 10 == 3 &amp;&amp; intVal % 100 != 13)</span>
+		{
+<span class="nc" id="L263">			result = &quot;rd&quot;;</span>
+		}
+		else
+		{
+<span class="nc" id="L267">			result = &quot;th&quot;;</span>
+		}
+<span class="nc" id="L269">		return result;</span>
+	}
+
+	/**
+	 * Never encode the plain text output
+	 * @return false
+	 */
+	@Override
+	public boolean isEncoded()
+	{
+<span class="nc" id="L279">		return false;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

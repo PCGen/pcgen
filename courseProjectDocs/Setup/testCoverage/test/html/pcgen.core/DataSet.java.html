@@ -1,0 +1,667 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DataSet.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.core</a> &gt; <span class="el_source">DataSet.java</span></div><h1>DataSet.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2010 Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ * 
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.core;
+
+import java.math.BigDecimal;
+import java.text.Collator;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
+
+import pcgen.cdom.base.Category;
+import pcgen.cdom.base.ChooseInformation;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.SortKeyRequired;
+import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.enumeration.Type;
+import pcgen.core.character.EquipSlot;
+import pcgen.core.prereq.Prerequisite;
+import pcgen.core.prereq.PrerequisiteOperator;
+import pcgen.facade.core.AbilityFacade;
+import pcgen.facade.core.DataSetFacade;
+import pcgen.facade.core.EquipmentFacade;
+import pcgen.facade.core.GearBuySellFacade;
+import pcgen.facade.util.AbstractMapFacade;
+import pcgen.facade.util.DefaultListFacade;
+import pcgen.facade.util.ListFacade;
+import pcgen.facade.util.MapFacade;
+import pcgen.facade.util.SortedListFacade;
+import pcgen.rules.context.LoadContext;
+import pcgen.util.enumeration.View;
+
+public class DataSet implements DataSetFacade
+{
+
+	private final DefaultListFacade&lt;Race&gt; unsortedRaces;
+	private final ListFacade&lt;Race&gt; races;
+	private final DefaultListFacade&lt;PCClass&gt; unsortedClasses;
+	private final ListFacade&lt;PCClass&gt; classes;
+	private final DefaultListFacade&lt;Deity&gt; deities;
+	private final DefaultListFacade&lt;Skill&gt; skills;
+	private final DefaultListFacade&lt;PCTemplate&gt; templates;
+	private final DefaultListFacade&lt;PCAlignment&gt; unsortedAlignments;
+	private final ListFacade&lt;PCAlignment&gt; alignments;
+	private final DefaultListFacade&lt;Kit&gt; kits;
+	private final DefaultListFacade&lt;PCStat&gt; unsortedStats;
+	private final ListFacade&lt;PCStat&gt; stats;
+	private final AbilityMap abilityMap;
+	private final LoadContext context;
+	private final GameMode gameMode;
+	private final ListFacade&lt;Campaign&gt; campaigns;
+<span class="nc" id="L75">	private Skill speakLanguageSkill = null;</span>
+	private final DefaultListFacade&lt;BodyStructure&gt; bodyStructures;
+	private final DefaultListFacade&lt;EquipmentFacade&gt; equipment;
+	private final DefaultListFacade&lt;String&gt; xpTableNames;
+	private DefaultListFacade&lt;GearBuySellFacade&gt; gearBuySellSchemes;
+	private final DefaultListFacade&lt;String&gt; characterTypes;
+	private final DefaultListFacade&lt;SizeAdjustment&gt; unsortedSizes;
+	private final ListFacade&lt;SizeAdjustment&gt; sizes;
+
+	public DataSet(LoadContext context, GameMode gameMode, ListFacade&lt;Campaign&gt; campaigns)
+<span class="nc" id="L85">	{</span>
+<span class="nc" id="L86">		unsortedRaces = new DefaultListFacade&lt;&gt;();</span>
+<span class="nc" id="L87">		races = new SortedListFacade&lt;&gt;(new RaceComparator(), unsortedRaces);</span>
+<span class="nc" id="L88">		unsortedClasses = new DefaultListFacade&lt;&gt;();</span>
+<span class="nc" id="L89">		classes = new SortedListFacade&lt;&gt;(new PCClassComparator(), unsortedClasses);</span>
+<span class="nc" id="L90">		deities = new DefaultListFacade&lt;&gt;();</span>
+<span class="nc" id="L91">		skills = new DefaultListFacade&lt;&gt;();</span>
+<span class="nc" id="L92">		templates = new DefaultListFacade&lt;&gt;();</span>
+<span class="nc" id="L93">		unsortedAlignments = new DefaultListFacade&lt;&gt;();</span>
+<span class="nc" id="L94">		alignments = new SortedListFacade&lt;&gt;(Comparator.comparing(SortKeyRequired::getSortKey), unsortedAlignments);</span>
+<span class="nc" id="L95">		unsortedStats = new DefaultListFacade&lt;&gt;();</span>
+<span class="nc" id="L96">		stats = new SortedListFacade&lt;&gt;(Comparator.comparing(SortKeyRequired::getSortKey), unsortedStats);</span>
+<span class="nc" id="L97">		abilityMap = new AbilityMap();</span>
+<span class="nc" id="L98">		bodyStructures = new DefaultListFacade&lt;&gt;();</span>
+<span class="nc" id="L99">		equipment = new DefaultListFacade&lt;&gt;();</span>
+<span class="nc" id="L100">		xpTableNames = new DefaultListFacade&lt;&gt;();</span>
+<span class="nc" id="L101">		characterTypes = new DefaultListFacade&lt;&gt;();</span>
+<span class="nc" id="L102">		kits = new DefaultListFacade&lt;&gt;();</span>
+<span class="nc" id="L103">		unsortedSizes = new DefaultListFacade&lt;&gt;();</span>
+<span class="nc" id="L104">		sizes = new SortedListFacade&lt;&gt;(Comparator.comparing(size -&gt; size.getSafe(IntegerKey.SIZEORDER)), unsortedSizes);</span>
+<span class="nc" id="L105">		this.context = context;</span>
+<span class="nc" id="L106">		this.gameMode = gameMode;</span>
+<span class="nc" id="L107">		this.campaigns = campaigns;</span>
+<span class="nc" id="L108">		initLists();</span>
+<span class="nc" id="L109">	}</span>
+
+	private void initLists()
+	{
+<span class="nc" id="L113">		List&lt;Race&gt; raceList = new ArrayList&lt;&gt;(context.getReferenceContext().getConstructedCDOMObjects(Race.class));</span>
+<span class="nc bnc" id="L114" title="All 2 branches missed.">		for (Race race : raceList)</span>
+		{
+<span class="nc bnc" id="L116" title="All 2 branches missed.">			if (race.getSafe(ObjectKey.VISIBILITY).isVisibleTo(View.VISIBLE_DISPLAY))</span>
+			{
+<span class="nc" id="L118">				unsortedRaces.addElement(race);</span>
+			}
+<span class="nc" id="L120">		}</span>
+
+<span class="nc" id="L122">		List&lt;PCClass&gt; classList =</span>
+<span class="nc" id="L123">				new ArrayList&lt;&gt;(context.getReferenceContext().getConstructedCDOMObjects(PCClass.class));</span>
+<span class="nc bnc" id="L124" title="All 2 branches missed.">		for (PCClass pcClass : classList)</span>
+		{
+<span class="nc bnc" id="L126" title="All 2 branches missed.">			if (pcClass.getSafe(ObjectKey.VISIBILITY).isVisibleTo(View.VISIBLE_DISPLAY))</span>
+			{
+<span class="nc" id="L128">				unsortedClasses.addElement(pcClass);</span>
+			}
+<span class="nc" id="L130">		}</span>
+
+<span class="nc bnc" id="L132" title="All 2 branches missed.">		for (Skill skill : context.getReferenceContext().getConstructedCDOMObjects(Skill.class))</span>
+		{
+<span class="nc bnc" id="L134" title="All 2 branches missed.">			if (skill.getSafe(ObjectKey.VISIBILITY).isVisibleTo(View.VISIBLE_DISPLAY))</span>
+			{
+<span class="nc" id="L136">				skills.addElement(skill);</span>
+			}
+<span class="nc" id="L138">		}</span>
+<span class="nc bnc" id="L139" title="All 2 branches missed.">		for (Deity deity : context.getReferenceContext().getConstructedCDOMObjects(Deity.class))</span>
+		{
+<span class="nc" id="L141">			deities.addElement(deity);</span>
+<span class="nc" id="L142">		}</span>
+<span class="nc bnc" id="L143" title="All 2 branches missed.">		for (PCTemplate template : context.getReferenceContext().getConstructedCDOMObjects(PCTemplate.class))</span>
+		{
+<span class="nc bnc" id="L145" title="All 2 branches missed.">			if (template.getSafe(ObjectKey.VISIBILITY).isVisibleTo(View.VISIBLE_DISPLAY))</span>
+			{
+<span class="nc" id="L147">				templates.addElement(template);</span>
+			}
+<span class="nc" id="L149">		}</span>
+<span class="nc bnc" id="L150" title="All 2 branches missed.">		for (Kit kit : context.getReferenceContext().getConstructedCDOMObjects(Kit.class))</span>
+		{
+<span class="nc" id="L152">			kits.addElement(kit);</span>
+<span class="nc" id="L153">		}</span>
+<span class="nc bnc" id="L154" title="All 2 branches missed.">		for (PCAlignment alignment : context.getReferenceContext().getConstructedCDOMObjects(PCAlignment.class))</span>
+		{
+<span class="nc" id="L156">			unsortedAlignments.addElement(alignment);</span>
+<span class="nc" id="L157">		}</span>
+<span class="nc bnc" id="L158" title="All 2 branches missed.">		for (PCStat stat : context.getReferenceContext().getConstructedCDOMObjects(PCStat.class))</span>
+		{
+<span class="nc" id="L160">			unsortedStats.addElement(stat);</span>
+<span class="nc" id="L161">		}</span>
+<span class="nc bnc" id="L162" title="All 2 branches missed.">		for (AbilityCategory category : gameMode.getAllAbilityCategories())</span>
+		{
+<span class="nc bnc" id="L164" title="All 2 branches missed.">			if (category.isVisibleTo(View.VISIBLE_DISPLAY))</span>
+			{
+<span class="nc" id="L166">				List&lt;Ability&gt; abList = new ArrayList&lt;&gt;(</span>
+<span class="nc" id="L167">					Globals.getContext().getReferenceContext().getManufacturerId(category).getAllObjects());</span>
+<span class="nc" id="L168">				Globals.sortPObjectListByName(abList);</span>
+<span class="nc" id="L169">				DefaultListFacade&lt;AbilityFacade&gt; abilityList = new DefaultListFacade&lt;&gt;(abList);</span>
+<span class="nc bnc" id="L170" title="All 2 branches missed.">				for (Iterator&lt;AbilityFacade&gt; iterator = abilityList.iterator(); iterator.hasNext();)</span>
+				{
+<span class="nc" id="L172">					AbilityFacade facade = iterator.next();</span>
+<span class="nc bnc" id="L173" title="All 2 branches missed.">					if (facade instanceof Ability ability)</span>
+					{
+<span class="nc bnc" id="L175" title="All 2 branches missed.">						if (!(ability.getSafe(ObjectKey.VISIBILITY).isVisibleTo(View.VISIBLE_DISPLAY)))</span>
+						{
+<span class="nc" id="L177">							iterator.remove();</span>
+						}
+					}
+<span class="nc" id="L180">				}</span>
+<span class="nc" id="L181">				abilityMap.put(category, abilityList);</span>
+			}
+<span class="nc" id="L183">		}</span>
+<span class="nc" id="L184">		Map&lt;String, BodyStructure&gt; structMap =</span>
+<span class="nc" id="L185">				new HashMap&lt;&gt;(SystemCollections.getUnmodifiableBodyStructureList().size() + 3);</span>
+<span class="nc bnc" id="L186" title="All 2 branches missed.">		for (String name : SystemCollections.getUnmodifiableBodyStructureList())</span>
+		{
+			// TODO i18n the display name and correct the DataSetTest
+<span class="nc" id="L189">			String displayName = name.substring(0, 1).toUpperCase() + name.substring(1).toLowerCase();</span>
+<span class="nc" id="L190">			final BodyStructure bodyStructure = new BodyStructure(displayName);</span>
+<span class="nc" id="L191">			bodyStructures.addElement(bodyStructure);</span>
+<span class="nc" id="L192">			structMap.put(name, bodyStructure);</span>
+<span class="nc" id="L193">		}</span>
+<span class="nc" id="L194">		Set&lt;Type&gt; typesWithDesignatedSlots = buildSlottedTypeList();</span>
+<span class="nc" id="L195">		bodyStructures.addElement(new BodyStructure(Constants.EQUIP_LOCATION_EQUIPPED, true, typesWithDesignatedSlots));</span>
+<span class="nc" id="L196">		bodyStructures.addElement(new BodyStructure(Constants.EQUIP_LOCATION_CARRIED, true));</span>
+<span class="nc" id="L197">		bodyStructures.addElement(new BodyStructure(Constants.EQUIP_LOCATION_NOTCARRIED, true));</span>
+
+<span class="nc bnc" id="L199" title="All 2 branches missed.">		for (EquipSlot es : SystemCollections.getUnmodifiableEquipSlotList())</span>
+		{
+<span class="nc bnc" id="L201" title="All 2 branches missed.">			if (structMap.containsKey(es.getBodyStructureName()))</span>
+			{
+<span class="nc" id="L203">				structMap.get(es.getBodyStructureName()).addEquipSlot(es);</span>
+			}
+<span class="nc" id="L205">		}</span>
+
+<span class="nc bnc" id="L207" title="All 2 branches missed.">		for (Equipment eq : context.getReferenceContext().getConstructedCDOMObjects(Equipment.class))</span>
+		{
+<span class="nc bnc" id="L209" title="All 2 branches missed.">			if (eq.getSafe(ObjectKey.VISIBILITY).isVisibleTo(View.VISIBLE_DISPLAY))</span>
+			{
+<span class="nc" id="L211">				equipment.addElement(eq);</span>
+			}
+<span class="nc" id="L213">		}</span>
+<span class="nc bnc" id="L214" title="All 2 branches missed.">		for (String xpTableName : gameMode.getXPTableNames())</span>
+		{
+<span class="nc" id="L216">			xpTableNames.addElement(xpTableName);</span>
+<span class="nc" id="L217">		}</span>
+<span class="nc bnc" id="L218" title="All 2 branches missed.">		for (String characterType : gameMode.getCharacterTypeList())</span>
+		{
+<span class="nc" id="L220">			characterTypes.addElement(characterType);</span>
+<span class="nc" id="L221">		}</span>
+<span class="nc bnc" id="L222" title="All 2 branches missed.">		for (SizeAdjustment size : context.getReferenceContext().getConstructedCDOMObjects(SizeAdjustment.class))</span>
+		{
+<span class="nc" id="L224">			unsortedSizes.addElement(size);</span>
+<span class="nc" id="L225">		}</span>
+
+<span class="nc" id="L227">		createGearBuySellSchemes();</span>
+
+<span class="nc" id="L229">	}</span>
+
+	/**
+	 * @return Slotted Type List
+	 */
+	private Set&lt;Type&gt; buildSlottedTypeList()
+	{
+<span class="nc" id="L236">		Set&lt;Type&gt; typeList = new HashSet&lt;&gt;();</span>
+<span class="nc bnc" id="L237" title="All 2 branches missed.">		for (EquipSlot es : SystemCollections.getUnmodifiableEquipSlotList())</span>
+		{
+
+<span class="nc bnc" id="L240" title="All 2 branches missed.">			for (String typeString : es.getContainType())</span>
+			{
+<span class="nc" id="L242">				typeList.add(Type.getConstant(typeString));</span>
+<span class="nc" id="L243">			}</span>
+<span class="nc" id="L244">		}</span>
+
+<span class="nc" id="L246">		return typeList;</span>
+	}
+
+	/**
+	 * Create the default set of GearBuySellSchemes.
+	 * TODO: This should be loaded from the game mode and allow for user additions.
+	 */
+	private void createGearBuySellSchemes()
+	{
+<span class="nc" id="L255">		BigDecimal fullPrice = new BigDecimal(&quot;100.0&quot;);</span>
+<span class="nc" id="L256">		BigDecimal halfPrice = new BigDecimal(&quot;50.0&quot;);</span>
+<span class="nc" id="L257">		BigDecimal tenPercent = new BigDecimal(&quot;10.0&quot;);</span>
+<span class="nc" id="L258">		BigDecimal free = BigDecimal.ZERO;</span>
+<span class="nc" id="L259">		gearBuySellSchemes = new DefaultListFacade&lt;&gt;();</span>
+		// TODO i18n this
+<span class="nc" id="L261">		gearBuySellSchemes.addElement(new GearBuySellScheme(&quot;Market price&quot;, fullPrice, halfPrice, fullPrice));</span>
+<span class="nc" id="L262">		gearBuySellSchemes.addElement(new GearBuySellScheme(&quot;Character build&quot;, fullPrice, fullPrice, fullPrice));</span>
+<span class="nc" id="L263">		gearBuySellSchemes.addElement(new GearBuySellScheme(&quot;Cashless&quot;, free, free, free));</span>
+<span class="nc" id="L264">		gearBuySellSchemes.addElement(new GearBuySellScheme(&quot;Crafting&quot;, halfPrice, halfPrice, fullPrice));</span>
+<span class="nc" id="L265">		gearBuySellSchemes.addElement(new GearBuySellScheme(&quot;Starfinder&quot;, fullPrice, tenPercent, fullPrice));</span>
+<span class="nc" id="L266">	}</span>
+
+	@Override
+	public MapFacade&lt;AbilityCategory, ListFacade&lt;AbilityFacade&gt;&gt; getAbilities()
+	{
+<span class="nc" id="L271">		return abilityMap;</span>
+	}
+
+	@Override
+	public List&lt;AbilityFacade&gt; getPrereqAbilities(AbilityFacade abilityFacade)
+	{
+<span class="nc bnc" id="L277" title="All 4 branches missed.">		if (abilityFacade == null || !(abilityFacade instanceof Ability ability))</span>
+		{
+<span class="nc" id="L279">			return Collections.emptyList();</span>
+		}
+
+<span class="nc" id="L282">		List&lt;AbilityFacade&gt; prereqList = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L283" title="All 2 branches missed.">		for (Prerequisite prereq : ability.getPrerequisiteList())</span>
+		{
+<span class="nc" id="L285">			prereqList.addAll(getAbilitiesFromPrereq(prereq, ability.getCDOMCategory()));</span>
+<span class="nc" id="L286">		}</span>
+<span class="nc" id="L287">		return prereqList;</span>
+	}
+
+	private List&lt;AbilityFacade&gt; getAbilitiesFromPrereq(Prerequisite prereq, Category&lt;Ability&gt; cat)
+	{
+<span class="nc" id="L292">		List&lt;AbilityFacade&gt; prereqList = new ArrayList&lt;&gt;();</span>
+		// Exclude negated prereqs
+<span class="nc bnc" id="L294" title="All 6 branches missed.">		if (prereq == null || (prereq.getOperator() == PrerequisiteOperator.LT &amp;&amp; &quot;1&quot;.equals(prereq.getOperand())))</span>
+		{
+<span class="nc" id="L296">			return prereqList;</span>
+		}
+
+<span class="nc bnc" id="L299" title="All 4 branches missed.">		if (&quot;FEAT&quot;.equalsIgnoreCase(prereq.getKind()) || &quot;ABILITY&quot;.equalsIgnoreCase(prereq.getKind()))</span>
+		{
+			Ability ability =
+<span class="nc" id="L302">					Globals.getContext().getReferenceContext().getManufacturerId(cat).getObject(prereq.getKey());</span>
+<span class="nc bnc" id="L303" title="All 2 branches missed.">			if (ability != null)</span>
+			{
+<span class="nc" id="L305">				prereqList.add(ability);</span>
+			}
+		}
+
+<span class="nc bnc" id="L309" title="All 2 branches missed.">		for (Prerequisite childPrereq : prereq.getPrerequisites())</span>
+		{
+<span class="nc" id="L311">			prereqList.addAll(getAbilitiesFromPrereq(childPrereq, cat));</span>
+<span class="nc" id="L312">		}</span>
+
+<span class="nc" id="L314">		return prereqList;</span>
+	}
+
+	@Override
+	public ListFacade&lt;Skill&gt; getSkills()
+	{
+<span class="nc" id="L320">		return skills;</span>
+	}
+
+	@Override
+	public ListFacade&lt;Race&gt; getRaces()
+	{
+<span class="nc" id="L326">		return races;</span>
+	}
+
+	@Override
+	public ListFacade&lt;PCClass&gt; getClasses()
+	{
+<span class="nc" id="L332">		return classes;</span>
+	}
+
+	@Override
+	public ListFacade&lt;Deity&gt; getDeities()
+	{
+<span class="nc" id="L338">		return deities;</span>
+	}
+
+	@Override
+	public ListFacade&lt;PCTemplate&gt; getTemplates()
+	{
+<span class="nc" id="L344">		return templates;</span>
+	}
+
+	@Override
+	public GameMode getGameMode()
+	{
+<span class="nc" id="L350">		return gameMode;</span>
+	}
+
+	@Override
+	public ListFacade&lt;Campaign&gt; getCampaigns()
+	{
+<span class="nc" id="L356">		return campaigns;</span>
+	}
+
+	@Override
+	public ListFacade&lt;PCAlignment&gt; getAlignments()
+	{
+<span class="nc" id="L362">		return alignments;</span>
+	}
+
+	@Override
+	public ListFacade&lt;PCStat&gt; getStats()
+	{
+<span class="nc" id="L368">		return stats;</span>
+	}
+
+	@Override
+	public Skill getSpeakLanguageSkill()
+	{
+<span class="nc bnc" id="L374" title="All 2 branches missed.">		if (speakLanguageSkill != null)</span>
+		{
+<span class="nc" id="L376">			return speakLanguageSkill;</span>
+		}
+
+<span class="nc bnc" id="L379" title="All 2 branches missed.">		for (Skill aSkill : skills)</span>
+		{
+<span class="nc" id="L381">			ChooseInformation&lt;?&gt; chooseInfo = aSkill.get(ObjectKey.CHOOSE_INFO);</span>
+<span class="nc bnc" id="L382" title="All 4 branches missed.">			if ((chooseInfo != null) &amp;&amp; &quot;LANG&quot;.equals(chooseInfo.getName()))</span>
+			{
+<span class="nc" id="L384">				speakLanguageSkill = aSkill;</span>
+			}
+<span class="nc" id="L386">		}</span>
+
+<span class="nc" id="L388">		return speakLanguageSkill;</span>
+	}
+
+	@Override
+	public ListFacade&lt;BodyStructure&gt; getEquipmentLocations()
+	{
+<span class="nc" id="L394">		return bodyStructures;</span>
+	}
+
+	@Override
+	public ListFacade&lt;EquipmentFacade&gt; getEquipment()
+	{
+<span class="nc" id="L400">		return equipment;</span>
+	}
+
+	@Override
+	public void addEquipment(EquipmentFacade equip)
+	{
+<span class="nc" id="L406">		equipment.addElement(equip);</span>
+<span class="nc" id="L407">	}</span>
+
+	@Override
+	public void refreshEquipment()
+	{
+<span class="nc" id="L412">		equipment.updateContents(</span>
+<span class="nc" id="L413">			new ArrayList&lt;EquipmentFacade&gt;(context.getReferenceContext().getConstructedCDOMObjects(Equipment.class)));</span>
+<span class="nc" id="L414">	}</span>
+
+	@Override
+	public ListFacade&lt;String&gt; getXPTableNames()
+	{
+<span class="nc" id="L419">		return xpTableNames;</span>
+	}
+
+	@Override
+	public ListFacade&lt;String&gt; getCharacterTypes()
+	{
+<span class="nc" id="L425">		return characterTypes;</span>
+	}
+
+	@Override
+	public ListFacade&lt;GearBuySellFacade&gt; getGearBuySellSchemes()
+	{
+<span class="nc" id="L431">		return gearBuySellSchemes;</span>
+	}
+
+	/**
+	 * The Class {@code RaceComparator} sorts races so that PC races come
+	 * at the top of the list, just after &lt;None Selected&gt;.
+	 */
+<span class="nc" id="L438">	static class RaceComparator implements Comparator&lt;Race&gt;</span>
+	{
+
+		@Override
+		public int compare(Race r1, Race r2)
+		{
+<span class="nc" id="L444">			final int BEFORE = -1;</span>
+<span class="nc" id="L445">			final int AFTER = 1;</span>
+
+<span class="nc bnc" id="L447" title="All 2 branches missed.">			if (r1 == r2)</span>
+			{
+<span class="nc" id="L449">				return 0;</span>
+			}
+
+<span class="nc" id="L452">			boolean unselected1 = r1.isUnselected();</span>
+<span class="nc" id="L453">			boolean unselected2 = r2.isUnselected();</span>
+<span class="nc bnc" id="L454" title="All 4 branches missed.">			if (unselected1 &amp;&amp; !unselected2)</span>
+			{
+<span class="nc" id="L456">				return BEFORE;</span>
+			}
+<span class="nc bnc" id="L458" title="All 4 branches missed.">			if (!unselected1 &amp;&amp; unselected2)</span>
+			{
+<span class="nc" id="L460">				return AFTER;</span>
+			}
+
+<span class="nc" id="L463">			final String PC_TYPE = &quot;PC&quot;;</span>
+<span class="nc bnc" id="L464" title="All 4 branches missed.">			if (r1.isType(PC_TYPE) &amp;&amp; !r2.isType(PC_TYPE))</span>
+			{
+<span class="nc" id="L466">				return BEFORE;</span>
+			}
+<span class="nc bnc" id="L468" title="All 4 branches missed.">			if (!r1.isType(PC_TYPE) &amp;&amp; r2.isType(PC_TYPE))</span>
+			{
+<span class="nc" id="L470">				return AFTER;</span>
+			}
+
+<span class="nc" id="L473">			final String HUMANOID = &quot;Humanoid&quot;;</span>
+<span class="nc bnc" id="L474" title="All 4 branches missed.">			if (r1.isType(HUMANOID) &amp;&amp; !r2.isType(HUMANOID))</span>
+			{
+<span class="nc" id="L476">				return BEFORE;</span>
+			}
+<span class="nc bnc" id="L478" title="All 4 branches missed.">			if (!r1.isType(HUMANOID) &amp;&amp; r2.isType(HUMANOID))</span>
+			{
+<span class="nc" id="L480">				return AFTER;</span>
+			}
+
+			// Check sort keys 
+<span class="nc" id="L484">			String key1 = r1.get(StringKey.SORT_KEY);</span>
+<span class="nc bnc" id="L485" title="All 2 branches missed.">			if (key1 == null)</span>
+			{
+<span class="nc" id="L487">				key1 = r1.getDisplayName();</span>
+			}
+<span class="nc" id="L489">			String key2 = r2.get(StringKey.SORT_KEY);</span>
+<span class="nc bnc" id="L490" title="All 2 branches missed.">			if (key2 == null)</span>
+			{
+<span class="nc" id="L492">				key2 = r2.getDisplayName();</span>
+			}
+<span class="nc" id="L494">			final Collator collator = Collator.getInstance();</span>
+<span class="nc" id="L495">			return collator.compare(key1, key2);</span>
+		}
+
+	}
+
+	/**
+	 * The Class {@code PCClassComparator} sorts classes so that base
+	 * classes come at the top of the list.
+	 */
+<span class="nc" id="L504">	static class PCClassComparator implements Comparator&lt;PCClass&gt;</span>
+	{
+
+		@Override
+		public int compare(PCClass c1, PCClass c2)
+		{
+<span class="nc" id="L510">			final int BEFORE = -1;</span>
+<span class="nc" id="L511">			final int AFTER = 1;</span>
+
+<span class="nc bnc" id="L513" title="All 2 branches missed.">			if (c1 == c2)</span>
+			{
+<span class="nc" id="L515">				return 0;</span>
+			}
+
+<span class="nc" id="L518">			final String BASE_TYPE = &quot;BASE.PC&quot;;</span>
+<span class="nc bnc" id="L519" title="All 4 branches missed.">			if (c1.isType(BASE_TYPE) &amp;&amp; !c2.isType(BASE_TYPE))</span>
+			{
+<span class="nc" id="L521">				return BEFORE;</span>
+			}
+<span class="nc bnc" id="L523" title="All 4 branches missed.">			if (!c1.isType(BASE_TYPE) &amp;&amp; c2.isType(BASE_TYPE))</span>
+			{
+<span class="nc" id="L525">				return AFTER;</span>
+			}
+
+<span class="nc" id="L528">			final String PRESTIGE_TYPE = &quot;Prestige&quot;;</span>
+<span class="nc bnc" id="L529" title="All 4 branches missed.">			if (c1.isType(PRESTIGE_TYPE) &amp;&amp; !c2.isType(PRESTIGE_TYPE))</span>
+			{
+<span class="nc" id="L531">				return BEFORE;</span>
+			}
+<span class="nc bnc" id="L533" title="All 4 branches missed.">			if (!c1.isType(PRESTIGE_TYPE) &amp;&amp; c2.isType(PRESTIGE_TYPE))</span>
+			{
+<span class="nc" id="L535">				return AFTER;</span>
+			}
+
+<span class="nc" id="L538">			final String NPC_TYPE = &quot;NPC&quot;;</span>
+<span class="nc bnc" id="L539" title="All 4 branches missed.">			if (c1.isType(NPC_TYPE) &amp;&amp; !c2.isType(NPC_TYPE))</span>
+			{
+<span class="nc" id="L541">				return BEFORE;</span>
+			}
+<span class="nc bnc" id="L543" title="All 4 branches missed.">			if (!c1.isType(NPC_TYPE) &amp;&amp; c2.isType(NPC_TYPE))</span>
+			{
+<span class="nc" id="L545">				return AFTER;</span>
+			}
+
+			// Check sort keys 
+<span class="nc" id="L549">			String key1 = c1.get(StringKey.SORT_KEY);</span>
+<span class="nc bnc" id="L550" title="All 2 branches missed.">			if (key1 == null)</span>
+			{
+<span class="nc" id="L552">				key1 = c1.getDisplayName();</span>
+			}
+<span class="nc" id="L554">			String key2 = c2.get(StringKey.SORT_KEY);</span>
+<span class="nc bnc" id="L555" title="All 2 branches missed.">			if (key2 == null)</span>
+			{
+<span class="nc" id="L557">				key2 = c2.getDisplayName();</span>
+			}
+<span class="nc" id="L559">			final Collator collator = Collator.getInstance();</span>
+<span class="nc" id="L560">			return collator.compare(key1, key2);</span>
+		}
+
+	}
+
+	class AbilityMap extends AbstractMapFacade&lt;AbilityCategory, ListFacade&lt;AbilityFacade&gt;&gt;
+	{
+
+		private final TreeMap&lt;AbilityCategory, ListFacade&lt;AbilityFacade&gt;&gt; map;
+
+		AbilityMap()
+<span class="nc" id="L571">		{</span>
+<span class="nc" id="L572">			map = new TreeMap&lt;&gt;(new AbilityCategoryComparator());</span>
+<span class="nc" id="L573">		}</span>
+
+		@Override
+		public Set&lt;AbilityCategory&gt; getKeys()
+		{
+<span class="nc" id="L578">			return Collections.unmodifiableSet(map.keySet());</span>
+		}
+
+		@Override
+		public ListFacade&lt;AbilityFacade&gt; getValue(AbilityCategory key)
+		{
+<span class="nc" id="L584">			return map.get(key);</span>
+		}
+
+		void put(AbilityCategory key, ListFacade&lt;AbilityFacade&gt; value)
+		{
+<span class="nc" id="L589">			map.put(key, value);</span>
+<span class="nc" id="L590">		}</span>
+
+	}
+
+<span class="nc" id="L594">	static class AbilityCategoryComparator implements Comparator&lt;AbilityCategory&gt;</span>
+	{
+
+		@Override
+		public int compare(AbilityCategory category1, AbilityCategory category2)
+		{
+<span class="nc" id="L600">			final int BEFORE = -1;</span>
+<span class="nc" id="L601">			final int EQUAL = 0;</span>
+<span class="nc" id="L602">			final int AFTER = 1;</span>
+
+<span class="nc bnc" id="L604" title="All 2 branches missed.">			if (category1 == category2)</span>
+			{
+<span class="nc" id="L606">				return EQUAL;</span>
+			}
+
+<span class="nc" id="L609">			String ac1Key = category1.getKeyName();</span>
+<span class="nc" id="L610">			String ac2Key = category2.getKeyName();</span>
+<span class="nc" id="L611">			String ac1Display = category1.getDisplayLocation().toString().toUpperCase();</span>
+<span class="nc" id="L612">			String ac2Display = category2.getDisplayLocation().toString().toUpperCase();</span>
+
+<span class="nc bnc" id="L614" title="All 4 branches missed.">            if (ac1Display != null &amp;&amp; !ac1Display.equals(ac2Display))</span>
+			{
+<span class="nc" id="L616">				final String[] ORDER = {&quot;FEATS&quot;, &quot;RACIAL ABILITIES&quot;, &quot;TRAITS&quot;, &quot;CLASS ABILITIES&quot;};</span>
+<span class="nc bnc" id="L617" title="All 2 branches missed.">				for (String displayOrder : ORDER)</span>
+				{
+<span class="nc bnc" id="L619" title="All 2 branches missed.">					if (ac1Display.equals(displayOrder))</span>
+					{
+<span class="nc" id="L621">						return BEFORE;</span>
+					}
+<span class="nc bnc" id="L623" title="All 2 branches missed.">					if (ac2Display.equals(displayOrder))</span>
+					{
+<span class="nc" id="L625">						return AFTER;</span>
+					}
+				}
+<span class="nc" id="L628">				return ac1Display.compareTo(ac2Display);</span>
+			}
+
+<span class="nc bnc" id="L631" title="All 4 branches missed.">			if (ac1Key == null &amp;&amp; ac2Key != null)</span>
+			{
+<span class="nc" id="L633">				return AFTER;</span>
+			}
+<span class="nc bnc" id="L635" title="All 4 branches missed.">			if (ac1Key != null &amp;&amp; ac2Key == null)</span>
+			{
+<span class="nc" id="L637">				return BEFORE;</span>
+			}
+<span class="nc bnc" id="L639" title="All 4 branches missed.">			if (ac1Key == null || ac1Key.equals(ac2Key))</span>
+			{
+<span class="nc" id="L641">				return EQUAL;</span>
+			}
+
+<span class="nc" id="L644">			return ac1Key.compareTo(ac2Key);</span>
+		}
+
+	}
+
+	@Override
+	public ListFacade&lt;Kit&gt; getKits()
+	{
+<span class="nc" id="L652">		return kits;</span>
+	}
+
+	@Override
+	public ListFacade&lt;SizeAdjustment&gt; getSizes()
+	{
+<span class="nc" id="L658">		return sizes;</span>
+	}
+
+	@Override
+	public String toString()
+	{
+<span class="nc" id="L664">		return &quot;DataSet [gameMode=&quot; + gameMode + &quot;, campaigns=&quot; + campaigns + &quot;]&quot;;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

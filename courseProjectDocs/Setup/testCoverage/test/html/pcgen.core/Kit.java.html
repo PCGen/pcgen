@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Kit.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.core</a> &gt; <span class="el_source">Kit.java</span></div><h1>Kit.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2001 (C) Greg Bingleman &lt;byngl@hotmail.com&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.core;
+
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Comparator;
+import java.util.List;
+
+import pcgen.cdom.formula.Formula;
+import pcgen.base.lang.StringUtil;
+import pcgen.cdom.enumeration.KitApply;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.MapKey;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.SourceFormat;
+import pcgen.cdom.enumeration.Type;
+import pcgen.cdom.helper.AllowUtilities;
+import pcgen.cdom.util.CControl;
+import pcgen.core.analysis.OutputNameFormatting;
+import pcgen.core.kit.BaseKit;
+import pcgen.core.kit.KitStat;
+import pcgen.core.kit.KitTable;
+import pcgen.core.prereq.PrereqHandler;
+import pcgen.core.prereq.PrerequisiteUtilities;
+import pcgen.output.channel.ChannelUtilities;
+import pcgen.util.Logging;
+import pcgen.util.enumeration.View;
+import pcgen.util.enumeration.Visibility;
+
+/**
+ * {@code Kit}.
+ */
+<span class="fc" id="L51">public final class Kit extends PObject</span>
+{
+<span class="fc" id="L53">	private int selectValue = -1;</span>
+
+<span class="fc" id="L55">	private boolean doLevelAbilitiesFlag = true;</span>
+
+	/**
+	 * Returns the list of base stats that are set by the kit.
+	 *
+	 * @return List the List of stats to be set by the kit.  The stats are
+	 * wrapped in a KitStat object.
+	 */
+	public List&lt;KitStat&gt; getStats()
+	{
+<span class="nc" id="L65">		return getSafeListFor(ListKey.STAT_LIST);</span>
+	}
+
+	/**
+	 * Set the Select value
+	 * @param aValue The currently active select value to use for the kit.
+	 */
+	public void setSelectValue(final int aValue)
+	{
+<span class="nc" id="L74">		selectValue = aValue;</span>
+<span class="nc" id="L75">	}</span>
+
+	/**
+	 * Returns true if we are doing level abilities for the Kit
+	 * @return true if we are doing level abilities for the Kit
+	 */
+	public boolean doLevelAbilities()
+	{
+<span class="nc" id="L83">		return doLevelAbilitiesFlag;</span>
+	}
+
+	/**
+	 * Set whether we will do the level abilities for the Kit
+	 * @param yesNo true means we are handling level abilities in the kit.
+	 */
+	public void setDoLevelAbilities(final boolean yesNo)
+	{
+<span class="nc" id="L92">		doLevelAbilitiesFlag = yesNo;</span>
+<span class="nc" id="L93">	}</span>
+
+	/**
+	 * Add a stat, wrapped in a KitStat, that will be set by this kit.
+	 *
+	 * @param kitStat The stat-value pair to set.
+	 */
+	public void addStat(final KitStat kitStat)
+	{
+<span class="nc bnc" id="L102" title="All 2 branches missed.">		if (kitStat != null)</span>
+		{
+<span class="nc" id="L104">			addToListFor(ListKey.STAT_LIST, kitStat);</span>
+		}
+<span class="nc" id="L106">	}</span>
+
+	/**
+	 * Used to compare Kits.
+	 *
+	 * @param   other  Object
+	 *
+	 * @return  int
+	 */
+	@Override
+	public int compareTo(final Object other)
+	{
+<span class="nc" id="L118">		final Kit oKit = (Kit) other;</span>
+<span class="nc" id="L119">		return getKeyName().compareToIgnoreCase(oKit.getKeyName());</span>
+	}
+
+	/**
+	 * The method that actually adds the various items in this Kit to the PC.
+	 * Takes account of Kit Number
+	 *
+	 * @param  pc           The Player Character object that we will be applying
+	 *                      the kit to.
+	 * @param  thingsToAdd  The list of things that will be added by this kit
+	 *                      wrapped in KitWrapper objects
+	 */
+	public void processKit(final PlayerCharacter pc, final Collection&lt;BaseKit&gt; thingsToAdd)
+	{
+<span class="nc" id="L133">		BigDecimal totalCostToBeCharged = getTotalCostToBeCharged(pc);</span>
+<span class="nc bnc" id="L134" title="All 2 branches missed.">		if (totalCostToBeCharged != null)</span>
+		{
+<span class="nc" id="L136">			Number currentGold = (Number) ChannelUtilities</span>
+<span class="nc" id="L137">				.readControlledChannel(pc.getCharID(), CControl.GOLDINPUT);</span>
+<span class="nc" id="L138">			ChannelUtilities.setControlledChannel(pc.getCharID(),</span>
+<span class="nc" id="L139">				CControl.GOLDINPUT, new BigDecimal(currentGold.toString()).subtract(totalCostToBeCharged));</span>
+		}
+
+<span class="nc bnc" id="L142" title="All 2 branches missed.">		for (KitStat kStat : getStats())</span>
+		{
+<span class="nc" id="L144">			kStat.apply(pc);</span>
+<span class="nc" id="L145">		}</span>
+
+<span class="nc bnc" id="L147" title="All 2 branches missed.">		for (BaseKit bk : thingsToAdd)</span>
+		{
+<span class="nc" id="L149">			bk.apply(pc);</span>
+<span class="nc" id="L150">		}</span>
+<span class="nc" id="L151">		pc.setCalcEquipmentList();</span>
+
+<span class="nc bnc" id="L153" title="All 2 branches missed.">		if (getSafe(ObjectKey.APPLY_MODE) == KitApply.PERMANENT)</span>
+		{
+<span class="nc" id="L155">			pc.addKit(this);</span>
+		}
+<span class="nc" id="L157">	}</span>
+
+	/**
+	 * Gets the buy rate of the kit.
+	 *
+	 * @param	aPC The character used to evaluate expressions in relation to
+	 * @return  String
+	 */
+	public int getBuyRate(PlayerCharacter aPC)
+	{
+<span class="nc" id="L167">		QualifiedObject&lt;Formula&gt; buy = get(ObjectKey.EQUIP_BUY);</span>
+<span class="nc bnc" id="L168" title="All 2 branches missed.">		Formula f = (buy == null ? null : buy.getObject(aPC, this));</span>
+		int buyRate;
+<span class="nc bnc" id="L170" title="All 2 branches missed.">		if (f == null)</span>
+		{
+<span class="nc" id="L172">			buyRate = SettingsHandler.getGearTab_BuyRate();</span>
+		}
+		else
+		{
+<span class="nc" id="L176">			buyRate = f.resolve(aPC, &quot;&quot;).intValue();</span>
+<span class="nc bnc" id="L177" title="All 2 branches missed.">			if (buyRate == 100)</span>
+			{
+<span class="nc" id="L179">				buyRate = SettingsHandler.getGearTab_BuyRate();</span>
+			}
+		}
+<span class="nc" id="L182">		return buyRate;</span>
+	}
+
+	/**
+	 * Gets the specified total cost of the kit. Note this is a base total cost 
+	 * which would then be modified by the chosen gear purchase rate on the gear 
+	 * tab. 
+	 *
+	 * @param	aPC The character used to evaluate expressions in relation to
+	 * @return  total cost, or null if no total cost was specified.
+	 */
+	public BigDecimal getTotalCost(PlayerCharacter aPC)
+	{
+<span class="nc" id="L195">		QualifiedObject&lt;Formula&gt; buy = get(ObjectKey.KIT_TOTAL_COST);</span>
+<span class="nc bnc" id="L196" title="All 2 branches missed.">		Formula f = (buy == null ? null : buy.getObject(aPC, this));</span>
+<span class="nc" id="L197">		BigDecimal totalCost = null;</span>
+<span class="nc bnc" id="L198" title="All 2 branches missed.">		if (f != null)</span>
+		{
+<span class="nc" id="L200">			totalCost = BigDecimal.valueOf(f.resolve(aPC, &quot;&quot;).doubleValue());</span>
+		}
+<span class="nc" id="L202">		return totalCost;</span>
+	}
+
+	/**
+	 * Gets the specified total cost of the kit modified by the user's chosen 
+	 * gear purchase rate on the gear tab.
+	 *
+	 * @param	aPC The character used to evaluate expressions in relation to
+	 * @return  Cost to be charged, or null if no total cost was specified.
+	 */
+	public BigDecimal getTotalCostToBeCharged(PlayerCharacter aPC)
+	{
+<span class="nc" id="L214">		BigDecimal theCost = null;</span>
+<span class="nc" id="L215">		BigDecimal fixedTotalCost = getTotalCost(aPC);</span>
+<span class="nc bnc" id="L216" title="All 2 branches missed.">		if (fixedTotalCost != null)</span>
+		{
+<span class="nc" id="L218">			fixedTotalCost = fixedTotalCost.setScale(3);</span>
+<span class="nc" id="L219">			BigDecimal buyRate = new BigDecimal(SettingsHandler.getGearTab_BuyRate());</span>
+<span class="nc" id="L220">			theCost = fixedTotalCost.multiply(buyRate).divide(new BigDecimal(100).setScale(3), RoundingMode.FLOOR);</span>
+		}
+
+<span class="nc" id="L223">		return theCost;</span>
+	}
+
+	/**
+	 * Returns true if the kit is visible
+	 *
+	 * @param   aPC  if the kit visibility depends on the PC, this is the PC
+	 *               that will be used to check the prerequisites.
+	 *
+	 * @return  Whether the kit is visible
+	 */
+	public boolean isVisible(PlayerCharacter aPC, View v)
+	{
+<span class="nc" id="L236">		Visibility kitVisible = getSafe(ObjectKey.VISIBILITY);</span>
+<span class="nc bnc" id="L237" title="All 2 branches missed.">		if (kitVisible == Visibility.QUALIFY)</span>
+		{
+<span class="nc" id="L239">			return qualifies(aPC, this);</span>
+		}
+		else
+		{
+<span class="nc" id="L243">			return kitVisible.isVisibleTo(v);</span>
+		}
+
+    }
+
+	/**
+	 * Test applying the top level kit and record the choices made and any 
+	 * warnings encountered. Note these changes are made on a copy of the 
+	 * character.
+	 * 
+	 * @param aPC PlayerCharacter
+	 * @param thingsToAdd List of kit actions to be taken.
+	 * @param warnings List of issues to be reported to the user.
+	 */
+	public void testApplyKit(PlayerCharacter aPC, List&lt;BaseKit&gt; thingsToAdd, List&lt;String&gt; warnings)
+	{
+<span class="nc" id="L259">		testApplyKit(aPC, thingsToAdd, warnings, false);</span>
+<span class="nc" id="L260">	}</span>
+
+	/**
+	 * Test applying the kit and record the choices made and any warnings 
+	 * encountered. Note these changes are made on a copy of the character.
+	 * 
+	 * @param aPC PlayerCharacter
+	 * @param thingsToAdd List of kit actions to be taken.
+	 * @param warnings List of issues to be reported to the user.
+	 * @param subkit Is this kit being added by a parent kit?
+	 */
+	public void testApplyKit(PlayerCharacter aPC, List&lt;BaseKit&gt; thingsToAdd, List&lt;String&gt; warnings, boolean subkit)
+	{
+		// Ensure a reset of random values from a prior run
+<span class="nc" id="L274">		selectValue = -1;</span>
+
+		// We will create a copy of the PC since we may need to add classes and
+		// levels to the PC that the user may choose not to apply.
+		// NOTE: These methods need to be called in the correct order.
+<span class="nc bnc" id="L279" title="All 2 branches missed.">		PlayerCharacter tempPC = subkit ? aPC : aPC.clone();</span>
+
+<span class="nc bnc" id="L281" title="All 2 branches missed.">		for (KitStat kStat : getStats())</span>
+		{
+<span class="nc" id="L283">			kStat.testApply(this, tempPC, warnings);</span>
+<span class="nc" id="L284">		}</span>
+
+<span class="nc bnc" id="L286" title="All 2 branches missed.">		for (BaseKit bk : getSafeListFor(ListKey.KIT_TASKS))</span>
+		{
+<span class="nc bnc" id="L288" title="All 2 branches missed.">			if (!PrereqHandler.passesAll(bk, tempPC, this))</span>
+			{
+<span class="nc" id="L290">				continue;</span>
+			}
+<span class="nc bnc" id="L292" title="All 6 branches missed.">			if (selectValue != -1 &amp;&amp; bk.isOptional() &amp;&amp; !bk.isOption(tempPC, selectValue))</span>
+			{
+<span class="nc" id="L294">				continue;</span>
+			}
+<span class="nc bnc" id="L296" title="All 2 branches missed.">			if (bk.testApply(this, tempPC, warnings))</span>
+			{
+<span class="nc" id="L298">				thingsToAdd.add(bk);</span>
+			}
+<span class="nc" id="L300">		}</span>
+
+<span class="nc" id="L302">		BigDecimal totalCostToBeCharged = getTotalCostToBeCharged(tempPC);</span>
+<span class="nc bnc" id="L303" title="All 2 branches missed.">		if (totalCostToBeCharged != null)</span>
+		{
+<span class="nc" id="L305">			BigDecimal pcGold = new BigDecimal(ChannelUtilities</span>
+<span class="nc" id="L306">					.readControlledChannel(tempPC.getCharID(), CControl.GOLDINPUT).toString());</span>
+<span class="nc bnc" id="L307" title="All 4 branches missed.">			if (pcGold.compareTo(BigDecimal.ZERO) &gt;= 0 &amp;&amp; pcGold.compareTo(totalCostToBeCharged) &lt; 0)</span>
+			{
+<span class="nc" id="L309">				warnings.add(&quot;Could not purchase kit. Not enough funds.&quot;);</span>
+			}
+			else
+			{
+<span class="nc" id="L313">				ChannelUtilities.setControlledChannel(tempPC.getCharID(),</span>
+<span class="nc" id="L314">					CControl.GOLDINPUT, pcGold.subtract(totalCostToBeCharged));</span>
+			}
+		}
+
+<span class="nc" id="L318">	}</span>
+
+	/**
+	 * Get the Kit info for this PC
+	 * @param aPC the PC this kit is being applied to.
+	 * @return the Kit info for this PC
+	 */
+	public String getInfo(PlayerCharacter aPC)
+	{
+<span class="nc" id="L327">		StringBuilder info = new StringBuilder(255);</span>
+<span class="nc" id="L328">		info.append(&quot;&lt;html&gt;&quot;);</span>
+<span class="nc" id="L329">		info.append(&quot;&lt;b&gt;&lt;font size=+1&gt;&quot;);</span>
+<span class="nc" id="L330">		info.append(OutputNameFormatting.piString(this));</span>
+<span class="nc" id="L331">		info.append(&quot;&lt;/font&gt;&lt;/b&gt;&lt;br&gt;\n&quot;);</span>
+
+<span class="nc" id="L333">		String aString = getPreReqHTMLStrings(aPC);</span>
+
+<span class="nc bnc" id="L335" title="All 2 branches missed.">		if (!aString.isEmpty())</span>
+		{
+<span class="nc" id="L337">			info.append(&quot;  &lt;b&gt;Requirements&lt;/b&gt;: &quot;).append(aString);</span>
+		}
+
+<span class="nc" id="L340">		List&lt;BaseKit&gt; sortedObjects = new ArrayList&lt;&gt;(getSafeListFor(ListKey.KIT_TASKS));</span>
+<span class="nc" id="L341">		sortedObjects.sort(Comparator.comparing(BaseKit::getObjectName));</span>
+
+<span class="nc" id="L343">		String lastObjectName = &quot;&quot;;</span>
+<span class="nc bnc" id="L344" title="All 2 branches missed.">		for (BaseKit bk : sortedObjects)</span>
+		{
+<span class="nc" id="L346">			String objName = bk.getObjectName();</span>
+<span class="nc bnc" id="L347" title="All 2 branches missed.">			if (!objName.equals(lastObjectName))</span>
+			{
+<span class="nc bnc" id="L349" title="All 2 branches missed.">				if (!lastObjectName.isEmpty())</span>
+				{
+<span class="nc" id="L351">					info.append(&quot;; &quot;);</span>
+				}
+<span class="nc" id="L353">				info.append(&quot;  &lt;b&gt;&quot;).append(objName).append(&quot;&lt;/b&gt;: &quot;);</span>
+<span class="nc" id="L354">				lastObjectName = objName;</span>
+			}
+			else
+			{
+<span class="nc" id="L358">				info.append(&quot;, &quot;);</span>
+			}
+<span class="nc" id="L360">			info.append(bk);</span>
+<span class="nc" id="L361">		}</span>
+<span class="nc" id="L362">		info.append(&quot;  &lt;b&gt;Source&lt;/b&gt;: &quot;)</span>
+<span class="nc" id="L363">			.append(SourceFormat.getFormattedString(this, Globals.getSourceDisplay(), true));</span>
+<span class="nc" id="L364">		info.append(&quot;&lt;/html&gt;&quot;);</span>
+		//TODO ListKey.KIT_TASKS
+<span class="nc" id="L366">		return info.toString();</span>
+	}
+
+	private String getPreReqHTMLStrings(PlayerCharacter aPC)
+	{
+<span class="nc" id="L371">		return PrerequisiteUtilities.preReqHTMLStringsForList(aPC, this, getPrerequisiteList(), false)</span>
+<span class="nc" id="L372">				+ AllowUtilities.getAllowInfo(aPC, this);</span>
+	}
+
+	public static void applyKit(final Kit aKit, final PlayerCharacter aPC)
+	{
+<span class="nc bnc" id="L377" title="All 2 branches missed.">		if (aKit == null)</span>
+		{
+<span class="nc" id="L379">			return;</span>
+		}
+<span class="nc bnc" id="L381" title="All 4 branches missed.">		if (aKit.getSafe(ObjectKey.APPLY_MODE) == KitApply.PERMANENT &amp;&amp; aPC.containsKit(aKit))</span>
+		{
+<span class="nc" id="L383">			return;</span>
+		}
+
+<span class="nc" id="L386">		final List&lt;BaseKit&gt; thingsToAdd = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L387">		final List&lt;String&gt; warnings = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L388">		aKit.testApplyKit(aPC, thingsToAdd, warnings);</span>
+<span class="nc bnc" id="L389" title="All 2 branches missed.">		if (Logging.isLoggable(Logging.WARNING))</span>
+		{
+<span class="nc bnc" id="L391" title="All 2 branches missed.">			if (!warnings.isEmpty())</span>
+			{
+<span class="nc" id="L393">				Logging.log(Logging.WARNING,</span>
+<span class="nc" id="L394">					&quot;The following warnings were encountered when applying the kit &quot; + aKit.getKeyName());</span>
+<span class="nc bnc" id="L395" title="All 2 branches missed.">				for (String string : warnings)</span>
+				{
+<span class="nc" id="L397">					Logging.log(Logging.WARNING, &quot;  &quot; + string);</span>
+<span class="nc" id="L398">				}</span>
+			}
+		}
+<span class="nc" id="L401">		aKit.processKit(aPC, thingsToAdd);</span>
+<span class="nc" id="L402">	}</span>
+
+	public KitTable getTable(String name)
+	{
+<span class="nc" id="L406">		return get(MapKey.KIT_TABLE, name);</span>
+	}
+
+	public KitTable addTable(KitTable table)
+	{
+<span class="nc" id="L411">		return addToMapFor(MapKey.KIT_TABLE, table.getTableName(), table);</span>
+	}
+
+	public String getDisplayType()
+	{
+<span class="nc" id="L416">		List&lt;Type&gt; trueTypeList = getTrueTypeList(true);</span>
+<span class="nc" id="L417">		return StringUtil.join(trueTypeList, &quot;.&quot;);</span>
+	}
+
+	public boolean isPermanent()
+	{
+<span class="nc bnc" id="L422" title="All 2 branches missed.">		return getSafe(ObjectKey.APPLY_MODE) == KitApply.PERMANENT;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

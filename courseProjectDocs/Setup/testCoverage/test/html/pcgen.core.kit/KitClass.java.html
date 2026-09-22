@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>KitClass.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.core.kit</a> &gt; <span class="el_source">KitClass.java</span></div><h1>KitClass.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2005 (C) Aaron Divinsky &lt;boomer70@yahoo.com&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.core.kit;
+
+import java.util.List;
+
+import pcgen.cdom.formula.Formula;
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.core.Kit;
+import pcgen.core.PCClass;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.SettingsHandler;
+import pcgen.core.SubClass;
+import pcgen.core.analysis.SubClassApplication;
+import pcgen.core.prereq.PrereqHandler;
+import pcgen.gui2.UIPropertyContext;
+
+/**
+ * {@code KitClass} &lt;strong&gt;needs documentation&lt;/strong&gt;.
+ */
+<span class="fc" id="L38">public class KitClass extends BaseKit</span>
+{
+	private CDOMSingleRef&lt;PCClass&gt; pcClass;
+	private Formula levelFormula;
+	private CDOMReference&lt;SubClass&gt; subClass;
+
+	// These members store the state of an instance of this class.  They are
+	// not cloned.
+<span class="fc" id="L46">	private PCClass theClass = null;</span>
+<span class="fc" id="L47">	private String theOrigSubClass = null;</span>
+<span class="fc" id="L48">	private int theLevel = -1;</span>
+<span class="fc" id="L49">	private boolean doLevelAbilities = true;</span>
+
+	@Override
+	public String toString()
+	{
+<span class="nc" id="L54">		StringBuilder ret = new StringBuilder(100);</span>
+<span class="nc" id="L55">		ret.append(pcClass.getLSTformat(false));</span>
+<span class="nc bnc" id="L56" title="All 2 branches missed.">		if (subClass != null)</span>
+		{
+<span class="nc" id="L58">			ret.append(&quot;(&quot;).append(subClass.getLSTformat(false)).append(&quot;)&quot;);</span>
+		}
+<span class="nc" id="L60">		ret.append(levelFormula);</span>
+<span class="nc" id="L61">		return ret.toString();</span>
+	}
+
+	@Override
+	public boolean testApply(Kit aKit, PlayerCharacter aPC, List&lt;String&gt; warnings)
+	{
+<span class="nc" id="L67">		theLevel = -1;</span>
+<span class="nc" id="L68">		doLevelAbilities = true;</span>
+
+<span class="nc" id="L70">		theClass = pcClass.get();</span>
+
+<span class="nc" id="L72">		theOrigSubClass = aPC.getSubClassName(theClass);</span>
+<span class="nc" id="L73">		applySubClass(aPC);</span>
+
+<span class="nc bnc" id="L75" title="All 2 branches missed.">		if (!PrereqHandler.passesAll(theClass, aPC, aKit))</span>
+		{
+<span class="nc" id="L77">			PrereqHandler.toHtmlString(theClass.getPrerequisiteList());</span>
+<span class="nc" id="L78">			warnings.add(&quot;CLASS: Not qualified for class \&quot;&quot; + theClass.getKeyName() + &quot;\&quot;.&quot;);</span>
+<span class="nc" id="L79">			return false;</span>
+		}
+
+<span class="nc" id="L82">		doLevelAbilities = aKit.doLevelAbilities();</span>
+
+		// Temporarily increase the PCs level.
+<span class="nc" id="L85">		theLevel = levelFormula.resolve(aPC, &quot;&quot;).intValue();</span>
+<span class="nc" id="L86">		addLevel(aPC, theLevel, theClass, doLevelAbilities);</span>
+
+<span class="nc" id="L88">		return true;</span>
+	}
+
+	private void applySubClass(PlayerCharacter aPC)
+	{
+<span class="nc bnc" id="L93" title="All 2 branches missed.">		if (subClass != null)</span>
+		{
+			// Ensure the character has the class
+<span class="nc" id="L96">			PCClass heldClass = aPC.getClassKeyed(theClass.getKeyName());</span>
+<span class="nc bnc" id="L97" title="All 2 branches missed.">			if (heldClass == null)</span>
+			{
+<span class="nc" id="L99">				aPC.incrementClassLevel(0, theClass);</span>
+<span class="nc" id="L100">				heldClass = aPC.getClassKeyed(theClass.getKeyName());</span>
+			}
+
+			// try and set a subclass too.
+<span class="nc" id="L104">			SubClassApplication.setSubClassKey(aPC, heldClass, getSubClass().getLSTformat(false));</span>
+		}
+<span class="nc" id="L106">	}</span>
+
+	@Override
+	public void apply(PlayerCharacter aPC)
+	{
+<span class="nc" id="L111">		applySubClass(aPC);</span>
+<span class="nc" id="L112">		addLevel(aPC, theLevel, theClass, doLevelAbilities);</span>
+<span class="nc bnc" id="L113" title="All 2 branches missed.">		if (theOrigSubClass != null)</span>
+		{
+<span class="nc" id="L115">			SubClassApplication.setSubClassKey(aPC, theClass, theOrigSubClass);</span>
+		}
+<span class="nc" id="L117">		theClass = null;</span>
+<span class="nc" id="L118">	}</span>
+
+	private void addLevel(final PlayerCharacter pc, final int numLevels, final PCClass aClass,
+		final boolean doLevelAbilitiesIn)
+	{
+		// We want to level up as quietly as possible for kits.
+<span class="nc" id="L124">		boolean tempShowHP = SettingsHandler.getShowHPDialogAtLevelUp();</span>
+<span class="nc" id="L125">		SettingsHandler.setShowHPDialogAtLevelUp(false);</span>
+		//		boolean tempFeatDlg = SettingsHandler.getShowFeatDialogAtLevelUp();
+<span class="nc" id="L127">		int tempChoicePref = UIPropertyContext.getSingleChoiceAction();</span>
+<span class="nc" id="L128">		UIPropertyContext.setSingleChoiceAction(Constants.CHOOSER_SINGLE_CHOICE_METHOD_SELECT_EXIT);</span>
+
+<span class="nc" id="L130">		boolean tempDoLevelAbilities = pc.doLevelAbilities();</span>
+<span class="nc" id="L131">		pc.setDoLevelAbilities(doLevelAbilitiesIn);</span>
+<span class="nc" id="L132">		pc.incrementClassLevel(numLevels, aClass, true);</span>
+<span class="nc" id="L133">		pc.setDoLevelAbilities(tempDoLevelAbilities);</span>
+
+<span class="nc" id="L135">		UIPropertyContext.setSingleChoiceAction(tempChoicePref);</span>
+<span class="nc" id="L136">		SettingsHandler.setShowHPDialogAtLevelUp(tempShowHP);</span>
+<span class="nc" id="L137">	}</span>
+
+	@Override
+	public String getObjectName()
+	{
+<span class="nc" id="L142">		return &quot;Classes&quot;;</span>
+	}
+
+	public void setPcclass(CDOMSingleRef&lt;PCClass&gt; ref)
+	{
+<span class="fc" id="L147">		pcClass = ref;</span>
+<span class="fc" id="L148">	}</span>
+
+	public CDOMReference&lt;PCClass&gt; getPcclass()
+	{
+<span class="fc" id="L152">		return pcClass;</span>
+	}
+
+	public void setLevel(Formula formula)
+	{
+<span class="fc" id="L157">		levelFormula = formula;</span>
+<span class="fc" id="L158">	}</span>
+
+	public Formula getLevel()
+	{
+<span class="fc" id="L162">		return levelFormula;</span>
+	}
+
+	public void setSubClass(CDOMReference&lt;SubClass&gt; sc)
+	{
+<span class="fc" id="L167">		subClass = sc;</span>
+<span class="fc" id="L168">	}</span>
+
+	public CDOMReference&lt;SubClass&gt; getSubClass()
+	{
+<span class="fc" id="L172">		return subClass;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

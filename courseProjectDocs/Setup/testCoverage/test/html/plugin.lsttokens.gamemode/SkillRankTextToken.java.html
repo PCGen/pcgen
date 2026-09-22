@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SkillRankTextToken.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.lsttokens.gamemode</a> &gt; <span class="el_source">SkillRankTextToken.java</span></div><h1>SkillRankTextToken.java</h1><pre class="source lang-java linenums">/*
+ * SkillRankTextToken.java
+ * Copyright 2005 (C) Greg Bingleman &lt;byngl@hotmail.com&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package plugin.lsttokens.gamemode;
+
+import java.net.URI;
+import java.util.StringTokenizer;
+
+import pcgen.core.GameMode;
+import pcgen.persistence.lst.GameModeLstToken;
+
+/**
+ * {@code SkillRankTextToken}
+ */
+<span class="nc" id="L30">public class SkillRankTextToken implements GameModeLstToken</span>
+{
+
+	@Override
+	public String getTokenName()
+	{
+<span class="nc" id="L36">		return &quot;SKILLRANKTEXT&quot;;</span>
+	}
+
+	//
+	// SKILLRANKTEXT:&lt;rank_val&gt; &lt;tab&gt; &lt;display_text&gt;
+	//
+	@Override
+	public boolean parse(GameMode gameMode, String value, URI source)
+	{
+<span class="nc" id="L45">		final StringTokenizer tok = new StringTokenizer(value, &quot;\t&quot;);</span>
+<span class="nc bnc" id="L46" title="All 2 branches missed.">		if (tok.countTokens() == 2)</span>
+		{
+			try
+			{
+<span class="nc" id="L50">				final int rankValue = Integer.parseInt(tok.nextToken());</span>
+<span class="nc" id="L51">				String rankText = tok.nextToken();</span>
+<span class="nc bnc" id="L52" title="All 2 branches missed.">				if (&quot;&amp;nbsp;&quot;.equals(rankText))</span>
+				{
+<span class="nc" id="L54">					rankText = &quot;&quot;;</span>
+				}
+<span class="nc" id="L56">				gameMode.addSkillRankDisplayText(rankValue, rankText);</span>
+<span class="nc" id="L57">				return true;</span>
+			}
+<span class="nc" id="L59">			catch (NumberFormatException exc)</span>
+			{
+				//returns false
+			}
+		}
+<span class="nc" id="L64">		return false;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

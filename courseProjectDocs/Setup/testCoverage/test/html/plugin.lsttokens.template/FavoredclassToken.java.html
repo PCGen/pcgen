@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FavoredclassToken.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.lsttokens.template</a> &gt; <span class="el_source">FavoredclassToken.java</span></div><h1>FavoredclassToken.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) 2008 Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package plugin.lsttokens.template;
+
+import java.util.Collection;
+import java.util.SortedSet;
+import java.util.StringTokenizer;
+import java.util.TreeSet;
+
+import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.ChooseDriver;
+import pcgen.cdom.base.ChooseSelectionActor;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.SubClassCategory;
+import pcgen.core.PCClass;
+import pcgen.core.PCTemplate;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.SubClass;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.Changes;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.ParseResult;
+
+/**
+ * Class deals with FAVOREDCLASS Token
+ */
+<span class="fc" id="L48">public class FavoredclassToken extends AbstractTokenWithSeparator&lt;PCTemplate&gt;</span>
+		implements CDOMPrimaryToken&lt;PCTemplate&gt;, ChooseSelectionActor&lt;PCClass&gt;
+{
+
+<span class="fc" id="L52">	public static final Class&lt;PCClass&gt; PCCLASS_CLASS = PCClass.class;</span>
+<span class="fc" id="L53">	public static final Class&lt;SubClass&gt; SUBCLASS_CLASS = SubClass.class;</span>
+
+	@Override
+	public String getTokenName()
+	{
+<span class="fc" id="L58">		return &quot;FAVOREDCLASS&quot;;</span>
+	}
+
+	@Override
+	protected char separator()
+	{
+<span class="fc" id="L64">		return '|';</span>
+	}
+
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context, PCTemplate pct, String value)
+	{
+<span class="fc" id="L70">		context.getObjectContext().remove(pct, ObjectKey.ANY_FAVORED_CLASS);</span>
+<span class="fc" id="L71">		context.getObjectContext().removeList(pct, ListKey.FAVORED_CLASS);</span>
+<span class="fc" id="L72">		context.getObjectContext().removeFromList(pct, ListKey.NEW_CHOOSE_ACTOR, this);</span>
+<span class="fc" id="L73">		return parseFavoredClass(context, pct, value);</span>
+	}
+
+	public ParseResult parseFavoredClass(LoadContext context, CDOMObject cdo, String value)
+	{
+<span class="fc" id="L78">		boolean foundAny = false;</span>
+<span class="fc" id="L79">		boolean foundOther = false;</span>
+
+<span class="fc" id="L81">		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);</span>
+
+<span class="fc bfc" id="L83" title="All 2 branches covered.">		while (tok.hasMoreTokens())</span>
+		{
+<span class="fc" id="L85">			String token = tok.nextToken();</span>
+<span class="fc bfc" id="L86" title="All 2 branches covered.">			if (Constants.HIGHEST_LEVEL_CLASS.equalsIgnoreCase(token))</span>
+			{
+<span class="fc" id="L88">				foundAny = true;</span>
+<span class="fc" id="L89">				context.getObjectContext().put(cdo, ObjectKey.ANY_FAVORED_CLASS, true);</span>
+			}
+<span class="fc bfc" id="L91" title="All 2 branches covered.">			else if (Constants.LST_PERCENT_LIST.equalsIgnoreCase(token))</span>
+			{
+<span class="fc" id="L93">				context.getObjectContext().addToList(cdo, ListKey.NEW_CHOOSE_ACTOR, this);</span>
+			}
+			else
+			{
+				CDOMReference&lt;? extends PCClass&gt; ref;
+<span class="fc" id="L98">				foundOther = true;</span>
+<span class="fc" id="L99">				int dotLoc = token.indexOf('.');</span>
+<span class="fc bfc" id="L100" title="All 2 branches covered.">				if (dotLoc == -1)</span>
+				{
+					// Primitive
+<span class="fc" id="L103">					ref = context.getReferenceContext().getCDOMReference(PCCLASS_CLASS, token);</span>
+				}
+				else
+				{
+<span class="fc" id="L107">					ParseResult pr = checkForIllegalSeparator('.', token);</span>
+<span class="fc bfc" id="L108" title="All 2 branches covered.">					if (!pr.passed())</span>
+					{
+<span class="fc" id="L110">						return pr;</span>
+					}
+					// SubClass
+<span class="fc" id="L113">					String parent = token.substring(0, dotLoc);</span>
+<span class="fc" id="L114">					String subclass = token.substring(dotLoc + 1);</span>
+<span class="fc" id="L115">					SubClassCategory scc = SubClassCategory.getConstant(parent);</span>
+<span class="fc" id="L116">					ref = context.getReferenceContext().getManufacturerId(scc).getReference(subclass);</span>
+				}
+<span class="fc" id="L118">				context.getObjectContext().addToList(cdo, ListKey.FAVORED_CLASS, ref);</span>
+			}
+<span class="fc" id="L120">		}</span>
+<span class="fc bfc" id="L121" title="All 4 branches covered.">		if (foundAny &amp;&amp; foundOther)</span>
+		{
+<span class="fc" id="L123">			return new ParseResult.Fail(&quot;Non-sensical &quot; + getTokenName() + &quot;: Contains &quot; + Constants.HIGHEST_LEVEL_CLASS</span>
+				+ &quot; and a specific reference: &quot; + value);
+		}
+<span class="fc" id="L126">		return ParseResult.SUCCESS;</span>
+	}
+
+	@Override
+	public String[] unparse(LoadContext context, PCTemplate pct)
+	{
+<span class="fc" id="L132">		Changes&lt;CDOMReference&lt;? extends PCClass&gt;&gt; changes =</span>
+<span class="fc" id="L133">				context.getObjectContext().getListChanges(pct, ListKey.FAVORED_CLASS);</span>
+<span class="fc" id="L134">		Changes&lt;ChooseSelectionActor&lt;?&gt;&gt; listChanges =</span>
+<span class="fc" id="L135">				context.getObjectContext().getListChanges(pct, ListKey.NEW_CHOOSE_ACTOR);</span>
+<span class="fc" id="L136">		Boolean anyfavored = context.getObjectContext().getObject(pct, ObjectKey.ANY_FAVORED_CLASS);</span>
+<span class="fc" id="L137">		SortedSet&lt;String&gt; set = new TreeSet&lt;&gt;();</span>
+<span class="fc bfc" id="L138" title="All 4 branches covered.">		if (anyfavored != null &amp;&amp; anyfavored)</span>
+		{
+<span class="fc" id="L140">			set.add(Constants.HIGHEST_LEVEL_CLASS);</span>
+		}
+<span class="pc bpc" id="L142" title="2 of 6 branches missed.">		if (changes != null &amp;&amp; !changes.isEmpty() &amp;&amp; changes.hasAddedItems())</span>
+		{
+<span class="fc bfc" id="L144" title="All 2 branches covered.">			for (CDOMReference&lt;? extends PCClass&gt; ref : changes.getAdded())</span>
+			{
+<span class="fc" id="L146">				String prefix = ref.getPersistentFormat();</span>
+<span class="fc bfc" id="L147" title="All 2 branches covered.">				if (prefix.startsWith(&quot;SUBCLASS=&quot;))</span>
+				{
+<span class="fc" id="L149">					set.add(prefix.substring(9) + Constants.DOT + ref.getLSTformat(false));</span>
+				}
+				else
+				{
+<span class="fc" id="L153">					set.add(ref.getLSTformat(false));</span>
+				}
+<span class="fc" id="L155">			}</span>
+		}
+<span class="fc" id="L157">		Collection&lt;ChooseSelectionActor&lt;?&gt;&gt; listAdded = listChanges.getAdded();</span>
+<span class="pc bpc" id="L158" title="1 of 4 branches missed.">		if (listAdded != null &amp;&amp; !listAdded.isEmpty())</span>
+		{
+<span class="fc bfc" id="L160" title="All 2 branches covered.">			for (ChooseSelectionActor&lt;?&gt; cra : listAdded)</span>
+			{
+<span class="pc bpc" id="L162" title="1 of 2 branches missed.">				if (cra.getSource().equals(getTokenName()))</span>
+				{
+					try
+					{
+<span class="fc" id="L166">						set.add(cra.getLstFormat());</span>
+					}
+<span class="nc" id="L168">					catch (PersistenceLayerException e)</span>
+					{
+<span class="nc" id="L170">						context.addWriteMessage(&quot;Error writing Prerequisite: &quot; + e);</span>
+<span class="nc" id="L171">						return null;</span>
+<span class="fc" id="L172">					}</span>
+				}
+<span class="fc" id="L174">			}</span>
+		}
+<span class="fc bfc" id="L176" title="All 2 branches covered.">		if (set.isEmpty())</span>
+		{
+			// Zero indicates no add or clear
+<span class="fc" id="L179">			return null;</span>
+		}
+<span class="fc" id="L181">		return new String[]{StringUtil.join(set, Constants.PIPE)};</span>
+	}
+
+	@Override
+	public Class&lt;PCTemplate&gt; getTokenClass()
+	{
+<span class="fc" id="L187">		return PCTemplate.class;</span>
+	}
+
+	@Override
+	public String getSource()
+	{
+<span class="fc" id="L193">		return getTokenName();</span>
+	}
+
+	@Override
+	public String getLstFormat()
+	{
+<span class="fc" id="L199">		return Constants.LST_PERCENT_LIST;</span>
+	}
+
+	@Override
+	public void applyChoice(ChooseDriver obj, PCClass cls, PlayerCharacter pc)
+	{
+<span class="fc" id="L205">		pc.addFavoredClass(cls, obj);</span>
+<span class="fc" id="L206">	}</span>
+
+	@Override
+	public void removeChoice(ChooseDriver obj, PCClass cls, PlayerCharacter pc)
+	{
+<span class="fc" id="L211">		pc.removeFavoredClass(cls, obj);</span>
+<span class="fc" id="L212">	}</span>
+
+	@Override
+	public Class&lt;PCClass&gt; getChoiceClass()
+	{
+<span class="nc" id="L217">		return PCCLASS_CLASS;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SimpleMovement.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.core</a> &gt; <span class="el_source">SimpleMovement.java</span></div><h1>SimpleMovement.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2019 (C) Tom Parker &lt;thpr@sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or modify it under the terms
+ * of the GNU Lesser General Public License as published by the Free Software Foundation;
+ * either version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful, but WITHOUT ANY
+ * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+ * PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License along with
+ * this library; if not, write to the Free Software Foundation, Inc., 59 Temple Place,
+ * Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.core;
+
+import java.util.Objects;
+
+import pcgen.cdom.enumeration.MovementType;
+
+/**
+ * A SimpleMovement represents info from one movement of the MOVE: token in the data.
+ */
+public class SimpleMovement
+{
+
+	/**
+	 * Contains the MovementType for this SimpleMovement (e.g. &quot;Walk&quot;, &quot;Fly&quot;)
+	 */
+	private final MovementType movementType;
+
+	/**
+	 * Contains the associated movement rate (in feet) for the movement type. A movement
+	 * rate must be greater than or equal to zero.
+	 */
+	private final int movement;
+
+	/**
+	 * Creates a SimpleMovement object with the given parameters.
+	 * 
+	 * @param movementType
+	 *            The MovementType for this MoveClone (e.g. &quot;Walk&quot;).
+	 * @param movement
+	 *            The movement (in feet) for the given MovementType.
+	 */
+	public SimpleMovement(MovementType movementType, int movement)
+<span class="fc" id="L48">	{</span>
+<span class="fc" id="L49">		this.movementType = Objects.requireNonNull(movementType);</span>
+<span class="fc" id="L50">		this.movement = movement;</span>
+<span class="fc bfc" id="L51" title="All 2 branches covered.">		if (movement &lt; 0)</span>
+		{
+<span class="fc" id="L53">			throw new IllegalArgumentException(&quot;Movement for type &quot;</span>
+				+ movementType + &quot; must be &gt;=0: &quot; + movement);
+		}
+<span class="fc" id="L56">	}</span>
+
+	/**
+	 * Return the creature's movement type in this SimpleMovement.
+	 * 
+	 * @return The creature's movement type in this SimpleMovement
+	 */
+	public MovementType getMovementType()
+	{
+<span class="fc" id="L65">		return movementType;</span>
+	}
+
+	/**
+	 * Return the creature's movement rate (in feet) for the movement type in this
+	 * SimpleMovement.
+	 * 
+	 * @return The creature's movement rate (in feet) for the movement type in this
+	 *         SimpleMovement
+	 */
+	public int getMovement()
+	{
+<span class="fc" id="L77">		return movement;</span>
+	}
+
+	@Override
+	public String toString()
+	{
+<span class="nc" id="L83">		return movementType+&quot; &quot;+movement;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

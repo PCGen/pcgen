@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PCGenUIManager.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.gui2</a> &gt; <span class="el_source">PCGenUIManager.java</span></div><h1>PCGenUIManager.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2008 Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ * 
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.gui2;
+
+import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+import pcgen.cdom.base.Constants;
+import pcgen.gui2.dialog.PreferencesDialog;
+import pcgen.gui3.GuiAssertions;
+import pcgen.gui3.application.DesktopHandler;
+import pcgen.gui3.preferences.PCGenPreferencesModel;
+import pcgen.system.Main;
+import pcgen.util.Logging;
+
+import javafx.application.Platform;
+
+
+/**
+ * The PCGenUIManager is responsible for starting up and shutting down PCGen's
+ * main window. This class also provides static methods for outside UI
+ * frameworks such as the application toolbar for Macs.
+ *
+ * @see pcgen.gui2.PCGenFrame
+ */
+public final class PCGenUIManager
+{
+
+<span class="nc" id="L44">	private static PCGenFrame pcgenFrame = null;</span>
+
+	private PCGenUIManager()
+	{
+	}
+
+	public static void initializeGUI()
+	{
+<span class="nc" id="L52">		DesktopHandler.initialize();</span>
+<span class="nc" id="L53">		pcgenFrame = new PCGenFrame(new UIContext());</span>
+<span class="nc" id="L54">		String className = UIManager.getSystemLookAndFeelClassName();</span>
+		try
+		{
+<span class="nc" id="L57">			UIManager.setLookAndFeel(className);</span>
+<span class="nc" id="L58">		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e)</span>
+		{
+<span class="nc" id="L60">			Logging.errorPrint(&quot;system look and feel not found&quot;, e);</span>
+<span class="nc" id="L61">		}</span>
+
+<span class="nc" id="L63">	}</span>
+
+	public static void startGUI()
+	{
+<span class="nc" id="L67">		GuiAssertions.assertIsNotOnGUIThread();</span>
+<span class="nc" id="L68">		Platform.setImplicitExit(false);</span>
+<span class="nc" id="L69">		SwingUtilities.invokeLater(pcgenFrame::startPCGenFrame);</span>
+<span class="nc" id="L70">	}</span>
+
+	public static void displayPreferencesDialog()
+	{
+<span class="nc" id="L74">		GuiAssertions.assertIsSwingThread();</span>
+		PreferencesDialog prefsDialog;
+<span class="nc" id="L76">		prefsDialog = new PreferencesDialog(pcgenFrame, PCGenPreferencesModel.buildRoot(), Constants.APPLICATION_NAME);</span>
+<span class="nc" id="L77">		prefsDialog.setVisible(true);</span>
+<span class="nc" id="L78">	}</span>
+
+	public static void displayAboutDialog()
+	{
+<span class="nc" id="L82">		pcgenFrame.showAboutDialog();</span>
+<span class="nc" id="L83">	}</span>
+
+	public static void closePCGen()
+	{
+<span class="nc bnc" id="L87" title="All 2 branches missed.">		if (pcgenFrame != null)</span>
+		{
+<span class="nc bnc" id="L89" title="All 2 branches missed.">			if (!pcgenFrame.closeAllCharacters())</span>
+			{
+<span class="nc" id="L91">				return;</span>
+			}
+
+<span class="nc" id="L94">			pcgenFrame.dispose();</span>
+		}
+<span class="nc" id="L96">		Main.shutdown(true);</span>
+<span class="nc" id="L97">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

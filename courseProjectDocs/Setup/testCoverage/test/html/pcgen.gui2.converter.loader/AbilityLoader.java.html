@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AbilityLoader.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.gui2.converter.loader</a> &gt; <span class="el_source">AbilityLoader.java</span></div><h1>AbilityLoader.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2013 (C) James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.gui2.converter.loader;
+
+import java.io.Writer;
+import java.util.List;
+
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Category;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
+import pcgen.gui2.converter.ConversionDecider;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.CampaignSourceEntry;
+import pcgen.rules.context.EditorLoadContext;
+
+/**
+ * AbilityLoader is an instance of BasicLoader that does extra processing to
+ * properly process Ability files.
+ * 
+ * 
+ */
+public class AbilityLoader extends BasicLoader&lt;Ability&gt;
+{
+<span class="nc" id="L41">	private static final Class&lt;AbilityCategory&gt; ABILITY_CATEGORY_CLASS = AbilityCategory.class;</span>
+
+	private final EditorLoadContext context;
+
+	/**
+	 * Create a new AbilityLoader instance.
+	 * 
+	 * @param lc The context being used to process the tokens. 
+	 * @param cl The class of the objects to be processed.
+	 * @param lk The key under which the files to be processed are stored.
+	 * @param changeLogWriter The stream we will record any changes to.
+	 */
+	public AbilityLoader(EditorLoadContext lc, Class&lt;Ability&gt; cl, ListKey&lt;CampaignSourceEntry&gt; lk,
+		Writer changeLogWriter)
+	{
+<span class="nc" id="L56">		super(lc, cl, lk, changeLogWriter);</span>
+
+<span class="nc" id="L58">		context = lc;</span>
+<span class="nc" id="L59">	}</span>
+
+	@Override
+	public List&lt;CDOMObject&gt; process(StringBuilder sb, int line, String lineString, ConversionDecider decider)
+		throws PersistenceLayerException, InterruptedException
+	{
+		// We do a scan for the category first and ensure the ability category is defined.
+<span class="nc" id="L66">		String[] tokens = lineString.split(FIELD_SEPARATOR);</span>
+<span class="nc bnc" id="L67" title="All 2 branches missed.">		for (String tok : tokens)</span>
+		{
+<span class="nc bnc" id="L69" title="All 2 branches missed.">			if (tok.startsWith(&quot;CATEGORY:&quot;))</span>
+			{
+<span class="nc" id="L71">				String abilityCatName = tok.substring(9);</span>
+<span class="nc" id="L72">				final Category&lt;Ability&gt; cat = context.getReferenceContext()</span>
+<span class="nc" id="L73">					.silentlyGetConstructedCDOMObject(ABILITY_CATEGORY_CLASS, abilityCatName);</span>
+<span class="nc bnc" id="L74" title="All 2 branches missed.">				if (cat == null)</span>
+				{
+					//					Logging.log(Logging.INFO, &quot;Found new cat &quot; + abilityCatName
+					//						+ &quot; at line &quot; + line + &quot;: &quot; + lineString);
+<span class="nc" id="L78">					context.getReferenceContext().constructCDOMObject(ABILITY_CATEGORY_CLASS, abilityCatName);</span>
+				}
+
+			}
+		}
+
+<span class="nc" id="L84">		return super.process(sb, line, lineString, decider);</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

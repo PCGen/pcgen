@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ValuesToken.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.lsttokens.kit.table</a> &gt; <span class="el_source">ValuesToken.java</span></div><h1>ValuesToken.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2006 (C) Aaron Divinsky &lt;boomer70@yahoo.com&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+
+package plugin.lsttokens.kit.table;
+
+import java.util.Collection;
+import java.util.List;
+
+import pcgen.cdom.formula.Formula;
+import pcgen.base.text.ParsingSeparator;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.FormulaFactory;
+import pcgen.core.kit.KitGear;
+import pcgen.core.kit.KitTable;
+import pcgen.core.kit.KitTable.TableEntry;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.ParseResult;
+
+/**
+ * VALUES token for KitTable
+ */
+<span class="fc" id="L39">public class ValuesToken extends AbstractNonEmptyToken&lt;KitTable&gt; implements CDOMPrimaryToken&lt;KitTable&gt;</span>
+{
+	/**
+	 * Gets the name of the tag this class will parse.
+	 *
+	 * @return Name of the tag this class handles
+	 */
+	@Override
+	public String getTokenName()
+	{
+<span class="fc" id="L49">		return &quot;VALUES&quot;;</span>
+	}
+
+	@Override
+	public Class&lt;KitTable&gt; getTokenClass()
+	{
+<span class="fc" id="L55">		return KitTable.class;</span>
+	}
+
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context, KitTable kitTable, String value)
+	{
+<span class="fc" id="L61">		ParsingSeparator sep = new ParsingSeparator(value, '|');</span>
+<span class="fc" id="L62">		sep.addGroupingPair('[', ']');</span>
+<span class="fc" id="L63">		sep.addGroupingPair('(', ')');</span>
+
+<span class="fc bfc" id="L65" title="All 2 branches covered.">		while (sep.hasNext())</span>
+		{
+<span class="fc" id="L67">			String thing = sep.next();</span>
+<span class="pc bpc" id="L68" title="1 of 2 branches missed.">			if (thing.isEmpty())</span>
+			{
+<span class="nc" id="L70">				return new ParseResult.Fail(getTokenName() + &quot; arguments has invalid pipe separator: &quot; + value);</span>
+			}
+<span class="fc" id="L72">			KitGear optionInfo = new KitGear();</span>
+<span class="fc bfc" id="L73" title="All 2 branches covered.">			for (String s : thing.split(&quot;[\\[\\]]&quot;))</span>
+			{
+<span class="fc bfc" id="L75" title="All 2 branches covered.">				if (s.isEmpty())</span>
+				{
+<span class="fc" id="L77">					continue;</span>
+				}
+<span class="fc" id="L79">				int colonLoc = s.indexOf(':');</span>
+<span class="fc bfc" id="L80" title="All 2 branches covered.">				if (colonLoc == -1)</span>
+				{
+<span class="fc" id="L82">					return new ParseResult.Fail(&quot;Expected colon in Value item: &quot; + s + &quot; within: &quot; + value);</span>
+				}
+<span class="fc" id="L84">				String key = s.substring(0, colonLoc);</span>
+<span class="fc" id="L85">				String thingValue = s.substring(colonLoc + 1);</span>
+<span class="fc" id="L86">				boolean passed = context.processToken(optionInfo, key, thingValue);</span>
+<span class="fc bfc" id="L87" title="All 2 branches covered.">				if (!passed)</span>
+				{
+<span class="fc" id="L89">					return new ParseResult.Fail(&quot;Failure in token: &quot; + key);</span>
+				}
+			}
+<span class="fc bfc" id="L92" title="All 2 branches covered.">			if (!sep.hasNext())</span>
+			{
+<span class="fc" id="L94">				return new ParseResult.Fail(&quot;Odd token count in Value: &quot; + value);</span>
+			}
+<span class="fc" id="L96">			String range = sep.next();</span>
+<span class="fc" id="L97">			ParseResult pr = processRange(kitTable, optionInfo, range);</span>
+<span class="fc bfc" id="L98" title="All 2 branches covered.">			if (!pr.passed())</span>
+			{
+<span class="fc" id="L100">				return new ParseResult.Fail(</span>
+					&quot;Invalid Range in Value: &quot; + range + &quot; within &quot; + value + &quot; report was: &quot; + pr);
+			}
+<span class="fc" id="L103">		}</span>
+
+<span class="fc" id="L105">		return ParseResult.SUCCESS;</span>
+	}
+
+	private ParseResult processRange(KitTable kitTable, KitGear optionInfo, String range)
+	{
+<span class="fc" id="L110">		ParseResult pr = checkSeparatorsAndNonEmpty(',', range);</span>
+<span class="fc bfc" id="L111" title="All 2 branches covered.">		if (!pr.passed())</span>
+		{
+<span class="fc" id="L113">			return pr;</span>
+		}
+
+<span class="fc" id="L116">		ParsingSeparator sep = new ParsingSeparator(range, ',');</span>
+<span class="fc" id="L117">		sep.addGroupingPair('[', ']');</span>
+<span class="fc" id="L118">		sep.addGroupingPair('(', ')');</span>
+<span class="fc" id="L119">		String minString = sep.next();</span>
+		String maxString;
+<span class="fc bfc" id="L121" title="All 2 branches covered.">		if (sep.hasNext())</span>
+		{
+<span class="fc" id="L123">			maxString = sep.next();</span>
+		}
+		else
+		{
+<span class="fc" id="L127">			maxString = range;</span>
+		}
+<span class="pc bpc" id="L129" title="1 of 2 branches missed.">		if (sep.hasNext())</span>
+		{
+<span class="nc" id="L131">			return new ParseResult.Fail(&quot;Expected more than one value in a range, found: &quot; + range);</span>
+		}
+<span class="fc" id="L133">		Formula min = FormulaFactory.getFormulaFor(minString);</span>
+<span class="pc bpc" id="L134" title="1 of 2 branches missed.">		if (!min.isValid())</span>
+		{
+<span class="nc" id="L136">			return new ParseResult.Fail(&quot;Min Formula in &quot; + getTokenName() + &quot; was not valid: &quot; + min.toString());</span>
+		}
+<span class="fc" id="L138">		Formula max = FormulaFactory.getFormulaFor(maxString);</span>
+<span class="pc bpc" id="L139" title="1 of 2 branches missed.">		if (!max.isValid())</span>
+		{
+<span class="nc" id="L141">			return new ParseResult.Fail(&quot;Max Formula in &quot; + getTokenName() + &quot; was not valid: &quot; + max.toString());</span>
+		}
+<span class="fc" id="L143">		kitTable.addGear(optionInfo, min, max);</span>
+<span class="fc" id="L144">		return ParseResult.SUCCESS;</span>
+	}
+
+	@Override
+	public String[] unparse(LoadContext context, KitTable kitTable)
+	{
+<span class="fc" id="L150">		StringBuilder sb = new StringBuilder();</span>
+<span class="fc" id="L151">		List&lt;TableEntry&gt; list = kitTable.getList();</span>
+<span class="fc bfc" id="L152" title="All 2 branches covered.">		if (list.isEmpty())</span>
+		{
+<span class="fc" id="L154">			return null;</span>
+		}
+<span class="fc" id="L156">		boolean first = true;</span>
+<span class="fc bfc" id="L157" title="All 2 branches covered.">		for (TableEntry rl : list)</span>
+		{
+<span class="fc bfc" id="L159" title="All 2 branches covered.">			if (!first)</span>
+			{
+<span class="fc" id="L161">				sb.append(Constants.PIPE);</span>
+			}
+<span class="fc" id="L163">			Collection&lt;String&gt; unparse = context.unparse(rl.gear);</span>
+<span class="fc bfc" id="L164" title="All 2 branches covered.">			if (unparse.size() == 1)</span>
+			{
+<span class="fc" id="L166">				sb.append(unparse.iterator().next());</span>
+			}
+			else
+			{
+<span class="fc bfc" id="L170" title="All 2 branches covered.">				for (String s : unparse)</span>
+				{
+<span class="fc" id="L172">					sb.append('[');</span>
+<span class="fc" id="L173">					sb.append(s);</span>
+<span class="fc" id="L174">					sb.append(']');</span>
+<span class="fc" id="L175">				}</span>
+			}
+<span class="fc" id="L177">			sb.append(Constants.PIPE);</span>
+<span class="fc" id="L178">			sb.append(rl.lowRange.toString());</span>
+<span class="fc bfc" id="L179" title="All 2 branches covered.">			if (!rl.lowRange.equals(rl.highRange))</span>
+			{
+<span class="fc" id="L181">				sb.append(',');</span>
+<span class="fc" id="L182">				sb.append(rl.highRange.toString());</span>
+			}
+<span class="fc" id="L184">			first = false;</span>
+<span class="fc" id="L185">		}</span>
+<span class="fc" id="L186">		return new String[]{sb.toString()};</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

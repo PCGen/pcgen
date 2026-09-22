@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GrantedVarFacet.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.facet</a> &gt; <span class="el_source">GrantedVarFacet.java</span></div><h1>GrantedVarFacet.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) Thomas Parker, 2018.
+ * 
+ * This program is free software; you can redistribute it and/or modify it under the terms
+ * of the GNU Lesser General Public License as published by the Free Software Foundation;
+ * either version 2.1 of the License, or (at your option) any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT ANY
+ * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+ * PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License along with
+ * this library; if not, write to the Free Software Foundation, Inc., 51 Franklin Street,
+ * Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package pcgen.cdom.facet;
+
+import pcgen.base.formula.base.VariableID;
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.base.AbstractSourcedListFacet;
+import pcgen.cdom.facet.event.DataFacetChangeEvent;
+import pcgen.cdom.facet.event.DataFacetChangeListener;
+import pcgen.cdom.facet.model.VarScopedFacet;
+import pcgen.cdom.formula.PCGenScoped;
+import pcgen.cdom.formula.VariableUtilities;
+import pcgen.cdom.helper.BridgeListener;
+
+/**
+ * This Facet controls items granted from variables
+ */
+<span class="fc" id="L31">public class GrantedVarFacet extends AbstractSourcedListFacet&lt;CharID, PCGenScoped&gt;</span>
+		implements DataFacetChangeListener&lt;CharID, PCGenScoped&gt;
+{
+
+	/**
+	 * The source facet to watch for the addition of new objects
+	 */
+	private VarScopedFacet varScopedFacet;
+
+	/**
+	 * The VariableStore Facet
+	 */
+	private VariableStoreFacet variableStoreFacet;
+
+	@Override
+	public void dataAdded(DataFacetChangeEvent&lt;CharID, PCGenScoped&gt; dfce)
+	{
+<span class="fc" id="L48">		PCGenScoped cdo = dfce.getCDOMObject();</span>
+<span class="fc" id="L49">		String[] grantedVariables = cdo.getGrantedVariableArray();</span>
+<span class="fc bfc" id="L50" title="All 2 branches covered.">		if (grantedVariables.length == 0)</span>
+		{
+<span class="fc" id="L52">			return;</span>
+		}
+<span class="fc" id="L54">		Object source = dfce.getSource();</span>
+<span class="fc" id="L55">		CharID id = dfce.getCharID();</span>
+<span class="fc bfc" id="L56" title="All 2 branches covered.">		for (String variableName : grantedVariables)</span>
+		{
+<span class="fc" id="L58">			VariableID&lt;?&gt; varID =</span>
+<span class="fc" id="L59">					VariableUtilities.getGlobalVariableID(id, variableName);</span>
+<span class="fc" id="L60">			processAdd(id, varID, source);</span>
+		}
+<span class="fc" id="L62">	}</span>
+
+	private &lt;T&gt; void processAdd(CharID id, VariableID&lt;T&gt; varID, Object source)
+	{
+<span class="fc" id="L66">		T value = variableStoreFacet.getValue(id, varID);</span>
+<span class="fc" id="L67">		variableStoreFacet.get(id).addVariableListener(varID, new BridgeListener(id, this, source));</span>
+		/*
+		 * CONSIDER This is a hard-coding based on array - the format manager, which is
+		 * available from the VariableID, might want to provide more insight. Currently,
+		 * this isn't possible, but it's something to think about with the FormatManager
+		 * objects going forward...
+		 */
+<span class="pc bpc" id="L74" title="1 of 2 branches missed.">		if (value.getClass().isArray())</span>
+		{
+<span class="nc bnc" id="L76" title="All 2 branches missed.">			for (Object o : (Object[]) value)</span>
+			{
+<span class="nc" id="L78">				add(id, (PCGenScoped) o, source);</span>
+			}
+		}
+		else
+		{
+<span class="fc" id="L83">			add(id, (PCGenScoped) value, source);</span>
+		}
+<span class="fc" id="L85">	}</span>
+
+	@Override
+	public void dataRemoved(DataFacetChangeEvent&lt;CharID, PCGenScoped&gt; dfce)
+	{
+<span class="fc" id="L90">		PCGenScoped cdo = dfce.getCDOMObject();</span>
+<span class="fc" id="L91">		String[] list = cdo.getGrantedVariableArray();</span>
+<span class="fc" id="L92">		Object source = dfce.getSource();</span>
+<span class="fc" id="L93">		CharID id = dfce.getCharID();</span>
+<span class="pc bpc" id="L94" title="1 of 2 branches missed.">		for (String varName : list)</span>
+		{
+<span class="nc" id="L96">			VariableID&lt;?&gt; varID =  VariableUtilities.getGlobalVariableID(id, varName);</span>
+<span class="nc" id="L97">			processRemove(id, varID, source);</span>
+		}
+<span class="fc" id="L99">	}</span>
+
+	private &lt;T&gt; void processRemove(CharID id, VariableID&lt;T&gt; varID, Object source)
+	{
+<span class="nc" id="L103">		variableStoreFacet.get(id).removeVariableListener(varID, new BridgeListener(id, this, source));</span>
+<span class="nc" id="L104">		T value = variableStoreFacet.getValue(id, varID);</span>
+<span class="nc bnc" id="L105" title="All 2 branches missed.">		if (value.getClass().isArray())</span>
+		{
+<span class="nc bnc" id="L107" title="All 2 branches missed.">			for (Object o : (Object[]) value)</span>
+			{
+<span class="nc" id="L109">				remove(id, (PCGenScoped) o, source);</span>
+			}
+		}
+		else
+		{
+<span class="nc" id="L114">			remove(id, (PCGenScoped) value, source);</span>
+		}
+<span class="nc" id="L116">	}</span>
+
+	public void setVarScopedFacet(VarScopedFacet varScopedFacet)
+	{
+<span class="fc" id="L120">		this.varScopedFacet = varScopedFacet;</span>
+<span class="fc" id="L121">	}</span>
+
+	public void setVariableStoreFacet(VariableStoreFacet variableStoreFacet)
+	{
+<span class="fc" id="L125">		this.variableStoreFacet = variableStoreFacet;</span>
+<span class="fc" id="L126">	}</span>
+
+	/**
+	 * Initializes the connections for SpellsFacet to other facets.
+	 * 
+	 * This method is automatically called by the Spring framework during initialization
+	 * of the SpellsFacet.
+	 */
+	public void init()
+	{
+<span class="fc" id="L136">		varScopedFacet.addDataFacetChangeListener(this);</span>
+<span class="fc" id="L137">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

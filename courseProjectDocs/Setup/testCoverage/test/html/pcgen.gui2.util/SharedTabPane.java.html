@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SharedTabPane.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.gui2.util</a> &gt; <span class="el_source">SharedTabPane.java</span></div><h1>SharedTabPane.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2009 Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ * 
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ * 
+ */
+package pcgen.gui2.util;
+
+import java.awt.BorderLayout;
+import java.awt.Component;
+
+import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
+import javax.swing.SingleSelectionModel;
+
+public class SharedTabPane extends JTabbedPane
+{
+
+<span class="nc" id="L31">	private Component sharedComponent = null;</span>
+
+	protected SharedTabPane()
+<span class="nc" id="L34">	{</span>
+<span class="nc" id="L35">		final SingleSelectionModel selectionModel = getModel();</span>
+<span class="nc" id="L36">		selectionModel.addChangeListener(e -&gt; {</span>
+<span class="nc" id="L37">            int index = selectionModel.getSelectedIndex();</span>
+<span class="nc bnc" id="L38" title="All 2 branches missed.">            if (index != -1)</span>
+            {
+<span class="nc" id="L40">                setSharedComponentParent(index);</span>
+            }
+<span class="nc" id="L42">        });</span>
+
+<span class="nc" id="L44">	}</span>
+
+	public void addTab(String title)
+	{
+<span class="nc" id="L48">		addTab(title, new JPanel(new BorderLayout()));</span>
+<span class="nc" id="L49">	}</span>
+
+	/**
+	 * Add the tab to the pane in the specified order.
+	 * @param title The name of the tab. 
+	 * @param index The location at which to insert the tab.
+	 */
+	public void addTab(String title, int index)
+	{
+<span class="nc" id="L58">		insertTab(title, null, new JPanel(new BorderLayout()), null, index);</span>
+<span class="nc" id="L59">	}</span>
+
+	protected void addTab(Component tabRenderer)
+	{
+<span class="nc" id="L63">		int index = getTabCount();</span>
+<span class="nc" id="L64">		addTab(null, new JPanel(new BorderLayout()));</span>
+<span class="nc" id="L65">		setTabComponentAt(index, tabRenderer);</span>
+<span class="nc" id="L66">	}</span>
+
+	public void removeTab(String title)
+	{
+<span class="nc" id="L70">		int index = indexOfTab(title);</span>
+<span class="nc bnc" id="L71" title="All 2 branches missed.">		if (index != -1)</span>
+		{
+<span class="nc" id="L73">			removeTabAt(index);</span>
+		}
+<span class="nc" id="L75">	}</span>
+
+	private void setSharedComponentParent(int index)
+	{
+<span class="nc" id="L79">		JPanel comp = (JPanel) getComponentAt(index);</span>
+<span class="nc" id="L80">		comp.add(sharedComponent, BorderLayout.CENTER);</span>
+<span class="nc" id="L81">		revalidate();</span>
+<span class="nc" id="L82">	}</span>
+
+	@Override
+	public void removeTabAt(int index)
+	{
+<span class="nc" id="L87">		super.removeTabAt(index);</span>
+<span class="nc bnc" id="L88" title="All 2 branches missed.">		if (index == getSelectedIndex())</span>
+		{
+<span class="nc" id="L90">			setSharedComponentParent(index);</span>
+			//Let listeners know that they should handle the shared component
+<span class="nc" id="L92">			fireStateChanged();</span>
+		}
+<span class="nc" id="L94">	}</span>
+
+	protected void setSharedComponent(Component comp)
+	{
+<span class="nc" id="L98">		this.sharedComponent = comp;</span>
+<span class="nc" id="L99">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

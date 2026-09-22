@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>NaturalWeaponProfFacet.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.facet</a> &gt; <span class="el_source">NaturalWeaponProfFacet.java</span></div><h1>NaturalWeaponProfFacet.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) Thomas Parker, 2010.
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package pcgen.cdom.facet;
+
+import java.util.List;
+
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.facet.base.AbstractSourcedListFacet;
+import pcgen.cdom.facet.event.DataFacetChangeEvent;
+import pcgen.cdom.facet.event.DataFacetChangeListener;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.core.WeaponProf;
+
+/**
+ * NaturalWeaponProfFacet is a Facet that tracks the WeaponProfs that have been
+ * implicitly granted to a Player Character via NATURALATTACKS
+ * 
+ */
+<span class="fc" id="L36">public class NaturalWeaponProfFacet extends AbstractSourcedListFacet&lt;CharID, WeaponProf&gt;</span>
+		implements DataFacetChangeListener&lt;CharID, CDOMObject&gt;
+{
+
+	/**
+	 * Adds the implied (by NATURALATTACKS: token) weapon proficiencies to a
+	 * Player Character when a CDOMObject which grants natural attacks is added
+	 * to a Player Character.
+	 * 
+	 * Triggered when one of the Facets to which NaturalWeaponProfFacet listens
+	 * fires a DataFacetChangeEvent to indicate a CDOMObject was added to a
+	 * Player Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 */
+	@Override
+	public void dataAdded(DataFacetChangeEvent&lt;CharID, CDOMObject&gt; dfce)
+	{
+<span class="fc" id="L56">		CDOMObject cdo = dfce.getCDOMObject();</span>
+		// Natural Weapon Proficiencies
+<span class="fc" id="L58">		List&lt;CDOMSingleRef&lt;WeaponProf&gt;&gt; iwp = cdo.getListFor(ListKey.IMPLIED_WEAPONPROF);</span>
+<span class="fc bfc" id="L59" title="All 2 branches covered.">		if (iwp != null)</span>
+		{
+<span class="fc" id="L61">			CharID id = dfce.getCharID();</span>
+<span class="fc bfc" id="L62" title="All 2 branches covered.">			for (CDOMSingleRef&lt;WeaponProf&gt; ref : iwp)</span>
+			{
+<span class="fc" id="L64">				add(id, ref.get(), cdo);</span>
+<span class="fc" id="L65">			}</span>
+		}
+<span class="fc" id="L67">	}</span>
+
+	/**
+	 * Reomves the implied (by NATURALATTACKS: token) weapon proficiencies from
+	 * a Player Character when a CDOMObject which grants natural attacks is
+	 * removed from a Player Character.
+	 * 
+	 * Triggered when one of the Facets to which NaturalWeaponProfFacet listens
+	 * fires a DataFacetChangeEvent to indicate a CDOMObject was removed from a
+	 * Player Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 */
+	@Override
+	public void dataRemoved(DataFacetChangeEvent&lt;CharID, CDOMObject&gt; dfce)
+	{
+<span class="fc" id="L85">		removeAll(dfce.getCharID(), dfce.getCDOMObject());</span>
+<span class="fc" id="L86">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

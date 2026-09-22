@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>StatAdapter.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.output.channel.compat</a> &gt; <span class="el_source">StatAdapter.java</span></div><h1>StatAdapter.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) Thomas Parker, 2016.
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package pcgen.output.channel.compat;
+
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.StatValueFacet;
+import pcgen.cdom.facet.event.ScopeFacetChangeEvent;
+import pcgen.cdom.facet.event.ScopeFacetChangeListener;
+import pcgen.core.PCStat;
+import pcgen.facade.util.WriteableReferenceFacade;
+
+/**
+ * A StatAdapter is the historical compatibility interface (facade) used to wrap to the
+ * gui2 non-channel system for setting and retrieving PCStat values.
+ */
+public final class StatAdapter extends AbstractAdapter&lt;Number&gt;
+		implements WriteableReferenceFacade&lt;Number&gt;, ScopeFacetChangeListener&lt;CharID, PCStat, Number&gt;
+{
+<span class="nc" id="L35">	private StatValueFacet statValueFacet = FacetLibrary.getFacet(StatValueFacet.class);</span>
+
+	private final CharID id;
+	private final PCStat stat;
+	private Number lastKnown;
+
+	private StatAdapter(CharID id, PCStat stat)
+<span class="nc" id="L42">	{</span>
+<span class="nc" id="L43">		this.id = id;</span>
+<span class="nc" id="L44">		this.stat = stat;</span>
+<span class="nc" id="L45">		lastKnown = 0;</span>
+<span class="nc" id="L46">	}</span>
+
+	@Override
+	public Number get()
+	{
+<span class="nc" id="L51">		return statValueFacet.get(id, stat);</span>
+	}
+
+	@Override
+	public void set(Number value)
+	{
+<span class="nc" id="L57">		statValueFacet.set(id, stat, value);</span>
+<span class="nc" id="L58">	}</span>
+
+	/**
+	 * Returns a StatAdapter for the PlayerCharacter represented by the given CharID and
+	 * the given PCStat.
+	 * 
+	 * @param id
+	 *            The CharID representing the PlayerCharacter for which the given
+	 *            StatAdapter should be returned
+	 * @param stat
+	 *            The PCStat for which the StatAdapter will operate
+	 * @return A StatAdapter for the PlayerCharacter represented by the given CharID and
+	 *         the given PCStat.
+	 */
+	public static StatAdapter generate(CharID id, PCStat stat)
+	{
+<span class="nc" id="L74">		StatAdapter sa = new StatAdapter(id, stat);</span>
+<span class="nc" id="L75">		sa.statValueFacet.addScopeFacetChangeListener(sa);</span>
+<span class="nc" id="L76">		return sa;</span>
+	}
+
+	@Override
+	public void dataAdded(ScopeFacetChangeEvent&lt;CharID, PCStat, Number&gt; dfce)
+	{
+<span class="nc bnc" id="L82" title="All 4 branches missed.">		if (dfce.getCharID().equals(id) &amp;&amp; dfce.getScope().equals(stat))</span>
+		{
+<span class="nc" id="L84">			fireReferenceChangedEvent(this, lastKnown, dfce.getCDOMObject());</span>
+		}
+<span class="nc" id="L86">	}</span>
+
+	@Override
+	public void dataRemoved(ScopeFacetChangeEvent&lt;CharID, PCStat, Number&gt; dfce)
+	{
+<span class="nc bnc" id="L91" title="All 4 branches missed.">		if (dfce.getCharID().equals(id) &amp;&amp; dfce.getScope().equals(stat))</span>
+		{
+<span class="nc" id="L93">			lastKnown = dfce.getCDOMObject();</span>
+		}
+<span class="nc" id="L95">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

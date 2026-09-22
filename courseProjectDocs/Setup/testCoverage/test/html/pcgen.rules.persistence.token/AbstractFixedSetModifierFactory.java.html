@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AbstractFixedSetModifierFactory.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.rules.persistence.token</a> &gt; <span class="el_source">AbstractFixedSetModifierFactory.java</span></div><h1>AbstractFixedSetModifierFactory.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2014 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or modify it under the terms
+ * of the GNU Lesser General Public License as published by the Free Software Foundation;
+ * either version 2.1 of the License, or (at your option) any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT ANY
+ * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+ * PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License along with
+ * this library; if not, write to the Free Software Foundation, Inc., 59 Temple Place,
+ * Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.rules.persistence.token;
+
+import pcgen.cdom.calculation.FormulaModifier;
+import pcgen.base.util.FormatManager;
+
+/**
+ * An AbstractFixedSetModifierFactory is a ModifierToken/BasicCalculation that returns a
+ * specific value (independent of the input) when the AbstractFixedSetModifierFactory is
+ * processed. This should be used for formats which are fixed (e.g. Number, String), not
+ * those that are referenced (Skill, Language, et al).
+ * 
+ * @param &lt;T&gt; The format of the object handled by this AbstractFixedSetModifierFactory
+ */
+<span class="fc" id="L29">public abstract class AbstractFixedSetModifierFactory&lt;T&gt; extends AbstractSetModifierFactory&lt;T&gt;</span>
+{
+
+	@Override
+	public FormulaModifier&lt;T&gt; getModifier(String instructions, FormatManager&lt;T&gt; formatManager)
+	{
+<span class="pc bpc" id="L35" title="1 of 2 branches missed.">		if (!getVariableFormat().isAssignableFrom(formatManager.getManagedClass()))</span>
+		{
+<span class="nc" id="L37">			throw new IllegalArgumentException(&quot;FormatManager must manage &quot; + getVariableFormat().getName());</span>
+		}
+<span class="fc" id="L39">		return getFixedModifier(formatManager, instructions);</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>EqModSpellInfo.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.core.analysis</a> &gt; <span class="el_source">EqModSpellInfo.java</span></div><h1>EqModSpellInfo.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2008 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * Copyright 2001 (C) Bryan McRoberts &lt;merton_monk@yahoo.com&gt;
+ * 
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.core.analysis;
+
+import java.util.List;
+
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.core.Ability;
+import pcgen.core.Equipment;
+import pcgen.core.EquipmentModifier;
+import pcgen.core.spell.Spell;
+import pcgen.util.Delta;
+
+public final class EqModSpellInfo
+{
+	private static final String S_CHARGES = &quot;CHARGES&quot;;
+
+	private EqModSpellInfo()
+	{
+	}
+
+	public static String getSpellInfoString(final String listEntry, final String desiredInfo)
+	{
+<span class="nc" id="L41">		final int offs = listEntry.indexOf(desiredInfo + &quot;[&quot;);</span>
+<span class="nc" id="L42">		final int offs2 = listEntry.indexOf(']', offs + 1);</span>
+
+<span class="nc bnc" id="L44" title="All 4 branches missed.">		if ((offs &gt;= 0) &amp;&amp; (offs2 &gt; offs))</span>
+		{
+<span class="nc" id="L46">			return listEntry.substring(offs + desiredInfo.length() + 1, offs2);</span>
+		}
+
+<span class="nc" id="L49">		return &quot;&quot;;</span>
+	}
+
+	public static int getSpellInfo(final String listEntry, final String desiredInfo)
+	{
+<span class="nc" id="L54">		int modValue = 0;</span>
+<span class="nc" id="L55">		final String info = getSpellInfoString(listEntry, desiredInfo);</span>
+
+<span class="nc bnc" id="L57" title="All 2 branches missed.">		if (!info.isEmpty())</span>
+		{
+			try
+			{
+<span class="nc" id="L61">				modValue = Delta.parseInt(info);</span>
+			}
+<span class="nc" id="L63">			catch (NumberFormatException exc)</span>
+			{
+				// TODO: Should this really be ignored?
+<span class="nc" id="L66">			}</span>
+		}
+
+<span class="nc" id="L69">		return modValue;</span>
+	}
+
+	public static void setRemainingCharges(Equipment parent, EquipmentModifier eqMod, final int remainingCharges)
+	{
+<span class="nc bnc" id="L74" title="All 2 branches missed.">		if (parent.hasAssociations(eqMod))</span>
+		{
+<span class="nc" id="L76">			List&lt;String&gt; assoc = parent.removeAllAssociations(eqMod);</span>
+<span class="nc" id="L77">			String listEntry = assoc.get(0);</span>
+<span class="nc" id="L78">			String chargeInfo = EqModSpellInfo.getSpellInfoString(listEntry, S_CHARGES);</span>
+
+<span class="nc bnc" id="L80" title="All 2 branches missed.">			if (!chargeInfo.isEmpty())</span>
+			{
+<span class="nc" id="L82">				chargeInfo = S_CHARGES + '[' + chargeInfo + ']';</span>
+
+<span class="nc" id="L84">				final int idx = listEntry.indexOf(chargeInfo);</span>
+<span class="nc" id="L85">				listEntry = listEntry.substring(0, idx) + listEntry.substring(idx + chargeInfo.length());</span>
+<span class="nc" id="L86">				listEntry += (S_CHARGES + '[' + Integer.toString(remainingCharges) + ']');</span>
+<span class="nc" id="L87">				assoc.set(0, listEntry);</span>
+			}
+<span class="nc bnc" id="L89" title="All 2 branches missed.">			for (String s : assoc)</span>
+			{
+<span class="nc" id="L91">				parent.addAssociation(eqMod, s);</span>
+<span class="nc" id="L92">			}</span>
+		}
+<span class="nc" id="L94">	}</span>
+
+	public static int getRemainingCharges(Equipment parent, EquipmentModifier eqMod)
+	{
+<span class="nc bnc" id="L98" title="All 2 branches missed.">		if (parent.hasAssociations(eqMod))</span>
+		{
+<span class="nc" id="L100">			return EqModSpellInfo.getSpellInfo(parent.getFirstAssociation(eqMod), S_CHARGES);</span>
+		}
+
+<span class="nc" id="L103">		return 0;</span>
+	}
+
+	public static int getUsedCharges(Equipment parent, EquipmentModifier eqMod)
+	{
+<span class="nc" id="L108">		return eqMod.get(IntegerKey.MAX_CHARGES) - getRemainingCharges(parent, eqMod);</span>
+	}
+
+	/**
+	 * Here be dragons
+	 * 
+	 * Builds up a big mad string representing the spell info and then stores it
+	 * in the first entry of associated.
+	 * 
+	 * TODO store this a separate fields or as a spell object or some other way
+	 * that doesn't involve turning this into a string and then parsing the
+	 * string when we want to do something with the info.
+	 * 
+	 * @param parent
+	 *            TODO
+	 * @param spellCastingClass
+	 *            a PCClass Object, the class that this spell will be cast as
+	 * @param theSpell
+	 *            a Spell Object
+	 * @param spellVariant
+	 *            a string
+	 * @param spellType
+	 *            arcane, divine, etc.
+	 * @param spellLevel
+	 *            an int the level of the spell
+	 * @param spellCasterLevel
+	 *            Caster level the spell is cast at
+	 * @param spellMetamagicFeats
+	 *            Any metamagic feats applied
+	 * @param charges
+	 *            how many times can it be cast
+	 */
+	public static void setSpellInfo(Equipment parent, EquipmentModifier eqMod, final CDOMObject spellCastingClass,
+		final Spell theSpell, final String spellVariant, final String spellType, final int spellLevel,
+		final int spellCasterLevel, final Object[] spellMetamagicFeats, final int charges)
+	{
+<span class="nc" id="L144">		final StringBuilder spellInfo = new StringBuilder(100);</span>
+<span class="nc" id="L145">		spellInfo.append(&quot;SPELLNAME[&quot;).append(theSpell.getKeyName()).append(&quot;] &quot;);</span>
+<span class="nc" id="L146">		spellInfo.append(&quot;CASTER[&quot;).append(spellCastingClass.getKeyName()).append(&quot;] &quot;);</span>
+
+<span class="nc bnc" id="L148" title="All 2 branches missed.">		if (!spellVariant.isEmpty())</span>
+		{
+<span class="nc" id="L150">			spellInfo.append(&quot;VARIANT[&quot;).append(spellVariant).append(&quot;] &quot;);</span>
+		}
+
+<span class="nc" id="L153">		spellInfo.append(&quot;SPELLTYPE[&quot;).append(spellType).append(&quot;] &quot;);</span>
+<span class="nc" id="L154">		spellInfo.append(&quot;SPELLLEVEL[&quot;).append(spellLevel).append(&quot;] &quot;);</span>
+<span class="nc" id="L155">		spellInfo.append(&quot;CASTERLEVEL[&quot;).append(spellCasterLevel).append(&quot;] &quot;);</span>
+
+<span class="nc bnc" id="L157" title="All 2 branches missed.">		if (charges &gt; 0)</span>
+		{
+<span class="nc" id="L159">			spellInfo.append(S_CHARGES).append('[').append(charges).append(&quot;] &quot;);</span>
+		}
+
+<span class="nc bnc" id="L162" title="All 4 branches missed.">		if ((spellMetamagicFeats != null) &amp;&amp; (spellMetamagicFeats.length &gt; 0))</span>
+		{
+			/*
+			 * Have considered whether this needs to be expanded to include
+			 * Category. These are actually Feats and the information is only
+			 * used by toString()
+			 */
+<span class="nc" id="L169">			spellInfo.append(&quot;METAFEATS[&quot;);</span>
+
+<span class="nc bnc" id="L171" title="All 2 branches missed.">			for (int i = 0; i &lt; spellMetamagicFeats.length; i++)</span>
+			{
+<span class="nc" id="L173">				final Ability aFeat = (Ability) spellMetamagicFeats[i];</span>
+
+<span class="nc bnc" id="L175" title="All 2 branches missed.">				if (i != 0)</span>
+				{
+<span class="nc" id="L177">					spellInfo.append(&quot;, &quot;);</span>
+				}
+
+<span class="nc" id="L180">				spellInfo.append(aFeat.getKeyName());</span>
+			}
+
+<span class="nc" id="L183">			spellInfo.append(&quot;] &quot;);</span>
+		}
+
+<span class="nc" id="L186">		parent.addAssociation(eqMod, spellInfo.toString());</span>
+<span class="nc" id="L187">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

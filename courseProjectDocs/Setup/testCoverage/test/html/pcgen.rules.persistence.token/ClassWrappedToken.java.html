@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ClassWrappedToken.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.rules.persistence.token</a> &gt; <span class="el_source">ClassWrappedToken.java</span></div><h1>ClassWrappedToken.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2008 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.rules.persistence.token;
+
+import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.inst.PCClassLevel;
+import pcgen.core.PCClass;
+import pcgen.core.SubClass;
+import pcgen.core.SubstitutionClass;
+import pcgen.rules.context.LoadContext;
+
+/**
+ * ClassWrappedToken provides compatibility for previously allowed bad behavior 
+ * in data files. 
+ * 
+ * Many Class tokens in PCGen versions up to 5.14 ignored the class level, so 
+ * they are technically Class tags and not CLASSLEVEL tags. Yet, PCGen 5.14 
+ * allows those tags to appear on class level lines. This is a bit deceptive to 
+ * users in that the effect will always be on the class, and not appear on the 
+ * specified level.
+ * 
+ * Unfortunately, one cannot simply remove support for using CLASS tokens on 
+ * CLASSLEVEL lines, because if they are used at level 1, then they are 
+ * equivalent to appearing on a CLASS line. Certainly, the data monkeys use it 
+ * that way. For example, Blackguard in RSRD advanced uses EXCHANGELEVEL on the 
+ * first level line.
+ * 
+ * Therefore the entire ClassWrappedToken system is a workaround for data 
+ * monkeys using CLASS tokens on CLASSLEVEL lines, and therefore it should only 
+ * work on level one, otherwise expectations for when the token will take 
+ * effect are not set. 
+ */
+public class ClassWrappedToken implements CDOMCompatibilityToken&lt;PCClassLevel&gt;
+{
+
+<span class="fc" id="L52">	private static int wrapIndex = Integer.MIN_VALUE;</span>
+
+<span class="fc" id="L54">	private static final Integer ONE = 1;</span>
+
+	private final CDOMToken&lt;PCClass&gt; wrappedToken;
+
+<span class="fc" id="L58">	private final int priority = wrapIndex++;</span>
+
+	@Override
+	public Class&lt;PCClassLevel&gt; getTokenClass()
+	{
+<span class="fc" id="L63">		return PCClassLevel.class;</span>
+	}
+
+	public ClassWrappedToken(CDOMToken&lt;PCClass&gt; tok)
+<span class="fc" id="L67">	{</span>
+<span class="fc" id="L68">		wrappedToken = tok;</span>
+<span class="fc" id="L69">	}</span>
+
+	@Override
+	public ParseResult parseToken(LoadContext context, PCClassLevel obj, String value)
+	{
+<span class="nc bnc" id="L74" title="All 2 branches missed.">		if (ONE.equals(obj.get(IntegerKey.LEVEL)))</span>
+		{
+<span class="nc" id="L76">			PCClass parent = (PCClass) obj.get(ObjectKey.TOKEN_PARENT);</span>
+<span class="nc bnc" id="L77" title="All 4 branches missed.">			if (parent instanceof SubClass || parent instanceof SubstitutionClass)</span>
+			{
+<span class="nc" id="L79">				return new ParseResult.Fail(&quot;Data used token: &quot; + value + &quot; which is a Class token, &quot;</span>
+<span class="nc" id="L80">					+ &quot;but it was used in a class level for a &quot; + parent.getClass().getSimpleName());</span>
+			}
+<span class="nc" id="L82">			return wrappedToken.parseToken(context, parent, value);</span>
+		}
+<span class="nc" id="L84">		return new ParseResult.Fail(&quot;Data used token: &quot; + value + &quot; which is a Class token, &quot;</span>
+			+ &quot;but it was used in a class level line other than level 1&quot;);
+	}
+
+	@Override
+	public String getTokenName()
+	{
+<span class="fc" id="L91">		return wrappedToken.getTokenName();</span>
+	}
+
+	@Override
+	public int compatibilityLevel()
+	{
+<span class="fc" id="L97">		return 5;</span>
+	}
+
+	@Override
+	public int compatibilityPriority()
+	{
+<span class="fc" id="L103">		return priority;</span>
+	}
+
+	@Override
+	public int compatibilitySubLevel()
+	{
+<span class="fc" id="L109">		return 14;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

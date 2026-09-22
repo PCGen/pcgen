@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>EquipmentTreeTableModel.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.gui2.tabs.equip</a> &gt; <span class="el_source">EquipmentTreeTableModel.java</span></div><h1>EquipmentTreeTableModel.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2011 Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ * 
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ * 
+ */
+package pcgen.gui2.tabs.equip;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+
+import javax.swing.event.EventListenerList;
+import javax.swing.event.TreeModelEvent;
+import javax.swing.event.TreeModelListener;
+import javax.swing.tree.TreePath;
+
+import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.core.EquipmentSetFacade;
+import pcgen.facade.core.EquipmentSetFacade.EquipmentTreeEvent;
+import pcgen.facade.core.EquipmentSetFacade.EquipmentTreeListener;
+import pcgen.facade.util.ListFacade;
+import pcgen.facade.util.event.ListEvent;
+import pcgen.facade.util.event.ListListener;
+import pcgen.gui2.facade.EquipNode;
+import pcgen.gui2.util.treetable.TreeTableModel;
+import pcgen.gui2.util.treetable.TreeTableNode;
+import pcgen.util.CollectionMaps;
+import pcgen.util.ListMap;
+
+/**
+ * The model backing the selected table on the equipping tab. This controls the 
+ * tree structure showing the equipment by its equipped location for a 
+ * particular character and equipment set.
+ * 
+ *  
+ */
+public class EquipmentTreeTableModel implements TreeTableModel, ListListener&lt;EquipNode&gt;, EquipmentTreeListener
+{
+<span class="nc" id="L53">	private final EventListenerList listenerList = new EventListenerList();</span>
+	private final CharacterFacade character;
+	private final EquipmentSetFacade equipSet;
+<span class="nc" id="L56">	private final Object root = new Object();</span>
+	private final ListMap&lt;EquipNode, EquipNode, List&lt;EquipNode&gt;&gt; pathMap;
+	private final List&lt;EquipNode&gt; bodySlotNodes;
+
+	public EquipmentTreeTableModel(CharacterFacade character, EquipmentSetFacade equipSet)
+<span class="nc" id="L61">	{</span>
+<span class="nc" id="L62">		this.character = character;</span>
+<span class="nc" id="L63">		this.equipSet = equipSet;</span>
+<span class="nc" id="L64">		pathMap = CollectionMaps.createListMap(HashMap.class, ArrayList.class);</span>
+<span class="nc" id="L65">		bodySlotNodes = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L66">		initPathMap();</span>
+<span class="nc" id="L67">		equipSet.getNodes().addListListener(this);</span>
+<span class="nc" id="L68">		equipSet.addEquipmentTreeListener(this);</span>
+<span class="nc" id="L69">	}</span>
+
+	private void initPathMap()
+	{
+<span class="nc" id="L73">		ListFacade&lt;EquipNode&gt; equipNodes = equipSet.getNodes();</span>
+<span class="nc bnc" id="L74" title="All 2 branches missed.">		for (EquipNode equipNode : equipNodes)</span>
+		{
+<span class="nc" id="L76">			EquipNode parent = equipNode.getParent();</span>
+<span class="nc bnc" id="L77" title="All 4 branches missed.">			while (parent != null &amp;&amp; !pathMap.containsValue(parent, equipNode))</span>
+			{
+<span class="nc" id="L79">				addNode(parent, equipNode);</span>
+
+<span class="nc" id="L81">				equipNode = parent;</span>
+<span class="nc" id="L82">				parent = equipNode.getParent();</span>
+			}
+<span class="nc bnc" id="L84" title="All 4 branches missed.">			if (parent == null &amp;&amp; !bodySlotNodes.contains(equipNode))</span>
+			{
+<span class="nc" id="L86">				addBodyNode(equipNode);</span>
+			}
+<span class="nc" id="L88">		}</span>
+<span class="nc" id="L89">	}</span>
+
+	@Override
+	public boolean isCellEditable(Object node, int column)
+	{
+<span class="nc bnc" id="L94" title="All 2 branches missed.">		return column == 0;</span>
+	}
+
+	@Override
+	public Class&lt;?&gt; getColumnClass(int column)
+	{
+<span class="nc bnc" id="L100" title="All 5 branches missed.">		return switch (column)</span>
+				{
+<span class="nc" id="L102">					case 0 -&gt; TreeTableNode.class;</span>
+<span class="nc" id="L103">					case 1, 2 -&gt; String.class;</span>
+<span class="nc" id="L104">					case 3 -&gt; Integer.class;</span>
+<span class="nc" id="L105">					case 4 -&gt; Float.class;</span>
+<span class="nc" id="L106">					default -&gt; Object.class;</span>
+				};
+	}
+
+	@Override
+	public int getColumnCount()
+	{
+<span class="nc" id="L113">		return 5;</span>
+	}
+
+	@Override
+	public String getColumnName(int column)
+	{
+<span class="nc" id="L119">		return null;</span>
+	}
+
+	@Override
+	public void setValueAt(Object aValue, Object node, int column)
+	{
+<span class="nc" id="L125">		throw new UnsupportedOperationException(&quot;Not supported yet.&quot;);</span>
+	}
+
+	@Override
+	public Object getValueAt(Object node, int column)
+	{
+<span class="nc" id="L131">		EquipNode pathNode = (EquipNode) node;</span>
+<span class="nc bnc" id="L132" title="All 2 branches missed.">		if (column == 0)</span>
+		{
+<span class="nc" id="L134">			return pathNode;</span>
+		}
+<span class="nc bnc" id="L136" title="All 4 branches missed.">		switch (pathNode.getNodeType())</span>
+		{
+			case BODY_SLOT:
+<span class="nc bnc" id="L139" title="All 5 branches missed.">				switch (column)</span>
+				{
+					case 1:
+<span class="nc" id="L142">						return &quot;Type&quot;;</span>
+					case 2:
+<span class="nc" id="L144">						return &quot;Located&quot;;</span>
+					case 3:
+<span class="nc" id="L146">						return &quot;Qty&quot;;</span>
+					case 4:
+<span class="nc" id="L148">						return &quot;Wgt&quot;;</span>
+					default:
+						//Case not caught, should this cause an error?
+						break;
+				}
+			case PHANTOM_SLOT:
+<span class="nc bnc" id="L154" title="All 2 branches missed.">				if (column == 2)</span>
+				{
+<span class="nc" id="L156">					return equipSet.getLocation(pathNode);</span>
+				}
+<span class="nc" id="L158">				return null;</span>
+			case EQUIPMENT:
+<span class="nc bnc" id="L160" title="All 5 branches missed.">				switch (column)</span>
+				{
+					case 1:
+<span class="nc" id="L163">						return pathNode.getEquipment().getTypes()[0];</span>
+					case 2:
+<span class="nc" id="L165">						return equipSet.getLocation(pathNode);</span>
+					case 3:
+<span class="nc" id="L167">						return equipSet.getQuantity(pathNode);</span>
+					case 4:
+<span class="nc" id="L169">						return character.getInfoFactory().getWeight(pathNode.getEquipment());</span>
+					default:
+						//Case not caught, should this cause an error?
+						break;
+				}
+			default:
+<span class="nc" id="L175">				return null;</span>
+		}
+	}
+
+	@Override
+	public Object getRoot()
+	{
+<span class="nc" id="L182">		return root;</span>
+	}
+
+	@Override
+	public Object getChild(Object parent, int index)
+	{
+<span class="nc bnc" id="L188" title="All 2 branches missed.">		if (parent == root)</span>
+		{
+<span class="nc" id="L190">			return bodySlotNodes.get(index);</span>
+		}
+		else
+		{
+<span class="nc" id="L194">			return pathMap.get(parent, index);</span>
+		}
+	}
+
+	@Override
+	public int getChildCount(Object parent)
+	{
+<span class="nc bnc" id="L201" title="All 2 branches missed.">		if (parent == root)</span>
+		{
+<span class="nc" id="L203">			return bodySlotNodes.size();</span>
+		}
+		else
+		{
+<span class="nc" id="L207">			return pathMap.size(parent);</span>
+		}
+	}
+
+	@Override
+	public boolean isLeaf(Object node)
+	{
+<span class="nc bnc" id="L214" title="All 2 branches missed.">		if (root == node)</span>
+		{
+<span class="nc" id="L216">			return false;</span>
+		}
+<span class="nc bnc" id="L218" title="All 2 branches missed.">		return !pathMap.containsKey(node);</span>
+	}
+
+	@Override
+	public void valueForPathChanged(TreePath path, Object newValue)
+	{
+<span class="nc" id="L224">		throw new UnsupportedOperationException(&quot;Not supported yet.&quot;);</span>
+	}
+
+	@Override
+	public int getIndexOfChild(Object parent, Object child)
+	{
+<span class="nc bnc" id="L230" title="All 2 branches missed.">		if (parent == root)</span>
+		{
+<span class="nc" id="L232">			EquipNode path = (EquipNode) child;</span>
+<span class="nc" id="L233">			return bodySlotNodes.indexOf(path);</span>
+		}
+		else
+		{
+<span class="nc" id="L237">			return pathMap.indexOf(parent, child);</span>
+		}
+	}
+
+	@Override
+	public void addTreeModelListener(TreeModelListener l)
+	{
+<span class="nc" id="L244">		listenerList.add(TreeModelListener.class, l);</span>
+<span class="nc" id="L245">	}</span>
+
+	@Override
+	public void removeTreeModelListener(TreeModelListener l)
+	{
+<span class="nc" id="L250">		listenerList.remove(TreeModelListener.class, l);</span>
+<span class="nc" id="L251">	}</span>
+
+	private void addBodyNode(EquipNode bodyNode)
+	{
+<span class="nc" id="L255">		int insertion_index = Collections.binarySearch(bodySlotNodes, bodyNode);</span>
+<span class="nc" id="L256">		bodySlotNodes.add(-(insertion_index + 1), bodyNode);</span>
+<span class="nc" id="L257">	}</span>
+
+	private int addNode(EquipNode parent, EquipNode child)
+	{
+<span class="nc" id="L261">		List&lt;EquipNode&gt; children = pathMap.get(parent);</span>
+<span class="nc bnc" id="L262" title="All 2 branches missed.">		if (children == null)</span>
+		{
+<span class="nc" id="L264">			children = Collections.emptyList();</span>
+		}
+<span class="nc" id="L266">		int insertion_index = 1 + Collections.binarySearch(children, child);</span>
+<span class="nc bnc" id="L267" title="All 2 branches missed.">		if (insertion_index &lt; 0)</span>
+		{
+			// The item wasn't already in the list so the search gave us a negative index of where to add the item. 
+<span class="nc" id="L270">			insertion_index *= -1;</span>
+		}
+<span class="nc" id="L272">		pathMap.add(parent, insertion_index, child);</span>
+<span class="nc" id="L273">		return insertion_index;</span>
+	}
+
+	@Override
+	public void elementAdded(ListEvent&lt;EquipNode&gt; e)
+	{
+<span class="nc" id="L279">		EquipNode child = e.getElement();</span>
+<span class="nc" id="L280">		EquipNode parent = child.getParent();</span>
+
+<span class="nc" id="L282">		int index = addNode(parent, child);</span>
+<span class="nc" id="L283">		fireTreeNodesInserted(this, getPathToRoot(parent), new int[]{index}, new Object[]{child});</span>
+<span class="nc" id="L284">	}</span>
+
+	@Override
+	public void elementRemoved(ListEvent&lt;EquipNode&gt; e)
+	{
+<span class="nc" id="L289">		EquipNode child = e.getElement();</span>
+<span class="nc" id="L290">		EquipNode parent = child.getParent();</span>
+
+<span class="nc" id="L292">		List&lt;EquipNode&gt; children = pathMap.get(parent);</span>
+
+<span class="nc" id="L294">		int index = children.indexOf(child);</span>
+
+<span class="nc" id="L296">		pathMap.remove(parent, index);</span>
+<span class="nc" id="L297">		fireTreeNodesRemoved(this, getPathToRoot(parent), new int[]{index}, new Object[]{child});</span>
+
+<span class="nc" id="L299">	}</span>
+
+	@Override
+	public void elementsChanged(ListEvent&lt;EquipNode&gt; e)
+	{
+<span class="nc" id="L304">		pathMap.clear();</span>
+<span class="nc" id="L305">		initPathMap();</span>
+<span class="nc" id="L306">		fireTreeStructureChanged(this, new Object[]{root}, null, null);</span>
+<span class="nc" id="L307">	}</span>
+
+	@Override
+	public void elementModified(ListEvent&lt;EquipNode&gt; e)
+	{
+<span class="nc" id="L312">	}</span>
+
+	@Override
+	public void quantityChanged(EquipmentTreeEvent e)
+	{
+<span class="nc" id="L317">		EquipNode child = e.getNode();</span>
+<span class="nc" id="L318">		EquipNode parent = child.getParent();</span>
+<span class="nc" id="L319">		List&lt;EquipNode&gt; children = pathMap.get(parent);</span>
+
+<span class="nc" id="L321">		int index = Collections.binarySearch(children, child);</span>
+<span class="nc" id="L322">		fireTreeNodesChanged(this, getPathToRoot(parent), new int[]{index}, new Object[]{child});</span>
+<span class="nc" id="L323">	}</span>
+
+	private Object[] getPathToRoot(EquipNode node)
+	{
+<span class="nc" id="L327">		return getPathToRoot(node, 0);</span>
+	}
+
+	/**
+	 * Builds the parents of node up to and including the root node,
+	 * where the original node is the last element in the returned array.
+	 * The length of the returned array gives the node's depth in the
+	 * tree.
+	 *
+	 * @param aNode  the TreeNode to get the path for
+	 * @param depth  an int giving the number of steps already taken towards
+	 *        the root (on recursive calls), used to size the returned array
+	 * @return an array of TreeNodes giving the path from the root to the
+	 *         specified node
+	 */
+	private Object[] getPathToRoot(EquipNode aNode, int depth)
+	{
+		Object[] retNodes;
+		// This method recurses, traversing towards the root in order
+		// size the array. On the way back, it fills in the nodes,
+		// starting from the root and working back to the original node.
+
+		/* Check for null, in case someone passed in a null node, or
+		they passed in an element that isn't rooted at root. */
+<span class="nc bnc" id="L351" title="All 2 branches missed.">		if (aNode == null)</span>
+		{
+<span class="nc bnc" id="L353" title="All 2 branches missed.">			if (depth == 0)</span>
+			{
+<span class="nc" id="L355">				return null;</span>
+			}
+			else
+			{
+<span class="nc" id="L359">				retNodes = new Object[depth + 1];</span>
+<span class="nc" id="L360">				retNodes[0] = root;</span>
+			}
+		}
+		else
+		{
+<span class="nc" id="L365">			depth++;</span>
+<span class="nc" id="L366">			retNodes = getPathToRoot(aNode.getParent(), depth);</span>
+<span class="nc" id="L367">			retNodes[retNodes.length - depth] = aNode;</span>
+		}
+<span class="nc" id="L369">		return retNodes;</span>
+	}
+
+	/**
+	 * Notifies all listeners that have registered interest for
+	 * notification on this event type.  The event instance
+	 * is lazily created using the parameters passed into
+	 * the fire method.
+	 *
+	 * @param source the node being changed
+	 * @param path the path to the root node
+	 * @param childIndices the indices of the changed elements
+	 * @param children the changed elements
+	 */
+	private void fireTreeNodesChanged(Object source, Object[] path, int[] childIndices, Object[] children)
+	{
+		// Guaranteed to return a non-null array
+<span class="nc" id="L386">		Object[] listeners = listenerList.getListenerList();</span>
+<span class="nc" id="L387">		TreeModelEvent e = null;</span>
+		// Process the listeners last to first, notifying
+		// those that are interested in this event
+<span class="nc bnc" id="L390" title="All 2 branches missed.">		for (int i = listeners.length - 2; i &gt;= 0; i -= 2)</span>
+		{
+<span class="nc bnc" id="L392" title="All 2 branches missed.">			if (listeners[i] == TreeModelListener.class)</span>
+			{
+				// Lazily create the event:
+<span class="nc bnc" id="L395" title="All 2 branches missed.">				if (e == null)</span>
+				{
+<span class="nc" id="L397">					e = new TreeModelEvent(source, path, childIndices, children);</span>
+				}
+<span class="nc" id="L399">				((TreeModelListener) listeners[i + 1]).treeNodesChanged(e);</span>
+			}
+		}
+<span class="nc" id="L402">	}</span>
+
+	/**
+	 * Notifies all listeners that have registered interest for
+	 * notification on this event type.  The event instance
+	 * is lazily created using the parameters passed into
+	 * the fire method.
+	 *
+	 * @param source the node where new elements are being inserted
+	 * @param path the path to the root node
+	 * @param childIndices the indices of the new elements
+	 * @param children the new elements
+	 */
+	protected void fireTreeNodesInserted(Object source, Object[] path, int[] childIndices, Object[] children)
+	{
+		// Guaranteed to return a non-null array
+<span class="nc" id="L418">		Object[] listeners = listenerList.getListenerList();</span>
+<span class="nc" id="L419">		TreeModelEvent e = null;</span>
+		// Process the listeners last to first, notifying
+		// those that are interested in this event
+<span class="nc bnc" id="L422" title="All 2 branches missed.">		for (int i = listeners.length - 2; i &gt;= 0; i -= 2)</span>
+		{
+<span class="nc bnc" id="L424" title="All 2 branches missed.">			if (listeners[i] == TreeModelListener.class)</span>
+			{
+				// Lazily create the event:
+<span class="nc bnc" id="L427" title="All 2 branches missed.">				if (e == null)</span>
+				{
+<span class="nc" id="L429">					e = new TreeModelEvent(source, path, childIndices, children);</span>
+				}
+<span class="nc" id="L431">				((TreeModelListener) listeners[i + 1]).treeNodesInserted(e);</span>
+			}
+		}
+<span class="nc" id="L434">	}</span>
+
+	/**
+	 * Notifies all listeners that have registered interest for
+	 * notification on this event type.  The event instance
+	 * is lazily created using the parameters passed into
+	 * the fire method.
+	 *
+	 * @param source the node where elements are being removed
+	 * @param path the path to the root node
+	 * @param childIndices the indices of the removed elements
+	 * @param children the removed elements
+	 */
+	private void fireTreeNodesRemoved(Object source, Object[] path, int[] childIndices, Object[] children)
+	{
+		// Guaranteed to return a non-null array
+<span class="nc" id="L450">		Object[] listeners = listenerList.getListenerList();</span>
+<span class="nc" id="L451">		TreeModelEvent e = null;</span>
+		// Process the listeners last to first, notifying
+		// those that are interested in this event
+<span class="nc bnc" id="L454" title="All 2 branches missed.">		for (int i = listeners.length - 2; i &gt;= 0; i -= 2)</span>
+		{
+<span class="nc bnc" id="L456" title="All 2 branches missed.">			if (listeners[i] == TreeModelListener.class)</span>
+			{
+				// Lazily create the event:
+<span class="nc bnc" id="L459" title="All 2 branches missed.">				if (e == null)</span>
+				{
+<span class="nc" id="L461">					e = new TreeModelEvent(source, path, childIndices, children);</span>
+				}
+<span class="nc" id="L463">				((TreeModelListener) listeners[i + 1]).treeNodesRemoved(e);</span>
+			}
+		}
+<span class="nc" id="L466">	}</span>
+
+	/**
+	 * Notifies all listeners that have registered interest for
+	 * notification on this event type.  The event instance
+	 * is lazily created using the parameters passed into
+	 * the fire method.
+	 *
+	 * @param source the node where the tree model has changed
+	 * @param path the path to the root node
+	 * @param childIndices the indices of the affected elements
+	 * @param children the affected elements
+	 */
+	private void fireTreeStructureChanged(Object source, Object[] path, int[] childIndices, Object[] children)
+	{
+		// Guaranteed to return a non-null array
+<span class="nc" id="L482">		Object[] listeners = listenerList.getListenerList();</span>
+<span class="nc" id="L483">		TreeModelEvent e = null;</span>
+		// Process the listeners last to first, notifying
+		// those that are interested in this event
+<span class="nc bnc" id="L486" title="All 2 branches missed.">		for (int i = listeners.length - 2; i &gt;= 0; i -= 2)</span>
+		{
+<span class="nc bnc" id="L488" title="All 2 branches missed.">			if (listeners[i] == TreeModelListener.class)</span>
+			{
+				// Lazily create the event:
+<span class="nc bnc" id="L491" title="All 2 branches missed.">				if (e == null)</span>
+				{
+<span class="nc" id="L493">					e = new TreeModelEvent(source, path, childIndices, children);</span>
+				}
+<span class="nc" id="L495">				((TreeModelListener) listeners[i + 1]).treeStructureChanged(e);</span>
+			}
+		}
+<span class="nc" id="L498">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

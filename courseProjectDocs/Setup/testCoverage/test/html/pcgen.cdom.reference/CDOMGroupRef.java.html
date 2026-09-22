@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CDOMGroupRef.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.reference</a> &gt; <span class="el_source">CDOMGroupRef.java</span></div><h1>CDOMGroupRef.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2007-18 (c) Thomas Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ * 
+ */
+package pcgen.cdom.reference;
+
+import pcgen.base.util.ObjectContainer;
+import pcgen.cdom.base.CDOMReference;
+
+/**
+ * A CDOMGroupRef is a CDOMReference which is intended to contain more than one
+ * object of a given Type for the Class this CDOMGroupRef represents.
+ * 
+ * @param &lt;T&gt;
+ *            The Class of the underlying objects contained by this CDOMGroupRef
+ */
+public abstract class CDOMGroupRef&lt;T&gt; extends CDOMReference&lt;T&gt;
+{
+
+	/**
+	 * Constructs a new CDOMGroupRef for the given name.
+	 * 
+	 * @param groupName
+	 *            An identifier of the objects this CDOMGroupRef contains.
+	 */
+	public CDOMGroupRef(String groupName)
+	{
+<span class="fc" id="L42">		super(groupName);</span>
+
+<span class="fc" id="L44">	}</span>
+
+	/**
+	 * Returns true if the given Object is included in the Collection of Objects
+	 * to which this CDOMGroupRef refers.
+	 * 
+	 * Note that the behavior of this class is undefined if the CDOMGroupRef has
+	 * not yet been resolved.
+	 * 
+	 * @param item
+	 *            The object to be tested to see if it is referred to by this
+	 *            CDOMGroupRef.
+	 * @return true if the given Object is included in the Collection of Objects
+	 *         to which this CDOMGroupRef refers; false otherwise.
+	 */
+	@Override
+	public abstract boolean contains(T item);
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

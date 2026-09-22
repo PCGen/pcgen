@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SpecialAbility.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.core</a> &gt; <span class="el_source">SpecialAbility.java</span></div><h1>SpecialAbility.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2004 (C) Devon Jones
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ */
+package pcgen.core;
+
+/**
+ * {@code SpecialAbility}.
+ * 
+ */
+public final class SpecialAbility extends TextProperty
+{
+<span class="pc" id="L27">	private String propDesc = &quot;&quot;;</span>
+
+	/** Default constructor */
+	public SpecialAbility()
+	{
+<span class="nc" id="L32">		super();</span>
+<span class="nc" id="L33">	}</span>
+
+	/**
+	 * Constructor - with name
+	 * 
+	 * @param name
+	 */
+	public SpecialAbility(final String name)
+	{
+<span class="fc" id="L42">		super(name);</span>
+<span class="fc" id="L43">	}</span>
+
+	/**
+	 * Constructor
+	 * 
+	 * @param name
+	 *            The name of the Special Ability
+	 * @param propDesc
+	 *            NEEDDOC
+	 * 
+	 */
+	public SpecialAbility(final String name, final String propDesc)
+	{
+<span class="nc" id="L56">		super(name);</span>
+<span class="nc" id="L57">		this.propDesc = propDesc;</span>
+<span class="nc" id="L58">	}</span>
+
+	/**
+	 * Set the description of the Special Ability
+	 * 
+	 * @param saDesc
+	 */
+	public void setSADesc(final String saDesc)
+	{
+<span class="nc" id="L67">		setPropDesc(saDesc);</span>
+<span class="nc" id="L68">	}</span>
+
+	/**
+	 * Get the description of the Special Ability
+	 * 
+	 * @return the description of the Special Ability
+	 */
+	public String getSADesc()
+	{
+<span class="nc" id="L77">		return getPropDesc();</span>
+	}
+
+	@Override
+	public int compareTo(final Object obj)
+	{
+<span class="nc" id="L83">		return getKeyName().compareToIgnoreCase(obj.toString());</span>
+	}
+
+	@Override
+	public String toString()
+	{
+<span class="fc" id="L89">		return getDisplayName();</span>
+	}
+
+	/**
+	 * Set the property description
+	 * @param propDesc
+	 */
+	public void setPropDesc(final String propDesc)
+	{
+<span class="nc" id="L98">		this.propDesc = propDesc;</span>
+<span class="nc" id="L99">	}</span>
+
+	String getPropDesc()
+	{
+<span class="nc" id="L103">		return propDesc;</span>
+	}
+
+	@Override
+	public String getText()
+	{
+		final String text;
+<span class="nc bnc" id="L110" title="All 4 branches missed.">		if ((getPropDesc() == null) || &quot;&quot;.equals(getPropDesc()))</span>
+		{
+<span class="nc" id="L112">			text = super.getText();</span>
+		}
+		else
+		{
+<span class="nc" id="L116">			text = super.getText() + &quot; (&quot; + getPropDesc() + &quot;)&quot;;</span>
+		}
+<span class="nc" id="L118">		return text;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

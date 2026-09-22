@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>LevelExchange.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.content</a> &gt; <span class="el_source">LevelExchange.java</span></div><h1>LevelExchange.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2007 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.cdom.content;
+
+import java.util.Objects;
+
+import pcgen.cdom.base.ConcretePrereqObject;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.core.PCClass;
+
+/**
+ * A LevelExchange is a storage container identifying the level exchange that
+ * can take place when a given class is taken.
+ */
+public final class LevelExchange extends ConcretePrereqObject
+{
+
+	/**
+	 * A CDOMReference to the class which can be exchanged from (the class where
+	 * levels will be reduced, not the class where the token was present)
+	 */
+	private final CDOMSingleRef&lt;PCClass&gt; exchangeClass;
+
+	/**
+	 * Identifies the minimum number of levels that must be donated into the
+	 * class in which the LevelExchange is present.
+	 */
+	private final int minDonatingLevel;
+
+	/**
+	 * Identifies the maximum number of levels that may be donated into the
+	 * class in which the LevelExchange is present.
+	 */
+	private final int maxDonatedLevels;
+
+	/**
+	 * Identifies the minimum level that may be reached in the exchangeClass
+	 * during any level exchange. (In other words, the number of levels in the
+	 * exchangeClass cannot be reduced below this level by the LevelExchange)
+	 */
+	private final int donatingLowerLevelBound;
+
+	/**
+	 * Creates a new LevelExchange for the given Class (identifed by a
+	 * CDOMReference), and given limits on the exchange.
+	 * 
+	 * @param pcc
+	 *            The class which levels can be exchanged from
+	 * @param minDonatingLvl
+	 *            The minimum number of levels that must be donated into the
+	 *            class in which the LevelExchange is present.
+	 * @param maxDonated
+	 *            The maximum number of levels that may be donated into the
+	 *            class in which the LevelExchange is present.
+	 * @param donatingLowerBound
+	 *            The minimum level that may be reached in the exchangeClass
+	 *            during any level exchange.
+	 */
+	public LevelExchange(CDOMSingleRef&lt;PCClass&gt; pcc, int minDonatingLvl, int maxDonated, int donatingLowerBound)
+<span class="fc" id="L75">	{</span>
+<span class="fc" id="L76">		Objects.requireNonNull(pcc, &quot;Error: Exchange Class must not be null&quot;);</span>
+<span class="fc bfc" id="L77" title="All 2 branches covered.">		if (minDonatingLvl &lt;= 0)</span>
+		{
+<span class="fc" id="L79">			throw new IllegalArgumentException(</span>
+				&quot;Error: Min Donating Level &lt;= 0: &quot; + &quot;Cannot Allow Donations to produce negative levels&quot;);
+		}
+<span class="fc bfc" id="L82" title="All 2 branches covered.">		if (maxDonated &lt;= 0)</span>
+		{
+<span class="fc" id="L84">			throw new IllegalArgumentException(</span>
+				&quot;Error: Max Donated Levels &lt;= 0: &quot; + &quot;Cannot Allow Donations to produce negative levels&quot;);
+		}
+<span class="fc bfc" id="L87" title="All 2 branches covered.">		if (donatingLowerBound &lt; 0)</span>
+		{
+<span class="fc" id="L89">			throw new IllegalArgumentException(</span>
+				&quot;Error: Max Remaining Levels &lt; 0: &quot; + &quot;Cannot Allow Donations to produce negative levels&quot;);
+		}
+<span class="fc bfc" id="L92" title="All 2 branches covered.">		if (minDonatingLvl - maxDonated &gt; donatingLowerBound)</span>
+		{
+<span class="fc" id="L94">			throw new IllegalArgumentException(&quot;Error: Donating Lower Bound cannot be reached&quot;);</span>
+		}
+<span class="fc" id="L96">		exchangeClass = pcc;</span>
+<span class="fc" id="L97">		minDonatingLevel = minDonatingLvl;</span>
+<span class="fc" id="L98">		maxDonatedLevels = maxDonated;</span>
+<span class="fc" id="L99">		donatingLowerLevelBound = donatingLowerBound;</span>
+<span class="fc" id="L100">	}</span>
+
+	/**
+	 * Returns the minimum level that may be reached in the exchange class
+	 * during any level exchange.
+	 * 
+	 * @return The minimum level that may be reached in the exchange class
+	 *         during any level exchange.
+	 */
+	public int getDonatingLowerLevelBound()
+	{
+<span class="fc" id="L111">		return donatingLowerLevelBound;</span>
+	}
+
+	/**
+	 * Returns a Reference to the class which can be exchanged from (the class
+	 * where levels will be reduced, not the class where the token was present)
+	 * 
+	 * @return A Reference to the class which can be exchanged from
+	 */
+	public CDOMSingleRef&lt;PCClass&gt; getExchangeClass()
+	{
+<span class="fc" id="L122">		return exchangeClass;</span>
+	}
+
+	/**
+	 * Returns the maximum number of levels that may be donated into the class
+	 * in which the LevelExchange is present.
+	 * 
+	 * @return The maximum number of levels that may be donated into the class
+	 *         in which the LevelExchange is present.
+	 */
+	public int getMaxDonatedLevels()
+	{
+<span class="fc" id="L134">		return maxDonatedLevels;</span>
+	}
+
+	/**
+	 * Returns the minimum number of levels that must be donated into the class
+	 * in which the LevelExchange is present.
+	 * 
+	 * @return The minimum number of levels that must be donated into the class
+	 *         in which the LevelExchange is present.
+	 */
+	public int getMinDonatingLevel()
+	{
+<span class="fc" id="L146">		return minDonatingLevel;</span>
+	}
+
+	@Override
+	public int hashCode()
+	{
+<span class="nc" id="L152">		return minDonatingLevel * 23 + maxDonatedLevels * 31 + donatingLowerLevelBound;</span>
+	}
+
+	@Override
+	public boolean equals(Object obj)
+	{
+<span class="pc bpc" id="L158" title="1 of 2 branches missed.">		if (obj == this)</span>
+		{
+<span class="nc" id="L160">			return true;</span>
+		}
+<span class="pc bpc" id="L162" title="1 of 2 branches missed.">		if (!(obj instanceof LevelExchange other))</span>
+		{
+<span class="nc" id="L164">			return false;</span>
+		}
+<span class="pc bpc" id="L166" title="3 of 6 branches missed.">		return minDonatingLevel == other.minDonatingLevel &amp;&amp; maxDonatedLevels == other.maxDonatedLevels</span>
+<span class="pc bpc" id="L167" title="1 of 2 branches missed.">			&amp;&amp; donatingLowerLevelBound == other.donatingLowerLevelBound &amp;&amp; exchangeClass.equals(other.exchangeClass);</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

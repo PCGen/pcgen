@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>StatApplication.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.core.analysis</a> &gt; <span class="el_source">StatApplication.java</span></div><h1>StatApplication.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2009 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * Copyright 2001 (C) Bryan McRoberts &lt;merton_monk@yahoo.com&gt;
+ * 
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.core.analysis;
+
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+import pcgen.core.Globals;
+import pcgen.core.PCStat;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.RuleConstants;
+import pcgen.core.SettingsHandler;
+import pcgen.core.chooser.CDOMChooserFacadeImpl;
+import pcgen.facade.core.ChooserFacade.ChooserTreeViewType;
+import pcgen.gui2.facade.Gui2InfoFactory;
+import pcgen.gui2.util.PrettyIntegerFormat;
+import pcgen.system.LanguageBundle;
+import pcgen.util.chooser.ChooserFactory;
+
+public final class StatApplication
+{
+
+	private StatApplication()
+	{
+	}
+
+	//
+	// Ask user to select a stat to increment. This can happen before skill
+	// points
+	// are calculated, so an increase to the appropriate stat can give more
+	// skill points
+	//
+	public static int askForStatIncrease(final PlayerCharacter aPC, final int statsToChoose, final boolean isPre)
+	{
+		//
+		// If 1st time here (checks for preincrement), then will only ask if
+		// want to ask before level up
+		// If 2nd time here, will ask if there are any remaining points
+		// unassigned.
+		// So, hitting cancel on the 1st popup will cause the 2nd popup to ask
+		// again.
+		// This is to handle cases where the user is adding multiple levels, so
+		// the SKILL point total
+		// won't be too messed up
+		//
+<span class="nc bnc" id="L65" title="All 2 branches missed.">		if (isPre)</span>
+		{
+<span class="nc bnc" id="L67" title="All 2 branches missed.">			if (!Globals.checkRule(RuleConstants.INTBEFORE))</span>
+			{
+<span class="nc" id="L69">				return statsToChoose;</span>
+			}
+		}
+
+<span class="nc" id="L73">		String titleKey = &quot;in_statTitle&quot;;</span>
+<span class="nc bnc" id="L74" title="All 4 branches missed.">		if (isPre &amp;&amp; !Globals.checkRule(RuleConstants.RETROSKILL))</span>
+		{
+<span class="nc" id="L76">			titleKey = &quot;in_statTitleWithSkill&quot;;</span>
+		}
+
+<span class="nc" id="L79">		int iCount = 0;</span>
+<span class="nc" id="L80">		Set&lt;PCStat&gt; statsAlreadyBonused = new HashSet&lt;&gt;();</span>
+<span class="nc" id="L81">		boolean allowStacks = SettingsHandler.getGameAsProperty().get().isBonusStatAllowsStack();</span>
+<span class="nc" id="L82">		DecimalFormat formatter = PrettyIntegerFormat.getFormat();</span>
+
+<span class="nc bnc" id="L84" title="All 2 branches missed.">		for (int ix = 0; ix &lt; statsToChoose; ++ix)</span>
+		{
+<span class="nc" id="L86">			final List&lt;String&gt; selectableStats = new ArrayList&lt;&gt;();</span>
+
+<span class="nc bnc" id="L88" title="All 2 branches missed.">			for (PCStat aStat : aPC.getDisplay().getStatSet())</span>
+			{
+<span class="nc" id="L90">				final StringBuilder sStats = new StringBuilder(100);</span>
+<span class="nc" id="L91">				final int iAdjStat = aPC.getTotalStatFor(aStat);</span>
+<span class="nc" id="L92">				final int iCurStat = aPC.getBaseStatFor(aStat);</span>
+<span class="nc" id="L93">				sStats.append(aStat.getDisplayName()).append(&quot;:  &quot;).append(iCurStat);</span>
+
+<span class="nc bnc" id="L95" title="All 2 branches missed.">				if (iCurStat != iAdjStat)</span>
+				{
+<span class="nc" id="L97">					sStats.append(&quot; adjusted: &quot;).append(iAdjStat);</span>
+				}
+
+<span class="nc" id="L100">				sStats.append(&quot; (&quot;).append(formatter.format(aPC.getStatModFor(aStat))).append(&quot;)&quot;);</span>
+
+<span class="nc bnc" id="L102" title="All 4 branches missed.">				if (!allowStacks &amp;&amp; statsAlreadyBonused.contains(aStat))</span>
+				{
+<span class="nc" id="L104">					sStats.append(&quot; * Already incremented.&quot;);</span>
+				}
+<span class="nc" id="L106">				selectableStats.add(sStats.toString());</span>
+<span class="nc" id="L107">			}</span>
+
+<span class="nc" id="L109">			CDOMChooserFacadeImpl&lt;String&gt; chooserFacade = new CDOMChooserFacadeImpl&lt;&gt;(</span>
+<span class="nc" id="L110">				LanguageBundle.getString(titleKey), selectableStats, new ArrayList&lt;&gt;(), 1);</span>
+<span class="nc" id="L111">			chooserFacade.setDefaultView(ChooserTreeViewType.NAME);</span>
+<span class="nc" id="L112">			chooserFacade.setPreferRadioSelection(true);</span>
+<span class="nc" id="L113">			chooserFacade.setInfoFactory(new Gui2InfoFactory(aPC));</span>
+<span class="nc" id="L114">			ChooserFactory.getDelegate().showGeneralChooser(chooserFacade);</span>
+<span class="nc" id="L115">			final List&lt;String&gt; selectedValues = chooserFacade.getFinalSelected();</span>
+<span class="nc bnc" id="L116" title="All 2 branches missed.">			final String selectedValue = selectedValues.isEmpty() ? null : selectedValues.get(0);</span>
+
+<span class="nc bnc" id="L118" title="All 2 branches missed.">			if (selectedValue != null)</span>
+			{
+<span class="nc bnc" id="L120" title="All 2 branches missed.">				for (PCStat aStat : aPC.getStatSet())</span>
+				{
+<span class="nc bnc" id="L122" title="All 2 branches missed.">					if (selectedValue.startsWith(aStat.getDisplayName()))</span>
+					{
+<span class="nc" id="L124">						aPC.saveStatIncrease(aStat, 1, isPre);</span>
+<span class="nc" id="L125">						aPC.setStat(aStat, aPC.getStat(aStat) + 1);</span>
+<span class="nc" id="L126">						aPC.setPoolAmount(aPC.getPoolAmount() - 1);</span>
+<span class="nc" id="L127">						statsAlreadyBonused.add(aStat);</span>
+<span class="nc" id="L128">						++iCount;</span>
+
+<span class="nc" id="L130">						break;</span>
+					}
+<span class="nc" id="L132">				}</span>
+			}
+		}
+
+<span class="nc" id="L136">		return statsToChoose - iCount;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

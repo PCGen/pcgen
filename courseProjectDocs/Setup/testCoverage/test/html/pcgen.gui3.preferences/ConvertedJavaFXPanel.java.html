@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ConvertedJavaFXPanel.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.gui3.preferences</a> &gt; <span class="el_source">ConvertedJavaFXPanel.java</span></div><h1>ConvertedJavaFXPanel.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2019 (C) Eitan Adler &lt;lists@eitanadler.com&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+
+package pcgen.gui3.preferences;
+
+import pcgen.gui2.prefs.PCGenPrefsPanel;
+import pcgen.gui3.GuiAssertions;
+import pcgen.gui3.JFXPanelFromResource;
+import pcgen.gui3.ResettableController;
+import pcgen.system.LanguageBundle;
+
+import javafx.application.Platform;
+
+public final class ConvertedJavaFXPanel&lt;T extends ResettableController&gt; extends PCGenPrefsPanel
+{
+	private final String titleTextKey;
+	private final JFXPanelFromResource&lt;T&gt; panel;
+
+	public ConvertedJavaFXPanel(Class&lt;T&gt; klass, String resource, String titleTextKey)
+<span class="nc" id="L35">	{</span>
+<span class="nc" id="L36">		this.titleTextKey = titleTextKey;</span>
+<span class="nc" id="L37">		this.panel =</span>
+				new JFXPanelFromResource&lt;&gt;(
+						klass,
+						resource
+				);
+<span class="nc" id="L42">		this.add(panel);</span>
+
+<span class="nc" id="L44">	}</span>
+
+	@Override
+	public String getTitle()
+	{
+<span class="nc" id="L49">		return LanguageBundle.getString(titleTextKey);</span>
+	}
+
+	@Override
+	public void applyOptionValuesToControls()
+	{
+<span class="nc" id="L55">		GuiAssertions.assertIsNotJavaFXThread();</span>
+<span class="nc" id="L56">		Platform.runLater(() -&gt;</span>
+<span class="nc" id="L57">			panel.getControllerFromJavaFXThread().reset()</span>
+		);
+<span class="nc" id="L59">	}</span>
+
+	@Override
+	public void setOptionsBasedOnControls()
+	{
+<span class="nc" id="L64">		panel.getController().apply();</span>
+<span class="nc" id="L65">	}</span>
+
+	public T getController()
+	{
+<span class="nc" id="L69">		return this.panel.getController();</span>
+	}
+
+	@Override
+	public String toString()
+	{
+<span class="nc" id="L75">		return getTitle();</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

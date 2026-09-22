@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FreeMarkerExportHandler.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.io</a> &gt; <span class="el_source">FreeMarkerExportHandler.java</span></div><h1>FreeMarkerExportHandler.java</h1><pre class="source lang-java linenums">package pcgen.io;
+
+import freemarker.template.Configuration;
+import static freemarker.template.Configuration.VERSION_2_3_20;
+import freemarker.template.Template;
+import freemarker.template.TemplateException;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.IOException;
+import java.io.Writer;
+import java.util.HashMap;
+import java.util.Map;
+import pcgen.core.GameMode;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.SettingsHandler;
+import pcgen.io.freemarker.EquipSetLoopDirective;
+import pcgen.io.freemarker.LoopDirective;
+import pcgen.io.freemarker.PCBooleanFunction;
+import pcgen.io.freemarker.PCHasVarFunction;
+import pcgen.io.freemarker.PCStringDirective;
+import pcgen.io.freemarker.PCVarFunction;
+import pcgen.output.publish.OutputDB;
+import pcgen.util.Logging;
+
+public class FreeMarkerExportHandler extends ExportHandler
+{
+	/**
+	 * Constructor.  Populates the token map (a list of possible output tokens) and
+	 * sets the character sheet template we are using.
+	 *
+	 * @param templateFile the template to use while exporting.
+	 */
+	FreeMarkerExportHandler(File templateFile)
+	{
+<span class="nc" id="L35">		super(templateFile);</span>
+<span class="nc" id="L36">	}</span>
+
+	@Override
+	public void write(PlayerCharacter aPC, BufferedWriter out) throws ExportException
+	{
+<span class="nc" id="L41">		File tFile = getTemplateFile();</span>
+<span class="nc bnc" id="L42" title="All 2 branches missed.">		if (tFile==null)</span>
+		{
+<span class="nc" id="L44">			Logging.errorPrint(&quot;No template file selected - aborting.&quot;);</span>
+<span class="nc" id="L45">			return;</span>
+		}
+<span class="nc" id="L47">		FileAccess.setCurrentOutputFilter(getTemplateFile().getName().substring(0, getTemplateFile().getName().length() - 4));</span>
+
+<span class="nc" id="L49">		exportCharacterUsingFreemarker(aPC, out);</span>
+<span class="nc" id="L50">	}</span>
+
+
+	/**
+	 * Produce an output file for a character using a FreeMarker template.
+	 *
+	 * @param aPC The character being output.
+	 * @param outputWriter The destination for the output.
+	 * @throws ExportException If the export fails.
+	 */
+	private void exportCharacterUsingFreemarker(PlayerCharacter aPC, Writer outputWriter) throws ExportException
+	{
+		try
+		{
+			// Set Directory for templates
+<span class="nc" id="L65">			Configuration cfg = new Configuration(VERSION_2_3_20);</span>
+<span class="nc" id="L66">			cfg.setDirectoryForTemplateLoading(getTemplateFile().getParentFile());</span>
+
+			// load template
+<span class="nc" id="L69">			Template template = cfg.getTemplate(getTemplateFile().getName());</span>
+
+			// Configure our custom directives and functions.
+<span class="nc" id="L72">			cfg.setSharedVariable(&quot;pcstring&quot;, new PCStringDirective(aPC, this));</span>
+<span class="nc" id="L73">			cfg.setSharedVariable(&quot;pcvar&quot;, new PCVarFunction(aPC));</span>
+<span class="nc" id="L74">			cfg.setSharedVariable(&quot;pcboolean&quot;, new PCBooleanFunction(aPC, this));</span>
+<span class="nc" id="L75">			cfg.setSharedVariable(&quot;pchasvar&quot;, new PCHasVarFunction(aPC, this));</span>
+<span class="nc" id="L76">			cfg.setSharedVariable(&quot;loop&quot;, new LoopDirective());</span>
+<span class="nc" id="L77">			cfg.setSharedVariable(&quot;equipsetloop&quot;, new EquipSetLoopDirective(aPC));</span>
+
+<span class="nc" id="L79">			GameMode gamemode = SettingsHandler.getGameAsProperty().get();</span>
+			// data-model
+<span class="nc" id="L81">			Map&lt;String, Object&gt; pc = OutputDB.buildDataModel(aPC.getCharID());</span>
+<span class="nc" id="L82">			Map&lt;String, Object&gt; mode = OutputDB.buildModeDataModel(gamemode);</span>
+<span class="nc" id="L83">			Map&lt;String, Object&gt; input = new HashMap&lt;&gt;();</span>
+<span class="nc" id="L84">			input.put(&quot;pcgen&quot;, OutputDB.getGlobal());</span>
+<span class="nc" id="L85">			input.put(&quot;pc&quot;, ExportUtilities.getObjectWrapper().wrap(pc));</span>
+<span class="nc" id="L86">			input.put(&quot;gamemode&quot;, mode);</span>
+<span class="nc" id="L87">			input.put(&quot;gamemodename&quot;, gamemode.getName());</span>
+
+			// Process the template
+<span class="nc" id="L90">			template.process(input, outputWriter);</span>
+		}
+<span class="nc" id="L92">		catch (IOException | TemplateException exc)</span>
+		{
+<span class="nc" id="L94">			String message = &quot;Error exporting character using template &quot; + getTemplateFile();</span>
+<span class="nc" id="L95">			Logging.errorPrint(message, exc);</span>
+<span class="nc" id="L96">			throw new ExportException(message + &quot; : &quot; + exc.getLocalizedMessage(), exc);</span>
+		}
+		finally
+		{
+<span class="nc bnc" id="L100" title="All 2 branches missed.">			if (outputWriter != null)</span>
+			{
+				try
+				{
+<span class="nc" id="L104">					outputWriter.flush();</span>
+				}
+<span class="nc" id="L106">				catch (IOException ignored)</span>
+				{
+<span class="nc" id="L108">				}</span>
+			}
+		}
+<span class="nc" id="L111">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

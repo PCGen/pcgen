@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FeatToken.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.primitive.pobject</a> &gt; <span class="el_source">FeatToken.java</span></div><h1>FeatToken.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2010 (C) Thomas Parker &lt;thpr@users.sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package plugin.primitive.pobject;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.List;
+
+import pcgen.cdom.base.Converter;
+import pcgen.cdom.content.CNAbility;
+import pcgen.cdom.enumeration.GroupingState;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
+import pcgen.core.PlayerCharacter;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.PrimitiveToken;
+import pcgen.util.Logging;
+
+/**
+ * FeatToken is a Primitive that includes the selections of a different Feat.
+ * 
+ * @param &lt;T&gt; The underlying format of object selected (CHOOSE) by the target Feat
+ */
+@Deprecated
+<span class="nc" id="L42">public class FeatToken&lt;T&gt; implements PrimitiveToken&lt;T&gt;</span>
+{
+
+	private CDOMSingleRef&lt;Ability&gt; ref;
+
+	private Class&lt;T&gt; refClass;
+
+	@Override
+	public boolean initialize(LoadContext context, Class&lt;T&gt; cl, String value, String args)
+	{
+<span class="nc" id="L52">		Logging.deprecationPrint(&quot;FEAT=x is deprecated in CHOOSE, &quot; + &quot;please use ABILITY=FEAT[x]&quot;);</span>
+<span class="nc bnc" id="L53" title="All 2 branches missed.">		if (args != null)</span>
+		{
+<span class="nc" id="L55">			return false;</span>
+		}
+<span class="nc" id="L57">		ref = context.getReferenceContext().getManufacturerId(AbilityCategory.FEAT).getReference(value);</span>
+<span class="nc" id="L58">		refClass = cl;</span>
+<span class="nc" id="L59">		return true;</span>
+	}
+
+	@Override
+	public String getTokenName()
+	{
+<span class="nc" id="L65">		return &quot;FEAT&quot;;</span>
+	}
+
+	@Override
+	public Class&lt;? super T&gt; getReferenceClass()
+	{
+<span class="nc bnc" id="L71" title="All 2 branches missed.">		if (refClass == null)</span>
+		{
+<span class="nc" id="L73">			return Object.class;</span>
+		}
+		else
+		{
+<span class="nc" id="L77">			return refClass;</span>
+		}
+	}
+
+	@Override
+	public String getLSTformat(boolean useAny)
+	{
+<span class="nc" id="L84">		return &quot;ABILITY=FEAT[&quot; + ref.getLSTformat(useAny) + ']';</span>
+	}
+
+	private &lt;R&gt; List&lt;R&gt; getList(PlayerCharacter pc, Ability a)
+	{
+		// workaround for cloning issue
+<span class="nc" id="L90">		List&lt;R&gt; availableList = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L91">		List&lt;CNAbility&gt; theFeats = pc.getMatchingCNAbilities(a);</span>
+<span class="nc bnc" id="L92" title="All 2 branches missed.">		for (CNAbility ability : theFeats)</span>
+		{
+			@SuppressWarnings(&quot;unchecked&quot;)
+<span class="nc" id="L95">			List&lt;? extends R&gt; list = (List&lt;? extends R&gt;) pc.getDetailedAssociations(ability);</span>
+<span class="nc bnc" id="L96" title="All 2 branches missed.">			if (list != null)</span>
+			{
+<span class="nc" id="L98">				availableList.addAll(list);</span>
+			}
+<span class="nc" id="L100">		}</span>
+<span class="nc" id="L101">		return availableList;</span>
+	}
+
+	@Override
+	public GroupingState getGroupingState()
+	{
+<span class="nc" id="L107">		return GroupingState.ANY;</span>
+	}
+
+	@Override
+	public boolean equals(Object obj)
+	{
+<span class="nc bnc" id="L113" title="All 2 branches missed.">		if (obj == this)</span>
+		{
+<span class="nc" id="L115">			return true;</span>
+		}
+<span class="nc bnc" id="L117" title="All 2 branches missed.">		if (obj instanceof FeatToken&lt;?&gt; other)</span>
+		{
+<span class="nc bnc" id="L119" title="All 2 branches missed.">			if (ref == null)</span>
+			{
+<span class="nc bnc" id="L121" title="All 6 branches missed.">				return (other.ref == null) &amp;&amp; (refClass == null) &amp;&amp; (other.refClass == null);</span>
+			}
+<span class="nc bnc" id="L123" title="All 4 branches missed.">			return refClass.equals(other.refClass) &amp;&amp; ref.equals(other.ref);</span>
+		}
+<span class="nc" id="L125">		return false;</span>
+	}
+
+	@Override
+	public int hashCode()
+	{
+<span class="nc bnc" id="L131" title="All 2 branches missed.">		return ref == null ? -57 : ref.hashCode();</span>
+	}
+
+	@Override
+	public &lt;R&gt; Collection&lt;R&gt; getCollection(PlayerCharacter pc, Converter&lt;T, R&gt; c)
+	{
+		/*
+		 * In theory the converter can be ignored here, since an equivalent
+		 * would exist within the ChooseInformation below
+		 */
+<span class="nc" id="L141">		List&lt;R&gt; currentItems = getList(pc, ref.get());</span>
+<span class="nc" id="L142">        return new HashSet&lt;&gt;(currentItems);</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

@@ -1,0 +1,715 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Logging.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.util</a> &gt; <span class="el_source">Logging.java</span></div><h1>Logging.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2003 (C) Jonas Karlsson &lt;jujutsunerd@sf.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.util;
+
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.PrintStream;
+import java.net.URI;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.text.MessageFormat;
+import java.text.NumberFormat;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.logging.Handler;
+import java.util.logging.Level;
+import java.util.logging.LogManager;
+import java.util.logging.Logger;
+import java.util.stream.Stream;
+
+import pcgen.core.SettingsHandler;
+import pcgen.rules.context.LoadContext;
+import pcgen.system.LanguageBundle;
+
+import org.apache.commons.lang3.SystemUtils;
+
+/**
+ * This contains logging functions. It is a proxy for the
+ * Java logging API.
+ */
+@SuppressWarnings({&quot;PMD.MoreThanOneLogger&quot;, &quot;UseOfSystemOutOrSystemErr&quot;, &quot;PMD.AvoidPrintStackTrace&quot;})
+public final class Logging
+{
+<span class="fc" id="L54">	private static boolean debugMode = false;</span>
+
+	/** Log level for error output. */
+<span class="fc" id="L57">	public static final Level ERROR = Level.SEVERE;</span>
+
+	/** Log level for LST error output. */
+<span class="fc" id="L60">	public static final Level LST_ERROR = PCGenLogLevel.LST_ERROR;</span>
+
+	/** Logging level for code warnings. */
+<span class="fc" id="L63">	public static final Level WARNING = Level.WARNING;</span>
+
+	/** Logging level for LST warnings such as deprecated syntax use. */
+<span class="fc" id="L66">	public static final Level LST_WARNING = PCGenLogLevel.LST_WARNING;</span>
+
+	/** Logging level for code info. */
+<span class="fc" id="L69">	public static final Level INFO = Level.INFO;</span>
+
+	/** Logging level for LST information such as references to missing items in PRE or CHOOSE tags. */
+<span class="fc" id="L72">	public static final Level LST_INFO = PCGenLogLevel.LST_INFO;</span>
+
+	/** Log level for application debug output. */
+<span class="fc" id="L75">	public static final Level DEBUG = Level.FINER;</span>
+
+<span class="fc" id="L77">	private static Logger pcgenLogger = Logger.getLogger(&quot;pcgen&quot;);</span>
+<span class="fc" id="L78">	private static Logger pluginLogger = Logger.getLogger(&quot;plugin&quot;);</span>
+
+	/** Walks the stack lazily to name loggers after the calling class. */
+<span class="fc" id="L81">	private static final StackWalker WALKER = StackWalker.getInstance();</span>
+
+	/** This facade's own class name, skipped when inferring the caller. */
+<span class="fc" id="L84">	private static final String CLASS_NAME = Logging.class.getName();</span>
+
+	/** System property java.util.logging consults for its configuration file. */
+	private static final String CONFIG_FILE_PROPERTY = &quot;java.util.logging.config.file&quot;;
+
+	/** Name of PCGen's java.util.logging configuration file. */
+	private static final String LOGGING_PROPERTIES = &quot;logging.properties&quot;;
+
+	/** Directory jpackage places beside {@code runtime} to hold bundled resources. */
+	private static final String BUNDLE_APP_DIR = &quot;app&quot;;
+
+	/** Directory levels searched upwards from java.home for the configuration file. */
+	private static final int MAX_ANCESTORS = 6;
+
+	/** Appends the source of a logged issue: {@code &lt;message&gt; (Source: &lt;uri&gt;)}. */
+	private static final String SOURCE_FORMAT = &quot;{0} (Source: {1})&quot;;
+
+	/**
+	 * Do any required initialization of the Logger.
+	 */
+	static
+	{
+		// Set a default configuration file if none was specified.
+<span class="pc bpc" id="L107" title="1 of 2 branches missed.">		if (System.getProperty(CONFIG_FILE_PROPERTY) == null)</span>
+		{
+<span class="fc" id="L109">			findLoggingConfig(SystemUtils.USER_DIR, SystemUtils.JAVA_HOME)</span>
+<span class="fc" id="L110">					.ifPresent(p -&gt; System.setProperty(CONFIG_FILE_PROPERTY, p.toAbsolutePath().toString()));</span>
+		}
+
+		// Get Java Logging to read in the config.
+		try
+		{
+<span class="fc" id="L116">			LogManager.getLogManager().readConfiguration();</span>
+		}
+<span class="nc" id="L118">		catch (SecurityException | IOException e)</span>
+		{
+<span class="nc" id="L120">			System.err.println(&quot;Failed to read logging configuration. Error was:&quot;);</span>
+<span class="nc" id="L121">			e.printStackTrace();</span>
+<span class="fc" id="L122">		}</span>
+	}
+
+	/**
+	 * Locates {@code logging.properties}: working directory first, then the
+	 * install directory derived from java.home for packaged launches (where the
+	 * working directory is {@code /}).
+	 *
+	 * @param userDir the working directory, may be null
+	 * @param javaHome the runtime's home directory, may be null
+	 * @return the configuration file, or empty if there is none to be found
+	 */
+	static Optional&lt;Path&gt; findLoggingConfig(String userDir, String javaHome)
+	{
+<span class="fc" id="L136">		return candidateConfigDirs(userDir, javaHome)</span>
+<span class="fc" id="L137">				.map(dir -&gt; dir.resolve(LOGGING_PROPERTIES))</span>
+<span class="fc" id="L138">				.filter(Files::isRegularFile)</span>
+<span class="fc" id="L139">				.findFirst();</span>
+	}
+
+	private static Stream&lt;Path&gt; candidateConfigDirs(String userDir, String javaHome)
+	{
+<span class="fc bfc" id="L144" title="All 2 branches covered.">		Stream&lt;Path&gt; workingDir = (userDir == null) ? Stream.empty() : Stream.of(Path.of(userDir));</span>
+<span class="fc bfc" id="L145" title="All 2 branches covered.">		if (javaHome == null)</span>
+		{
+<span class="fc" id="L147">			return workingDir;</span>
+		}
+		// Walk up from java.home checking each dir and its &quot;app&quot; sibling, which
+		// covers every jpackage layout; macOS (&lt;install&gt;/runtime/Contents/Home)
+		// is the deepest and sets MAX_ANCESTORS.
+<span class="fc" id="L152">		Stream&lt;Path&gt; installDirs = Stream</span>
+<span class="fc" id="L153">				.iterate(Path.of(javaHome).toAbsolutePath(), Objects::nonNull, Path::getParent)</span>
+<span class="fc" id="L154">				.limit(MAX_ANCESTORS)</span>
+<span class="fc" id="L155">				.flatMap(dir -&gt; Stream.of(dir, dir.resolve(BUNDLE_APP_DIR)));</span>
+<span class="fc" id="L156">		return Stream.concat(workingDir, installDirs);</span>
+	}
+
+	private Logging()
+	{
+	}
+
+	/**
+	 * Set debugging state: {@code true} is on.
+	 *
+	 * @param argDebugMode boolean debugging state
+	 */
+	public static void setDebugMode(final boolean argDebugMode)
+	{
+<span class="nc" id="L170">		debugMode = argDebugMode;</span>
+<span class="nc bnc" id="L171" title="All 2 branches missed.">		if (debugMode)</span>
+		{
+<span class="nc" id="L173">			pcgenLogger.setLevel(DEBUG);</span>
+<span class="nc" id="L174">			pluginLogger.setLevel(DEBUG);</span>
+		}
+		else
+		{
+<span class="nc" id="L178">			pcgenLogger.setLevel(LST_WARNING);</span>
+<span class="nc" id="L179">			pluginLogger.setLevel(LST_WARNING);</span>
+		}
+<span class="nc" id="L181">	}</span>
+
+	/**
+	 * Is someone debugging PCGen?
+	 *
+	 * @return boolean debugging state
+	 */
+	public static boolean isDebugMode()
+	{
+<span class="fc" id="L190">		return debugMode;</span>
+	}
+
+	/**
+	 * Check if the level of logs would be output for the caller. This can
+	 * be used to prevent building logging output if it will not be used.
+	 * @param level The logging level to be checked.
+	 * @return true if the level would be output, false if not.
+	 */
+	public static boolean isLoggable(Level level)
+	{
+<span class="fc" id="L201">		Logger l = getLogger();</span>
+<span class="pc bpc" id="L202" title="2 of 4 branches missed.">		return l != null &amp;&amp; l.isLoggable(level);</span>
+	}
+
+	/**
+	 * Print information message if PCGen is debugging.
+	 *
+	 * @param s String information message
+	 */
+	public static void debugPrint(final String s)
+	{
+<span class="fc" id="L212">		Logger l = getLogger();</span>
+<span class="pc bpc" id="L213" title="2 of 4 branches missed.">		if (l != null &amp;&amp; l.isLoggable(DEBUG))</span>
+		{
+<span class="nc" id="L215">			l.log(DEBUG, s);</span>
+		}
+<span class="fc" id="L217">	}</span>
+
+	/**
+	 * Print information message if PCGen is debugging.
+	 *
+	 * @param param1 String information message (usually variable)
+	 * @param param2 Object information message (usually value)
+	 */
+	public static void debugPrint(final String param1, Object param2)
+	{
+<span class="nc" id="L227">		Logger l = getLogger();</span>
+<span class="nc bnc" id="L228" title="All 2 branches missed.">		if (l.isLoggable(DEBUG))</span>
+		{
+<span class="nc" id="L230">			l.log(DEBUG, param1 + param2);</span>
+		}
+<span class="nc" id="L232">	}</span>
+
+	/**
+	 * Print a localized information message if PCGen is debugging.
+	 *
+	 * @param message String information message (usually variable)
+	 * @param params Object information message (usually value)
+	 */
+	public static void debugPrintLocalised(final String message, Object... params)
+	{
+<span class="nc" id="L242">		Logger l = getLogger();</span>
+<span class="nc bnc" id="L243" title="All 2 branches missed.">		if (l.isLoggable(DEBUG))</span>
+		{
+<span class="nc" id="L245">			String msg = LanguageBundle.getFormattedString(message, params);</span>
+<span class="nc" id="L246">			l.log(DEBUG, msg);</span>
+		}
+<span class="nc" id="L248">	}</span>
+
+	/**
+	 * Print the message. Currently quietly discards the Throwable.
+	 *
+	 * @param s String error message
+	 * @param thr Throwable stack frame
+	 */
+	public static void debugPrint(final String s, final Throwable thr)
+	{
+<span class="nc" id="L258">		debugPrint(s);</span>
+<span class="nc" id="L259">		Logger l = getLogger();</span>
+<span class="nc bnc" id="L260" title="All 4 branches missed.">		if (l != null &amp;&amp; l.isLoggable(DEBUG))</span>
+		{
+<span class="nc" id="L262">			thr.printStackTrace(System.err);</span>
+		}
+<span class="nc" id="L264">	}</span>
+
+	/**
+	 * Print a localized error message from the passed in key.  If the
+	 * application is in Debug mode will also issue a beep.
+	 *
+	 * @param aKey A key for the localized string in the language bundle
+	 */
+	public static void errorPrintLocalised(final String aKey)
+	{
+<span class="nc" id="L274">		final String msg = LanguageBundle.getString(aKey);</span>
+<span class="nc" id="L275">		errorPrint(msg);</span>
+<span class="nc" id="L276">	}</span>
+
+	/**
+	 * Print a localized error message including parameter substitution. The
+	 * method will issue a beep if the application is running in Debug mode.
+	 * &lt;p&gt;
+	 * This method accepts a variable number of parameters and will replace
+	 * {@code {argno}} in the string with each passed paracter in turn.
+	 *
+	 * @param aKey
+	 *            A key for the localized string in the language bundle
+	 * @param varargs
+	 *            Variable number of parameters to substitute into the string
+	 */
+	public static void errorPrintLocalised(final String aKey, Object... varargs)
+	{
+<span class="nc" id="L292">		final String msg = LanguageBundle.getFormattedString(aKey, varargs);</span>
+<span class="nc" id="L293">		errorPrint(msg);</span>
+<span class="nc" id="L294">	}</span>
+
+	/**
+	 * Beep and print error message if PCGen is debugging.
+	 *
+	 * @param s String error message
+	 */
+	public static void deprecationPrint(final String s)
+	{
+<span class="nc" id="L303">		deprecationPrint(s, null);</span>
+<span class="nc" id="L304">	}</span>
+
+	/**
+	 * Beep and print error message if PCGen is debugging.
+	 *
+	 * @param s String error message
+	 * @param context the LoadContext containing the deprecated resource
+	 */
+	public static void deprecationPrint(final String s, final LoadContext context)
+	{
+<span class="fc" id="L314">		Logger l = getLogger();</span>
+<span class="pc bpc" id="L315" title="2 of 4 branches missed.">		if (l.isLoggable(LST_WARNING) &amp;&amp; SettingsHandler.outputDeprecationMessages())</span>
+		{
+<span class="pc bpc" id="L317" title="1 of 4 branches missed.">			if (context != null &amp;&amp; context.getSourceURI() != null)</span>
+			{
+<span class="fc" id="L319">				l.log(LST_WARNING, MessageFormat.format(SOURCE_FORMAT, s, context.getSourceURI()));</span>
+			}
+			else
+			{
+<span class="fc" id="L323">				l.log(LST_WARNING, s);</span>
+			}
+		}
+<span class="fc" id="L326">	}</span>
+
+	/**
+	 * Report where an issue was encountered.
+	 *
+	 * @param context the LoadContext containing the resource
+	 */
+	public static void reportSource(final Level lvl, final LoadContext context)
+	{
+<span class="fc" id="L335">		Logger l = getLogger();</span>
+<span class="pc bpc" id="L336" title="1 of 2 branches missed.">		if (l.isLoggable(lvl))</span>
+		{
+<span class="pc bpc" id="L338" title="2 of 4 branches missed.">			if (context != null &amp;&amp; context.getSourceURI() != null)</span>
+			{
+<span class="nc" id="L340">				l.log(lvl, MessageFormat.format(SOURCE_FORMAT, &quot;&quot;, context.getSourceURI()));</span>
+			}
+			else
+			{
+<span class="fc" id="L344">				l.log(lvl, &quot; (Source unknown)&quot;);</span>
+			}
+		}
+<span class="fc" id="L347">	}</span>
+
+	/**
+	 * Report where an issue was encountered.
+	 *
+	 * @param sourceUri the source containing the resource
+	 */
+	public static void reportSource(final Level lvl, final URI sourceUri)
+	{
+<span class="nc" id="L356">		Logger l = getLogger();</span>
+<span class="nc bnc" id="L357" title="All 2 branches missed.">		if (l.isLoggable(lvl))</span>
+		{
+<span class="nc bnc" id="L359" title="All 2 branches missed.">			if (sourceUri != null)</span>
+			{
+<span class="nc" id="L361">				l.log(lvl, MessageFormat.format(SOURCE_FORMAT, &quot;&quot;, sourceUri));</span>
+			}
+			else
+			{
+<span class="nc" id="L365">				l.log(lvl, &quot; (Source unknown)&quot;);</span>
+			}
+		}
+<span class="nc" id="L368">	}</span>
+
+	/**
+	 * Beep and print error message if PCGen is debugging.
+	 *
+	 * @param s String error message
+	 */
+	public static void errorPrint(final String s)
+	{
+<span class="fc" id="L377">        log(ERROR, s);</span>
+<span class="fc" id="L378">	}</span>
+
+	/**
+	 * Beep and print error message if PCGen is debugging.
+	 *
+	 * @param s String error message
+	 * @param params Varargs list of parameters for substitution into the
+	 * error message.
+	 */
+	public static void errorPrint(final String s, final Object... params)
+	{
+<span class="nc" id="L389">		Logger l = getLogger();</span>
+<span class="nc bnc" id="L390" title="All 2 branches missed.">		if (l.isLoggable(ERROR))</span>
+		{
+<span class="nc" id="L392">			l.log(ERROR, s, params);</span>
+		}
+<span class="nc" id="L394">	}</span>
+
+	/**
+	 * Beep and print error message if PCGen is debugging.
+	 *
+	 * @param s String error message
+	 * @param context the LoadContext containing the deprecated resource
+	 */
+	public static void errorPrint(final String s, final LoadContext context)
+	{
+<span class="nc" id="L404">		Logger l = getLogger();</span>
+<span class="nc bnc" id="L405" title="All 2 branches missed.">		if (l.isLoggable(ERROR))</span>
+		{
+<span class="nc bnc" id="L407" title="All 4 branches missed.">			if (context != null &amp;&amp; context.getSourceURI() != null)</span>
+			{
+<span class="nc" id="L409">				l.log(ERROR, MessageFormat.format(SOURCE_FORMAT, s, context.getSourceURI()));</span>
+			}
+			else
+			{
+<span class="nc" id="L413">				l.log(ERROR, s);</span>
+			}
+		}
+<span class="nc" id="L416">	}</span>
+
+	/**
+	 * Beep and print error message if PCGen is debugging.
+	 *
+	 * @param s String error message
+	 * @param sourceURI the source containing the resource in error
+	 */
+	public static void errorPrint(final String s, final URI sourceURI)
+	{
+<span class="nc" id="L426">		Logger l = getLogger();</span>
+<span class="nc bnc" id="L427" title="All 2 branches missed.">		if (l.isLoggable(ERROR))</span>
+		{
+<span class="nc bnc" id="L429" title="All 2 branches missed.">			if (sourceURI != null)</span>
+			{
+<span class="nc" id="L431">				l.log(ERROR, MessageFormat.format(SOURCE_FORMAT, s, sourceURI));</span>
+			}
+			else
+			{
+<span class="nc" id="L435">				l.log(ERROR, s);</span>
+			}
+		}
+<span class="nc" id="L438">	}</span>
+
+	/**
+	 * Print an error message with a stack trace if PCGen is debugging.
+	 *
+	 * @param s String error message
+	 * @param thr Throwable stack frame
+	 */
+	public static void errorPrint(final String s, final Throwable thr)
+	{
+<span class="fc" id="L448">		ByteArrayOutputStream baos = new ByteArrayOutputStream();</span>
+<span class="fc" id="L449">		PrintStream ps = new PrintStream(baos, true, StandardCharsets.UTF_8);</span>
+<span class="fc" id="L450">		thr.printStackTrace(ps);</span>
+<span class="fc" id="L451">		errorPrint(s + '\n' + baos);</span>
+<span class="fc" id="L452">	}</span>
+
+	/**
+	 * Log a message if logging is enabled at the
+	 * supplied level of detail.
+	 *
+	 * @param lvl The detail level of the message
+	 * @param msg String message
+	 */
+	public static void log(final Level lvl, final String msg)
+	{
+<span class="fc" id="L463">		Logger l = getLogger();</span>
+<span class="pc bpc" id="L464" title="1 of 2 branches missed.">		if (l.isLoggable(lvl))</span>
+		{
+<span class="fc" id="L466">			l.log(lvl, msg);</span>
+		}
+<span class="fc" id="L468">	}</span>
+
+	/**
+	 * Log a message with a stack trace, if logging is enabled at the
+	 * supplied level of detail.
+	 *
+	 * @param lvl The detail level of the message
+	 * @param msg String message
+	 * @param thr Throwable stack frame
+	 */
+	public static void log(final Level lvl, final String msg, final Throwable thr)
+	{
+<span class="nc" id="L480">		Logger l = getLogger();</span>
+<span class="nc bnc" id="L481" title="All 2 branches missed.">		if (l.isLoggable(lvl))</span>
+		{
+<span class="nc" id="L483">			l.log(lvl, msg, thr);</span>
+		}
+<span class="nc" id="L485">	}</span>
+
+	/**
+	 * Log a message with a stack trace, if logging is enabled at the
+	 * supplied level of detail.
+	 * This is mainly for use with the pcgen.rules.persistence.token.ParseResult class.
+	 *
+	 * @param lvl        The detail level of the message
+	 * @param msg        String message
+	 * @param stackTrace The stack trace
+	 */
+	public static void log(Level lvl, String msg, StackTraceElement[] stackTrace)
+	{
+<span class="nc" id="L498">		Logger l = getLogger();</span>
+<span class="nc bnc" id="L499" title="All 2 branches missed.">		if (l.isLoggable(lvl))</span>
+		{
+<span class="nc" id="L501">			l.log(lvl, msg, stackTrace);</span>
+		}
+<span class="nc" id="L503">	}</span>
+
+	/**
+	 * Print error message with a stack trace if PCGen is
+	 * debugging.
+	 *
+	 * @param s String error message
+	 * @param thr Throwable stack frame
+	 */
+	public static void errorPrintLocalised(final String s, final Throwable thr)
+	{
+<span class="nc" id="L514">		ByteArrayOutputStream baos = new ByteArrayOutputStream();</span>
+<span class="nc" id="L515">		try (PrintStream ps = new PrintStream(baos, true, StandardCharsets.UTF_8))</span>
+		{
+<span class="nc" id="L517">			thr.printStackTrace(ps);</span>
+		}
+<span class="nc" id="L519">		errorPrint(LanguageBundle.getString(s) + '\n' + baos);</span>
+<span class="nc" id="L520">	}</span>
+
+	/**
+	 * Report to the console on the current memory sitution.
+	 */
+	public static void memoryReport()
+	{
+<span class="nc" id="L527">		System.out.println(memoryReportStr());</span>
+<span class="nc" id="L528">	}</span>
+
+	/**
+	 * Generate the memory report string
+	 * @return the memory report string
+	 */
+	private static String memoryReportStr()
+	{
+<span class="nc" id="L536">		Runtime rt = Runtime.getRuntime();</span>
+<span class="nc" id="L537">		NumberFormat numFmt = NumberFormat.getNumberInstance();</span>
+<span class="nc" id="L538">		return &quot;Memory: &quot; + numFmt.format(rt.totalMemory() / 1024.0)</span>
+				+ &quot;Kb total, &quot;
+<span class="nc" id="L540">				+ numFmt.format(rt.freeMemory() / 1024.0)</span>
+				+ &quot;Kb free, &quot;
+<span class="nc" id="L542">				+ numFmt.format(rt.maxMemory() / 1024.0)</span>
+				+ &quot;Kb max.&quot;;
+	}
+
+	/**
+	 * Retrieve a Logger object with the specified name. Generally
+	 * this name should be either the fully qualified class name,
+	 * or the package name.
+	 *
+	 * @return An instance of Logger that deals with the specified name.
+	 */
+	private static Logger getLogger()
+	{
+		// Walk lazily to the first frame outside this facade instead of
+		// materialising a whole stack trace on every log call.
+<span class="fc" id="L557">		String name = WALKER.walk(frames -&gt; frames</span>
+<span class="fc" id="L558">				.map(StackWalker.StackFrame::getClassName)</span>
+<span class="fc bfc" id="L559" title="All 2 branches covered.">				.filter(className -&gt; !CLASS_NAME.equals(className))</span>
+<span class="fc" id="L560">				.findFirst())</span>
+<span class="fc" id="L561">				.orElse(&quot;&lt;null&gt;&quot;);</span>
+		// Logger.getLogger never returns null; it creates the logger if absent.
+<span class="fc" id="L563">		return Logger.getLogger(name);</span>
+	}
+
+	/**
+	 * List the current stack of all threads to STDOUT.
+	 */
+	public static void reportAllThreads()
+	{
+<span class="nc" id="L571">		Map&lt;Thread, StackTraceElement[]&gt; allThreads = Thread.getAllStackTraces();</span>
+<span class="nc" id="L572">		StringBuilder b = new StringBuilder();</span>
+<span class="nc" id="L573">		allThreads.forEach((key, traces) -&gt; {</span>
+<span class="nc" id="L574">			b.append(&quot;Thread: &quot;);</span>
+<span class="nc" id="L575">			b.append(key.getName());</span>
+<span class="nc" id="L576">			b.append(&quot;, stacktrace:\n&quot;);</span>
+<span class="nc bnc" id="L577" title="All 2 branches missed.">			for (StackTraceElement element : traces)</span>
+			{
+<span class="nc" id="L579">				b.append(&quot;  &quot;);</span>
+<span class="nc" id="L580">				b.append(element);</span>
+<span class="nc" id="L581">				b.append('\n');</span>
+			}
+<span class="nc" id="L583">		});</span>
+<span class="nc" id="L584">		System.out.println(&quot;==== Thread listing ====&quot;);</span>
+<span class="nc" id="L585">		System.out.println(b);</span>
+<span class="nc" id="L586">		System.out.println(&quot;===== end listing  =====&quot;);</span>
+<span class="nc" id="L587">	}</span>
+
+	/**
+	 * Register a new log handler.
+	 * @param handler The handler to be registered.
+	 */
+	public static void registerHandler(Handler handler)
+	{
+<span class="nc" id="L595">		Logger.getLogger(&quot;&quot;).addHandler(handler);</span>
+<span class="nc" id="L596">	}</span>
+
+	/**
+	 * Removes a log handler.
+	 * @param handler The handler to be removed.
+	 */
+	public static void removeHandler(Handler handler)
+	{
+<span class="nc" id="L604">		Logger.getLogger(&quot;&quot;).removeHandler(handler);</span>
+<span class="nc" id="L605">	}</span>
+
+	/**
+	 * Return a list of the supported logging levels in
+	 * descending order of rank.
+	 * @return List of logging levels.
+	 */
+	public static List&lt;Level&gt; getLoggingLevels()
+	{
+<span class="nc" id="L614">		List&lt;Level&gt; levels = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L615">		levels.add(ERROR);</span>
+<span class="nc" id="L616">		levels.add(LST_ERROR);</span>
+<span class="nc" id="L617">		levels.add(WARNING);</span>
+<span class="nc" id="L618">		levels.add(LST_WARNING);</span>
+<span class="nc" id="L619">		levels.add(INFO);</span>
+<span class="nc" id="L620">		levels.add(LST_INFO);</span>
+<span class="nc" id="L621">		levels.add(DEBUG);</span>
+<span class="nc" id="L622">		return levels;</span>
+	}
+
+	/**
+	 * @return The current logging level for the main program.
+	 */
+	public static Level getCurrentLoggingLevel()
+	{
+<span class="nc" id="L630">		return Logger.getLogger(&quot;pcgen&quot;).getLevel();</span>
+	}
+
+	/**
+	 * Set the current logging level for the main program.
+	 * @param level The new level
+	 */
+	public static void setCurrentLoggingLevel(Level level)
+	{
+<span class="nc bnc" id="L639" title="All 2 branches missed.">		debugMode = (level == Logging.DEBUG);</span>
+<span class="nc" id="L640">		pcgenLogger.setLevel(level);</span>
+<span class="nc" id="L641">		pluginLogger.setLevel(level);</span>
+<span class="nc" id="L642">	}</span>
+
+<span class="fc" id="L644">	private static final LinkedList&lt;QueuedMessage&gt; queuedMessages = new LinkedList&lt;&gt;();</span>
+
+	public static void addParseMessage(Level lvl, String msg)
+	{
+<span class="fc" id="L648">		queuedMessages.add(new QueuedMessage(lvl, msg));</span>
+<span class="fc" id="L649">	}</span>
+
+	/*
+	 * Temporary method for use with ParseResult conversion.
+	 * See pcgen.rules.persistence.token.ParseResult for use.
+	 */
+	public static void addParseMessage(Level lvl, String msg, StackTraceElement[] stack)
+	{
+<span class="fc" id="L657">		queuedMessages.add(new QueuedMessage(lvl, msg, stack));</span>
+<span class="fc" id="L658">	}</span>
+
+<span class="fc" id="L660">	private static int queuedMessageMark = -1;</span>
+
+	public static void rewindParseMessages()
+	{
+<span class="pc bpc" id="L664" title="3 of 4 branches missed.">		while (queuedMessageMark &gt; -1 &amp;&amp; queuedMessages.size() &gt; queuedMessageMark)</span>
+		{
+<span class="nc" id="L666">			queuedMessages.removeLast();</span>
+		}
+<span class="fc" id="L668">	}</span>
+
+	public static void replayParsedMessages()
+	{
+<span class="fc" id="L672">		Logger l = getLogger();</span>
+<span class="fc bfc" id="L673" title="All 2 branches covered.">		for (QueuedMessage msg : queuedMessages)</span>
+		{
+<span class="pc bpc" id="L675" title="1 of 2 branches missed.">			if (l.isLoggable(msg.level))</span>
+			{
+<span class="fc" id="L677">				l.log(msg.level, msg.message, msg.stackTrace);</span>
+			}
+
+<span class="fc" id="L680">		}</span>
+<span class="fc" id="L681">		queuedMessageMark = -1;</span>
+<span class="fc" id="L682">	}</span>
+
+	public static void clearParseMessages()
+	{
+<span class="fc" id="L686">		queuedMessageMark = -1;</span>
+<span class="fc" id="L687">		queuedMessages.clear();</span>
+<span class="fc" id="L688">	}</span>
+
+	private static final class QueuedMessage
+	{
+		final Level level;
+		final String message;
+		private final StackTraceElement[] stackTrace;
+
+		private QueuedMessage(Level lvl, String msg)
+<span class="fc" id="L697">		{</span>
+<span class="fc" id="L698">			level = lvl;</span>
+<span class="fc" id="L699">			message = msg;</span>
+<span class="fc" id="L700">			stackTrace = Thread.currentThread().getStackTrace();</span>
+<span class="fc" id="L701">		}</span>
+
+		/*
+		 * Temporary constructor for use with ParseResult conversion.
+		 * See addParseMessage above.
+		 */
+		private QueuedMessage(Level lvl, String msg, StackTraceElement[] stack)
+<span class="fc" id="L708">		{</span>
+<span class="fc" id="L709">			level = lvl;</span>
+<span class="fc" id="L710">			message = msg;</span>
+<span class="fc" id="L711">			stackTrace = stack;</span>
+<span class="fc" id="L712">		}</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ProhibitedSpellType.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.util.enumeration</a> &gt; <span class="el_source">ProhibitedSpellType.java</span></div><h1>ProhibitedSpellType.java</h1><pre class="source lang-java linenums">/*
+ * Missing License Header, Copyright 2016 (C) Andrew Maitland &lt;amaitland@users.sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+
+package pcgen.util.enumeration;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.identifier.SpellSchool;
+import pcgen.core.spell.Spell;
+
+<span class="fc" id="L30">public enum ProhibitedSpellType</span>
+{
+
+<span class="fc" id="L33">	ALIGNMENT(&quot;Alignment&quot;)</span>
+	{
+		@Override
+		public Collection&lt;String&gt; getCheckList(Spell s)
+		{
+<span class="nc" id="L38">			return s.getSafeListFor(ListKey.SPELL_DESCRIPTOR);</span>
+		}
+
+		@Override
+		public int getRequiredCount(Collection&lt;String&gt; l)
+		{
+<span class="fc" id="L44">			return l.size();</span>
+		}
+	},
+
+<span class="fc" id="L48">	DESCRIPTOR(&quot;Descriptor&quot;)</span>
+	{
+		@Override
+		public Collection&lt;String&gt; getCheckList(Spell s)
+		{
+<span class="nc" id="L53">			return s.getSafeListFor(ListKey.SPELL_DESCRIPTOR);</span>
+		}
+
+		@Override
+		public int getRequiredCount(Collection&lt;String&gt; l)
+		{
+<span class="fc" id="L59">			return l.size();</span>
+		}
+	},
+
+<span class="fc" id="L63">	SCHOOL(&quot;School&quot;)</span>
+	{
+		@Override
+		public Collection&lt;String&gt; getCheckList(Spell s)
+		{
+			/*
+			 * Long method for now
+			 * TODO Clean up
+			 */
+<span class="nc" id="L72">			List&lt;String&gt; list = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L73" title="All 2 branches missed.">			for (SpellSchool ss : s.getSafeListFor(ListKey.SPELL_SCHOOL))</span>
+			{
+<span class="nc" id="L75">				list.add(ss.toString());</span>
+<span class="nc" id="L76">			}</span>
+<span class="nc" id="L77">			return list;</span>
+		}
+
+		@Override
+		public int getRequiredCount(Collection&lt;String&gt; l)
+		{
+<span class="fc" id="L83">			return l.size();</span>
+		}
+	},
+
+<span class="fc" id="L87">	SUBSCHOOL(&quot;SubSchool&quot;)</span>
+	{
+		@Override
+		public Collection&lt;String&gt; getCheckList(Spell s)
+		{
+<span class="nc" id="L92">			return s.getSafeListFor(ListKey.SPELL_SUBSCHOOL);</span>
+		}
+
+		@Override
+		public int getRequiredCount(Collection&lt;String&gt; l)
+		{
+<span class="fc" id="L98">			return l.size();</span>
+		}
+	},
+
+<span class="fc" id="L102">	SPELL(&quot;Spell&quot;)</span>
+	{
+		@Override
+		public Collection&lt;String&gt; getCheckList(Spell s)
+		{
+<span class="nc" id="L107">			return Collections.singletonList(s.getKeyName());</span>
+		}
+
+		@Override
+		public int getRequiredCount(Collection&lt;String&gt; l)
+		{
+<span class="fc" id="L113">			return 1;</span>
+		}
+	};
+
+	private final String text;
+
+	ProhibitedSpellType(String s)
+<span class="fc" id="L120">	{</span>
+<span class="fc" id="L121">		text = s;</span>
+<span class="fc" id="L122">	}</span>
+
+	public abstract Collection&lt;String&gt; getCheckList(Spell s);
+
+	public abstract int getRequiredCount(Collection&lt;String&gt; l);
+
+	@Override
+	public String toString()
+	{
+<span class="fc" id="L131">		return text;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

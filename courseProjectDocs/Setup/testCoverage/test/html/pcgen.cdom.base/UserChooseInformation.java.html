@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UserChooseInformation.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.base</a> &gt; <span class="el_source">UserChooseInformation.java</span></div><h1>UserChooseInformation.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2010 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.cdom.base;
+
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+import java.util.Objects;
+
+import pcgen.cdom.enumeration.AssociationListKey;
+import pcgen.cdom.enumeration.GroupingState;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.chooser.ChoiceManagerList;
+import pcgen.core.chooser.UserInputManager;
+import pcgen.rules.context.LoadContext;
+
+import org.jetbrains.annotations.NotNull;
+
+public final class UserChooseInformation implements ChooseInformation&lt;String&gt;, Chooser&lt;String&gt;
+{
+
+	public static final String UCI_NAME = &quot;User Input&quot;;
+
+	private static final String DEFAULT_TITLE = &quot;Provide User Input&quot;;
+
+	/**
+	 * The title (presented to the user) of this ChoiceSet.
+	 */
+	private final String title;
+
+	public UserChooseInformation()
+	{
+<span class="nc" id="L48">		this(DEFAULT_TITLE);</span>
+<span class="nc" id="L49">	}</span>
+
+	public UserChooseInformation(String title)
+<span class="fc" id="L52">	{</span>
+<span class="fc" id="L53">		this.title = Objects.requireNonNullElse(title, DEFAULT_TITLE);</span>
+<span class="fc" id="L54">	}</span>
+
+	@Override
+	public Class&lt;String&gt; getReferenceClass()
+	{
+<span class="nc" id="L59">		return String.class;</span>
+	}
+
+	@Override
+	public ChoiceManagerList&lt;String&gt; getChoiceManager(ChooseDriver owner, int cost)
+	{
+<span class="nc" id="L65">		return new UserInputManager(owner, this, cost);</span>
+	}
+
+	@Override
+	public GroupingState getGroupingState()
+	{
+<span class="nc" id="L71">		return GroupingState.ALLOWS_NONE;</span>
+	}
+
+	@Override
+	public String getLSTformat()
+	{
+<span class="nc" id="L77">		return &quot;*USERINPUT&quot;;</span>
+	}
+
+	@Override
+	public String getName()
+	{
+<span class="fc" id="L83">		return UCI_NAME;</span>
+	}
+
+	@Override
+	public Collection&lt;String&gt; getSet(PlayerCharacter pc)
+	{
+<span class="nc" id="L89">		return Collections.singletonList(&quot;USERINPUT&quot;);</span>
+	}
+
+	@Override
+	public String getTitle()
+	{
+<span class="fc" id="L95">		return title;</span>
+	}
+
+	@Override
+	public CharSequence composeDisplay(@NotNull Collection&lt;? extends String&gt; collection)
+	{
+<span class="nc" id="L101">		return ChooseInformationUtilities.buildEncodedString(collection);</span>
+	}
+
+	@Override
+	public void restoreChoice(PlayerCharacter pc, ChooseDriver owner, String choice)
+	{
+<span class="nc" id="L107">		pc.addAssoc(owner, getListKey(), choice);</span>
+<span class="nc" id="L108">	}</span>
+
+	@Override
+	public List&lt;String&gt; getCurrentlySelected(ChooseDriver owner, PlayerCharacter pc)
+	{
+<span class="nc" id="L113">		return pc.getAssocList(owner, getListKey());</span>
+	}
+
+	@Override
+	public void applyChoice(ChooseDriver owner, String choice, PlayerCharacter pc)
+	{
+<span class="nc" id="L119">		restoreChoice(pc, owner, choice);</span>
+<span class="nc" id="L120">		List&lt;ChooseSelectionActor&lt;?&gt;&gt; actors = owner.getActors();</span>
+<span class="nc bnc" id="L121" title="All 2 branches missed.">		if (actors != null)</span>
+		{
+<span class="nc bnc" id="L123" title="All 2 branches missed.">			for (ChooseSelectionActor csa : actors)</span>
+			{
+<span class="nc" id="L125">				applyChoice(owner, pc, choice, csa);</span>
+<span class="nc" id="L126">			}</span>
+		}
+<span class="nc" id="L128">	}</span>
+
+	private static void applyChoice(ChooseDriver owner, PlayerCharacter pc, String choice,
+		ChooseSelectionActor&lt;String&gt; csa)
+	{
+<span class="nc" id="L133">		csa.applyChoice(owner, choice, pc);</span>
+<span class="nc" id="L134">	}</span>
+
+	@Override
+	public void removeChoice(PlayerCharacter pc, ChooseDriver owner, String choice)
+	{
+<span class="nc" id="L139">		pc.removeAssoc(owner, getListKey(), choice);</span>
+<span class="nc" id="L140">		List&lt;ChooseSelectionActor&lt;?&gt;&gt; actors = owner.getActors();</span>
+<span class="nc bnc" id="L141" title="All 2 branches missed.">		if (actors != null)</span>
+		{
+<span class="nc bnc" id="L143" title="All 2 branches missed.">			for (ChooseSelectionActor csa : actors)</span>
+			{
+<span class="nc" id="L145">				csa.removeChoice(owner, choice, pc);</span>
+<span class="nc" id="L146">			}</span>
+		}
+<span class="nc" id="L148">	}</span>
+
+	@Override
+	public Chooser&lt;String&gt; getChoiceActor()
+	{
+<span class="nc" id="L153">		return this;</span>
+	}
+
+	@Override
+	public void setChoiceActor(Chooser&lt;String&gt; actor)
+	{
+		// ignore
+<span class="nc" id="L160">	}</span>
+
+	@Override
+	public boolean allow(String choice, PlayerCharacter pc, boolean allowStack)
+	{
+<span class="nc" id="L165">		return true;</span>
+	}
+
+	@Override
+	public String decodeChoice(LoadContext context, String choice)
+	{
+<span class="nc" id="L171">		return choice;</span>
+	}
+
+	@Override
+	public String encodeChoice(String choice)
+	{
+<span class="nc" id="L177">		return choice;</span>
+	}
+
+	private static AssociationListKey&lt;String&gt; getListKey()
+	{
+<span class="nc" id="L182">		return AssociationListKey.getKeyFor(String.class, &quot;CHOOSE*USERCHOICE&quot;);</span>
+	}
+
+	@Override
+	public String getPersistentFormat()
+	{
+<span class="nc" id="L188">		return &quot;STRING&quot;;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

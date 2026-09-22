@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DynamicToken.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.lsttokens.campaign</a> &gt; <span class="el_source">DynamicToken.java</span></div><h1>DynamicToken.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2016 (C) Thomas Parker &lt;thpr@users.sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package plugin.lsttokens.campaign;
+
+import java.util.Collection;
+import java.util.Set;
+import java.util.TreeSet;
+
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.core.Campaign;
+import pcgen.persistence.lst.CampaignSourceEntry;
+import pcgen.rules.context.Changes;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.ParseResult;
+
+/**
+ * Class deals with DYNAMIC Token
+ */
+<span class="nc" id="L36">public class DynamicToken extends AbstractTokenWithSeparator&lt;Campaign&gt; implements CDOMPrimaryToken&lt;Campaign&gt;</span>
+{
+
+	@Override
+	public String getTokenName()
+	{
+<span class="nc" id="L42">		return &quot;DYNAMIC&quot;;</span>
+	}
+
+	@Override
+	protected char separator()
+	{
+<span class="nc" id="L48">		return '|';</span>
+	}
+
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context, Campaign campaign, String value)
+	{
+<span class="nc" id="L54">		CampaignSourceEntry cse = context.getCampaignSourceEntry(campaign, value);</span>
+<span class="nc bnc" id="L55" title="All 2 branches missed.">		if (cse == null)</span>
+		{
+			//Error
+<span class="nc" id="L58">			return ParseResult.INTERNAL_ERROR;</span>
+		}
+<span class="nc bnc" id="L60" title="All 2 branches missed.">		if (!cse.getIncludeItems().isEmpty())</span>
+		{
+<span class="nc" id="L62">			return new ParseResult.Fail(getTokenName() + &quot; does not support Include&quot;);</span>
+		}
+<span class="nc bnc" id="L64" title="All 2 branches missed.">		if (!cse.getExcludeItems().isEmpty())</span>
+		{
+<span class="nc" id="L66">			return new ParseResult.Fail(getTokenName() + &quot; does not support Exclude&quot;);</span>
+		}
+<span class="nc bnc" id="L68" title="All 2 branches missed.">		if (!cse.getPrerequisites().isEmpty())</span>
+		{
+<span class="nc" id="L70">			return new ParseResult.Fail(getTokenName() + &quot; does not support Prerequisites&quot;);</span>
+		}
+<span class="nc" id="L72">		context.getObjectContext().addToList(campaign, ListKey.FILE_DYNAMIC, cse);</span>
+<span class="nc" id="L73">		return ParseResult.SUCCESS;</span>
+	}
+
+	@Override
+	public String[] unparse(LoadContext context, Campaign campaign)
+	{
+<span class="nc" id="L79">		Changes&lt;CampaignSourceEntry&gt; cseChanges =</span>
+<span class="nc" id="L80">				context.getObjectContext().getListChanges(campaign, ListKey.FILE_DYNAMIC);</span>
+<span class="nc" id="L81">		Collection&lt;CampaignSourceEntry&gt; added = cseChanges.getAdded();</span>
+<span class="nc bnc" id="L82" title="All 2 branches missed.">		if (added == null)</span>
+		{
+			//empty indicates no token
+<span class="nc" id="L85">			return null;</span>
+		}
+<span class="nc" id="L87">		Set&lt;String&gt; set = new TreeSet&lt;&gt;();</span>
+<span class="nc bnc" id="L88" title="All 2 branches missed.">		for (CampaignSourceEntry cse : added)</span>
+		{
+<span class="nc" id="L90">			set.add(cse.getLSTformat());</span>
+<span class="nc" id="L91">		}</span>
+<span class="nc" id="L92">		return set.toArray(new String[0]);</span>
+	}
+
+	@Override
+	public Class&lt;Campaign&gt; getTokenClass()
+	{
+<span class="nc" id="L98">		return Campaign.class;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

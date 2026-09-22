@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>InfoModel.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.output.model</a> &gt; <span class="el_source">InfoModel.java</span></div><h1>InfoModel.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2015 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.output.model;
+
+import java.text.MessageFormat;
+import java.util.Objects;
+
+import pcgen.base.lang.CaseInsensitiveString;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.MapKey;
+import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.ObjectWrapperFacet;
+import pcgen.cdom.helper.InfoUtilities;
+import pcgen.util.Logging;
+
+import freemarker.template.TemplateHashModel;
+import freemarker.template.TemplateModel;
+import freemarker.template.TemplateModelException;
+
+/**
+ * A InfoModel is a TemplateHashModel that wraps the Info data in a CDOMObject
+ */
+public class InfoModel implements TemplateHashModel
+{
+	/**
+	 * The underlying CharID for this InfoModel
+	 */
+	private final CharID id;
+
+	/**
+	 * The underlying CDOMObject for this InfoModel
+	 */
+	private final CDOMObject cdo;
+
+	/**
+	 * Constructs a new InfoModel with the given CharID and CDOMObject as the
+	 * underlying information.
+	 * 
+	 * @param id
+	 *            The CharID that underlies this InfoModel
+	 * @param cdo
+	 *            The CDOMObject that underlies this InfoModel
+	 */
+	public InfoModel(CharID id, CDOMObject cdo)
+<span class="nc" id="L61">	{</span>
+<span class="nc" id="L62">		Objects.requireNonNull(id, &quot;CharID cannot be null&quot;);</span>
+<span class="nc" id="L63">		Objects.requireNonNull(cdo, &quot;CDOMObject cannot be null&quot;);</span>
+<span class="nc" id="L64">		this.id = id;</span>
+<span class="nc" id="L65">		this.cdo = cdo;</span>
+<span class="nc" id="L66">	}</span>
+
+	/**
+	 * Acts as a hash for producing the contents of this model.
+	 */
+	@Override
+	public TemplateModel get(String key) throws TemplateModelException
+	{
+<span class="nc" id="L74">		CaseInsensitiveString cis = new CaseInsensitiveString(key);</span>
+<span class="nc" id="L75">		MessageFormat info = cdo.get(MapKey.INFO, cis);</span>
+
+<span class="nc" id="L77">		StringBuffer sb = new StringBuffer(200);</span>
+<span class="nc bnc" id="L78" title="All 2 branches missed.">		if (info != null)</span>
+		{
+<span class="nc" id="L80">			Object[] infoVars = InfoUtilities.getInfoVars(id, cdo, cis);</span>
+<span class="nc" id="L81">			info.format(infoVars, sb, null);</span>
+<span class="nc" id="L82">		}</span>
+		else
+		{
+			//TODO: This should actually throw an error but we can't for
+			//now due to it breaking too many thing...
+			//So we are just logging it for now.
+			//--Connor Petty
+<span class="nc" id="L89">			Logging.errorPrint(&quot;CDOMObject [&quot; + cdo.getDisplayName() + &quot;] does not have INFO of type &quot; + key);</span>
+			//			throw new TemplateModelException(
+			//				&quot;CDOMObject did not have INFO of type &quot; + key);
+		}
+<span class="nc" id="L93">		return FacetLibrary.getFacet(ObjectWrapperFacet.class).wrap(id, sb.toString());</span>
+	}
+
+	@Override
+	public boolean isEmpty()
+	{
+<span class="nc" id="L99">		return cdo.getKeysFor(MapKey.INFO).isEmpty();</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>QualifiedObject.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.core</a> &gt; <span class="el_source">QualifiedObject.java</span></div><h1>QualifiedObject.java</h1><pre class="source lang-java linenums">/*
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ * Current Version: $Revision$
+ *
+ * Copyright 2006 Aaron Divinsky &lt;boomer70@yahoo.com&gt;
+ */
+package pcgen.core;
+
+import java.util.List;
+
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.ConcretePrereqObject;
+import pcgen.cdom.base.QualifyingObject;
+import pcgen.core.prereq.Prerequisite;
+
+/**
+ * This class stores an association between an object and a set of prereqs.
+ * Refactored from ChoiceInfo originally written by
+ * Andrew Wilson &amp;lt;nuance@sourceforge.net&amp;gt;
+ * @param &lt;T&gt; 
+ */
+public class QualifiedObject&lt;T&gt; extends ConcretePrereqObject implements QualifyingObject
+{
+
+	private T theObject;
+
+	/**
+	 * Constructor
+	 * @param anObj
+	 */
+	public QualifiedObject(final T anObj)
+<span class="fc" id="L46">	{</span>
+<span class="fc" id="L47">		theObject = anObj;</span>
+<span class="fc" id="L48">	}</span>
+
+	/**
+	 * Constructor 
+	 * @param anObj
+	 * @param aPrereqList
+	 */
+	public QualifiedObject(final T anObj, final List&lt;Prerequisite&gt; aPrereqList)
+<span class="fc" id="L56">	{</span>
+<span class="fc" id="L57">		theObject = anObj;</span>
+<span class="fc" id="L58">		addAllPrerequisites(aPrereqList);</span>
+<span class="fc" id="L59">	}</span>
+
+	/**
+	 * Constructor 
+	 * @param anObj
+	 * @param prereq
+	 */
+	public QualifiedObject(final T anObj, Prerequisite prereq)
+<span class="fc" id="L67">	{</span>
+<span class="fc" id="L68">		theObject = anObj;</span>
+<span class="fc" id="L69">		addPrerequisite(prereq);</span>
+<span class="fc" id="L70">	}</span>
+
+	/**
+	 * Get the qualifiying object. Will always return the object 
+	 * if no character is passed in.
+	 * 
+	 * @param aPC Character to be checked or null
+	 * @param owner TODO
+	 * @return qualifying object
+	 */
+	public T getObject(final PlayerCharacter aPC, CDOMObject owner)
+	{
+<span class="nc bnc" id="L82" title="All 4 branches missed.">		if (aPC == null || qualifies(aPC, owner))</span>
+		{
+<span class="nc" id="L84">			return theObject;</span>
+		}
+<span class="nc" id="L86">		return null;</span>
+	}
+
+	/**
+	 * Get the qualifiying object. Will always return the object
+	 * 
+	 * @return qualifying object
+	 */
+	public T getRawObject()
+	{
+<span class="fc" id="L96">		return theObject;</span>
+	}
+
+	/**
+	 * Set qualifying object 
+	 * @param anObject
+	 */
+	public void setObject(final T anObject)
+	{
+<span class="nc" id="L105">		theObject = anObject;</span>
+<span class="nc" id="L106">	}</span>
+
+	@Override
+	public String toString()
+	{
+<span class="fc bfc" id="L111" title="All 2 branches covered.">		return theObject == null ? &quot;&quot; : theObject.toString();</span>
+	}
+
+	@Override
+	public boolean equals(Object obj)
+	{
+<span class="pc bpc" id="L117" title="1 of 2 branches missed.">		if (obj instanceof QualifiedObject&lt;?&gt; other)</span>
+		{
+<span class="pc bpc" id="L119" title="1 of 2 branches missed.">			if (!equalsPrereqObject(other))</span>
+			{
+<span class="nc" id="L121">				return false;</span>
+			}
+<span class="pc bpc" id="L123" title="1 of 2 branches missed.">			if (other.theObject == null)</span>
+			{
+<span class="nc bnc" id="L125" title="All 2 branches missed.">				return theObject == null;</span>
+			}
+<span class="fc" id="L127">			return other.theObject.equals(theObject);</span>
+		}
+<span class="nc" id="L129">		return false;</span>
+	}
+
+	@Override
+	public int hashCode()
+	{
+<span class="pc bpc" id="L135" title="1 of 2 branches missed.">		return getPrerequisiteCount() * 23 + (theObject == null ? -1 : theObject.hashCode());</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

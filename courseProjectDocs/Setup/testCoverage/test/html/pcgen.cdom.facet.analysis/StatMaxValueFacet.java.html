@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>StatMaxValueFacet.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.facet.analysis</a> &gt; <span class="el_source">StatMaxValueFacet.java</span></div><h1>StatMaxValueFacet.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) James Dempsey, 2013.
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package pcgen.cdom.facet.analysis;
+
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.facet.CDOMObjectConsolidationFacet;
+import pcgen.cdom.facet.FormulaResolvingFacet;
+import pcgen.cdom.facet.base.AbstractSourcedListFacet;
+import pcgen.cdom.facet.event.DataFacetChangeEvent;
+import pcgen.cdom.facet.event.DataFacetChangeListener;
+import pcgen.cdom.helper.StatLock;
+import pcgen.core.PCStat;
+
+/**
+ * StatMaxValueFacet  is a Facet that tracks the Stats that have had a maximum 
+ * value set on a Player Character.
+ *
+ * 
+ */
+<span class="fc" id="L42">public class StatMaxValueFacet extends AbstractSourcedListFacet&lt;CharID, StatLock&gt;</span>
+		implements DataFacetChangeListener&lt;CharID, CDOMObject&gt;
+{
+	private FormulaResolvingFacet formulaResolvingFacet;
+
+	private CDOMObjectConsolidationFacet consolidationFacet;
+
+	/**
+	 * Adds max value StatLock objects granted by a CDOMObject which has been 
+	 * added to a Player Character.
+	 * 
+	 * Triggered when one of the Facets to which StatLockFacet listens fires a
+	 * DataFacetChangeEvent to indicate a CDOMObject was added to a Player
+	 * Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 */
+	@Override
+	public void dataAdded(DataFacetChangeEvent&lt;CharID, CDOMObject&gt; dfce)
+	{
+<span class="fc" id="L64">		CDOMObject cdo = dfce.getCDOMObject();</span>
+<span class="fc" id="L65">		List&lt;StatLock&gt; locks = cdo.getListFor(ListKey.STAT_MAXVALUE);</span>
+<span class="pc bpc" id="L66" title="1 of 2 branches missed.">		if (locks != null)</span>
+		{
+<span class="nc" id="L68">			addAll(dfce.getCharID(), locks, cdo);</span>
+		}
+<span class="fc" id="L70">	}</span>
+
+	/**
+	 * Removes max value StatLock objects granted by a CDOMObject which has been 
+	 * removed from a Player Character.
+	 * 
+	 * Triggered when one of the Facets to which StatLockFacet listens fires a
+	 * DataFacetChangeEvent to indicate a CDOMObject was removed from a Player
+	 * Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 */
+	@Override
+	public void dataRemoved(DataFacetChangeEvent&lt;CharID, CDOMObject&gt; dfce)
+	{
+<span class="fc" id="L87">		removeAll(dfce.getCharID(), dfce.getCDOMObject());</span>
+<span class="fc" id="L88">	}</span>
+
+	/**
+	 * Returns the numerical maximum value for the given PCStat which has had a 
+	 * max value set for the Player Character identified by the given CharID. 
+	 * Returns null if no max value StatLock exists on the Player Character for 
+	 * the given PCStat.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character for which the
+	 *            maximum stat value is to be returned
+	 * @param stat
+	 *            The PCStat for which the numerical lock value is to be
+	 *            returned
+	 * @return The numerical value for the given PCStat which has been locked
+	 *         for the Player Character identified by the given CharID; null if
+	 *         no StatLock exists on the Player Character for the given PCStat
+	 */
+	public Number getStatMaxValue(CharID id, PCStat stat)
+	{
+<span class="nc" id="L108">		Number max = Double.POSITIVE_INFINITY;</span>
+<span class="nc" id="L109">		boolean hit = false;</span>
+
+<span class="nc" id="L111">		Map&lt;StatLock, Set&lt;Object&gt;&gt; componentMap = getCachedMap(id);</span>
+<span class="nc bnc" id="L112" title="All 2 branches missed.">		if (componentMap != null)</span>
+		{
+<span class="nc bnc" id="L114" title="All 2 branches missed.">			for (Entry&lt;StatLock, Set&lt;Object&gt;&gt; me : componentMap.entrySet())</span>
+			{
+<span class="nc" id="L116">				Set&lt;Object&gt; set = me.getValue();</span>
+<span class="nc" id="L117">				StatLock lock = me.getKey();</span>
+<span class="nc bnc" id="L118" title="All 2 branches missed.">				if (lock.getLockedStat().equals(stat))</span>
+				{
+<span class="nc bnc" id="L120" title="All 2 branches missed.">					for (Object source : set)</span>
+					{
+						String sourceString =
+<span class="nc bnc" id="L123" title="All 2 branches missed.">								(source instanceof CDOMObject) ? ((CDOMObject) source).getQualifiedKey() : &quot;&quot;;</span>
+<span class="nc" id="L124">						Number val = formulaResolvingFacet.resolve(id, lock.getLockValue(), sourceString);</span>
+<span class="nc bnc" id="L125" title="All 2 branches missed.">						if (val.doubleValue() &lt; max.doubleValue())</span>
+						{
+<span class="nc" id="L127">							hit = true;</span>
+<span class="nc" id="L128">							max = val;</span>
+						}
+<span class="nc" id="L130">					}</span>
+				}
+<span class="nc" id="L132">			}</span>
+		}
+<span class="nc bnc" id="L134" title="All 2 branches missed.">		return hit ? max : null;</span>
+	}
+
+	public void setFormulaResolvingFacet(FormulaResolvingFacet formulaResolvingFacet)
+	{
+<span class="fc" id="L139">		this.formulaResolvingFacet = formulaResolvingFacet;</span>
+<span class="fc" id="L140">	}</span>
+
+	public void setConsolidationFacet(CDOMObjectConsolidationFacet consolidationFacet)
+	{
+<span class="fc" id="L144">		this.consolidationFacet = consolidationFacet;</span>
+<span class="fc" id="L145">	}</span>
+
+	/**
+	 * Initializes the connections for StatLockFacet to other facets.
+	 * 
+	 * This method is automatically called by the Spring framework during
+	 * initialization of the StatLockFacet.
+	 */
+	public void init()
+	{
+<span class="fc" id="L155">		consolidationFacet.addDataFacetChangeListener(this);</span>
+<span class="fc" id="L156">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

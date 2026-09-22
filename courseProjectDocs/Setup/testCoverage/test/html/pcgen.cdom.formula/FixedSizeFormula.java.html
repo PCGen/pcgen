@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FixedSizeFormula.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.formula</a> &gt; <span class="el_source">FixedSizeFormula.java</span></div><h1>FixedSizeFormula.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2007, 2008 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.cdom.formula;
+
+import java.util.Objects;
+
+import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.core.Equipment;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.SizeAdjustment;
+
+/**
+ * A FixedSizeFormula is a Formula that returns a deterministic value, used to
+ * uniquely identify a SizeAdjustment. The SizeAdjustment for which this Formula
+ * will return the value must be defined during construction of the
+ * FixedSizeFormula.
+ */
+public class FixedSizeFormula implements Formula
+{
+
+	/**
+	 * The underlying SizeAdjustment for which this Formula will return the
+	 * identifying value.
+	 */
+	private final CDOMSingleRef&lt;SizeAdjustment&gt; size;
+
+	/**
+	 * Creates a new FixedSizeFormula for the given SizeAdjustment.
+	 * 
+	 * @param sAdj
+	 *            The SizeAdjustment for which this Formula will return the
+	 *            identifying value.
+	 * @throws IllegalArgumentException
+	 *             if the given SizeAdjustment is null
+	 */
+	public FixedSizeFormula(CDOMSingleRef&lt;SizeAdjustment&gt; sAdj)
+<span class="fc" id="L53">	{</span>
+<span class="fc" id="L54">		Objects.requireNonNull(sAdj, &quot;Size Adjustment for FixedSizeFormula cannot be null&quot;);</span>
+<span class="fc" id="L55">		size = sAdj;</span>
+<span class="fc" id="L56">	}</span>
+
+	/**
+	 * Returns a String representation of this FixedSizeFormula, primarily for
+	 * purposes of debugging. It is strongly advised that no dependency on this
+	 * method be created, as the return value may be changed without warning.
+	 */
+	@Override
+	public String toString()
+	{
+<span class="fc" id="L66">		return size.getLSTformat(false);</span>
+	}
+
+	@Override
+	public int hashCode()
+	{
+<span class="nc" id="L72">		return size.hashCode();</span>
+	}
+
+	@Override
+	public boolean equals(Object obj)
+	{
+<span class="pc bpc" id="L78" title="2 of 4 branches missed.">		return obj instanceof FixedSizeFormula &amp;&amp; size.equals(((FixedSizeFormula) obj).size);</span>
+	}
+
+	/**
+	 * Resolves to the identifying value of the SizeAdjustment provided during
+	 * construction of the FixedSizeFormula. The given PlayerCharacter and
+	 * source are ignored.
+	 * 
+	 * @param pc
+	 *            The PlayerCharacter relative to which the FixedSizeFormula
+	 *            should be resolved (ignored)
+	 * @param source
+	 *            The source object of the FixedSizeFormula, for purposes of
+	 *            resolution (ignored)
+	 * @return The identifying value of the SizeAdjustment this FixedSizeFormula
+	 *         represents.
+	 */
+	@Override
+	public Integer resolve(PlayerCharacter pc, String source)
+	{
+<span class="fc" id="L98">		return resolveStatic();</span>
+	}
+
+	/**
+	 * Resolves to the identifying value of the SizeAdjustment provided during
+	 * construction of the FixedSizeFormula. The given arguments are ignored as
+	 * no source or context is requried to resolve a FixedSizeFormula.
+	 * 
+	 * @param equipment
+	 *            The Equipment relative to which the FixedSizeFormula should be
+	 *            resolved (ignored)
+	 * @param primary
+	 *            True if the primary head of the given Equipment should be used
+	 *            for resolution, false if the secondary head should be used for
+	 *            resolution (ignored)
+	 * @param apc
+	 *            The PlayerCharacter relative to which the FixedSizeFormula
+	 *            should be resolved (ignored)
+	 * @param source
+	 *            The source object of the FixedSizeFormula, for purposes of
+	 *            resolution (ignored)
+	 * @return The identifying value of the SizeAdjustment this FixedSizeFormula
+	 *         represents.
+	 */
+	@Override
+	public Number resolve(Equipment equipment, boolean primary, PlayerCharacter apc, String source)
+	{
+<span class="nc" id="L125">		return resolveStatic();</span>
+	}
+
+	/**
+	 * Returns true if this Formula is static (will always return the same
+	 * value). As a FixedSizeFormula will always return the same value except in
+	 * circumvention of a key assumption (a consistent, ordered set of
+	 * SizeAdjustment objects in a given GameMode), this will return true.
+	 * 
+	 * @return true
+	 */
+	@Override
+	public boolean isStatic()
+	{
+<span class="nc" id="L139">		return true;</span>
+	}
+
+	@Override
+	public boolean isValid()
+	{
+<span class="nc" id="L145">		return true;</span>
+	}
+
+	/**
+	 * Resolves to the identifying value of the SizeAdjustment provided during
+	 * construction of the FixedSizeFormula.
+	 * 
+	 * @return The identifying value of the SizeAdjustment this FixedSizeFormula
+	 *         represents.
+	 */
+	@Override
+	public Integer resolveStatic()
+	{
+<span class="fc" id="L158">		return size.get().get(IntegerKey.SIZEORDER);</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

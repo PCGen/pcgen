@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>NonProficiencyPenaltyFacet.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.facet.analysis</a> &gt; <span class="el_source">NonProficiencyPenaltyFacet.java</span></div><h1>NonProficiencyPenaltyFacet.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) Thomas Parker, 2009.
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package pcgen.cdom.facet.analysis;
+
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.facet.model.TemplateFacet;
+import pcgen.core.PCTemplate;
+import pcgen.core.SettingsHandler;
+
+/**
+ * NonProficiencyPenaltyFacet is a Facet that calculates the Non-Proficiency
+ * Penalty assessed when a Player Character is not proficient with a Weapon (and
+ * attempts to use that Weapon)
+ */
+<span class="fc" id="L31">public class NonProficiencyPenaltyFacet</span>
+{
+	private TemplateFacet templateFacet;
+
+	/**
+	 * Returns the Non-Proficiency Penalty assessed when a Player Character
+	 * represented by the given CharID is not proficient with a Weapon (and
+	 * attempts to use that Weapon)
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which a
+	 *            Non-Proficiency Penalty will be calculated
+	 * @return The Non-Proficiency Penalty assessed when a Player Character
+	 *         represented by the given CharID is not proficient with a Weapon
+	 */
+	public int getPenalty(CharID id)
+	{
+<span class="fc" id="L48">		int npp = SettingsHandler.getGameAsProperty().get().getNonProfPenalty();</span>
+
+<span class="fc bfc" id="L50" title="All 2 branches covered.">		for (PCTemplate t : templateFacet.getSet(id))</span>
+		{
+<span class="fc" id="L52">			Integer temp = t.get(IntegerKey.NONPP);</span>
+<span class="fc bfc" id="L53" title="All 2 branches covered.">			if (temp != null)</span>
+			{
+<span class="fc" id="L55">				npp = temp;</span>
+			}
+<span class="fc" id="L57">		}</span>
+
+<span class="fc" id="L59">		return npp;</span>
+	}
+
+	public void setTemplateFacet(TemplateFacet templateFacet)
+	{
+<span class="fc" id="L64">		this.templateFacet = templateFacet;</span>
+<span class="fc" id="L65">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

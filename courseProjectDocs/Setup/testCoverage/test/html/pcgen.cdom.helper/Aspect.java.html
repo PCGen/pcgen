@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Aspect.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.helper</a> &gt; <span class="el_source">Aspect.java</span></div><h1>Aspect.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2008 (C) James Dempsey
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ *
+ */
+package pcgen.cdom.helper;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Objects;
+
+import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.ConcretePrereqObject;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.content.CNAbility;
+import pcgen.cdom.enumeration.AspectName;
+import pcgen.cdom.enumeration.MapKey;
+import pcgen.core.Ability;
+import pcgen.core.PlayerCharacter;
+import pcgen.io.EntityEncoder;
+import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
+import pcgen.util.Logging;
+
+/**
+ * The Class {@code Aspect} represents a generic name field for
+ * abilities. It is a name/value characteristic allowing substitution of 
+ * values.
+ * 
+ * &lt;p&gt;Variable substitution is performed by replacing a placeholder indicated
+ * by %# with the #th variable in the variable list.  For example, the string
+ * &lt;br&gt;{@code &quot;This is %1 variable %3 %2&quot;}
+ * &lt;br&gt;would be replaced with the string &amp;quot;This is a variable substitution
+ * string&amp;quot; if the variable list was &amp;quot;a&amp;quot;,&amp;quot;string&amp;quot;, 
+ * &amp;quot;substitution&amp;quot;.
+ * 
+ * 
+ * 
+ */
+public class Aspect extends ConcretePrereqObject
+{
+	/**
+	 * The name of the name stored in this Aspect.
+	 */
+	private final AspectName key;
+
+<span class="pc" id="L61">	private final List&lt;String&gt; theComponents = new ArrayList&lt;&gt;();</span>
+<span class="pc" id="L62">	private List&lt;String&gt; theVariables = null;</span>
+
+	private static final String VAR_NAME = &quot;%NAME&quot;; //$NON-NLS-1$
+	private static final String VAR_LIST = &quot;%LIST&quot;; //$NON-NLS-1$
+
+	private static final String VAR_MARKER = &quot;$$VAR:&quot;; //$NON-NLS-1$
+
+	/**
+	 * Instantiates a new aspect.
+	 * 
+	 * @param name the name of the aspect
+	 * @param aString the aspect string
+	 */
+	public Aspect(final String name, final String aString)
+<span class="fc" id="L76">	{</span>
+<span class="fc" id="L77">		Objects.requireNonNull(name, &quot;Name for Aspect cannot be null&quot;);</span>
+<span class="fc" id="L78">		Objects.requireNonNull(aString, &quot;Value for Aspect cannot be null&quot;);</span>
+<span class="fc" id="L79">		this.key = AspectName.getConstant(name);</span>
+
+<span class="fc" id="L81">		parseAspectString(aString);</span>
+<span class="fc" id="L82">	}</span>
+
+	/**
+	 * Instantiates a new aspect.
+	 * 
+	 * @param key the name of the aspect
+	 * @param aString the aspect string
+	 */
+	public Aspect(final AspectName key, final String aString)
+<span class="nc" id="L91">	{</span>
+<span class="nc" id="L92">		Objects.requireNonNull(key, &quot;Key for Aspect cannot be null&quot;);</span>
+<span class="nc" id="L93">		Objects.requireNonNull(aString, &quot;Value for Aspect cannot be null&quot;);</span>
+<span class="nc" id="L94">		this.key = key;</span>
+
+<span class="nc" id="L96">		parseAspectString(aString);</span>
+<span class="nc" id="L97">	}</span>
+
+	/**
+	 * Parse an aspect definition string and populate the Aspect with 
+	 * the contents. This drives the processing to split the description 
+	 * from the parameters and to identify the references to the 
+	 * parameters. 
+	 *   
+	 * @param aString The aspect definition string.
+	 */
+	private void parseAspectString(final String aString)
+	{
+<span class="fc" id="L109">		int currentInd = 0;</span>
+		int percentInd;
+<span class="pc bpc" id="L111" title="1 of 2 branches missed.">		while ((percentInd = aString.indexOf('%', currentInd)) != -1)</span>
+		{
+<span class="nc" id="L113">			final String preText = aString.substring(currentInd, percentInd);</span>
+<span class="nc bnc" id="L114" title="All 2 branches missed.">			if (!preText.isEmpty())</span>
+			{
+<span class="nc" id="L116">				theComponents.add(preText);</span>
+			}
+<span class="nc bnc" id="L118" title="All 2 branches missed.">			if (percentInd == aString.length() - 1)</span>
+			{
+<span class="nc" id="L120">				theComponents.add(&quot;%&quot;); //$NON-NLS-1$</span>
+<span class="nc" id="L121">				return;</span>
+			}
+<span class="nc bnc" id="L123" title="All 2 branches missed.">			if (aString.charAt(percentInd + 1) == '{')</span>
+			{
+				// This is a bracketed placeholder.  The replacement parameter
+				// is contained within the {}
+<span class="nc" id="L127">				currentInd = aString.indexOf('}', percentInd + 1) + 1;</span>
+<span class="nc" id="L128">				final String replacement = aString.substring(percentInd + 1, currentInd);</span>
+				// For the time being we will only support numerics here.
+				try
+				{
+<span class="nc" id="L132">					Integer.parseInt(replacement);</span>
+				}
+<span class="nc" id="L134">				catch (NumberFormatException nfe)</span>
+				{
+<span class="nc" id="L136">					Logging.errorPrintLocalised(&quot;Errors.Description.InvalidVariableReplacement&quot;, //$NON-NLS-1$</span>
+						replacement);
+<span class="nc" id="L138">				}</span>
+<span class="nc" id="L139">				theComponents.add(VAR_MARKER + replacement);</span>
+<span class="nc" id="L140">			}</span>
+<span class="nc bnc" id="L141" title="All 2 branches missed.">			else if (aString.charAt(percentInd + 1) == '%')</span>
+			{
+				// This is an escape sequence so we can actually print a %
+<span class="nc" id="L144">				currentInd = percentInd + 2;</span>
+<span class="nc" id="L145">				theComponents.add(&quot;%&quot;); //$NON-NLS-1$</span>
+			}
+			else
+			{
+				// In this case we have an unbracketed placeholder.  We will
+				// walk the string until such time as we no longer have a number
+<span class="nc" id="L151">				currentInd = percentInd + 1;</span>
+<span class="nc bnc" id="L152" title="All 2 branches missed.">				while (currentInd &lt; aString.length())</span>
+				{
+<span class="nc" id="L154">					final char val = aString.charAt(currentInd);</span>
+					try
+					{
+<span class="nc" id="L157">						Integer.parseInt(String.valueOf(val));</span>
+<span class="nc" id="L158">						currentInd++;</span>
+					}
+<span class="nc" id="L160">					catch (NumberFormatException nfe)</span>
+					{
+<span class="nc" id="L162">						break;</span>
+<span class="nc" id="L163">					}</span>
+<span class="nc" id="L164">				}</span>
+<span class="nc bnc" id="L165" title="All 2 branches missed.">				if (currentInd &gt; percentInd + 1)</span>
+				{
+<span class="nc" id="L167">					theComponents.add(VAR_MARKER + aString.substring(percentInd + 1, currentInd));</span>
+				}
+				else
+				{
+					// We broke out of the variable finding loop without finding
+					// even a single integer.  Assume we have a DESC field that
+					// is using a % unescaped.
+<span class="nc" id="L174">					theComponents.add(aString.substring(percentInd, percentInd + 1));</span>
+				}
+			}
+<span class="nc" id="L177">		}</span>
+<span class="fc" id="L178">		theComponents.add(aString.substring(currentInd));</span>
+<span class="fc" id="L179">	}</span>
+
+	/**
+	 * Adds a variable to use in variable substitution.
+	 * 
+	 * @param aVariable
+	 */
+	public void addVariable(final String aVariable)
+	{
+<span class="pc bpc" id="L188" title="1 of 2 branches missed.">		if (theVariables == null)</span>
+		{
+<span class="fc" id="L190">			theVariables = new ArrayList&lt;&gt;();</span>
+		}
+<span class="fc" id="L192">		theVariables.add(aVariable);</span>
+<span class="fc" id="L193">	}</span>
+
+	/**
+	 * Gets the name of the aspect.
+	 * 
+	 * @return the aspect name
+	 */
+	public String getName()
+	{
+<span class="fc" id="L202">		return key.toString();</span>
+	}
+
+	/**
+	 * Gets the key of the aspect.
+	 * 
+	 * @return the aspect key
+	 */
+	public AspectName getKey()
+	{
+<span class="fc" id="L212">		return key;</span>
+	}
+
+	/**
+	 * Gets the name string after having substituting all variables.
+	 * 
+	 * @param aPC The PlayerCharacter used to evaluate formulas.
+	 * @param abilities the abilities for which the Aspect text should be compiled
+	 * 
+	 * @return The fully substituted description string.
+	 */
+	public String getAspectText(final PlayerCharacter aPC, List&lt;CNAbility&gt; abilities)
+	{
+<span class="nc" id="L225">		final StringBuilder buf = new StringBuilder(50);</span>
+
+<span class="nc bnc" id="L227" title="All 4 branches missed.">		if ((abilities == null) || (abilities.isEmpty()))</span>
+		{
+<span class="nc" id="L229">			return &quot;&quot;;</span>
+		}
+<span class="nc" id="L231">		Ability sampleAbilityObject = abilities.get(0).getAbility();</span>
+<span class="nc bnc" id="L232" title="All 2 branches missed.">		if (!qualifies(aPC, sampleAbilityObject))</span>
+		{
+<span class="nc" id="L234">			return &quot;&quot;;</span>
+		}
+<span class="nc bnc" id="L236" title="All 2 branches missed.">		for (final String comp : theComponents)</span>
+		{
+<span class="nc bnc" id="L238" title="All 2 branches missed.">			if (comp.startsWith(VAR_MARKER))</span>
+			{
+<span class="nc" id="L240">				final int ind = Integer.parseInt(comp.substring(VAR_MARKER.length()));</span>
+<span class="nc bnc" id="L241" title="All 4 branches missed.">				if (theVariables == null || ind &gt; theVariables.size())</span>
+				{
+<span class="nc" id="L243">					buf.append(Constants.EMPTY_STRING);</span>
+<span class="nc" id="L244">					continue;</span>
+				}
+<span class="nc" id="L246">				final String var = theVariables.get(ind - 1);</span>
+<span class="nc bnc" id="L247" title="All 2 branches missed.">				if (var.equals(VAR_NAME))</span>
+				{
+<span class="nc" id="L249">					buf.append(sampleAbilityObject.getOutputName());</span>
+				}
+<span class="nc bnc" id="L251" title="All 2 branches missed.">				else if (var.equals(VAR_LIST))</span>
+				{
+<span class="nc" id="L253">					List&lt;String&gt; assocList = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L254" title="All 2 branches missed.">					for (CNAbility cna : abilities)</span>
+					{
+<span class="nc" id="L256">						assocList.addAll(aPC.getAssociationList(cna));</span>
+<span class="nc" id="L257">					}</span>
+					String joinString;
+<span class="nc bnc" id="L259" title="All 2 branches missed.">					if (assocList.size() == 2)</span>
+					{
+<span class="nc" id="L261">						joinString = &quot; and &quot;;</span>
+					}
+					else
+					{
+<span class="nc" id="L265">						joinString = &quot;, &quot;;</span>
+					}
+<span class="nc" id="L267">					Collections.sort(assocList);</span>
+<span class="nc" id="L268">					buf.append(StringUtil.join(assocList, joinString));</span>
+<span class="nc" id="L269">				}</span>
+<span class="nc bnc" id="L270" title="All 2 branches missed.">				else if (var.startsWith(&quot;\&quot;&quot;)) //$NON-NLS-1$</span>
+				{
+<span class="nc" id="L272">					buf.append(var.substring(1, var.length() - 1));</span>
+				}
+				else
+				{
+<span class="nc" id="L276">					buf.append(aPC.getVariableValue(var, &quot;Aspect&quot;).intValue()); //$NON-NLS-1$</span>
+				}
+<span class="nc" id="L278">			}</span>
+			else
+			{
+<span class="nc" id="L281">				buf.append(comp);</span>
+			}
+<span class="nc" id="L283">		}</span>
+<span class="nc" id="L284">		return buf.toString();</span>
+	}
+
+	/**
+	 * Gets the Aspect tag in PCC format.
+	 * 
+	 * @return A String in LST file format for this description.
+	 * 
+	 */
+	public String getPCCText()
+	{
+<span class="fc" id="L295">		final StringBuilder buf = new StringBuilder();</span>
+
+<span class="fc bfc" id="L297" title="All 2 branches covered.">		for (final String str : theComponents)</span>
+		{
+<span class="pc bpc" id="L299" title="1 of 2 branches missed.">			if (str.startsWith(VAR_MARKER))</span>
+			{
+<span class="nc" id="L301">				final int ind = Integer.parseInt(str.substring(VAR_MARKER.length()));</span>
+<span class="nc" id="L302">				buf.append('%').append(ind);</span>
+<span class="nc" id="L303">			}</span>
+<span class="pc bpc" id="L304" title="1 of 2 branches missed.">			else if (str.equals(&quot;%&quot;))</span>
+			{
+				//reescape
+<span class="nc" id="L307">				buf.append(&quot;%%&quot;);</span>
+			}
+			else
+			{
+<span class="fc" id="L311">				buf.append(EntityEncoder.encode(str));</span>
+			}
+<span class="fc" id="L313">		}</span>
+<span class="pc bpc" id="L314" title="1 of 2 branches missed.">		if (theVariables != null)</span>
+		{
+<span class="nc bnc" id="L316" title="All 2 branches missed.">			for (final String var : theVariables)</span>
+			{
+<span class="nc" id="L318">				buf.append(Constants.PIPE);</span>
+<span class="nc" id="L319">				buf.append(var);</span>
+<span class="nc" id="L320">			}</span>
+		}
+
+<span class="pc bpc" id="L323" title="1 of 2 branches missed.">		if (hasPrerequisites())</span>
+		{
+<span class="nc" id="L325">			buf.append(Constants.PIPE);</span>
+<span class="nc" id="L326">			buf.append(new PrerequisiteWriter().getPrerequisiteString(getPrerequisiteList(), Constants.PIPE));</span>
+		}
+
+<span class="fc" id="L329">		return buf.toString();</span>
+	}
+
+	@Override
+	public String toString()
+	{
+<span class="nc" id="L335">		return getPCCText();</span>
+	}
+
+	@Override
+	public int hashCode()
+	{
+<span class="nc bnc" id="L341" title="All 2 branches missed.">		return theComponents.size() + 7 * (theVariables == null ? 0 : theVariables.size());</span>
+	}
+
+	@Override
+	public boolean equals(Object obj)
+	{
+<span class="fc bfc" id="L347" title="All 2 branches covered.">		if (obj == this)</span>
+		{
+<span class="fc" id="L349">			return true;</span>
+		}
+<span class="pc bpc" id="L351" title="1 of 2 branches missed.">		if (!(obj instanceof Aspect other))</span>
+		{
+<span class="nc" id="L353">			return false;</span>
+		}
+<span class="pc bpc" id="L355" title="2 of 4 branches missed.">		if (theVariables == null &amp;&amp; other.theVariables != null)</span>
+		{
+<span class="nc" id="L357">			return false;</span>
+		}
+<span class="pc bpc" id="L359" title="2 of 4 branches missed.">		return theComponents.equals(other.theComponents)</span>
+<span class="pc bnc" id="L360" title="All 2 branches missed.">			&amp;&amp; (theVariables == null || theVariables.equals(other.theVariables));</span>
+	}
+
+	public static String printAspect(PlayerCharacter pc, AspectName key, List&lt;CNAbility&gt; abilities, boolean printName)
+	{
+<span class="nc bnc" id="L365" title="All 2 branches missed.">		if (abilities.isEmpty())</span>
+		{
+<span class="nc" id="L367">			return &quot;&quot;;</span>
+		}
+<span class="nc" id="L369">		Ability sampleAbilityObject = abilities.get(0).getAbility();</span>
+<span class="nc" id="L370">		StringBuilder buff = new StringBuilder(50);</span>
+<span class="nc" id="L371">		List&lt;Aspect&gt; aspects = sampleAbilityObject.get(MapKey.ASPECT, key);</span>
+<span class="nc" id="L372">		Aspect aspect = lastPassingAspect(aspects, pc, sampleAbilityObject);</span>
+<span class="nc bnc" id="L373" title="All 2 branches missed.">		if (aspect != null)</span>
+		{
+<span class="nc bnc" id="L375" title="All 2 branches missed.">			if (printName)</span>
+			{
+<span class="nc" id="L377">				buff.append(aspect.getName()).append(&quot;: &quot;);</span>
+			}
+<span class="nc" id="L379">			buff.append(aspect.getAspectText(pc, abilities));</span>
+		}
+<span class="nc" id="L381">		return buff.toString();</span>
+	}
+
+	public static String printAspect(PlayerCharacter pc, AspectName key, List&lt;CNAbility&gt; abilities)
+	{
+<span class="nc" id="L386">		return printAspect(pc, key, abilities, true);</span>
+	}
+
+	public static String printAspectValue(PlayerCharacter pc, AspectName key, List&lt;CNAbility&gt; abilities)
+	{
+<span class="nc" id="L391">		return printAspect(pc, key, abilities, false);</span>
+	}
+
+	public static Aspect lastPassingAspect(List&lt;Aspect&gt; aspects, PlayerCharacter pc, Ability a)
+	{
+<span class="nc" id="L396">		Aspect retAspect = null;</span>
+<span class="nc bnc" id="L397" title="All 2 branches missed.">		if (aspects != null)</span>
+		{
+<span class="nc bnc" id="L399" title="All 2 branches missed.">			for (Aspect testAspect : aspects)</span>
+			{
+<span class="nc bnc" id="L401" title="All 2 branches missed.">				if (testAspect.qualifies(pc, a))</span>
+				{
+<span class="nc" id="L403">					retAspect = testAspect;</span>
+				}
+<span class="nc" id="L405">			}</span>
+		}
+<span class="nc" id="L407">		return retAspect;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

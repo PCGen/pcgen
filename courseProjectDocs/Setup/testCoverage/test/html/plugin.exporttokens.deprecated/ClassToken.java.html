@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ClassToken.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.exporttokens.deprecated</a> &gt; <span class="el_source">ClassToken.java</span></div><h1>ClassToken.java</h1><pre class="source lang-java linenums">/*
+ * ClassToken.java
+ * Copyright 2003 (C) Devon Jones &lt;soulcatcher@evilsoft.org&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.     See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package plugin.exporttokens.deprecated;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.StringTokenizer;
+
+import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.inst.PCClassLevel;
+import pcgen.core.PCClass;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.SpecialAbility;
+import pcgen.core.analysis.OutputNameFormatting;
+import pcgen.core.display.CharacterDisplay;
+import pcgen.io.ExportHandler;
+import pcgen.io.exporttoken.Token;
+
+/**
+ * Deal with tokens below CLASS.x CLASS.x.LEVEL, CLASS.x.TYPE, CLASS.x.SALIST
+ */
+<span class="nc" id="L40">public class ClassToken extends Token</span>
+{
+	/** Token name */
+	public static final String TOKENNAME = &quot;CLASS&quot;;
+
+	@Override
+	public String getTokenName()
+	{
+<span class="nc" id="L48">		return TOKENNAME;</span>
+	}
+
+	@Override
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	{
+<span class="nc" id="L54">		StringTokenizer aTok = new StringTokenizer(tokenSource, &quot;.&quot;);</span>
+<span class="nc" id="L55">		aTok.nextToken();</span>
+
+<span class="nc" id="L57">		int i = 0;</span>
+
+<span class="nc bnc" id="L59" title="All 2 branches missed.">		if (aTok.hasMoreTokens())</span>
+		{
+<span class="nc" id="L61">			i = Integer.parseInt(aTok.nextToken());</span>
+		}
+
+<span class="nc" id="L64">		CharacterDisplay display = pc.getDisplay();</span>
+<span class="nc bnc" id="L65" title="All 2 branches missed.">		if (aTok.hasMoreTokens())</span>
+		{
+<span class="nc" id="L67">			String subToken = aTok.nextToken();</span>
+
+<span class="nc bnc" id="L69" title="All 2 branches missed.">			if (&quot;LEVEL&quot;.equals(subToken))</span>
+			{
+<span class="nc" id="L71">				int level = getLevelToken(display, i);</span>
+
+<span class="nc bnc" id="L73" title="All 2 branches missed.">				if (level &gt; 0)</span>
+				{
+<span class="nc" id="L75">					return Integer.toString(level);</span>
+				}
+<span class="nc" id="L77">				return &quot;&quot;;</span>
+			}
+<span class="nc bnc" id="L79" title="All 2 branches missed.">			else if (&quot;SALIST&quot;.equals(subToken))</span>
+			{
+<span class="nc" id="L81">				return getSAListToken(pc, i);</span>
+			}
+<span class="nc bnc" id="L83" title="All 2 branches missed.">			else if (&quot;TYPE&quot;.equals(subToken))</span>
+			{
+<span class="nc" id="L85">				return getType(display, i);</span>
+			}
+<span class="nc bnc" id="L87" title="All 2 branches missed.">			else if (&quot;CLASSTYPE&quot;.equals(subToken))</span>
+			{
+<span class="nc" id="L89">				return getClassType(display, i);</span>
+			}
+<span class="nc bnc" id="L91" title="All 2 branches missed.">			else if (&quot;ISMONSTER&quot;.equals(subToken))</span>
+			{
+<span class="nc" id="L93">				return isMonster(display, i);</span>
+			}
+		}
+
+<span class="nc" id="L97">		return getClassToken(display, i);</span>
+	}
+
+	/**
+	 * Get the token
+	 * 
+	 * @param display
+	 * @param classNumber
+	 * @return token
+	 */
+	public static String getClassToken(CharacterDisplay display, int classNumber)
+	{
+<span class="nc" id="L109">		String retString = &quot;&quot;;</span>
+
+<span class="nc bnc" id="L111" title="All 2 branches missed.">		if (display.getClassCount() &gt; classNumber)</span>
+		{
+<span class="nc" id="L113">			PCClass pcClass = display.getClassList().get(classNumber);</span>
+
+<span class="nc" id="L115">			String subClassKey = display.getSubClassName(pcClass);</span>
+<span class="nc bnc" id="L116" title="All 6 branches missed.">			if (subClassKey == null || Constants.NONE.equals(subClassKey) || &quot;&quot;.equals(subClassKey))</span>
+			{
+<span class="nc" id="L118">				retString = OutputNameFormatting.getOutputName(pcClass);</span>
+			}
+			else
+			{
+<span class="nc" id="L122">				retString = pcClass.getSubClassKeyed(subClassKey).getDisplayName();</span>
+			}
+		}
+
+<span class="nc" id="L126">		return retString;</span>
+	}
+
+	/**
+	 * Get Level part of the class token
+	 * 
+	 * @param display
+	 * @param classNumber
+	 * @return level token
+	 */
+	public static int getLevelToken(CharacterDisplay display, int classNumber)
+	{
+<span class="nc bnc" id="L138" title="All 2 branches missed.">		if (display.getClassCount() &gt; classNumber)</span>
+		{
+<span class="nc" id="L140">			PCClass pcClass = display.getClassList().get(classNumber);</span>
+
+<span class="nc" id="L142">			return display.getLevel(pcClass);</span>
+		}
+
+<span class="nc" id="L145">		return 0;</span>
+	}
+
+	/**
+	 * Get Level part of the class token
+	 * 
+	 * @param pc
+	 * @param classNumber
+	 * @return level token
+	 */
+	public static String getSAListToken(PlayerCharacter pc, int classNumber)
+	{
+<span class="nc bnc" id="L157" title="All 2 branches missed.">		if (pc.getDisplay().getClassCount() &gt; classNumber)</span>
+		{
+<span class="nc" id="L159">			PCClass pcClass = pc.getDisplay().getClassList().get(classNumber);</span>
+<span class="nc" id="L160">			List&lt;String&gt; saList = getClassSpecialAbilityList(pcClass, pc);</span>
+<span class="nc" id="L161">			return StringUtil.join(saList, &quot;, &quot;);</span>
+		}
+
+<span class="nc" id="L164">		return &quot;&quot;;</span>
+	}
+
+	/**
+	 * Get the list of Special Abilities for a class that the PC is eligible
+	 * for.
+	 * 
+	 * @param pcclass
+	 *            The class to get the special abilities for
+	 * @param aPC
+	 *            The PC
+	 * @return List of special abilities
+	 */
+	public static List&lt;String&gt; getClassSpecialAbilityList(PCClass pcclass, final PlayerCharacter aPC)
+	{
+<span class="nc" id="L179">		CharacterDisplay display = aPC.getDisplay();</span>
+<span class="nc" id="L180">		final List&lt;String&gt; formattedList = new ArrayList&lt;&gt;();</span>
+
+<span class="nc" id="L182">		final List&lt;SpecialAbility&gt; saList = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L183">		saList.addAll(display.getResolvedUserSpecialAbilities(pcclass));</span>
+<span class="nc" id="L184">		saList.addAll(display.getResolvedSpecialAbilities(pcclass));</span>
+<span class="nc bnc" id="L185" title="All 2 branches missed.">		for (int i = 1; i &lt;= display.getLevel(pcclass); i++)</span>
+		{
+<span class="nc" id="L187">			PCClassLevel pcl = display.getActiveClassLevel(pcclass, i);</span>
+<span class="nc" id="L188">			saList.addAll(display.getResolvedUserSpecialAbilities(pcl));</span>
+<span class="nc" id="L189">			saList.addAll(display.getResolvedSpecialAbilities(pcl));</span>
+		}
+
+<span class="nc bnc" id="L192" title="All 2 branches missed.">		if (saList.isEmpty())</span>
+		{
+<span class="nc" id="L194">			return formattedList;</span>
+		}
+<span class="nc" id="L196">		Collections.sort(saList);</span>
+
+		// From the list of allowed SAs, format the output strings
+		// to include all of the variables
+<span class="nc bnc" id="L200" title="All 2 branches missed.">		for (SpecialAbility sa : saList)</span>
+		{
+<span class="nc" id="L202">			String str = sa.getDisplayName();</span>
+<span class="nc bnc" id="L203" title="All 4 branches missed.">			if (str == null || str.isEmpty())</span>
+			{
+<span class="nc" id="L205">				continue;</span>
+			}
+<span class="nc" id="L207">			StringTokenizer varTok = new StringTokenizer(str, Constants.PIPE);</span>
+<span class="nc" id="L208">			final String aString = varTok.nextToken();</span>
+
+<span class="nc" id="L210">			int[] varValue = null;</span>
+<span class="nc" id="L211">			int varCount = varTok.countTokens();</span>
+
+<span class="nc bnc" id="L213" title="All 2 branches missed.">			if (varCount != 0)</span>
+			{
+<span class="nc" id="L215">				varValue = new int[varCount];</span>
+
+<span class="nc bnc" id="L217" title="All 2 branches missed.">				for (int j = 0; j &lt; varCount; ++j)</span>
+				{
+					// Get the value for each variable
+<span class="nc" id="L220">					final String vString = varTok.nextToken();</span>
+<span class="nc" id="L221">					varValue[j] = aPC.getVariable(vString, true).intValue();</span>
+				}
+			}
+
+<span class="nc" id="L225">			final StringBuilder newAbility = new StringBuilder();</span>
+<span class="nc" id="L226">			varTok = new StringTokenizer(aString, &quot;%&quot;, true);</span>
+<span class="nc" id="L227">			varCount = 0;</span>
+
+<span class="nc" id="L229">			boolean isZero = false;</span>
+
+			// Fill in each % with the value of the appropriate token
+<span class="nc bnc" id="L232" title="All 2 branches missed.">			while (varTok.hasMoreTokens())</span>
+			{
+<span class="nc" id="L234">				final String nextTok = varTok.nextToken();</span>
+
+<span class="nc bnc" id="L236" title="All 2 branches missed.">				if (&quot;%&quot;.equals(nextTok))</span>
+				{
+<span class="nc bnc" id="L238" title="All 2 branches missed.">					if (varCount == 0)</span>
+					{
+						// If this is the first token, then set the count of
+						// successful token replacements to 0
+<span class="nc" id="L242">						isZero = true;</span>
+					}
+
+<span class="nc bnc" id="L245" title="All 4 branches missed.">					if ((varValue != null) &amp;&amp; (varCount &lt; varValue.length))</span>
+					{
+<span class="nc" id="L247">						final int thisVar = varValue[varCount++];</span>
+
+						// Update isZero if this token has a value of anything
+						// other than 0
+<span class="nc bnc" id="L251" title="All 2 branches missed.">						isZero &amp;= (thisVar == 0);</span>
+<span class="nc" id="L252">						newAbility.append(thisVar);</span>
+<span class="nc" id="L253">					}</span>
+					else
+					{
+<span class="nc" id="L256">						newAbility.append('%');</span>
+					}
+				}
+				else
+				{
+<span class="nc" id="L261">					newAbility.append(nextTok);</span>
+				}
+<span class="nc" id="L263">			}</span>
+
+<span class="nc bnc" id="L265" title="All 2 branches missed.">			if (!isZero)</span>
+			{
+				// If all of the tokens for this ability were 0 then we do not
+				// show it,
+				// otherwise we add it to the return list.
+<span class="nc" id="L270">				formattedList.add(newAbility.toString());</span>
+			}
+<span class="nc" id="L272">		}</span>
+
+<span class="nc" id="L274">		return formattedList;</span>
+	}
+
+	/**
+	 * @param display
+	 * @param classNumber
+	 * @return class Type
+	 */
+	public static String getType(CharacterDisplay display, int classNumber)
+	{
+<span class="nc bnc" id="L284" title="All 2 branches missed.">		if (display.getClassCount() &gt; classNumber)</span>
+		{
+<span class="nc" id="L286">			return display.getClassList().get(classNumber).getType();</span>
+		}
+<span class="nc" id="L288">		return &quot;&quot;;</span>
+	}
+
+	public static String getClassType(CharacterDisplay display, int classNumber)
+	{
+<span class="nc bnc" id="L293" title="All 2 branches missed.">		if (display.getClassCount() &gt; classNumber)</span>
+		{
+<span class="nc" id="L295">			return display.getClassList().get(classNumber).getClassType();</span>
+		}
+<span class="nc" id="L297">		return &quot;&quot;;</span>
+	}
+
+	public static String isMonster(CharacterDisplay display, int classNumber)
+	{
+<span class="nc bnc" id="L302" title="All 2 branches missed.">		if (display.getClassCount() &gt; classNumber)</span>
+		{
+<span class="nc bnc" id="L304" title="All 2 branches missed.">			return (display.getClassList().get(classNumber).isMonster() ? &quot;Y&quot; : &quot;N&quot;);</span>
+		}
+<span class="nc" id="L306">		return &quot;&quot;;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

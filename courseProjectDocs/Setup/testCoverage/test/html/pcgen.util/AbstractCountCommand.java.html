@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AbstractCountCommand.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.util</a> &gt; <span class="el_source">AbstractCountCommand.java</span></div><h1>AbstractCountCommand.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2013 (C) James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ *
+ */
+package pcgen.util;
+
+import java.util.Stack;
+
+import pcgen.core.PlayerCharacter;
+import pcgen.core.VariableProcessor;
+
+/**
+ * AbstractCountCommand is the base for the CountCommand and 
+ * CountDistinctCommand. It is a container for common behavior between the 
+ * two commands.
+ * 
+ * 
+ */
+<span class="nc" id="L34">public abstract class AbstractCountCommand extends PCGenCommand</span>
+{
+
+<span class="nc" id="L37">	public enum JepAbilityCountEnum</span>
+	{
+<span class="nc" id="L39">		CATEGORY, NAME, NATURE, TYPE, EXCLUDETYPE, VISIBILITY, ASPECT, CAT, NAM, NAT, TYP, VIS, KEY</span>
+	}
+
+<span class="nc" id="L42">	public enum JepEquipmentCountEnum</span>
+	{
+<span class="nc" id="L44">		TYPE, WIELDCATEGORY, LOCATION, TYP, WDC, LOC</span>
+	}
+
+	/**
+	 * Get the PC that will be used to do the counting.
+	 *
+	 * @return the pc
+	 */
+	protected PlayerCharacter getPC()
+	{
+<span class="nc" id="L54">		PlayerCharacter pc = null;</span>
+<span class="nc bnc" id="L55" title="All 2 branches missed.">		if (parent instanceof VariableProcessor)</span>
+		{
+<span class="nc" id="L57">			pc = ((VariableProcessor) parent).getPc();</span>
+		}
+<span class="nc bnc" id="L59" title="All 2 branches missed.">		else if (parent instanceof PlayerCharacter)</span>
+		{
+<span class="nc" id="L61">			pc = (PlayerCharacter) parent;</span>
+		}
+<span class="nc" id="L63">		return pc;</span>
+	}
+
+	/**
+	 * pop maxParam parameters off the stack and populate the array.  Note, this method
+	 * leaves one parameter on the stack
+	 *
+	 * @param inStack  the stack of Objects
+	 * @param maxParam number of entries to pop from the stack
+	 *
+	 * @return an array of Objects in reverse order, i.e. the last param popped is element
+	 *         0 of the array.
+	 */
+	protected static Object[] paramStackToArray(final Stack inStack, final int maxParam)
+	{
+<span class="nc" id="L78">		final Object[] par = new Object[maxParam];</span>
+
+<span class="nc bnc" id="L80" title="All 2 branches missed.">		if (maxParam &gt; 0)</span>
+		{
+<span class="nc bnc" id="L82" title="All 2 branches missed.">			for (int i = maxParam - 1; i &gt;= 0; i--)</span>
+			{
+<span class="nc" id="L84">				par[i] = inStack.pop();</span>
+			}
+		}
+
+<span class="nc" id="L88">		return par;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

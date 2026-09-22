@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>LanguagePanel.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.gui2.prefs</a> &gt; <span class="el_source">LanguagePanel.java</span></div><h1>LanguagePanel.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2008 (C) James Dempsey
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.gui2.prefs;
+
+import java.util.Collection;
+import java.util.Locale;
+import java.util.Objects;
+import java.util.stream.Collectors;
+
+import pcgen.core.SettingsHandler;
+import pcgen.core.UnitSet;
+import pcgen.gui3.GuiAssertions;
+import pcgen.gui3.GuiUtility;
+import pcgen.system.ConfigurationSettings;
+import pcgen.system.LanguageBundle;
+
+import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.Node;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.Toggle;
+import javafx.scene.control.ToggleButton;
+import javafx.scene.control.ToggleGroup;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
+
+/**
+ * The Class {@code LanguagePanel} is responsible for
+ * managing the language and unit set preferences.
+ * 
+ * 
+ */
+@SuppressWarnings(&quot;serial&quot;)
+public final class LanguagePanel extends PCGenPrefsPanel
+{
+	private final String originalLanguage;
+	private final String originalUnitSet;
+
+
+	private final ChoiceBox&lt;String&gt; unitSetType;
+
+<span class="nc" id="L60">	private final ToggleGroup languageChoiceGroup = new ToggleGroup();</span>
+
+	/**
+	 * The set of supported languages.
+	 * Should be data controlled, or at least moved to a utility class.
+	 */
+<span class="nc" id="L66">	private enum LanguageChoice</span>
+	{
+		// not that order matters w.r.t presentation order
+<span class="nc" id="L69">		SYSTEM(&quot;system&quot;, LanguageBundle.getString(&quot;in_Prefs_langSystem&quot;)),</span>
+<span class="nc" id="L70">		ENGLISH(&quot;en&quot;, LanguageBundle.getString(&quot;in_Prefs_langEnglish&quot;)),</span>
+<span class="nc" id="L71">		FRENCH(&quot;fre&quot;, LanguageBundle.getString(&quot;in_Prefs_langFrench&quot;)),</span>
+<span class="nc" id="L72">		GERMAN(&quot;ger&quot;, LanguageBundle.getString(&quot;in_Prefs_langGerman&quot;)),</span>
+<span class="nc" id="L73">		ITALIAN(&quot;it&quot;, LanguageBundle.getString(&quot;in_Prefs_langItalian&quot;)),</span>
+<span class="nc" id="L74">		SPANISH(&quot;es&quot;, LanguageBundle.getString(&quot;in_Prefs_langSpanish&quot;)),</span>
+<span class="nc" id="L75">		PORTUGUESE(&quot;pt&quot;, LanguageBundle.getString(&quot;in_Prefs_langPortuguese&quot;))</span>
+		;
+
+		private final String shortName;
+		private final String longName;
+
+		private LanguageChoice(final String shortName, final String longName)
+<span class="nc" id="L82">		{</span>
+<span class="nc" id="L83">			this.shortName = shortName;</span>
+<span class="nc" id="L84">			this.longName = longName;</span>
+<span class="nc" id="L85">		}</span>
+
+		String getShortName()
+		{
+<span class="nc" id="L89">			return shortName;</span>
+		}
+
+		String getLongName()
+		{
+<span class="nc" id="L94">			return longName;</span>
+		}
+	}
+
+	/**
+	 * Create a new LanguagePanel
+	 */
+	public LanguagePanel()
+<span class="nc" id="L102">	{</span>
+<span class="nc" id="L103">		originalLanguage = ConfigurationSettings.getLanguage();</span>
+
+<span class="nc bnc" id="L105" title="All 4 branches missed.">		if ((SettingsHandler.getGameAsProperty().get() != null) &amp;&amp; (SettingsHandler.getGameAsProperty().get().getUnitSet() != null))</span>
+		{
+<span class="nc" id="L107">			originalUnitSet = SettingsHandler.getGameAsProperty().get().getUnitSet().getDisplayName();</span>
+		}
+		else
+		{
+<span class="nc" id="L111">			originalUnitSet = &quot;&quot;;</span>
+		}
+
+<span class="nc" id="L114">		VBox vbox = new VBox();</span>
+
+<span class="nc bnc" id="L116" title="All 2 branches missed.">		for (LanguageChoice languageChoice: LanguageChoice.values())</span>
+		{
+<span class="nc" id="L118">			ToggleButton languageButton = new RadioButton();</span>
+<span class="nc" id="L119">			languageButton.setUserData(languageChoice.getShortName());</span>
+<span class="nc" id="L120">			languageButton.setText(languageChoice.getLongName());</span>
+<span class="nc" id="L121">			languageButton.setToggleGroup(languageChoiceGroup);</span>
+<span class="nc" id="L122">			vbox.getChildren().add(languageButton);</span>
+		}
+
+<span class="nc" id="L125">		Collection&lt;UnitSet&gt; unitSets = SettingsHandler.getGameAsProperty().get().getModeContext().getReferenceContext()</span>
+<span class="nc" id="L126">		                                              .getConstructedCDOMObjects(UnitSet.class);</span>
+<span class="nc" id="L127">		Collection&lt;String&gt; names = unitSets.stream()</span>
+<span class="nc" id="L128">		                                   .filter(Objects::nonNull)</span>
+<span class="nc" id="L129">		                                   .map(UnitSet::getDisplayName)</span>
+<span class="nc" id="L130">		                                   .collect(Collectors.toUnmodifiableList());</span>
+<span class="nc" id="L131">		ObservableList&lt;String&gt; unitSetNames = FXCollections.observableArrayList(names);</span>
+<span class="nc" id="L132">		unitSetType = new ChoiceBox&lt;&gt;();</span>
+<span class="nc" id="L133">		unitSetType.setItems(unitSetNames);</span>
+<span class="nc" id="L134">		Label unitSetLabel = new Label(LanguageBundle.getString(&quot;in_Prefs_unitSetType&quot;));</span>
+<span class="nc" id="L135">		unitSetLabel.setLabelFor(unitSetType);</span>
+<span class="nc" id="L136">		vbox.getChildren().add(unitSetLabel);</span>
+<span class="nc" id="L137">		vbox.getChildren().add(unitSetType);</span>
+
+<span class="nc" id="L139">		Node restartInfo = new Text(LanguageBundle.getString(&quot;in_Prefs_restartInfo&quot;));</span>
+<span class="nc" id="L140">		vbox.getChildren().add(restartInfo);</span>
+
+<span class="nc" id="L142">		this.add(GuiUtility.wrapParentAsJFXPanel(vbox));</span>
+<span class="nc" id="L143">	}</span>
+
+
+	@Override
+	public void applyOptionValuesToControls()
+	{
+<span class="nc" id="L149">		GuiAssertions.assertIsNotJavaFXThread();</span>
+<span class="nc" id="L150">		String origLanguage = ConfigurationSettings.getLanguage();</span>
+<span class="nc bnc" id="L151" title="All 4 branches missed.">		if ((origLanguage == null) || origLanguage.isEmpty())</span>
+		{
+<span class="nc" id="L153">			origLanguage = &quot;system&quot;;</span>
+		}
+
+<span class="nc bnc" id="L156" title="All 2 branches missed.">		for (Toggle button : languageChoiceGroup.getToggles())</span>
+		{
+<span class="nc bnc" id="L158" title="All 2 branches missed.">			button.setSelected(button.getUserData() == origLanguage);</span>
+<span class="nc" id="L159">		}</span>
+
+
+		String currentUnitSet;
+<span class="nc bnc" id="L163" title="All 4 branches missed.">		if ((SettingsHandler.getGameAsProperty().get() != null) &amp;&amp; (SettingsHandler.getGameAsProperty().get().getUnitSet() != null))</span>
+		{
+<span class="nc" id="L165">			currentUnitSet = SettingsHandler.getGameAsProperty().get().getUnitSet().getDisplayName();</span>
+		}
+		else
+		{
+<span class="nc" id="L169">			currentUnitSet = &quot;&quot;;</span>
+		}
+<span class="nc" id="L171">		Platform.runLater(() -&gt; {</span>
+<span class="nc bnc" id="L172" title="All 2 branches missed.">			if (!unitSetType.getItems().isEmpty())</span>
+			{
+<span class="nc" id="L174">				unitSetType.setValue(currentUnitSet);</span>
+			}
+<span class="nc" id="L176">		});</span>
+<span class="nc" id="L177">	}</span>
+
+	@Override
+	public String getTitle()
+	{
+<span class="nc" id="L182">		return LanguageBundle.getString(&quot;in_Prefs_language&quot;);</span>
+	}
+
+	@Override
+	public void setOptionsBasedOnControls()
+	{
+<span class="nc bnc" id="L188" title="All 2 branches missed.">		if (languageChoiceGroup.getSelectedToggle() != null)</span>
+		{
+<span class="nc" id="L190">			String languageShortString = (String) languageChoiceGroup.getSelectedToggle().getUserData();</span>
+
+<span class="nc" id="L192">			ConfigurationSettings.setLanguage(languageShortString);</span>
+<span class="nc" id="L193">			ConfigurationSettings.setCountry(languageShortString.toUpperCase(Locale.ENGLISH));</span>
+		}
+
+<span class="nc" id="L196">		SettingsHandler.getGameAsProperty().get().selectUnitSet(unitSetType.getValue());</span>
+<span class="nc" id="L197">		setNeedsRestart();</span>
+<span class="nc" id="L198">	}</span>
+
+
+
+	private void setNeedsRestart()
+	{
+<span class="nc bnc" id="L204" title="All 4 branches missed.">		if (languageChoiceGroup.getSelectedToggle() != null &amp;&amp; originalLanguage != languageChoiceGroup.getSelectedToggle().getUserData())</span>
+		{
+<span class="nc" id="L206">			SettingsHandler.settingsNeedRestartProperty().set(true);</span>
+		}
+<span class="nc bnc" id="L208" title="All 2 branches missed.">		if (!originalUnitSet.equals(unitSetType.getValue()))</span>
+		{
+<span class="nc" id="L210">			SettingsHandler.settingsNeedRestartProperty().set(true);</span>
+		}
+<span class="nc" id="L212">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

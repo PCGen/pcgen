@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ListChanges.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.rules.context</a> &gt; <span class="el_source">ListChanges.java</span></div><h1>ListChanges.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2008 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.rules.context;
+
+import java.util.Collection;
+import java.util.TreeSet;
+
+import pcgen.base.util.MapToList;
+import pcgen.base.util.TreeMapToList;
+import pcgen.cdom.base.AssociatedPrereqObject;
+import pcgen.cdom.base.CDOMList;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.enumeration.AssociationKey;
+import pcgen.cdom.reference.ReferenceUtilities;
+
+class ListChanges&lt;T extends CDOMObject&gt; implements AssociatedChanges&lt;CDOMReference&lt;T&gt;&gt;
+{
+	private final String tokenName;
+	private final CDOMObject positive;
+	private final CDOMObject negative;
+	private final CDOMReference&lt;? extends CDOMList&lt;T&gt;&gt; list;
+	private final boolean clear;
+
+	ListChanges(String token, CDOMObject added, CDOMObject removed, CDOMReference&lt;? extends CDOMList&lt;T&gt;&gt; listref,
+		boolean globallyCleared)
+<span class="fc" id="L42">	{</span>
+<span class="fc" id="L43">		tokenName = token;</span>
+<span class="fc" id="L44">		positive = added;</span>
+<span class="fc" id="L45">		negative = removed;</span>
+<span class="fc" id="L46">		list = listref;</span>
+<span class="fc" id="L47">		clear = globallyCleared;</span>
+<span class="fc" id="L48">	}</span>
+
+	@Override
+	public boolean includesGlobalClear()
+	{
+<span class="fc" id="L53">		return clear;</span>
+	}
+
+	boolean isEmpty()
+	{
+		/*
+		 * TODO This lies because it doesn't analyze tokenName
+		 */
+<span class="nc bnc" id="L61" title="All 6 branches missed.">		return !clear &amp;&amp; !hasAddedItems() &amp;&amp; !hasRemovedItems();</span>
+	}
+
+	@Override
+	public Collection&lt;CDOMReference&lt;T&gt;&gt; getAdded()
+	{
+<span class="fc" id="L67">		TreeSet&lt;CDOMReference&lt;T&gt;&gt; set = new TreeSet&lt;&gt;(ReferenceUtilities.REFERENCE_SORTER);</span>
+<span class="fc" id="L68">		Collection&lt;CDOMReference&lt;T&gt;&gt; listMods = positive.getListMods(list);</span>
+<span class="fc bfc" id="L69" title="All 2 branches covered.">		if (listMods != null)</span>
+		{
+<span class="fc bfc" id="L71" title="All 2 branches covered.">			for (CDOMReference&lt;T&gt; ref : listMods)</span>
+			{
+<span class="fc bfc" id="L73" title="All 2 branches covered.">				for (AssociatedPrereqObject assoc : positive.getListAssociations(list, ref))</span>
+				{
+<span class="pc bpc" id="L75" title="1 of 2 branches missed.">					if (tokenName.equals(assoc.getAssociation(AssociationKey.TOKEN)))</span>
+					{
+<span class="fc" id="L77">						set.add(ref);</span>
+					}
+<span class="fc" id="L79">				}</span>
+<span class="fc" id="L80">			}</span>
+		}
+<span class="fc" id="L82">		return set;</span>
+	}
+
+	boolean hasAddedItems()
+	{
+		/*
+		 * TODO This lies because it doesn't analyze tokenName
+		 */
+<span class="nc bnc" id="L90" title="All 6 branches missed.">		return positive != null &amp;&amp; positive.getListMods(list) != null &amp;&amp; !positive.getListMods(list).isEmpty();</span>
+	}
+
+	@Override
+	public Collection&lt;CDOMReference&lt;T&gt;&gt; getRemoved()
+	{
+<span class="fc" id="L96">		TreeSet&lt;CDOMReference&lt;T&gt;&gt; set = new TreeSet&lt;&gt;(ReferenceUtilities.REFERENCE_SORTER);</span>
+<span class="pc bpc" id="L97" title="1 of 2 branches missed.">		if (negative == null)</span>
+		{
+<span class="fc" id="L99">			return set;</span>
+		}
+<span class="nc" id="L101">		Collection&lt;CDOMReference&lt;T&gt;&gt; listMods = negative.getListMods(list);</span>
+<span class="nc bnc" id="L102" title="All 2 branches missed.">		if (listMods != null)</span>
+		{
+<span class="nc bnc" id="L104" title="All 2 branches missed.">			for (CDOMReference&lt;T&gt; ref : listMods)</span>
+			{
+<span class="nc bnc" id="L106" title="All 2 branches missed.">				for (AssociatedPrereqObject assoc : negative.getListAssociations(list, ref))</span>
+				{
+<span class="nc bnc" id="L108" title="All 2 branches missed.">					if (tokenName.equals(assoc.getAssociation(AssociationKey.TOKEN)))</span>
+					{
+<span class="nc" id="L110">						set.add(ref);</span>
+					}
+<span class="nc" id="L112">				}</span>
+<span class="nc" id="L113">			}</span>
+		}
+<span class="nc" id="L115">		return set;</span>
+	}
+
+	boolean hasRemovedItems()
+	{
+		/*
+		 * TODO This lies because it doesn't analyze tokenName
+		 */
+<span class="nc bnc" id="L123" title="All 6 branches missed.">		return negative != null &amp;&amp; negative.getListMods(list) != null &amp;&amp; !negative.getListMods(list).isEmpty();</span>
+	}
+
+	@Override
+	public MapToList&lt;CDOMReference&lt;T&gt;, AssociatedPrereqObject&gt; getAddedAssociations()
+	{
+<span class="fc" id="L129">		Collection&lt;CDOMReference&lt;T&gt;&gt; mods = positive.getListMods(list);</span>
+<span class="fc bfc" id="L130" title="All 2 branches covered.">		if (mods == null)</span>
+		{
+<span class="fc" id="L132">			return null;</span>
+		}
+<span class="fc" id="L134">		MapToList&lt;CDOMReference&lt;T&gt;, AssociatedPrereqObject&gt; owned =</span>
+				new TreeMapToList&lt;&gt;(ReferenceUtilities.REFERENCE_SORTER);
+<span class="fc bfc" id="L136" title="All 2 branches covered.">		for (CDOMReference&lt;T&gt; lw : mods)</span>
+		{
+<span class="fc" id="L138">			Collection&lt;AssociatedPrereqObject&gt; assocs = positive.getListAssociations(list, lw);</span>
+<span class="fc bfc" id="L139" title="All 2 branches covered.">			for (AssociatedPrereqObject assoc : assocs)</span>
+			{
+<span class="pc bpc" id="L141" title="1 of 2 branches missed.">				if (tokenName.equals(assoc.getAssociation(AssociationKey.TOKEN)))</span>
+				{
+<span class="fc" id="L143">					owned.addToListFor(lw, assoc);</span>
+				}
+<span class="fc" id="L145">			}</span>
+<span class="fc" id="L146">		}</span>
+<span class="pc bpc" id="L147" title="1 of 2 branches missed.">		if (owned.isEmpty())</span>
+		{
+<span class="nc" id="L149">			return null;</span>
+		}
+<span class="fc" id="L151">		return owned;</span>
+	}
+
+	@Override
+	public MapToList&lt;CDOMReference&lt;T&gt;, AssociatedPrereqObject&gt; getRemovedAssociations()
+	{
+<span class="fc" id="L157">		MapToList&lt;CDOMReference&lt;T&gt;, AssociatedPrereqObject&gt; owned =</span>
+				new TreeMapToList&lt;&gt;(ReferenceUtilities.REFERENCE_SORTER);
+<span class="pc bpc" id="L159" title="1 of 2 branches missed.">		if (negative == null)</span>
+		{
+<span class="fc" id="L161">			return owned;</span>
+		}
+<span class="nc" id="L163">		Collection&lt;CDOMReference&lt;T&gt;&gt; mods = negative.getListMods(list);</span>
+<span class="nc bnc" id="L164" title="All 2 branches missed.">		if (mods == null)</span>
+		{
+<span class="nc" id="L166">			return owned;</span>
+		}
+<span class="nc bnc" id="L168" title="All 2 branches missed.">		for (CDOMReference&lt;T&gt; lw : mods)</span>
+		{
+<span class="nc" id="L170">			Collection&lt;AssociatedPrereqObject&gt; assocs = negative.getListAssociations(list, lw);</span>
+<span class="nc bnc" id="L171" title="All 2 branches missed.">			for (AssociatedPrereqObject assoc : assocs)</span>
+			{
+<span class="nc bnc" id="L173" title="All 2 branches missed.">				if (tokenName.equals(assoc.getAssociation(AssociationKey.TOKEN)))</span>
+				{
+<span class="nc" id="L175">					owned.addToListFor(lw, assoc);</span>
+				}
+<span class="nc" id="L177">			}</span>
+<span class="nc" id="L178">		}</span>
+<span class="nc bnc" id="L179" title="All 2 branches missed.">		if (owned.isEmpty())</span>
+		{
+<span class="nc" id="L181">			return null;</span>
+		}
+<span class="nc" id="L183">		return owned;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

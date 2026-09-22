@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ThumbnailPane.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.gui2.tabs.bio</a> &gt; <span class="el_source">ThumbnailPane.java</span></div><h1>ThumbnailPane.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2011 Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ * 
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ * 
+ */
+package pcgen.gui2.tabs.bio;
+
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Insets;
+import java.awt.Rectangle;
+import java.awt.image.BufferedImage;
+
+import javax.swing.BorderFactory;
+import javax.swing.JComponent;
+
+import pcgen.cdom.base.Constants;
+
+class ThumbnailPane extends JComponent
+{
+
+	private BufferedImage portrait;
+	private Rectangle cropRect;
+
+	ThumbnailPane()
+<span class="nc" id="L40">	{</span>
+<span class="nc" id="L41">		this.setDoubleBuffered(true);</span>
+<span class="nc" id="L42">		this.setBorder(BorderFactory.createLineBorder(Color.BLACK));</span>
+<span class="nc" id="L43">	}</span>
+
+	void setPortraitImage(BufferedImage portrait)
+	{
+<span class="nc" id="L47">		this.portrait = portrait;</span>
+<span class="nc" id="L48">		refreshImage();</span>
+<span class="nc" id="L49">	}</span>
+
+	void setCropRectangle(Rectangle cropRect)
+	{
+<span class="nc" id="L53">		this.cropRect = new Rectangle(cropRect);</span>
+<span class="nc" id="L54">		refreshImage();</span>
+<span class="nc" id="L55">	}</span>
+
+	private void refreshImage()
+	{
+<span class="nc bnc" id="L59" title="All 2 branches missed.">		if (cropRect != null)</span>
+		{
+<span class="nc bnc" id="L61" title="All 2 branches missed.">			if ((this.cropRect.x + this.cropRect.width) &gt; portrait.getWidth())</span>
+			{
+<span class="nc" id="L63">				this.cropRect.x = portrait.getWidth() - cropRect.width;</span>
+			}
+<span class="nc bnc" id="L65" title="All 2 branches missed.">			if ((this.cropRect.y + this.cropRect.height) &gt; portrait.getHeight())</span>
+			{
+<span class="nc" id="L67">				this.cropRect.y = portrait.getHeight() - cropRect.height;</span>
+			}
+<span class="nc bnc" id="L69" title="All 4 branches missed.">			if (this.cropRect.x &lt; 0 || this.cropRect.y &lt; 0)</span>
+			{
+<span class="nc" id="L71">				this.cropRect = null;</span>
+			}
+		}
+<span class="nc bnc" id="L74" title="All 2 branches missed.">		if (cropRect != null)</span>
+		{
+<span class="nc" id="L76">			repaint();</span>
+		}
+<span class="nc" id="L78">	}</span>
+
+	@Override
+	public Dimension getPreferredSize()
+	{
+<span class="nc" id="L83">		Insets insets = getInsets();</span>
+<span class="nc" id="L84">		int width = 0;</span>
+<span class="nc" id="L85">		int height = 0;</span>
+<span class="nc bnc" id="L86" title="All 2 branches missed.">		if (insets != null)</span>
+		{
+<span class="nc" id="L88">			width += insets.left + insets.right;</span>
+<span class="nc" id="L89">			height += insets.top + insets.bottom;</span>
+		}
+<span class="nc" id="L91">		width += Constants.THUMBNAIL_SIZE;</span>
+<span class="nc" id="L92">		height += Constants.THUMBNAIL_SIZE;</span>
+<span class="nc" id="L93">		return new Dimension(width, height);</span>
+	}
+
+	@Override
+	public Dimension getMaximumSize()
+	{
+<span class="nc" id="L99">		return getPreferredSize();</span>
+	}
+
+	@Override
+	public Dimension getMinimumSize()
+	{
+<span class="nc" id="L105">		return getPreferredSize();</span>
+	}
+
+	@Override
+	protected void paintComponent(Graphics g)
+	{
+<span class="nc bnc" id="L111" title="All 4 branches missed.">		if (portrait == null || cropRect == null)</span>
+		{
+<span class="nc" id="L113">			return;</span>
+		}
+<span class="nc" id="L115">		Insets insets = getInsets();</span>
+<span class="nc" id="L116">		g.drawImage(portrait.getSubimage(cropRect.x, cropRect.y, cropRect.width, cropRect.height), insets.left,</span>
+			insets.top, Constants.THUMBNAIL_SIZE, Constants.THUMBNAIL_SIZE, this);
+<span class="nc" id="L118">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>LevelTableFacet.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.facet.analysis</a> &gt; <span class="el_source">LevelTableFacet.java</span></div><h1>LevelTableFacet.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) Thomas Parker, 2009.
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package pcgen.cdom.facet.analysis;
+
+import pcgen.cdom.formula.Formula;
+import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.FormulaResolvingFacet;
+import pcgen.cdom.facet.XPTableFacet;
+import pcgen.core.LevelInfo;
+
+/**
+ * LevelTableFacet stores the Experience Point table used to identify how many
+ * experience points are required at a certain character level.
+ * 
+ */
+<span class="fc" id="L32">public class LevelTableFacet</span>
+{
+	private XPTableFacet xpTableFacet;
+
+	private FormulaResolvingFacet resolveFacet;
+
+	/**
+	 * Returns the (minimum) number of total Experience Points needed for a
+	 * given level
+	 * 
+	 * @param level
+	 *            The character level for which to calculate the minimum
+	 *            required experience to reach that character level
+	 * @param id
+	 *            The CharID representing the Player Character for which to
+	 *            calculate the minimum experience for a given level
+	 * 
+	 * @return The experience points needed for the given level
+	 */
+	public int minXPForLevel(int level, CharID id)
+	{
+<span class="nc" id="L53">		LevelInfo info = xpTableFacet.getLevelInfo(id, level);</span>
+<span class="nc bnc" id="L54" title="All 2 branches missed.">		if (info != null)</span>
+		{
+<span class="nc" id="L56">			Formula f = FormulaFactory.getFormulaFor(info.getMinXPVariable(level));</span>
+<span class="nc" id="L57">			return resolveFacet.resolve(id, f, &quot;&quot;).intValue();</span>
+		}
+
+		/*
+		 * TODO Should this be a warning/error?
+		 */
+<span class="nc" id="L63">		return 0;</span>
+	}
+
+	/**
+	 * @param resolveFacet
+	 *            the resolveFacet to set
+	 */
+	public void setResolveFacet(FormulaResolvingFacet resolveFacet)
+	{
+<span class="fc" id="L72">		this.resolveFacet = resolveFacet;</span>
+<span class="fc" id="L73">	}</span>
+
+	public void setXpTableFacet(XPTableFacet xpTableFacet)
+	{
+<span class="fc" id="L77">		this.xpTableFacet = xpTableFacet;</span>
+<span class="fc" id="L78">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

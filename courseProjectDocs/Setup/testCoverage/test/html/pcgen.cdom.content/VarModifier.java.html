@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>VarModifier.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.content</a> &gt; <span class="el_source">VarModifier.java</span></div><h1>VarModifier.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2015 (C) Thomas Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.cdom.content;
+
+import java.util.Objects;
+
+import pcgen.cdom.calculation.FormulaModifier;
+import pcgen.cdom.formula.scope.PCGenScope;
+
+/**
+ * A VarModifier is a container for all the information necessary to modify a
+ * variable. This includes the scope, the variable name, and the FormulaModifier
+ * to be applied. This allows that grouping of information to be passed as a
+ * single unit of information.
+ * 
+ * @param &lt;T&gt;
+ *            The format of the variable modified by the FormulaModifier in this
+ *            VarModifier
+ */
+public class VarModifier&lt;T&gt;
+{
+	/**
+	 * This is an empty array of VarModifier objects, available for use by a
+	 * VarContainer.
+	 */
+<span class="fc" id="L41">	public static final VarModifier&lt;?&gt;[] EMPTY_VARMODIFIER = new VarModifier[0];</span>
+
+	/**
+	 * The name of the Variable to be modified when this VarModifier is applied.
+	 */
+	private final String varName;
+
+	/**
+	 * The PCGenScope of the variable to be modified when this VarModifier is
+	 * applied.
+	 */
+	private final PCGenScope legalScope;
+
+	/**
+	 * The FormulaModifier to be applied to the Variable when this VarModifier is
+	 * applied.
+	 */
+	private final FormulaModifier&lt;T&gt; modifier;
+
+	/**
+	 * Constructs a new VarModifier containing all the information necessary to
+	 * modify a variable.
+	 * 
+	 * @param varName
+	 *            The name of the Variable to be modified when this VarModifier
+	 *            is applied
+	 * @param legalScope
+	 *            the PCGenScope in which the Modifier is applied
+	 * @param modifier
+	 *            The FormulaModifier to be applied to the Variable when this
+	 *            VarModifier is applied
+	 * @throws IllegalArgumentException
+	 *             if any of the parameters are null
+	 */
+	public VarModifier(String varName, PCGenScope legalScope, FormulaModifier&lt;T&gt; modifier)
+<span class="fc" id="L76">	{</span>
+<span class="fc" id="L77">		Objects.requireNonNull(varName, &quot;Var Name cannot be null&quot;);</span>
+<span class="fc" id="L78">		Objects.requireNonNull(legalScope, &quot;PCGenScope cannot be null&quot;);</span>
+<span class="fc" id="L79">		Objects.requireNonNull(modifier, &quot;Modifier cannot be null&quot;);</span>
+<span class="fc" id="L80">		this.varName = varName;</span>
+<span class="fc" id="L81">		this.legalScope = legalScope;</span>
+<span class="fc" id="L82">		this.modifier = modifier;</span>
+<span class="fc" id="L83">	}</span>
+
+	/**
+	 * Retrieves the Variable Name for this VarModifier.
+	 * 
+	 * @return the Variable Name for this VarModifier
+	 */
+	public String getVarName()
+	{
+<span class="fc" id="L92">		return varName;</span>
+	}
+
+	/**
+	 * Retrieves the PCGenScope for this VarModifier.
+	 * 
+	 * @return the PCGenScope for this VarModifier
+	 */
+	public PCGenScope getLegalScope()
+	{
+<span class="fc" id="L102">		return legalScope;</span>
+	}
+
+	/**
+	 * Retrieves the FormulaModifier for this VarModifier.
+	 * 
+	 * @return the FormulaModifier for this VarModifier
+	 */
+	public FormulaModifier&lt;T&gt; getModifier()
+	{
+<span class="fc" id="L112">		return modifier;</span>
+	}
+
+	@Override
+	public int hashCode()
+	{
+<span class="nc" id="L118">		return varName.hashCode() ^ modifier.hashCode();</span>
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+<span class="nc bnc" id="L124" title="All 2 branches missed.">		if (o instanceof VarModifier&lt;?&gt; other)</span>
+		{
+<span class="nc bnc" id="L126" title="All 4 branches missed.">			return other.varName.equals(varName) &amp;&amp; other.legalScope.equals(legalScope)</span>
+<span class="nc bnc" id="L127" title="All 2 branches missed.">				&amp;&amp; other.modifier.equals(modifier);</span>
+		}
+<span class="nc" id="L129">		return false;</span>
+	}
+
+	/**
+	 * Returns the fully qualified Legal Scope Name for the LegalScope in this
+	 * VarModifier.
+	 * 
+	 * (e.g. The LegalScope might be &quot;SKILL&quot; and the fully qualified name &quot;PC.SKILL&quot;)
+	 * 
+	 * @return The fully qualified Legal Scope Name for the LegalScope in this VarModifier
+	 */
+	public String getFullLegalScopeName()
+	{
+<span class="nc" id="L142">		return getLegalScope().getName();</span>
+	}
+	
+	@Override
+	public String toString()
+	{
+<span class="nc" id="L148">		return getClass().getSimpleName() + &quot;: &quot; + varName + &quot; (&quot;</span>
+<span class="nc" id="L149">			+ legalScope.getName() + &quot;) &quot; + modifier;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

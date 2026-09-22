@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>NaturalattacksLst.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.lsttokens</a> &gt; <span class="el_source">NaturalattacksLst.java</span></div><h1>NaturalattacksLst.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2008 (C) Thomas Parker &lt;thpr@users.sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package plugin.lsttokens;
+
+import java.math.BigDecimal;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.StringTokenizer;
+
+import pcgen.cdom.formula.Formula;
+import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.base.Ungranted;
+import pcgen.cdom.enumeration.FormulaKey;
+import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.enumeration.Type;
+import pcgen.cdom.inst.EquipmentHead;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.util.CControl;
+import pcgen.cdom.util.ControlUtilities;
+import pcgen.core.Equipment;
+import pcgen.core.SizeAdjustment;
+import pcgen.core.SpecialProperty;
+import pcgen.core.WeaponProf;
+import pcgen.core.bonus.Bonus;
+import pcgen.core.bonus.BonusObj;
+import pcgen.core.prereq.Prerequisite;
+import pcgen.core.prereq.PrerequisiteUtilities;
+import pcgen.rules.context.Changes;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.ParseResult;
+import pcgen.rules.persistence.token.PostDeferredToken;
+import pcgen.util.Logging;
+
+<span class="fc" id="L60">public class NaturalattacksLst extends AbstractTokenWithSeparator&lt;CDOMObject&gt;</span>
+		implements CDOMPrimaryToken&lt;CDOMObject&gt;, PostDeferredToken&lt;CDOMObject&gt;
+{
+
+<span class="fc" id="L64">	private static final Class&lt;WeaponProf&gt; WEAPONPROF_CLASS = WeaponProf.class;</span>
+	private static final int MIN_TOKEN_COUNT = 4;
+
+	@Override
+	public String getTokenName()
+	{
+<span class="fc" id="L70">		return &quot;NATURALATTACKS&quot;; //$NON-NLS-1$</span>
+	}
+
+	@Override
+	protected char separator()
+	{
+<span class="fc" id="L76">		return '|';</span>
+	}
+
+	/**
+	 * NATURAL WEAPONS CODE &lt;p&gt;first natural weapon is primary, the rest are
+	 * secondary; NATURALATTACKS:primary weapon name,weapon type,num
+	 * attacks,damage|secondary1 weapon name,weapon type,num
+	 * attacks,damage|secondary2 format is exactly as it would be in an
+	 * equipment lst file Type is of the format Weapon.Natural.Melee.Bludgeoning
+	 * number of attacks is the number of attacks with that weapon at BAB (for
+	 * primary), or BAB - 5 (for secondary)
+	 */
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
+	{
+<span class="pc bpc" id="L91" title="1 of 2 branches missed.">		if (obj instanceof Ungranted)</span>
+		{
+<span class="nc" id="L93">			return new ParseResult.Fail(</span>
+<span class="nc" id="L94">				&quot;Cannot use &quot; + getTokenName() + &quot; on an Ungranted object type: &quot; + obj.getClass().getSimpleName());</span>
+		}
+		// Currently, this isn't going to work with monk attacks
+		// - their unarmed stuff won't be affected.
+
+		/*
+		 * This does not immediately resolve the Size, because it is an order of
+		 * operations issue. This token must allow the SIZE token to appear
+		 * AFTER this token in the LST file. Thus a deferred resolution (using a
+		 * Resolver) is required.
+		 */
+
+<span class="fc" id="L106">		int count = 1;</span>
+<span class="fc" id="L107">		StringTokenizer attackTok = new StringTokenizer(value, Constants.PIPE);</span>
+
+		// This is wrong as we need to replace old natural weapons
+		// with &quot;better&quot; ones
+
+<span class="fc bfc" id="L112" title="All 2 branches covered.">		while (attackTok.hasMoreTokens())</span>
+		{
+<span class="fc" id="L114">			String tokString = attackTok.nextToken();</span>
+<span class="fc" id="L115">			ParseResult pr = checkForIllegalSeparator(',', tokString);</span>
+<span class="fc bfc" id="L116" title="All 2 branches covered.">			if (!pr.passed())</span>
+			{
+<span class="fc" id="L118">				return pr;</span>
+			}
+<span class="fc" id="L120">			String wpn = tokString.intern();</span>
+
+<span class="fc" id="L122">			StringTokenizer commaTok = new StringTokenizer(wpn, Constants.COMMA);</span>
+
+<span class="fc" id="L124">			int numTokens = commaTok.countTokens();</span>
+<span class="fc bfc" id="L125" title="All 2 branches covered.">			if (numTokens &lt; MIN_TOKEN_COUNT)</span>
+			{
+<span class="fc" id="L127">				return new ParseResult.Fail(&quot;Invalid Build of &quot; + &quot;Natural Weapon in &quot; + getTokenName() + &quot;: &quot; + wpn);</span>
+			}
+
+<span class="fc" id="L130">			String attackName = commaTok.nextToken();</span>
+
+<span class="fc bfc" id="L132" title="All 2 branches covered.">			if (attackName.equalsIgnoreCase(Constants.LST_NONE))</span>
+			{
+<span class="fc" id="L134">				return new ParseResult.Fail(</span>
+<span class="fc" id="L135">					&quot;Attempt to Build 'None' as a &quot; + &quot;Natural Weapon in &quot; + getTokenName() + &quot;: &quot; + wpn);</span>
+			}
+
+<span class="fc" id="L138">			attackName = attackName.intern();</span>
+<span class="fc" id="L139">			Equipment naturalWeapon = new Equipment();</span>
+<span class="fc" id="L140">			naturalWeapon.setName(attackName);</span>
+<span class="fc" id="L141">			naturalWeapon.put(ObjectKey.PARENT, obj);</span>
+			/*
+			 * This really can't be raw equipment... It really never needs to be
+			 * referred to, but this means that duplicates are never being detected
+			 * and resolved... this needs to have a KEY defined, to keep it
+			 * unique... hopefully this is good enough :)
+			 *
+			 * CONSIDER This really isn't that great, because it's String dependent,
+			 * and may not remove identical items... it certainly works, but is ugly
+			 */
+			// anEquip.setKeyName(obj.getClass().getSimpleName() + &quot;,&quot;
+			// + obj.getKeyName() + &quot;,&quot; + wpn);
+			/*
+			 * Perhaps the construction above should be through context just to
+			 * guarantee uniqueness of the key?? - that's too paranoid
+			 */
+
+<span class="fc" id="L158">			EquipmentHead equipHead = naturalWeapon.getEquipmentHead(1);</span>
+
+<span class="fc" id="L160">			String profType = commaTok.nextToken();</span>
+<span class="fc" id="L161">			pr = checkForIllegalSeparator('.', profType);</span>
+<span class="fc bfc" id="L162" title="All 2 branches covered.">			if (!pr.passed())</span>
+			{
+<span class="fc" id="L164">				return pr;</span>
+			}
+<span class="fc" id="L166">			StringTokenizer dotTok = new StringTokenizer(profType, Constants.DOT);</span>
+<span class="fc bfc" id="L167" title="All 2 branches covered.">			while (dotTok.hasMoreTokens())</span>
+			{
+<span class="fc" id="L169">				Type type = Type.getConstant(dotTok.nextToken());</span>
+<span class="fc" id="L170">				naturalWeapon.addToListFor(ListKey.TYPE, type);</span>
+<span class="fc" id="L171">			}</span>
+
+<span class="fc" id="L173">			String numAttacks = commaTok.nextToken();</span>
+<span class="pc bpc" id="L174" title="1 of 4 branches missed.">			boolean attacksFixed = !numAttacks.isEmpty() &amp;&amp; numAttacks.charAt(0) == '*';</span>
+<span class="fc bfc" id="L175" title="All 2 branches covered.">			if (attacksFixed)</span>
+			{
+<span class="fc" id="L177">				numAttacks = numAttacks.substring(1);</span>
+			}
+<span class="fc bfc" id="L179" title="All 2 branches covered.">			naturalWeapon.put(ObjectKey.ATTACKS_PROGRESS, !attacksFixed);</span>
+			try
+			{
+<span class="fc" id="L182">				int bonusAttacks = Integer.parseInt(numAttacks) - 1;</span>
+<span class="fc" id="L183">				final BonusObj aBonus = Bonus.newBonus(context, &quot;WEAPON|ATTACKS|&quot; + bonusAttacks);</span>
+
+<span class="pc bpc" id="L185" title="1 of 2 branches missed.">				if (aBonus == null)</span>
+				{
+<span class="nc" id="L187">					return new ParseResult.Fail(</span>
+<span class="nc" id="L188">						getTokenName() + &quot; was given invalid number of attacks: &quot; + bonusAttacks);</span>
+				}
+<span class="fc" id="L190">				naturalWeapon.addToListFor(ListKey.BONUS, aBonus);</span>
+			}
+<span class="fc" id="L192">			catch (NumberFormatException exc)</span>
+			{
+<span class="fc" id="L194">				return new ParseResult.Fail(</span>
+<span class="fc" id="L195">					&quot;Non-numeric value for number of attacks in &quot; + getTokenName() + &quot;: '&quot; + numAttacks + '\'');</span>
+<span class="fc" id="L196">			}</span>
+
+<span class="fc" id="L198">			equipHead.put(StringKey.DAMAGE, commaTok.nextToken());</span>
+
+			// sage_sam 02 Dec 2002 for Bug #586332
+			// allow hands to be required to equip natural weapons
+<span class="fc" id="L202">			int handsrequired = 0;</span>
+<span class="fc bfc" id="L203" title="All 2 branches covered.">			while (commaTok.hasMoreTokens())</span>
+			{
+<span class="fc" id="L205">				final String handsOrSpropString = commaTok.nextToken();</span>
+<span class="fc bfc" id="L206" title="All 2 branches covered.">				if (handsOrSpropString.startsWith(&quot;SPROP=&quot;))</span>
+				{
+<span class="fc" id="L208">					naturalWeapon.addToListFor(ListKey.SPECIAL_PROPERTIES,</span>
+<span class="fc" id="L209">						SpecialProperty.createFromLst(handsOrSpropString.substring(6)));</span>
+				}
+				else
+				{
+					try
+					{
+<span class="fc" id="L215">						handsrequired = Integer.parseInt(handsOrSpropString);</span>
+					}
+<span class="fc" id="L217">					catch (NumberFormatException exc)</span>
+					{
+<span class="fc" id="L219">						return new ParseResult.Fail(</span>
+							&quot;Non-numeric value for hands required: '&quot; + handsOrSpropString + '\'');
+<span class="fc" id="L221">					}</span>
+				}
+<span class="fc" id="L223">			}</span>
+<span class="fc" id="L224">			naturalWeapon.put(IntegerKey.SLOTS, handsrequired);</span>
+
+<span class="fc" id="L226">			naturalWeapon.put(ObjectKey.WEIGHT, BigDecimal.ZERO);</span>
+
+<span class="fc" id="L228">			WeaponProf weaponProf =</span>
+<span class="fc" id="L229">					context.getReferenceContext().silentlyGetConstructedCDOMObject(WEAPONPROF_CLASS, attackName);</span>
+<span class="fc bfc" id="L230" title="All 2 branches covered.">			if (weaponProf == null)</span>
+			{
+<span class="fc" id="L232">				weaponProf = context.getReferenceContext().constructNowIfNecessary(WEAPONPROF_CLASS, attackName);</span>
+<span class="fc" id="L233">				weaponProf.addToListFor(ListKey.TYPE, Type.NATURAL);</span>
+			}
+<span class="fc" id="L235">			CDOMSingleRef&lt;WeaponProf&gt; wp = context.getReferenceContext().getCDOMReference(WEAPONPROF_CLASS, attackName);</span>
+<span class="fc" id="L236">			naturalWeapon.put(ObjectKey.WEAPON_PROF, wp);</span>
+<span class="fc" id="L237">			naturalWeapon.addToListFor(ListKey.IMPLIED_WEAPONPROF, wp);</span>
+
+<span class="pc bpc" id="L239" title="1 of 2 branches missed.">			if (!ControlUtilities.hasControlToken(context, CControl.CRITRANGE))</span>
+			{
+<span class="fc" id="L241">				equipHead.put(IntegerKey.CRIT_RANGE, 1);</span>
+			}
+<span class="pc bpc" id="L243" title="1 of 2 branches missed.">			if (!ControlUtilities.hasControlToken(context, CControl.CRITMULT))</span>
+			{
+<span class="fc" id="L245">				equipHead.put(IntegerKey.CRIT_MULT, 2);</span>
+			}
+
+<span class="fc bfc" id="L248" title="All 2 branches covered.">			if (count == 1)</span>
+			{
+<span class="fc" id="L250">				naturalWeapon.setModifiedName(&quot;Natural/Primary&quot;);</span>
+			}
+			else
+			{
+<span class="fc" id="L254">				naturalWeapon.setModifiedName(&quot;Natural/Secondary&quot;);</span>
+			}
+
+<span class="fc" id="L257">			naturalWeapon.setOutputIndex(0);</span>
+<span class="fc" id="L258">			naturalWeapon.setOutputSubindex(count);</span>
+			// these values need to be locked.
+<span class="fc" id="L260">			naturalWeapon.setQty(Float.valueOf(1));</span>
+<span class="fc" id="L261">			naturalWeapon.setNumberCarried(1.0f);</span>
+
+<span class="fc" id="L263">			context.getObjectContext().addToList(obj, ListKey.NATURAL_WEAPON, naturalWeapon);</span>
+<span class="fc" id="L264">			count++;</span>
+<span class="fc" id="L265">		}</span>
+<span class="fc" id="L266">		return ParseResult.SUCCESS;</span>
+	}
+
+	@Override
+	public String[] unparse(LoadContext context, CDOMObject obj)
+	{
+<span class="fc" id="L272">		Changes&lt;Equipment&gt; changes = context.getObjectContext().getListChanges(obj, ListKey.NATURAL_WEAPON);</span>
+<span class="fc" id="L273">		Collection&lt;Equipment&gt; eqadded = changes.getAdded();</span>
+<span class="pc bpc" id="L274" title="1 of 4 branches missed.">		if (eqadded == null || eqadded.isEmpty())</span>
+		{
+<span class="fc" id="L276">			return null;</span>
+		}
+<span class="fc" id="L278">		StringBuilder sb = new StringBuilder();</span>
+<span class="fc" id="L279">		boolean first = true;</span>
+<span class="fc bfc" id="L280" title="All 2 branches covered.">		for (Equipment lstw : eqadded)</span>
+		{
+<span class="fc bfc" id="L282" title="All 2 branches covered.">			if (!first)</span>
+			{
+<span class="fc" id="L284">				sb.append(Constants.PIPE);</span>
+			}
+<span class="fc" id="L286">			Equipment eq = Equipment.class.cast(lstw);</span>
+<span class="fc" id="L287">			String name = eq.getDisplayName();</span>
+			// TODO objcontext.getString(eq, StringKey.NAME);
+<span class="pc bpc" id="L289" title="1 of 2 branches missed.">			if (name == null)</span>
+			{
+<span class="nc" id="L291">				context.addWriteMessage(getTokenName() + &quot; expected Equipment to have a name&quot;);</span>
+<span class="nc" id="L292">				return null;</span>
+			}
+<span class="fc" id="L294">			sb.append(name).append(Constants.COMMA);</span>
+<span class="fc" id="L295">			List&lt;Type&gt; type = eq.getListFor(ListKey.TYPE);</span>
+<span class="pc bpc" id="L296" title="2 of 4 branches missed.">			if (type == null || type.isEmpty())</span>
+			{
+<span class="nc" id="L298">				context.addWriteMessage(getTokenName() + &quot; expected Equipment to have a type&quot;);</span>
+<span class="nc" id="L299">				return null;</span>
+			}
+<span class="fc" id="L301">			sb.append(StringUtil.join(type, Constants.DOT));</span>
+<span class="fc" id="L302">			sb.append(Constants.COMMA);</span>
+<span class="fc" id="L303">			Boolean attProgress = eq.get(ObjectKey.ATTACKS_PROGRESS);</span>
+<span class="pc bpc" id="L304" title="1 of 2 branches missed.">			if (attProgress == null)</span>
+			{
+<span class="nc" id="L306">				context.addWriteMessage(getTokenName() + &quot; expected Equipment to know ATTACKS_PROGRESS state&quot;);</span>
+<span class="nc" id="L307">				return null;</span>
+			}
+<span class="fc bfc" id="L309" title="All 2 branches covered.">			else if (!attProgress)</span>
+			{
+<span class="fc" id="L311">				sb.append(Constants.CHAR_ASTERISK);</span>
+			}
+<span class="fc" id="L313">			List&lt;BonusObj&gt; bonuses = eq.getListFor(ListKey.BONUS);</span>
+<span class="pc bpc" id="L314" title="2 of 4 branches missed.">			if (bonuses == null || bonuses.isEmpty())</span>
+			{
+<span class="nc" id="L316">				sb.append('1');</span>
+			}
+			else
+			{
+<span class="pc bpc" id="L320" title="1 of 2 branches missed.">				if (bonuses.size() != 1)</span>
+				{
+<span class="nc" id="L322">					context.addWriteMessage(getTokenName() + &quot; expected only one BONUS on Equipment: &quot; + bonuses);</span>
+<span class="nc" id="L323">					return null;</span>
+				}
+				// TODO Validate BONUS type?
+<span class="fc" id="L326">				BonusObj extraAttacks = bonuses.iterator().next();</span>
+<span class="fc" id="L327">				sb.append(Integer.parseInt(extraAttacks.getValue()) + 1);</span>
+			}
+<span class="fc" id="L329">			sb.append(Constants.COMMA);</span>
+<span class="fc" id="L330">			EquipmentHead head = eq.getEquipmentHeadReference(1);</span>
+<span class="pc bpc" id="L331" title="1 of 2 branches missed.">			if (head == null)</span>
+			{
+<span class="nc" id="L333">				context.addWriteMessage(getTokenName() + &quot; expected an EquipmentHead on Equipment&quot;);</span>
+<span class="nc" id="L334">				return null;</span>
+			}
+<span class="fc" id="L336">			String damage = head.get(StringKey.DAMAGE);</span>
+<span class="pc bpc" id="L337" title="1 of 2 branches missed.">			if (damage == null)</span>
+			{
+<span class="nc" id="L339">				context.addWriteMessage(getTokenName() + &quot; expected a Damage on EquipmentHead&quot;);</span>
+<span class="nc" id="L340">				return null;</span>
+			}
+<span class="fc" id="L342">			sb.append(damage);</span>
+
+<span class="fc" id="L344">			Integer hands = eq.get(IntegerKey.SLOTS);</span>
+<span class="pc bpc" id="L345" title="1 of 4 branches missed.">			if (hands != null &amp;&amp; hands != 0)</span>
+			{
+<span class="fc" id="L347">				sb.append(',').append(hands);</span>
+			}
+
+<span class="fc" id="L350">			List&lt;SpecialProperty&gt; spropList = eq.getSafeListFor(ListKey.SPECIAL_PROPERTIES);</span>
+<span class="fc bfc" id="L351" title="All 2 branches covered.">			for (SpecialProperty sprop : spropList)</span>
+			{
+<span class="fc" id="L353">				sb.append(&quot;,SPROP=&quot;).append(sprop.toString());</span>
+<span class="fc" id="L354">			}</span>
+
+<span class="fc" id="L356">			first = false;</span>
+<span class="fc" id="L357">		}</span>
+<span class="fc" id="L358">		return new String[]{sb.toString()};</span>
+	}
+
+	@Override
+	public Class&lt;CDOMObject&gt; getTokenClass()
+	{
+<span class="fc" id="L364">		return CDOMObject.class;</span>
+	}
+
+	@Override
+	public boolean process(LoadContext context, CDOMObject obj)
+	{
+<span class="nc" id="L370">		List&lt;Equipment&gt; natWeapons = obj.getListFor(ListKey.NATURAL_WEAPON);</span>
+<span class="nc bnc" id="L371" title="All 2 branches missed.">		if (natWeapons != null)</span>
+		{
+<span class="nc" id="L373">			Formula sizeFormula = obj.getSafe(FormulaKey.SIZE);</span>
+			// If the size was just a default, check for a size prereq and use that instead.
+<span class="nc bnc" id="L375" title="All 4 branches missed.">			if (obj.get(FormulaKey.SIZE) == null &amp;&amp; obj.hasPreReqTypeOf(&quot;SIZE&quot;))</span>
+			{
+<span class="nc" id="L377">				Integer requiredSize = getRequiredSize(context, obj);</span>
+<span class="nc bnc" id="L378" title="All 2 branches missed.">				if (requiredSize != null)</span>
+				{
+<span class="nc" id="L380">					sizeFormula = FormulaFactory.getFormulaFor(requiredSize);</span>
+				}
+			}
+
+<span class="nc bnc" id="L384" title="All 2 branches missed.">			if (sizeFormula.isStatic())</span>
+			{
+<span class="nc" id="L386">				int isize = sizeFormula.resolveStatic().intValue();</span>
+<span class="nc" id="L387">				SizeAdjustment size = context.getReferenceContext()</span>
+<span class="nc" id="L388">					.getSortedList(SizeAdjustment.class, IntegerKey.SIZEORDER).get(isize);</span>
+<span class="nc bnc" id="L389" title="All 2 branches missed.">				for (Equipment e : natWeapons)</span>
+				{
+<span class="nc" id="L391">					CDOMDirectSingleRef&lt;SizeAdjustment&gt; sizeRef = CDOMDirectSingleRef.getRef(size);</span>
+<span class="nc" id="L392">					e.put(ObjectKey.BASESIZE, sizeRef);</span>
+<span class="nc" id="L393">					e.put(ObjectKey.SIZE, sizeRef);</span>
+<span class="nc" id="L394">				}</span>
+<span class="nc" id="L395">			}</span>
+			else
+			{
+<span class="nc" id="L398">				Logging.errorPrint(&quot;SIZE in &quot; + obj.getClass().getSimpleName() + ' ' + obj.getKeyName()</span>
+					+ &quot; must not be a variable &quot; + &quot;if it contains a NATURALATTACKS token&quot;);
+			}
+		}
+<span class="nc" id="L402">		return true;</span>
+	}
+
+	/**
+	 * Retrieve the required size (i.e. PRESIZE) for the object defining the attack. Will
+	 * only return a value if there is a single size. 
+	 * @param obj The defining object. 
+	 * @return The size integer, or null if none (or multiple) specified.
+	 */
+	private Integer getRequiredSize(LoadContext context, CDOMObject obj)
+	{
+<span class="nc" id="L413">		Set&lt;Prerequisite&gt; sizePrereqs = new HashSet&lt;&gt;();</span>
+<span class="nc bnc" id="L414" title="All 2 branches missed.">		for (Prerequisite prereq : obj.getPrerequisiteList())</span>
+		{
+<span class="nc" id="L416">			sizePrereqs.addAll(PrerequisiteUtilities.getPreReqsOfKind(prereq, &quot;SIZE&quot;));</span>
+<span class="nc" id="L417">		}</span>
+
+<span class="nc" id="L419">		Integer requiredSize = null;</span>
+<span class="nc bnc" id="L420" title="All 2 branches missed.">		for (Prerequisite prereq : sizePrereqs)</span>
+		{
+<span class="nc" id="L422">			SizeAdjustment sa = context.getReferenceContext().silentlyGetConstructedCDOMObject(SizeAdjustment.class,</span>
+<span class="nc" id="L423">				prereq.getOperand());</span>
+<span class="nc" id="L424">			final int targetSize = sa.get(IntegerKey.SIZEORDER);</span>
+<span class="nc bnc" id="L425" title="All 4 branches missed.">			if (requiredSize != null &amp;&amp; requiredSize != targetSize)</span>
+			{
+<span class="nc" id="L427">				return null;</span>
+			}
+<span class="nc" id="L429">			requiredSize = targetSize;</span>
+<span class="nc" id="L430">		}</span>
+<span class="nc" id="L431">		return requiredSize;</span>
+	}
+
+	@Override
+	public Class&lt;CDOMObject&gt; getDeferredTokenClass()
+	{
+<span class="nc" id="L437">		return getTokenClass();</span>
+	}
+
+	@Override
+	public int getPriority()
+	{
+<span class="fc" id="L443">		return 0;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

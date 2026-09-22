@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ShieldProfProviderFacet.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.facet.model</a> &gt; <span class="el_source">ShieldProfProviderFacet.java</span></div><h1>ShieldProfProviderFacet.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) Thomas Parker, 2009.
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package pcgen.cdom.facet.model;
+
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.base.AbstractQualifiedListFacet;
+import pcgen.cdom.facet.event.DataFacetChangeEvent;
+import pcgen.cdom.facet.event.DataFacetChangeListener;
+import pcgen.cdom.helper.ProfProvider;
+import pcgen.cdom.meta.CorePerspective;
+import pcgen.cdom.meta.CorePerspectiveDB;
+import pcgen.cdom.meta.FacetBehavior;
+import pcgen.cdom.meta.PerspectiveLocation;
+import pcgen.core.Equipment;
+import pcgen.core.ShieldProf;
+
+/**
+ * ShieldProfFacet is a Facet that tracks the ShieldProfs that have been granted
+ * to a Player Character.
+ * 
+ * This is a required consolidation since ProfProviders that are directly
+ * applied via AUTO:SHIELDPROF are a distinct process from those that are
+ * indirectly added via a %LIST within AUTO:SHIELDPROF (and thus the result of a
+ * CHOOSE). This facet consolidates those two sources into the complete list of
+ * ShieldProf ProfProviders for a Player Character.
+ * 
+ */
+<span class="fc" id="L43">public class ShieldProfProviderFacet extends AbstractQualifiedListFacet&lt;ProfProvider&lt;ShieldProf&gt;&gt;</span>
+		implements DataFacetChangeListener&lt;CharID, ProfProvider&lt;ShieldProf&gt;&gt;, PerspectiveLocation
+{
+
+	/**
+	 * Processes added ShieldProf ProfProviders to consolidate those objects
+	 * into one location.
+	 * 
+	 * Triggered when one of the Facets to which ShieldProfFacet listens fires a
+	 * DataFacetChangeEvent to indicate a CDOMObject was added to a Player
+	 * Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 */
+	@Override
+	public void dataAdded(DataFacetChangeEvent&lt;CharID, ProfProvider&lt;ShieldProf&gt;&gt; dfce)
+	{
+<span class="fc" id="L62">		add(dfce.getCharID(), dfce.getCDOMObject(), dfce.getSource());</span>
+<span class="fc" id="L63">	}</span>
+
+	/**
+	 * Processes added ShieldProf ProfProviders to consolidate those objects
+	 * into one location.
+	 * 
+	 * Triggered when one of the Facets to which ShieldProfFacet listens fires a
+	 * DataFacetChangeEvent to indicate a CDOMObject was removed from a Player
+	 * Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 */
+	@Override
+	public void dataRemoved(DataFacetChangeEvent&lt;CharID, ProfProvider&lt;ShieldProf&gt;&gt; dfce)
+	{
+<span class="fc" id="L80">		remove(dfce.getCharID(), dfce.getCDOMObject(), dfce.getSource());</span>
+<span class="fc" id="L81">	}</span>
+
+	/**
+	 * Returns true if a Player Character is proficient with a given Shield;
+	 * false otherwise.
+	 * 
+	 * While this method will accept any Equipment, it is only guaranteed to
+	 * have &quot;good behavior&quot; for a Shield. All other equipment will - at least -
+	 * return false. No guarantee is made that this method will not throw an
+	 * exception if the given Equipment is not a Shield.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character for which the
+	 *            proficiency will be tested.
+	 * @param eq
+	 *            The Shield (as an Equipment object) for which the proficiency
+	 *            is being tested.
+	 * @return true if a Player Character is proficient with the given Shield;
+	 *         false otherwise.
+	 */
+	public boolean isProficientWithShield(CharID id, Equipment eq)
+	{
+<span class="nc bnc" id="L103" title="All 2 branches missed.">		for (ProfProvider&lt;ShieldProf&gt; pp : getQualifiedSet(id))</span>
+		{
+<span class="nc bnc" id="L105" title="All 2 branches missed.">			if (pp.providesProficiencyFor(eq))</span>
+			{
+<span class="nc" id="L107">				return true;</span>
+			}
+<span class="nc" id="L109">		}</span>
+<span class="nc" id="L110">		return false;</span>
+	}
+
+	public void init()
+	{
+<span class="fc" id="L115">		CorePerspectiveDB.register(CorePerspective.SHIELDPROF, FacetBehavior.MODEL, this);</span>
+<span class="fc" id="L116">	}</span>
+
+	@Override
+	public String getIdentity()
+	{
+<span class="fc" id="L121">		return &quot;Shield Proficiencies&quot;;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

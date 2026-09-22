@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>LstFileLoader.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.persistence.lst</a> &gt; <span class="el_source">LstFileLoader.java</span></div><h1>LstFileLoader.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2003 (C) David Hibbs &lt;sage_sam@users.sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ *
+ */
+package pcgen.persistence.lst;
+
+import pcgen.cdom.base.Constants;
+import pcgen.core.SettingsHandler;
+import pcgen.core.utils.CoreUtility;
+import pcgen.core.utils.MessageType;
+import pcgen.core.utils.ShowMessageDelegate;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.system.LanguageBundle;
+import pcgen.util.Logging;
+
+import java.io.IOException;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.nio.charset.MalformedInputException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.text.MessageFormat;
+import java.util.Optional;
+
+/**
+ * This class is a base class for LST file loaders.
+ *
+ * &lt;p&gt;
+ * This class lays out a skeleton for LST file loading, setting
+ * up shared features and functions for loading and parsing of files.
+ *
+ * &lt;p&gt;
+ * This class extends the &lt;tt&gt;Observable&lt;/tt&gt; class so interested observers
+ * will be notified of the progress of loading files.
+ *
+ * &lt;p&gt;
+ * Instances of LstFileLoader or its subclasses are not thread-safe,
+ * so any thread should only access a single loader (or group of loaders)
+ * at a time.
+ */
+public final class LstFileLoader
+{
+	private LstFileLoader()
+	{
+		//Utility class
+	}
+
+	/**
+	 * The String that represents the start of a line comment.
+	 */
+	public static final char LINE_COMMENT_CHAR = '#';
+
+	/**
+	 * The String that separates individual objects
+	 */
+	public static final String LINE_SEPARATOR_REGEXP = &quot;(\r\n?|\n)&quot;; //$NON-NLS-1$
+
+	/**
+	 * BOM prefix, used to warn the user that BOM-strings are not supported
+	 */
+	private static final String BOM = &quot;\uFEFF&quot;;
+
+	/**
+	 * This method reads the given URI and returns its content as a string. If an error occurs, we don't throw an
+	 * exception but log the error in the logger. It is possible to read file content from the remote link, but
+	 * a corresponding option must be enabled in settings.
+	 *
+	 * @param uri URI of the remote content
+	 * @return String file content
+	 * @throws PersistenceLayerException is thrown when a null URI is provided
+	 */
+	public static Optional&lt;String&gt; readFromURI(URI uri) throws PersistenceLayerException
+	{
+<span class="nc" id="L91">		uri = Optional.ofNullable(uri)</span>
+<span class="nc" id="L92">				.orElseThrow(() -&gt; new PersistenceLayerException(</span>
+						&quot;LstFileLoader.readFromURI() received a null URI parameter!&quot;));
+
+		try
+		{
+<span class="nc bnc" id="L97" title="All 2 branches missed.">			if (!CoreUtility.isNetURI(uri)) // only load local URIs</span>
+			{
+<span class="nc" id="L99">				Path path = Path.of(uri);</span>
+<span class="nc" id="L100">				String result = Files.readString(path);</span>
+<span class="nc bnc" id="L101" title="All 2 branches missed.">				if (result.startsWith(BOM))</span>
+				{
+<span class="nc" id="L103">					Logging.log(Logging.WARNING, MessageFormat.format(</span>
+							&quot;The file {0} uses UTF-8-BOM encoding. LST files must be UTF-8&quot;, uri));
+<span class="nc" id="L105">					result = result.substring(1);</span>
+				}
+<span class="nc" id="L107">				return Optional.of(result);</span>
+<span class="nc bnc" id="L108" title="All 2 branches missed.">			} else if (SettingsHandler.isLoadURLs()) // load from remote URIs</span>
+			{
+<span class="nc" id="L110">				try (HttpClient client = HttpClient.newHttpClient())</span>
+				{
+<span class="nc" id="L112">					HttpRequest request = HttpRequest.newBuilder()</span>
+<span class="nc" id="L113">							.uri(uri)</span>
+<span class="nc" id="L114">							.build();</span>
+<span class="nc" id="L115">					HttpResponse&lt;String&gt; response = client.send(request, HttpResponse.BodyHandlers.ofString());</span>
+<span class="nc" id="L116">					return Optional.of(response.body());</span>
+				}
+			} else
+			{
+				// Just to protect people from using web sources without their knowledge, we added a preference.
+<span class="nc" id="L121">				ShowMessageDelegate.showMessageDialog(LanguageBundle.getFormattedString(&quot;in_err_remote_lst_warn&quot;, uri),</span>
+						Constants.APPLICATION_NAME, MessageType.ERROR);
+			}
+<span class="nc" id="L124">		} catch (MalformedInputException ie)</span>
+		{
+<span class="nc" id="L126">			Logging.errorPrint(MessageFormat.format(</span>
+					&quot;ERROR: file {0}\nThe file does not use UTF-8 encoding. LST files must be UTF-8&quot;,
+					uri), ie);
+<span class="nc" id="L129">		} catch (IOException | InterruptedException e)</span>
+		{
+			// Don't throw an exception here because a simple
+			// file not found will prevent ANY other files from
+			// being loaded/processed -- NOT what we want
+<span class="nc" id="L134">			Logging.errorPrint(MessageFormat.format(&quot;ERROR: {0}\nException type: {1}\nMessage: {2}&quot;,</span>
+<span class="nc" id="L135">					uri, e.getClass().getName(), e.getMessage()), e);</span>
+<span class="nc" id="L136">		}</span>
+<span class="nc" id="L137">		return Optional.empty();</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

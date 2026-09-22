@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Language.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.core</a> &gt; <span class="el_source">Language.java</span></div><h1>Language.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2001 (C) Bryan McRoberts &lt;merton_monk@yahoo.com&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.core;
+
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.Ungranted;
+import pcgen.cdom.list.LanguageList;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
+import pcgen.core.utils.MessageType;
+import pcgen.core.utils.ShowMessageDelegate;
+
+/**
+ * {@code Language}.
+ */
+<span class="fc" id="L31">public final class Language extends PObject implements Ungranted</span>
+{
+	public static final CDOMReference&lt;LanguageList&gt; STARTING_LIST;
+
+	static
+	{
+<span class="fc" id="L37">		LanguageList wpl = new LanguageList();</span>
+<span class="fc" id="L38">		wpl.setName(&quot;*Starting&quot;);</span>
+<span class="fc" id="L39">		STARTING_LIST = CDOMDirectSingleRef.getRef(wpl);</span>
+<span class="fc" id="L40">	}</span>
+
+	/**
+	 * Compares keyName only
+	 * @param o1
+	 * @return int
+	 */
+	@Override
+	public int compareTo(final Object o1)
+	{
+		/*
+		 * TODO This behavior of compareTo could be improved... need to figure
+		 * out why this is present in the code (where a language should be
+		 * compared to a String) and get RID of it... explicitly grab the key
+		 * name and compare the strings. -thpr 06/18/05
+		 */
+<span class="nc bnc" id="L56" title="All 2 branches missed.">		if (o1 instanceof String)</span>
+		{
+<span class="nc" id="L58">			return getKeyName().compareToIgnoreCase((String) o1);</span>
+		}
+
+<span class="nc" id="L61">		return getKeyName().compareToIgnoreCase(((Language) o1).getKeyName());</span>
+	}
+
+	/**
+	 * Compares keyName only
+	 * @param o1
+	 * @return true if equal
+	 */
+	@Override
+	public boolean equals(final Object o1)
+	{
+		/*
+		 * TODO This is behavior of equals could be improved... need to figure
+		 * out why this is present in the code (where a language should be
+		 * compared to a String) and get RID of it... explicitly grab the key
+		 * name and call .equals() on the strings. -thpr 06/18/05
+		 */
+<span class="pc bpc" id="L78" title="1 of 2 branches missed.">		if (o1 == null)</span>
+		{
+<span class="nc" id="L80">			return false;</span>
+		}
+<span class="pc bpc" id="L82" title="1 of 2 branches missed.">		if (o1 instanceof String)</span>
+		{
+<span class="nc" id="L84">			return getKeyName().equals(o1);</span>
+		}
+<span class="pc bpc" id="L86" title="1 of 2 branches missed.">		if (!o1.getClass().equals(Language.class))</span>
+		{
+<span class="nc" id="L88">			return false;</span>
+		}
+
+<span class="fc" id="L91">		return getKeyName().equals(((Language) o1).getKeyName());</span>
+	}
+
+	/**
+	 * Hashcode of the keyName
+	 * @return hash code
+	 */
+	@Override
+	public int hashCode()
+	{
+<span class="fc" id="L101">		return getKeyName().hashCode();</span>
+	}
+
+	@Override
+	public Language clone()
+	{
+<span class="nc" id="L107">		Language l = null;</span>
+
+		try
+		{
+<span class="nc" id="L111">			l = (Language) super.clone();</span>
+		}
+<span class="nc" id="L113">		catch (CloneNotSupportedException e)</span>
+		{
+<span class="nc" id="L115">			ShowMessageDelegate.showMessageDialog(e.getMessage(), Constants.APPLICATION_NAME, MessageType.ERROR);</span>
+<span class="nc" id="L116">		}</span>
+
+<span class="nc" id="L118">		return l;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

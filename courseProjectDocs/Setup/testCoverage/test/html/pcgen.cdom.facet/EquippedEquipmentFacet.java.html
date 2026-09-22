@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>EquippedEquipmentFacet.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.facet</a> &gt; <span class="el_source">EquippedEquipmentFacet.java</span></div><h1>EquippedEquipmentFacet.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) Thomas Parker, 2009.
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package pcgen.cdom.facet;
+
+import java.util.Collections;
+import java.util.IdentityHashMap;
+import java.util.Set;
+
+import pcgen.cdom.base.SetFacet;
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.base.AbstractDataFacet;
+import pcgen.cdom.facet.event.DataFacetChangeEvent;
+import pcgen.core.Equipment;
+import pcgen.output.publish.OutputDB;
+
+/**
+ * EquippedEquipmentFacet is a Facet that tracks the Equipment that is Equipped
+ * by a Player Character.
+ * 
+ */
+<span class="fc" id="L36">public class EquippedEquipmentFacet extends AbstractDataFacet&lt;CharID, Equipment&gt; implements SetFacet&lt;CharID, Equipment&gt;</span>
+{
+	private EquipmentFacet equipmentFacet;
+
+	/**
+	 * Triggered (&quot;manually&quot;) when the equipped equipment on a Player Character
+	 * has changed. Evaluates all Equipment available to the Player Character
+	 * and places the Equipped Equipment into this EquippedEquipmentFacet.
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which the
+	 *            equipped Equipment should be updated
+	 */
+	public void reset(CharID id)
+	{
+<span class="nc" id="L51">		Set&lt;Equipment&gt; oldEquipped = (Set&lt;Equipment&gt;) removeCache(id);</span>
+<span class="nc" id="L52">		Set&lt;Equipment&gt; currentEquipment = equipmentFacet.getSet(id);</span>
+<span class="nc" id="L53">		Set&lt;Equipment&gt; newEquipped = Collections.newSetFromMap(new IdentityHashMap&lt;&gt;());</span>
+<span class="nc" id="L54">		setCache(id, newEquipped);</span>
+<span class="nc bnc" id="L55" title="All 2 branches missed.">		if (oldEquipped != null)</span>
+		{
+			// Delete items that the PC no longer has at all
+<span class="nc bnc" id="L58" title="All 2 branches missed.">			for (Equipment e : oldEquipped)</span>
+			{
+<span class="nc bnc" id="L60" title="All 2 branches missed.">				if (!currentEquipment.contains(e))</span>
+				{
+<span class="nc" id="L62">					fireDataFacetChangeEvent(id, e, DataFacetChangeEvent.DATA_REMOVED);</span>
+				}
+<span class="nc" id="L64">			}</span>
+		}
+<span class="nc bnc" id="L66" title="All 2 branches missed.">		for (Equipment e : currentEquipment)</span>
+		{
+<span class="nc bnc" id="L68" title="All 2 branches missed.">			if (e.isEquipped())</span>
+			{
+<span class="nc" id="L70">				newEquipped.add(e);</span>
+				// If not old, it's added
+<span class="nc bnc" id="L72" title="All 4 branches missed.">				if (oldEquipped == null || !oldEquipped.contains(e))</span>
+				{
+<span class="nc" id="L74">					fireDataFacetChangeEvent(id, e, DataFacetChangeEvent.DATA_ADDED);</span>
+				}
+			}
+			else
+			{
+				// If old, it's removed
+<span class="nc bnc" id="L80" title="All 4 branches missed.">				if (oldEquipped != null &amp;&amp; oldEquipped.contains(e))</span>
+				{
+<span class="nc" id="L82">					fireDataFacetChangeEvent(id, e, DataFacetChangeEvent.DATA_REMOVED);</span>
+				}
+			}
+<span class="nc" id="L85">		}</span>
+<span class="nc" id="L86">	}</span>
+
+	/**
+	 * Returns a non-null copy of the Set of Equipment in this
+	 * EquippedEquipmentFacet for the Player Character represented by the given
+	 * CharID. This method returns an empty set if no objects are in this
+	 * EquippedEquipmentFacet for the Player Character identified by the given
+	 * CharID.
+	 * 
+	 * This method is value-semantic in that ownership of the returned Set is
+	 * transferred to the class calling this method. Modification of the
+	 * returned Set will not modify this EquippedEquipmentFacet and modification
+	 * of this EquippedEquipmentFacet will not modify the returned Set.
+	 * Modifications to the returned Set will also not modify any future or
+	 * previous objects returned by this (or other) methods on
+	 * EquippedEquipmentFacet. If you wish to modify the information stored in
+	 * this EquippedEquipmentFacet, you must use the add*() and remove*()
+	 * methods of EquippedEquipmentFacet.
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which the
+	 *            items in this EquippedEquipmentFacet should be returned
+	 * @return A non-null copy of the Set of Equipment in this
+	 *         EquippedEquipmentFacet for the Player Character represented by
+	 *         the given CharID
+	 */
+	@Override
+	public Set&lt;Equipment&gt; getSet(CharID id)
+	{
+<span class="nc" id="L115">		Set&lt;Equipment&gt; set = (Set&lt;Equipment&gt;) getCache(id);</span>
+<span class="nc bnc" id="L116" title="All 2 branches missed.">		if (set == null)</span>
+		{
+<span class="nc" id="L118">			return Collections.emptySet();</span>
+		}
+<span class="nc" id="L120">		Set&lt;Equipment&gt; returnEquipped = Collections.newSetFromMap(new IdentityHashMap&lt;&gt;());</span>
+<span class="nc" id="L121">		returnEquipped.addAll(set);</span>
+<span class="nc" id="L122">		return returnEquipped;</span>
+	}
+
+	/**
+	 * Returns the count of the number of Equipment objects in this
+	 * EquippedEquipmentFacet for the Player Character represented by the given
+	 * CharID.
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which the
+	 *            count of the number of items in this EquippedEquipmentFacet
+	 *            should be returned
+	 * @return The count of the number of items in this EquippedEquipmentFacet
+	 *         for the Player Character represented by the given CharID
+	 */
+	@Override
+	public int getCount(CharID id)
+	{
+<span class="nc" id="L140">		Set&lt;Equipment&gt; set = (Set&lt;Equipment&gt;) getCache(id);</span>
+<span class="nc bnc" id="L141" title="All 2 branches missed.">		return (set == null) ? 0 : set.size();</span>
+	}
+
+	public void setEquipmentFacet(EquipmentFacet equipmentFacet)
+	{
+<span class="fc" id="L146">		this.equipmentFacet = equipmentFacet;</span>
+<span class="fc" id="L147">	}</span>
+
+	/**
+	 * Copies the contents of the EquippedEquipmentFacet from one Player
+	 * Character to another Player Character, based on the given CharIDs
+	 * representing those Player Characters.
+	 * 
+	 * This is a method in EquippedEquipmentFacet in order to avoid exposing the
+	 * mutable Map object to other classes. This should not be inlined, as the
+	 * Map is internal information to EquippedEquipmentFacet and should not be
+	 * exposed to other classes.
+	 * 
+	 * Note also the copy is a one-time event and no references are maintained
+	 * between the Player Characters represented by the given CharIDs (meaning
+	 * once this copy takes place, any change to the EquippedEquipmentFacet of
+	 * one Player Character will only impact the Player Character where the
+	 * EquippedEquipmentFacet was changed).
+	 * 
+	 * @param source
+	 *            The CharID representing the Player Character from which the
+	 *            information should be copied
+	 * @param copy
+	 *            The CharID representing the Player Character to which the
+	 *            information should be copied
+	 */
+	@Override
+	public void copyContents(CharID source, CharID copy)
+	{
+<span class="nc" id="L175">		Set&lt;Equipment&gt; set = (Set&lt;Equipment&gt;) getCache(source);</span>
+<span class="nc bnc" id="L176" title="All 2 branches missed.">		if (set != null)</span>
+		{
+<span class="nc" id="L178">			Set&lt;Equipment&gt; newEquipped = Collections.newSetFromMap(new IdentityHashMap&lt;&gt;());</span>
+<span class="nc" id="L179">			newEquipped.addAll(set);</span>
+<span class="nc" id="L180">			setCache(copy, newEquipped);</span>
+		}
+<span class="nc" id="L182">	}</span>
+
+	/**
+	 * Remove all entries for a single character.
+	 * @param id  The CharID representing the Player Character. 
+	 */
+	public void removeAll(CharID id)
+	{
+<span class="nc" id="L190">		removeCache(id);</span>
+<span class="nc" id="L191">	}</span>
+
+	public void init()
+	{
+<span class="fc" id="L195">		OutputDB.register(&quot;equipment.equipped&quot;, this);</span>
+<span class="fc" id="L196">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

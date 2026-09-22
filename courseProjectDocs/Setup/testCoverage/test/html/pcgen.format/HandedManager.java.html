@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>HandedManager.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.format</a> &gt; <span class="el_source">HandedManager.java</span></div><h1>HandedManager.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2018 (C) Thomas Parker &lt;thpr@users.sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or modify it under the terms
+ * of the GNU Lesser General Public License as published by the Free Software Foundation;
+ * either version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful, but WITHOUT ANY
+ * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+ * PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License along with
+ * this library; if not, write to the Free Software Foundation, Inc., 59 Temple Place,
+ * Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.format;
+
+import java.util.Arrays;
+import java.util.Optional;
+
+import pcgen.base.util.BasicIndirect;
+import pcgen.base.util.FormatManager;
+import pcgen.base.util.Indirect;
+import pcgen.cdom.enumeration.Handed;
+
+/**
+ * A FormatManager for Handed to help with compatibility.
+ */
+<span class="fc" id="L29">public class HandedManager implements FormatManager&lt;Handed&gt;</span>
+{
+
+	/**
+	 * Retrieve a Handed object to match the name or localized name
+	 * (output by {@link #toString()}). The localized lookup is kept for legacy purpose
+	 * when the localized name was saved in the character files.
+	 * 
+	 * Note: This will dump stack if there is not a matching Handed value, as the
+	 * Handed.valueOf(x) call for the existing Enumeration will fail. This is consistent
+	 * with the existing design (as it can't really go wrong) and isn't needed long term
+	 * because the load system ensures data is internally consistent.
+	 * 
+	 * @param inputStr
+	 *            The name (localized or not) of the Handed.
+	 * @return The matching Handed.
+	 */
+	@Override
+	public Handed convert(String inputStr)
+	{
+<span class="nc" id="L49">		return Arrays.stream(Handed.values())</span>
+<span class="nc" id="L50">			.filter(hand -&gt; hand.toString().equals(inputStr))</span>
+<span class="nc" id="L51">			.findFirst()</span>
+<span class="nc" id="L52">			.orElse(Handed.valueOf(inputStr));</span>
+	}
+
+	@Override
+	public Indirect&lt;Handed&gt; convertIndirect(String inputStr)
+	{
+<span class="nc" id="L58">		return new BasicIndirect&lt;&gt;(this, convert(inputStr));</span>
+	}
+
+	@Override
+	public boolean isDirect()
+	{
+<span class="nc" id="L64">		return true;</span>
+	}
+
+	@Override
+	public String unconvert(Handed Handed)
+	{
+<span class="nc" id="L70">		return Handed.name();</span>
+	}
+
+	@Override
+	public Class&lt;Handed&gt; getManagedClass()
+	{
+<span class="fc" id="L76">		return Handed.class;</span>
+	}
+
+	@Override
+	public String getIdentifierType()
+	{
+<span class="fc" id="L82">		return &quot;Handed&quot;;</span>
+	}
+
+	@Override
+	public Optional&lt;FormatManager&lt;?&gt;&gt; getComponentManager()
+	{
+<span class="fc" id="L88">		return Optional.empty();</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

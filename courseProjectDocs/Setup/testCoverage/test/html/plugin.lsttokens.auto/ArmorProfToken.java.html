@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ArmorProfToken.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.lsttokens.auto</a> &gt; <span class="el_source">ArmorProfToken.java</span></div><h1>ArmorProfToken.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2007 (C) Thomas Parker &lt;thpr@users.sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package plugin.lsttokens.auto;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Set;
+import java.util.StringTokenizer;
+import java.util.TreeSet;
+
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.ChooseDriver;
+import pcgen.cdom.base.ChooseSelectionActor;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.content.ConditionalSelectionActor;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.helper.ArmorProfProvider;
+import pcgen.core.ArmorProf;
+import pcgen.core.Equipment;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.prereq.Prerequisite;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.prereq.PreParserFactory;
+import pcgen.rules.context.Changes;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.TokenUtilities;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.ParseResult;
+import pcgen.util.Logging;
+
+<span class="fc" id="L49">public class ArmorProfToken extends AbstractNonEmptyToken&lt;CDOMObject&gt;</span>
+		implements CDOMSecondaryToken&lt;CDOMObject&gt;, ChooseSelectionActor&lt;ArmorProf&gt;
+{
+
+<span class="fc" id="L53">	private static final Class&lt;ArmorProf&gt; ARMORPROF_CLASS = ArmorProf.class;</span>
+
+<span class="fc" id="L55">	private static final Class&lt;Equipment&gt; EQUIPMENT_CLASS = Equipment.class;</span>
+
+	@Override
+	public String getParentToken()
+	{
+<span class="fc" id="L60">		return &quot;AUTO&quot;;</span>
+	}
+
+	@Override
+	public String getTokenName()
+	{
+<span class="fc" id="L66">		return &quot;ARMORPROF&quot;;</span>
+	}
+
+	private String getFullName()
+	{
+<span class="fc" id="L71">		return getParentToken() + Constants.COLON + getTokenName();</span>
+	}
+
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context, CDOMObject obj, String value)
+	{
+		String armorProf;
+<span class="fc" id="L78">		Prerequisite prereq = null; // Do not initialize, null is significant!</span>
+<span class="fc" id="L79">		boolean isPre = false;</span>
+<span class="fc bfc" id="L80" title="All 2 branches covered.">		if (value.indexOf('[') == -1)</span>
+		{
+			// Supported version of PRExxx using |.  Needs to be at the front of the
+			// Parsing code because many objects expect the pre to have been determined
+			// Ahead of time.  Until deprecated code is removed, it will have to stay
+			// like this.
+<span class="fc" id="L86">			armorProf = value;</span>
+<span class="fc" id="L87">			StringTokenizer tok = new StringTokenizer(armorProf, Constants.PIPE);</span>
+<span class="fc bfc" id="L88" title="All 2 branches covered.">			while (tok.hasMoreTokens())</span>
+			{
+<span class="fc" id="L90">				String token = tok.nextToken();</span>
+<span class="fc bfc" id="L91" title="All 2 branches covered.">				if (PreParserFactory.isPreReqString(token))</span>
+				{
+<span class="pc bpc" id="L93" title="1 of 2 branches missed.">					if (isPre)</span>
+					{
+<span class="nc" id="L95">						String errorText =</span>
+<span class="nc" id="L96">								&quot;Invalid &quot; + getTokenName() + &quot;: &quot; + value + &quot;  PRExxx must be at the END of the Token&quot;;</span>
+<span class="nc" id="L97">						Logging.errorPrint(errorText);</span>
+<span class="nc" id="L98">						return new ParseResult.Fail(errorText);</span>
+					}
+<span class="fc" id="L100">					prereq = getPrerequisite(token);</span>
+<span class="fc bfc" id="L101" title="All 2 branches covered.">					if (prereq == null)</span>
+					{
+<span class="fc" id="L103">						return new ParseResult.Fail(&quot;Error generating Prerequisite &quot; + prereq + &quot; in &quot; + getFullName());</span>
+					}
+<span class="fc" id="L105">					int preStart = value.indexOf(token) - 1;</span>
+<span class="fc" id="L106">					armorProf = value.substring(0, preStart);</span>
+<span class="fc" id="L107">					isPre = true;</span>
+				}
+<span class="fc" id="L109">			}</span>
+<span class="fc" id="L110">		}</span>
+		else
+		{
+<span class="fc" id="L113">			return new ParseResult.Fail(</span>
+				&quot;Use of [] for Prerequisites has been removed. &quot; + &quot;Please use | based standard&quot;);
+		}
+
+<span class="fc" id="L117">		ParseResult pr = checkSeparatorsAndNonEmpty('|', armorProf);</span>
+<span class="fc bfc" id="L118" title="All 2 branches covered.">		if (!pr.passed())</span>
+		{
+<span class="fc" id="L120">			return pr;</span>
+		}
+
+<span class="fc" id="L123">		boolean foundAny = false;</span>
+<span class="fc" id="L124">		boolean foundOther = false;</span>
+
+<span class="fc" id="L126">		StringTokenizer tok = new StringTokenizer(armorProf, Constants.PIPE);</span>
+
+<span class="fc" id="L128">		List&lt;CDOMReference&lt;ArmorProf&gt;&gt; armorProfs = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L129">		List&lt;CDOMReference&lt;Equipment&gt;&gt; equipTypes = new ArrayList&lt;&gt;();</span>
+
+<span class="fc bfc" id="L131" title="All 2 branches covered.">		while (tok.hasMoreTokens())</span>
+		{
+<span class="fc" id="L133">			String aProf = tok.nextToken();</span>
+
+<span class="fc bfc" id="L135" title="All 2 branches covered.">			if (Constants.LST_PERCENT_LIST.equals(aProf))</span>
+			{
+<span class="fc" id="L137">				foundOther = true;</span>
+				ChooseSelectionActor&lt;ArmorProf&gt; cra;
+<span class="fc bfc" id="L139" title="All 2 branches covered.">				if (prereq == null)</span>
+				{
+<span class="fc" id="L141">					cra = this;</span>
+				}
+				else
+				{
+<span class="fc" id="L145">					ConditionalSelectionActor&lt;ArmorProf&gt; cca = new ConditionalSelectionActor&lt;&gt;(this);</span>
+<span class="fc" id="L146">					cca.addPrerequisite(prereq);</span>
+<span class="fc" id="L147">					cra = cca;</span>
+				}
+<span class="fc" id="L149">				context.getObjectContext().addToList(obj, ListKey.NEW_CHOOSE_ACTOR, cra);</span>
+<span class="fc" id="L150">			}</span>
+<span class="fc bfc" id="L151" title="All 2 branches covered.">			else if (Constants.LST_ALL.equalsIgnoreCase(aProf))</span>
+			{
+<span class="fc" id="L153">				foundAny = true;</span>
+<span class="fc" id="L154">				armorProfs.add(context.getReferenceContext().getCDOMAllReference(ARMORPROF_CLASS));</span>
+			}
+<span class="fc bfc" id="L156" title="All 4 branches covered.">			else if (aProf.startsWith(&quot;ARMORTYPE.&quot;) || aProf.startsWith(&quot;ARMORTYPE=&quot;))</span>
+			{
+<span class="fc" id="L158">				foundOther = true;</span>
+<span class="fc" id="L159">				CDOMReference&lt;Equipment&gt; ref =</span>
+<span class="fc" id="L160">						TokenUtilities.getTypeReference(context, EQUIPMENT_CLASS, &quot;ARMOR.&quot; + aProf.substring(10));</span>
+<span class="fc bfc" id="L161" title="All 2 branches covered.">				if (ref == null)</span>
+				{
+<span class="fc" id="L163">					return ParseResult.INTERNAL_ERROR;</span>
+				}
+<span class="fc" id="L165">				equipTypes.add(ref);</span>
+<span class="fc" id="L166">			}</span>
+			else
+			{
+<span class="fc" id="L169">				foundOther = true;</span>
+<span class="fc" id="L170">				armorProfs.add(context.getReferenceContext().getCDOMReference(ARMORPROF_CLASS, aProf));</span>
+			}
+<span class="fc" id="L172">		}</span>
+
+<span class="fc bfc" id="L174" title="All 4 branches covered.">		if (foundAny &amp;&amp; foundOther)</span>
+		{
+<span class="fc" id="L176">			return new ParseResult.Fail(</span>
+<span class="fc" id="L177">				&quot;Non-sensical &quot; + getFullName() + &quot;: Contains ANY and a specific reference: &quot; + value);</span>
+		}
+
+<span class="fc bfc" id="L180" title="All 4 branches covered.">		if (!armorProfs.isEmpty() || !equipTypes.isEmpty())</span>
+		{
+<span class="fc" id="L182">			ArmorProfProvider pp = new ArmorProfProvider(armorProfs, equipTypes);</span>
+<span class="fc bfc" id="L183" title="All 2 branches covered.">			if (prereq != null)</span>
+			{
+<span class="fc" id="L185">				pp.addPrerequisite(prereq);</span>
+			}
+<span class="fc" id="L187">			context.getObjectContext().addToList(obj, ListKey.AUTO_ARMORPROF, pp);</span>
+		}
+
+<span class="fc" id="L190">		return ParseResult.SUCCESS;</span>
+	}
+
+	@Override
+	public String[] unparse(LoadContext context, CDOMObject obj)
+	{
+<span class="fc" id="L196">		Changes&lt;ArmorProfProvider&gt; changes = context.getObjectContext().getListChanges(obj, ListKey.AUTO_ARMORPROF);</span>
+<span class="fc" id="L197">		Changes&lt;ChooseSelectionActor&lt;?&gt;&gt; listChanges =</span>
+<span class="fc" id="L198">				context.getObjectContext().getListChanges(obj, ListKey.NEW_CHOOSE_ACTOR);</span>
+<span class="fc" id="L199">		Collection&lt;ArmorProfProvider&gt; added = changes.getAdded();</span>
+<span class="fc" id="L200">		Set&lt;String&gt; set = new TreeSet&lt;&gt;();</span>
+<span class="fc" id="L201">		Collection&lt;ChooseSelectionActor&lt;?&gt;&gt; listAdded = listChanges.getAdded();</span>
+<span class="fc" id="L202">		boolean foundAny = false;</span>
+<span class="fc" id="L203">		boolean foundOther = false;</span>
+<span class="pc bpc" id="L204" title="1 of 4 branches missed.">		if (listAdded != null &amp;&amp; !listAdded.isEmpty())</span>
+		{
+<span class="fc bfc" id="L206" title="All 2 branches covered.">			for (ChooseSelectionActor&lt;?&gt; cra : listAdded)</span>
+			{
+<span class="pc bpc" id="L208" title="1 of 2 branches missed.">				if (cra.getSource().equals(getTokenName()))</span>
+				{
+					try
+					{
+<span class="fc" id="L212">						set.add(cra.getLstFormat());</span>
+<span class="fc" id="L213">						foundOther = true;</span>
+					}
+<span class="nc" id="L215">					catch (PersistenceLayerException e)</span>
+					{
+<span class="nc" id="L217">						context.addWriteMessage(&quot;Error writing Prerequisite: &quot; + e);</span>
+<span class="nc" id="L218">						return null;</span>
+<span class="fc" id="L219">					}</span>
+				}
+<span class="fc" id="L221">			}</span>
+		}
+<span class="fc bfc" id="L223" title="All 2 branches covered.">		if (added != null)</span>
+		{
+<span class="fc bfc" id="L225" title="All 2 branches covered.">			for (ArmorProfProvider spp : added)</span>
+			{
+<span class="fc" id="L227">				StringBuilder sb = new StringBuilder();</span>
+<span class="fc" id="L228">				sb.append(spp.getLstFormat());</span>
+<span class="fc bfc" id="L229" title="All 2 branches covered.">				if (spp.hasPrerequisites())</span>
+				{
+<span class="fc" id="L231">					sb.append('|');</span>
+<span class="fc" id="L232">					sb.append(getPrerequisiteString(context, spp.getPrerequisiteList()));</span>
+				}
+<span class="fc" id="L234">				String ab = sb.toString();</span>
+<span class="fc" id="L235">				boolean isUnconditionalAll = Constants.LST_ALL.equals(ab);</span>
+<span class="fc" id="L236">				foundAny |= isUnconditionalAll;</span>
+<span class="fc bfc" id="L237" title="All 2 branches covered.">				foundOther |= !isUnconditionalAll;</span>
+<span class="fc" id="L238">				set.add(ab);</span>
+<span class="fc" id="L239">			}</span>
+		}
+<span class="fc bfc" id="L241" title="All 4 branches covered.">		if (foundAny &amp;&amp; foundOther)</span>
+		{
+<span class="fc" id="L243">			context</span>
+<span class="fc" id="L244">				.addWriteMessage(&quot;Non-sensical &quot; + getFullName() + &quot;: Contains ANY and a specific reference: &quot; + set);</span>
+<span class="fc" id="L245">			return null;</span>
+		}
+<span class="fc bfc" id="L247" title="All 2 branches covered.">		if (set.isEmpty())</span>
+		{
+			//okay
+<span class="fc" id="L250">			return null;</span>
+		}
+<span class="fc" id="L252">		return set.toArray(new String[0]);</span>
+	}
+
+	@Override
+	public Class&lt;CDOMObject&gt; getTokenClass()
+	{
+<span class="fc" id="L258">		return CDOMObject.class;</span>
+	}
+
+	@Override
+	public void applyChoice(ChooseDriver obj, ArmorProf ap, PlayerCharacter pc)
+	{
+<span class="fc" id="L264">		pc.addArmorProf(obj, ap);</span>
+<span class="fc" id="L265">	}</span>
+
+	@Override
+	public void removeChoice(ChooseDriver obj, ArmorProf ap, PlayerCharacter pc)
+	{
+<span class="fc" id="L270">		pc.removeArmorProf(obj, ap);</span>
+<span class="fc" id="L271">	}</span>
+
+	@Override
+	public Class&lt;ArmorProf&gt; getChoiceClass()
+	{
+<span class="nc" id="L276">		return ARMORPROF_CLASS;</span>
+	}
+
+	@Override
+	public String getSource()
+	{
+<span class="fc" id="L282">		return getTokenName();</span>
+	}
+
+	@Override
+	public String getLstFormat()
+	{
+<span class="fc" id="L288">		return Constants.LST_PERCENT_LIST;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

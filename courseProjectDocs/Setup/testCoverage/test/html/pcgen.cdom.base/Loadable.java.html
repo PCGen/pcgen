@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Loadable.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.base</a> &gt; <span class="el_source">Loadable.java</span></div><h1>Loadable.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2010-18 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.cdom.base;
+
+import java.net.URI;
+
+import pcgen.cdom.enumeration.Type;
+
+/**
+ * A Loadable is an object that PCGen can load from its persistent file storage (generally &quot;LST&quot; files).
+ */
+public interface Loadable extends Identified
+{
+
+	/**
+	 * Sets the name of the Loadable to the given name.
+	 * 
+	 * @param name
+	 *            The name to be given to the Loadable
+	 */
+	public void setName(String name);
+
+	/**
+	 * Returns the source URI for this Loadable.
+	 * 
+	 * @return The source URI for this Loadable
+	 */
+	public URI getSourceURI();
+
+	/**
+	 * Sets the source URI for this Loadable.
+	 * 
+	 * @param source
+	 *            The source URI for this Loadable
+	 */
+	public void setSourceURI(URI source);
+
+	/**
+	 * Returns true if this object is &quot;internal&quot; (meaning PCGen creates it and it doesn't
+	 * need to be persisted to a set of saved LST data).
+	 * 
+	 * @return true if this object is &quot;internal&quot;; false otherwise
+	 */
+	public boolean isInternal();
+
+	/**
+	 * Returns true if the object is of the given type.
+	 * 
+	 * Note that the given String may contain a TYPE= or TYPE. prefix (which will be
+	 * discarded) and can contain more than one type (separated by periods '.'). If more
+	 * than one type is provided, this Loadable must be of ALL of the given types for this
+	 * method to return true.
+	 * 
+	 * @param type
+	 *            The type to be checked to see if this Loadable is of the given Type
+	 * @return true if the object is of the given type; false otherwise.
+	 */
+	public boolean isType(String type);
+
+	/**
+	 * Returns true if the object is of the given single {@link Type}. Fast-path
+	 * overload for callers holding an interned Type; the default delegates to
+	 * {@link #isType(String)} so implementers with special type semantics (e.g.
+	 * Equipment) stay correct without overriding.
+	 *
+	 * @param type
+	 *            The Type to check for
+	 * @return true if the object is of the given Type; false otherwise.
+	 */
+	public default boolean isType(Type type)
+	{
+<span class="fc" id="L87">		return isType(type.toString());</span>
+	}
+
+	/**
+	 * Returns the ClassIdentity of this Loadable.
+	 * 
+	 * @return The ClassIdentity representing this Loadable
+	 */
+	public default ClassIdentity&lt;? extends Loadable&gt; getClassIdentity()
+	{
+<span class="fc" id="L97">		return BasicClassIdentity.getIdentity(getClass());</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

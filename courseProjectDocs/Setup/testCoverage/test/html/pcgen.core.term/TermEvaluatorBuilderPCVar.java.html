@@ -1,0 +1,1487 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TermEvaluatorBuilderPCVar.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.core.term</a> &gt; <span class="el_source">TermEvaluatorBuilderPCVar.java</span></div><h1>TermEvaluatorBuilderPCVar.java</h1><pre class="source lang-java linenums">/**
+ * Copyright 2008 Andrew Wilson
+ * &lt;nuance@users.sourceforge.net&gt;.
+ *
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ *
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License
+ * for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ * Created 03 August 2008
+ */
+
+package pcgen.core.term;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import pcgen.cdom.base.Constants;
+import pcgen.core.AbilityCategory;
+import pcgen.util.Logging;
+import pcgen.util.TermUtilities;
+
+/**
+ * {@code EvaluatorFactoryPCVar}
+ *
+ * This individual enumerations in this class are each responsible for making
+ * and returning an object that implements the TermEvaluator interface.
+ * Each enumeration has a regular expression that matches one of the
+ * &quot;hardcoded&quot; internal variables that every PC has a value for.  They also
+ * have an array of string keys that enumerate every string that the regular
+ * expression can match (this is not as bad as it sounds since each can only
+ * match at most eight strings).  The array of string is used to populate a
+ * {@code Map&lt;String, Enum&gt;}
+ */
+
+<span class="nc" id="L45">public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder</span>
+{
+<span class="nc" id="L47">	COMPLETE_PC_ACCHECK(&quot;AC{1,2}HECK&quot;, new String[]{&quot;ACCHECK&quot;, &quot;ACHECK&quot;}, true)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
+
+<span class="nc" id="L55">			return new PCACcheckTermEvaluator(expressionString);</span>
+		}
+	},
+
+<span class="nc" id="L59">	COMPLETE_PC_ARMORACCHECK(&quot;ARMORAC{1,2}HECK&quot;, new String[]{&quot;ARMORACCHECK&quot;, &quot;ARMORACHECK&quot;}, true)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
+
+<span class="nc" id="L67">			return new PCArmourACcheckTermEvaluator(expressionString);</span>
+		}
+	},
+
+<span class="nc" id="L71">	COMPLETE_PC_BAB(&quot;BAB&quot;, new String[]{&quot;BAB&quot;}, true)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
+
+<span class="nc" id="L79">			return new PCBABTermEvaluator(expressionString);</span>
+		}
+	},
+
+<span class="nc" id="L83">	COMPLETE_PC_BASECR(&quot;BASECR&quot;, new String[]{&quot;BASECR&quot;}, true)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
+
+<span class="nc" id="L91">			return new PCBaseCRTermEvaluator(expressionString);</span>
+		}
+	},
+
+<span class="nc" id="L95">	COMPLETE_PC_BASEHD(&quot;BASEHD&quot;, new String[]{&quot;BASEHD&quot;}, true)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
+
+<span class="nc" id="L103">			return new PCBaseHDTermEvaluator(expressionString);</span>
+		}
+	},
+
+<span class="nc" id="L107">	COMPLETE_PC_BASESPELLSTAT(&quot;BASESPELLSTAT&quot;, new String[]{&quot;BASESPELLSTAT&quot;}, true)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
+
+<span class="nc bnc" id="L115" title="All 2 branches missed.">			String source = (src.startsWith(&quot;CLASS:&quot;)) ? src.substring(6) : &quot;&quot;;</span>
+
+<span class="nc" id="L117">			return new PCBaseSpellStatTermEvaluator(expressionString, source);</span>
+		}
+	},
+
+<span class="nc" id="L121">	COMPLETE_PC_CASTERLEVEL(&quot;(?:CASTERLEVEL\\.TOTAL|CASTERLEVEL)&quot;, new String[]{&quot;CASTERLEVEL&quot;, &quot;CASTERLEVEL.TOTAL&quot;},</span>
+			true)
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
+
+<span class="nc bnc" id="L130" title="All 2 branches missed.">			if (&quot;CASTERLEVEL&quot;.equals(matchedSection))</span>
+			{
+<span class="nc bnc" id="L132" title="All 2 branches missed.">				if (src.startsWith(&quot;RACE:&quot;))</span>
+				{
+<span class="nc" id="L134">					return new PCCasterLevelRaceTermEvaluator(expressionString, src.substring(5));</span>
+				}
+<span class="nc bnc" id="L136" title="All 2 branches missed.">				else if (src.startsWith(&quot;CLASS:&quot;))</span>
+				{
+<span class="nc" id="L138">					return new PCCasterLevelClassTermEvaluator(expressionString, src.substring(6));</span>
+				}
+				else
+				{
+<span class="nc" id="L142">					return new PCCasterLevelTotalTermEvaluator(expressionString);</span>
+				}
+			}
+<span class="nc" id="L145">			return new PCCasterLevelTotalTermEvaluator(expressionString);</span>
+		}
+	},
+
+<span class="nc" id="L149">	COMPLETE_PC_COUNT_ATTACKS(&quot;COUNT\\[ATTACKS\\]&quot;, new String[]{&quot;COUNT[ATTACKS]&quot;}, true)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
+
+<span class="nc" id="L157">			return new PCCountAttacksTermEvaluator(expressionString);</span>
+		}
+	},
+
+<span class="nc" id="L161">	COMPLETE_PC_COUNT_CHECKS(&quot;COUNT\\[CHECKS\\]&quot;, new String[]{&quot;COUNT[CHECKS]&quot;}, true)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
+<span class="nc" id="L168">			return new PCCountChecksTermEvaluator(expressionString);</span>
+		}
+	},
+
+<span class="nc" id="L172">	COMPLETE_PC_COUNT_CLASSES(&quot;COUNT\\[CLASSES\\]&quot;, new String[]{&quot;COUNT[CLASSES]&quot;}, true)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
+
+<span class="nc" id="L180">			return new PCCountClassesTermEvaluator(expressionString);</span>
+		}
+	},
+
+<span class="nc" id="L184">	COMPLETE_PC_COUNT_CONTAINERS(&quot;COUNT\\[CONTAINERS\\]&quot;, new String[]{&quot;COUNT[CONTAINERS]&quot;}, true)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
+
+<span class="nc" id="L192">			return new PCCountContainersTermEvaluator(expressionString);</span>
+		}
+	},
+
+<span class="nc" id="L196">	COMPLETE_PC_COUNT_DOMAINS(&quot;COUNT\\[DOMAINS\\]&quot;, new String[]{&quot;COUNT[DOMAINS]&quot;}, true)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
+
+<span class="nc" id="L204">			return new PCCountDomainsTermEvaluator(expressionString);</span>
+		}
+	},
+
+<span class="nc" id="L208">	COMPLETE_PC_COUNT_FEATSNATUREALL(&quot;COUNT\\[FEATSALL(?:\\.ALL|\\.HIDDEN|\\.VISIBLE)?\\]&quot;,</span>
+			new String[]{&quot;COUNT[FEATSALL]&quot;, &quot;COUNT[FEATSALL.ALL]&quot;, &quot;COUNT[FEATSALL.HIDDEN]&quot;, &quot;COUNT[FEATSALL.VISIBLE]&quot;},
+			true)
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
+
+<span class="nc bnc" id="L218" title="All 2 branches missed.">			boolean visible = !(expressionString.endsWith(&quot;HIDDEN]&quot;));</span>
+
+<span class="nc bnc" id="L220" title="All 4 branches missed.">			boolean hidden = (expressionString.endsWith(&quot;HIDDEN]&quot;) || expressionString.endsWith(&quot;.ALL]&quot;));</span>
+
+<span class="nc" id="L222">			AbilityCategory abCat = AbilityCategory.FEAT;</span>
+
+<span class="nc" id="L224">			return new PCCountAbilitiesNatureAllTermEvaluator(expressionString, abCat, visible, hidden);</span>
+		}
+	},
+
+<span class="nc" id="L228">	COMPLETE_PC_COUNT_FEATSNATUREAUTO(&quot;COUNT\\[FEATSAUTO(?:\\.ALL|\\.HIDDEN|\\.VISIBLE)?\\]&quot;, new String[]{</span>
+		&quot;COUNT[FEATSAUTO]&quot;, &quot;COUNT[FEATSAUTO.ALL]&quot;, &quot;COUNT[FEATSAUTO.HIDDEN]&quot;, &quot;COUNT[FEATSAUTO.VISIBLE]&quot;}, true)
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
+
+<span class="nc bnc" id="L237" title="All 2 branches missed.">			boolean visible = !(expressionString.endsWith(&quot;HIDDEN]&quot;));</span>
+
+<span class="nc bnc" id="L239" title="All 4 branches missed.">			boolean hidden = (expressionString.endsWith(&quot;HIDDEN]&quot;) || expressionString.endsWith(&quot;ALL]&quot;));</span>
+
+<span class="nc" id="L241">			AbilityCategory abCat = AbilityCategory.FEAT;</span>
+
+<span class="nc" id="L243">			return new PCCountAbilitiesNatureAutoTermEvaluator(expressionString, abCat, visible, hidden);</span>
+		}
+	},
+
+<span class="nc" id="L247">	COMPLETE_PC_COUNT_FEATSNATURENORMAL(&quot;COUNT\\[FEATS(?:\\.ALL|\\.HIDDEN|\\.VISIBLE)?\\]&quot;,</span>
+			new String[]{&quot;COUNT[FEATS]&quot;, &quot;COUNT[FEATS.ALL]&quot;, &quot;COUNT[FEATS.HIDDEN]&quot;, &quot;COUNT[FEATS.VISIBLE]&quot;}, true)
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
+
+<span class="nc bnc" id="L256" title="All 2 branches missed.">			boolean visible = !(expressionString.endsWith(&quot;HIDDEN]&quot;));</span>
+
+<span class="nc bnc" id="L258" title="All 4 branches missed.">			boolean hidden = (expressionString.endsWith(&quot;HIDDEN]&quot;) || expressionString.endsWith(&quot;ALL]&quot;));</span>
+
+<span class="nc" id="L260">			AbilityCategory abCat = AbilityCategory.FEAT;</span>
+
+<span class="nc" id="L262">			return new PCCountAbilitiesNatureNormalTermEvaluator(expressionString, abCat, visible, hidden);</span>
+		}
+	},
+
+<span class="nc" id="L266">	COMPLETE_PC_COUNT_FEATSNATUREVIRTUAL(&quot;COUNT\\[VFEATS(?:\\.ALL|\\.HIDDEN|\\.VISIBLE)?\\]&quot;,</span>
+			new String[]{&quot;COUNT[VFEATS]&quot;, &quot;COUNT[VFEATS.ALL]&quot;, &quot;COUNT[VFEATS.HIDDEN]&quot;, &quot;COUNT[VFEATS.VISIBLE]&quot;}, true)
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
+
+<span class="nc bnc" id="L275" title="All 2 branches missed.">			boolean visible = !(expressionString.endsWith(&quot;HIDDEN]&quot;));</span>
+
+<span class="nc bnc" id="L277" title="All 4 branches missed.">			boolean hidden = (expressionString.endsWith(&quot;HIDDEN]&quot;) || expressionString.endsWith(&quot;ALL]&quot;));</span>
+
+<span class="nc" id="L279">			AbilityCategory abCat = AbilityCategory.FEAT;</span>
+
+<span class="nc" id="L281">			return new PCCountAbilitiesNatureVirtualTermEvaluator(expressionString, abCat, visible, hidden);</span>
+		}
+	},
+
+<span class="nc" id="L285">	COMPLETE_PC_COUNT_FOLLOWERS(&quot;COUNT\\[FOLLOWERS\\]&quot;, new String[]{&quot;COUNT[FOLLOWERS]&quot;}, true)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
+
+<span class="nc" id="L293">			return new PCCountFollowersTermEvaluator(expressionString);</span>
+		}
+	},
+
+<span class="nc" id="L297">	COMPLETE_PC_COUNT_LANGUAGES(&quot;COUNT\\[LANGUAGES\\]&quot;, new String[]{&quot;COUNT[LANGUAGES]&quot;}, true)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
+
+<span class="nc" id="L305">			return new PCCountLanguagesTermEvaluator(expressionString);</span>
+		}
+	},
+
+<span class="nc" id="L309">	COMPLETE_PC_COUNT_MISC_COMPANIONS(&quot;COUNT\\[MISC\\.COMPANIONS\\]&quot;, new String[]{&quot;COUNT[MISC.COMPANIONS]&quot;}, true)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
+
+<span class="nc" id="L317">			return new PCCountMiscCompanionsTermEvaluator(expressionString);</span>
+		}
+	},
+
+<span class="nc" id="L321">	COMPLETE_PC_COUNT_MISC_FUNDS(&quot;COUNT\\[MISC\\.FUNDS\\]&quot;, new String[]{&quot;COUNT[MISC.FUNDS]&quot;}, true)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
+
+<span class="nc" id="L329">			return new PCCountMiscFundsTermEvaluator(expressionString);</span>
+		}
+	},
+
+<span class="nc" id="L333">	COMPLETE_PC_COUNT_MISC_MAGIC(&quot;COUNT\\[MISC\\.MAGIC\\]&quot;, new String[]{&quot;COUNT[MISC.MAGIC]&quot;}, true)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
+
+<span class="nc" id="L341">			return new PCCountMiscMagicTermEvaluator(expressionString);</span>
+		}
+	},
+
+<span class="nc" id="L345">	COMPLETE_PC_COUNT_MOVE(&quot;COUNT\\[MOVE\\]&quot;, new String[]{&quot;COUNT[MOVE]&quot;}, true)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
+
+<span class="nc" id="L353">			return new PCCountMoveTermEvaluator(expressionString);</span>
+		}
+	},
+
+<span class="nc" id="L357">	COMPLETE_PC_COUNT_NOTES(&quot;COUNT\\[NOTES\\]&quot;, new String[]{&quot;COUNT[NOTES]&quot;}, true)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
+
+<span class="nc" id="L365">			return new PCCountNotesTermEvaluator(expressionString);</span>
+		}
+	},
+
+<span class="nc" id="L369">	COMPLETE_PC_COUNT_RACESUBTYPES(&quot;COUNT\\[RACESUBTYPES\\]&quot;, new String[]{&quot;COUNT[RACESUBTYPES]&quot;}, true)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
+
+<span class="nc" id="L377">			return new PCCountRaceSubTypesTermEvaluator(expressionString);</span>
+		}
+	},
+
+<span class="nc" id="L381">	COMPLETE_PC_COUNT_SA(&quot;COUNT\\[SA\\]&quot;, new String[]{&quot;COUNT[SA]&quot;}, true)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
+
+<span class="nc" id="L389">			return new PCCountSABTermEvaluator(expressionString);</span>
+		}
+	},
+
+<span class="nc" id="L393">	COMPLETE_PC_COUNT_SKILLS(&quot;COUNT\\[SKILLS(?:\\.SELECTED|\\.RANKS|\\.NONDEFAULT|\\.USABLE|\\.ALL)?\\]&quot;,</span>
+			new String[]{&quot;COUNT[SKILLS]&quot;, &quot;COUNT[SKILLS.SELECTED]&quot;, &quot;COUNT[SKILLS.RANKS]&quot;, &quot;COUNT[SKILLS.NONDEFAULT]&quot;,
+				&quot;COUNT[SKILLS.USABLE]&quot;, &quot;COUNT[SKILLS.ALL]&quot;},
+			true)
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
+
+<span class="nc" id="L404">			String filterToken = null;</span>
+<span class="nc" id="L405">			int start = expressionString.indexOf('.');</span>
+<span class="nc bnc" id="L406" title="All 2 branches missed.">			if (start &gt; 0)</span>
+			{
+<span class="nc" id="L408">				int end = expressionString.indexOf(']', start);</span>
+<span class="nc" id="L409">				filterToken = expressionString.substring(start + 1, end);</span>
+			}
+
+<span class="nc" id="L412">			return new PCCountSkillsTermEvaluator(expressionString, filterToken);</span>
+		}
+	},
+
+<span class="nc" id="L416">	COMPLETE_PC_COUNT_SPELLCLASSES(&quot;COUNT\\[SPELLCLASSES\\]&quot;, new String[]{&quot;COUNT[SPELLCLASSES]&quot;}, true)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
+
+<span class="nc" id="L424">			return new PCCountSpellClassesTermEvaluator(expressionString);</span>
+		}
+	},
+
+<span class="nc" id="L428">	COMPLETE_PC_COUNT_SPELLRACE(&quot;COUNT\\[SPELLRACE\\]&quot;, new String[]{&quot;COUNT[SPELLRACE]&quot;}, true)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
+
+<span class="nc" id="L436">			return new PCCountSpellRaceTermEvaluator(expressionString);</span>
+		}
+	},
+
+<span class="nc" id="L440">	COMPLETE_PC_COUNT_STATS(&quot;COUNT\\[STATS\\]&quot;, new String[]{&quot;COUNT[STATS]&quot;}, true)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
+
+<span class="nc" id="L448">			return new PCCountStatsTermEvaluator(expressionString);</span>
+		}
+	},
+
+<span class="nc" id="L452">	COMPLETE_PC_COUNT_TEMPBONUSNAMES(&quot;COUNT\\[TEMPBONUSNAMES\\]&quot;, new String[]{&quot;COUNT[TEMPBONUSNAMES]&quot;}, true)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
+
+<span class="nc" id="L460">			return new PCCountTempBonusNamesTermEvaluator(expressionString);</span>
+		}
+	},
+
+<span class="nc" id="L464">	COMPLETE_PC_COUNT_TEMPLATES(&quot;COUNT\\[TEMPLATES\\]&quot;, new String[]{&quot;COUNT[TEMPLATES]&quot;}, true)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
+
+<span class="nc" id="L472">			return new PCCountTemplatesTermEvaluator(expressionString);</span>
+		}
+	},
+
+<span class="nc" id="L476">	COMPLETE_PC_COUNT_VISIBLETEMPLATES(&quot;COUNT\\[VISIBLETEMPLATES\\]&quot;, new String[]{&quot;COUNT[VISIBLETEMPLATES]&quot;}, true)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
+
+<span class="nc" id="L484">			return new PCCountVisibleTemplatesTermEvaluator(expressionString);</span>
+		}
+	},
+
+<span class="nc" id="L488">	COMPLETE_PC_COUNT_VISION(&quot;COUNT\\[VISION\\]&quot;, new String[]{&quot;COUNT[VISION]&quot;}, true)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
+
+<span class="nc" id="L496">			return new PCCountVisionTermEvaluator(expressionString);</span>
+		}
+	},
+
+<span class="nc" id="L500">	COMPLETE_PC_ENCUMBERANCE(&quot;ENCUMBERANCE&quot;, new String[]{&quot;ENCUMBERANCE&quot;}, true)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
+
+<span class="nc" id="L508">			return new PCEncumberanceTermEvaluator(expressionString);</span>
+		}
+	},
+
+<span class="nc" id="L512">	COMPLETE_PC_HD(&quot;HD&quot;, new String[]{&quot;HD&quot;}, true)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
+
+<span class="nc" id="L520">			return new PCHDTermEvaluator(expressionString);</span>
+		}
+	},
+
+<span class="nc" id="L524">	COMPLETE_PC_HP(&quot;HP&quot;, new String[]{&quot;HP&quot;}, true)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
+
+<span class="nc" id="L532">			return new PCHPTermEvaluator(expressionString);</span>
+		}
+	},
+
+<span class="nc" id="L536">	COMPLETE_PC_MAXCASTABLE(&quot;MAXCASTABLE&quot;, new String[]{&quot;MAXCASTABLE&quot;}, true)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection) throws TermEvaulatorException
+		{
+<span class="nc bnc" id="L543" title="All 2 branches missed.">			if (src.startsWith(&quot;CLASS:&quot;))</span>
+			{
+<span class="nc" id="L545">				return new PCMaxCastableClassTermEvaluator(expressionString, src.substring(6));</span>
+			}
+<span class="nc bnc" id="L547" title="All 2 branches missed.">			else if (src.startsWith(&quot;DOMAIN:&quot;))</span>
+			{
+<span class="nc" id="L549">				return new PCMaxCastableDomainTermEvaluator(expressionString, src.substring(7));</span>
+			}
+<span class="nc bnc" id="L551" title="All 2 branches missed.">			else if (src.startsWith(&quot;SPELLTYPE:&quot;))</span>
+			{
+<span class="nc" id="L553">				return new PCMaxCastableSpellTypeTermEvaluator(expressionString, src.substring(10));</span>
+			}
+<span class="nc bnc" id="L555" title="All 2 branches missed.">			else if (&quot;ANY&quot;.equals(src))</span>
+			{
+<span class="nc" id="L557">				return new PCMaxCastableAnyTermEvaluator(expressionString);</span>
+			}
+
+<span class="nc" id="L560">            String sB = &quot;MAXCASTABLE is not usable in &quot;</span>
+                    + src;
+<span class="nc" id="L562">            throw new TermEvaulatorException(sB, null);</span>
+		}
+	},
+
+<span class="nc" id="L566">	COMPLETE_PC_MOVEBASE(&quot;MOVEBASE&quot;, new String[]{&quot;MOVEBASE&quot;}, true)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
+
+<span class="nc" id="L574">			return new PCMoveBaseTermEvaluator(expressionString);</span>
+		}
+	},
+
+<span class="nc" id="L578">	COMPLETE_PC_PC_HEIGHT(&quot;PC\\.HEIGHT&quot;, new String[]{&quot;PC.HEIGHT&quot;}, false)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
+
+<span class="nc" id="L586">			return new PCHeightTermEvaluator(expressionString);</span>
+		}
+	},
+
+<span class="nc" id="L590">	COMPLETE_PC_PC_WEIGHT(&quot;PC\\.WEIGHT&quot;, new String[]{&quot;PC.WEIGHT&quot;}, false)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
+
+<span class="nc" id="L598">			return new PCWeightTermEvaluator(expressionString);</span>
+		}
+	},
+
+<span class="nc" id="L602">	COMPLETE_PC_PROFACCHECK(&quot;PROFACCHECK&quot;, new String[]{&quot;PROFACCHECK&quot;}, true)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
+
+<span class="nc bnc" id="L610" title="All 2 branches missed.">			String source = (src.startsWith(&quot;EQ:&quot;)) ? src.substring(3) : &quot;&quot;;</span>
+
+<span class="nc" id="L612">			return new PCProfACCheckTermEvaluator(expressionString, source);</span>
+		}
+	},
+
+<span class="nc" id="L616">	COMPLETE_PC_RACESIZE(&quot;RACESIZE&quot;, new String[]{&quot;RACESIZE&quot;}, true)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
+
+<span class="nc" id="L624">			return new PCRaceSizeTermEvaluator(expressionString);</span>
+		}
+	},
+
+<span class="nc" id="L628">	COMPLETE_PC_RACIALHDSIZE(&quot;RACIALHDSIZE&quot;, new String[]{&quot;RACIALHDSIZE&quot;}, true)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
+
+<span class="nc" id="L636">			return new PCRacialHDSizeTermEvaluator(expressionString);</span>
+		}
+	},
+
+<span class="nc" id="L640">	COMPLETE_PC_SCORE(&quot;SCORE&quot;, new String[]{&quot;SCORE&quot;}, true)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
+
+			try
+			{
+<span class="nc" id="L650">				int i = Integer.parseInt(src);</span>
+<span class="nc" id="L651">				return new FixedTermEvaluator(i);</span>
+			}
+<span class="nc" id="L653">			catch (NumberFormatException e)</span>
+			{
+				//OK
+			}
+<span class="nc bnc" id="L657" title="All 2 branches missed.">			String source = (src.startsWith(&quot;STAT:&quot;)) ? src.substring(5) : &quot;&quot;;</span>
+
+<span class="nc" id="L659">			return new PCScoreTermEvaluator(expressionString, source);</span>
+		}
+	},
+
+<span class="nc" id="L663">	COMPLETE_PC_SHIELDACCHECK(&quot;SHIELDAC{1,2}HECK&quot;, new String[]{&quot;SHIELDACCHECK&quot;, &quot;SHIELDACHECK&quot;}, true)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
+
+<span class="nc" id="L671">			return new PCShieldACcheckTermEvaluator(expressionString);</span>
+		}
+	},
+
+<span class="nc" id="L675">	COMPLETE_PC_SIZEMOD(&quot;SIZEMOD|SIZE&quot;, new String[]{&quot;SIZEMOD&quot;, &quot;SIZE&quot;}, true)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
+
+<span class="nc bnc" id="L683" title="All 2 branches missed.">			if (&quot;SIZEMOD&quot;.equals(matchedSection))</span>
+			{
+<span class="nc" id="L685">				return new PCSizeModEvaluatorTermEvaluator(expressionString);</span>
+			}
+			else
+			{
+<span class="nc" id="L689">				return new PCSizeTermEvaluator(expressionString);</span>
+			}
+		}
+	},
+
+<span class="nc" id="L694">	COMPLETE_PC_SPELLBASESTAT(&quot;SPELLBASESTATSCORE|SPELLBASESTAT&quot;, new String[]{&quot;SPELLBASESTAT&quot;, &quot;SPELLBASESTATSCORE&quot;},</span>
+			true)
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
+
+<span class="nc bnc" id="L703" title="All 2 branches missed.">			String source = (src.startsWith(&quot;CLASS:&quot;)) ? src.substring(6) : &quot;&quot;;</span>
+
+<span class="nc bnc" id="L705" title="All 2 branches missed.">			if (expressionString.endsWith(&quot;SCORE&quot;))</span>
+			{
+<span class="nc" id="L707">				return new PCSPellBaseStatScoreEvaluatorTermEvaluator(expressionString, source);</span>
+			}
+<span class="nc" id="L709">			return new PCSPellBaseStatTermEvaluator(expressionString, source);</span>
+		}
+	},
+
+<span class="nc" id="L713">	COMPLETE_PC_SPELLLEVEL(&quot;SPELLLEVEL&quot;, new String[]{&quot;SPELLLEVEL&quot;}, true)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
+
+<span class="nc" id="L721">			return new PCSpellLevelTermEvaluator(expressionString);</span>
+		}
+	},
+
+<span class="nc" id="L725">	COMPLETE_PC_TL(&quot;TL&quot;, new String[]{&quot;TL&quot;}, true)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
+
+<span class="nc" id="L733">			return new PCTLTermEvaluator(expressionString);</span>
+		}
+	},
+
+<span class="nc" id="L737">	COMPLETE_PC_FAVCLASSLEVEL(&quot;FAVCLASSLEVEL&quot;, new String[]{&quot;FAVCLASSLEVEL&quot;}, true)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
+
+<span class="nc" id="L745">			return new PCFavClassLevelTermEvaluator(expressionString);</span>
+		}
+	},
+
+<span class="nc" id="L749">	PC_CAST_ATWILL(&quot;ATWILL&quot;, new String[]{&quot;ATWILL&quot;}, true)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
+<span class="nc" id="L756">			return new PCCastTimesAtWillTermEvaluator(expressionString);</span>
+		}
+	},
+
+<span class="nc" id="L760">	START_PC_BL(&quot;BL[.=]?&quot;, new String[]{&quot;BL.&quot;, &quot;BL=&quot;, &quot;BL&quot;}, false)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
+
+			String classString;
+
+<span class="nc bnc" id="L770" title="All 2 branches missed.">			if (matchedSection.length() == expressionString.length())</span>
+			{
+<span class="nc bnc" id="L772" title="All 2 branches missed.">				classString = (src.startsWith(&quot;CLASS:&quot;)) ? src.substring(6) : &quot;&quot;;</span>
+			}
+			else
+			{
+<span class="nc" id="L776">				classString = expressionString.substring(matchedSection.length());</span>
+			}
+
+<span class="nc" id="L779">			return new PCBLTermEvaluator(expressionString, classString);</span>
+		}
+	},
+
+<span class="nc" id="L783">	START_PC_CL_BEFORELEVEL(&quot;CL;BEFORELEVEL[.=]&quot;, new String[]{&quot;CL;BEFORELEVEL.&quot;, &quot;CL;BEFORELEVEL=&quot;}, false)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection) throws TermEvaulatorException
+		{
+
+<span class="nc bnc" id="L791" title="All 2 branches missed.">			if (!src.startsWith(&quot;CLASS:&quot;))</span>
+			{
+<span class="nc" id="L793">                String sB = matchedSection</span>
+                        + &quot; may only be used in a Class&quot;;
+<span class="nc" id="L795">                throw new TermEvaulatorException(sB);</span>
+			}
+
+			int i;
+
+			try
+			{
+<span class="nc" id="L802">				i = Integer.parseInt(expressionString.substring(15));</span>
+			}
+<span class="nc" id="L804">			catch (NumberFormatException e)</span>
+			{
+<span class="nc" id="L806">				String sB = &quot;Badly formed formula &quot;</span>
+						+ expressionString
+						+ &quot; in &quot;
+						+ src
+						+ &quot; should have an integer following &quot;
+						+ matchedSection;
+<span class="nc" id="L812">				throw new TermEvaulatorException(sB, e);</span>
+<span class="nc" id="L813">			}</span>
+
+<span class="nc" id="L815">			return new PCCLBeforeLevelTermEvaluator(expressionString, src.substring(6), i);</span>
+		}
+	},
+
+<span class="nc" id="L819">	START_PC_CLASSLEVEL(&quot;CLASSLEVEL[.=]&quot;, new String[]{&quot;CLASSLEVEL.&quot;, &quot;CLASSLEVEL=&quot;}, false)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
+
+<span class="nc" id="L827">			String exp = expressionString.replace('{', '(').replace('}', ')');</span>
+
+<span class="nc" id="L829">			String classString = exp.substring(11);</span>
+
+<span class="nc" id="L831">			return new PCCLTermEvaluator(expressionString, classString);</span>
+		}
+	},
+
+<span class="nc" id="L835">	START_PC_CLASS(&quot;CLASS[.=]&quot;, new String[]{&quot;CLASS.&quot;, &quot;CLASS=&quot;}, false)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
+
+<span class="nc" id="L843">			return new PCHasClassTermEvaluator(expressionString, expressionString.substring(6));</span>
+		}
+	},
+
+<span class="nc" id="L847">	START_PC_CL(&quot;CL[.=]?&quot;, new String[]{&quot;CL.&quot;, &quot;CL=&quot;, &quot;CL&quot;}, false)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection) throws TermEvaulatorException
+		{
+
+			String classString;
+
+<span class="nc bnc" id="L857" title="All 2 branches missed.">			if (expressionString.length() == 2)</span>
+			{
+<span class="nc bnc" id="L859" title="All 2 branches missed.">				if (!src.startsWith(&quot;CLASS:&quot;))</span>
+				{
+<span class="nc" id="L861">                    String sB = matchedSection</span>
+                            + &quot; may only be used in a Class&quot;;
+<span class="nc" id="L863">                    throw new TermEvaulatorException(sB);</span>
+				}
+
+<span class="nc bnc" id="L866" title="All 2 branches missed.">				classString = (src.startsWith(&quot;CLASS:&quot;)) ? src.substring(6) : &quot;&quot;;</span>
+			}
+			else
+			{
+<span class="nc" id="L870">				classString = expressionString.substring(3);</span>
+			}
+
+<span class="nc" id="L873">			return new PCCLTermEvaluator(expressionString, classString);</span>
+		}
+	},
+
+<span class="nc" id="L877">	START_PC_COUNT_EQTYPE(&quot;COUNT\\[EQTYPE\\.?&quot;, new String[]{&quot;COUNT[EQTYPE&quot;, &quot;COUNT[EQTYPE.&quot;}, false)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection) throws TermEvaulatorException
+		{
+
+			// The types string inside the brackets
+<span class="nc" id="L886">			String typesString =</span>
+<span class="nc" id="L887">					TermUtilities.extractContentsOfBrackets(expressionString, src, matchedSection.length());</span>
+
+			// In the case of the empty string, the split will give us a one
+			// element array containing only the empty string (which is the
+			// desired result)
+<span class="nc" id="L892">			String[] fullTypes = typesString.split(&quot;\\.&quot;, -1);</span>
+
+<span class="nc bnc" id="L894" title="All 2 branches missed.">			int merge = &quot;MERGENONE&quot;.equals(fullTypes[0]) ? Constants.MERGE_NONE</span>
+<span class="nc bnc" id="L895" title="All 2 branches missed.">				: &quot;MERGELOC&quot;.equals(fullTypes[0]) ? Constants.MERGE_LOCATION : Constants.MERGE_ALL;</span>
+
+<span class="nc bnc" id="L897" title="All 2 branches missed.">			int first = (merge == Constants.MERGE_ALL) ? 0 : 1;</span>
+
+			String[] types;
+<span class="nc bnc" id="L900" title="All 2 branches missed.">			if (fullTypes.length &gt; first)</span>
+			{
+<span class="nc" id="L902">				TermUtilities.checkEqTypeTypesArray(expressionString, fullTypes, first);</span>
+
+<span class="nc" id="L904">				int len = fullTypes.length - first;</span>
+<span class="nc" id="L905">				types = new String[len];</span>
+<span class="nc" id="L906">				System.arraycopy(fullTypes, first, types, 0, len);</span>
+<span class="nc" id="L907">			}</span>
+			else
+			{
+<span class="nc" id="L910">				types = new String[]{&quot;&quot;};</span>
+			}
+
+<span class="nc" id="L913">			return new PCCountEqTypeTermEvaluator(expressionString, types, merge);</span>
+		}
+	},
+
+<span class="nc" id="L917">	START_PC_COUNT_EQUIPMENT(&quot;COUNT\\[EQUIPMENT\\.?&quot;, new String[]{&quot;COUNT[EQUIPMENT.&quot;, &quot;COUNT[EQUIPMENT&quot;}, false)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection) throws TermEvaulatorException
+		{
+
+			// The types string inside the brackets
+<span class="nc" id="L926">			String typesString =</span>
+<span class="nc" id="L927">					TermUtilities.extractContentsOfBrackets(expressionString, src, matchedSection.length());</span>
+
+			// In the case of the empty string, the split will give us a one
+			// element array containing only the empty string (which is the
+			// desired result)
+<span class="nc" id="L932">			String[] fullTypes = typesString.split(&quot;\\.&quot;);</span>
+
+<span class="nc bnc" id="L934" title="All 2 branches missed.">			int merge = &quot;MERGENONE&quot;.equals(fullTypes[0]) ? Constants.MERGE_NONE</span>
+<span class="nc bnc" id="L935" title="All 2 branches missed.">				: &quot;MERGELOC&quot;.equals(fullTypes[0]) ? Constants.MERGE_LOCATION : Constants.MERGE_ALL;</span>
+
+<span class="nc bnc" id="L937" title="All 2 branches missed.">			int first = (merge == Constants.MERGE_ALL) ? 0 : 1;</span>
+
+			String[] types;
+<span class="nc bnc" id="L940" title="All 2 branches missed.">			if (fullTypes.length &gt; first)</span>
+			{
+<span class="nc" id="L942">				TermUtilities.checkEquipmentTypesArray(expressionString, fullTypes, first);</span>
+
+<span class="nc" id="L944">				int len = fullTypes.length - first;</span>
+<span class="nc" id="L945">				types = new String[len];</span>
+<span class="nc" id="L946">				System.arraycopy(fullTypes, first, types, 0, len);</span>
+<span class="nc" id="L947">			}</span>
+			else
+			{
+<span class="nc" id="L950">				types = new String[]{&quot;&quot;};</span>
+			}
+
+<span class="nc" id="L953">			return new PCCountEquipmentTermEvaluator(expressionString, types, merge);</span>
+		}
+	},
+
+<span class="nc" id="L957">	START_PC_COUNT_FEATTYPE(&quot;COUNT\\[(?:FEATAUTOTYPE|FEATNAME|FEATTYPE|VFEATTYPE)[.=]&quot;,</span>
+			new String[]{&quot;COUNT[FEATAUTOTYPE.&quot;, &quot;COUNT[FEATAUTOTYPE=&quot;, &quot;COUNT[FEATNAME.&quot;, &quot;COUNT[FEATNAME=&quot;,
+				&quot;COUNT[FEATTYPE.&quot;, &quot;COUNT[FEATTYPE=&quot;, &quot;COUNT[VFEATTYPE.&quot;, &quot;COUNT[VFEATTYPE=&quot;},
+			false)
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection) throws TermEvaulatorException
+		{
+
+<span class="nc" id="L968">			Matcher subtokenMat = SUBTOKEN_PAT.matcher(expressionString);</span>
+
+<span class="nc bnc" id="L970" title="All 2 branches missed.">			if (!subtokenMat.find())</span>
+			{
+<span class="nc" id="L972">                String sB = &quot;Impossible error while parsing \&quot;&quot;</span>
+                        + expressionString
+                        + &quot;\&quot; in &quot;
+                        + src;
+<span class="nc" id="L976">                throw new TermEvaulatorException(sB);</span>
+			}
+
+			int start =
+<span class="nc bnc" id="L980" title="All 4 branches missed.">					expressionString.startsWith(&quot;COUNT[FEATA&quot;) ? 19 : expressionString.startsWith(&quot;COUNT[V&quot;) ? 16 : 15;</span>
+
+			// The types string inside the brackets
+<span class="nc" id="L983">			String typesString = TermUtilities.extractContentsOfBrackets(expressionString, src, start);</span>
+
+			// In the case of the empty string, the split will give us a one
+			// element array containing only the empty string (which is the
+			// desired result)
+<span class="nc" id="L988">			String[] types = typesString.split(&quot;\\.&quot;, -1);</span>
+
+<span class="nc bnc" id="L990" title="All 2 branches missed.">			boolean visible = !(expressionString.endsWith(&quot;HIDDEN]&quot;));</span>
+
+<span class="nc bnc" id="L992" title="All 4 branches missed.">			boolean hidden = (expressionString.endsWith(&quot;HIDDEN]&quot;) || expressionString.endsWith(&quot;ALL]&quot;));</span>
+
+<span class="nc bnc" id="L994" title="All 4 branches missed.">			if (&quot;ALL&quot;.equals(types[types.length - 1]) || &quot;HIDDEN&quot;.equals(types[types.length - 1])</span>
+<span class="nc bnc" id="L995" title="All 2 branches missed.">				|| &quot;VISIBLE&quot;.equals(types[types.length - 1]))</span>
+			{
+<span class="nc bnc" id="L997" title="All 2 branches missed.">				if (types.length &gt; 1)</span>
+				{
+<span class="nc" id="L999">					int len = types.length - 1;</span>
+<span class="nc" id="L1000">					String[] t = new String[len];</span>
+<span class="nc" id="L1001">					System.arraycopy(types, 0, t, 0, len);</span>
+<span class="nc" id="L1002">					types = t;</span>
+<span class="nc" id="L1003">				}</span>
+				else
+				{
+<span class="nc" id="L1006">					types = new String[]{&quot;&quot;};</span>
+				}
+			}
+
+<span class="nc" id="L1010">			AbilityCategory abCat = AbilityCategory.FEAT;</span>
+
+<span class="nc bnc" id="L1012" title="All 2 branches missed.">			if (&quot;FEATAUTOTYPE&quot;.equals(subtokenMat.group()))</span>
+			{
+<span class="nc" id="L1014">				return new PCCountAbilitiesTypeNatureAutoTermEvaluator(expressionString, abCat, types, visible, hidden);</span>
+			}
+<span class="nc bnc" id="L1016" title="All 2 branches missed.">			else if (&quot;FEATNAME&quot;.equals(subtokenMat.group()))</span>
+			{
+<span class="nc" id="L1018">				return new PCCountAbilityNameTermEvaluator(expressionString, abCat, types[0], visible, hidden);</span>
+			}
+<span class="nc bnc" id="L1020" title="All 2 branches missed.">			else if (&quot;FEATTYPE&quot;.equals(subtokenMat.group()))</span>
+			{
+<span class="nc" id="L1022">				return new PCCountAbilitiesTypeNatureAllTermEvaluator(expressionString, abCat, types, visible, hidden);</span>
+			}
+			else
+			{
+<span class="nc" id="L1026">				return new PCCountAbilitiesTypeNatureVirtualTermEvaluator(expressionString, abCat, types, visible,</span>
+					hidden);
+			}
+		}
+	},
+
+<span class="nc" id="L1032">	START_PC_COUNT_FOLLOWERTYPE(&quot;COUNT\\[FOLLOWERTYPE\\.&quot;, new String[]{&quot;COUNT[FOLLOWERTYPE.&quot;}, false)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection) throws TermEvaulatorException
+		{
+
+			// The types string inside the brackets
+<span class="nc" id="L1041">			String typesString = TermUtilities.extractContentsOfBrackets(expressionString, src, 19);</span>
+
+<span class="nc" id="L1043">			String[] types = typesString.split(&quot;\\.&quot;, 3);</span>
+
+<span class="nc bnc" id="L1045" title="All 2 branches missed.">			if (types.length == 1)</span>
+			{
+				// This covers COUNT[FOLLOWERTYPE.Animal Companions] syntax
+<span class="nc" id="L1048">				return new PCCountFollowerTypeTermEvaluator(expressionString, types[0]);</span>
+			}
+<span class="nc bnc" id="L1050" title="All 2 branches missed.">			else if (types.length == 2)</span>
+			{
+<span class="nc" id="L1052">                String sB = &quot;Badly formed formula &quot;</span>
+                        + expressionString
+                        + &quot; in &quot;
+                        + src;
+<span class="nc" id="L1056">                throw new TermEvaulatorException(sB);</span>
+			}
+			else
+			{
+<span class="nc" id="L1060">				Matcher numMat = NUM_PAT.matcher(types[1]);</span>
+
+<span class="nc bnc" id="L1062" title="All 2 branches missed.">				if (!numMat.find())</span>
+				{
+<span class="nc" id="L1064">                    String sB = &quot;Badly formed formula &quot;</span>
+                            + expressionString
+                            + &quot; in &quot;
+                            + src;
+<span class="nc" id="L1068">                    throw new TermEvaulatorException(sB);</span>
+				}
+
+<span class="nc" id="L1071">				String newCount = &quot;COUNT[&quot; + types[2] + &quot;]&quot;;</span>
+
+				// This will do COUNT[FOLLOWERTYPE.Animal Companions.0.xxx],
+				// returning the same as COUNT[xxx] if applied to the right follower
+<span class="nc" id="L1075">				return new PCCountFollowerTypeTransitiveTermEvaluator(expressionString, types[0],</span>
+<span class="nc" id="L1076">					Integer.parseInt(numMat.group()), newCount);</span>
+			}
+		}
+	},
+
+<span class="nc" id="L1081">	START_PC_COUNT_SKILLTYPE(&quot;COUNT\\[SKILLTYPE[.=]&quot;, new String[]{&quot;COUNT[SKILLTYPE.&quot;, &quot;COUNT[SKILLTYPE=&quot;}, false)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection) throws TermEvaulatorException
+		{
+
+<span class="nc" id="L1089">			String type = TermUtilities.extractContentsOfBrackets(expressionString, src, 16);</span>
+
+<span class="nc" id="L1091">			return new PCSkillTypeTermEvaluator(expressionString, type);</span>
+		}
+	},
+
+<span class="nc" id="L1095">	START_PC_COUNT_SPELLBOOKS(&quot;COUNT\\[SPELLBOOKS&quot;, new String[]{&quot;COUNT[SPELLBOOKS&quot;}, false)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection) throws TermEvaulatorException
+		{
+
+<span class="nc" id="L1103">			TermUtilities.extractContentsOfBrackets(expressionString, src, 16);</span>
+
+<span class="nc" id="L1105">			return new PCCountSpellbookTermEvaluator(expressionString);</span>
+		}
+	},
+
+<span class="nc" id="L1109">	START_PC_COUNT_SPELLSINBOOK(&quot;COUNT\\[SPELLSINBOOK&quot;, new String[]{&quot;COUNT[SPELLSINBOOK&quot;}, false)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection) throws TermEvaulatorException
+		{
+
+<span class="nc" id="L1117">			return new PCCountSpellsInbookTermEvaluator(expressionString,</span>
+<span class="nc" id="L1118">				TermUtilities.extractContentsOfBrackets(expressionString, src, 19));</span>
+		}
+	},
+
+<span class="nc" id="L1122">	START_PC_COUNT_SPELLSKNOWN(&quot;COUNT\\[SPELLSKNOWN&quot;, new String[]{&quot;COUNT[SPELLSKNOWN&quot;}, false)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection) throws TermEvaulatorException
+		{
+
+			// The spells string inside the brackets
+<span class="nc" id="L1131">			String spellsString = TermUtilities.extractContentsOfBrackets(expressionString, src, 17);</span>
+
+			// make an array with one element in case we need it in the
+			// catch block.  The string could legitimatey be empty in which
+			// case a numberFormatException will be thrown
+<span class="nc" id="L1136">			int[] nums = {-1};</span>
+
+<span class="nc bnc" id="L1138" title="All 4 branches missed.">			if (spellsString.length() &gt; 1 &amp;&amp; spellsString.startsWith(&quot;.&quot;))</span>
+			{
+<span class="nc" id="L1140">				String s = spellsString.substring(1);</span>
+				try
+				{
+<span class="nc" id="L1143">					nums = TermUtilities.convertToIntegers(expressionString, s, matchedSection.length(), 2);</span>
+				}
+<span class="nc" id="L1145">				catch (NumberFormatException e)</span>
+				{
+					// the -1 means get them all (i.e. no filtering by class
+					//  or spellbook)
+<span class="nc" id="L1149">					nums[0] = -1;</span>
+<span class="nc" id="L1150">				}</span>
+			}
+
+<span class="nc" id="L1153">			return new PCCountSpellsKnownTermEvaluator(expressionString, nums);</span>
+		}
+	},
+
+<span class="nc" id="L1157">	START_PC_COUNT_SPELLSLEVELSINBOOK(&quot;COUNT\\[SPELLSLEVELSINBOOK&quot;, new String[]{&quot;COUNT[SPELLSLEVELSINBOOK&quot;}, false)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection) throws TermEvaulatorException
+		{
+
+<span class="nc" id="L1165">			String intString = TermUtilities.extractContentsOfBrackets(expressionString, src, 24);</span>
+
+<span class="nc" id="L1167">			int[] nums = {-1};</span>
+
+<span class="nc bnc" id="L1169" title="All 4 branches missed.">			if (intString.length() &gt; 1 &amp;&amp; intString.startsWith(&quot;.&quot;))</span>
+			{
+<span class="nc" id="L1171">				String s = intString.substring(1);</span>
+				try
+				{
+<span class="nc" id="L1174">					nums = TermUtilities.convertToIntegers(expressionString, s, matchedSection.length(), 2);</span>
+				}
+<span class="nc" id="L1176">				catch (NumberFormatException e)</span>
+				{
+					// the -1 means get them all (i.e. no filtering by class
+					//  or spellbook)
+<span class="nc" id="L1180">					nums[0] = -1;</span>
+<span class="nc" id="L1181">				}</span>
+<span class="nc" id="L1182">			}</span>
+			else
+			{
+<span class="nc" id="L1185">                String sB = &quot;Badly formed formula &quot;</span>
+                        + expressionString
+                        + &quot; following &quot;
+                        + matchedSection
+                        + &quot; should be 2 &quot;
+                        + &quot;integers separated by dots&quot;;
+<span class="nc" id="L1191">                throw new TermEvaulatorException(sB);</span>
+			}
+
+<span class="nc" id="L1194">			return new PCCountSpellsLevelsInBookTermEvaluator(expressionString, nums);</span>
+		}
+	},
+
+<span class="nc" id="L1198">	START_PC_COUNT_SPELLTIMES(&quot;COUNT\\[SPELLTIMES&quot;, new String[]{&quot;COUNT[SPELLTIMES&quot;}, false)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection) throws TermEvaulatorException
+		{
+
+<span class="nc" id="L1206">			String intString = TermUtilities.extractContentsOfBrackets(expressionString, src, 16);</span>
+
+<span class="nc" id="L1208">			int[] nums = {-1};</span>
+
+<span class="nc bnc" id="L1210" title="All 4 branches missed.">			if (intString.length() &gt; 1 &amp;&amp; intString.startsWith(&quot;.&quot;))</span>
+			{
+<span class="nc" id="L1212">				String s = intString.substring(1);</span>
+				try
+				{
+<span class="nc" id="L1215">					nums = TermUtilities.convertToIntegers(expressionString, s, matchedSection.length(), 4);</span>
+				}
+<span class="nc" id="L1217">				catch (NumberFormatException e)</span>
+				{
+					// the -1 means get them all (i.e. no filtering by class
+					//  or spellbook)
+<span class="nc" id="L1221">					nums[0] = -1;</span>
+<span class="nc" id="L1222">				}</span>
+<span class="nc" id="L1223">			}</span>
+			else
+			{
+<span class="nc" id="L1226">                String sB = &quot;Badly formed formula &quot;</span>
+                        + expressionString
+                        + &quot; following &quot;
+                        + matchedSection
+                        + &quot; should be 4 &quot;
+                        + &quot;integers separated by dots&quot;;
+<span class="nc" id="L1232">                throw new TermEvaulatorException(sB);</span>
+			}
+
+<span class="nc" id="L1235">			return new PCCountSpellTimesTermEvaluator(expressionString, nums);</span>
+		}
+	},
+
+<span class="nc" id="L1239">	START_PC_EQTYPE(&quot;EQTYPE&quot;, new String[]{&quot;EQTYPE&quot;}, false)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
+
+<span class="nc" id="L1247">			return new PCEqTypeTermEvaluator(expressionString);</span>
+		}
+	},
+
+<span class="nc" id="L1251">	START_PC_HASDEITY(&quot;HASDEITY:&quot;, new String[]{&quot;HASDEITY:&quot;}, false)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
+
+<span class="nc" id="L1259">			return new PCHasDeityTermEvaluator(expressionString, expressionString.substring(9));</span>
+		}
+	},
+
+<span class="nc" id="L1263">	START_PC_HASFEAT(&quot;HASFEAT:&quot;, new String[]{&quot;HASFEAT:&quot;}, false)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
+
+<span class="nc" id="L1271">			return new PCHasFeatTermEvaluator(expressionString, expressionString.substring(8));</span>
+		}
+	},
+
+<span class="nc" id="L1275">	START_PC_MAXLEVEL(&quot;MAXLEVEL&quot;, new String[]{&quot;MAXLEVEL&quot;}, true)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
+
+<span class="nc bnc" id="L1283" title="All 4 branches missed.">			if (src.startsWith(&quot;CLASS:&quot;) || src.startsWith(&quot;CLASS|&quot;))</span>
+			{
+<span class="nc" id="L1285">				return new PCMaxLevelTermEvaluator(expressionString, src.substring(6));</span>
+			}
+			else
+			{
+<span class="nc" id="L1289">				Logging.errorPrint(&quot;MAXLEVEL term called without a CLASS source&quot;);</span>
+<span class="nc" id="L1290">				return new PCMaxLevelTermEvaluator(expressionString, &quot;&quot;);</span>
+			}
+		}
+	},
+
+<span class="nc" id="L1295">	START_PC_MODEQUIP(&quot;MODEQUIP&quot;, new String[]{&quot;MODEQUIP&quot;}, false)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
+
+<span class="nc" id="L1303">			return new PCModEquipTermEvaluator(expressionString, expressionString.substring(8));</span>
+		}
+	},
+
+<span class="nc" id="L1307">	START_PC_MOVE(&quot;MOVE\\[&quot;, new String[]{&quot;MOVE[&quot;}, false)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection) throws TermEvaulatorException
+		{
+
+<span class="nc" id="L1315">			return new PCMovementTermEvaluator(expressionString,</span>
+<span class="nc" id="L1316">				TermUtilities.extractContentsOfBrackets(expressionString, src, 5));</span>
+		}
+	},
+
+<span class="nc" id="L1320">	START_PC_PC_SIZE(&quot;PC\\.SIZE(?:\\.INT)?&quot;, new String[]{&quot;PC.SIZE.INT&quot;, &quot;PC.SIZE&quot;}, false)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
+
+<span class="nc bnc" id="L1328" title="All 2 branches missed.">			if (matchedSection.length() == 11)</span>
+			{
+<span class="nc bnc" id="L1330" title="All 2 branches missed.">				if (src.startsWith(&quot;EQ:&quot;))</span>
+				{
+<span class="nc" id="L1332">					return new PCSizeIntEQTermEvaluator(expressionString, src.substring(3));</span>
+				}
+				else
+				{
+<span class="nc" id="L1336">					return new PCSizeIntTermEvaluator(expressionString);</span>
+				}
+			}
+			else
+			{
+<span class="nc" id="L1341">				return new PCSizeTermEvaluator(expressionString);</span>
+			}
+		}
+	},
+
+<span class="nc" id="L1346">	START_PC_SKILLRANK(&quot;SKILLRANK[.=]&quot;, new String[]{&quot;SKILLRANK.&quot;, &quot;SKILLRANK=&quot;}, false)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
+
+<span class="nc" id="L1354">			String skillString = expressionString.substring(10).replace('{', '(').replace('}', ')');</span>
+
+<span class="nc" id="L1356">			return new PCSkillRankTermEvaluator(expressionString, skillString);</span>
+		}
+	},
+
+<span class="nc" id="L1360">	START_PC_SKILLTOTAL(&quot;SKILLTOTAL[.=]&quot;, new String[]{&quot;SKILLTOTAL.&quot;, &quot;SKILLTOTAL=&quot;}, false)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
+
+<span class="nc" id="L1368">			String skillString = expressionString.substring(11).replace('{', '(').replace('}', ')');</span>
+
+<span class="nc" id="L1370">			return new PCSkillTotalTermEvaluator(expressionString, skillString);</span>
+		}
+	},
+
+<span class="nc" id="L1374">	START_PC_VARDEFINED(&quot;VARDEFINED:&quot;, new String[]{&quot;VARDEFINED:&quot;}, false)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
+
+<span class="nc" id="L1382">			String varString = expressionString.substring(11);</span>
+
+<span class="nc" id="L1384">			return new PCVarDefinedTermEvaluator(expressionString, varString);</span>
+		}
+	},
+
+<span class="nc" id="L1388">	START_PC_WEIGHT(&quot;WEIGHT\\.&quot;, new String[]{&quot;WEIGHT.&quot;}, false)</span>
+	{
+
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection) throws TermEvaulatorException
+		{
+
+			// The type of weight we want the value for
+<span class="nc" id="L1397">			String valString = expressionString.substring(7);</span>
+
+<span class="nc bnc" id="L1399" title="All 5 branches missed.">			switch (valString)</span>
+			{
+				case &quot;CARRIED&quot;:
+<span class="nc" id="L1402">					return new PCCarriedWeightTermEvaluator(expressionString);</span>
+				case &quot;EQUIPPED&quot;:
+					// TODO: not carried, equipped!
+<span class="nc" id="L1405">					return new PCCarriedWeightTermEvaluator(expressionString);</span>
+				case &quot;PC&quot;:
+<span class="nc" id="L1407">					return new PCWeightTermEvaluator(expressionString);</span>
+				case &quot;TOTAL&quot;:
+					// total weight of PC and all carried equipment
+<span class="nc" id="L1410">					return new PCTotalWeightTermEvaluator(expressionString);</span>
+			}
+
+<span class="nc" id="L1413">            String sB = &quot;invalid string following WEIGHT. in &quot;</span>
+                    + expressionString;
+<span class="nc" id="L1415">            throw new TermEvaulatorException(sB);</span>
+		}
+	},
+
+<span class="nc" id="L1419">	COMPLETE_PC_BONUSLANG(&quot;BONUSLANG&quot;, new String[]{&quot;BONUSLANG&quot;}, true)</span>
+	{
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
+<span class="nc" id="L1425">			return new PCBonusLangTermEvaluator(expressionString);</span>
+		}
+	},
+
+<span class="nc" id="L1429">	COMPLETE_PC_HANDS(&quot;HANDS&quot;, new String[]{&quot;HANDS&quot;}, true)</span>
+	{
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
+
+<span class="nc" id="L1436">			return new PCHandsTermEvaluator(expressionString);</span>
+		}
+
+	},
+
+<span class="nc" id="L1441">	COMPLETE_PC_LEGS(&quot;LEGS&quot;, new String[]{&quot;LEGS&quot;}, true)</span>
+	{
+		@Override
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
+
+<span class="nc" id="L1448">			return new PCLegsTermEvaluator(expressionString);</span>
+		}
+
+	};
+
+	static final String SUBTOKEN_STRING = &quot;(FEATAUTOTYPE|FEATNAME|FEATTYPE|VFEATTYPE)&quot;;
+<span class="nc" id="L1454">	static final Pattern SUBTOKEN_PAT = Pattern.compile(SUBTOKEN_STRING);</span>
+
+<span class="nc" id="L1456">	static final Pattern NUM_PAT = Pattern.compile(&quot;\\d+&quot;);</span>
+
+	private final String termConstructorPattern;
+	private final String[] termConstructorKeys;
+	private final boolean patternMatchesEntireTerm;
+
+	TermEvaluatorBuilderPCVar(String pattern, String[] keys, boolean matchEntireTerm)
+<span class="nc" id="L1463">	{</span>
+<span class="nc" id="L1464">		termConstructorPattern = pattern;</span>
+<span class="nc" id="L1465">		termConstructorKeys = keys;</span>
+<span class="nc" id="L1466">		patternMatchesEntireTerm = matchEntireTerm;</span>
+<span class="nc" id="L1467">	}</span>
+
+	@Override
+	public String getTermConstructorPattern()
+	{
+<span class="nc" id="L1472">		return termConstructorPattern;</span>
+	}
+
+	@Override
+	public String[] getTermConstructorKeys()
+	{
+<span class="nc" id="L1478">		return termConstructorKeys;</span>
+	}
+
+	@Override
+	public boolean isEntireTerm()
+	{
+<span class="nc" id="L1484">		return patternMatchesEntireTerm;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

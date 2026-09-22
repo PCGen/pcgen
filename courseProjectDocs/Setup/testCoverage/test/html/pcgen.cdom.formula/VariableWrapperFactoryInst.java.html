@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>VariableWrapperFactoryInst.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.formula</a> &gt; <span class="el_source">VariableWrapperFactoryInst.java</span></div><h1>VariableWrapperFactoryInst.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) Thomas Parker, 2018-9.
+ * 
+ * This program is free software; you can redistribute it and/or modify it under the terms
+ * of the GNU Lesser General Public License as published by the Free Software Foundation;
+ * either version 2.1 of the License, or (at your option) any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT ANY
+ * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+ * PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License along with
+ * this library; if not, write to the Free Software Foundation, Inc., 51 Franklin Street,
+ * Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package pcgen.cdom.formula;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import pcgen.base.formula.base.VarScoped;
+import pcgen.base.formula.base.VariableID;
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.SolverManagerFacet;
+import pcgen.cdom.facet.VariableStoreFacet;
+
+/**
+ * A VariableWrapperFactoryInst is a VariableWrapperFactory that will ensure that a
+ * VariableWrapper is only produced once per VariableID.
+ */
+<span class="fc" id="L32">public class VariableWrapperFactoryInst implements VariableWrapperFactory</span>
+{
+	/**
+	 * The SolverManagerFacet for VariableID construction.
+	 */
+<span class="fc" id="L37">	private static final SolverManagerFacet MGR_FACET = FacetLibrary.getFacet(SolverManagerFacet.class);</span>
+
+	/**
+	 * The VariableStoreFacet for VariableID construction.
+	 */
+<span class="fc" id="L42">	private static final VariableStoreFacet RESULT_FACET = FacetLibrary.getFacet(VariableStoreFacet.class);</span>
+
+	/**
+	 * The VariableWrapper objects produced by this VariableWrapperFactoryInst.
+	 */
+<span class="fc" id="L47">	private Map&lt;VariableID&lt;?&gt;, VariableWrapper&lt;?&gt;&gt; wrappers = new HashMap&lt;&gt;();</span>
+
+	@Override
+	public VariableWrapper&lt;?&gt; getWrapper(CharID id, VarScoped owner, String name)
+	{
+<span class="nc" id="L52">		return getWrapper(id, VariableUtilities.getLocalVariableID(id, owner, name));</span>
+	}
+
+	@Override
+	public VariableWrapper&lt;?&gt; getGlobalWrapper(CharID id, String name)
+	{
+<span class="nc" id="L58">		return getWrapper(id, VariableUtilities.getGlobalVariableID(id, name));</span>
+	}
+
+	@Override
+	public void disconnect(VariableWrapper&lt;?&gt; variableWrapper)
+	{
+<span class="nc" id="L64">		wrappers.remove(variableWrapper.getVariableID());</span>
+<span class="nc" id="L65">		variableWrapper.disconnect();</span>
+<span class="nc" id="L66">	}</span>
+
+	/**
+	 * Gets a VariableWrapper linked to the given VariableID on the PlayerCharacter
+	 * represented by the given CharID.
+	 * 
+	 * As a note on object cleanup: The returned VariableWrapper is a listener to the
+	 * given MonitorableVariableStore. Should use of this VariableWrapper be no longer
+	 * necessary, then the disconnect() method should be called in order to disconnect the
+	 * VariableWrapper from the WriteableVariableStore.
+	 * 
+	 * @param id
+	 *            The CharID representing the PlayerCharacter for which a VariableWrapper
+	 *            should be returned
+	 * @param varID
+	 *            The VariableID indicating to which Variable this VariableWrapper is
+	 *            providing an interface
+	 * @return A VariableWrapper linked to the given VariableID on the PlayerCharacter
+	 *         represented by the given CharID
+	 */
+	private &lt;T&gt; VariableWrapper&lt;T&gt; getWrapper(CharID id, VariableID&lt;T&gt; varID)
+	{
+		@SuppressWarnings(&quot;unchecked&quot;)
+<span class="nc" id="L89">		VariableWrapper&lt;T&gt; ref = (VariableWrapper&lt;T&gt;) wrappers.get(varID);</span>
+<span class="nc bnc" id="L90" title="All 2 branches missed.">		if (ref == null)</span>
+		{
+<span class="nc" id="L92">			MonitorableVariableStore varStore = RESULT_FACET.get(id);</span>
+<span class="nc" id="L93">			ref = VariableWrapper.construct(MGR_FACET.get(id), varStore, varID);</span>
+<span class="nc" id="L94">			wrappers.put(varID, ref);</span>
+<span class="nc" id="L95">			varStore.addVariableListener(varID, ref);</span>
+		}
+<span class="nc" id="L97">		return ref;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

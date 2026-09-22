@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AbstractProfProvider.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.helper</a> &gt; <span class="el_source">AbstractProfProvider.java</span></div><h1>AbstractProfProvider.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) 2008 Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package pcgen.cdom.helper;
+
+import java.util.Collections;
+import java.util.List;
+import java.util.Set;
+import java.util.StringTokenizer;
+import java.util.TreeSet;
+
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.ConcretePrereqObject;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.reference.ReferenceUtilities;
+import pcgen.core.Equipment;
+
+/**
+ * An AbstractProfProvider is an object that contains the ability to contain
+ * Proficiencies, either by TYPE of Equipment or direct references. Explicit
+ * Storage of TYPE vs. primitive is necessary due to the ability of the TYPE
+ * being a resolved against Equipment.
+ * 
+ * @param &lt;T&gt;
+ *            The type of Proficiency (CDOMObject) that this
+ *            AbstractProfProvider provides
+ */
+public abstract class AbstractProfProvider&lt;T extends CDOMObject&gt; extends ConcretePrereqObject implements ProfProvider&lt;T&gt;
+{
+
+	/**
+	 * Contains the set of primitive proficiencies objects that this
+	 * AbstractProfProvider grants
+	 */
+	private final Set&lt;CDOMReference&lt;T&gt;&gt; direct;
+
+	/**
+	 * Contains the set of TYPEs of Equipment objects for which this
+	 * AbstractProfProvider grants proficiency
+	 */
+	private final Set&lt;CDOMReference&lt;Equipment&gt;&gt; byEquipType;
+
+	/**
+	 * Constructs a new AbstractProfProvider with the given List of proficiency
+	 * references and Equipment TYPE references.
+	 * 
+	 * No reference is maintained to the internal structure of the given Lists,
+	 * so modifications to this AbstractProfProvider are not reflected in the
+	 * given Lists (and vice versa).
+	 * 
+	 * @param profs
+	 *            The List of proficiency references indicating the primitive
+	 *            proficiency objects this AbstractProfProvider will contain.
+	 * @param equipTypes
+	 *            The List of Equipment references indicating the TYPEs of
+	 *            Equipment objects this AbstractProfProvider will contain.
+	 */
+	public AbstractProfProvider(List&lt;CDOMReference&lt;T&gt;&gt; profs, List&lt;CDOMReference&lt;Equipment&gt;&gt; equipTypes)
+<span class="fc" id="L74">	{</span>
+<span class="fc" id="L75">		direct = new TreeSet&lt;&gt;(ReferenceUtilities.REFERENCE_SORTER);</span>
+<span class="fc" id="L76">		direct.addAll(profs);</span>
+<span class="fc" id="L77">		byEquipType = new TreeSet&lt;&gt;(ReferenceUtilities.REFERENCE_SORTER);</span>
+<span class="fc" id="L78">		byEquipType.addAll(equipTypes);</span>
+<span class="fc" id="L79">	}</span>
+
+	/**
+	 * Returns true if this AbstractProfProvider provides proficiency for the
+	 * given Equipment; false otherwise.
+	 * 
+	 * @param equipment
+	 *            The Equipment to be tested to see if this AbstractProfProvider
+	 *            provides proficiency for the Equipment
+	 * @return true if this AbstractProfProvider provides proficiency for the
+	 *         given Equipment; false otherwise.
+	 */
+	@Override
+	public abstract boolean providesProficiencyFor(Equipment equipment);
+
+	/**
+	 * Returns true if this AbstractProfProvider provides the given proficiency.
+	 * This only tests against the direct proficiency list provided during
+	 * construction of the AbstractProfProvider.
+	 * 
+	 * @param proficiency
+	 *            The proficiency to be tested to see if this
+	 *            AbstractProfProvider provides the given proficiency
+	 * @return true if this AbstractProfProvider provides the given proficiency;
+	 *         false otherwise.
+	 */
+	@Override
+	public boolean providesProficiency(T proficiency)
+	{
+<span class="nc bnc" id="L108" title="All 2 branches missed.">		for (CDOMReference&lt;T&gt; ref : direct)</span>
+		{
+<span class="nc bnc" id="L110" title="All 2 branches missed.">			if (ref.contains(proficiency))</span>
+			{
+<span class="nc" id="L112">				return true;</span>
+			}
+<span class="nc" id="L114">		}</span>
+<span class="nc" id="L115">		return false;</span>
+	}
+
+	/**
+	 * Returns true if this AbstractProfProvider provides proficiency with the
+	 * given Equipment TYPE. This only tests against the Equipment TYPE
+	 * reference list provided during construction of the AbstractProfProvider.
+	 * 
+	 * @param typeString
+	 *            The TYPE of Equipment to be tested to see if this
+	 *            AbstractProfProvider provides proficiency with the given
+	 *            Equipment TYPE
+	 * @return true if this AbstractProfProvider provides proficiency with the
+	 *         given Equipment TYPE.
+	 */
+	@Override
+	public boolean providesEquipmentType(String typeString)
+	{
+<span class="nc bnc" id="L133" title="All 4 branches missed.">		if (typeString == null || typeString.isEmpty())</span>
+		{
+<span class="nc" id="L135">			return false;</span>
+		}
+<span class="nc" id="L137">		Set&lt;String&gt; types = new TreeSet&lt;&gt;(String.CASE_INSENSITIVE_ORDER);</span>
+<span class="nc" id="L138">		Collections.addAll(types, typeString.split(&quot;\\.&quot;));</span>
+<span class="nc bnc" id="L139" title="All 2 branches missed.">		REF: for (CDOMReference&lt;Equipment&gt; ref : byEquipType)</span>
+		{
+<span class="nc" id="L141">			StringTokenizer tok = new StringTokenizer(ref.getLSTformat(false).substring(5), &quot;.&quot;);</span>
+<span class="nc bnc" id="L142" title="All 2 branches missed.">			while (tok.hasMoreTokens())</span>
+			{
+<span class="nc bnc" id="L144" title="All 2 branches missed.">				if (!types.contains(tok.nextToken()))</span>
+				{
+<span class="nc" id="L146">					continue REF;</span>
+				}
+			}
+<span class="nc" id="L149">			return true;</span>
+		}
+<span class="nc" id="L151">		return false;</span>
+	}
+
+	/**
+	 * Returns a String indicating the type of proficiency granted by this
+	 * AbstractProfProvider.
+	 * 
+	 * @return A String indicating the type of proficiency granted by this
+	 *         AbstractProfProvider
+	 */
+	protected abstract String getSubType();
+
+	/**
+	 * Returns the LST format for this AbstractProfProvider. Provided primarily
+	 * to allow the Token/Loader system to properly unparse the
+	 * AbstractProfProvider.
+	 * 
+	 * @return The LST format of this AbstractProfProvider
+	 */
+	@Override
+	public String getLstFormat()
+	{
+<span class="fc" id="L173">		StringBuilder sb = new StringBuilder();</span>
+<span class="fc" id="L174">		boolean typeEmpty = byEquipType.isEmpty();</span>
+<span class="fc bfc" id="L175" title="All 2 branches covered.">		if (!direct.isEmpty())</span>
+		{
+<span class="fc" id="L177">			sb.append(ReferenceUtilities.joinLstFormat(direct, Constants.PIPE));</span>
+<span class="fc bfc" id="L178" title="All 2 branches covered.">			if (!typeEmpty)</span>
+			{
+<span class="fc" id="L180">				sb.append(Constants.PIPE);</span>
+			}
+		}
+<span class="fc bfc" id="L183" title="All 2 branches covered.">		if (!typeEmpty)</span>
+		{
+<span class="fc" id="L185">			boolean needPipe = false;</span>
+<span class="fc" id="L186">			String subType = getSubType();</span>
+<span class="fc" id="L187">			String dot = Constants.DOT;</span>
+<span class="fc bfc" id="L188" title="All 2 branches covered.">			for (CDOMReference&lt;Equipment&gt; ref : byEquipType)</span>
+			{
+<span class="fc bfc" id="L190" title="All 2 branches covered.">				if (needPipe)</span>
+				{
+<span class="fc" id="L192">					sb.append(Constants.PIPE);</span>
+				}
+<span class="fc" id="L194">				needPipe = true;</span>
+<span class="fc" id="L195">				String lstFormat = ref.getLSTformat(false);</span>
+<span class="pc bpc" id="L196" title="1 of 2 branches missed.">				if (lstFormat.startsWith(&quot;TYPE=&quot;))</span>
+				{
+<span class="fc" id="L198">					sb.append(subType).append(&quot;TYPE=&quot;);</span>
+<span class="fc" id="L199">					StringTokenizer st = new StringTokenizer(lstFormat.substring(5), dot);</span>
+<span class="fc" id="L200">					boolean needDot = false;</span>
+<span class="fc bfc" id="L201" title="All 2 branches covered.">					while (st.hasMoreTokens())</span>
+					{
+<span class="fc" id="L203">						String tok = st.nextToken();</span>
+<span class="fc bfc" id="L204" title="All 2 branches covered.">						if (!tok.equals(subType))</span>
+						{
+<span class="fc bfc" id="L206" title="All 2 branches covered.">							if (needDot)</span>
+							{
+<span class="fc" id="L208">								sb.append(dot);</span>
+							}
+<span class="fc" id="L210">							needDot = true;</span>
+<span class="fc" id="L211">							sb.append(tok);</span>
+						}
+<span class="fc" id="L213">					}</span>
+				}
+<span class="fc" id="L215">			}</span>
+		}
+<span class="fc" id="L217">		return sb.toString();</span>
+	}
+
+	@Override
+	public boolean equals(Object obj)
+	{
+<span class="pc bpc" id="L223" title="1 of 2 branches missed.">		if (obj instanceof AbstractProfProvider&lt;?&gt; other)</span>
+		{
+<span class="pc bpc" id="L225" title="1 of 2 branches missed.">			if (!other.getSubType().equals(getSubType()))</span>
+			{
+<span class="nc" id="L227">				return false;</span>
+			}
+<span class="pc bpc" id="L229" title="1 of 2 branches missed.">			if (direct == null)</span>
+			{
+<span class="nc bnc" id="L231" title="All 2 branches missed.">				if (other.direct != null)</span>
+				{
+<span class="nc" id="L233">					return false;</span>
+				}
+			}
+			else
+			{
+<span class="pc bpc" id="L238" title="1 of 2 branches missed.">				if (!direct.equals(other.direct))</span>
+				{
+<span class="nc" id="L240">					return false;</span>
+				}
+			}
+<span class="pc bpc" id="L243" title="1 of 2 branches missed.">			if (byEquipType == null)</span>
+			{
+<span class="nc bnc" id="L245" title="All 2 branches missed.">				if (other.byEquipType != null)</span>
+				{
+<span class="nc" id="L247">					return false;</span>
+				}
+			}
+			else
+			{
+<span class="pc bpc" id="L252" title="1 of 2 branches missed.">				if (!byEquipType.equals(other.byEquipType))</span>
+				{
+<span class="nc" id="L254">					return false;</span>
+				}
+			}
+<span class="fc" id="L257">			return this.equalsPrereqObject(other);</span>
+		}
+<span class="nc" id="L259">		return false;</span>
+	}
+
+	@Override
+	public int hashCode()
+	{
+<span class="nc bnc" id="L265" title="All 4 branches missed.">		return (direct == null ? 0 : direct.hashCode() * 29) + (byEquipType == null ? 0 : byEquipType.hashCode());</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

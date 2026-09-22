@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>HasAnyFavoredClassFacet.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.facet.analysis</a> &gt; <span class="el_source">HasAnyFavoredClassFacet.java</span></div><h1>HasAnyFavoredClassFacet.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) Thomas Parker, 2009.
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package pcgen.cdom.facet.analysis;
+
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.ItemFacet;
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.facet.base.AbstractSourcedListFacet;
+import pcgen.cdom.facet.event.DataFacetChangeEvent;
+import pcgen.cdom.facet.event.DataFacetChangeListener;
+import pcgen.cdom.facet.model.RaceFacet;
+import pcgen.cdom.facet.model.TemplateFacet;
+import pcgen.output.publish.OutputDB;
+
+/**
+ * HasAnyFavoredClassFacet is a Facet that tracks if the Player Character has
+ * &quot;ANY&quot; (&quot;HIGHESTCLASS&quot;) as a Favored Class.
+ * 
+ */
+<span class="fc" id="L36">public class HasAnyFavoredClassFacet extends AbstractSourcedListFacet&lt;CharID, Boolean&gt;</span>
+		implements DataFacetChangeListener&lt;CharID, CDOMObject&gt;, ItemFacet&lt;CharID, Boolean&gt;
+{
+
+	private RaceFacet raceFacet;
+
+	private TemplateFacet templateFacet;
+
+	/**
+	 * Adds the Any Favored Class capability granted by CDOMObjects added to the
+	 * Player Character to this HasAnyFavoredClassFacet.
+	 * 
+	 * Triggered when one of the Facets to which HasAnyFavoredClassFacet listens
+	 * fires a DataFacetChangeEvent to indicate a CDOMObject was added to a
+	 * Player Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 */
+	@Override
+	public void dataAdded(DataFacetChangeEvent&lt;CharID, CDOMObject&gt; dfce)
+	{
+<span class="fc" id="L59">		CDOMObject cdo = dfce.getCDOMObject();</span>
+<span class="fc" id="L60">		Boolean hdw = cdo.get(ObjectKey.ANY_FAVORED_CLASS);</span>
+<span class="fc bfc" id="L61" title="All 2 branches covered.">		if (hdw != null)</span>
+		{
+<span class="fc" id="L63">			add(dfce.getCharID(), hdw, cdo);</span>
+		}
+<span class="fc" id="L65">	}</span>
+
+	/**
+	 * Removes the Any Favored Class capability granted by CDOMObjects removed
+	 * from the Player Character from this HasAnyFavoredClassFacet.
+	 * 
+	 * Triggered when one of the Facets to which HasAnyFavoredClassFacet listens
+	 * fires a DataFacetChangeEvent to indicate a CDOMObject was removed from a
+	 * Player Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 */
+	@Override
+	public void dataRemoved(DataFacetChangeEvent&lt;CharID, CDOMObject&gt; dfce)
+	{
+<span class="fc" id="L82">		removeAll(dfce.getCharID(), dfce.getCDOMObject());</span>
+<span class="fc" id="L83">	}</span>
+
+	/**
+	 * Initializes the connections for HasAnyFavoredClassFacet to other facets.
+	 * 
+	 * This method is automatically called by the Spring framework during
+	 * initialization of the HasAnyFavoredClassFacet.
+	 */
+	public void init()
+	{
+<span class="fc" id="L93">		raceFacet.addDataFacetChangeListener(this);</span>
+<span class="fc" id="L94">		templateFacet.addDataFacetChangeListener(this);</span>
+<span class="fc" id="L95">		OutputDB.register(&quot;hasanyfavoredclass&quot;, this);</span>
+<span class="fc" id="L96">	}</span>
+
+	public void setRaceFacet(RaceFacet raceFacet)
+	{
+<span class="fc" id="L100">		this.raceFacet = raceFacet;</span>
+<span class="fc" id="L101">	}</span>
+
+	public void setTemplateFacet(TemplateFacet templateFacet)
+	{
+<span class="fc" id="L105">		this.templateFacet = templateFacet;</span>
+<span class="fc" id="L106">	}</span>
+
+	@Override
+	public Boolean get(CharID id)
+	{
+<span class="nc" id="L111">		return contains(id, Boolean.TRUE);</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

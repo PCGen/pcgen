@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PrimitiveCollection.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.base</a> &gt; <span class="el_source">PrimitiveCollection.java</span></div><h1>PrimitiveCollection.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2010 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.cdom.base;
+
+import java.util.Collection;
+import java.util.Collections;
+
+import pcgen.cdom.enumeration.GroupingState;
+import pcgen.core.PlayerCharacter;
+
+public interface PrimitiveCollection&lt;T&gt;
+{
+
+	@SuppressWarnings(&quot;rawtypes&quot;)
+<span class="fc" id="L30">	PrimitiveCollection INVALID = new PrimitiveCollection()</span>
+<span class="fc" id="L31">	{</span>
+
+		@Override
+		public GroupingState getGroupingState()
+		{
+<span class="fc" id="L36">			return GroupingState.INVALID;</span>
+		}
+
+		@Override
+		public String getLSTformat(boolean useAny)
+		{
+<span class="fc" id="L42">			return &quot;ERROR&quot;;</span>
+		}
+
+		@Override
+		public Class getReferenceClass()
+		{
+<span class="fc" id="L48">			return Object.class;</span>
+		}
+
+		@Override
+		public Collection getCollection(PlayerCharacter pc, Converter c)
+		{
+<span class="nc" id="L54">			return Collections.emptyList();</span>
+		}
+	};
+
+	public &lt;R&gt; Collection&lt;? extends R&gt; getCollection(PlayerCharacter pc, Converter&lt;T, R&gt; c);
+
+	/**
+	 * Returns the GroupingState for this PrimitiveCollection. The GroupingState
+	 * indicates how this PrimitiveCollection can be combined with other
+	 * PrimitiveCollections.
+	 * 
+	 * @return The GroupingState for this PrimitiveCollection.
+	 */
+	public GroupingState getGroupingState();
+
+	/**
+	 * Returns the Class object representing the Class that this
+	 * PrimitiveCollection evaluates.
+	 * 
+	 * @return Class object representing the Class that this PrimitiveCollection
+	 *         evaluates
+	 */
+	public Class&lt;? super T&gt; getReferenceClass();
+
+	/**
+	 * Returns a representation of this PrimitiveCollection, suitable for
+	 * storing in an LST file.
+	 * 
+	 * @param useAny
+	 *            use &quot;ANY&quot; for the global &quot;ALL&quot; reference when creating the LST
+	 *            format
+	 * @return A representation of this PrimitiveCollection, suitable for
+	 *         storing in an LST file.
+	 */
+	public String getLSTformat(boolean useAny);
+
+	/**
+	 * Implemented as a similar result as Collections.emptyList() vs.
+	 * Collections.EMPTY_LIST. The former allows one to avoid generic warnings
+	 * in &quot;runtime&quot; code, as FIXED.invalid() would here.
+	 */
+<span class="fc" id="L95">	public static PrimLibrary FIXED = new PrimLibrary()</span>
+<span class="fc" id="L96">	{</span>
+		/**
+		 * Returns an &quot;Invalid&quot; PrimitiveCollection.
+		 * 
+		 * @return An &quot;Invalid&quot; PrimitiveCollection
+		 */
+		@SuppressWarnings(&quot;unchecked&quot;)
+		@Override
+		public &lt;PCT&gt; PrimitiveCollection&lt;PCT&gt; invalid()
+		{
+<span class="fc" id="L106">			return INVALID;</span>
+		}
+	};
+
+    @FunctionalInterface
+	public interface PrimLibrary
+	{
+		&lt;PCT&gt; PrimitiveCollection&lt;PCT&gt; invalid();
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

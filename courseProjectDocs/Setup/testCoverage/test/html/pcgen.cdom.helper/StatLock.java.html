@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>StatLock.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.helper</a> &gt; <span class="el_source">StatLock.java</span></div><h1>StatLock.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2008 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.cdom.helper;
+
+import java.util.Objects;
+
+import pcgen.cdom.formula.Formula;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.core.PCStat;
+
+/**
+ * A StatLock object represents a PCStat locked to a specific value (that value
+ * may be variable, as it is represented by a Formula)
+ */
+public class StatLock
+{
+
+	/**
+	 * The PCStat to be locked
+	 */
+	private final CDOMSingleRef&lt;PCStat&gt; lockedStat;
+
+	/**
+	 * The Formula indicating the value to which the PCStat should be locked
+	 */
+	private final Formula lockValue;
+
+	/**
+	 * Constructs a new StatLock, identifying the PCStat to be locked to the
+	 * given Formula
+	 * 
+	 * @param stat
+	 *            The PCStat to be locked
+	 * 
+	 * @param formula
+	 *            The Formula indicating the value to which the PCStat should be
+	 *            locked
+	 */
+	public StatLock(CDOMSingleRef&lt;PCStat&gt; stat, Formula formula)
+<span class="fc" id="L55">	{</span>
+<span class="fc" id="L56">		Objects.requireNonNull(stat, &quot;PCStat for LockStat may not be null&quot;);</span>
+<span class="fc" id="L57">		Objects.requireNonNull(formula, &quot;Formula for LockStat may not be null&quot;);</span>
+<span class="fc" id="L58">		lockedStat = stat;</span>
+<span class="fc" id="L59">		lockValue = formula;</span>
+<span class="fc" id="L60">	}</span>
+
+	/**
+	 * Returns the PCStat that should be locked
+	 * 
+	 * @return the PCStat that should be locked
+	 */
+	public PCStat getLockedStat()
+	{
+<span class="fc" id="L69">		return lockedStat.get();</span>
+	}
+
+	public String getLSTformat()
+	{
+<span class="fc" id="L74">		return lockedStat.getLSTformat(false);</span>
+	}
+
+	/**
+	 * Returns the Formula indicating the value to which the PCStat identified
+	 * in this StatLock should be locked
+	 * 
+	 * @return The Formula indicating the value to which the PCStat identified
+	 *         in this StatLock should be locked
+	 */
+	public Formula getLockValue()
+	{
+<span class="fc" id="L86">		return lockValue;</span>
+	}
+
+	@Override
+	public int hashCode()
+	{
+<span class="nc" id="L92">		return lockValue.hashCode();</span>
+	}
+
+	@Override
+	public boolean equals(Object obj)
+	{
+<span class="pc bpc" id="L98" title="1 of 2 branches missed.">		if (obj instanceof StatLock other)</span>
+		{
+<span class="fc bfc" id="L100" title="All 4 branches covered.">			return lockValue.equals(other.lockValue) &amp;&amp; lockedStat.equals(other.lockedStat);</span>
+		}
+<span class="nc" id="L102">		return false;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

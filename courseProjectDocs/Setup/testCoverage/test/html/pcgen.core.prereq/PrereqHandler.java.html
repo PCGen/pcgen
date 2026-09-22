@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PrereqHandler.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.core.prereq</a> &gt; <span class="el_source">PrereqHandler.java</span></div><h1>PrereqHandler.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2001 (C) Bryan McRoberts &lt;merton_monk@yahoo.com&gt;
+ * Copyright 2003 (C) Chris Ward &lt;frugal@purplewombat.co.uk&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.	   See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+
+package pcgen.core.prereq;
+
+import java.util.Collection;
+import java.util.List;
+
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.PrereqObject;
+import pcgen.core.Ability;
+import pcgen.core.AbilityUtilities;
+import pcgen.core.Equipment;
+import pcgen.core.Globals;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.RuleConstants;
+import pcgen.system.LanguageBundle;
+import pcgen.util.Logging;
+
+/**
+ * This class tests if the character passes the prerequisites for the caller.
+ */
+public final class PrereqHandler
+{
+
+	/**
+	 * empty private constructor prevents instantiation.
+	 */
+	private PrereqHandler()
+	{
+	}
+
+	/**
+	 * Test if the character passes the prerequisites for the caller. The caller
+	 * is used to check if prereqs can be bypassed by either preferences or via
+	 * Qualifies statements in templates or other objects applied to the
+	 * character.
+	 *
+	 * @param prereqList The list of prerequisites to be tested.
+	 * @param aPC The character to be checked.
+	 * @param caller The object that we are testing qualification for.
+	 * @return True if the character passes all prereqs.
+	 */
+	public static boolean passesAll(final Collection&lt;Prerequisite&gt; prereqList, final PlayerCharacter aPC,
+		final Object caller)
+	{
+<span class="nc bnc" id="L64" title="All 4 branches missed.">		if (prereqList == null || prereqList.isEmpty())</span>
+		{
+<span class="nc" id="L66">			return true;</span>
+		}
+
+<span class="nc bnc" id="L69" title="All 4 branches missed.">		if ((caller instanceof Ability) &amp;&amp; (AbilityUtilities.isFeat(caller))</span>
+<span class="nc bnc" id="L70" title="All 2 branches missed.">			&amp;&amp; Globals.checkRule(RuleConstants.FEATPRE))</span>
+		{
+<span class="nc" id="L72">			return true;</span>
+		}
+
+<span class="nc bnc" id="L75" title="All 4 branches missed.">		if (caller instanceof CDOMObject &amp;&amp; aPC != null)</span>
+		{
+			// Check for QUALIFY:
+<span class="nc bnc" id="L78" title="All 2 branches missed.">			if (aPC.checkQualifyList((CDOMObject) caller))</span>
+			{
+<span class="nc" id="L80">				return true;</span>
+			}
+		}
+
+<span class="nc bnc" id="L84" title="All 2 branches missed.">		for (Prerequisite prereq : prereqList)</span>
+		{
+<span class="nc bnc" id="L86" title="All 2 branches missed.">			if (!passes(prereq, aPC, caller))</span>
+			{
+<span class="nc" id="L88">				return false;</span>
+			}
+<span class="nc" id="L90">		}</span>
+<span class="nc" id="L91">		return true;</span>
+	}
+
+	public static boolean passesAll(PrereqObject prereqObject, PlayerCharacter aPC, Object caller)
+	{
+<span class="nc bnc" id="L96" title="All 4 branches missed.">		if (!prereqObject.isAvailable(aPC) || !prereqObject.isActive(aPC))</span>
+		{
+<span class="nc" id="L98">			return false;</span>
+		}
+<span class="nc" id="L100">		Collection&lt;Prerequisite&gt; prereqList = prereqObject.getPrerequisiteList();</span>
+<span class="nc bnc" id="L101" title="All 4 branches missed.">		if (prereqList == null || prereqList.isEmpty())</span>
+		{
+<span class="nc" id="L103">			return true;</span>
+		}
+
+<span class="nc bnc" id="L106" title="All 4 branches missed.">		if ((caller instanceof Ability) &amp;&amp; (AbilityUtilities.isFeat(caller))</span>
+<span class="nc bnc" id="L107" title="All 2 branches missed.">			&amp;&amp; Globals.checkRule(RuleConstants.FEATPRE))</span>
+		{
+<span class="nc" id="L109">			return true;</span>
+		}
+
+<span class="nc bnc" id="L112" title="All 4 branches missed.">		if (caller instanceof CDOMObject &amp;&amp; aPC != null)</span>
+		{
+			// Check for QUALIFY:
+<span class="nc bnc" id="L115" title="All 2 branches missed.">			if (aPC.checkQualifyList((CDOMObject) caller))</span>
+			{
+<span class="nc" id="L117">				return true;</span>
+			}
+		}
+
+<span class="nc bnc" id="L121" title="All 2 branches missed.">		for (Prerequisite prereq : prereqList)</span>
+		{
+<span class="nc bnc" id="L123" title="All 2 branches missed.">			if (!passes(prereq, aPC, caller))</span>
+			{
+<span class="nc" id="L125">				return false;</span>
+			}
+<span class="nc" id="L127">		}</span>
+<span class="nc" id="L128">		return true;</span>
+	}
+
+	/**
+	 *
+	 * @param prereqList The list of prerequisites to be tested.
+	 * @param equip The Equipment that is the source of the prerequisite.
+	 * @param aPC The character to be checked.
+	 * @return true if all of the prerequisites pss.
+	 */
+	public static boolean passesAll(final Collection&lt;Prerequisite&gt; prereqList, final Equipment equip,
+		PlayerCharacter aPC)
+	{
+<span class="nc bnc" id="L141" title="All 2 branches missed.">		if (prereqList == null)</span>
+		{
+<span class="nc" id="L143">			return true;</span>
+		}
+<span class="nc bnc" id="L145" title="All 2 branches missed.">		for (Prerequisite prereq : prereqList)</span>
+		{
+<span class="nc bnc" id="L147" title="All 2 branches missed.">			if (!passes(prereq, equip, aPC))</span>
+			{
+<span class="nc" id="L149">				return false;</span>
+			}
+<span class="nc" id="L151">		}</span>
+<span class="nc" id="L152">		return true;</span>
+	}
+
+	public static boolean passesAll(PrereqObject prereqObject, Equipment equip, PlayerCharacter aPC)
+	{
+<span class="nc" id="L157">		List&lt;Prerequisite&gt; prereqList = prereqObject.getPrerequisiteList();</span>
+<span class="nc bnc" id="L158" title="All 2 branches missed.">		if (prereqList == null)</span>
+		{
+<span class="nc" id="L160">			return true;</span>
+		}
+<span class="nc bnc" id="L162" title="All 2 branches missed.">		for (Prerequisite prereq : prereqList)</span>
+		{
+<span class="nc bnc" id="L164" title="All 2 branches missed.">			if (!passes(prereq, equip, aPC))</span>
+			{
+<span class="nc" id="L166">				return false;</span>
+			}
+<span class="nc" id="L168">		}</span>
+<span class="nc" id="L169">		return true;</span>
+	}
+
+	/**
+	 * Returns true if the character passes the prereq.
+	 * @param prereq The prerequisite to test.
+	 * @param aPC The character to test against
+	 * @param caller The CDOMObject that is calling this method
+	 * @return true if the character passes the prereq
+	 */
+	public static boolean passes(final Prerequisite prereq, final PlayerCharacter aPC, final Object caller)
+	{
+<span class="nc bnc" id="L181" title="All 4 branches missed.">		if (aPC == null &amp;&amp; prereq.isCharacterRequired())</span>
+		{
+<span class="nc" id="L183">			return true;</span>
+		}
+<span class="nc" id="L185">		final PrerequisiteTestFactory factory = PrerequisiteTestFactory.getInstance();</span>
+<span class="nc" id="L186">		final PrerequisiteTest test = factory.getTest(prereq.getKind());</span>
+
+<span class="nc bnc" id="L188" title="All 2 branches missed.">		if (test == null)</span>
+		{
+<span class="nc" id="L190">			Logging.errorPrintLocalised(&quot;PrereqHandler.Unable_to_find_implementation&quot;, prereq.toString()); //$NON-NLS-1$</span>
+<span class="nc" id="L191">			return false;</span>
+		}
+
+<span class="nc" id="L194">		final boolean overrideQualify = prereq.isOverrideQualify();</span>
+<span class="nc" id="L195">		boolean autoQualifies = false;</span>
+<span class="nc" id="L196">		int total = 0;</span>
+
+<span class="nc bnc" id="L198" title="All 8 branches missed.">		if (caller instanceof CDOMObject &amp;&amp; aPC != null &amp;&amp; aPC.checkQualifyList((CDOMObject) caller)</span>
+			&amp;&amp; (!overrideQualify))
+		{
+<span class="nc" id="L201">			autoQualifies = true;</span>
+		}
+<span class="nc bnc" id="L203" title="All 2 branches missed.">		if (autoQualifies)</span>
+		{
+<span class="nc" id="L205">			return true;</span>
+		}
+		try
+		{
+<span class="nc bnc" id="L209" title="All 2 branches missed.">			CDOMObject cdomCaller = (caller instanceof CDOMObject) ? (CDOMObject) caller : null;</span>
+<span class="nc" id="L210">			total = test.passes(prereq, aPC, cdomCaller);</span>
+		}
+<span class="nc" id="L212">		catch (PrerequisiteException pe)</span>
+		{
+<span class="nc" id="L214">			Logging.errorPrintLocalised(&quot;PrereqHandler.Exception_in_test&quot;, pe); //$NON-NLS-1$</span>
+		}
+<span class="nc" id="L216">		catch (Exception e)</span>
+		{
+<span class="nc bnc" id="L218" title="All 2 branches missed.">			final String callerString = (caller != null) ? &quot; for &quot; + String.valueOf(caller) : Constants.EMPTY_STRING;</span>
+
+<span class="nc" id="L220">			Logging.errorPrint(&quot;Problem encountered when testing PREREQ &quot; + String.valueOf(prereq) + callerString</span>
+				+ &quot;. See following trace for details.&quot;, e);
+<span class="nc" id="L222">		}</span>
+<span class="nc bnc" id="L223" title="All 2 branches missed.">		return total &gt; 0;</span>
+	}
+
+	/**
+	 *
+	 * @param preReq The prerequisite to test.
+	 * @param equip The Equipment that is the source of the prerequisite.
+	 * @param aPC The character to be checked.
+	 * @return Whether the prerequisite passes.
+	 */
+	public static boolean passes(final Prerequisite preReq, final Equipment equip, PlayerCharacter aPC)
+	{
+<span class="nc bnc" id="L235" title="All 2 branches missed.">		if (equip == null)</span>
+		{
+<span class="nc" id="L237">			return true;</span>
+		}
+<span class="nc" id="L239">		final PrerequisiteTestFactory factory = PrerequisiteTestFactory.getInstance();</span>
+<span class="nc" id="L240">		final PrerequisiteTest test = factory.getTest(preReq.getKind());</span>
+
+<span class="nc bnc" id="L242" title="All 2 branches missed.">		if (test == null)</span>
+		{
+<span class="nc" id="L244">			final String message = &quot;PrereqHandler.Unable_to_find_implementation&quot;; //$NON-NLS-1$</span>
+<span class="nc" id="L245">			Logging.errorPrintLocalised(message, preReq.toString());</span>
+<span class="nc" id="L246">			return false;</span>
+		}
+<span class="nc" id="L248">		int total = 0;</span>
+		try
+		{
+<span class="nc" id="L251">			total = test.passes(preReq, equip, aPC);</span>
+		}
+<span class="nc" id="L253">		catch (PrerequisiteException pe)</span>
+		{
+<span class="nc" id="L255">			final String message = &quot;PrereqHandler.Exception_in_test&quot;; //$NON-NLS-1$</span>
+<span class="nc" id="L256">			Logging.errorPrintLocalised(message, pe);</span>
+<span class="nc" id="L257">		}</span>
+<span class="nc bnc" id="L258" title="All 2 branches missed.">		return total &gt; 0;</span>
+	}
+
+	/**
+	 * Generates an HTML representation of a list of PreRequisite objects.
+	 * @param anArrayList the list of PreRequisite objects to be represented.
+	 * @return An HTML representation of the input.
+	 */
+	public static String toHtmlString(final Collection&lt;Prerequisite&gt; anArrayList)
+	{
+<span class="nc bnc" id="L268" title="All 4 branches missed.">		if (anArrayList == null || anArrayList.isEmpty())</span>
+		{
+<span class="nc" id="L270">			return Constants.EMPTY_STRING;</span>
+		}
+
+<span class="nc" id="L273">		final PrerequisiteTestFactory factory = PrerequisiteTestFactory.getInstance();</span>
+
+<span class="nc" id="L275">		final StringBuilder pString = new StringBuilder(anArrayList.size() * 20);</span>
+
+<span class="nc" id="L277">		String delimiter = Constants.EMPTY_STRING;</span>
+
+<span class="nc bnc" id="L279" title="All 2 branches missed.">		for (Prerequisite preReq : anArrayList)</span>
+		{
+<span class="nc" id="L281">			final PrerequisiteTest preReqTest = factory.getTest(preReq.getKind());</span>
+
+<span class="nc bnc" id="L283" title="All 2 branches missed.">			if (preReqTest == null)</span>
+			{
+<span class="nc" id="L285">				final String message = &quot;PrereqHandler.No_known_formatter&quot;; //$NON-NLS-1$</span>
+<span class="nc" id="L286">				Logging.errorPrintLocalised(message, preReq.getKind());</span>
+<span class="nc" id="L287">			}</span>
+			else
+			{
+<span class="nc" id="L290">				pString.append(delimiter);</span>
+<span class="nc" id="L291">				pString.append(preReqTest.toHtmlString(preReq));</span>
+
+<span class="nc" id="L293">				final String property = &quot;PrereqHandler.HTML_prerequisite_delimiter&quot;; //$NON-NLS-1$</span>
+<span class="nc" id="L294">				delimiter = LanguageBundle.getString(property);</span>
+			}
+<span class="nc" id="L296">		}</span>
+
+<span class="nc" id="L298">		return pString.toString();</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

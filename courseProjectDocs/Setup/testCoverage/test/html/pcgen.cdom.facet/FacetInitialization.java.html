@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FacetInitialization.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.facet</a> &gt; <span class="el_source">FacetInitialization.java</span></div><h1>FacetInitialization.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) Thomas Parker, 2009.
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package pcgen.cdom.facet;
+
+import pcgen.cdom.facet.analysis.ChangeProfFacet;
+import pcgen.cdom.facet.analysis.LevelFacet;
+import pcgen.cdom.facet.input.ClassSkillListFacet;
+import pcgen.cdom.facet.input.DynamicFacet;
+import pcgen.cdom.facet.input.DynamicWatchingFacet;
+import pcgen.cdom.facet.input.MasterUsableSkillFacet;
+import pcgen.cdom.facet.model.ActiveEqHeadFacet;
+import pcgen.cdom.facet.model.ActiveEqModFacet;
+import pcgen.cdom.facet.model.BioSetFacet;
+import pcgen.cdom.facet.model.CheckFacet;
+import pcgen.cdom.facet.model.ClassFacet;
+import pcgen.cdom.facet.model.ClassLevelFacet;
+import pcgen.cdom.facet.model.CompanionModFacet;
+import pcgen.cdom.facet.model.DomainFacet;
+import pcgen.cdom.facet.model.DynamicConsolidationFacet;
+import pcgen.cdom.facet.model.ExpandedCampaignFacet;
+import pcgen.cdom.facet.model.RaceFacet;
+import pcgen.cdom.facet.model.SimpleAbilityFacet;
+import pcgen.cdom.facet.model.SizeFacet;
+import pcgen.cdom.facet.model.SkillFacet;
+import pcgen.cdom.facet.model.StatFacet;
+import pcgen.cdom.facet.model.TemplateFacet;
+import pcgen.cdom.facet.model.VarScopedFacet;
+import pcgen.cdom.util.CControl;
+import pcgen.output.factory.CodeControlModelFactory;
+import pcgen.output.publish.OutputDB;
+
+public final class FacetInitialization
+{
+
+<span class="fc" id="L50">	private static boolean isInitialized = false;</span>
+
+	private FacetInitialization()
+	{
+		//Do not instantiate
+	}
+
+	public static synchronized void initialize()
+	{
+<span class="pc bpc" id="L59" title="1 of 2 branches missed.">		if (!isInitialized)</span>
+		{
+<span class="fc" id="L61">			doInitialization();</span>
+<span class="fc" id="L62">			isInitialized = true;</span>
+		}
+<span class="fc" id="L64">	}</span>
+
+	private static void doInitialization()
+	{
+<span class="fc" id="L68">		doOtherInitialization();</span>
+<span class="fc" id="L69">		doBridges();</span>
+<span class="fc" id="L70">		ScopedDistributionFacet scopedDistributionFacet = FacetLibrary.getFacet(ScopedDistributionFacet.class);</span>
+<span class="fc" id="L71">		GrantedVarFacet grantedVarFacet = FacetLibrary.getFacet(GrantedVarFacet.class);</span>
+<span class="fc" id="L72">		TemplateFacet templateFacet = FacetLibrary.getFacet(TemplateFacet.class);</span>
+<span class="fc" id="L73">		ConditionalTemplateFacet conditionalTemplateFacet = FacetLibrary.getFacet(ConditionalTemplateFacet.class);</span>
+<span class="fc" id="L74">		RaceFacet raceFacet = FacetLibrary.getFacet(RaceFacet.class);</span>
+<span class="fc" id="L75">		ClassFacet classFacet = FacetLibrary.getFacet(ClassFacet.class);</span>
+<span class="fc" id="L76">		ClassLevelFacet classLevelFacet = FacetLibrary.getFacet(ClassLevelFacet.class);</span>
+<span class="fc" id="L77">		ExpandedCampaignFacet expandedCampaignFacet = FacetLibrary.getFacet(ExpandedCampaignFacet.class);</span>
+<span class="fc" id="L78">		EquipmentFacet equipmentFacet = FacetLibrary.getFacet(EquipmentFacet.class);</span>
+<span class="fc" id="L79">		EquippedEquipmentFacet equippedFacet = FacetLibrary.getFacet(EquippedEquipmentFacet.class);</span>
+<span class="fc" id="L80">		NaturalEquipmentFacet naturalEquipmentFacet = FacetLibrary.getFacet(NaturalEquipmentFacet.class);</span>
+<span class="fc" id="L81">		SourcedEquipmentFacet activeEquipmentFacet = FacetLibrary.getFacet(SourcedEquipmentFacet.class);</span>
+<span class="fc" id="L82">		ActiveEqHeadFacet activeEqHeadFacet = FacetLibrary.getFacet(ActiveEqHeadFacet.class);</span>
+<span class="fc" id="L83">		ActiveEqModFacet activeEqModFacet = FacetLibrary.getFacet(ActiveEqModFacet.class);</span>
+
+<span class="fc" id="L85">		GlobalModifierFacet globalModifierFacet = FacetLibrary.getFacet(GlobalModifierFacet.class);</span>
+<span class="fc" id="L86">		BioSetFacet bioSetFacet = FacetLibrary.getFacet(BioSetFacet.class);</span>
+<span class="fc" id="L87">		BioSetTrackingFacet bioSetTrackingFacet = FacetLibrary.getFacet(BioSetTrackingFacet.class);</span>
+<span class="fc" id="L88">		CheckFacet checkFacet = FacetLibrary.getFacet(CheckFacet.class);</span>
+
+<span class="fc" id="L90">		DynamicWatchingFacet dynamicWatchingFacet = FacetLibrary.getFacet(DynamicWatchingFacet.class);</span>
+<span class="fc" id="L91">		DynamicFacet dynamicFacet = FacetLibrary.getFacet(DynamicFacet.class);</span>
+<span class="fc" id="L92">		DynamicConsolidationFacet dynamicConsolidationFacet = FacetLibrary.getFacet(DynamicConsolidationFacet.class);</span>
+<span class="fc" id="L93">		VarScopedFacet varScopedFacet = FacetLibrary.getFacet(VarScopedFacet.class);</span>
+
+<span class="fc" id="L95">		AutoLanguageFacet autoLangFacet = FacetLibrary.getFacet(AutoLanguageFacet.class);</span>
+<span class="fc" id="L96">		WeaponProfFacet weaponProfFacet = FacetLibrary.getFacet(WeaponProfFacet.class);</span>
+
+<span class="fc" id="L98">		LevelFacet levelFacet = FacetLibrary.getFacet(LevelFacet.class);</span>
+<span class="fc" id="L99">		SizeFacet sizeFacet = FacetLibrary.getFacet(SizeFacet.class);</span>
+<span class="fc" id="L100">		BonusChangeFacet bonusChangeFacet = FacetLibrary.getFacet(BonusChangeFacet.class);</span>
+<span class="fc" id="L101">		DomainFacet domainFacet = FacetLibrary.getFacet(DomainFacet.class);</span>
+<span class="fc" id="L102">		CompanionModFacet companionModFacet = FacetLibrary.getFacet(CompanionModFacet.class);</span>
+<span class="fc" id="L103">		StatFacet statFacet = FacetLibrary.getFacet(StatFacet.class);</span>
+<span class="fc" id="L104">		SkillFacet skillFacet = FacetLibrary.getFacet(SkillFacet.class);</span>
+
+<span class="fc" id="L106">		NaturalWeaponProfFacet nwpFacet = FacetLibrary.getFacet(NaturalWeaponProfFacet.class);</span>
+<span class="fc" id="L107">		UserEquipmentFacet userEquipmentFacet = FacetLibrary.getFacet(UserEquipmentFacet.class);</span>
+<span class="fc" id="L108">		NaturalWeaponFacet naturalWeaponFacet = FacetLibrary.getFacet(NaturalWeaponFacet.class);</span>
+<span class="fc" id="L109">		EquipSetFacet equipSetFacet = FacetLibrary.getFacet(EquipSetFacet.class);</span>
+
+<span class="fc" id="L111">		CDOMObjectConsolidationFacet cdomObjectFacet = FacetLibrary.getFacet(CDOMObjectConsolidationFacet.class);</span>
+<span class="fc" id="L112">		CDOMObjectSourceFacet cdomSourceFacet = FacetLibrary.getFacet(CDOMObjectSourceFacet.class);</span>
+<span class="fc" id="L113">		CharacterConsolidationFacet charObjectFacet = FacetLibrary.getFacet(CharacterConsolidationFacet.class);</span>
+<span class="fc" id="L114">		EquipmentConsolidationFacet eqObjectFacet = FacetLibrary.getFacet(EquipmentConsolidationFacet.class);</span>
+<span class="fc" id="L115">		GrantedAbilityFacet grantedAbilityFacet = FacetLibrary.getFacet(GrantedAbilityFacet.class);</span>
+<span class="fc" id="L116">		DirectAbilityFacet directAbilityFacet = FacetLibrary.getFacet(DirectAbilityFacet.class);</span>
+<span class="fc" id="L117">		DirectAbilityInputFacet directAbilityInputFacet = FacetLibrary.getFacet(DirectAbilityInputFacet.class);</span>
+<span class="fc" id="L118">		ConditionallyGrantedAbilityFacet cabFacet = FacetLibrary.getFacet(ConditionallyGrantedAbilityFacet.class);</span>
+<span class="fc" id="L119">		SimpleAbilityFacet simpleAbilityFacet = FacetLibrary.getFacet(SimpleAbilityFacet.class);</span>
+<span class="fc" id="L120">		AbilitySelectionApplication abilitySelectionApplication =</span>
+<span class="fc" id="L121">				FacetLibrary.getFacet(AbilitySelectionApplication.class);</span>
+
+<span class="fc" id="L123">		equipmentFacet.addDataFacetChangeListener(naturalEquipmentFacet);</span>
+<span class="fc" id="L124">		equippedFacet.addDataFacetChangeListener(activeEquipmentFacet);</span>
+<span class="fc" id="L125">		naturalEquipmentFacet.addDataFacetChangeListener(activeEquipmentFacet);</span>
+<span class="fc" id="L126">		activeEquipmentFacet.addDataFacetChangeListener(activeEqHeadFacet);</span>
+<span class="fc" id="L127">		activeEqHeadFacet.addDataFacetChangeListener(activeEqModFacet);</span>
+
+<span class="fc" id="L129">		nwpFacet.addDataFacetChangeListener(weaponProfFacet);</span>
+
+<span class="fc" id="L131">		dynamicWatchingFacet.addDataFacetChangeListener(dynamicFacet);</span>
+<span class="fc" id="L132">		dynamicFacet.addScopeFacetChangeListener(dynamicConsolidationFacet);</span>
+
+<span class="fc" id="L134">		charObjectFacet.addDataFacetChangeListener(naturalWeaponFacet);</span>
+<span class="fc" id="L135">		naturalWeaponFacet.addDataFacetChangeListener(equipmentFacet);</span>
+<span class="fc" id="L136">		naturalWeaponFacet.addDataFacetChangeListener(userEquipmentFacet);</span>
+<span class="fc" id="L137">		naturalWeaponFacet.addDataFacetChangeListener(equipSetFacet);</span>
+
+<span class="fc" id="L139">		classFacet.addLevelChangeListener(levelFacet);</span>
+<span class="fc" id="L140">		levelFacet.addLevelChangeListener(conditionalTemplateFacet);</span>
+<span class="fc" id="L141">		levelFacet.addLevelChangeListener(sizeFacet);</span>
+
+<span class="fc" id="L143">		grantedAbilityFacet.addDataFacetChangeListener(abilitySelectionApplication);</span>
+<span class="fc" id="L144">		grantedAbilityFacet.addDataFacetChangeListener(simpleAbilityFacet);</span>
+<span class="fc" id="L145">		directAbilityFacet.addDataFacetChangeListener(grantedAbilityFacet);</span>
+<span class="fc" id="L146">		directAbilityInputFacet.addDataFacetChangeListener(grantedAbilityFacet);</span>
+<span class="fc" id="L147">		cabFacet.addDataFacetChangeListener(grantedAbilityFacet);</span>
+
+<span class="fc" id="L149">		raceFacet.addDataFacetChangeListener(bioSetTrackingFacet);</span>
+
+<span class="fc" id="L151">		bonusChangeFacet.addBonusChangeListener(sizeFacet, &quot;SIZEMOD&quot;, &quot;NUMBER&quot;);</span>
+
+<span class="fc" id="L153">		grantedVarFacet.addDataFacetChangeListener(scopedDistributionFacet); //model done</span>
+
+<span class="fc" id="L155">		expandedCampaignFacet.addDataFacetChangeListener(charObjectFacet); //model done</span>
+<span class="fc" id="L156">		globalModifierFacet.addDataFacetChangeListener(charObjectFacet); //model done</span>
+<span class="fc" id="L157">		bioSetFacet.addDataFacetChangeListener(charObjectFacet); //model done</span>
+<span class="fc" id="L158">		checkFacet.addDataFacetChangeListener(charObjectFacet); //model done</span>
+<span class="fc" id="L159">		classFacet.addDataFacetChangeListener(charObjectFacet); //model done</span>
+<span class="fc" id="L160">		domainFacet.addDataFacetChangeListener(charObjectFacet); //model done</span>
+<span class="fc" id="L161">		raceFacet.addDataFacetChangeListener(charObjectFacet); //model done</span>
+<span class="fc" id="L162">		sizeFacet.addDataFacetChangeListener(charObjectFacet);</span>
+<span class="fc" id="L163">		skillFacet.addDataFacetChangeListener(charObjectFacet); //model done</span>
+<span class="fc" id="L164">		statFacet.addDataFacetChangeListener(charObjectFacet); //model done</span>
+<span class="fc" id="L165">		templateFacet.addDataFacetChangeListener(charObjectFacet); //model done</span>
+
+		// weaponProfList is still just a list of Strings
+		// results.addAll(getWeaponProfList());
+<span class="fc" id="L169">		classLevelFacet.addDataFacetChangeListener(charObjectFacet); //model done</span>
+<span class="fc" id="L170">		simpleAbilityFacet.addDataFacetChangeListener(charObjectFacet); //model done</span>
+<span class="fc" id="L171">		companionModFacet.addDataFacetChangeListener(charObjectFacet); //model done</span>
+
+<span class="fc" id="L173">		activeEquipmentFacet.addDataFacetChangeListener(eqObjectFacet);</span>
+<span class="fc" id="L174">		activeEqHeadFacet.addDataFacetChangeListener(eqObjectFacet);</span>
+<span class="fc" id="L175">		activeEqModFacet.addDataFacetChangeListener(eqObjectFacet);</span>
+
+<span class="fc" id="L177">		eqObjectFacet.addDataFacetChangeListener(cdomObjectFacet);</span>
+<span class="fc" id="L178">		charObjectFacet.addDataFacetChangeListener(cdomObjectFacet);</span>
+
+<span class="fc" id="L180">		cdomObjectFacet.addDataFacetChangeListener(nwpFacet);</span>
+<span class="fc" id="L181">		cdomSourceFacet.addDataFacetChangeListener(autoLangFacet);</span>
+<span class="fc" id="L182">		cdomSourceFacet.addDataFacetChangeListener(dynamicWatchingFacet);</span>
+
+<span class="fc" id="L184">		cdomObjectFacet.addDataFacetChangeListener(varScopedFacet);</span>
+<span class="fc" id="L185">		dynamicConsolidationFacet.addDataFacetChangeListener(varScopedFacet); //model done</span>
+<span class="fc" id="L186">	}</span>
+
+	private static void doOtherInitialization()
+	{
+<span class="fc" id="L190">		OutputDB.registerMode(&quot;cc&quot;, new CodeControlModelFactory());</span>
+<span class="fc" id="L191">	}</span>
+
+	private static void doBridges()
+	{
+		/*
+		 * Do dataset-level facets
+		 */
+<span class="fc" id="L198">		FacetLibrary.getFacet(CDOMWrapperInfoFacet.class);</span>
+<span class="fc" id="L199">		FacetLibrary.getFacet(ObjectWrapperFacet.class);</span>
+<span class="fc" id="L200">		FacetLibrary.getFacet(MasterSkillFacet.class);</span>
+<span class="fc" id="L201">		FacetLibrary.getFacet(MasterAvailableSpellFacet.class);</span>
+<span class="fc" id="L202">		FacetLibrary.getFacet(MasterUsableSkillFacet.class);</span>
+<span class="fc" id="L203">		FacetLibrary.getFacet(EquipmentTypeFacet.class);</span>
+<span class="fc" id="L204">		FacetLibrary.getFacet(ObjectWrapperFacet.class);</span>
+<span class="fc" id="L205">		FacetLibrary.getFacet(CDOMWrapperInfoFacet.class);</span>
+<span class="fc" id="L206">		FacetLibrary.getFacet(HiddenTypeFacet.class);</span>
+<span class="fc" id="L207">		FacetLibrary.getFacet(LoadContextFacet.class);</span>
+		/*
+		 * TODO These are required because they are &quot;bridges&quot; - meaning they
+		 * refer to others, but no one refers to them. Need to consider if these
+		 * need to be redesigned...
+		 */
+<span class="fc" id="L213">		FacetLibrary.getFacet(AgeSetKitFacet.class);</span>
+<span class="fc" id="L214">		FacetLibrary.getFacet(DomainSpellListFacet.class);</span>
+<span class="fc" id="L215">		FacetLibrary.getFacet(NaturalEquipSetFacet.class);</span>
+<span class="fc" id="L216">		FacetLibrary.getFacet(ShieldProfFacet.class);</span>
+<span class="fc" id="L217">		FacetLibrary.getFacet(ArmorProfFacet.class);</span>
+<span class="fc" id="L218">		FacetLibrary.getFacet(MonsterClassFacet.class);</span>
+<span class="fc" id="L219">		FacetLibrary.getFacet(KitChoiceFacet.class);</span>
+<span class="fc" id="L220">		FacetLibrary.getFacet(AddFacet.class);</span>
+<span class="fc" id="L221">		FacetLibrary.getFacet(RemoveFacet.class);</span>
+<span class="fc" id="L222">		FacetLibrary.getFacet(ModifierFacet.class);</span>
+<span class="fc" id="L223">		FacetLibrary.getFacet(RemoteModifierFacet.class);</span>
+<span class="fc" id="L224">		FacetLibrary.getFacet(CalcBonusFacet.class);</span>
+<span class="fc" id="L225">		FacetLibrary.getFacet(DomainSpellsFacet.class);</span>
+<span class="fc" id="L226">		FacetLibrary.getFacet(ObjectAdditionFacet.class);</span>
+<span class="fc" id="L227">		FacetLibrary.getFacet(AddLevelFacet.class);</span>
+<span class="fc" id="L228">		FacetLibrary.getFacet(ChooseDriverFacet.class);</span>
+<span class="fc" id="L229">		FacetLibrary.getFacet(AvailableSpellInputFacet.class);</span>
+<span class="fc" id="L230">		FacetLibrary.getFacet(KnownSpellInputFacet.class);</span>
+<span class="fc" id="L231">		FacetLibrary.getFacet(ClassSkillListFacet.class);</span>
+<span class="fc" id="L232">		FacetLibrary.getFacet(SpellListToAvailableSpellFacet.class);</span>
+		//This one is a just in case
+<span class="fc" id="L234">		FacetLibrary.getFacet(ChangeProfFacet.class);</span>
+		//and others just in case...
+<span class="fc" id="L236">		FacetLibrary.getFacet(ClassLevelChangeFacet.class);</span>
+<span class="fc" id="L237">		FacetLibrary.getFacet(UnconditionalTemplateFacet.class);</span>
+		
+		/*
+		 * As good of a place as any to do this
+		 */
+<span class="fc" id="L242">		OutputDB.register(&quot;deity&quot;, CControl.DEITYINPUT);</span>
+<span class="fc" id="L243">		OutputDB.register(&quot;alignment&quot;, CControl.ALIGNMENTINPUT);</span>
+<span class="fc" id="L244">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

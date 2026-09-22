@@ -1,0 +1,626 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SkillToken.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.io.exporttoken</a> &gt; <span class="el_source">SkillToken.java</span></div><h1>SkillToken.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2004 (C) James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.     See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ *
+ *
+ */
+package pcgen.io.exporttoken;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.StringTokenizer;
+
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.SkillCost;
+import pcgen.cdom.enumeration.SkillFilter;
+import pcgen.core.Globals;
+import pcgen.core.PCClass;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.SettingsHandler;
+import pcgen.core.Skill;
+import pcgen.core.analysis.QualifiedName;
+import pcgen.core.analysis.SkillInfoUtilities;
+import pcgen.core.analysis.SkillModifier;
+import pcgen.core.analysis.SkillRankControl;
+import pcgen.core.display.SkillCostDisplay;
+import pcgen.core.display.SkillDisplay;
+import pcgen.io.ExportHandler;
+import pcgen.util.Logging;
+import pcgen.util.enumeration.View;
+
+import org.apache.commons.lang3.StringUtils;
+
+/**
+ * {@code SkillToken} is the base class for the SKILL
+ * family of tokens. It also handles the processing of the SKILL
+ * token itself, which outputs select information about a
+ * Chosen skill. The format for this tag is SKILL.id.property
+ * where id can be either an index or a skill name and the
+ * property is optional. eg SKILL.2.RANK or SKILL.BALANCE
+ *
+ *
+ */
+<span class="nc" id="L58">public class SkillToken extends Token</span>
+{
+	/** Token name */
+	public static final String TOKENNAME = &quot;SKILL&quot;;
+
+	// Constants for the property to be output.
+	public static final int SKILL_NAME = 0;
+	public static final int SKILL_TOTAL = 1;
+	public static final int SKILL_RANK = 2;
+	public static final int SKILL_MOD = 3;
+	public static final int SKILL_ABILITY = 4;
+	public static final int SKILL_ABMOD = 5;
+	public static final int SKILL_MISC = 6;
+	public static final int SKILL_UNTRAINED = 7;
+	public static final int SKILL_EXCLUSIVE = 8;
+	public static final int SKILL_UNTRAINED_EXTENDED = 9;
+	public static final int SKILL_ACP = 10;
+	public static final int SKILL_EXCLUSIVE_TOTAL = 11;
+	public static final int SKILL_TRAINED_TOTAL = 12;
+	public static final int SKILL_EXPLANATION = 13;
+	public static final int SKILL_TYPE = 14;
+	public static final int SKILL_COST = 15;
+	public static final int SKILL_SIZE = 16;
+	public static final int SKILL_CLASSES = 17;
+
+	// Cache the skill list as it is expensive to build
+<span class="nc" id="L84">	private List&lt;Skill&gt; cachedSkillList = null;</span>
+<span class="nc" id="L85">	private PlayerCharacter lastPC = null;</span>
+	private int lastPCSerial;
+
+	@Override
+	public String getTokenName()
+	{
+<span class="nc" id="L91">		return TOKENNAME;</span>
+	}
+
+	@Override
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	{
+<span class="nc" id="L97">		SkillDetails details = buildSkillDetails(tokenSource);</span>
+
+<span class="nc" id="L99">		Skill aSkill = getSkill(pc, details, eh);</span>
+
+<span class="nc" id="L101">		return getSkillProperty(aSkill, details.getProperty(0), pc);</span>
+	}
+
+	/**
+	 * Select the target skill based on the supplied criteria. Uses the
+	 * id in the details object to either retrieve a skill by name or by
+	 * position in the skill list.
+	 *
+	 * @param pc The character being processed.
+	 * @param details The parsed details of the token.
+	 * @param eh The ExportHandler
+	 * @return The matching skill, or null if none match.
+	 */
+	private Skill getSkill(PlayerCharacter pc, SkillDetails details, ExportHandler eh)
+	{
+<span class="nc" id="L116">		Skill skill = null;</span>
+		try
+		{
+<span class="nc" id="L119">			final int i = Integer.parseInt(details.getSkillId());</span>
+<span class="nc" id="L120">			final List&lt;Skill&gt; pcSkills = new ArrayList&lt;&gt;(getSkillList(pc));</span>
+
+<span class="nc" id="L122">			SkillFilter filter = details.getSkillFilter();</span>
+<span class="nc bnc" id="L123" title="All 4 branches missed.">			if (filter == null || filter == SkillFilter.Selected)</span>
+			{
+<span class="nc" id="L125">				filter = pc.getSkillFilter();</span>
+			}
+
+<span class="nc" id="L128">			Iterator&lt;Skill&gt; iter = pcSkills.iterator();</span>
+<span class="nc bnc" id="L129" title="All 2 branches missed.">			while (iter.hasNext())</span>
+			{
+<span class="nc" id="L131">				Skill sk = iter.next();</span>
+<span class="nc bnc" id="L132" title="All 4 branches missed.">				if (!pc.includeSkill(sk, filter) || !sk.qualifies(pc, null))</span>
+				{
+<span class="nc" id="L134">					iter.remove();</span>
+				}
+<span class="nc" id="L136">			}</span>
+
+<span class="nc bnc" id="L138" title="All 6 branches missed.">			if ((i &gt;= (pcSkills.size() - 1)) &amp;&amp; eh != null &amp;&amp; eh.getExistsOnly())</span>
+			{
+<span class="nc" id="L140">				eh.setNoMoreItems(true);</span>
+			}
+
+<span class="nc bnc" id="L143" title="All 2 branches missed.">			if (i &lt; pcSkills.size())</span>
+			{
+<span class="nc" id="L145">				skill = pcSkills.get(i);</span>
+			}
+		}
+<span class="nc" id="L148">		catch (NumberFormatException exc)</span>
+		{
+			//Allowing SKILL.Spot.&lt;subtoken&gt;
+<span class="nc" id="L151">			skill = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Skill.class,</span>
+<span class="nc" id="L152">				details.getSkillId());</span>
+<span class="nc" id="L153">		}</span>
+<span class="nc" id="L154">		return skill;</span>
+	}
+
+	private synchronized List&lt;Skill&gt; getSkillList(PlayerCharacter pc)
+	{
+<span class="nc bnc" id="L159" title="All 4 branches missed.">		if (pc == lastPC &amp;&amp; pc.getSerial() == lastPCSerial)</span>
+		{
+<span class="nc" id="L161">			return cachedSkillList;</span>
+		}
+
+<span class="nc" id="L164">		final List&lt;Skill&gt; pcSkills =</span>
+<span class="nc" id="L165">				SkillDisplay.getSkillListInOutputOrder(pc, pc.getDisplay().getPartialSkillList(View.VISIBLE_EXPORT));</span>
+<span class="nc" id="L166">		cachedSkillList = pcSkills;</span>
+<span class="nc" id="L167">		lastPC = pc;</span>
+<span class="nc" id="L168">		lastPCSerial = pc.getSerial();</span>
+<span class="nc" id="L169">		return pcSkills;</span>
+	}
+
+	/**
+	 * Given the source of the token, split it up into its skill id and
+	 * properties. The token itself is ignored as this has already been
+	 * processed elsewhere. The expected format is token.skillid.property...
+	 *
+	 * @param tokenSource The source of the token.
+	 * @return A SkillDetails containing the details of the token.
+	 */
+	public static SkillDetails buildSkillDetails(String tokenSource)
+	{
+<span class="nc" id="L182">		final StringTokenizer aTok = new StringTokenizer(tokenSource, &quot;.&quot;);</span>
+
+<span class="nc" id="L184">		SkillFilter filter = null;</span>
+<span class="nc" id="L185">		List&lt;String&gt; properties = new ArrayList&lt;&gt;();</span>
+
+		// Split out the parts of the source
+<span class="nc" id="L188">		String skillId = &quot;&quot;;</span>
+<span class="nc bnc" id="L189" title="All 2 branches missed.">		for (int i = 0; aTok.hasMoreTokens(); ++i)</span>
+		{
+<span class="nc" id="L191">			String token = aTok.nextToken();</span>
+<span class="nc bnc" id="L192" title="All 2 branches missed.">			if (i == 0)</span>
+			{
+				// Ignore
+<span class="nc" id="L195">				Logging.debugPrint(&quot;Ignore the 0 indexed token.&quot;);</span>
+			}
+<span class="nc bnc" id="L197" title="All 2 branches missed.">			else if (i == 1)</span>
+			{
+<span class="nc" id="L199">				skillId = token;</span>
+			}
+			else
+			{
+<span class="nc" id="L203">				filter = SkillFilter.getByToken(token);</span>
+<span class="nc bnc" id="L204" title="All 2 branches missed.">				if (filter != null)</span>
+				{
+<span class="nc bnc" id="L206" title="All 2 branches missed.">					if (aTok.hasMoreTokens())</span>
+					{
+<span class="nc" id="L208">						token = aTok.nextToken();</span>
+					}
+					else
+					{
+<span class="nc" id="L212">						token = &quot;NAME&quot;;</span>
+					}
+				}
+<span class="nc" id="L215">				properties.add(token);</span>
+			}
+		}
+
+		// Create and return the SkillDetails object.
+<span class="nc" id="L220">		return new SkillDetails(skillId, properties, filter);</span>
+	}
+
+	/**
+	 * Calculate the value of the specified skill property for the
+	 * supplied skill and character.
+	 *
+	 * @param aSkill The skill to be processed.
+	 * @param property The property being processed.
+	 * @param pc The character to be reported.
+	 * @return The skill tag output value.
+	 */
+	protected String getSkillProperty(Skill aSkill, String property, PlayerCharacter pc)
+	{
+<span class="nc bnc" id="L234" title="All 2 branches missed.">		if (aSkill == null)</span>
+		{
+<span class="nc" id="L236">			return &quot;&quot;;</span>
+		}
+
+<span class="nc" id="L239">		int action = getPropertyId(property);</span>
+<span class="nc" id="L240">		return getSkillPropValue(aSkill, action, property, pc);</span>
+	}
+
+	/**
+	 * Convert a property name into the id of the property.
+	 *
+	 * @param property The property name.
+	 * @return The id of the property.
+	 */
+	public static int getPropertyId(String property)
+	{
+<span class="nc" id="L251">		int propId = 0;</span>
+
+<span class="nc bnc" id="L253" title="All 2 branches missed.">		if (&quot;NAME&quot;.equalsIgnoreCase(property))</span>
+		{
+<span class="nc" id="L255">			propId = SKILL_NAME;</span>
+		}
+<span class="nc bnc" id="L257" title="All 2 branches missed.">		else if (&quot;TOTAL&quot;.equalsIgnoreCase(property))</span>
+		{
+<span class="nc" id="L259">			propId = SKILL_TOTAL;</span>
+		}
+<span class="nc bnc" id="L261" title="All 2 branches missed.">		else if (&quot;RANK&quot;.equalsIgnoreCase(property))</span>
+		{
+<span class="nc" id="L263">			propId = SKILL_RANK;</span>
+		}
+<span class="nc bnc" id="L265" title="All 2 branches missed.">		else if (&quot;MOD&quot;.equalsIgnoreCase(property))</span>
+		{
+<span class="nc" id="L267">			propId = SKILL_MOD;</span>
+		}
+<span class="nc bnc" id="L269" title="All 2 branches missed.">		else if (&quot;ABILITY&quot;.equalsIgnoreCase(property))</span>
+		{
+<span class="nc" id="L271">			propId = SKILL_ABILITY;</span>
+		}
+<span class="nc bnc" id="L273" title="All 2 branches missed.">		else if (&quot;ABMOD&quot;.equalsIgnoreCase(property))</span>
+		{
+<span class="nc" id="L275">			propId = SKILL_ABMOD;</span>
+		}
+<span class="nc bnc" id="L277" title="All 2 branches missed.">		else if (&quot;MISC&quot;.equalsIgnoreCase(property))</span>
+		{
+<span class="nc" id="L279">			propId = SKILL_MISC;</span>
+		}
+<span class="nc bnc" id="L281" title="All 2 branches missed.">		else if (&quot;COST&quot;.equalsIgnoreCase(property))</span>
+		{
+<span class="nc" id="L283">			propId = SKILL_COST;</span>
+		}
+<span class="nc bnc" id="L285" title="All 2 branches missed.">		else if (&quot;UNTRAINED&quot;.equalsIgnoreCase(property))</span>
+		{
+<span class="nc" id="L287">			propId = SKILL_UNTRAINED;</span>
+		}
+<span class="nc bnc" id="L289" title="All 2 branches missed.">		else if (&quot;EXCLUSIVE&quot;.equalsIgnoreCase(property))</span>
+		{
+<span class="nc" id="L291">			propId = SKILL_EXCLUSIVE;</span>
+		}
+<span class="nc bnc" id="L293" title="All 2 branches missed.">		else if (property.regionMatches(true, 0, &quot;UNTRAINED&quot;, 0, 9))</span>
+		{
+<span class="nc" id="L295">			propId = SKILL_UNTRAINED_EXTENDED;</span>
+		}
+<span class="nc bnc" id="L297" title="All 2 branches missed.">		else if (property.regionMatches(true, 0, &quot;ACP&quot;, 0, 3))</span>
+		{
+<span class="nc" id="L299">			propId = SKILL_ACP;</span>
+		}
+<span class="nc bnc" id="L301" title="All 2 branches missed.">		else if (&quot;EXCLUSIVE_TOTAL&quot;.equalsIgnoreCase(property))</span>
+		{
+<span class="nc" id="L303">			propId = SKILL_EXCLUSIVE_TOTAL;</span>
+		}
+<span class="nc bnc" id="L305" title="All 2 branches missed.">		else if (&quot;TRAINED_TOTAL&quot;.equalsIgnoreCase(property))</span>
+		{
+<span class="nc" id="L307">			propId = SKILL_TRAINED_TOTAL;</span>
+		}
+<span class="nc bnc" id="L309" title="All 2 branches missed.">		else if (property.regionMatches(true, 0, &quot;EXPLAIN&quot;, 0, 7))</span>
+		{
+<span class="nc" id="L311">			propId = SKILL_EXPLANATION;</span>
+		}
+<span class="nc bnc" id="L313" title="All 2 branches missed.">		else if (&quot;TYPE&quot;.equalsIgnoreCase(property))</span>
+		{
+<span class="nc" id="L315">			propId = SKILL_TYPE;</span>
+		}
+<span class="nc bnc" id="L317" title="All 2 branches missed.">		else if (&quot;SIZE&quot;.equalsIgnoreCase(property))</span>
+		{
+<span class="nc" id="L319">			propId = SKILL_SIZE;</span>
+		}
+<span class="nc bnc" id="L321" title="All 2 branches missed.">		else if (&quot;CLASSES&quot;.equalsIgnoreCase(property))</span>
+		{
+<span class="nc" id="L323">			propId = SKILL_CLASSES;</span>
+		}
+<span class="nc" id="L325">		return propId;</span>
+	}
+
+	/**
+	 * Evaluate the property for the supplied skill and character. For
+	 * properties such as ACP and the extended UNTRAINED property, the
+	 * property text is required to be further parsed to pull out user
+	 * defined text to be output in each case.
+	 *
+	 * @param aSkill The skill to be reported upon.
+	 * @param property The property to be reported.
+	 * @param propertyText The orginal text of the property.
+	 * @param pc The character to be reported upon.
+	 * @return The value of the property.
+	 */
+	private String getSkillPropValue(Skill aSkill, int property, String propertyText, PlayerCharacter pc)
+	{
+<span class="nc" id="L342">		StringBuilder retValue = new StringBuilder();</span>
+
+<span class="nc bnc" id="L344" title="All 19 branches missed.">			switch (property)</span>
+			{
+				case SKILL_NAME:
+<span class="nc" id="L347">					retValue.append(QualifiedName.qualifiedName(pc, aSkill));</span>
+<span class="nc" id="L348">					break;</span>
+
+				case SKILL_TOTAL:
+<span class="nc bnc" id="L351" title="All 2 branches missed.">					if (SettingsHandler.getGameAsProperty().get().hasSkillRankDisplayText())</span>
+					{
+<span class="nc" id="L353">						retValue.append(SettingsHandler.getGameAsProperty().get().getSkillRankDisplayText(</span>
+<span class="nc" id="L354">							SkillRankControl.getTotalRank(pc, aSkill).intValue() + SkillModifier.modifier(aSkill, pc)));</span>
+					}
+					else
+					{
+<span class="nc" id="L358">						retValue.append(Integer.toString(</span>
+<span class="nc" id="L359">							SkillRankControl.getTotalRank(pc, aSkill).intValue() + SkillModifier.modifier(aSkill, pc)));</span>
+					}
+<span class="nc" id="L361">					break;</span>
+
+				case SKILL_RANK:
+<span class="nc bnc" id="L364" title="All 2 branches missed.">					if (SettingsHandler.getGameAsProperty().get().hasSkillRankDisplayText())</span>
+					{
+<span class="nc" id="L366">						retValue.append(SettingsHandler.getGameAsProperty().get()</span>
+<span class="nc" id="L367">							.getSkillRankDisplayText(SkillRankControl.getTotalRank(pc, aSkill).intValue()));</span>
+					}
+					else
+					{
+<span class="nc" id="L371">						retValue.append(SkillRankControl.getTotalRank(pc, aSkill));</span>
+					}
+<span class="nc" id="L373">					break;</span>
+
+				case SKILL_MOD:
+<span class="nc" id="L376">					retValue.append(SkillModifier.modifier(aSkill, pc));</span>
+<span class="nc" id="L377">					break;</span>
+
+				case SKILL_ABILITY:
+<span class="nc" id="L380">					retValue.append(SkillInfoUtilities.getKeyStatFromStats(pc, aSkill));</span>
+<span class="nc" id="L381">					break;</span>
+
+				case SKILL_ABMOD:
+<span class="nc" id="L384">					retValue.append(Integer.toString(SkillModifier.getStatMod(aSkill, pc)));</span>
+<span class="nc" id="L385">					break;</span>
+
+				case SKILL_MISC:
+<span class="nc" id="L388">					retValue.append(</span>
+<span class="nc" id="L389">						Integer.toString(SkillModifier.modifier(aSkill, pc) - SkillModifier.getStatMod(aSkill, pc)));</span>
+<span class="nc" id="L390">					break;</span>
+
+				case SKILL_UNTRAINED:
+<span class="nc bnc" id="L393" title="All 2 branches missed.">					retValue.append(aSkill.getSafe(ObjectKey.USE_UNTRAINED) ? &quot;Y&quot; : &quot;NO&quot;);</span>
+<span class="nc" id="L394">					break;</span>
+
+				case SKILL_EXCLUSIVE:
+<span class="nc bnc" id="L397" title="All 2 branches missed.">					retValue.append(aSkill.getSafe(ObjectKey.EXCLUSIVE) ? &quot;Y&quot; : &quot;N&quot;);</span>
+<span class="nc" id="L398">					break;</span>
+
+				case SKILL_UNTRAINED_EXTENDED:
+<span class="nc" id="L401">					retValue.append(getUntrainedOutput(aSkill, propertyText));</span>
+<span class="nc" id="L402">					break;</span>
+
+				case SKILL_ACP:
+<span class="nc" id="L405">					retValue.append(getAcpOutput(aSkill, propertyText));</span>
+<span class="nc" id="L406">					break;</span>
+
+				case SKILL_COST:
+<span class="nc" id="L409">					SkillCost cost = null;</span>
+<span class="nc bnc" id="L410" title="All 2 branches missed.">					for (PCClass pcc : pc.getDisplay().getClassSet())</span>
+					{
+<span class="nc bnc" id="L412" title="All 2 branches missed.">						if (cost == null)</span>
+						{
+<span class="nc" id="L414">							cost = pc.getSkillCostForClass(aSkill, pcc);</span>
+						}
+						else
+						{
+<span class="nc" id="L418">							SkillCost newCost = pc.getSkillCostForClass(aSkill, pcc);</span>
+<span class="nc bnc" id="L419" title="All 4 branches missed.">							if (SkillCost.CLASS == newCost || SkillCost.EXCLUSIVE == cost)</span>
+							{
+<span class="nc" id="L421">								cost = newCost;</span>
+							}
+						}
+<span class="nc bnc" id="L424" title="All 2 branches missed.">						if (SkillCost.CLASS == cost)</span>
+						{
+<span class="nc" id="L426">							break;</span>
+						}
+<span class="nc" id="L428">					}</span>
+<span class="nc" id="L429">					retValue.append(cost);</span>
+<span class="nc" id="L430">					break;</span>
+
+				case SKILL_EXCLUSIVE_TOTAL:
+<span class="nc" id="L433">					retValue.append(Integer</span>
+<span class="nc bnc" id="L434" title="All 4 branches missed.">						.toString(((aSkill.getSafe(ObjectKey.EXCLUSIVE) || !aSkill.getSafe(ObjectKey.USE_UNTRAINED))</span>
+<span class="nc bnc" id="L435" title="All 2 branches missed.">							&amp;&amp; (SkillRankControl.getTotalRank(pc, aSkill).intValue() == 0)) ? 0</span>
+<span class="nc" id="L436">								: (SkillRankControl.getTotalRank(pc, aSkill).intValue()</span>
+<span class="nc" id="L437">									+ SkillModifier.modifier(aSkill, pc))));</span>
+<span class="nc" id="L438">					break;</span>
+
+				case SKILL_TRAINED_TOTAL:
+<span class="nc bnc" id="L441" title="All 2 branches missed.">					retValue.append(Integer.toString((!aSkill.getSafe(ObjectKey.USE_UNTRAINED)</span>
+<span class="nc bnc" id="L442" title="All 2 branches missed.">						&amp;&amp; (SkillRankControl.getTotalRank(pc, aSkill).intValue() == 0)) ? 0</span>
+<span class="nc" id="L443">							: (SkillRankControl.getTotalRank(pc, aSkill).intValue()</span>
+<span class="nc" id="L444">								+ SkillModifier.modifier(aSkill, pc))));</span>
+<span class="nc" id="L445">					break;</span>
+
+				case SKILL_EXPLANATION:
+<span class="nc bnc" id="L448" title="All 2 branches missed.">					boolean shortFrom = !(&quot;_LONG&quot;.equals(propertyText.substring(7)));</span>
+
+<span class="nc" id="L450">					String bonusDetails = SkillCostDisplay.getModifierExplanation(aSkill, pc, shortFrom);</span>
+<span class="nc" id="L451">					retValue.append(bonusDetails);</span>
+<span class="nc" id="L452">					break;</span>
+
+				case SKILL_TYPE:
+<span class="nc" id="L455">					String type = aSkill.getType();</span>
+<span class="nc" id="L456">					retValue.append(type);</span>
+<span class="nc" id="L457">					break;</span>
+
+				case SKILL_SIZE:
+<span class="nc" id="L460">					retValue</span>
+<span class="nc" id="L461">						.append(Integer.toString((int) (pc.getSizeAdjustmentBonusTo(&quot;SKILL&quot;, aSkill.getKeyName()))));</span>
+<span class="nc" id="L462">					break;</span>
+
+				case SKILL_CLASSES:
+<span class="nc" id="L465">					List&lt;String&gt; classes = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L466" title="All 2 branches missed.">					for (PCClass aClass : pc.getClassList())</span>
+					{
+<span class="nc bnc" id="L468" title="All 2 branches missed.">						if (pc.getSkillCostForClass(aSkill, aClass) == SkillCost.CLASS)</span>
+						{
+<span class="nc" id="L470">							classes.add(aClass.getDisplayName());</span>
+						}
+<span class="nc" id="L472">					}</span>
+<span class="nc" id="L473">					retValue.append(StringUtils.join(classes, &quot;.&quot;));</span>
+<span class="nc" id="L474">					break;</span>
+
+				default:
+<span class="nc" id="L477">					Logging.errorPrint(</span>
+						&quot;In ExportHandler._writeSkillProperty the propIdvalue &quot; + property + &quot; is not handled.&quot;);
+
+					break;
+			}
+<span class="nc" id="L482">		return retValue.toString();</span>
+	}
+
+	/**
+	 * Process the untrained tag.
+	 * Syntax: SKILL.%.UNTRAINEDfoo,bar
+	 * where foo and bar are optional strings of unfixed length.
+	 * Behavior: prints out foo if the skill is usable untrained,
+	 * bar if not usable untrained.
+	 * if bar is not supplied, nothing is printed if untrained. If neither foo
+	 * nor bar are supplied, why are you using this tag?
+	 *
+	 * @param aSkill The skill to be processed.
+	 * @param property The property
+	 * @return The string to be output.
+	 */
+	public static String getUntrainedOutput(Skill aSkill, String property)
+	{
+<span class="nc" id="L500">		StringTokenizer aTok = new StringTokenizer(property.substring(9), &quot;,&quot;);</span>
+		String untrained_tok;
+		String trained_tok;
+
+<span class="nc bnc" id="L504" title="All 2 branches missed.">		if (aTok.hasMoreTokens())</span>
+		{
+<span class="nc" id="L506">			untrained_tok = aTok.nextToken();</span>
+		}
+		else
+		{
+<span class="nc" id="L510">			untrained_tok = &quot;&quot;;</span>
+		}
+
+<span class="nc bnc" id="L513" title="All 2 branches missed.">		if (aTok.hasMoreTokens())</span>
+		{
+<span class="nc" id="L515">			trained_tok = aTok.nextToken();</span>
+		}
+		else
+		{
+<span class="nc" id="L519">			trained_tok = &quot;&quot;;</span>
+		}
+
+<span class="nc bnc" id="L522" title="All 2 branches missed.">		if (aSkill.getSafe(ObjectKey.USE_UNTRAINED))</span>
+		{
+<span class="nc" id="L524">			return untrained_tok;</span>
+		}
+<span class="nc" id="L526">		return trained_tok;</span>
+	}
+
+	/**
+	 * Process the Armour Check Penalty tag.
+	 * Syntax: SKILL.%.ACPfoo,bar,baz,bot
+	 * where foo, bar, baz, and bot are strings of unfixed length.
+	 * Behavior: tests for armor check penalty interaction with this skill.
+	 * foo is printed if the skill is not affected by ACP.
+	 * bar is printed if the skill is affected by ACP.
+	 * baz is printed if the skill is only affected by ACP if the user
+	 *        is untrained
+	 * bot is printed if the skill has the special weight penalty
+	 *        (like Swim)
+	 *
+	 * @param aSkill The skill instance to be processed
+	 * @param property The output property supplied.
+	 * @return The ACP tag output.
+	 */
+	public static String getAcpOutput(Skill aSkill, String property)
+	{
+<span class="nc" id="L547">		final StringTokenizer aTok = new StringTokenizer(property.substring(3), &quot;,&quot;);</span>
+<span class="nc" id="L548">		int numArgs = aTok.countTokens();</span>
+<span class="nc" id="L549">		int acp = aSkill.getSafe(ObjectKey.ARMOR_CHECK).ordinal();</span>
+<span class="nc" id="L550">		String[] acpText = new String[numArgs];</span>
+
+<span class="nc bnc" id="L552" title="All 2 branches missed.">		for (int i = 0; aTok.hasMoreTokens(); i++)</span>
+		{
+<span class="nc" id="L554">			acpText[i] = aTok.nextToken();</span>
+		}
+<span class="nc bnc" id="L556" title="All 2 branches missed.">		return acp &lt; numArgs ? acpText[acp] : &quot;&quot;;</span>
+	}
+
+	// ================== Inner class =======================
+	/**
+	 * {@code SkillDetails} holds the parsed details of a skill
+	 * token. Note that apart from updating the properties array contents,
+	 * instances of this class are immutable.
+	 */
+	public static final class SkillDetails
+	{
+		/** The id of the skill - normally an index or a skill name. */
+		private final String skillId;
+		/** The list of properties for the token. */
+		private final List&lt;String&gt; properties;
+		/** The skill list filter */
+		private final SkillFilter filter;
+
+		/**
+		 * Constructor for skill details. Creates an immutable instance
+		 * with the specified id and properties list.
+		 *
+		 * @param inSkillId The id of the skill - normally an index or skill name.
+		 * @param inProperties The list of properties, can be types, prefixes
+		 *         and properties to be displayed.
+		 * @param inFilter 
+		 */
+		SkillDetails(String inSkillId, List&lt;String&gt; inProperties, SkillFilter inFilter)
+<span class="nc" id="L584">		{</span>
+<span class="nc" id="L585">			this.skillId = inSkillId;</span>
+<span class="nc" id="L586">			this.properties = inProperties;</span>
+<span class="nc" id="L587">			this.filter = inFilter;</span>
+<span class="nc" id="L588">		}</span>
+
+		public int getPropertyCount()
+		{
+<span class="nc" id="L592">			return properties.size();</span>
+		}
+
+		public String getProperty(int index)
+		{
+<span class="nc bnc" id="L597" title="All 2 branches missed.">			if (index &lt; properties.size())</span>
+			{
+<span class="nc" id="L599">				return properties.get(index);</span>
+			}
+			else
+			{
+<span class="nc" id="L603">				return &quot;&quot;;</span>
+			}
+		}
+
+		/**
+		 * Get the ID of the Skill
+		 * @return the ID of the Skill
+		 */
+		public String getSkillId()
+		{
+<span class="nc" id="L613">			return skillId;</span>
+		}
+
+		/**
+		 * Get the skill filter
+		 * @return the skill filter
+		 */
+		public SkillFilter getSkillFilter()
+		{
+<span class="nc" id="L622">			return filter;</span>
+		}
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

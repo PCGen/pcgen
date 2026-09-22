@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>OptionToken.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.lsttokens.kit.basekit</a> &gt; <span class="el_source">OptionToken.java</span></div><h1>OptionToken.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2006 (C) Aaron Divinsky &lt;boomer70@yahoo.com&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+
+package plugin.lsttokens.kit.basekit;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+import pcgen.cdom.formula.Formula;
+import pcgen.base.lang.StringUtil;
+import pcgen.base.text.ParsingSeparator;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.helper.OptionBound;
+import pcgen.core.kit.BaseKit;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.ParseResult;
+
+<span class="fc" id="L37">public class OptionToken extends AbstractNonEmptyToken&lt;BaseKit&gt; implements CDOMPrimaryToken&lt;BaseKit&gt;</span>
+{
+	/**
+	 * Gets the name of the tag this class will parse.
+	 * 
+	 * @return Name of the tag this class handles
+	 */
+	@Override
+	public String getTokenName()
+	{
+<span class="fc" id="L47">		return &quot;OPTION&quot;;</span>
+	}
+
+	@Override
+	public Class&lt;BaseKit&gt; getTokenClass()
+	{
+<span class="fc" id="L53">		return BaseKit.class;</span>
+	}
+
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context, BaseKit kit, String value)
+	{
+<span class="fc" id="L59">		ParsingSeparator pipeSep = new ParsingSeparator(value, '|');</span>
+<span class="fc" id="L60">		pipeSep.addGroupingPair('[', ']');</span>
+<span class="fc" id="L61">		pipeSep.addGroupingPair('(', ')');</span>
+
+<span class="fc bfc" id="L63" title="All 2 branches covered.">		while (pipeSep.hasNext())</span>
+		{
+<span class="fc" id="L65">			String subTok = pipeSep.next();</span>
+<span class="fc bfc" id="L66" title="All 2 branches covered.">			if (subTok.isEmpty())</span>
+			{
+<span class="fc" id="L68">				return new ParseResult.Fail(getTokenName() + &quot; arguments has invalid pipe separator: &quot; + value);</span>
+			}
+<span class="fc" id="L70">			ParseResult pr = checkForIllegalSeparator(',', subTok);</span>
+<span class="fc bfc" id="L71" title="All 2 branches covered.">			if (!pr.passed())</span>
+			{
+<span class="fc" id="L73">				return pr;</span>
+			}
+<span class="fc" id="L75">			ParsingSeparator commaSep = new ParsingSeparator(subTok, ',');</span>
+<span class="fc" id="L76">			commaSep.addGroupingPair('[', ']');</span>
+<span class="fc" id="L77">			commaSep.addGroupingPair('(', ')');</span>
+<span class="fc" id="L78">			String minString = commaSep.next();</span>
+			String maxString;
+<span class="fc bfc" id="L80" title="All 2 branches covered.">			if (commaSep.hasNext())</span>
+			{
+<span class="fc" id="L82">				maxString = commaSep.next();</span>
+			}
+			else
+			{
+<span class="fc" id="L86">				maxString = subTok;</span>
+			}
+<span class="pc bpc" id="L88" title="1 of 2 branches missed.">			if (commaSep.hasNext())</span>
+			{
+<span class="nc" id="L90">				return new ParseResult.Fail(&quot;Token cannot have more than one separator ','&quot;);</span>
+			}
+<span class="fc" id="L92">			Formula min = FormulaFactory.getFormulaFor(minString);</span>
+<span class="pc bpc" id="L93" title="1 of 2 branches missed.">			if (!min.isValid())</span>
+			{
+<span class="nc" id="L95">				return new ParseResult.Fail(&quot;Min Formula in &quot; + getTokenName() + &quot; was not valid: &quot; + min.toString());</span>
+			}
+<span class="fc" id="L97">			Formula max = FormulaFactory.getFormulaFor(maxString);</span>
+<span class="pc bpc" id="L98" title="1 of 2 branches missed.">			if (!max.isValid())</span>
+			{
+<span class="nc" id="L100">				return new ParseResult.Fail(&quot;Max Formula in &quot; + getTokenName() + &quot; was not valid: &quot; + max.toString());</span>
+			}
+<span class="fc" id="L102">			kit.setOptionBounds(min, max);</span>
+<span class="fc" id="L103">		}</span>
+<span class="fc" id="L104">		return ParseResult.SUCCESS;</span>
+	}
+
+	@Override
+	public String[] unparse(LoadContext context, BaseKit kit)
+	{
+<span class="fc" id="L110">		Collection&lt;OptionBound&gt; bounds = kit.getBounds();</span>
+<span class="fc bfc" id="L111" title="All 2 branches covered.">		if (bounds == null)</span>
+		{
+<span class="fc" id="L113">			return null;</span>
+		}
+<span class="fc" id="L115">		List&lt;String&gt; list = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L116" title="All 2 branches covered.">		for (OptionBound bound : bounds)</span>
+		{
+<span class="fc" id="L118">			Formula min = bound.getOptionMin();</span>
+<span class="fc" id="L119">			Formula max = bound.getOptionMax();</span>
+<span class="pc bpc" id="L120" title="2 of 4 branches missed.">			if (min == null || max == null)</span>
+			{
+				// Error if only one is null
+<span class="nc" id="L123">				return null;</span>
+			}
+<span class="fc" id="L125">			StringBuilder sb = new StringBuilder();</span>
+<span class="fc" id="L126">			sb.append(min);</span>
+<span class="fc bfc" id="L127" title="All 2 branches covered.">			if (!min.equals(max))</span>
+			{
+<span class="fc" id="L129">				sb.append(',').append(max);</span>
+			}
+<span class="fc" id="L131">			list.add(sb.toString());</span>
+<span class="fc" id="L132">		}</span>
+<span class="fc" id="L133">		return new String[]{StringUtil.join(list, Constants.PIPE)};</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

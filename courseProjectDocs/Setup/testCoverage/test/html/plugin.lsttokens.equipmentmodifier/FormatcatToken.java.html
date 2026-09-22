@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FormatcatToken.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.lsttokens.equipmentmodifier</a> &gt; <span class="el_source">FormatcatToken.java</span></div><h1>FormatcatToken.java</h1><pre class="source lang-java linenums">/*
+ * Formatcat.java
+ * Copyright 2006 (C) James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.     See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package plugin.lsttokens.equipmentmodifier;
+
+import pcgen.cdom.enumeration.EqModFormatCat;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.core.EquipmentModifier;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.ParseResult;
+
+/**
+ * Deals with FORMATCAT token, which indicates where the name of the equipment
+ * modifier should be added in the name of any equipment item the eqmod is added
+ * to.
+ */
+<span class="fc" id="L34">public class FormatcatToken extends AbstractNonEmptyToken&lt;EquipmentModifier&gt;</span>
+		implements CDOMPrimaryToken&lt;EquipmentModifier&gt;
+{
+
+	@Override
+	public String getTokenName()
+	{
+<span class="fc" id="L41">		return &quot;FORMATCAT&quot;;</span>
+	}
+
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context, EquipmentModifier mod, String value)
+	{
+		try
+		{
+<span class="fc" id="L49">			context.getObjectContext().put(mod, ObjectKey.FORMAT, EqModFormatCat.valueOf(value));</span>
+		}
+<span class="fc" id="L51">		catch (IllegalArgumentException iae)</span>
+		{
+<span class="fc" id="L53">			return new ParseResult.Fail(&quot;Invalid Format provided in &quot; + getTokenName() + &quot;: &quot; + value);</span>
+<span class="fc" id="L54">		}</span>
+<span class="fc" id="L55">		return ParseResult.SUCCESS;</span>
+	}
+
+	@Override
+	public String[] unparse(LoadContext context, EquipmentModifier mod)
+	{
+<span class="fc" id="L61">		EqModFormatCat fc = context.getObjectContext().getObject(mod, ObjectKey.FORMAT);</span>
+<span class="fc bfc" id="L62" title="All 2 branches covered.">		if (fc == null)</span>
+		{
+<span class="fc" id="L64">			return null;</span>
+		}
+<span class="fc" id="L66">		return new String[]{fc.toString()};</span>
+	}
+
+	@Override
+	public Class&lt;EquipmentModifier&gt; getTokenClass()
+	{
+<span class="fc" id="L72">		return EquipmentModifier.class;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

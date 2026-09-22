@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>KitSkill.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.core.kit</a> &gt; <span class="el_source">KitSkill.java</span></div><h1>KitSkill.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2001 (C) Greg Bingleman &lt;byngl@hotmail.com&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.core.kit;
+
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.reference.ReferenceUtilities;
+import pcgen.core.Globals;
+import pcgen.core.Kit;
+import pcgen.core.Language;
+import pcgen.core.PCClass;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.RuleConstants;
+import pcgen.core.Skill;
+import pcgen.core.analysis.ChooseActivation;
+import pcgen.core.analysis.SkillRankControl;
+import pcgen.core.chooser.ChoiceManagerList;
+import pcgen.core.chooser.ChooserUtilities;
+import pcgen.core.pclevelinfo.PCLevelInfo;
+import pcgen.core.utils.CoreUtility;
+import pcgen.util.Logging;
+
+/**
+ * {@code KitSkill}.
+ */
+<span class="fc" id="L47">public final class KitSkill extends BaseKit</span>
+{
+<span class="fc" id="L49">	private Boolean free = null;</span>
+<span class="fc" id="L50">	private BigDecimal rank = null;</span>
+<span class="fc" id="L51">	private final List&lt;CDOMReference&lt;Skill&gt;&gt; skillList = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L52">	private CDOMSingleRef&lt;PCClass&gt; className = null;</span>
+	private Integer choiceCount;
+
+<span class="fc" id="L55">	private final List&lt;CDOMSingleRef&lt;Language&gt;&gt; selection = new ArrayList&lt;&gt;();</span>
+	private List&lt;KitSkillAdd&gt; skillsToAdd;
+
+	/**
+	 * Used to make purchasing ranks of this skill not come out of the skill
+	 * pool.
+	 * @param argFree {@code true} to make the skill ranks free.
+	 */
+	public void setFree(Boolean argFree)
+	{
+<span class="fc" id="L65">		free = argFree;</span>
+<span class="fc" id="L66">	}</span>
+
+	/**
+	 * Returns if the skill will be purchased for free.
+	 * @return {@code true} if the skill will be free
+	 */
+	public boolean isFree()
+	{
+<span class="nc bnc" id="L74" title="All 4 branches missed.">		return free != null &amp;&amp; free;</span>
+	}
+
+	public void setRank(BigDecimal setRank)
+	{
+<span class="fc" id="L79">		rank = setRank;</span>
+<span class="fc" id="L80">	}</span>
+
+	/**
+	 * Get the rank of the skill
+	 * @return rank
+	 */
+	public BigDecimal getRank()
+	{
+<span class="fc" id="L88">		return rank;</span>
+	}
+
+	@Override
+	public String toString()
+	{
+<span class="nc" id="L94">		final StringBuilder info = new StringBuilder(100);</span>
+<span class="nc bnc" id="L95" title="All 2 branches missed.">		if (skillList.size() &gt; 1)</span>
+		{
+			// This is a choice of skills.
+<span class="nc" id="L98">			info.append(getSafeCount()).append(&quot; of (&quot;);</span>
+<span class="nc" id="L99">			info.append(ReferenceUtilities.joinLstFormat(skillList, &quot;, &quot;));</span>
+<span class="nc" id="L100">			info.append(&quot;)&quot;);</span>
+		}
+		else
+		{
+<span class="nc" id="L104">			info.append(skillList.get(0).getLSTformat(false));</span>
+		}
+<span class="nc" id="L106">		info.append(&quot; (&quot;).append(rank);</span>
+
+<span class="nc bnc" id="L108" title="All 2 branches missed.">		if (info.toString().endsWith(&quot;.0&quot;))</span>
+		{
+<span class="nc" id="L110">			info.setLength(info.length() - 2);</span>
+		}
+
+<span class="nc bnc" id="L113" title="All 2 branches missed.">		if (isFree())</span>
+		{
+<span class="nc" id="L115">			info.append(&quot;/free&quot;);</span>
+		}
+
+<span class="nc bnc" id="L118" title="All 2 branches missed.">		if (!selection.isEmpty())</span>
+		{
+<span class="nc" id="L120">			info.append(&quot;/&quot;);</span>
+<span class="nc" id="L121">			info.append(StringUtil.join(selection, &quot;, &quot;));</span>
+		}
+
+<span class="nc" id="L124">		info.append(')');</span>
+
+<span class="nc" id="L126">		return info.toString();</span>
+	}
+
+	@Override
+	public boolean testApply(Kit aKit, PlayerCharacter aPC, List&lt;String&gt; warnings)
+	{
+<span class="nc" id="L132">		skillsToAdd = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L133">		List&lt;Skill&gt; skillChoices = getSkillChoices(aPC);</span>
+
+<span class="nc bnc" id="L135" title="All 4 branches missed.">		if (skillChoices == null || skillChoices.isEmpty())</span>
+		{
+			// They didn't make a choice so don't add any ranks.
+<span class="nc" id="L138">			return false;</span>
+		}
+<span class="nc bnc" id="L140" title="All 2 branches missed.">		for (Skill skill : skillChoices)</span>
+		{
+<span class="nc" id="L142">			BigDecimal ranksLeftToAdd = getRank();</span>
+<span class="nc bnc" id="L143" title="All 2 branches missed.">			if (ranksLeftToAdd == null)</span>
+			{
+<span class="nc" id="L145">				ranksLeftToAdd = BigDecimal.ONE;</span>
+			}
+<span class="nc" id="L147">			double ranksLeft = ranksLeftToAdd.doubleValue();</span>
+<span class="nc" id="L148">			List&lt;PCClass&gt; classList = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L149" title="All 2 branches missed.">			if (className != null)</span>
+			{
+<span class="nc" id="L151">				String classKey = className.get().getKeyName();</span>
+				// Make sure if they specified a class to add from we try that
+				// class first.
+<span class="nc" id="L154">				PCClass pcClass = aPC.getClassKeyed(classKey);</span>
+<span class="nc bnc" id="L155" title="All 2 branches missed.">				if (pcClass != null)</span>
+				{
+<span class="nc" id="L157">					classList.add(pcClass);</span>
+				}
+				else
+				{
+<span class="nc" id="L161">					warnings.add(&quot;SKILL: Could not find specified class &quot; + classKey + &quot; in PC to add ranks from.&quot;);</span>
+				}
+			}
+<span class="nc bnc" id="L164" title="All 2 branches missed.">			for (PCClass pcClass : aPC.getClassSet())</span>
+			{
+<span class="nc bnc" id="L166" title="All 2 branches missed.">				if (!classList.contains(pcClass))</span>
+				{
+<span class="nc" id="L168">					classList.add(pcClass);</span>
+				}
+<span class="nc" id="L170">			}</span>
+
+			// Try and find a class we can add them from.
+<span class="nc" id="L173">			boolean oldImporting = aPC.isImporting();</span>
+<span class="nc" id="L174">			aPC.setImporting(true);</span>
+<span class="nc bnc" id="L175" title="All 2 branches missed.">			for (PCClass pcClass : classList)</span>
+			{
+<span class="nc" id="L177">				final KitSkillAdd sta = addRanks(aPC, pcClass, skill, ranksLeft, isFree(), warnings);</span>
+<span class="nc bnc" id="L178" title="All 2 branches missed.">				if (sta != null)</span>
+				{
+<span class="nc" id="L180">					skillsToAdd.add(sta);</span>
+<span class="nc" id="L181">					ranksLeft -= sta.getRanks();</span>
+<span class="nc bnc" id="L182" title="All 2 branches missed.">					if (ranksLeft &lt;= 0.0)</span>
+					{
+<span class="nc" id="L184">						break;</span>
+					}
+				}
+<span class="nc" id="L187">			}</span>
+<span class="nc" id="L188">			aPC.setImporting(oldImporting);</span>
+<span class="nc bnc" id="L189" title="All 2 branches missed.">			if (ranksLeft &gt; 0.0)</span>
+			{
+<span class="nc" id="L191">				warnings.add(</span>
+<span class="nc" id="L192">					&quot;SKILL: Could not add &quot; + ranksLeft + &quot; ranks to &quot; + skill.getKeyName() + &quot;. Not enough points.&quot;);</span>
+			}
+<span class="nc" id="L194">		}</span>
+<span class="nc" id="L195">		return true;</span>
+	}
+
+	@Override
+	public void apply(PlayerCharacter aPC)
+	{
+		/** @todo Fix this to return what panes need to be refreshed */
+<span class="nc bnc" id="L202" title="All 2 branches missed.">		for (KitSkillAdd ksa : skillsToAdd)</span>
+		{
+<span class="nc" id="L204">			updatePCSkills(aPC, ksa.getSkill(), (int) ksa.getRanks(), ksa.getCost(), ksa.getLanguages(),</span>
+<span class="nc" id="L205">				ksa.getPCClass());</span>
+<span class="nc" id="L206">		}</span>
+<span class="nc" id="L207">	}</span>
+
+	/**
+	 * Needs documentation.
+	 *
+	 * @param pc update skills for this PC
+	 * @param aSkill Skill to update
+	 * @param aRank Number of ranks to add
+	 * @param aCost Cost of added ranks
+	 * @param langList Languages to be selected for a language skill
+	 * @param pcClass skills apply to this class
+	 *
+	 * @return {@code true} for success
+	 * TODO What about throwing on failure?
+	 */
+	private boolean updatePCSkills(final PlayerCharacter pc, final Skill aSkill, final int aRank, final double aCost,
+		List&lt;Language&gt; langList, final PCClass pcClass)
+	{
+<span class="nc" id="L225">		boolean oldImporting = pc.isImporting();</span>
+<span class="nc" id="L226">		pc.setImporting(true);</span>
+<span class="nc" id="L227">		final String aString = SkillRankControl.modRanks(aRank, pcClass, true, pc, aSkill);</span>
+<span class="nc" id="L228">		pc.setImporting(oldImporting);</span>
+
+<span class="nc bnc" id="L230" title="All 2 branches missed.">		if (!aString.isEmpty())</span>
+		{
+<span class="nc" id="L232">			Logging.errorPrint(&quot;SKILL: &quot; + aString);</span>
+<span class="nc" id="L233">			return false;</span>
+		}
+
+		// Add any supplied languages
+<span class="nc" id="L237">		ChoiceManagerList&lt;Language&gt; controller =</span>
+<span class="nc" id="L238">				ChooserUtilities.getConfiguredController(aSkill, pc, null, new ArrayList&lt;&gt;());</span>
+<span class="nc bnc" id="L239" title="All 2 branches missed.">		for (Language lang : langList)</span>
+		{
+<span class="nc bnc" id="L241" title="All 2 branches missed.">			if (!controller.conditionallyApply(pc, lang))</span>
+			{
+<span class="nc" id="L243">				Logging.errorPrint(&quot;Failed to apply Language into Skill: &quot; + lang.getKeyName());</span>
+			}
+<span class="nc" id="L245">		}</span>
+
+		//
+		// Fix up the skill pools to reflect what we just spent.
+		//
+<span class="nc" id="L250">		double ptsToSpend = aCost;</span>
+<span class="nc bnc" id="L251" title="All 2 branches missed.">		if (ptsToSpend &gt;= 0.0)</span>
+		{
+<span class="nc bnc" id="L253" title="All 2 branches missed.">			for (PCLevelInfo info : pc.getLevelInfo())</span>
+			{
+<span class="nc bnc" id="L255" title="All 2 branches missed.">				if (info.getClassKeyName().equals(pcClass.getKeyName()))</span>
+				{
+					// We are spending this class' points.
+<span class="nc" id="L258">					int remaining = info.getSkillPointsRemaining();</span>
+<span class="nc bnc" id="L259" title="All 2 branches missed.">					if (remaining == 0)</span>
+					{
+<span class="nc" id="L261">						continue;</span>
+					}
+<span class="nc" id="L263">					int left = remaining - (int) Math.min(remaining, ptsToSpend);</span>
+<span class="nc" id="L264">					info.setSkillPointsRemaining(left);</span>
+<span class="nc" id="L265">					ptsToSpend -= (remaining - left);</span>
+<span class="nc bnc" id="L266" title="All 2 branches missed.">					if (ptsToSpend &lt;= 0)</span>
+					{
+<span class="nc" id="L268">						break;</span>
+					}
+				}
+<span class="nc" id="L271">			}</span>
+		}
+<span class="nc" id="L273">		return true;</span>
+	}
+
+	@Override
+	public String getObjectName()
+	{
+<span class="nc" id="L279">		return &quot;Skills&quot;;</span>
+	}
+
+	private List&lt;Skill&gt; getSkillChoices(PlayerCharacter aPC)
+	{
+<span class="nc" id="L284">		final List&lt;Skill&gt; skillsOfType = new ArrayList&lt;&gt;();</span>
+
+<span class="nc bnc" id="L286" title="All 2 branches missed.">		for (CDOMReference&lt;Skill&gt; ref : skillList)</span>
+		{
+<span class="nc" id="L288">			skillsOfType.addAll(ref.getContainedObjects());</span>
+<span class="nc" id="L289">		}</span>
+
+<span class="nc bnc" id="L291" title="All 2 branches missed.">		if (skillsOfType.isEmpty())</span>
+		{
+<span class="nc" id="L293">			return null;</span>
+		}
+<span class="nc bnc" id="L295" title="All 2 branches missed.">		else if (skillsOfType.size() == 1)</span>
+		{
+<span class="nc" id="L297">			return skillsOfType;</span>
+		}
+
+<span class="nc" id="L300">		List&lt;Skill&gt; skillChoices = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L301">		skillChoices = Globals.getChoiceFromList(&quot;Select skill&quot;, skillsOfType, skillChoices, getSafeCount(), aPC);</span>
+
+<span class="nc" id="L303">		return skillChoices;</span>
+	}
+
+	private KitSkillAdd addRanks(PlayerCharacter pc, PCClass pcClass, Skill aSkill, double ranksLeftToAdd,
+		boolean isFree, List&lt;String&gt; warnings)
+	{
+<span class="nc bnc" id="L309" title="All 4 branches missed.">		if (!isFree &amp;&amp; pcClass.getSkillPool(pc) == 0)</span>
+		{
+<span class="nc" id="L311">			return null;</span>
+		}
+
+<span class="nc" id="L314">		double curRank = 0.0;</span>
+<span class="nc bnc" id="L315" title="All 2 branches missed.">		if (pc.hasSkill(aSkill))</span>
+		{
+<span class="nc" id="L317">			curRank = pc.getRank(aSkill).doubleValue();</span>
+		}
+<span class="nc" id="L319">		double ranksToAdd = ranksLeftToAdd;</span>
+<span class="nc bnc" id="L320" title="All 4 branches missed.">		if (!Globals.checkRule(RuleConstants.SKILLMAX) &amp;&amp; (ranksToAdd &gt; 0.0))</span>
+		{
+<span class="nc" id="L322">			ranksToAdd = Math.min(pc.getMaxRank(aSkill, pcClass).doubleValue(), curRank + ranksLeftToAdd);</span>
+<span class="nc" id="L323">			ranksToAdd -= curRank;</span>
+<span class="nc bnc" id="L324" title="All 2 branches missed.">			if (!CoreUtility.doublesEqual(ranksToAdd, ranksLeftToAdd))</span>
+			{
+<span class="nc" id="L326">				warnings.add(&quot;SKILL: Could not add &quot; + (ranksLeftToAdd - ranksToAdd) + &quot; to &quot; + aSkill.getDisplayName()</span>
+<span class="nc" id="L327">					+ &quot;. Exceeds MAXRANK of &quot; + pc.getMaxRank(aSkill, pcClass) + &quot;.&quot;);</span>
+			}
+		}
+<span class="nc" id="L330">		int ptsToSpend = 0;</span>
+<span class="nc" id="L331">		int[] points = new int[pc.getLevelInfoSize()];</span>
+<span class="nc bnc" id="L332" title="All 2 branches missed.">		if (!isFree)</span>
+		{
+<span class="nc" id="L334">			double ranksAdded = 0.0;</span>
+<span class="nc" id="L335">			int skillCost = pc.getSkillCostForClass(aSkill, pcClass).getCost();</span>
+<span class="nc" id="L336">			ptsToSpend = (int) (ranksToAdd * skillCost);</span>
+<span class="nc bnc" id="L337" title="All 2 branches missed.">			for (int i = 0; i &lt; pc.getLevelInfoSize(); i++)</span>
+			{
+<span class="nc" id="L339">				PCLevelInfo info = pc.getLevelInfo(i);</span>
+<span class="nc bnc" id="L340" title="All 2 branches missed.">				if (info.getClassKeyName().equals(pcClass.getKeyName()))</span>
+				{
+					// We are spending this class' points.
+<span class="nc" id="L343">					points[i] = info.getSkillPointsRemaining();</span>
+				}
+				else
+				{
+<span class="nc" id="L347">					points[i] = -1;</span>
+				}
+			}
+<span class="nc bnc" id="L350" title="All 2 branches missed.">			for (int i = 0; i &lt; points.length; i++)</span>
+			{
+<span class="nc" id="L352">				int remaining = points[i];</span>
+<span class="nc bnc" id="L353" title="All 2 branches missed.">				if (remaining &lt;= 0)</span>
+				{
+<span class="nc" id="L355">					continue;</span>
+				}
+<span class="nc" id="L357">				int left = remaining - Math.min(remaining, ptsToSpend);</span>
+<span class="nc" id="L358">				points[i] = left;</span>
+<span class="nc" id="L359">				int spent = (remaining - left);</span>
+<span class="nc" id="L360">				ptsToSpend -= spent;</span>
+<span class="nc" id="L361">				ranksAdded += ((double) spent / (double) skillCost);</span>
+<span class="nc bnc" id="L362" title="All 4 branches missed.">				if (ranksAdded == ranksToAdd || ptsToSpend &lt;= 0)</span>
+				{
+<span class="nc" id="L364">					break;</span>
+				}
+			}
+
+<span class="nc" id="L368">			ranksToAdd = ranksAdded;</span>
+<span class="nc" id="L369">			ptsToSpend = (int) (ranksToAdd * skillCost);</span>
+		}
+
+<span class="nc" id="L372">		String ret = SkillRankControl.modRanks(ranksToAdd, pcClass, false, pc, aSkill);</span>
+<span class="nc bnc" id="L373" title="All 2 branches missed.">		if (!ret.isEmpty())</span>
+		{
+<span class="nc bnc" id="L375" title="All 4 branches missed.">			if (isFree &amp;&amp; ret.contains(&quot;You do not have enough skill points.&quot;))</span>
+			{
+<span class="nc" id="L377">				SkillRankControl.modRanks(ranksToAdd, pcClass, true, pc, aSkill);</span>
+			}
+			else
+			{
+<span class="nc" id="L381">				warnings.add(ret);</span>
+<span class="nc" id="L382">				return null;</span>
+			}
+		}
+<span class="nc bnc" id="L385" title="All 2 branches missed.">		if (!isFree)</span>
+		{
+<span class="nc bnc" id="L387" title="All 2 branches missed.">			for (int i = 0; i &lt; pc.getLevelInfoSize(); i++)</span>
+			{
+<span class="nc" id="L389">				PCLevelInfo info = pc.getLevelInfo(i);</span>
+<span class="nc bnc" id="L390" title="All 2 branches missed.">				if (points[i] &gt;= 0)</span>
+				{
+<span class="nc" id="L392">					info.setSkillPointsRemaining(points[i]);</span>
+				}
+			}
+
+		}
+<span class="nc" id="L397">		List&lt;Language&gt; langList = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L398" title="All 4 branches missed.">		if (ChooseActivation.hasNewChooseToken(aSkill) &amp;&amp; !selection.isEmpty())</span>
+		{
+<span class="nc" id="L400">			ChoiceManagerList&lt;Language&gt; controller =</span>
+<span class="nc" id="L401">					ChooserUtilities.getConfiguredController(aSkill, pc, null, new ArrayList&lt;&gt;());</span>
+<span class="nc" id="L402">			int limit = (int) ranksToAdd;</span>
+<span class="nc bnc" id="L403" title="All 2 branches missed.">			for (CDOMSingleRef&lt;Language&gt; ref : selection)</span>
+			{
+<span class="nc" id="L405">				Language lang = ref.get();</span>
+<span class="nc bnc" id="L406" title="All 2 branches missed.">				if (controller.conditionallyApply(pc, lang))</span>
+				{
+<span class="nc" id="L408">					langList.add(lang);</span>
+<span class="nc" id="L409">					limit--;</span>
+				}
+<span class="nc bnc" id="L411" title="All 2 branches missed.">				if (limit &lt;= 0)</span>
+				{
+<span class="nc" id="L413">					break;</span>
+				}
+<span class="nc" id="L415">			}</span>
+		}
+<span class="nc" id="L417">		return new KitSkillAdd(aSkill, ranksToAdd, ptsToSpend, langList, pcClass);</span>
+	}
+
+	public Boolean getFree()
+	{
+<span class="fc" id="L422">		return free;</span>
+	}
+
+	public void addSkill(CDOMReference&lt;Skill&gt; ref)
+	{
+<span class="fc" id="L427">		skillList.add(ref);</span>
+<span class="fc" id="L428">	}</span>
+
+	public Collection&lt;CDOMReference&lt;Skill&gt;&gt; getSkills()
+	{
+<span class="fc" id="L432">		return skillList;</span>
+	}
+
+	public void setPcclass(CDOMSingleRef&lt;PCClass&gt; ref)
+	{
+<span class="fc" id="L437">		className = ref;</span>
+<span class="fc" id="L438">	}</span>
+
+	public CDOMReference&lt;PCClass&gt; getPcclass()
+	{
+<span class="fc" id="L442">		return className;</span>
+	}
+
+	public void setCount(Integer quan)
+	{
+<span class="fc" id="L447">		choiceCount = quan;</span>
+<span class="fc" id="L448">	}</span>
+
+	public Integer getCount()
+	{
+<span class="fc" id="L452">		return choiceCount;</span>
+	}
+
+	public int getSafeCount()
+	{
+<span class="nc bnc" id="L457" title="All 2 branches missed.">		return choiceCount == null ? 1 : choiceCount;</span>
+	}
+
+	public void addSelection(CDOMSingleRef&lt;Language&gt; ref)
+	{
+<span class="fc" id="L462">		selection.add(ref);</span>
+<span class="fc" id="L463">	}</span>
+
+	public List&lt;CDOMSingleRef&lt;Language&gt;&gt; getSelections()
+	{
+<span class="fc" id="L467">		return selection;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

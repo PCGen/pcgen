@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CompanionListLst.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.lsttokens</a> &gt; <span class="el_source">CompanionListLst.java</span></div><h1>CompanionListLst.java</h1><pre class="source lang-java linenums">/*
+ * CompanionListLst.java
+ * Copyright 2006 (C) Aaron Divinsky &lt;boomer70@yahoo.com&gt;
+ * Copyright 2008 (C) Thomas Parker &lt;thpr@users.sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package plugin.lsttokens;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.StringTokenizer;
+import java.util.TreeSet;
+
+import pcgen.base.util.TripleKeyMapToList;
+import pcgen.cdom.base.CDOMList;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.Ungranted;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.RaceSubType;
+import pcgen.cdom.enumeration.RaceType;
+import pcgen.cdom.list.CompanionList;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.reference.ListMatchingReference;
+import pcgen.cdom.reference.ObjectMatchingReference;
+import pcgen.cdom.reference.ReferenceUtilities;
+import pcgen.core.FollowerOption;
+import pcgen.core.Race;
+import pcgen.core.prereq.Prerequisite;
+import pcgen.persistence.lst.LstUtils;
+import pcgen.rules.context.Changes;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.ComplexParseResult;
+import pcgen.rules.persistence.token.ParseResult;
+
+/**
+ * This class implments the parsing for the COMPANIONLIST token.
+ * &lt;p&gt;
+ * &lt;b&gt;Tag Name&lt;/b&gt;: {@code COMPANIONLIST}:x|y,y|z
+ * &lt;p&gt;
+ * &lt;b&gt;Variables Used (x)&lt;/b&gt;: &lt;i&gt;Text&lt;/i&gt; (The type of companion list to add
+ * to).&lt;br&gt;
+ * &lt;b&gt;Variables Used (y)&lt;/b&gt;: &lt;i&gt;Text&lt;/i&gt; (A race of companion to allow to the
+ * character).&lt;br&gt;
+ * &lt;b&gt;Variables Used (y)&lt;/b&gt;: {@code RACETYPE}=&lt;i&gt;Text&lt;/i&gt; (all races
+ * with the specified {@code RACETYPE} are available as this type of
+ * companion). &lt;br&gt;
+ * &lt;b&gt;Variables Used (y)&lt;/b&gt;: {@code TYPE}=&lt;i&gt;Text&lt;/i&gt;{@code [.&lt;Text&gt;]}
+ * (all races carrying the specified {@code TYPE(s)} on their
+ * {@code TYPE:} tag are available as this type of companion; dotted
+ * segments are ANDed).&lt;br&gt;
+ * &lt;b&gt;Variables Used (y)&lt;/b&gt;: {@code ANY} (Any race can be a companion
+ * of this type).&lt;br&gt;
+ * &lt;b&gt;Variables Used (z)&lt;/b&gt;: {@code FOLLOWERADJUSTMENT}=&lt;i&gt;Number&lt;/i&gt;
+ * (Adjustment to the follower level variable).
+ * &lt;p&gt;
+ * &lt;b&gt;What it does:&lt;/b&gt;
+ * &lt;ul&gt;
+ * &lt;li&gt;Adds a specific race or races to the list of available companions for
+ * the specified companion type.&lt;/li&gt;
+ * &lt;li&gt;PRExxx tags can be added at the end of COMPANIONLIST tags, PRExxx tags
+ * are checked against the master.&lt;/li&gt;
+ * &lt;li&gt;If the master does not meet the prereqs the companion will be displayed
+ * in the list but will be listed in red and cannot be added as a companion.
+ * &lt;/li&gt;
+ * &lt;/ul&gt;
+ * &lt;p&gt;
+ * &lt;b&gt;Examples:&lt;/b&gt;&lt;br&gt;
+ * {@code COMPANIONLIST:Familiar|Bat,Cat,Hawk,Lizard,Owl,Rat,Raven,
+ * Snake (Tiny/Viper),Toad,Weasel}&lt;br&gt;
+ * Would build the list of standard familiars available to a Sorcerer or Wizard.
+ * &lt;p&gt;
+ * {@code COMPANIONLIST:Pet|RACETYPE=Animal}&lt;br&gt;
+ * Would build a list of all animals to available as a Pet.
+ * &lt;p&gt;
+ * {@code COMPANIONLIST:Pet|TYPE=Animal.Magical}&lt;br&gt;
+ * Would build a list of all races carrying both the {@code Animal} and
+ * {@code Magical} types on their {@code TYPE:} tag and make them
+ * available as a Pet.
+ * &lt;p&gt;
+ * {@code COMPANIONLIST:Familiar|Quasit|PREFEAT:1,Special Familiar|
+ * PREALIGN:CE}&lt;br&gt;
+ * A Quasit can be chosen as a Familiar but only if the master is evil and has
+ * the Special Familiar feat.
+ * &lt;p&gt;
+ * {@code COMPANIONLIST:Animal Companion|Ape|FOLLOWERADJUSTMENT:-3}
+ * An Ape companion to a 4th level Druid gains the benefits normally granted to
+ * a companion of a 1st level Druid.
+ */
+<span class="fc" id="L110">public class CompanionListLst extends AbstractTokenWithSeparator&lt;CDOMObject&gt; implements CDOMPrimaryToken&lt;CDOMObject&gt;</span>
+{
+	private static final String COMPANIONLIST = &quot;COMPANIONLIST&quot;; //$NON-NLS-1$
+	private static final String FOLLOWERADJUSTMENT = &quot;FOLLOWERADJUSTMENT&quot;; //$NON-NLS-1$
+
+	@Override
+	public String getTokenName()
+	{
+<span class="fc" id="L118">		return COMPANIONLIST;</span>
+	}
+
+	@Override
+	protected char separator()
+	{
+<span class="fc" id="L124">		return '|';</span>
+	}
+
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
+	{
+<span class="pc bpc" id="L130" title="1 of 2 branches missed.">		if (obj instanceof Ungranted)</span>
+		{
+<span class="nc" id="L132">			return new ParseResult.Fail(</span>
+<span class="nc" id="L133">				&quot;Cannot use &quot; + getTokenName() + &quot; on an Ungranted object type: &quot; + obj.getClass().getSimpleName());</span>
+		}
+<span class="fc" id="L135">		StringTokenizer tok = new StringTokenizer(value, LstUtils.PIPE);</span>
+<span class="fc" id="L136">		String companionType = tok.nextToken();</span>
+<span class="fc bfc" id="L137" title="All 2 branches covered.">		if (!tok.hasMoreTokens())</span>
+		{
+<span class="fc" id="L139">			return new ParseResult.Fail(getTokenName() + &quot; requires more than just a Type: &quot; + value);</span>
+		}
+<span class="fc" id="L141">		String list = tok.nextToken();</span>
+<span class="fc" id="L142">		ParseResult pr = checkForIllegalSeparator(',', list);</span>
+<span class="pc bpc" id="L143" title="1 of 2 branches missed.">		if (!pr.passed())</span>
+		{
+<span class="nc" id="L145">			return pr;</span>
+		}
+<span class="fc" id="L147">		StringTokenizer subTok = new StringTokenizer(list, LstUtils.COMMA);</span>
+<span class="fc" id="L148">		Set&lt;CDOMReference&lt;Race&gt;&gt; races = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L149">		boolean foundAny = false;</span>
+<span class="fc bfc" id="L150" title="All 2 branches covered.">		while (subTok.hasMoreTokens())</span>
+		{
+<span class="fc" id="L152">			String tokString = subTok.nextToken();</span>
+<span class="fc bfc" id="L153" title="All 2 branches covered.">			if (Constants.LST_ANY.equalsIgnoreCase(tokString))</span>
+			{
+<span class="fc" id="L155">				foundAny = true;</span>
+<span class="fc" id="L156">				races.add(context.getReferenceContext().getCDOMAllReference(Race.class));</span>
+			}
+<span class="fc bfc" id="L158" title="All 2 branches covered.">			else if (tokString.startsWith(&quot;RACETYPE=&quot;))</span>
+			{
+<span class="fc" id="L160">				String raceType = tokString.substring(9);</span>
+<span class="pc bpc" id="L161" title="1 of 2 branches missed.">				if (raceType.isEmpty())</span>
+				{
+<span class="nc" id="L163">					return new ParseResult.Fail(getTokenName() + &quot; Error: RaceType was not specified.&quot;);</span>
+				}
+<span class="fc" id="L165">				races.add(new ObjectMatchingReference&lt;&gt;(tokString,</span>
+<span class="fc" id="L166">					context.getReferenceContext().getCDOMAllReference(Race.class), ObjectKey.RACETYPE,</span>
+<span class="fc" id="L167">					RaceType.getConstant(raceType)));</span>
+<span class="fc" id="L168">			}</span>
+<span class="fc bfc" id="L169" title="All 2 branches covered.">			else if (tokString.startsWith(&quot;RACESUBTYPE=&quot;))</span>
+			{
+<span class="fc" id="L171">				String raceSubType = tokString.substring(12);</span>
+<span class="pc bpc" id="L172" title="1 of 2 branches missed.">				if (raceSubType.isEmpty())</span>
+				{
+<span class="nc" id="L174">					return new ParseResult.Fail(getTokenName() + &quot; Error: RaceSubType was not specified.&quot;);</span>
+				}
+<span class="fc" id="L176">				races.add(new ListMatchingReference&lt;&gt;(tokString,</span>
+<span class="fc" id="L177">					context.getReferenceContext().getCDOMAllReference(Race.class), ListKey.RACESUBTYPE,</span>
+<span class="fc" id="L178">					RaceSubType.getConstant(raceSubType)));</span>
+<span class="fc" id="L179">			}</span>
+<span class="fc bfc" id="L180" title="All 2 branches covered.">			else if (tokString.startsWith(&quot;TYPE=&quot;))</span>
+			{
+<span class="fc" id="L182">				String typeString = tokString.substring(5);</span>
+<span class="fc bfc" id="L183" title="All 2 branches covered.">				if (typeString.isEmpty())</span>
+				{
+<span class="fc" id="L185">					return new ParseResult.Fail(getTokenName() + &quot; Error: TYPE was not specified.&quot;);</span>
+				}
+<span class="fc" id="L187">				String[] types = typeString.split(&quot;\\.&quot;, -1);</span>
+<span class="fc bfc" id="L188" title="All 2 branches covered.">				for (String t : types)</span>
+				{
+<span class="fc bfc" id="L190" title="All 2 branches covered.">					if (t.isEmpty())</span>
+					{
+<span class="fc" id="L192">						return new ParseResult.Fail(</span>
+<span class="fc" id="L193">							getTokenName() + &quot; Error: Empty Type segment in &quot; + tokString);</span>
+					}
+				}
+<span class="fc" id="L196">				races.add(context.getReferenceContext().getCDOMTypeReference(Race.class, types));</span>
+<span class="fc" id="L197">			}</span>
+<span class="pc bpc" id="L198" title="1 of 2 branches missed.">			else if (looksLikeAPrerequisite(tokString))</span>
+			{
+<span class="nc" id="L200">				return new ParseResult.Fail(</span>
+<span class="nc" id="L201">					getTokenName() + &quot; Error: &quot; + tokString + &quot; found where companion race expected.&quot;);</span>
+			}
+			else
+			{
+<span class="fc" id="L205">				races.add(context.getReferenceContext().getCDOMReference(Race.class, tokString));</span>
+			}
+<span class="fc" id="L207">		}</span>
+<span class="pc bpc" id="L208" title="1 of 4 branches missed.">		if (foundAny &amp;&amp; races.size() &gt; 1)</span>
+		{
+<span class="nc" id="L210">			return new ParseResult.Fail(&quot;Non-sensical Race List includes Any and specific races: &quot; + value);</span>
+		}
+<span class="fc bfc" id="L212" title="All 2 branches covered.">		if (!tok.hasMoreTokens())</span>
+		{
+			// No other args, so we're done
+<span class="fc" id="L215">			finish(context, obj, companionType, races, null, null);</span>
+<span class="fc" id="L216">			return ParseResult.SUCCESS;</span>
+		}
+		// The remainder of the elements are optional.
+<span class="fc" id="L219">		Integer followerAdjustment = null;</span>
+<span class="fc" id="L220">		String optArg = tok.nextToken();</span>
+		while (true)
+		{
+<span class="fc bfc" id="L223" title="All 2 branches covered.">			if (optArg.startsWith(FOLLOWERADJUSTMENT))</span>
+			{
+<span class="pc bpc" id="L225" title="1 of 2 branches missed.">				if (followerAdjustment != null)</span>
+				{
+<span class="nc" id="L227">					return new ParseResult.Fail(</span>
+<span class="nc" id="L228">						getTokenName() + &quot; Error: Multiple &quot; + FOLLOWERADJUSTMENT + &quot; tags specified.&quot;);</span>
+				}
+<span class="fc" id="L230">				int faStringLength = FOLLOWERADJUSTMENT.length();</span>
+<span class="pc bpc" id="L231" title="1 of 2 branches missed.">				if (optArg.length() &lt;= faStringLength + 1)</span>
+				{
+<span class="nc" id="L233">					return new ParseResult.Fail(</span>
+<span class="nc" id="L234">						&quot;Empty FOLLOWERADJUSTMENT value in &quot; + getTokenName() + &quot; is prohibited&quot;);</span>
+				}
+<span class="fc" id="L236">				String adj = optArg.substring(faStringLength + 1);</span>
+				try
+				{
+<span class="fc" id="L239">					followerAdjustment = Integer.valueOf(adj);</span>
+				}
+<span class="nc" id="L241">				catch (NumberFormatException nfe)</span>
+				{
+<span class="nc" id="L243">					ComplexParseResult cpr = new ComplexParseResult();</span>
+<span class="nc" id="L244">					cpr.addErrorMessage(&quot;Expecting a number for FOLLOWERADJUSTMENT: &quot; + adj);</span>
+<span class="nc" id="L245">					cpr.addErrorMessage(&quot;  was parsing Token &quot; + getTokenName());</span>
+<span class="nc" id="L246">					return cpr;</span>
+<span class="fc" id="L247">				}</span>
+<span class="fc" id="L248">			}</span>
+<span class="pc bpc" id="L249" title="1 of 2 branches missed.">			else if (looksLikeAPrerequisite(optArg))</span>
+			{
+<span class="fc" id="L251">				break;</span>
+			}
+			else
+			{
+<span class="nc" id="L255">				return new ParseResult.Fail(</span>
+<span class="nc" id="L256">					getTokenName() + &quot;: Unknown argument (was expecting FOLLOWERADJUSTMENT: or PRExxx): &quot; + optArg);</span>
+			}
+<span class="fc bfc" id="L258" title="All 2 branches covered.">			if (!tok.hasMoreTokens())</span>
+			{
+				// No prereqs, so we're done
+<span class="fc" id="L261">				finish(context, obj, companionType, races, followerAdjustment, null);</span>
+<span class="fc" id="L262">				return ParseResult.SUCCESS;</span>
+			}
+<span class="fc" id="L264">			optArg = tok.nextToken();</span>
+		}
+<span class="fc" id="L266">		List&lt;Prerequisite&gt; prereqs = new ArrayList&lt;&gt;();</span>
+		while (true)
+		{
+<span class="fc" id="L269">			Prerequisite prereq = getPrerequisite(optArg);</span>
+<span class="pc bpc" id="L270" title="1 of 2 branches missed.">			if (prereq == null)</span>
+			{
+<span class="nc" id="L272">				return new ParseResult.Fail(</span>
+<span class="nc" id="L273">					&quot;   (Did you put items after the &quot; + &quot;PRExxx tags in &quot; + getTokenName() + &quot;:?)&quot;);</span>
+			}
+<span class="fc" id="L275">			prereqs.add(prereq);</span>
+<span class="fc bfc" id="L276" title="All 2 branches covered.">			if (!tok.hasMoreTokens())</span>
+			{
+<span class="fc" id="L278">				break;</span>
+			}
+<span class="fc" id="L280">			optArg = tok.nextToken();</span>
+<span class="fc" id="L281">		}</span>
+
+<span class="fc" id="L283">		finish(context, obj, companionType, races, followerAdjustment, prereqs);</span>
+<span class="fc" id="L284">		return ParseResult.SUCCESS;</span>
+	}
+
+	private void finish(LoadContext context, CDOMObject obj, String companionType, Set&lt;CDOMReference&lt;Race&gt;&gt; races,
+		Integer followerAdjustment, List&lt;Prerequisite&gt; prereqs)
+	{
+<span class="fc" id="L290">		context.getReferenceContext().constructIfNecessary(CompanionList.class, companionType);</span>
+<span class="fc" id="L291">		CDOMSingleRef&lt;CompanionList&gt; ref =</span>
+<span class="fc" id="L292">				context.getReferenceContext().getCDOMReference(CompanionList.class, companionType);</span>
+
+<span class="fc bfc" id="L294" title="All 2 branches covered.">		for (CDOMReference&lt;Race&gt; race : races)</span>
+		{
+<span class="fc" id="L296">			final FollowerOption option = new FollowerOption(race, ref);</span>
+<span class="pc bpc" id="L297" title="1 of 4 branches missed.">			if (prereqs != null &amp;&amp; !prereqs.isEmpty())</span>
+			{
+<span class="fc" id="L299">				option.addAllPrerequisites(prereqs);</span>
+			}
+<span class="pc bpc" id="L301" title="1 of 4 branches missed.">			if (followerAdjustment != null &amp;&amp; followerAdjustment != 0)</span>
+			{
+<span class="fc" id="L303">				option.setAdjustment(followerAdjustment);</span>
+			}
+<span class="fc" id="L305">			context.getObjectContext().addToList(obj, ListKey.COMPANIONLIST, option);</span>
+<span class="fc" id="L306">		}</span>
+<span class="fc" id="L307">	}</span>
+
+	@Override
+	public String[] unparse(LoadContext context, CDOMObject obj)
+	{
+<span class="fc" id="L312">		Changes&lt;FollowerOption&gt; changes = context.getObjectContext().getListChanges(obj, ListKey.COMPANIONLIST);</span>
+<span class="fc" id="L313">		Collection&lt;FollowerOption&gt; removedItems = changes.getRemoved();</span>
+<span class="pc bpc" id="L314" title="4 of 6 branches missed.">		if (removedItems != null &amp;&amp; !removedItems.isEmpty() || changes.includesGlobalClear())</span>
+		{
+<span class="nc" id="L316">			context.addWriteMessage(getTokenName() + &quot; does not support .CLEAR&quot;);</span>
+<span class="nc" id="L317">			return null;</span>
+		}
+<span class="fc" id="L319">		Collection&lt;FollowerOption&gt; added = changes.getAdded();</span>
+<span class="pc bpc" id="L320" title="1 of 4 branches missed.">		if (added == null || added.isEmpty())</span>
+		{
+			// Zero indicates no Token (and no global clear, so nothing to do)
+<span class="fc" id="L323">			return null;</span>
+		}
+<span class="fc" id="L325">		TripleKeyMapToList&lt;Set&lt;Prerequisite&gt;, CDOMReference&lt;? extends CDOMList&lt;?&gt;&gt;, Integer, CDOMReference&lt;Race&gt;&gt; m =</span>
+				new TripleKeyMapToList&lt;&gt;();
+<span class="fc bfc" id="L327" title="All 2 branches covered.">		for (FollowerOption fo : added)</span>
+		{
+<span class="fc" id="L329">			m.addToListFor(new HashSet&lt;&gt;(fo.getPrerequisiteList()), fo.getListRef(), fo.getAdjustment(),</span>
+<span class="fc" id="L330">				fo.getRaceRef());</span>
+<span class="fc" id="L331">		}</span>
+<span class="fc" id="L332">		Set&lt;String&gt; set = new TreeSet&lt;&gt;();</span>
+<span class="fc" id="L333">		StringBuilder sb = new StringBuilder();</span>
+<span class="fc bfc" id="L334" title="All 2 branches covered.">		for (Set&lt;Prerequisite&gt; prereqs : m.getKeySet())</span>
+		{
+<span class="fc" id="L336">			String prereqString = null;</span>
+<span class="pc bpc" id="L337" title="1 of 4 branches missed.">			if (prereqs != null &amp;&amp; !prereqs.isEmpty())</span>
+			{
+<span class="fc" id="L339">				prereqString = getPrerequisiteString(context, prereqs);</span>
+			}
+
+<span class="fc bfc" id="L342" title="All 2 branches covered.">			for (CDOMReference&lt;? extends CDOMList&lt;?&gt;&gt; cl : m.getSecondaryKeySet(prereqs))</span>
+			{
+<span class="fc bfc" id="L344" title="All 2 branches covered.">				for (Integer fa : m.getTertiaryKeySet(prereqs, cl))</span>
+				{
+<span class="fc" id="L346">					sb.setLength(0);</span>
+<span class="fc" id="L347">					sb.append(cl.getLSTformat(false));</span>
+<span class="fc" id="L348">					sb.append(Constants.PIPE);</span>
+<span class="fc" id="L349">					Set&lt;CDOMReference&lt;Race&gt;&gt; raceSet = new TreeSet&lt;&gt;(ReferenceUtilities.REFERENCE_SORTER);</span>
+<span class="fc" id="L350">					raceSet.addAll(m.getListFor(prereqs, cl, fa));</span>
+<span class="fc" id="L351">					sb.append(ReferenceUtilities.joinLstFormat(raceSet, Constants.COMMA, true));</span>
+<span class="pc bpc" id="L352" title="1 of 4 branches missed.">					if (fa != null &amp;&amp; fa != 0)</span>
+					{
+<span class="fc" id="L354">						sb.append(Constants.PIPE);</span>
+<span class="fc" id="L355">						sb.append(&quot;FOLLOWERADJUSTMENT:&quot;);</span>
+<span class="fc" id="L356">						sb.append(fa);</span>
+					}
+<span class="fc bfc" id="L358" title="All 2 branches covered.">					if (prereqString != null)</span>
+					{
+<span class="fc" id="L360">						sb.append(Constants.PIPE);</span>
+<span class="fc" id="L361">						sb.append(prereqString);</span>
+					}
+<span class="fc" id="L363">					set.add(sb.toString());</span>
+<span class="fc" id="L364">				}</span>
+<span class="fc" id="L365">			}</span>
+<span class="fc" id="L366">		}</span>
+<span class="fc" id="L367">		return set.toArray(new String[0]);</span>
+	}
+
+	@Override
+	public Class&lt;CDOMObject&gt; getTokenClass()
+	{
+<span class="fc" id="L373">		return CDOMObject.class;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

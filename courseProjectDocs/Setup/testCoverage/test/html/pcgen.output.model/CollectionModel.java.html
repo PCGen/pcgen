@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CollectionModel.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.output.model</a> &gt; <span class="el_source">CollectionModel.java</span></div><h1>CollectionModel.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2014-15 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.output.model;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Objects;
+
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.ObjectWrapperFacet;
+
+import freemarker.template.TemplateModel;
+import freemarker.template.TemplateModelException;
+import freemarker.template.TemplateSequenceModel;
+
+/**
+ * A CollectionModel wraps a Collection into a TemplateSequenceModel
+ */
+public class CollectionModel implements TemplateSequenceModel
+{
+
+<span class="nc" id="L39">	private static final ObjectWrapperFacet WRAPPER_FACET = FacetLibrary.getFacet(ObjectWrapperFacet.class);</span>
+
+	/**
+	 * The underlying collection for this CollectionModel
+	 */
+	private final List&lt;?&gt; list;
+
+	private final CharID id;
+
+	/**
+	 * Constructs a new CollectionModel from the given Collection.
+	 * 
+	 * This constructor is value-semantic in that no changes are made to the
+	 * Collection passed into the method and ownership of the passed list is not
+	 * transferred to this class. A copy is made in this constructor and stored
+	 * in this CollectionModel.
+	 * 
+	 * @param id
+	 *            The CharID for the PlayerCharacter to which this
+	 *            CollectionModel belongs
+	 * @param c
+	 *            The underlying Collection for this CollectionModel
+	 * @throws IllegalArgumentException
+	 *             if the given Collection is null
+	 */
+	public CollectionModel(CharID id, Collection&lt;?&gt; c)
+<span class="nc" id="L65">	{</span>
+<span class="nc" id="L66">		Objects.requireNonNull(id, &quot;CharID may not be null&quot;);</span>
+<span class="nc" id="L67">		Objects.requireNonNull(c, &quot;Collection may not be null&quot;);</span>
+<span class="nc" id="L68">		this.id = id;</span>
+<span class="nc" id="L69">		this.list = new ArrayList&lt;&gt;(c);</span>
+<span class="nc" id="L70">	}</span>
+
+	@Override
+	public TemplateModel get(int index) throws TemplateModelException
+	{
+<span class="nc bnc" id="L75" title="All 4 branches missed.">		if ((index &lt; 0) || (index &gt;= list.size()))</span>
+		{
+<span class="nc" id="L77">			return null;</span>
+		}
+<span class="nc" id="L79">		return WRAPPER_FACET.wrap(id, list.get(index));</span>
+	}
+
+	@Override
+	public int size()
+	{
+<span class="nc" id="L85">		return list.size();</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

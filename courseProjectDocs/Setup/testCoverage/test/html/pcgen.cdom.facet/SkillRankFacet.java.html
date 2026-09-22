@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SkillRankFacet.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.facet</a> &gt; <span class="el_source">SkillRankFacet.java</span></div><h1>SkillRankFacet.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) Thomas Parker, 2012.
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package pcgen.cdom.facet;
+
+import java.util.Collection;
+import java.util.Collections;
+import java.util.EventListener;
+import java.util.EventObject;
+import java.util.HashMap;
+import java.util.IdentityHashMap;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Objects;
+
+import javax.swing.event.EventListenerList;
+
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.base.AbstractStorageFacet;
+import pcgen.core.PCClass;
+import pcgen.core.Skill;
+
+/**
+ * SkillRankFacet stores the number of Skill Ranks for a specific Skill for a
+ * Player Character.
+ * 
+ */
+<span class="fc" id="L42">public class SkillRankFacet extends AbstractStorageFacet&lt;CharID&gt;</span>
+{
+<span class="fc" id="L44">	private SkillRankChangeSupport support = new SkillRankChangeSupport();</span>
+
+	/**
+	 * Returns the type-safe CacheInfo for this SkillRankFacet and the given
+	 * CharID. Will return a new, empty CacheInfo if no Skill information has
+	 * been set for the given CharID. Will not return null.
+	 * 
+	 * Note that this method SHOULD NOT be public. The CacheInfo object is owned
+	 * by SkillRankFacet, and since it can be modified, a reference to that
+	 * object should not be exposed to any object other than SkillRankFacet.
+	 * 
+	 * @param id
+	 *            The CharID for which the CacheInfo should be returned
+	 * @return The CacheInfo for the Player Character represented by the given
+	 *         CharID.
+	 */
+	private Map&lt;Skill, Map&lt;PCClass, Double&gt;&gt; getConstructingInfo(CharID id)
+	{
+<span class="fc" id="L62">		Map&lt;Skill, Map&lt;PCClass, Double&gt;&gt; map = getInfo(id);</span>
+<span class="fc bfc" id="L63" title="All 2 branches covered.">		if (map == null)</span>
+		{
+<span class="fc" id="L65">			map = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L66">			setCache(id, map);</span>
+		}
+<span class="fc" id="L68">		return map;</span>
+	}
+
+	/**
+	 * Returns the type-safe CacheInfo for this SkillRankFacet and the given
+	 * CharID. May return null if no Skill information has been set for the
+	 * given CharID.
+	 * 
+	 * Note that this method SHOULD NOT be public. The CacheInfo object is owned
+	 * by SkillRankFacet, and since it can be modified, a reference to that
+	 * object should not be exposed to any object other than SkillRankFacet.
+	 * 
+	 * @param id
+	 *            The CharID for which the CacheInfo should be returned
+	 * @return The CacheInfo for the Player Character represented by the given
+	 *         CharID; null if no Skill information has been set for the Player
+	 *         Character.
+	 */
+	private Map&lt;Skill, Map&lt;PCClass, Double&gt;&gt; getInfo(CharID id)
+	{
+<span class="fc" id="L88">		return (Map&lt;Skill, Map&lt;PCClass, Double&gt;&gt;) getCache(id);</span>
+	}
+
+	public void set(CharID id, Skill skill, PCClass pcc, double value)
+	{
+<span class="fc" id="L93">		Objects.requireNonNull(skill, &quot;Skill cannot be null in add&quot;);</span>
+<span class="fc" id="L94">		float oldRank = getRank(id, skill);</span>
+<span class="fc" id="L95">		Map&lt;Skill, Map&lt;PCClass, Double&gt;&gt; map = getConstructingInfo(id);</span>
+<span class="fc" id="L96">		Map&lt;PCClass, Double&gt; clMap = map.get(skill);</span>
+<span class="fc bfc" id="L97" title="All 2 branches covered.">		if (clMap == null)</span>
+		{
+<span class="fc" id="L99">			clMap = new IdentityHashMap&lt;&gt;();</span>
+<span class="fc" id="L100">			map.put(skill, clMap);</span>
+		}
+<span class="fc" id="L102">		clMap.put(pcc, value);</span>
+
+<span class="fc" id="L104">		float newRank = getRank(id, skill);</span>
+<span class="fc" id="L105">		support.fireSkillRankChangeEvent(id, skill, oldRank, newRank);</span>
+<span class="fc" id="L106">	}</span>
+
+	/**
+	 * Copies the contents of the SkillRankFacet from one Player Character to
+	 * another Player Character, based on the given CharIDs representing those
+	 * Player Characters.
+	 * 
+	 * This is a method in SkillRankFacet in order to avoid exposing the mutable
+	 * Map object to other classes. This should not be inlined, as the Map is
+	 * internal information to SkillRankFacet and should not be exposed to other
+	 * classes.
+	 * 
+	 * Note also the copy is a one-time event and no references are maintained
+	 * between the Player Characters represented by the given CharIDs (meaning
+	 * once this copy takes place, any change to the SkillRankFacet of one
+	 * Player Character will only impact the Player Character where the
+	 * SkillRankFacet was changed).
+	 * 
+	 * @param source
+	 *            The CharID representing the Player Character from which the
+	 *            information should be copied
+	 * @param copy
+	 *            The CharID representing the Player Character to which the
+	 *            information should be copied
+	 */
+	@Override
+	public void copyContents(CharID source, CharID copy)
+	{
+<span class="fc" id="L134">		Map&lt;Skill, Map&lt;PCClass, Double&gt;&gt; map = getInfo(source);</span>
+<span class="fc bfc" id="L135" title="All 2 branches covered.">		if (map != null)</span>
+		{
+<span class="fc bfc" id="L137" title="All 2 branches covered.">			for (Entry&lt;Skill, Map&lt;PCClass, Double&gt;&gt; fme : map.entrySet())</span>
+			{
+<span class="fc" id="L139">				Skill sk = fme.getKey();</span>
+<span class="fc bfc" id="L140" title="All 2 branches covered.">				for (Entry&lt;PCClass, Double&gt; clEntry : fme.getValue().entrySet())</span>
+				{
+<span class="fc" id="L142">					set(copy, sk, clEntry.getKey(), clEntry.getValue());</span>
+<span class="fc" id="L143">				}</span>
+<span class="fc" id="L144">			}</span>
+		}
+<span class="fc" id="L146">	}</span>
+
+	public Collection&lt;PCClass&gt; getClasses(CharID id, Skill sk)
+	{
+<span class="nc" id="L150">		Map&lt;Skill, Map&lt;PCClass, Double&gt;&gt; map = getInfo(id);</span>
+<span class="nc bnc" id="L151" title="All 2 branches missed.">		if (map == null)</span>
+		{
+<span class="nc" id="L153">			return Collections.emptyList();</span>
+		}
+<span class="nc" id="L155">		Map&lt;PCClass, Double&gt; clMap = map.get(sk);</span>
+<span class="nc bnc" id="L156" title="All 2 branches missed.">		if (clMap == null)</span>
+		{
+<span class="nc" id="L158">			return Collections.emptyList();</span>
+		}
+<span class="nc" id="L160">		return Collections.unmodifiableSet(clMap.keySet());</span>
+	}
+
+	public Double get(CharID id, Skill sk, PCClass pcc)
+	{
+<span class="fc" id="L165">		Map&lt;Skill, Map&lt;PCClass, Double&gt;&gt; map = getInfo(id);</span>
+<span class="fc bfc" id="L166" title="All 2 branches covered.">		if (map == null)</span>
+		{
+<span class="fc" id="L168">			return null;</span>
+		}
+<span class="fc" id="L170">		Map&lt;PCClass, Double&gt; clMap = map.get(sk);</span>
+<span class="pc bpc" id="L171" title="1 of 2 branches missed.">		if (clMap == null)</span>
+		{
+<span class="nc" id="L173">			return null;</span>
+		}
+<span class="fc" id="L175">		return clMap.get(pcc);</span>
+	}
+
+	public void remove(CharID id, Skill sk, PCClass pcc)
+	{
+<span class="fc" id="L180">		Objects.requireNonNull(sk, &quot;Skill cannot be null in remove&quot;);</span>
+<span class="fc" id="L181">		Map&lt;Skill, Map&lt;PCClass, Double&gt;&gt; map = getInfo(id);</span>
+<span class="fc bfc" id="L182" title="All 2 branches covered.">		if (map != null)</span>
+		{
+<span class="fc" id="L184">			Map&lt;PCClass, Double&gt; clMap = map.get(sk);</span>
+<span class="fc bfc" id="L185" title="All 2 branches covered.">			if (clMap != null)</span>
+			{
+<span class="fc" id="L187">				float oldRank = getRank(id, sk);</span>
+<span class="fc" id="L188">				clMap.remove(pcc);</span>
+<span class="fc" id="L189">				float newRank = getRank(id, sk);</span>
+<span class="fc" id="L190">				support.fireSkillRankChangeEvent(id, sk, oldRank, newRank);</span>
+			}
+		}
+<span class="fc" id="L193">	}</span>
+
+	public float getRank(CharID id, Skill sk)
+	{
+<span class="fc" id="L197">		double rank = 0.0;</span>
+<span class="fc" id="L198">		Map&lt;Skill, Map&lt;PCClass, Double&gt;&gt; map = getInfo(id);</span>
+<span class="fc bfc" id="L199" title="All 2 branches covered.">		if (map != null)</span>
+		{
+<span class="fc" id="L201">			Map&lt;PCClass, Double&gt; clMap = map.get(sk);</span>
+<span class="fc bfc" id="L202" title="All 2 branches covered.">			if (clMap != null)</span>
+			{
+<span class="fc bfc" id="L204" title="All 2 branches covered.">				for (Double d : clMap.values())</span>
+				{
+<span class="fc" id="L206">					rank += d;</span>
+<span class="fc" id="L207">				}</span>
+			}
+		}
+<span class="fc" id="L210">		return (float) rank;</span>
+	}
+
+	public void addSkillRankChangeListener(SkillRankChangeListener listener)
+	{
+<span class="fc" id="L215">		support.addLevelChangeListener(listener);</span>
+<span class="fc" id="L216">	}</span>
+
+	@FunctionalInterface
+	public static interface SkillRankChangeListener extends EventListener
+	{
+		public void rankChanged(SkillRankChangeEvent lce);
+	}
+
+	public static class SkillRankChangeEvent extends EventObject
+	{
+		/**
+		 * The ID indicating the owning character for this SkillRankChangeEvent
+		 */
+		private final CharID charID;
+		private final Skill skill;
+		private final float oldRnk;
+		private final float newRnk;
+
+		public SkillRankChangeEvent(CharID source, Skill sk, float oldRank, float newRank)
+		{
+<span class="fc" id="L236">			super(source);</span>
+<span class="fc" id="L237">			Objects.requireNonNull(source, &quot;CharID cannot be null&quot;);</span>
+<span class="fc" id="L238">			Objects.requireNonNull(sk, &quot;PCClass cannot be null&quot;);</span>
+<span class="fc" id="L239">			charID = source;</span>
+<span class="fc" id="L240">			skill = sk;</span>
+<span class="fc" id="L241">			oldRnk = oldRank;</span>
+<span class="fc" id="L242">			newRnk = newRank;</span>
+<span class="fc" id="L243">		}</span>
+
+		/**
+		 * Returns an identifier indicating the PlayerCharacter on which this
+		 * event occurred.
+		 * 
+		 * @return A identifier indicating the PlayerCharacter on which this
+		 *         event occurred.
+		 */
+		public CharID getCharID()
+		{
+<span class="nc" id="L254">			return charID;</span>
+		}
+
+		public Skill getSkill()
+		{
+<span class="fc" id="L259">			return skill;</span>
+		}
+
+		public float getOldRank()
+		{
+<span class="fc" id="L264">			return oldRnk;</span>
+		}
+
+		public float getNewRank()
+		{
+<span class="fc" id="L269">			return newRnk;</span>
+		}
+	}
+
+<span class="fc" id="L273">	public static class SkillRankChangeSupport</span>
+	{
+		/**
+		 * The listeners to which SkillRankChangeEvents will be fired when a
+		 * change in the source SkillRankFacet occurs.
+		 */
+<span class="fc" id="L279">		private final EventListenerList listenerList = new EventListenerList();</span>
+
+		/**
+		 * Adds a new SkillRankChangeListener to receive SkillRankChangeEvents
+		 * (EdgeChangeEvent and NodeChangeEvent) from the source SkillRankFacet.
+		 * 
+		 * @param listener
+		 *            The LevelChangeListener to receive SkillRankChangeEvents
+		 */
+		public void addLevelChangeListener(SkillRankChangeListener listener)
+		{
+<span class="fc" id="L290">			listenerList.add(SkillRankChangeListener.class, listener);</span>
+<span class="fc" id="L291">		}</span>
+
+		/**
+		 * Returns an Array of SkillRankChangeListeners receiving
+		 * SkillRankChangeEvents from the source SkillRankFacet.
+		 * 
+		 * Ownership of the returned Array is transferred to the calling Object.
+		 * No reference to the Array is maintained by ClassLevelChangeSupport.
+		 * However, the SkillRankChangeListeners contained in the Array are
+		 * (obviously!) returned BY REFERENCE, and care should be taken with
+		 * modifying those SkillRankChangeListeners.*
+		 * 
+		 * @return An Array of SkillRankChangeListeners receiving
+		 *         SkillRankChangeEvents from the source SkillRankFacet
+		 */
+		public synchronized SkillRankChangeListener[] getLevelChangeListeners()
+		{
+<span class="nc" id="L308">			return listenerList.getListeners(SkillRankChangeListener.class);</span>
+		}
+
+		/**
+		 * Removes a SkillRankChangeListener so that it will no longer receive
+		 * SkillRankChangeEvents from the source SkillRankFacet.
+		 * 
+		 * @param listener
+		 *            The LevelChangeListener to be removed
+		 */
+		public void removeLevelChangeListener(SkillRankChangeListener listener)
+		{
+<span class="nc" id="L320">			listenerList.remove(SkillRankChangeListener.class, listener);</span>
+<span class="nc" id="L321">		}</span>
+
+		/**
+		 * Sends a SkillRankChangeEvent to the SkillRankChangeListeners that are
+		 * receiving SkillRankChangeEvents from the source SkillRankFacet.
+		 * 
+		 * @param id
+		 *            The CharID on which the skill rank change has taken place
+		 * @param sk
+		 *            The Skill to be added to the list of PCClass objects
+		 *            stored in this Facet for the Player Character represented
+		 *            by the given CharID
+		 * @param oldRank
+		 *            The character's previous rank for the given skill
+		 * 
+		 * @param newRank
+		 *            The character's new rank for the given skill.
+		 */
+		protected void fireSkillRankChangeEvent(CharID id, Skill sk, float oldRank, float newRank)
+		{
+<span class="fc bfc" id="L341" title="All 2 branches covered.">			if (oldRank == newRank)</span>
+			{
+				// Nothing to do
+<span class="fc" id="L344">				return;</span>
+			}
+<span class="fc" id="L346">			SkillRankChangeListener[] listeners = listenerList.getListeners(SkillRankChangeListener.class);</span>
+			/*
+			 * This list is decremented from the end of the list to the
+			 * beginning in order to maintain consistent operation with how Java
+			 * AWT and Swing listeners are notified of Events (they are in
+			 * reverse order to how they were added to the Event-owning object).
+			 */
+<span class="fc" id="L353">			SkillRankChangeEvent ccEvent = null;</span>
+<span class="fc bfc" id="L354" title="All 2 branches covered.">			for (int i = listeners.length - 1; i &gt;= 0; i--)</span>
+			{
+				// Lazily create event
+<span class="pc bpc" id="L357" title="1 of 2 branches missed.">				if (ccEvent == null)</span>
+				{
+<span class="fc" id="L359">					ccEvent = new SkillRankChangeEvent(id, sk, oldRank, newRank);</span>
+				}
+<span class="fc" id="L361">				listeners[i].rankChanged(ccEvent);</span>
+			}
+<span class="fc" id="L363">		}</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

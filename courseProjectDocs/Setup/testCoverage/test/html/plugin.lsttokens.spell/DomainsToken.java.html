@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DomainsToken.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.lsttokens.spell</a> &gt; <span class="el_source">DomainsToken.java</span></div><h1>DomainsToken.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) 2008 Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package plugin.lsttokens.spell;
+
+import java.io.StringWriter;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.SortedSet;
+import java.util.StringTokenizer;
+import java.util.TreeSet;
+
+import pcgen.base.util.DoubleKeyMapToList;
+import pcgen.base.util.MapToList;
+import pcgen.cdom.base.AssociatedPrereqObject;
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.AssociationKey;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.list.DomainSpellList;
+import pcgen.cdom.reference.ReferenceUtilities;
+import pcgen.core.prereq.Prerequisite;
+import pcgen.core.spell.Spell;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
+import pcgen.rules.context.AssociatedChanges;
+import pcgen.rules.context.Changes;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.TokenUtilities;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.ParseResult;
+
+/**
+ * Class deals with DOMAINS Token
+ */
+<span class="fc" id="L52">public class DomainsToken extends AbstractTokenWithSeparator&lt;Spell&gt; implements CDOMPrimaryToken&lt;Spell&gt;</span>
+{
+
+<span class="fc" id="L55">	private static final Class&lt;DomainSpellList&gt; SPELLLIST_CLASS = DomainSpellList.class;</span>
+
+	@Override
+	public String getTokenName()
+	{
+<span class="fc" id="L60">		return &quot;DOMAINS&quot;;</span>
+	}
+
+	@Override
+	public ParseResult parseToken(LoadContext context, Spell spell, String value)
+	{
+<span class="fc bfc" id="L66" title="All 2 branches covered.">		if (Constants.LST_DOT_CLEAR_ALL.equals(value))</span>
+		{
+<span class="fc" id="L68">			context.getListContext().clearAllMasterLists(getTokenName(), spell);</span>
+<span class="fc" id="L69">			return ParseResult.SUCCESS;</span>
+		}
+<span class="fc" id="L71">		return super.parseToken(context, spell, value);</span>
+	}
+
+	@Override
+	protected char separator()
+	{
+<span class="fc" id="L77">		return '|';</span>
+	}
+
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context, Spell spell, String value)
+	{
+		// Note: May contain PRExxx
+		String domainKey;
+<span class="fc" id="L85">		Prerequisite prereq = null;</span>
+<span class="fc" id="L86">		int openBracketLoc = value.indexOf('[');</span>
+<span class="fc bfc" id="L87" title="All 2 branches covered.">		if (openBracketLoc == -1)</span>
+		{
+<span class="fc" id="L89">			domainKey = value;</span>
+		}
+		else
+		{
+<span class="fc bfc" id="L93" title="All 2 branches covered.">			if (value.lastIndexOf(']') != value.length() - 1)</span>
+			{
+<span class="fc" id="L95">				return new ParseResult.Fail(</span>
+<span class="fc" id="L96">					&quot;Invalid &quot; + getTokenName() + &quot; must end with ']' if it contains a PREREQ tag&quot;);</span>
+			}
+<span class="fc" id="L98">			domainKey = value.substring(0, openBracketLoc);</span>
+<span class="fc" id="L99">			String prereqString = value.substring(openBracketLoc + 1, value.length() - 1);</span>
+<span class="fc bfc" id="L100" title="All 2 branches covered.">			if (prereqString.isEmpty())</span>
+			{
+<span class="fc" id="L102">				return new ParseResult.Fail(getTokenName() + &quot; cannot have empty prerequisite : &quot; + value);</span>
+			}
+<span class="fc" id="L104">			prereq = getPrerequisite(prereqString);</span>
+<span class="fc bfc" id="L105" title="All 2 branches covered.">			if (prereq == null)</span>
+			{
+<span class="fc" id="L107">				return new ParseResult.Fail(getTokenName() + &quot; had invalid prerequisite : &quot; + prereqString);</span>
+			}
+		}
+
+<span class="fc" id="L111">		boolean foundAny = false;</span>
+<span class="fc" id="L112">		boolean foundOther = false;</span>
+
+<span class="fc" id="L114">		StringTokenizer pipeTok = new StringTokenizer(domainKey, Constants.PIPE);</span>
+
+<span class="fc bfc" id="L116" title="All 2 branches covered.">		while (pipeTok.hasMoreTokens())</span>
+		{
+			// could be name=x or name,name=x
+<span class="fc" id="L119">			String tokString = pipeTok.nextToken();</span>
+
+<span class="fc" id="L121">			int equalLoc = tokString.indexOf(Constants.EQUALS);</span>
+<span class="fc bfc" id="L122" title="All 2 branches covered.">			if (equalLoc == -1)</span>
+			{
+<span class="fc" id="L124">				return new ParseResult.Fail(&quot;Malformed &quot; + getTokenName() + &quot; Token (expecting an =): &quot; + tokString);</span>
+			}
+<span class="fc bfc" id="L126" title="All 2 branches covered.">			if (equalLoc != tokString.lastIndexOf(Constants.EQUALS))</span>
+			{
+<span class="fc" id="L128">				return new ParseResult.Fail(&quot;Malformed &quot; + getTokenName() + &quot; Token (more than one =): &quot; + tokString);</span>
+			}
+
+<span class="fc" id="L131">			String nameList = tokString.substring(0, equalLoc);</span>
+<span class="fc" id="L132">			String levelString = tokString.substring(equalLoc + 1);</span>
+			int level;
+			try
+			{
+<span class="fc" id="L136">				level = Integer.parseInt(levelString);</span>
+<span class="fc bfc" id="L137" title="All 2 branches covered.">				if (level &lt; -1)</span>
+				{
+<span class="fc" id="L139">					return new ParseResult.Fail(getTokenName() + &quot; may not use a negative level: &quot; + value);</span>
+				}
+<span class="fc bfc" id="L141" title="All 2 branches covered.">				else if (level == -1)</span>
+				{
+<span class="fc bfc" id="L143" title="All 2 branches covered.">					if (prereq != null)</span>
+					{
+<span class="fc" id="L145">						return new ParseResult.Fail(getTokenName() + &quot; may not use -1 with a PREREQ: &quot; + value);</span>
+					}
+					// Logging.deprecationPrint(getTokenName()
+					// + &quot; should not use a negative level: &quot; + value);
+				}
+			}
+<span class="fc" id="L151">			catch (NumberFormatException nfe)</span>
+			{
+<span class="fc" id="L153">				return new ParseResult.Fail(</span>
+<span class="fc" id="L154">					&quot;Malformed Level in &quot; + getTokenName() + &quot; (expected an Integer): &quot; + levelString);</span>
+<span class="fc" id="L155">			}</span>
+
+<span class="fc" id="L157">			ParseResult pr = checkForIllegalSeparator(',', nameList);</span>
+<span class="fc bfc" id="L158" title="All 2 branches covered.">			if (!pr.passed())</span>
+			{
+<span class="fc" id="L160">				return pr;</span>
+			}
+
+<span class="fc" id="L163">			StringTokenizer commaTok = new StringTokenizer(nameList, Constants.COMMA);</span>
+
+<span class="fc bfc" id="L165" title="All 2 branches covered.">			while (commaTok.hasMoreTokens())</span>
+			{
+				CDOMReference&lt;DomainSpellList&gt; ref;
+<span class="fc" id="L168">				String token = commaTok.nextToken();</span>
+<span class="fc bfc" id="L169" title="All 2 branches covered.">				if (Constants.LST_ALL.equals(token))</span>
+				{
+<span class="fc" id="L171">					foundAny = true;</span>
+<span class="fc" id="L172">					ref = context.getReferenceContext().getCDOMAllReference(SPELLLIST_CLASS);</span>
+				}
+				else
+				{
+<span class="fc" id="L176">					foundOther = true;</span>
+<span class="fc" id="L177">					ref = TokenUtilities.getTypeOrPrimitive(context, SPELLLIST_CLASS, token);</span>
+				}
+<span class="fc bfc" id="L179" title="All 2 branches covered.">				if (ref == null)</span>
+				{
+<span class="fc" id="L181">					return new ParseResult.Fail(&quot;  Error was in &quot; + getTokenName());</span>
+				}
+<span class="fc bfc" id="L183" title="All 2 branches covered.">				if (level == -1)</span>
+				{
+					//No need to check for prereq here - done above
+<span class="fc" id="L186">					context.getListContext().removeFromMasterList(getTokenName(), spell, ref, spell);</span>
+				}
+				else
+				{
+<span class="fc" id="L190">					AssociatedPrereqObject edge =</span>
+<span class="fc" id="L191">							context.getListContext().addToMasterList(getTokenName(), spell, ref, spell);</span>
+<span class="fc" id="L192">					edge.setAssociation(AssociationKey.SPELL_LEVEL, level);</span>
+<span class="fc bfc" id="L193" title="All 2 branches covered.">					if (prereq != null)</span>
+					{
+<span class="fc" id="L195">						edge.addPrerequisite(prereq);</span>
+					}
+<span class="fc" id="L197">					context.getObjectContext().addToList(spell, ListKey.SPELL_DOMAINLEVEL, token + ' ' + level);</span>
+				}
+<span class="fc" id="L199">			}</span>
+<span class="fc" id="L200">		}</span>
+<span class="pc bpc" id="L201" title="1 of 4 branches missed.">		if (foundAny &amp;&amp; foundOther)</span>
+		{
+<span class="nc" id="L203">			return new ParseResult.Fail(</span>
+<span class="nc" id="L204">				&quot;Non-sensical &quot; + getTokenName() + &quot;: Contains ANY and a specific reference: &quot; + value);</span>
+		}
+<span class="fc" id="L206">		return ParseResult.SUCCESS;</span>
+	}
+
+	@Override
+	public String[] unparse(LoadContext context, Spell spell)
+	{
+<span class="fc" id="L212">		DoubleKeyMapToList&lt;Prerequisite, Integer, CDOMReference&lt;DomainSpellList&gt;&gt; dkmtl = new DoubleKeyMapToList&lt;&gt;();</span>
+<span class="fc" id="L213">		List&lt;String&gt; list = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L214">		Changes&lt;CDOMReference&lt;DomainSpellList&gt;&gt; masterChanges =</span>
+<span class="fc" id="L215">				context.getListContext().getMasterListChanges(getTokenName(), spell, SPELLLIST_CLASS);</span>
+<span class="pc bpc" id="L216" title="1 of 2 branches missed.">		if (masterChanges.includesGlobalClear())</span>
+		{
+<span class="nc" id="L218">			list.add(Constants.LST_DOT_CLEAR_ALL);</span>
+		}
+<span class="pc bpc" id="L220" title="1 of 2 branches missed.">		if (masterChanges.hasRemovedItems())</span>
+		{
+<span class="nc bnc" id="L222" title="All 2 branches missed.">			for (CDOMReference&lt;DomainSpellList&gt; swl : masterChanges.getRemoved())</span>
+			{
+<span class="nc" id="L224">				AssociatedChanges&lt;Spell&gt; changes =</span>
+<span class="nc" id="L225">						context.getListContext().getChangesInMasterList(getTokenName(), spell, swl);</span>
+<span class="nc" id="L226">				MapToList&lt;Spell, AssociatedPrereqObject&gt; map = changes.getRemovedAssociations();</span>
+<span class="nc bnc" id="L227" title="All 4 branches missed.">				if (map != null &amp;&amp; !map.isEmpty())</span>
+				{
+<span class="nc bnc" id="L229" title="All 2 branches missed.">					for (Spell added : map.getKeySet())</span>
+					{
+<span class="nc bnc" id="L231" title="All 2 branches missed.">						if (!spell.getKeyName().equals(added.getKeyName()))</span>
+						{
+<span class="nc" id="L233">							context.addWriteMessage(&quot;Spell &quot; + getTokenName() + &quot; token cannot remove another Spell &quot;</span>
+								+ &quot;(must only remove itself)&quot;);
+<span class="nc" id="L235">							return null;</span>
+						}
+<span class="nc bnc" id="L237" title="All 2 branches missed.">						for (AssociatedPrereqObject assoc : map.getListFor(added))</span>
+						{
+<span class="nc" id="L239">							List&lt;Prerequisite&gt; prereqs = assoc.getPrerequisiteList();</span>
+<span class="nc bnc" id="L240" title="All 4 branches missed.">							if (prereqs != null &amp;&amp; !prereqs.isEmpty())</span>
+							{
+<span class="nc" id="L242">								context.addWriteMessage(&quot;Incoming Remove &quot; + &quot;Edge to &quot; + spell.getKeyName() + &quot; had a &quot;</span>
+<span class="nc" id="L243">									+ &quot;Prerequisite: &quot; + prereqs.size());</span>
+<span class="nc" id="L244">								return null;</span>
+							}
+<span class="nc" id="L246">							dkmtl.addToListFor(null, -1, swl);</span>
+<span class="nc" id="L247">						}</span>
+<span class="nc" id="L248">					}</span>
+				}
+<span class="nc" id="L250">			}</span>
+		}
+<span class="fc bfc" id="L252" title="All 2 branches covered.">		for (CDOMReference&lt;DomainSpellList&gt; swl : masterChanges.getAdded())</span>
+		{
+<span class="fc" id="L254">			AssociatedChanges&lt;Spell&gt; changes =</span>
+<span class="fc" id="L255">					context.getListContext().getChangesInMasterList(getTokenName(), spell, swl);</span>
+<span class="fc" id="L256">			Collection&lt;Spell&gt; removedItems = changes.getRemoved();</span>
+<span class="pc bpc" id="L257" title="4 of 6 branches missed.">			if (removedItems != null &amp;&amp; !removedItems.isEmpty() || changes.includesGlobalClear())</span>
+			{
+<span class="nc" id="L259">				context.addWriteMessage(getTokenName() + &quot; does not support .CLEAR.&quot;);</span>
+<span class="nc" id="L260">				return null;</span>
+			}
+<span class="fc" id="L262">			MapToList&lt;Spell, AssociatedPrereqObject&gt; map = changes.getAddedAssociations();</span>
+<span class="pc bpc" id="L263" title="2 of 4 branches missed.">			if (map != null &amp;&amp; !map.isEmpty())</span>
+			{
+<span class="fc bfc" id="L265" title="All 2 branches covered.">				for (Spell added : map.getKeySet())</span>
+				{
+<span class="pc bpc" id="L267" title="1 of 2 branches missed.">					if (!spell.getKeyName().equals(added.getKeyName()))</span>
+					{
+<span class="nc" id="L269">						context.addWriteMessage(&quot;Spell &quot; + getTokenName() + &quot; token cannot allow another Spell &quot;</span>
+							+ &quot;(must only allow itself)&quot;);
+<span class="nc" id="L271">						return null;</span>
+					}
+<span class="fc bfc" id="L273" title="All 2 branches covered.">					for (AssociatedPrereqObject assoc : map.getListFor(added))</span>
+					{
+<span class="fc" id="L275">						List&lt;Prerequisite&gt; prereqs = assoc.getPrerequisiteList();</span>
+						Prerequisite prereq;
+<span class="pc bpc" id="L277" title="1 of 4 branches missed.">						if (prereqs == null || prereqs.isEmpty())</span>
+						{
+<span class="fc" id="L279">							prereq = null;</span>
+						}
+<span class="pc bpc" id="L281" title="1 of 2 branches missed.">						else if (prereqs.size() == 1)</span>
+						{
+<span class="fc" id="L283">							prereq = prereqs.get(0);</span>
+						}
+						else
+						{
+<span class="nc" id="L287">							context.addWriteMessage(&quot;Incoming Edge to &quot; + spell.getKeyName() + &quot; had more than one &quot;</span>
+<span class="nc" id="L288">								+ &quot;Prerequisite: &quot; + prereqs.size());</span>
+<span class="nc" id="L289">							return null;</span>
+						}
+<span class="fc" id="L291">						Integer level = assoc.getAssociation(AssociationKey.SPELL_LEVEL);</span>
+<span class="pc bpc" id="L292" title="1 of 2 branches missed.">						if (level == null)</span>
+						{
+<span class="nc" id="L294">							context.addWriteMessage(</span>
+<span class="nc" id="L295">								&quot;Incoming Allows Edge to &quot; + spell.getKeyName() + &quot; had no Spell Level defined&quot;);</span>
+<span class="nc" id="L296">							return null;</span>
+						}
+<span class="pc bpc" id="L298" title="1 of 2 branches missed.">						if (level &lt; 0)</span>
+						{
+<span class="nc" id="L300">							context.addWriteMessage(&quot;Incoming Allows Edge to &quot; + spell.getKeyName()</span>
+								+ &quot; had invalid Level: &quot; + level + &quot;. Must be &gt;= 0.&quot;);
+<span class="nc" id="L302">							return null;</span>
+						}
+<span class="fc" id="L304">						dkmtl.addToListFor(prereq, level, swl);</span>
+<span class="fc" id="L305">					}</span>
+<span class="fc" id="L306">				}</span>
+			}
+<span class="fc" id="L308">		}</span>
+<span class="fc bfc" id="L309" title="All 2 branches covered.">		if (dkmtl.isEmpty())</span>
+		{
+<span class="pc bpc" id="L311" title="1 of 2 branches missed.">			if (list.isEmpty())</span>
+			{
+<span class="fc" id="L313">				return null; // Legal if no DOMAINS was present in the Spell</span>
+			}
+			else
+			{
+<span class="nc" id="L317">				return list.toArray(new String[0]);</span>
+			}
+		}
+<span class="fc" id="L320">		PrerequisiteWriter prereqWriter = new PrerequisiteWriter();</span>
+<span class="fc" id="L321">		SortedSet&lt;CDOMReference&lt;DomainSpellList&gt;&gt; set = new TreeSet&lt;&gt;(ReferenceUtilities.REFERENCE_SORTER);</span>
+<span class="fc" id="L322">		SortedSet&lt;Integer&gt; levelSet = new TreeSet&lt;&gt;();</span>
+<span class="fc bfc" id="L323" title="All 2 branches covered.">		for (Prerequisite prereq : dkmtl.getKeySet())</span>
+		{
+<span class="fc" id="L325">			StringBuilder sb = new StringBuilder();</span>
+<span class="fc" id="L326">			boolean needPipe = false;</span>
+<span class="fc" id="L327">			levelSet.clear();</span>
+<span class="fc" id="L328">			levelSet.addAll(dkmtl.getSecondaryKeySet(prereq));</span>
+<span class="fc bfc" id="L329" title="All 2 branches covered.">			for (Integer i : levelSet)</span>
+			{
+<span class="fc" id="L331">				set.clear();</span>
+<span class="fc" id="L332">				set.addAll(dkmtl.getListFor(prereq, i));</span>
+<span class="fc bfc" id="L333" title="All 2 branches covered.">				if (needPipe)</span>
+				{
+<span class="fc" id="L335">					sb.append(Constants.PIPE);</span>
+				}
+<span class="fc" id="L337">				sb.append(ReferenceUtilities.joinLstFormat(set, Constants.COMMA));</span>
+<span class="fc" id="L338">				sb.append('=').append(i);</span>
+<span class="fc" id="L339">				needPipe = true;</span>
+<span class="fc" id="L340">			}</span>
+<span class="fc bfc" id="L341" title="All 2 branches covered.">			if (prereq != null)</span>
+			{
+<span class="fc" id="L343">				sb.append('[');</span>
+<span class="fc" id="L344">				StringWriter swriter = new StringWriter();</span>
+				try
+				{
+<span class="fc" id="L347">					prereqWriter.write(swriter, prereq);</span>
+				}
+<span class="nc" id="L349">				catch (PersistenceLayerException e)</span>
+				{
+<span class="nc" id="L351">					context.addWriteMessage(&quot;Error writing Prerequisite: &quot; + e);</span>
+<span class="nc" id="L352">					return null;</span>
+<span class="fc" id="L353">				}</span>
+<span class="fc" id="L354">				sb.append(swriter.toString());</span>
+<span class="fc" id="L355">				sb.append(']');</span>
+			}
+<span class="fc" id="L357">			list.add(sb.toString());</span>
+<span class="fc" id="L358">		}</span>
+<span class="fc" id="L359">		return list.toArray(new String[0]);</span>
+	}
+
+	@Override
+	public Class&lt;Spell&gt; getTokenClass()
+	{
+<span class="fc" id="L365">		return Spell.class;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

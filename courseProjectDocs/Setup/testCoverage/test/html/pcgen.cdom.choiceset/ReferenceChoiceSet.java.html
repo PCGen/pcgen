@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ReferenceChoiceSet.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.choiceset</a> &gt; <span class="el_source">ReferenceChoiceSet.java</span></div><h1>ReferenceChoiceSet.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2006 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ * 
+ * 
+ */
+package pcgen.cdom.choiceset;
+
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+
+import pcgen.util.WeightedCollection;
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.PrimitiveChoiceSet;
+import pcgen.cdom.enumeration.GroupingState;
+import pcgen.cdom.reference.ReferenceUtilities;
+import pcgen.core.PlayerCharacter;
+
+/**
+ * A ReferenceChoiceSet contains references to Objects. Often these are
+ * CDOMObjects, but that is not strictly required.
+ * 
+ * The contents of a ReferenceChoiceSet is defined at construction of the
+ * ReferenceChoiceSet. The contents of a ReferenceChoiceSet is fixed, and will
+ * not vary by the PlayerCharacter used to resolve the ReferenceChoiceSet.
+ * 
+ * @param &lt;T&gt;
+ *            The class of object this ReferenceChoiceSet contains.
+ */
+public final class ReferenceChoiceSet&lt;T&gt; implements PrimitiveChoiceSet&lt;T&gt;
+{
+
+	/**
+	 * The underlying Set of CDOMReferences that contain the objects in this
+	 * ReferenceChoiceSet
+	 */
+	private final Collection&lt;CDOMReference&lt;T&gt;&gt; refCollection;
+
+	/**
+	 * Constructs a new ReferenceChoiceSet which contains the Set of objects
+	 * contained within the given CDOMReferences. The CDOMReferences do not need
+	 * to be resolved at the time of construction of the ReferenceChoiceSet.
+	 * 
+	 * This constructor is reference-semantic and value-semantic. Ownership of
+	 * the Collection provided to this constructor is not transferred.
+	 * Modification of the Collection (after this constructor completes) does
+	 * not result in modifying the ReferenceChoiceSet, and the
+	 * ReferenceChoiceSet will not modify the given Collection. However, this
+	 * ReferenceChoiceSet will maintain strong references to the CDOMReference
+	 * objects contained within the given Collection.
+	 * 
+	 * @param col
+	 *            A Collection of CDOMReferences which define the Set of objects
+	 *            contained within the ReferenceChoiceSet
+	 * @throws IllegalArgumentException
+	 *             if the given Collection is null or empty.
+	 */
+	public ReferenceChoiceSet(Collection&lt;? extends CDOMReference&lt;T&gt;&gt; col)
+<span class="fc" id="L75">	{</span>
+<span class="fc" id="L76">		Objects.requireNonNull(col, &quot;Choice Collection cannot be null&quot;);</span>
+<span class="pc bpc" id="L77" title="1 of 2 branches missed.">		if (col.isEmpty())</span>
+		{
+<span class="nc" id="L79">			throw new IllegalArgumentException(&quot;Choice Collection cannot be empty&quot;);</span>
+		}
+<span class="fc" id="L81">		refCollection = new WeightedCollection&lt;&gt;(col);</span>
+<span class="fc" id="L82">	}</span>
+
+	/**
+	 * Returns a representation of this ReferenceChoiceSet, suitable for storing
+	 * in an LST file.
+	 * 
+	 * @param useAny
+	 *            use &quot;ANY&quot; for the global &quot;ALL&quot; reference when creating the LST
+	 *            format
+	 * @return A representation of this ReferenceChoiceSet, suitable for storing
+	 *         in an LST file.
+	 */
+	@Override
+	public String getLSTformat(boolean useAny)
+	{
+<span class="fc" id="L97">		WeightedCollection&lt;CDOMReference&lt;?&gt;&gt; sortedSet = new WeightedCollection&lt;&gt;(ReferenceUtilities.REFERENCE_SORTER);</span>
+<span class="fc" id="L98">		sortedSet.addAll(refCollection);</span>
+<span class="fc" id="L99">		return ReferenceUtilities.joinLstFormat(sortedSet, Constants.COMMA, useAny);</span>
+	}
+
+	/**
+	 * The class of object this ReferenceChoiceSet contains.
+	 * 
+	 * The behavior of this method is undefined if the CDOMReference objects
+	 * provided during the construction of this ReferenceChoiceSet are not yet
+	 * resolved.
+	 * 
+	 * @return The class of object this ReferenceChoiceSet contains.
+	 */
+	@Override
+	public Class&lt;T&gt; getChoiceClass()
+	{
+<span class="pc bpc" id="L114" title="1 of 2 branches missed.">		return refCollection == null ? null : refCollection.iterator().next().getReferenceClass();</span>
+	}
+
+	/**
+	 * Returns a Set containing the Objects which this ReferenceChoiceSet
+	 * contains. The contents of a ReferenceChoiceSet is fixed, and will not
+	 * vary by the PlayerCharacter used to resolve the ReferenceChoiceSet.
+	 * 
+	 * The behavior of this method is undefined if the CDOMReference objects
+	 * provided during the construction of this ReferenceChoiceSet are not yet
+	 * resolved.
+	 * 
+	 * Ownership of the Set returned by this method will be transferred to the
+	 * calling object. Modification of the returned Set should not result in
+	 * modifying the ReferenceChoiceSet, and modifying the ReferenceChoiceSet
+	 * after the Set is returned should not modify the Set. However,
+	 * modification of the underlying objects contained within the Set will
+	 * result in modification of the object contained in this
+	 * ReferenceChoiceSet.
+	 * 
+	 * @param pc
+	 *            The PlayerCharacter for which the choices in this
+	 *            ReferenceChoiceSet should be returned.
+	 * @return A Set containing the Objects which this ReferenceChoiceSet
+	 *         contains.
+	 */
+	@Override
+	public Set&lt;T&gt; getSet(PlayerCharacter pc)
+	{
+<span class="nc" id="L143">		Set&lt;T&gt; returnSet = new HashSet&lt;&gt;();</span>
+<span class="nc bnc" id="L144" title="All 2 branches missed.">		for (CDOMReference&lt;T&gt; ref : refCollection)</span>
+		{
+<span class="nc" id="L146">			returnSet.addAll(ref.getContainedObjects());</span>
+<span class="nc" id="L147">		}</span>
+<span class="nc" id="L148">		return returnSet;</span>
+	}
+
+	@Override
+	public int hashCode()
+	{
+<span class="nc" id="L154">		return refCollection.size();</span>
+	}
+
+	@Override
+	public boolean equals(Object obj)
+	{
+<span class="pc bpc" id="L160" title="1 of 2 branches missed.">		if (obj == this)</span>
+		{
+<span class="nc" id="L162">			return true;</span>
+		}
+<span class="pc bpc" id="L164" title="1 of 2 branches missed.">		if (obj instanceof ReferenceChoiceSet&lt;?&gt; other)</span>
+		{
+<span class="fc" id="L166">			return refCollection.equals(other.refCollection);</span>
+		}
+<span class="nc" id="L168">		return false;</span>
+	}
+
+	/**
+	 * Returns the GroupingState for this ReferenceChoiceSet. The GroupingState
+	 * indicates how this ReferenceChoiceSet can be combined with other
+	 * PrimitiveChoiceSets.
+	 * 
+	 * @return The GroupingState for this ReferenceChoiceSet.
+	 */
+	@Override
+	public GroupingState getGroupingState()
+	{
+<span class="fc" id="L181">		GroupingState state = GroupingState.EMPTY;</span>
+<span class="fc bfc" id="L182" title="All 2 branches covered.">		for (CDOMReference&lt;T&gt; ref : refCollection)</span>
+		{
+<span class="fc" id="L184">			state = ref.getGroupingState().add(state);</span>
+<span class="fc" id="L185">		}</span>
+<span class="fc" id="L186">		return state.compound(GroupingState.ALLOWS_UNION);</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

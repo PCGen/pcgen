@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BigDecimalHelper.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.util</a> &gt; <span class="el_source">BigDecimalHelper.java</span></div><h1>BigDecimalHelper.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2003 (C) Jonas Karlsson &lt;jujutsunerd@sf.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ */
+package pcgen.util;
+
+import java.math.BigDecimal;
+
+/**
+ * This contains helper functions for BigDecimal.
+ */
+public final class BigDecimalHelper
+{
+
+	private BigDecimalHelper()
+	{
+	}
+
+	/**
+	 * trimBigDecimal ( (BigDecimal) a) to cut off all trailing zeros.
+	 * It's a terrible hack.
+	 * @param n the BigDecimal to trim all trailing zeros from
+	 * @return the trimmed BigDecimal
+	 */
+	public static BigDecimal trimBigDecimal(BigDecimal n)
+	{
+<span class="fc bfc" id="L41" title="All 2 branches covered.">		if (n.unscaledValue().intValue() == 0)</span>
+		{
+			// Java 1.5 will not throw an ArthmeticException if you change the
+			// scale of 0.0 to 0, so it will keep going through the loop below
+			// forever. To get around this we test for the special case here.
+<span class="fc" id="L46">			return BigDecimal.ZERO;</span>
+		}
+
+<span class="pc bpc" id="L49" title="1 of 2 branches missed.">		if (n.scale() &lt;= 0)</span>
+		{
+<span class="fc" id="L51">			return n;</span>
+		}
+
+<span class="nc" id="L54">		BigDecimal stripped = n.stripTrailingZeros();</span>
+<span class="nc bnc" id="L55" title="All 2 branches missed.">		if (stripped.scale() &lt; 0)</span>
+		{
+<span class="nc" id="L57">			stripped = n.setScale(0);</span>
+		}
+
+<span class="nc" id="L60">		return stripped;</span>
+	}
+
+	/**
+	 * Returns a string with the trimmed number.
+	 * E.g. {@literal numberToTrim=3.1000 &gt; 3.1 }
+	 * If numberToTrim is non-numeric, 0 is returned (should be changed.)
+	 * @param numberToTrim The value to trim.
+	 * @return String
+	 */
+	public static String trimZeros(String numberToTrim)
+	{
+<span class="nc" id="L72">		BigDecimal aBigD = BigDecimal.ZERO;</span>
+
+		try
+		{
+<span class="nc" id="L76">			aBigD = new BigDecimal(numberToTrim);</span>
+		}
+<span class="nc" id="L78">		catch (NumberFormatException exc)</span>
+		{
+<span class="nc" id="L80">			Logging.errorPrint(&quot;Cannot trim zeroes from &quot; + numberToTrim + &quot; as is not a number. Using 0 instead.&quot;);</span>
+<span class="nc" id="L81">		}</span>
+
+<span class="nc" id="L83">		return trimBigDecimal(aBigD).toString();</span>
+	}
+
+	/**
+	 * Trims the zeros. 
+	 * @param n bigdecimal to trim
+	 * @return String without zeros
+	 */
+	public static String trimZeros(BigDecimal n)
+	{
+<span class="nc" id="L93">		return trimBigDecimal(n).toString();</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

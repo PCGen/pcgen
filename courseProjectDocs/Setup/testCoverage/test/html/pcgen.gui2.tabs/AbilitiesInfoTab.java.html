@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AbilitiesInfoTab.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.gui2.tabs</a> &gt; <span class="el_source">AbilitiesInfoTab.java</span></div><h1>AbilitiesInfoTab.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2008 Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ * 
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ * 
+ */
+package pcgen.gui2.tabs;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Hashtable;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+
+import pcgen.core.AbilityCategory;
+import pcgen.facade.core.AbilityFacade;
+import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.util.DefaultListFacade;
+import pcgen.facade.util.ListFacade;
+import pcgen.facade.util.MapFacade;
+import pcgen.facade.util.event.ListEvent;
+import pcgen.facade.util.event.ListListener;
+import pcgen.gui2.util.SharedTabPane;
+import pcgen.util.Logging;
+import pcgen.util.enumeration.Tab;
+
+/**
+ * This component is the tabbed pane which contains all of the
+ * AbilityChooserTabs. This component doesn't actually display any character
+ * information, that is the job of the AbilityChooserTab. All this class does is
+ * manage the states of all the AbilityChooserTab.
+ *
+ * @see AbilityChooserTab
+ */
+@SuppressWarnings(&quot;serial&quot;)
+public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab, TodoHandler
+{
+
+	private final AbilityChooserTab abilityTab;
+	private final TabTitle tabTitle;
+
+	public AbilitiesInfoTab()
+<span class="nc" id="L59">	{</span>
+<span class="nc" id="L60">		this.abilityTab = new AbilityChooserTab();</span>
+<span class="nc" id="L61">		this.tabTitle = new TabTitle(Tab.ABILITIES);</span>
+<span class="nc" id="L62">		setSharedComponent(abilityTab);</span>
+<span class="nc" id="L63">	}</span>
+
+	@Override
+	public ModelMap createModels(CharacterFacade character)
+	{
+<span class="nc" id="L68">		ModelMap models = new ModelMap();</span>
+<span class="nc" id="L69">		models.put(AbilityTabsModel.class, new AbilityTabsModel(character));</span>
+<span class="nc" id="L70">		return models;</span>
+	}
+
+	@Override
+	public void storeModels(ModelMap models)
+	{
+<span class="nc" id="L76">		models.get(AbilityTabsModel.class).uninstall();</span>
+<span class="nc" id="L77">	}</span>
+
+	@Override
+	public void restoreModels(ModelMap models)
+	{
+<span class="nc" id="L82">		models.get(AbilityTabsModel.class).install();</span>
+<span class="nc" id="L83">	}</span>
+
+	@Override
+	public TabTitle getTabTitle()
+	{
+<span class="nc" id="L88">		return tabTitle;</span>
+	}
+
+	private class AbilityTabsModel implements ListListener&lt;AbilityCategory&gt;, ChangeListener
+	{
+
+<span class="nc" id="L94">		private final Map&lt;String, TabInfo&gt; typeMap = new HashMap&lt;&gt;();</span>
+<span class="nc" id="L95">		private final List&lt;TabInfo&gt; tabs = new ArrayList&lt;&gt;();</span>
+		private final MapFacade&lt;AbilityCategory, ListFacade&lt;AbilityFacade&gt;&gt; categoryMap;
+		private final CharacterFacade character;
+<span class="nc" id="L98">		private boolean isInstalled = false;</span>
+		private String selectedTitle;
+		private final ListFacade&lt;AbilityCategory&gt; activeCategories;
+
+		AbilityTabsModel(CharacterFacade character)
+<span class="nc" id="L103">		{</span>
+<span class="nc" id="L104">			this.character = character;</span>
+<span class="nc" id="L105">			this.activeCategories = character.getActiveAbilityCategories();</span>
+<span class="nc" id="L106">			this.categoryMap = character.getDataSet().getAbilities();</span>
+<span class="nc bnc" id="L107" title="All 2 branches missed.">			for (AbilityCategory category : activeCategories)</span>
+			{
+<span class="nc" id="L109">				String type = category.getType();</span>
+<span class="nc bnc" id="L110" title="All 2 branches missed.">				if (!typeMap.containsKey(type))</span>
+				{
+<span class="nc" id="L112">					tabs.add(new TabInfo(type, character));</span>
+<span class="nc" id="L113">					populateFullCategoryList(type, typeMap.get(type));</span>
+				}
+<span class="nc" id="L115">				typeMap.get(type).categoryList.addElement(category);</span>
+<span class="nc" id="L116">			}</span>
+<span class="nc" id="L117">			selectedTitle = tabs.get(0).title;</span>
+<span class="nc" id="L118">		}</span>
+
+		/**
+		 * Populate the fullCategoryList for a TabInfo object with all 
+		 * categories of the specified type.
+		 * 
+		 * @param type The type to be scanned for.
+		 * @param tabInfo The TabInfo to be populated.
+		 */
+		private void populateFullCategoryList(String type, TabInfo tabInfo)
+		{
+<span class="nc bnc" id="L129" title="All 2 branches missed.">			for (AbilityCategory category : categoryMap.getKeys())</span>
+			{
+<span class="nc bnc" id="L131" title="All 2 branches missed.">				if (type.equals(category.getType()))</span>
+				{
+<span class="nc" id="L133">					tabInfo.fullCategoryList.addElement(category);</span>
+				}
+<span class="nc" id="L135">			}</span>
+<span class="nc" id="L136">		}</span>
+
+		@Override
+		public void elementAdded(ListEvent&lt;AbilityCategory&gt; e)
+		{
+<span class="nc" id="L141">			AbilityCategory element = e.getElement();</span>
+<span class="nc" id="L142">			String type = element.getType();</span>
+<span class="nc bnc" id="L143" title="All 2 branches missed.">			if (!typeMap.containsKey(type))</span>
+			{
+<span class="nc" id="L145">				int index = e.getIndex();</span>
+<span class="nc bnc" id="L146" title="All 2 branches missed.">				if (index &gt; tabs.size())</span>
+				{
+<span class="nc" id="L148">					Logging.log(Logging.WARNING, &quot;Trying to add &quot; + type + &quot; to &quot; //$NON-NLS-2$</span>
+						+ tabs + &quot; at index &quot; + index //$NON-NLS-1$
+						+ &quot;. Putting at end.&quot;); //$NON-NLS-1$
+<span class="nc" id="L151">					index = tabs.size();</span>
+<span class="nc" id="L152">					tabs.add(new TabInfo(type, character));</span>
+				}
+				else
+				{
+<span class="nc" id="L156">					tabs.add(index, new TabInfo(type, character));</span>
+				}
+<span class="nc" id="L158">				populateFullCategoryList(type, typeMap.get(type));</span>
+<span class="nc bnc" id="L159" title="All 2 branches missed.">				if (isInstalled)</span>
+				{//Add new tab
+<span class="nc" id="L161">					addTab(type, index);</span>
+				}
+			}
+<span class="nc" id="L164">			typeMap.get(type).categoryList.addElement(element);</span>
+<span class="nc" id="L165">		}</span>
+
+		@Override
+		public void elementRemoved(ListEvent&lt;AbilityCategory&gt; e)
+		{
+<span class="nc" id="L170">			AbilityCategory element = e.getElement();</span>
+<span class="nc" id="L171">			String type = element.getType();</span>
+<span class="nc" id="L172">			TabInfo info = typeMap.get(type);</span>
+<span class="nc" id="L173">			info.categoryList.removeElement(element);</span>
+<span class="nc bnc" id="L174" title="All 2 branches missed.">			if (info.categoryList.isEmpty())</span>
+			{
+<span class="nc" id="L176">				tabs.remove(typeMap.remove(type));</span>
+<span class="nc bnc" id="L177" title="All 2 branches missed.">				if (isInstalled)</span>
+				{//Remove Tab
+<span class="nc" id="L179">					removeTab(type);</span>
+				}
+			}
+<span class="nc" id="L182">		}</span>
+
+		@Override
+		public void elementsChanged(ListEvent&lt;AbilityCategory&gt; e)
+		{
+			Map&lt;String, List&lt;AbilityCategory&gt;&gt; tempMap;
+<span class="nc" id="L188">			tempMap = new HashMap&lt;&gt;();</span>
+<span class="nc bnc" id="L189" title="All 2 branches missed.">			for (AbilityCategory category : categoryMap.getKeys())</span>
+			{
+<span class="nc" id="L191">				String type = category.getType();</span>
+<span class="nc bnc" id="L192" title="All 2 branches missed.">				if (!tempMap.containsKey(type))</span>
+				{
+<span class="nc" id="L194">					tempMap.put(type, new ArrayList&lt;&gt;());</span>
+				}
+<span class="nc" id="L196">				tempMap.get(type).add(category);</span>
+<span class="nc" id="L197">			}</span>
+<span class="nc bnc" id="L198" title="All 2 branches missed.">			for (final Map.Entry&lt;String, List&lt;AbilityCategory&gt;&gt; entry : tempMap.entrySet())</span>
+			{
+<span class="nc" id="L200">				String type = entry.getKey();</span>
+<span class="nc bnc" id="L201" title="All 2 branches missed.">				if (!typeMap.containsKey(type))</span>
+				{
+<span class="nc" id="L203">					tabs.add(new TabInfo(type, character));</span>
+<span class="nc" id="L204">					populateFullCategoryList(type, typeMap.get(type));</span>
+<span class="nc bnc" id="L205" title="All 2 branches missed.">					if (isInstalled)</span>
+					{
+<span class="nc" id="L207">						addTab(type);</span>
+					}
+				}
+<span class="nc" id="L210">				typeMap.get(type).categoryList.updateContents(entry.getValue());</span>
+<span class="nc" id="L211">			}</span>
+<span class="nc" id="L212">			Iterator&lt;String&gt; oldTypes = typeMap.keySet().iterator();</span>
+<span class="nc bnc" id="L213" title="All 2 branches missed.">			while (oldTypes.hasNext())</span>
+			{
+<span class="nc" id="L215">				String type = oldTypes.next();</span>
+<span class="nc bnc" id="L216" title="All 2 branches missed.">				if (!tempMap.containsKey(type))</span>
+				{
+<span class="nc" id="L218">					tabs.remove(typeMap.get(type));</span>
+<span class="nc" id="L219">					oldTypes.remove();</span>
+<span class="nc bnc" id="L220" title="All 2 branches missed.">					if (isInstalled)</span>
+					{
+<span class="nc" id="L222">						removeTab(type);</span>
+					}
+				}
+<span class="nc" id="L225">			}</span>
+<span class="nc" id="L226">		}</span>
+
+		@Override
+		public void elementModified(ListEvent&lt;AbilityCategory&gt; e)
+		{
+			//TODO: do something
+<span class="nc" id="L232">		}</span>
+
+		void install()
+		{
+<span class="nc" id="L236">			activeCategories.addListListener(this);</span>
+<span class="nc bnc" id="L237" title="All 2 branches missed.">			for (TabInfo tabInfo : tabs)</span>
+			{
+<span class="nc" id="L239">				addTab(tabInfo.title);</span>
+<span class="nc" id="L240">			}</span>
+<span class="nc" id="L241">			setSelectedIndex(indexOfTab(selectedTitle));</span>
+<span class="nc" id="L242">			abilityTab.restoreState(typeMap.get(selectedTitle).tabData);</span>
+<span class="nc" id="L243">			addChangeListener(this);</span>
+<span class="nc" id="L244">			isInstalled = true;</span>
+<span class="nc" id="L245">		}</span>
+
+		void uninstall()
+		{
+<span class="nc" id="L249">			abilityTab.storeState(typeMap.get(selectedTitle).tabData);</span>
+<span class="nc" id="L250">			removeChangeListener(this);</span>
+<span class="nc" id="L251">			removeAll();</span>
+<span class="nc" id="L252">			activeCategories.removeListListener(this);</span>
+<span class="nc" id="L253">			isInstalled = false;</span>
+<span class="nc" id="L254">		}</span>
+
+		@Override
+		public void stateChanged(ChangeEvent e)
+		{
+<span class="nc" id="L259">			TabInfo tabInfo = typeMap.get(selectedTitle);</span>
+<span class="nc bnc" id="L260" title="All 2 branches missed.">			if (tabInfo != null)</span>
+			{
+<span class="nc" id="L262">				abilityTab.storeState(tabInfo.tabData);</span>
+			}
+<span class="nc bnc" id="L264" title="All 2 branches missed.">			if (getSelectedIndex() != -1)</span>
+			{
+<span class="nc" id="L266">				selectedTitle = getTitleAt(getSelectedIndex());</span>
+<span class="nc bnc" id="L267" title="All 2 branches missed.">				if (typeMap.get(selectedTitle) == null)</span>
+				{
+<span class="nc" id="L269">					Logging.errorPrint(&quot;Selected tab &quot; + selectedTitle + &quot; at index &quot; + getSelectedIndex()</span>
+						+ &quot; but there is no typeMap entry for it.&quot;);
+<span class="nc" id="L271">					Logging.reportAllThreads();</span>
+				}
+<span class="nc" id="L273">				abilityTab.restoreState(typeMap.get(selectedTitle).tabData);</span>
+			}
+<span class="nc" id="L275">		}</span>
+
+		@SuppressWarnings({&quot;UseOfObsoleteCollectionType&quot;, &quot;PMD.ReplaceHashtableWithMap&quot;, &quot;serial&quot;})
+		private final class TabInfo
+		{
+			final String title;
+			private final Hashtable&lt;Object, Object&gt; tabData;
+			private final DefaultListFacade&lt;AbilityCategory&gt; categoryList;
+			private final DefaultListFacade&lt;AbilityCategory&gt; fullCategoryList;
+
+			private TabInfo(String title, CharacterFacade character)
+<span class="nc" id="L286">			{</span>
+<span class="nc" id="L287">				this.title = title;</span>
+<span class="nc" id="L288">				this.categoryList = new DefaultListFacade&lt;&gt;();</span>
+<span class="nc" id="L289">				this.fullCategoryList = new DefaultListFacade&lt;&gt;();</span>
+<span class="nc" id="L290">				this.tabData = abilityTab.createState(character, categoryList, fullCategoryList, title);</span>
+<span class="nc" id="L291">				typeMap.put(title, this);</span>
+<span class="nc" id="L292">			}</span>
+
+			@SuppressWarnings(&quot;nls&quot;)
+			@Override
+			public String toString()
+			{
+<span class="nc" id="L298">				return &quot;TabInfo [title=&quot; + title + &quot;, categoryList=&quot; + categoryList + &quot;]&quot;;</span>
+			}
+
+		}
+
+		@SuppressWarnings(&quot;nls&quot;)
+		@Override
+		public String toString()
+		{
+<span class="nc" id="L307">			return &quot;AbilityTabsModel [tabs=&quot; + tabs + &quot;, isInstalled=&quot; + isInstalled + &quot;, selectedTitle=&quot;</span>
+				+ selectedTitle + &quot;]&quot;;
+		}
+
+	}
+
+	@Override
+	public void adviseTodo(String fieldName)
+	{
+<span class="nc" id="L316">		abilityTab.adviseTodo(fieldName);</span>
+<span class="nc" id="L317">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

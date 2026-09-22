@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>HandsToken.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.lsttokens.weaponprof</a> &gt; <span class="el_source">HandsToken.java</span></div><h1>HandsToken.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) 2008 Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package plugin.lsttokens.weaponprof;
+
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.core.WeaponProf;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractIntToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.ParseResult;
+
+/**
+ * Class deals with HANDS Token
+ */
+<span class="fc" id="L31">public class HandsToken extends AbstractIntToken&lt;WeaponProf&gt; implements CDOMPrimaryToken&lt;WeaponProf&gt;</span>
+{
+
+	@Override
+	public String getTokenName()
+	{
+<span class="fc" id="L37">		return &quot;HANDS&quot;;</span>
+	}
+
+	@Override
+	protected IntegerKey integerKey()
+	{
+<span class="fc" id="L43">		return IntegerKey.HANDS;</span>
+	}
+
+	@Override
+	protected int minValue()
+	{
+<span class="fc" id="L49">		return 0;</span>
+	}
+
+	@Override
+	public ParseResult parseToken(LoadContext context, WeaponProf prof, String value)
+	{
+		int hands;
+<span class="fc bfc" id="L56" title="All 2 branches covered.">		if (&quot;1IFLARGERTHANWEAPON&quot;.equals(value))</span>
+		{
+<span class="fc" id="L58">			hands = Constants.HANDS_SIZE_DEPENDENT;</span>
+<span class="fc" id="L59">			context.getObjectContext().put(prof, integerKey(), hands);</span>
+<span class="fc" id="L60">			return ParseResult.SUCCESS;</span>
+		}
+		else
+		{
+<span class="fc" id="L64">			return super.parseToken(context, prof, value);</span>
+		}
+	}
+
+	@Override
+	public String[] unparse(LoadContext context, WeaponProf prof)
+	{
+<span class="fc" id="L71">		Integer i = context.getObjectContext().getInteger(prof, IntegerKey.HANDS);</span>
+		/*
+		 * Not a required Token, so it's possible it was never set. If so, don't
+		 * write anything.
+		 */
+<span class="fc bfc" id="L76" title="All 2 branches covered.">		if (i == null)</span>
+		{
+<span class="fc" id="L78">			return null;</span>
+		}
+		String hands;
+<span class="fc" id="L81">		int intValue = i;</span>
+<span class="fc bfc" id="L82" title="All 2 branches covered.">		if (intValue == Constants.HANDS_SIZE_DEPENDENT)</span>
+		{
+<span class="fc" id="L84">			hands = &quot;1IFLARGERTHANWEAPON&quot;;</span>
+		}
+<span class="fc bfc" id="L86" title="All 2 branches covered.">		else if (intValue &lt; 0)</span>
+		{
+<span class="fc" id="L88">			context.addWriteMessage(getTokenName() + &quot; must be greater than or equal to zero or special value &quot;</span>
+				+ Constants.HANDS_SIZE_DEPENDENT + &quot; for 1IFLARGERTHANWEAPON&quot;);
+<span class="fc" id="L90">			return null;</span>
+		}
+		else
+		{
+<span class="fc" id="L94">			hands = i.toString();</span>
+		}
+<span class="fc" id="L96">		return new String[]{hands};</span>
+	}
+
+	@Override
+	public Class&lt;WeaponProf&gt; getTokenClass()
+	{
+<span class="fc" id="L102">		return WeaponProf.class;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Gui2CampaignInfoFactory.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.gui2.facade</a> &gt; <span class="el_source">Gui2CampaignInfoFactory.java</span></div><h1>Gui2CampaignInfoFactory.java</h1><pre class="source lang-java linenums">/*
+ * Copyright James Dempsey, 2011
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.gui2.facade;
+
+import java.net.URI;
+import java.util.ArrayList;
+import java.util.List;
+
+import pcgen.base.lang.StringUtil;
+import pcgen.cdom.content.CampaignURL;
+import pcgen.cdom.content.CampaignURL.URLKind;
+import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.SourceFormat;
+import pcgen.cdom.enumeration.Status;
+import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.helper.AllowUtilities;
+import pcgen.core.Campaign;
+import pcgen.core.prereq.PrerequisiteUtilities;
+import pcgen.facade.core.CampaignInfoFactory;
+import pcgen.facade.core.SourceSelectionFacade;
+import pcgen.gui2.util.HtmlInfoBuilder;
+import pcgen.gui3.utilty.ColorUtilty;
+import pcgen.persistence.PersistenceManager;
+import pcgen.persistence.lst.CampaignSourceEntry;
+import pcgen.system.LanguageBundle;
+
+import org.apache.commons.lang3.StringUtils;
+
+/**
+ * The Class {@code Gui2CampaignInfoFactory} is responsible for producing
+ * HTML formatted information on campaigns for the new user interface.
+ *
+ * 
+ */
+<span class="nc" id="L52">public class Gui2CampaignInfoFactory implements CampaignInfoFactory</span>
+{
+
+	@Override
+	public String getHTMLInfo(Campaign campaign, List&lt;Campaign&gt; testList)
+	{
+<span class="nc" id="L58">		PersistenceManager pman = PersistenceManager.getInstance();</span>
+<span class="nc" id="L59">		List&lt;URI&gt; oldList = setSourcesForPrereqTesting(testList, pman);</span>
+<span class="nc" id="L60">		String htmlInfo = getHTMLInfo(campaign);</span>
+<span class="nc" id="L61">		pman.setChosenCampaignSourcefiles(oldList);</span>
+<span class="nc" id="L62">		return htmlInfo;</span>
+	}
+
+	private List&lt;URI&gt; setSourcesForPrereqTesting(List&lt;Campaign&gt; testList, PersistenceManager pman)
+	{
+<span class="nc" id="L67">		List&lt;URI&gt; oldList = pman.getChosenCampaignSourcefiles();</span>
+<span class="nc" id="L68">		List&lt;URI&gt; uris = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L69" title="All 2 branches missed.">		for (Campaign campaign : testList)</span>
+		{
+<span class="nc" id="L71">			uris.add(campaign.getSourceURI());</span>
+<span class="nc" id="L72">		}</span>
+<span class="nc" id="L73">		pman.setChosenCampaignSourcefiles(uris);</span>
+<span class="nc" id="L74">		return oldList;</span>
+	}
+
+	@Override
+	public String getHTMLInfo(Campaign campaign)
+	{
+<span class="nc bnc" id="L80" title="All 2 branches missed.">		if (campaign == null)</span>
+		{
+<span class="nc" id="L82">			return &quot;&quot;;</span>
+		}
+<span class="nc" id="L84">		final HtmlInfoBuilder infoText = new HtmlInfoBuilder(campaign.getDisplayName());</span>
+<span class="nc" id="L85">		appendCampaignInfo(campaign, infoText);</span>
+
+<span class="nc" id="L87">		return infoText.toString();</span>
+	}
+
+	private void appendCampaignInfo(Campaign aCamp, final HtmlInfoBuilder infoText)
+	{
+<span class="nc" id="L92">		infoText.appendLineBreak();</span>
+<span class="nc bnc" id="L93" title="All 2 branches missed.">		if (aCamp.getSizeOfListFor(ListKey.FILE_COVER) &gt; 0)</span>
+		{
+<span class="nc" id="L95">			CampaignSourceEntry image = aCamp.getSafeListFor(ListKey.FILE_COVER).get(0);</span>
+<span class="nc" id="L96">			infoText.appendIconElement(image.getURI().toString());</span>
+		}
+<span class="nc bnc" id="L98" title="All 2 branches missed.">		if (aCamp.getSizeOfListFor(ListKey.FILE_LOGO) &gt; 0)</span>
+		{
+<span class="nc" id="L100">			CampaignSourceEntry image = aCamp.getSafeListFor(ListKey.FILE_LOGO).get(0);</span>
+<span class="nc" id="L101">			infoText.appendIconElement(image.getURI().toString());</span>
+		}
+<span class="nc bnc" id="L103" title="All 4 branches missed.">		if (aCamp.getSizeOfListFor(ListKey.FILE_COVER) &gt; 0 || aCamp.getSizeOfListFor(ListKey.FILE_LOGO) &gt; 0)</span>
+		{
+<span class="nc" id="L105">			infoText.appendLineBreak();</span>
+		}
+<span class="nc" id="L107">		String bString = SourceFormat.getFormattedString(aCamp, SourceFormat.MEDIUM, true);</span>
+<span class="nc bnc" id="L108" title="All 2 branches missed.">		if (StringUtils.isEmpty(bString))</span>
+		{
+<span class="nc" id="L110">			bString = SourceFormat.getFormattedString(aCamp, SourceFormat.LONG, true);</span>
+		}
+<span class="nc" id="L112">		infoText.appendI18nElement(&quot;in_sumSource&quot;, bString); //$NON-NLS-1$</span>
+<span class="nc" id="L113">		infoText.appendI18nFormattedElement(&quot;in_infByPub&quot;, //$NON-NLS-1$</span>
+<span class="nc" id="L114">			aCamp.getSafe(StringKey.PUB_NAME_LONG));</span>
+<span class="nc" id="L115">		infoText.appendLineBreak();</span>
+		// Add the data set release status
+<span class="nc" id="L117">		Status status = aCamp.getSafe(ObjectKey.STATUS);</span>
+<span class="nc" id="L118">		infoText.appendI18nElement(</span>
+				&quot;in_infStatus&quot;, //$NON-NLS-1$
+<span class="nc" id="L120">				String.format(&quot;&lt;font color=\&quot;#%s\&quot;&gt;%s&lt;/font&gt;&quot;, ColorUtilty.colorToRGBString(</span>
+<span class="nc" id="L121">						status.getColor()), status)</span>
+<span class="nc" id="L122">		).appendLineBreak();</span>
+<span class="nc" id="L123">		String descr = aCamp.get(StringKey.DESCRIPTION);</span>
+<span class="nc bnc" id="L124" title="All 2 branches missed.">		if (descr != null)</span>
+		{
+<span class="nc" id="L126">			infoText.appendI18nElement(&quot;in_infDesc&quot;, descr); //$NON-NLS-1$</span>
+<span class="nc" id="L127">			infoText.appendLineBreak();</span>
+		}
+		// Add the website URLs
+<span class="nc" id="L130">		List&lt;CampaignURL&gt; webURLs = getUrlListForKind(aCamp, URLKind.WEBSITE);</span>
+<span class="nc bnc" id="L131" title="All 2 branches missed.">		if (!webURLs.isEmpty())</span>
+		{
+<span class="nc" id="L133">			infoText.appendI18nElement(&quot;in_infWebsite&quot;, buildURLListString(webURLs)); //$NON-NLS-1$</span>
+<span class="nc" id="L134">			infoText.appendLineBreak();</span>
+		}
+<span class="nc bnc" id="L136" title="All 2 branches missed.">		if (!aCamp.getType().isEmpty())</span>
+		{
+<span class="nc" id="L138">			infoText.appendI18nElement(&quot;in_infType&quot;, aCamp.getType()); //$NON-NLS-1$</span>
+<span class="nc" id="L139">			infoText.appendSpacer();</span>
+		}
+<span class="nc" id="L141">		infoText.appendI18nElement(&quot;in_infRank&quot;, String.valueOf(aCamp //$NON-NLS-1$</span>
+<span class="nc" id="L142">			.getSafe(IntegerKey.CAMPAIGN_RANK)));</span>
+<span class="nc bnc" id="L143" title="All 2 branches missed.">		if (!StringUtil.join(aCamp.getSafeListFor(ListKey.GAME_MODE), &quot;, &quot;).isEmpty())</span>
+		{
+<span class="nc" id="L145">			infoText.appendSpacer();</span>
+<span class="nc" id="L146">			infoText.appendI18nElement(&quot;in_infGame&quot;, //$NON-NLS-1$</span>
+<span class="nc" id="L147">				StringUtil.join(aCamp.getSafeListFor(ListKey.GAME_MODE), &quot;, &quot;));</span>
+		}
+<span class="nc" id="L149">		infoText.appendLineBreak();</span>
+		// Add the purchase URLs
+<span class="nc" id="L151">		List&lt;CampaignURL&gt; purchaseURLs = getUrlListForKind(aCamp, URLKind.PURCHASE);</span>
+<span class="nc bnc" id="L152" title="All 2 branches missed.">		if (!purchaseURLs.isEmpty())</span>
+		{
+<span class="nc" id="L154">			infoText.appendI18nElement(&quot;in_infPurchase&quot;, buildURLListString(purchaseURLs)); //$NON-NLS-1$</span>
+<span class="nc" id="L155">			infoText.appendLineBreak();</span>
+		}
+		// Add the survey URLs
+<span class="nc" id="L158">		List&lt;CampaignURL&gt; surveyURLs = getUrlListForKind(aCamp, URLKind.SURVEY);</span>
+<span class="nc bnc" id="L159" title="All 2 branches missed.">		if (!surveyURLs.isEmpty())</span>
+		{
+<span class="nc" id="L161">			infoText.appendI18nElement(&quot;in_infSurvey&quot;, buildURLListString(surveyURLs)); //$NON-NLS-1$</span>
+<span class="nc" id="L162">			infoText.appendLineBreak();</span>
+		}
+<span class="nc" id="L164">		String preString =</span>
+<span class="nc" id="L165">				PrerequisiteUtilities.preReqHTMLStringsForList(null, null, aCamp.getPrerequisiteList(), false);</span>
+<span class="nc bnc" id="L166" title="All 2 branches missed.">		if (!preString.isEmpty())</span>
+		{
+<span class="nc" id="L168">			infoText.appendI18nFormattedElement(&quot;in_InfoRequirements&quot;, preString); //$NON-NLS-1$</span>
+		}
+<span class="nc" id="L170">		String aString = AllowUtilities.getAllowInfo(null, aCamp);</span>
+<span class="nc bnc" id="L171" title="All 2 branches missed.">		if (!aString.isEmpty())</span>
+		{
+<span class="nc" id="L173">			infoText.appendLineBreak();</span>
+<span class="nc" id="L174">			infoText.appendI18nElement(&quot;in_requirements&quot;, aString); //$NON-NLS-1$</span>
+		}
+<span class="nc" id="L176">		boolean infoDisplayed = false;</span>
+<span class="nc" id="L177">		List&lt;String&gt; info = aCamp.getListFor(ListKey.INFO_TEXT);</span>
+<span class="nc bnc" id="L178" title="All 2 branches missed.">		if (info != null)</span>
+		{
+<span class="nc" id="L180">            infoText.appendLineBreak();</span>
+<span class="nc" id="L181">            infoText.appendSmallTitleElement(LanguageBundle.getString(&quot;in_infInf&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L182">			infoText.appendLineBreak();</span>
+<span class="nc bnc" id="L183" title="All 2 branches missed.">			for (String infotext : info)</span>
+			{
+<span class="nc" id="L185">				infoText.append(infotext);</span>
+<span class="nc" id="L186">				infoText.appendLineBreak();</span>
+<span class="nc" id="L187">			}</span>
+<span class="nc" id="L188">			infoDisplayed = true;</span>
+		}
+<span class="nc" id="L190">		List&lt;String&gt; copyright = aCamp.getListFor(ListKey.SECTION_15);</span>
+<span class="nc bnc" id="L191" title="All 2 branches missed.">		if (copyright != null)</span>
+		{
+<span class="nc bnc" id="L193" title="All 2 branches missed.">			if (!infoDisplayed)</span>
+			{
+<span class="nc" id="L195">				infoText.appendLineBreak();</span>
+			}
+<span class="nc" id="L197">			infoText.appendSmallTitleElement(LanguageBundle.getString(&quot;in_infCopyright&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L198">			infoText.appendLineBreak();</span>
+<span class="nc bnc" id="L199" title="All 2 branches missed.">			for (String license : copyright)</span>
+			{
+<span class="nc" id="L201">				infoText.append(license);</span>
+<span class="nc" id="L202">				infoText.appendLineBreak();</span>
+<span class="nc" id="L203">			}</span>
+		}
+<span class="nc" id="L205">		List&lt;Campaign&gt; subCampaigns = aCamp.getSubCampaigns();</span>
+<span class="nc" id="L206">		List&lt;CampaignSourceEntry&gt; notFoundSubCampaigns = aCamp.getNotFoundSubCampaigns();</span>
+<span class="nc bnc" id="L207" title="All 4 branches missed.">		if (subCampaigns != null &amp;&amp; notFoundSubCampaigns != null</span>
+<span class="nc bnc" id="L208" title="All 4 branches missed.">			&amp;&amp; (!subCampaigns.isEmpty() || !notFoundSubCampaigns.isEmpty()))</span>
+		{
+<span class="nc" id="L210">			infoText.appendLineBreak();</span>
+<span class="nc" id="L211">			infoText.appendSmallTitleElement(LanguageBundle.getString(&quot;in_infIncludedCampaigns&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L212">			infoText.appendLineBreak();</span>
+<span class="nc bnc" id="L213" title="All 2 branches missed.">			for (Campaign subCamp : subCampaigns)</span>
+			{
+<span class="nc" id="L215">				infoText.append(subCamp.getDisplayName());</span>
+<span class="nc" id="L216">				infoText.appendLineBreak();</span>
+<span class="nc" id="L217">			}</span>
+<span class="nc bnc" id="L218" title="All 2 branches missed.">			for (CampaignSourceEntry subCse : notFoundSubCampaigns)</span>
+			{
+<span class="nc" id="L220">				infoText.append(LanguageBundle.getFormattedString(&quot;in_infMissingCampaign&quot;, subCse.getURI()));</span>
+<span class="nc" id="L221">				infoText.appendLineBreak();</span>
+<span class="nc" id="L222">			}</span>
+		}
+<span class="nc" id="L224">		infoText.appendLineBreak();</span>
+<span class="nc" id="L225">		infoText.appendI18nElement(&quot;in_infPccPath&quot;, aCamp.getSourceURI().getPath());</span>
+<span class="nc" id="L226">	}</span>
+
+	@Override
+	public String getHTMLInfo(SourceSelectionFacade selection)
+	{
+<span class="nc bnc" id="L231" title="All 2 branches missed.">		if (selection.getCampaigns().getSize() == 1)</span>
+		{
+<span class="nc" id="L233">			return getHTMLInfo(selection.getCampaigns().getElementAt(0));</span>
+		}
+
+<span class="nc" id="L236">		final HtmlInfoBuilder infoText = new HtmlInfoBuilder(selection.toString());</span>
+<span class="nc bnc" id="L237" title="All 2 branches missed.">		for (Campaign campaign : selection.getCampaigns())</span>
+		{
+<span class="nc bnc" id="L239" title="All 2 branches missed.">			if (campaign == null)</span>
+			{
+<span class="nc" id="L241">				continue;</span>
+			}
+<span class="nc" id="L243">			infoText.appendLineBreak();</span>
+<span class="nc" id="L244">			infoText.appendLineBreak();</span>
+<span class="nc" id="L245">			infoText.appendTitleElement(campaign.getDisplayName());</span>
+<span class="nc" id="L246">			appendCampaignInfo(campaign, infoText);</span>
+<span class="nc" id="L247">		}</span>
+<span class="nc" id="L248">		return infoText.toString();</span>
+	}
+
+	/**
+	 * Builds a html display string based on the list of campaign urls.
+	 * 
+	 * @param urlList the list of urls
+	 * 
+	 * @return the display string
+	 */
+	private static String buildURLListString(List&lt;CampaignURL&gt; urlList)
+	{
+<span class="nc" id="L260">		StringBuilder sb = new StringBuilder(250);</span>
+<span class="nc" id="L261">		boolean first = true;</span>
+<span class="nc bnc" id="L262" title="All 2 branches missed.">		for (CampaignURL campaignURL : urlList)</span>
+		{
+<span class="nc bnc" id="L264" title="All 2 branches missed.">			if (first)</span>
+			{
+<span class="nc" id="L266">				first = false;</span>
+			}
+			else
+			{
+<span class="nc" id="L270">				sb.append(&quot; | &quot;);</span>
+			}
+<span class="nc" id="L272">			sb.append(&quot;&lt;a href=\&quot;&quot;).append(campaignURL.getUri().toString());</span>
+<span class="nc" id="L273">			sb.append(&quot;\&quot;&gt;&quot;).append(campaignURL.getUrlDesc());</span>
+<span class="nc" id="L274">			sb.append(&quot;&lt;/a&gt;&quot;);</span>
+<span class="nc" id="L275">		}</span>
+<span class="nc" id="L276">		return sb.toString();</span>
+	}
+
+	public static List&lt;CampaignURL&gt; getUrlListForKind(Campaign c, URLKind kind)
+	{
+<span class="nc" id="L281">		List&lt;CampaignURL&gt; kindList = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L282" title="All 2 branches missed.">		for (CampaignURL url : c.getSafeListFor(ListKey.CAMPAIGN_URL))</span>
+		{
+<span class="nc bnc" id="L284" title="All 2 branches missed.">			if (url.getUrlKind() == kind)</span>
+			{
+<span class="nc" id="L286">				kindList.add(url);</span>
+			}
+<span class="nc" id="L288">		}</span>
+<span class="nc" id="L289">		return kindList;</span>
+	}
+
+	@Override
+	public String getRequirementsHTMLString(Campaign campaign, List&lt;Campaign&gt; testList)
+	{
+<span class="nc bnc" id="L295" title="All 2 branches missed.">		if (campaign == null)</span>
+		{
+<span class="nc" id="L297">			return &quot;&quot;;</span>
+		}
+<span class="nc" id="L299">		PersistenceManager pman = PersistenceManager.getInstance();</span>
+<span class="nc" id="L300">		List&lt;URI&gt; oldList = setSourcesForPrereqTesting(testList, pman);</span>
+<span class="nc" id="L301">		pman.setChosenCampaignSourcefiles(oldList);</span>
+
+<span class="nc" id="L303">        return PrerequisiteUtilities.preReqHTMLStringsForList(null, null, campaign.getPrerequisiteList(), false)</span>
+<span class="nc" id="L304">                + AllowUtilities.getAllowInfo(null, campaign);</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

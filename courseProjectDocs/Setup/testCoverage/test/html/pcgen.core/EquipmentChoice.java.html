@@ -1,0 +1,709 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>EquipmentChoice.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.core</a> &gt; <span class="el_source">EquipmentChoice.java</span></div><h1>EquipmentChoice.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2004 (C) James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.     See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.core;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.StringTokenizer;
+
+import pcgen.cdom.enumeration.FormulaKey;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.enumeration.Type;
+import pcgen.cdom.facet.EquipmentTypeFacet;
+import pcgen.cdom.facet.FacetLibrary;
+import pcgen.core.analysis.ChooseActivation;
+import pcgen.rules.context.AbstractReferenceContext;
+import pcgen.util.Delta;
+import pcgen.util.Logging;
+import pcgen.util.SignedInteger;
+import pcgen.util.enumeration.Visibility;
+
+/**
+ * {{@code EquipmentChoice}} holds the details of a choice or
+ * choices required for an Equipment. It is a java bean with a
+ * couple of helper functions to support the users of the bean.
+ * This supports either the user manually choosing which option
+ * they want, or the generator creating one object for each
+ * combination of choices.
+ */
+
+public final class EquipmentChoice
+{
+<span class="nc" id="L50">	private EquipmentTypeFacet equipmentTypeFacet = FacetLibrary.getFacet(EquipmentTypeFacet.class);</span>
+
+<span class="nc" id="L52">	private boolean allowDuplicates = false;</span>
+<span class="nc" id="L53">	private boolean noSign = false;</span>
+	private boolean bAdd;
+<span class="nc" id="L55">	private boolean skipZero = false;</span>
+
+<span class="nc" id="L57">	private int minValue = 0;</span>
+<span class="nc" id="L58">	private int maxValue = 0;</span>
+<span class="nc" id="L59">	private int incValue = 1;</span>
+<span class="nc" id="L60">	private int maxSelect = 0;</span>
+	/*
+	 * CONSIDER This is never read, which is probably a bug - thpr Dec 6, 2008
+	 */
+	private int pool;
+<span class="nc" id="L65">	private String title = null;</span>
+
+<span class="nc" id="L67">	private List&lt;Object&gt; availableList = new ArrayList&lt;&gt;();</span>
+
+	/**
+	 * Default constructor for the equipment choice class.
+	 * @param bAdd
+	 * @param pool
+	 */
+	public EquipmentChoice(final boolean bAdd, final int pool)
+	{
+<span class="nc" id="L76">		super();</span>
+<span class="nc" id="L77">		this.bAdd = bAdd;</span>
+<span class="nc" id="L78">		this.pool = pool;</span>
+<span class="nc" id="L79">	}</span>
+
+	/**
+	 * Create an iterator over the available choices. This will either be
+	 * an iterator of strings, should there be only one choice, or an array
+	 * of strings where nested choices are required. The iterator will run
+	 * through each possible combination in this case.
+	 *
+	 * @param neverEmpty True if a default record should be
+	 *                    added if there are no choices.
+	 * @return An iterator of choices
+	 */
+	EquipChoiceIterator getChoiceIterator(final boolean neverEmpty)
+	{
+<span class="nc bnc" id="L93" title="All 4 branches missed.">		if (neverEmpty &amp;&amp; availableList.isEmpty())</span>
+		{
+<span class="nc" id="L95">			final List&lt;Object&gt; temp = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L96">			temp.add(&quot;&quot;);</span>
+<span class="nc" id="L97">			return new EquipChoiceIterator(temp);</span>
+		}
+		final List&lt;Object&gt; finalList;
+
+		// Account for secondary values (sent as &lt;primary&gt;|&lt;secondary&gt;)
+<span class="nc bnc" id="L102" title="All 2 branches missed.">		if (getMinValue() &lt; getMaxValue())</span>
+		{
+<span class="nc" id="L104">			finalList = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L105" title="All 2 branches missed.">            for (Object o : availableList)</span>
+            {
+<span class="nc" id="L107">                final String choice = String.valueOf(o);</span>
+<span class="nc bnc" id="L108" title="All 2 branches missed.">                if (choice.indexOf('|') &lt; 0)</span>
+                {
+<span class="nc bnc" id="L110" title="All 2 branches missed.">                    for (int j = getMinValue();j &lt;= getMaxValue();j += getIncValue())</span>
+                    {
+<span class="nc bnc" id="L112" title="All 4 branches missed.">                        if (!skipZero || j != 0)</span>
+                        {
+<span class="nc" id="L114">                            finalList.add(choice + '|' + Delta.toString(j));</span>
+                        }
+                    }
+                } else
+                {
+<span class="nc" id="L119">                    finalList.add(choice);</span>
+                }
+<span class="nc" id="L121">            }</span>
+		}
+		else
+		{
+<span class="nc" id="L125">			finalList = availableList;</span>
+		}
+<span class="nc" id="L127">		return new EquipChoiceIterator(finalList);</span>
+	}
+
+	/**
+	 * @return Returns the pool.
+	 */
+	int getPool()
+	{
+<span class="nc" id="L135">		return pool;</span>
+	}
+
+	/**
+	 * @param pool The pool to set.
+	 */
+	void setPool(final int pool)
+	{
+<span class="nc" id="L143">		this.pool = pool;</span>
+<span class="nc" id="L144">	}</span>
+
+	/**
+	 * @return Returns the bAdd.
+	 */
+	public boolean isBAdd()
+	{
+<span class="nc" id="L151">		return bAdd;</span>
+	}
+
+	/**
+	 * @param add The bAdd to set.
+	 */
+	void setBAdd(final boolean add)
+	{
+<span class="nc" id="L159">		bAdd = add;</span>
+<span class="nc" id="L160">	}</span>
+
+	/**
+	 * @return Returns the availableList.
+	 */
+	public List&lt;Object&gt; getAvailableList()
+	{
+<span class="nc" id="L167">		return availableList;</span>
+	}
+
+	/**
+	 * @return Returns the allowDuplicates.
+	 */
+	public boolean isAllowDuplicates()
+	{
+<span class="nc" id="L175">		return allowDuplicates;</span>
+	}
+
+	/**
+	 * @param allowDuplicates The allowDuplicates to set.
+	 */
+	void setAllowDuplicates(final boolean allowDuplicates)
+	{
+<span class="nc" id="L183">		this.allowDuplicates = allowDuplicates;</span>
+<span class="nc" id="L184">	}</span>
+
+	/**
+	 * @return Returns the incValue.
+	 */
+	public int getIncValue()
+	{
+<span class="nc" id="L191">		return incValue;</span>
+	}
+
+	/**
+	 * @param incValue The incValue to set.
+	 */
+	void setIncValue(final int incValue)
+	{
+<span class="nc" id="L199">		this.incValue = incValue;</span>
+<span class="nc" id="L200">	}</span>
+
+	/**
+	 * @return Returns the maxSelect.
+	 */
+	public int getMaxSelect()
+	{
+<span class="nc" id="L207">		return maxSelect;</span>
+	}
+
+	/**
+	 * @param maxSelect The maxSelect to set.
+	 */
+	void setMaxSelect(final int maxSelect)
+	{
+<span class="nc" id="L215">		this.maxSelect = maxSelect;</span>
+<span class="nc" id="L216">	}</span>
+
+	/**
+	 * @return Returns the maxValue.
+	 */
+	public int getMaxValue()
+	{
+<span class="nc" id="L223">		return maxValue;</span>
+	}
+
+	/**
+	 * @param maxValue The maxValue to set.
+	 */
+	void setMaxValue(final int maxValue)
+	{
+<span class="nc" id="L231">		this.maxValue = maxValue;</span>
+<span class="nc" id="L232">	}</span>
+
+	/**
+	 * @return Returns the minValue.
+	 */
+	public int getMinValue()
+	{
+<span class="nc" id="L239">		return minValue;</span>
+	}
+
+	/**
+	 * @param minValue The minValue to set.
+	 */
+	void setMinValue(final int minValue)
+	{
+<span class="nc" id="L247">		this.minValue = minValue;</span>
+<span class="nc" id="L248">	}</span>
+
+	/**
+	 * @return Returns the noSign.
+	 */
+	boolean isNoSign()
+	{
+<span class="nc" id="L255">		return noSign;</span>
+	}
+
+	/**
+	 * @param noSign The noSign to set.
+	 */
+	void setNoSign(final boolean noSign)
+	{
+<span class="nc" id="L263">		this.noSign = noSign;</span>
+<span class="nc" id="L264">	}</span>
+
+	/**
+	 * @return Returns the title.
+	 */
+	public String getTitle()
+	{
+<span class="nc" id="L271">		return title;</span>
+	}
+
+	/**
+	 * @param title The title to set.
+	 */
+	void setTitle(final String title)
+	{
+<span class="nc" id="L279">		this.title = title;</span>
+<span class="nc" id="L280">	}</span>
+
+	/**
+	 * Add a list of all skills to the available list of the EquipmentChoice object
+	 */
+	public void addSkills()
+	{
+<span class="nc bnc" id="L287" title="All 2 branches missed.">		for (Skill skill : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Skill.class))</span>
+		{
+<span class="nc" id="L289">			this.getAvailableList().add(skill.getKeyName());</span>
+<span class="nc" id="L290">		}</span>
+<span class="nc" id="L291">	}</span>
+
+	/**
+	 * Set MinValue
+	 * @param minString a string with the minimum value
+	 */
+	public void setMinValueFromString(String minString)
+	{
+		try
+		{
+<span class="nc" id="L301">			this.setMinValue(Delta.parseInt(minString.substring(4)));</span>
+		}
+<span class="nc" id="L303">		catch (NumberFormatException e)</span>
+		{
+<span class="nc" id="L305">			Logging.errorPrint(&quot;Bad MIN= value: &quot; + minString);</span>
+<span class="nc" id="L306">		}</span>
+<span class="nc" id="L307">	}</span>
+
+	/**
+	 * @param maxString a string with the maximum value
+	 */
+	public void setMaxValueFromString(String maxString)
+	{
+		try
+		{
+<span class="nc" id="L316">			this.setMaxValue(Delta.parseInt(maxString.substring(4)));</span>
+		}
+<span class="nc" id="L318">		catch (NumberFormatException e)</span>
+		{
+<span class="nc" id="L320">			Logging.errorPrint(&quot;Bad MAX= value: &quot; + maxString);</span>
+<span class="nc" id="L321">		}</span>
+<span class="nc" id="L322">	}</span>
+
+	/**
+	 *
+	 * @param incString a string with the increment value
+	 */
+	public void setIncrementValueFromString(String incString)
+	{
+		try
+		{
+<span class="nc" id="L332">			this.setIncValue(Delta.parseInt(incString.substring(10)));</span>
+
+<span class="nc bnc" id="L334" title="All 2 branches missed.">			if (this.getIncValue() &lt; 1)</span>
+			{
+<span class="nc" id="L336">				this.setIncValue(1);</span>
+			}
+		}
+<span class="nc" id="L339">		catch (NumberFormatException e)</span>
+		{
+			// TODO Deal with Exception
+<span class="nc" id="L342">		}</span>
+<span class="nc" id="L343">	}</span>
+
+	/**
+	 * Add abilities of Category aCategory and Type typeString to the
+	 * available list of the Equipment Chooser equipChoice
+	 * @param typeString  the type of Ability to add to the chooser
+	 * @param aCategory   the Category of Ability to add to the chooser
+	 */
+	public void addSelectableAbilities(final String typeString, final String aCategory)
+	{
+<span class="nc" id="L353">		AbstractReferenceContext ref = Globals.getContext().getReferenceContext();</span>
+<span class="nc" id="L354">		AbilityCategory cat = ref.silentlyGetConstructedCDOMObject(AbilityCategory.class, aCategory);</span>
+<span class="nc bnc" id="L355" title="All 2 branches missed.">		for (Ability anAbility : ref.getManufacturerId(cat).getAllObjects())</span>
+		{
+<span class="nc bnc" id="L357" title="All 4 branches missed.">			boolean matchesType = (typeString.equalsIgnoreCase(&quot;ALL&quot;) || anAbility.isType(typeString));</span>
+
+<span class="nc bnc" id="L359" title="All 2 branches missed.">			if ((anAbility.getSafe(ObjectKey.VISIBILITY) == Visibility.DEFAULT)</span>
+<span class="nc bnc" id="L360" title="All 2 branches missed.">				&amp;&amp; !this.getAvailableList().contains(anAbility.getKeyName()))</span>
+			{
+<span class="nc bnc" id="L362" title="All 4 branches missed.">				if (matchesType &amp;&amp; !ChooseActivation.hasNewChooseToken(anAbility))</span>
+				{
+<span class="nc" id="L364">					this.getAvailableList().add(anAbility.getKeyName());</span>
+				}
+			}
+<span class="nc" id="L367">		}</span>
+<span class="nc" id="L368">	}</span>
+
+	/**
+	 * Add Equipment of Type typeString to the available list of
+	 * the Equipment Chooser equipChoice
+	 * @param typeString  the type of Equipment to add to the chooser
+	 */
+	public void addSelectableEquipment(final String typeString)
+	{
+<span class="nc bnc" id="L377" title="All 2 branches missed.">		for (Equipment aEquip : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Equipment.class))</span>
+		{
+<span class="nc bnc" id="L379" title="All 4 branches missed.">			if (aEquip.isType(typeString) &amp;&amp; !this.getAvailableList().contains(aEquip.getName()))</span>
+			{
+<span class="nc" id="L381">				this.getAvailableList().add(aEquip.getName());</span>
+			}
+<span class="nc" id="L383">		}</span>
+<span class="nc" id="L384">	}</span>
+
+	/**
+	 * Add a list of skills of Type typeString to the available list of
+	 * the EquipmentChoice object equipChoice
+	 * @param typeString the type of Skill to add to the chooser
+	 */
+	public void addSelectableSkills(final String typeString)
+	{
+<span class="nc bnc" id="L393" title="All 2 branches missed.">		for (Skill skill : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Skill.class))</span>
+		{
+<span class="nc bnc" id="L395" title="All 4 branches missed.">			if ((typeString.equalsIgnoreCase(&quot;ALL&quot;) || skill.isType(typeString))</span>
+<span class="nc bnc" id="L396" title="All 2 branches missed.">				&amp;&amp; !this.getAvailableList().contains(skill.getKeyName()))</span>
+			{
+<span class="nc" id="L398">				this.getAvailableList().add(skill.getKeyName());</span>
+			}
+<span class="nc" id="L400">		}</span>
+<span class="nc" id="L401">	}</span>
+
+	/**
+	 * @param parent The piece of Equipment that this Equipment Modifier will be added to
+	 * @param choiceType the type of Skill to add to the chooser
+	 */
+	public void addParentsExistingEquipmentModifiersToChooser(final Equipment parent, String choiceType)
+	{
+<span class="nc bnc" id="L409" title="All 2 branches missed.">		for (EquipmentModifier sibling : parent.getEqModifierList(true))</span>
+		{
+			/*
+			 * TODO sibling can't be this - different classes... so this is a
+			 * bug of some form.
+			 */
+<span class="nc bnc" id="L415" title="All 4 branches missed.">			if (!(sibling.equals(this)) &amp;&amp; sibling.getSafe(StringKey.CHOICE_STRING).startsWith(choiceType))</span>
+			{
+<span class="nc" id="L417">				getAvailableList().addAll(parent.getAssociationList(sibling));</span>
+			}
+<span class="nc" id="L419">		}</span>
+<span class="nc" id="L420">	}</span>
+
+	/**
+	 * Populate an EquipmentChoice object with choices based on kindToAdd (Skill,
+	 * Feat, etc.) and filtered by filterBy.
+	 * @param parent the piece of Equipment that this Equipment Modifier will
+	 *        be added to
+	 * @param numOfChoices the number of choices to make
+	 * @param numChosen    the number of choices made up to this point
+	 * @param filterBy     the type used to filter the kind of thing being
+	 *                     chosen
+	 * @param kindToAdd    what kind of choice are we adding?  skills,
+	 *                     equipment, etc.
+	 * @param category     if adding abilities, this will contain the category
+	 *                     of ability to add
+	 */
+	public void addChoicesByType(final Equipment parent, final int numOfChoices, final int numChosen, String filterBy,
+		String kindToAdd, String category)
+	{
+<span class="nc bnc" id="L439" title="All 4 branches missed.">		if ((numOfChoices &gt; 0) &amp;&amp; (getMaxSelect() == 0))</span>
+		{
+<span class="nc" id="L441">			setPool(numOfChoices - numChosen);</span>
+		}
+
+<span class="nc" id="L444">		final String type = filterBy.substring(5);</span>
+
+<span class="nc bnc" id="L446" title="All 2 branches missed.">		if (type.startsWith(&quot;LASTCHOICE&quot;))</span>
+		{
+<span class="nc" id="L448">			addParentsExistingEquipmentModifiersToChooser(parent, kindToAdd);</span>
+		}
+<span class="nc bnc" id="L450" title="All 2 branches missed.">		else if (&quot;SKILL&quot;.equalsIgnoreCase(kindToAdd))</span>
+		{
+<span class="nc" id="L452">			addSelectableSkills(type);</span>
+		}
+<span class="nc bnc" id="L454" title="All 2 branches missed.">		else if (&quot;EQUIPMENT&quot;.equalsIgnoreCase(kindToAdd))</span>
+		{
+<span class="nc" id="L456">			addSelectableEquipment(type);</span>
+		}
+<span class="nc bnc" id="L458" title="All 2 branches missed.">		else if (&quot;ABILITY&quot;.equalsIgnoreCase(kindToAdd))</span>
+		{
+<span class="nc" id="L460">			addSelectableAbilities(type, category);</span>
+		}
+<span class="nc bnc" id="L462" title="All 2 branches missed.">		else if (&quot;FEAT&quot;.equalsIgnoreCase(kindToAdd))</span>
+		{
+<span class="nc" id="L464">			addSelectableAbilities(type, &quot;FEAT&quot;);</span>
+		}
+
+<span class="nc bnc" id="L467" title="All 2 branches missed.">		else if (&quot;EQTYPES&quot;.equalsIgnoreCase(type))</span>
+		{
+<span class="nc" id="L469">			Collection&lt;Type&gt; types = equipmentTypeFacet.getSet(Globals.getContext().getDataSetID());</span>
+<span class="nc" id="L470">			List&lt;Object&gt; list = getAvailableList();</span>
+<span class="nc bnc" id="L471" title="All 2 branches missed.">			for (Type t : types)</span>
+			{
+<span class="nc" id="L473">				list.add(t.toString());</span>
+<span class="nc" id="L474">			}</span>
+<span class="nc" id="L475">		}</span>
+		else
+		{
+<span class="nc" id="L478">			Logging.errorPrint(&quot;Unknown option in CHOOSE '&quot; + filterBy + &quot;'&quot;);</span>
+		}
+<span class="nc" id="L480">	}</span>
+
+	/**
+	 * Add the current character stats as defined in the game mode to the chooser
+	 */
+	public void addStats()
+	{
+<span class="nc bnc" id="L487" title="All 2 branches missed.">		for (PCStat stat : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(PCStat.class))</span>
+		{
+<span class="nc" id="L489">			this.getAvailableList().add(stat.getKeyName());</span>
+<span class="nc" id="L490">		}</span>
+<span class="nc" id="L491">	}</span>
+
+	/**
+	 * @param available
+	 * @param numSelected
+	 */
+	public void adjustPool(final int available, final int numSelected)
+	{
+<span class="nc bnc" id="L499" title="All 6 branches missed.">		if ((available &gt; 0) &amp;&amp; (this.getMaxSelect() &gt; 0) &amp;&amp; (this.getMaxSelect() != Integer.MAX_VALUE))</span>
+		{
+<span class="nc" id="L501">			this.setPool(this.getMaxSelect() - numSelected);</span>
+		}
+<span class="nc" id="L503">	}</span>
+
+	/**
+	 * Populate this EquipmentChoice object using data held in choiceString
+	 * @param choiceString The string containing the info to be parsed and added
+	 *                     to the chooser
+	 * @param parent       the piece of Equipment that this Equipment Modifier
+	 *                     will be added to
+	 * @param available    used to adjust the pool
+	 * @param numSelected  choices made so far
+	 * @param forEqBuilder is this being constructed by the equipment builder,
+	 *                      or for interaction with the user.
+	 */
+	public void constructFromChoiceString(String choiceString, final Equipment parent, final int available,
+		final int numSelected, final boolean forEqBuilder, PlayerCharacter pc)
+	{
+<span class="nc" id="L519">		final StringTokenizer titleTok = new StringTokenizer(choiceString, &quot;|&quot;, false);</span>
+<span class="nc bnc" id="L520" title="All 4 branches missed.">		while (!forEqBuilder &amp;&amp; titleTok.hasMoreTokens())</span>
+		{
+<span class="nc" id="L522">			String workingkind = titleTok.nextToken();</span>
+<span class="nc bnc" id="L523" title="All 2 branches missed.">			if (workingkind.startsWith(&quot;TITLE=&quot;))</span>
+			{
+<span class="nc" id="L525">				this.setTitle(workingkind.substring(6));</span>
+			}
+<span class="nc" id="L527">		}</span>
+
+<span class="nc" id="L529">		int select = parent.getSafe(FormulaKey.SELECT).resolve(parent, true, pc, &quot;&quot;).intValue();</span>
+<span class="nc" id="L530">		setMaxSelect(select);</span>
+
+<span class="nc" id="L532">		String originalkind = null;</span>
+<span class="nc" id="L533">		final StringTokenizer aTok = new StringTokenizer(choiceString, &quot;|&quot;, false);</span>
+<span class="nc" id="L534">		boolean needStats = false;</span>
+<span class="nc" id="L535">		boolean needSkills = false;</span>
+<span class="nc" id="L536">		String category = null;</span>
+
+<span class="nc bnc" id="L538" title="All 4 branches missed.">		while (!forEqBuilder &amp;&amp; aTok.hasMoreTokens())</span>
+		{
+<span class="nc" id="L540">			String kind = aTok.nextToken();</span>
+<span class="nc bnc" id="L541" title="All 2 branches missed.">			if (category == null)</span>
+			{
+<span class="nc bnc" id="L543" title="All 2 branches missed.">				if (kind.equals(&quot;ABILITY&quot;))</span>
+				{
+<span class="nc" id="L545">					category = aTok.nextToken();</span>
+				}
+				else
+				{
+<span class="nc" id="L549">					category = &quot;FEAT&quot;;</span>
+				}
+			}
+
+<span class="nc" id="L553">			this.adjustPool(available, numSelected);</span>
+
+<span class="nc bnc" id="L555" title="All 2 branches missed.">			if (kind.startsWith(&quot;TITLE=&quot;))</span>
+			{
+				//Do nothing, handled above
+<span class="nc" id="L558">				Logging.log(Logging.DEBUG, &quot;kind starts with TITLE= and we've already processed this.&quot;);</span>
+			}
+<span class="nc bnc" id="L560" title="All 2 branches missed.">			else if (kind.startsWith(&quot;COUNT=&quot;))</span>
+			{
+				// Do nothing, handled above
+<span class="nc" id="L563">				Logging.log(Logging.DEBUG, &quot;kind starts with COUNT= and we've already processed this.&quot;);</span>
+			}
+			else
+			{
+<span class="nc bnc" id="L567" title="All 2 branches missed.">				if (originalkind == null)</span>
+				{
+<span class="nc" id="L569">					originalkind = kind;</span>
+<span class="nc" id="L570">					needStats = originalkind.equals(&quot;STATBONUS&quot;);</span>
+<span class="nc" id="L571">					needSkills = originalkind.equals(&quot;SKILLBONUS&quot;);</span>
+				}
+<span class="nc bnc" id="L573" title="All 4 branches missed.">				else if (kind.startsWith(&quot;TYPE=&quot;) || kind.startsWith(&quot;TYPE.&quot;))</span>
+				{
+<span class="nc bnc" id="L575" title="All 4 branches missed.">					if (originalkind.equals(&quot;SKILLBONUS&quot;) || originalkind.equals(&quot;SKILL&quot;))</span>
+					{
+						//New Style
+<span class="nc" id="L578">						needSkills = false;</span>
+<span class="nc" id="L579">						this.addChoicesByType(parent, available, numSelected, kind, &quot;SKILL&quot;, &quot;&quot;);</span>
+					}
+<span class="nc bnc" id="L581" title="All 4 branches missed.">					else if (originalkind.equals(&quot;EQUIPMENT&quot;) || originalkind.equals(&quot;FEAT&quot;)</span>
+<span class="nc bnc" id="L582" title="All 2 branches missed.">						|| originalkind.equals(&quot;ABILITY&quot;))</span>
+					{
+						//New Style
+<span class="nc" id="L585">						this.addChoicesByType(parent, available, numSelected, kind, originalkind, category);</span>
+					}
+					else
+					{
+						//Old Style
+<span class="nc" id="L590">						this.addChoicesByType(parent, available, numSelected, kind, getTitle(), category);</span>
+					}
+				}
+<span class="nc bnc" id="L593" title="All 2 branches missed.">				else if (&quot;STAT&quot;.equals(kind))</span>
+				{
+<span class="nc" id="L595">					this.addStats();</span>
+				}
+<span class="nc bnc" id="L597" title="All 2 branches missed.">				else if (&quot;SKILL&quot;.equals(kind))</span>
+				{
+<span class="nc" id="L599">					this.addSkills();</span>
+				}
+<span class="nc bnc" id="L601" title="All 2 branches missed.">				else if (&quot;SKIPZERO&quot;.equals(kind))</span>
+				{
+<span class="nc" id="L603">					skipZero = originalkind.equals(&quot;NUMBER&quot;);</span>
+				}
+<span class="nc bnc" id="L605" title="All 2 branches missed.">				else if (&quot;MULTIPLE&quot;.equals(kind))</span>
+				{
+<span class="nc" id="L607">					this.setAllowDuplicates(true);</span>
+				}
+<span class="nc bnc" id="L609" title="All 2 branches missed.">				else if (&quot;NOSIGN&quot;.equals(kind))</span>
+				{
+<span class="nc" id="L611">					this.setNoSign(true);</span>
+				}
+<span class="nc bnc" id="L613" title="All 2 branches missed.">				else if (kind.startsWith(&quot;MIN=&quot;))</span>
+				{
+<span class="nc" id="L615">					this.setMinValueFromString(kind);</span>
+				}
+<span class="nc bnc" id="L617" title="All 2 branches missed.">				else if (kind.startsWith(&quot;MAX=&quot;))</span>
+				{
+<span class="nc" id="L619">					this.setMaxValueFromString(kind);</span>
+				}
+<span class="nc bnc" id="L621" title="All 2 branches missed.">				else if (kind.startsWith(&quot;INCREMENT=&quot;))</span>
+				{
+<span class="nc" id="L623">					this.setIncrementValueFromString(kind);</span>
+				}
+				else
+				{
+<span class="nc" id="L627">					needStats = false;</span>
+<span class="nc" id="L628">					needSkills = false;</span>
+<span class="nc bnc" id="L629" title="All 2 branches missed.">					if (!this.getAvailableList().contains(kind))</span>
+					{
+<span class="nc" id="L631">						this.getAvailableList().add(kind);</span>
+					}
+				}
+			}
+<span class="nc" id="L635">		}</span>
+
+<span class="nc bnc" id="L637" title="All 2 branches missed.">		if (needStats)</span>
+		{
+<span class="nc" id="L639">			this.addStats();</span>
+		}
+<span class="nc bnc" id="L641" title="All 2 branches missed.">		else if (needSkills)</span>
+		{
+<span class="nc" id="L643">			this.addSkills();</span>
+		}
+
+<span class="nc bnc" id="L646" title="All 2 branches missed.">		if (this.getTitle() == null)</span>
+		{
+<span class="nc" id="L648">			this.setTitle(originalkind);</span>
+		}
+
+<span class="nc bnc" id="L651" title="All 2 branches missed.">		if (this.getMaxSelect() == Integer.MAX_VALUE)</span>
+		{
+<span class="nc" id="L653">			this.setPool(this.getAvailableList().size() - numSelected);</span>
+<span class="nc" id="L654">			this.setBAdd(true);</span>
+		}
+
+<span class="nc bnc" id="L657" title="All 4 branches missed.">		if ((this.getAvailableList().isEmpty()) &amp;&amp; (this.getMinValue() &lt; this.getMaxValue()))</span>
+		{
+<span class="nc bnc" id="L659" title="All 2 branches missed.">			for (int j = this.getMinValue(); j &lt;= this.getMaxValue(); j += this.getIncValue())</span>
+			{
+<span class="nc bnc" id="L661" title="All 4 branches missed.">				if (!skipZero || j != 0)</span>
+				{
+<span class="nc bnc" id="L663" title="All 2 branches missed.">					if (this.isNoSign())</span>
+					{
+<span class="nc" id="L665">						this.getAvailableList().add(j);</span>
+					}
+					else
+					{
+<span class="nc" id="L669">						this.getAvailableList().add(new SignedInteger(j));</span>
+					}
+				}
+			}
+
+<span class="nc" id="L674">			this.setMinValue(this.getMaxValue());</span>
+		}
+<span class="nc" id="L676">	}</span>
+
+	private static class EquipChoiceIterator implements Iterator&lt;Object&gt;
+	{
+		List&lt;Object&gt; choiceList;
+		int currPos;
+
+		EquipChoiceIterator(final List&lt;Object&gt; list)
+<span class="nc" id="L684">		{</span>
+<span class="nc" id="L685">			choiceList = list;</span>
+<span class="nc" id="L686">			currPos = 0;</span>
+<span class="nc" id="L687">		}</span>
+
+		@Override
+		public boolean hasNext()
+		{
+<span class="nc bnc" id="L692" title="All 2 branches missed.">			return currPos &lt; choiceList.size();</span>
+		}
+
+		@Override
+		public Object next()
+		{
+<span class="nc" id="L698">			return choiceList.get(currPos++);</span>
+		}
+
+		@Override
+		public void remove()
+		{
+<span class="nc" id="L704">			throw new UnsupportedOperationException();</span>
+		}
+
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

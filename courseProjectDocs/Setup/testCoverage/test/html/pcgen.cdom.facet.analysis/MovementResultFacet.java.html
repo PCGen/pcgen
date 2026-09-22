@@ -1,0 +1,718 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MovementResultFacet.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.facet.analysis</a> &gt; <span class="el_source">MovementResultFacet.java</span></div><h1>MovementResultFacet.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) 2010-9 Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package pcgen.cdom.facet.analysis;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Set;
+import java.util.TreeSet;
+import java.util.regex.Pattern;
+
+import pcgen.base.util.NamedValue;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.MovementType;
+import pcgen.cdom.facet.BonusCheckingFacet;
+import pcgen.cdom.facet.EquipmentFacet;
+import pcgen.cdom.facet.FormulaResolvingFacet;
+import pcgen.cdom.facet.base.AbstractStorageFacet;
+import pcgen.cdom.facet.event.DataFacetChangeEvent;
+import pcgen.cdom.facet.event.DataFacetChangeListener;
+import pcgen.cdom.facet.model.RaceFacet;
+import pcgen.cdom.facet.model.TemplateFacet;
+import pcgen.core.Equipment;
+import pcgen.core.Globals;
+import pcgen.core.MoveClone;
+import pcgen.core.Race;
+import pcgen.core.RuleConstants;
+import pcgen.core.SettingsHandler;
+import pcgen.core.SimpleMovement;
+import pcgen.core.utils.CoreUtility;
+import pcgen.util.enumeration.Load;
+
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+
+/**
+ * MovementResultFacet stores the resulting movement of a Player Character. Note
+ * that this does not store the Movement objects granted by CDOMObjects; rather
+ * this is storing the resulting values post aggregation of those Movement
+ * objects.
+ *
+ */
+<span class="fc" id="L62">public class MovementResultFacet extends AbstractStorageFacet&lt;CharID&gt;</span>
+		implements DataFacetChangeListener&lt;CharID, CDOMObject&gt;
+{
+	private MovementFacet movementFacet;
+	private MoveCloneFacet moveCloneFacet;
+	private BaseMovementFacet baseMovementFacet;
+	private RaceFacet raceFacet;
+	private TemplateFacet templateFacet;
+	private EquipmentFacet equipmentFacet;
+	private BonusCheckingFacet bonusCheckingFacet;
+	private UnencumberedArmorFacet unencumberedArmorFacet;
+	private UnencumberedLoadFacet unencumberedLoadFacet;
+	private FormulaResolvingFacet formulaResolvingFacet;
+	private LoadFacet loadFacet;
+
+	/**
+	 * Returns the movement value of the given type for the Player Character
+	 * identified by the given CharID. All appropriate BONUSes are added to the
+	 * movement before the result is returned.
+	 *
+	 * @param id
+	 *            The CharID identifying the Player Character for which the
+	 *            movement value of the given type to be returned
+	 * @param moveType
+	 *            The MovementType to be returned
+	 * @return The movement value of the given type for the Player Character
+	 *         identified by the given CharID
+	 */
+	public double movementOfType(CharID id, MovementType moveType)
+	{
+<span class="nc" id="L92">		MovementCacheInfo mci = getInfo(id);</span>
+<span class="nc bnc" id="L93" title="All 2 branches missed.">		if (mci == null)</span>
+		{
+<span class="nc" id="L95">			return 0.0;</span>
+		}
+<span class="nc" id="L97">		return mci.movementOfType(id, moveType);</span>
+	}
+
+	/**
+	 * Returns the type-safe MovementCacheInfo for this MoneyFacet and the given
+	 * CharID. Will return a new, empty MovementCacheInfo if no Money
+	 * information has been set for the given CharID. Will not return null.
+	 *
+	 * Note that this method SHOULD NOT be public. The MovementCacheInfo object
+	 * is owned by MoneyFacet, and since it can be modified, a reference to that
+	 * object should not be exposed to any object other than MoneyFacet.
+	 *
+	 * @param id
+	 *            The CharID for which the MovementCacheInfo should be returned
+	 * @return The MovementCacheInfo for the Player Character represented by the
+	 *         given CharID.
+	 */
+	private MovementCacheInfo getConstructingInfo(CharID id)
+	{
+<span class="fc" id="L116">		MovementCacheInfo rci = getInfo(id);</span>
+<span class="fc bfc" id="L117" title="All 2 branches covered.">		if (rci == null)</span>
+		{
+<span class="fc" id="L119">			rci = new MovementCacheInfo();</span>
+<span class="fc" id="L120">			setCache(id, rci);</span>
+		}
+<span class="fc" id="L122">		return rci;</span>
+	}
+
+	/**
+	 * Returns the type-safe MovementCacheInfo for this MoneyFacet and the given
+	 * CharID. May return null if no Movement information has been set for the
+	 * given CharID.
+	 *
+	 * Note that this method SHOULD NOT be public. The MovementCacheInfo object
+	 * is owned by MoneyFacet, and since it can be modified, a reference to that
+	 * object should not be exposed to any object other than MoneyFacet.
+	 *
+	 * @param id
+	 *            The CharID for which the MovementCacheInfo should be returned
+	 * @return The MovementCacheInfo for the Player Character represented by the
+	 *         given CharID; null if no Movement information has been set for
+	 *         the Player Character.
+	 */
+	private MovementCacheInfo getInfo(CharID id)
+	{
+<span class="fc" id="L142">		return (MovementCacheInfo) getCache(id);</span>
+	}
+
+	/**
+	 * Data structure that stores the actual movement values for a Player
+	 * Character.
+	 */
+<span class="fc" id="L149">	public class MovementCacheInfo</span>
+	{
+<span class="fc" id="L151">		private final Map&lt;MovementType, Double&gt; moveRates = new LinkedHashMap&lt;&gt;();</span>
+
+		private int countMovementTypes()
+		{
+<span class="nc" id="L155">			return moveRates.size();</span>
+		}
+
+		/**
+		 * recalculate all the move rates and modifiers
+		 */
+		private void adjustMoveRates(CharID id)
+		{
+<span class="fc" id="L163">			Race race = raceFacet.get(id);</span>
+<span class="pc bpc" id="L164" title="1 of 2 branches missed.">			if (race == null)</span>
+			{
+<span class="nc" id="L166">				return;</span>
+			}
+
+<span class="fc" id="L169">			Set&lt;SimpleMovement&gt; mms = baseMovementFacet.getSet(id);</span>
+<span class="pc bpc" id="L170" title="2 of 4 branches missed.">			if (mms == null || mms.isEmpty())</span>
+			{
+<span class="fc" id="L172">				return;</span>
+			}
+
+<span class="nc bnc" id="L175" title="All 2 branches missed.">			for (SimpleMovement movement : movementFacet.getSet(id))</span>
+			{
+<span class="nc" id="L177">				Double current = moveRates.get(movement.getMovementType());</span>
+<span class="nc" id="L178">				double thisValue = movement.getMovement();</span>
+<span class="nc bnc" id="L179" title="All 4 branches missed.">				if ((current == null) || (thisValue &gt; current))</span>
+				{
+<span class="nc" id="L181">					moveRates.put(movement.getMovementType(), thisValue);</span>
+				}
+<span class="nc" id="L183">			}</span>
+<span class="nc" id="L184">			Set&lt;MoveClone&gt; clones = moveCloneFacet.getSet(id);</span>
+<span class="nc bnc" id="L185" title="All 2 branches missed.">			if (clones != null)</span>
+			{
+<span class="nc bnc" id="L187" title="All 2 branches missed.">				for (MoveClone moveClone : clones)</span>
+				{
+<span class="nc" id="L189">					Double baseMove = moveRates.get(moveClone.getBaseType());</span>
+<span class="nc" id="L190">					moveRates.put(moveClone.getCloneType(),</span>
+<span class="nc" id="L191">						moveClone.apply(baseMove));</span>
+<span class="nc" id="L192">				}</span>
+			}
+
+			// Need to create movement entries if there is a BONUS:MOVEADD
+			// associated with that type of movement
+<span class="nc bnc" id="L197" title="All 2 branches missed.">			for (String moveType : bonusCheckingFacet.getExpandedBonusInfo(id, &quot;MOVEADD&quot;))</span>
+			{
+<span class="nc bnc" id="L199" title="All 2 branches missed.">				if (moveType.startsWith(&quot;TYPE&quot;))</span>
+				{
+<span class="nc" id="L201">					moveType = moveType.substring(5);</span>
+				}
+
+<span class="nc bnc" id="L204" title="All 2 branches missed.">				if (String.CASE_INSENSITIVE_ORDER.compare(&quot;ALL&quot;, moveType) != 0)</span>
+				{
+<span class="nc" id="L206">					String clean = CoreUtility.capitalizeFirstLetter(moveType);</span>
+<span class="nc" id="L207">					moveRates.putIfAbsent(MovementType.getConstant(clean), 0.0);</span>
+				}
+<span class="nc" id="L209">			}</span>
+<span class="nc" id="L210">		}</span>
+
+		/**
+		 * get the base MOVE: plus any bonuses from BONUS:MOVE additions takes
+		 * into account Armor restrictions to movement and load carried
+		 *
+		 * @param id
+		 * @return movement
+		 */
+		public double movementOfType(CharID id, MovementType moveType)
+		{
+			// get base movement
+<span class="nc" id="L222">			Double moveInFeet = moveRates.get(moveType);</span>
+<span class="nc bnc" id="L223" title="All 2 branches missed.">			if (moveInFeet == null)</span>
+			{
+<span class="nc" id="L225">				return 0.0;</span>
+			}
+
+			// First get the MOVEADD bonus
+<span class="nc" id="L229">			String movementAsType = &quot;TYPE.&quot; + moveType.toString().toUpperCase();</span>
+<span class="nc" id="L230">			moveInFeet += bonusCheckingFacet.getBonus(id, &quot;MOVEADD&quot;, movementAsType);</span>
+
+			// also check for special case of TYPE=ALL
+<span class="nc" id="L233">			moveInFeet += bonusCheckingFacet.getBonus(id, &quot;MOVEADD&quot;, &quot;TYPE.ALL&quot;);</span>
+
+<span class="nc" id="L235">			double calcMove = moveInFeet;</span>
+
+			// Now we get the BONUS:MOVEMULT multipliers
+<span class="nc" id="L238">			double moveMult =</span>
+<span class="nc" id="L239">					bonusCheckingFacet.getBonus(id, &quot;MOVEMULT&quot;, movementAsType);</span>
+
+			// also check for special case of TYPE=ALL
+<span class="nc" id="L242">			moveMult += bonusCheckingFacet.getBonus(id, &quot;MOVEMULT&quot;, &quot;TYPE.ALL&quot;);</span>
+
+<span class="nc bnc" id="L244" title="All 2 branches missed.">			if (moveMult &gt; 0)</span>
+			{
+<span class="nc" id="L246">				calcMove = (int) (calcMove * moveMult);</span>
+			}
+
+<span class="nc" id="L249">			double postMove = calcMove;</span>
+
+			// now add on any POSTMOVE bonuses
+<span class="nc" id="L252">			postMove +=</span>
+<span class="nc" id="L253">					bonusCheckingFacet.getBonus(id, &quot;POSTMOVEADD&quot;, movementAsType);</span>
+
+			// also check for special case of TYPE=ALL
+<span class="nc" id="L256">			postMove += bonusCheckingFacet.getBonus(id, &quot;POSTMOVEADD&quot;, &quot;TYPE.ALL&quot;);</span>
+
+			// because POSTMOVE is magical movement which should not be
+			// multiplied by magical items, etc, we now see which is larger,
+			// (baseMove + postMove) or (baseMove * moveMultiplier)
+			// and keep the larger one, discarding the other
+<span class="nc" id="L262">			moveInFeet = Math.max(calcMove, postMove);</span>
+
+			// get a list of all equipped Armor
+<span class="nc" id="L265">			Load armorLoad = Load.LIGHT;</span>
+
+			// Ignore armor weight if the house rule has disabled it
+<span class="nc bnc" id="L268" title="All 2 branches missed.">			if (Globals.checkRule(RuleConstants.SYS_LDPACSK))</span>
+			{
+<span class="nc bnc" id="L270" title="All 2 branches missed.">				for (Equipment eq : equipmentFacet.getSet(id))</span>
+				{
+<span class="nc bnc" id="L272" title="All 6 branches missed.">					if (!eq.typeStringContains(&quot;Armor&quot;) || !eq.isEquipped() || eq.isShield())</span>
+					{
+<span class="nc" id="L274">						continue;</span>
+					}
+<span class="nc bnc" id="L276" title="All 4 branches missed.">					if (eq.isHeavy() &amp;&amp; !unencumberedArmorFacet.ignoreLoad(id, Load.HEAVY))</span>
+					{
+<span class="nc" id="L278">						armorLoad = armorLoad.max(Load.HEAVY);</span>
+					}
+<span class="nc bnc" id="L280" title="All 4 branches missed.">					else if (eq.isMedium() &amp;&amp; !unencumberedArmorFacet.ignoreLoad(id, Load.MEDIUM))</span>
+					{
+<span class="nc" id="L282">						armorLoad = armorLoad.max(Load.MEDIUM);</span>
+					}
+<span class="nc" id="L284">				}</span>
+			}
+
+<span class="nc" id="L287">			double armorMove = armorLoad.calcEncumberedMove(moveInFeet);</span>
+
+<span class="nc" id="L289">			Load pcLoad = Load.LIGHT;</span>
+<span class="nc bnc" id="L290" title="All 2 branches missed.">			if (Globals.checkRule(RuleConstants.SYS_LDPACSK))</span>
+			{
+<span class="nc" id="L292">				pcLoad = loadFacet.getLoadType(id);</span>
+			}
+<span class="nc" id="L294">			double loadMove = calcEncumberedMove(id, pcLoad, moveInFeet);</span>
+
+			// It is possible to have a PC that is not encumbered by Armor
+			// But is encumbered by Weight carried (and visa-versa)
+			// So do two calcs and take the slowest
+<span class="nc" id="L299">			moveInFeet = Math.min(armorMove, loadMove);</span>
+
+<span class="nc" id="L301">			return moveInFeet;</span>
+		}
+
+		public List&lt;NamedValue&gt; getMovementValues(CharID id)
+		{
+<span class="nc" id="L306">			Set&lt;NamedValue&gt; set = new TreeSet&lt;&gt;(new MoveSorter());</span>
+<span class="nc bnc" id="L307" title="All 2 branches missed.">			for (MovementType moveType : moveRates.keySet())</span>
+			{
+<span class="nc" id="L309">				String moveName = moveType.toString();</span>
+<span class="nc" id="L310">				set.add(new NamedValue(moveName, movementOfType(id, moveType)));</span>
+<span class="nc" id="L311">			}</span>
+<span class="nc" id="L312">			return new ArrayList&lt;&gt;(set);</span>
+		}
+
+		/**
+		 * Returns the base movement value of the given type for the Player
+		 * Character. No BONUSes are added to the movement before it is
+		 * returned.
+		 *
+		 * @param moveType
+		 *            The movement type to be returned
+		 * @return The movement value of the given type for the Player Character
+		 */
+		public double getMovementOfType(MovementType moveType)
+		{
+<span class="nc" id="L326">			return moveRates.getOrDefault(moveType, 0.0);</span>
+		}
+
+		/**
+		 * Returns the base movement value of the given type for the Player
+		 * Character, when the Player Character is under the given Load. No
+		 * BONUSes are added to the movement before it is returned.
+		 *
+		 * @param moveType
+		 *            The movement type to be returned
+		 * @param load
+		 *            The Load to be used to calculate the base movement of the
+		 *            Player Character
+		 * @return The movement value of the given type for the Player Character
+		 */
+		public int getBaseMovement(MovementType moveType, Load load)
+		{
+			//TODO Deal with Load?!?
+<span class="nc" id="L344">			return moveRates.get(moveType).intValue();</span>
+		}
+
+		/**
+		 * Returns true if the Player Character has a movement value of the
+		 * given type.
+		 *
+		 * @param moveType
+		 *            The movement type to be tested to see if the Player
+		 *            Character has a movement value of this type
+		 * @return true if the Player Character has a movement value of the
+		 *         given type; false otherwise
+		 */
+		public boolean hasMovement(MovementType moveType)
+		{
+<span class="nc" id="L359">			return moveRates.containsKey(moveType);</span>
+		}
+
+		/**
+		 * Works for dnd according to the method noted in the faq. (NOTE: The
+		 * table in the dnd faq is wrong for speeds 80 and 90) Not as sure it
+		 * works for all other d20 games.
+		 *
+		 * @param load
+		 * @param unencumberedMove
+		 *            the unencumbered move value
+		 * @return encumbered move as an integer
+		 */
+		public double calcEncumberedMove(CharID id, Load load, double unencumberedMove)
+		{
+			double encumberedMove;
+
+			//
+			// Can we ignore any encumberance for this type? If we can, then
+			// there's
+			// no
+			// need to do any more calculations.
+			//
+<span class="nc bnc" id="L382" title="All 2 branches missed.">			if (unencumberedLoadFacet.ignoreLoad(id, load))</span>
+			{
+<span class="nc" id="L384">				encumberedMove = unencumberedMove;</span>
+			}
+			else
+			{
+<span class="nc" id="L388">				String formula = SettingsHandler.getGameAsProperty().get().getLoadInfo().getLoadMoveFormula(load.toString());</span>
+<span class="nc bnc" id="L389" title="All 2 branches missed.">				if (!formula.isEmpty())</span>
+				{
+<span class="nc" id="L391">					formula = formula.replaceAll(Pattern.quote(&quot;$$MOVE$$&quot;),</span>
+<span class="nc" id="L392">						Double.toString(Math.floor(unencumberedMove)));</span>
+<span class="nc" id="L393">					return formulaResolvingFacet.resolve(id, FormulaFactory.getFormulaFor(formula), &quot;&quot;).doubleValue();</span>
+				}
+
+<span class="nc" id="L396">				return load.calcEncumberedMove(unencumberedMove);</span>
+			}
+
+<span class="nc" id="L399">			return encumberedMove;</span>
+		}
+
+		@Override
+		public int hashCode()
+		{
+<span class="nc" id="L405">			return moveRates.hashCode();</span>
+		}
+
+		@Override
+		public boolean equals(Object o)
+		{
+<span class="pc bpc" id="L411" title="1 of 2 branches missed.">			if (o == this)</span>
+			{
+<span class="nc" id="L413">				return true;</span>
+			}
+<span class="pc bpc" id="L415" title="1 of 2 branches missed.">			if (o instanceof MovementCacheInfo ci)</span>
+			{
+<span class="fc" id="L417">				return Objects.equals(moveRates, ci.moveRates);</span>
+			}
+<span class="nc" id="L419">			return false;</span>
+		}
+	}
+
+	/**
+	 * Returns the number of movement types for the Player Character identified
+	 * by the given CharID.
+	 *
+	 * @param id
+	 *            The CharID identifying the Player Character for which the
+	 *            number of movement types is to be returned
+	 * @return The number of movement types for the Player Character identified
+	 *         by the given CharID
+	 */
+	public int countMovementTypes(CharID id)
+	{
+<span class="nc" id="L435">		MovementCacheInfo mci = getInfo(id);</span>
+<span class="nc bnc" id="L436" title="All 2 branches missed.">		if (mci == null)</span>
+		{
+<span class="nc" id="L438">			return 0;</span>
+		}
+<span class="nc" id="L440">		return mci.countMovementTypes();</span>
+	}
+
+	/**
+	 * Recalculates all movement values for the Player Character identified by
+	 * the given CharID.
+	 *
+	 * @param id
+	 *            The CharID for which all of the movement values is to be
+	 *            recalculated
+	 */
+	public void reset(CharID id)
+	{
+<span class="fc" id="L453">		getConstructingInfo(id).adjustMoveRates(id);</span>
+<span class="fc" id="L454">	}</span>
+
+	/**
+	 * Returns a non-null List of the movement values for the Player Character
+	 * represented by the given CharID.
+	 *
+	 * This method is value-semantic in that ownership of the returned List is
+	 * transferred to the class calling this method. Modification of the
+	 * returned List will not modify this MovementResultFacet and modification
+	 * of this MovementResultFacet will not modify the returned List.
+	 * Modifications to the returned List will also not modify any future or
+	 * previous objects returned by this (or other) methods on
+	 * MovementResultFacet. If you wish to modify the information stored in this
+	 * MovementResultFacet, you must add Movement objects to the Player
+	 * Character and call reset(CharID).
+	 *
+	 * @param id
+	 *            The CharID identifying the Player Character for which the
+	 *            movement values should be returned
+	 * @return A non-null List of the movement values for the Player Character
+	 *         represented by the given CharID.
+	 */
+	public List&lt;NamedValue&gt; getMovementValues(CharID id)
+	{
+<span class="nc" id="L478">		MovementCacheInfo mci = getInfo(id);</span>
+<span class="nc bnc" id="L479" title="All 2 branches missed.">		if (mci == null)</span>
+		{
+<span class="nc" id="L481">			return Collections.emptyList();</span>
+		}
+<span class="nc" id="L483">		return mci.getMovementValues(id);</span>
+	}
+
+	/**
+	 * Returns the base movement value of the given type for the Player
+	 * Character identified by the given CharID. No BONUSes are added to the
+	 * movement before it is returned.
+	 *
+	 * @param id
+	 *            The CharID identifying the Player Character for which the
+	 *            movement value of the given type to be returned
+	 * @param moveType
+	 *            The movement type to be returned
+	 * @return The movement value of the given type for the Player Character
+	 *         identified by the given CharID
+	 */
+	public double getMovementOfType(CharID id, MovementType moveType)
+	{
+<span class="fc" id="L501">		MovementCacheInfo mci = getInfo(id);</span>
+<span class="pc bpc" id="L502" title="1 of 2 branches missed.">		if (mci == null)</span>
+		{
+<span class="fc" id="L504">			return 0.0d;</span>
+		}
+<span class="nc" id="L506">		return mci.getMovementOfType(moveType);</span>
+	}
+
+	/**
+	 * Returns the base movement value of the given type for the Player
+	 * Character identified by the given CharID, when the Player Character is
+	 * under the given Load. No BONUSes are added to the movement before it is
+	 * returned.
+	 *
+	 * @param id
+	 *            The CharID identifying the Player Character for which the
+	 *            movement value of the given type to be returned
+	 * @param moveType
+	 *            The movement type to be returned
+	 * @param load
+	 *            The Load to be used to calculate the base movement of the
+	 *            Player Character
+	 * @return The movement value of the given type for the Player Character
+	 *         identified by the given CharID
+	 */
+	public int getBaseMovement(CharID id, MovementType moveType, Load load)
+	{
+<span class="nc" id="L528">		MovementCacheInfo mci = getInfo(id);</span>
+<span class="nc bnc" id="L529" title="All 2 branches missed.">		if (mci == null)</span>
+		{
+<span class="nc" id="L531">			return 0;</span>
+		}
+<span class="nc" id="L533">		return mci.getBaseMovement(moveType, load);</span>
+	}
+
+	/**
+	 * Returns true if the Player Character identified by the given CharID has a
+	 * movement value of the given type.
+	 *
+	 * @param id
+	 *            The CharID identifying the Player Character which will be
+	 *            tested to see if it contains a movement of the given type
+	 * @param moveType
+	 *            The movement type to be tested to see if the Player Character
+	 *            has a movement value of this type
+	 * @return true if the Player Character identified by the given CharID has a
+	 *         movement value of the given type; false otherwise
+	 */
+	public boolean hasMovement(CharID id, MovementType moveType)
+	{
+<span class="nc" id="L551">		MovementCacheInfo mci = getInfo(id);</span>
+<span class="nc bnc" id="L552" title="All 2 branches missed.">		if (mci == null)</span>
+		{
+<span class="nc" id="L554">			return false;</span>
+		}
+<span class="nc" id="L556">		return mci.hasMovement(moveType);</span>
+	}
+
+	/**
+	 * Triggers a full recalculation of Player Character movement when a
+	 * CDOMObject is added to a Player Character.
+	 *
+	 * Triggered when one of the Facets to which MovementResultFacet listens
+	 * fires a DataFacetChangeEvent to indicate a CDOMObject was added to a
+	 * Player Character.
+	 *
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 */
+	@Override
+	public void dataAdded(DataFacetChangeEvent&lt;CharID, CDOMObject&gt; dfce)
+	{
+<span class="fc" id="L574">		reset(dfce.getCharID());</span>
+<span class="fc" id="L575">	}</span>
+
+	/**
+	 * Triggers a full recalculation of Player Character movement when a
+	 * CDOMObject is added to a Player Character.
+	 *
+	 * Triggered when one of the Facets to which MovementResultFacet listens
+	 * fires a DataFacetChangeEvent to indicate a CDOMObject was removed from a
+	 * Player Character.
+	 *
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 */
+	@Override
+	public void dataRemoved(DataFacetChangeEvent&lt;CharID, CDOMObject&gt; dfce)
+	{
+<span class="fc" id="L592">		reset(dfce.getCharID());</span>
+<span class="fc" id="L593">	}</span>
+
+	public void setMovementFacet(MovementFacet movementFacet)
+	{
+<span class="fc" id="L597">		this.movementFacet = movementFacet;</span>
+<span class="fc" id="L598">	}</span>
+
+	public void setMoveCloneFacet(MoveCloneFacet moveCloneFacet)
+	{
+<span class="fc" id="L602">		this.moveCloneFacet = moveCloneFacet;</span>
+<span class="fc" id="L603">	}</span>
+
+	public void setBaseMovementFacet(BaseMovementFacet baseMovementFacet)
+	{
+<span class="fc" id="L607">		this.baseMovementFacet = baseMovementFacet;</span>
+<span class="fc" id="L608">	}</span>
+
+	public void setRaceFacet(RaceFacet raceFacet)
+	{
+<span class="fc" id="L612">		this.raceFacet = raceFacet;</span>
+<span class="fc" id="L613">	}</span>
+
+	public void setTemplateFacet(TemplateFacet templateFacet)
+	{
+<span class="fc" id="L617">		this.templateFacet = templateFacet;</span>
+<span class="fc" id="L618">	}</span>
+
+	public void setEquipmentFacet(EquipmentFacet equipmentFacet)
+	{
+<span class="fc" id="L622">		this.equipmentFacet = equipmentFacet;</span>
+<span class="fc" id="L623">	}</span>
+
+	public void setBonusCheckingFacet(BonusCheckingFacet bonusCheckingFacet)
+	{
+<span class="fc" id="L627">		this.bonusCheckingFacet = bonusCheckingFacet;</span>
+<span class="fc" id="L628">	}</span>
+
+	public void setUnencumberedArmorFacet(UnencumberedArmorFacet unencumberedArmorFacet)
+	{
+<span class="fc" id="L632">		this.unencumberedArmorFacet = unencumberedArmorFacet;</span>
+<span class="fc" id="L633">	}</span>
+
+	public void setUnencumberedLoadFacet(UnencumberedLoadFacet unencumberedLoadFacet)
+	{
+<span class="fc" id="L637">		this.unencumberedLoadFacet = unencumberedLoadFacet;</span>
+<span class="fc" id="L638">	}</span>
+
+	public void setFormulaResolvingFacet(FormulaResolvingFacet formulaResolvingFacet)
+	{
+<span class="fc" id="L642">		this.formulaResolvingFacet = formulaResolvingFacet;</span>
+<span class="fc" id="L643">	}</span>
+
+	public void setLoadFacet(LoadFacet loadFacet)
+	{
+<span class="fc" id="L647">		this.loadFacet = loadFacet;</span>
+<span class="fc" id="L648">	}</span>
+
+	/**
+	 * Initializes the connections for MovementResultFacet to other facets.
+	 *
+	 * This method is automatically called by the Spring framework during
+	 * initialization of the MovementResultFacet.
+	 */
+	public void init()
+	{
+<span class="fc" id="L658">		raceFacet.addDataFacetChangeListener(2000, this);</span>
+<span class="fc" id="L659">		templateFacet.addDataFacetChangeListener(2000, this);</span>
+<span class="fc" id="L660">	}</span>
+
+	/**
+	 * Copies the contents of the MovementResultFacet from one Player Character
+	 * to another Player Character, based on the given CharIDs representing
+	 * those Player Characters.
+	 *
+	 * This is a method in MovementResultFacet in order to avoid exposing the
+	 * mutable Map object to other classes. This should not be inlined, as the
+	 * Map is internal information to MovementResultFacet and should not be
+	 * exposed to other classes.
+	 *
+	 * Note also the copy is a one-time event and no references are maintained
+	 * between the Player Characters represented by the given CharIDs (meaning
+	 * once this copy takes place, any change to the MovementResultFacet of one
+	 * Player Character will only impact the Player Character where the
+	 * MovementResultFacet was changed).
+	 *
+	 * @param source
+	 *            The CharID representing the Player Character from which the
+	 *            information should be copied
+	 * @param copy
+	 *            The CharID representing the Player Character to which the
+	 *            information should be copied
+	 */
+	@Override
+	public void copyContents(CharID source, CharID copy)
+	{
+<span class="nc" id="L688">		MovementCacheInfo mci = getInfo(source);</span>
+<span class="nc bnc" id="L689" title="All 2 branches missed.">		if (mci != null)</span>
+		{
+<span class="nc" id="L691">			MovementCacheInfo copymci = getConstructingInfo(copy);</span>
+<span class="nc" id="L692">			copymci.moveRates.putAll(mci.moveRates);</span>
+		}
+<span class="nc" id="L694">	}</span>
+
+	@SuppressFBWarnings(value = &quot;SE_COMPARATOR_SHOULD_BE_SERIALIZABLE&quot;,
+		justification = &quot;Private inner Comparator is never serialized; pcgen does not serialize facet runtime constructs (see spotbugs_ignore.xml SE_BAD_FIELD rule)&quot;)
+<span class="nc" id="L698">	private class MoveSorter implements Comparator&lt;NamedValue&gt;</span>
+	{
+
+		@Override
+		public int compare(NamedValue o1, NamedValue o2)
+		{
+<span class="nc bnc" id="L704" title="All 2 branches missed.">			if (o1.getName().equals(&quot;Walk&quot;))</span>
+			{
+<span class="nc" id="L706">				return -1;</span>
+			}
+<span class="nc bnc" id="L708" title="All 2 branches missed.">			if (o2.getName().equals(&quot;Walk&quot;))</span>
+			{
+<span class="nc" id="L710">				return 1;</span>
+			}
+<span class="nc" id="L712">			return o1.getName().compareTo(o2.getName());</span>
+		}
+
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

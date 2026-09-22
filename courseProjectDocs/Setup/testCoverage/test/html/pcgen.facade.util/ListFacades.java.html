@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ListFacades.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.facade.util</a> &gt; <span class="el_source">ListFacades.java</span></div><h1>ListFacades.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2010 Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ * 
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ * 
+ */
+package pcgen.facade.util;
+
+import java.util.AbstractList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
+
+import pcgen.facade.util.event.ListListener;
+
+public final class ListFacades
+{
+
+	private ListFacades()
+	{
+		//Do not instantiate Utility Class
+	}
+
+<span class="nc" id="L36">	private static final ListFacade EMPTY_LIST = new EmptyList();</span>
+
+	public static &lt;T&gt; ListFacade&lt;T&gt; emptyList()
+	{
+<span class="nc" id="L40">		return EMPTY_LIST;</span>
+	}
+
+	public static &lt;T&gt; List&lt;T&gt; wrap(final ListFacade&lt;T&gt; list)
+	{
+<span class="nc" id="L45">		return new AbstractList&lt;&gt;()</span>
+<span class="nc" id="L46">		{</span>
+
+			@Override
+			public T get(int index)
+			{
+<span class="nc" id="L51">				return list.getElementAt(index);</span>
+			}
+
+			@Override
+			public int size()
+			{
+<span class="nc" id="L57">				return list.getSize();</span>
+			}
+
+		};
+	}
+
+	private static class EmptyList implements ListFacade&lt;Object&gt;
+	{
+
+<span class="nc" id="L66">		private static final Iterator&lt;Object&gt; ITERATOR = Collections.emptyIterator();</span>
+
+		@Override
+		public void addListListener(ListListener&lt;? super Object&gt; listener)
+		{
+			//This list never changes so there's no point in listening to it
+<span class="nc" id="L72">		}</span>
+
+		@Override
+		public Object getElementAt(int index)
+		{
+<span class="nc" id="L77">			throw new IndexOutOfBoundsException(index);</span>
+		}
+
+		@Override
+		public int getSize()
+		{
+<span class="nc" id="L83">			return 0;</span>
+		}
+
+		@Override
+		public void removeListListener(ListListener&lt;? super Object&gt; listener)
+		{
+			//This list never changes so there's no point in listening to it
+<span class="nc" id="L90">		}</span>
+
+		@Override
+		public Iterator&lt;Object&gt; iterator()
+		{
+<span class="nc" id="L95">			return ITERATOR;</span>
+		}
+
+		@Override
+		public boolean isEmpty()
+		{
+<span class="nc" id="L101">			return true;</span>
+		}
+
+		@Override
+		public boolean containsElement(Object element)
+		{
+<span class="nc" id="L107">			return false;</span>
+		}
+
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

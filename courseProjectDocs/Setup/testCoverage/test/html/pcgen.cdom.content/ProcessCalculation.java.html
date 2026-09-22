@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ProcessCalculation.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.content</a> &gt; <span class="el_source">ProcessCalculation.java</span></div><h1>ProcessCalculation.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2014 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.cdom.content;
+
+import java.util.Objects;
+
+import pcgen.cdom.calculation.AbstractNEPCalculation;
+import pcgen.cdom.calculation.BasicCalculation;
+import pcgen.base.formula.base.DependencyManager;
+import pcgen.base.formula.base.EvaluationManager;
+import pcgen.base.formula.base.FormulaSemantics;
+import pcgen.base.util.FormatManager;
+
+/**
+ * A ProcessCalculation is an AbstractNEPCalculation that uses a simple object
+ * for the calculation (such as adding a specific Integer).
+ * 
+ * @param &lt;T&gt;
+ *            The format of object on which this ProcessCalculation operates
+ */
+public final class ProcessCalculation&lt;T&gt; extends AbstractNEPCalculation&lt;T&gt;
+{
+	/**
+	 * The underlying object to be passed in to the BasicCalculation of this
+	 * ProcessCalculation when it is processed.
+	 */
+	private final T obj;
+
+	/**
+	 * The FormatManager to manage objects that this ProcessCalculation operates
+	 * upon.
+	 */
+	private final FormatManager&lt;T&gt; formatManager;
+
+	/**
+	 * Constructs a new ProcessCalculation from the given object and
+	 * BasicCalculation.
+	 * 
+	 * @param object
+	 *            The underlying object to be passed into the given
+	 *            BasicCalculation when this ProcessCalculation is processed
+	 * @param calc
+	 *            The BasicCalculation which defines the operation to be
+	 *            performed when this ProcessCalculation is processed
+	 * @param fmtManager
+	 *            The FormatManager for the calculation this can perform
+	 */
+	public ProcessCalculation(T object, BasicCalculation&lt;T&gt; calc, FormatManager&lt;T&gt; fmtManager)
+	{
+<span class="fc" id="L65">		super(calc);</span>
+<span class="fc" id="L66">		this.obj = Objects.requireNonNull(object);</span>
+<span class="fc" id="L67">		this.formatManager = Objects.requireNonNull(fmtManager);</span>
+<span class="fc" id="L68">	}</span>
+
+	@Override
+	public T process(EvaluationManager evalManager)
+	{
+		@SuppressWarnings(&quot;unchecked&quot;)
+<span class="fc bfc" id="L74" title="All 2 branches covered.">		T input = evalManager == null ? null : (T) evalManager.get(EvaluationManager.INPUT);</span>
+<span class="fc" id="L75">		return getBasicCalculation().process(input, obj);</span>
+	}
+
+	@Override
+	public String getInstructions()
+	{
+<span class="fc" id="L81">		return formatManager.unconvert(obj);</span>
+	}
+
+	@Override
+	public int hashCode()
+	{
+<span class="nc" id="L87">		return obj.hashCode() ^ getBasicCalculation().hashCode();</span>
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+<span class="nc bnc" id="L93" title="All 2 branches missed.">		if (o instanceof ProcessCalculation&lt;?&gt; other)</span>
+		{
+<span class="nc bnc" id="L95" title="All 4 branches missed.">			return other.getBasicCalculation().equals(getBasicCalculation()) &amp;&amp; other.obj.equals(obj);</span>
+		}
+<span class="nc" id="L97">		return false;</span>
+	}
+
+	@Override
+	public void getDependencies(DependencyManager fdm)
+	{
+		//Since this is direct (already has the object), it has no dependencies
+<span class="fc" id="L104">	}</span>
+
+	@Override
+	public void isValid(FormulaSemantics semantics)
+	{
+		/*
+		 * Since this is direct (already has the object), it has no semantic issues
+		 * (barring someone violating Generics)
+		 */
+<span class="fc" id="L113">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

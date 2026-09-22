@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>EquippedToken.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.qualifier.equipment</a> &gt; <span class="el_source">EquippedToken.java</span></div><h1>EquippedToken.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2007 (C) Thomas Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package plugin.qualifier.equipment;
+
+import java.util.Collection;
+import java.util.logging.Level;
+
+import pcgen.cdom.base.Converter;
+import pcgen.cdom.base.PrimitiveCollection;
+import pcgen.cdom.base.PrimitiveFilter;
+import pcgen.cdom.converter.AddFilterConverter;
+import pcgen.cdom.converter.NegateFilterConverter;
+import pcgen.cdom.enumeration.GroupingState;
+import pcgen.cdom.reference.SelectionCreator;
+import pcgen.core.Equipment;
+import pcgen.core.PlayerCharacter;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.QualifierToken;
+import pcgen.util.Logging;
+
+<span class="nc" id="L36">public class EquippedToken implements QualifierToken&lt;Equipment&gt;, PrimitiveFilter&lt;Equipment&gt;</span>
+{
+
+<span class="nc" id="L39">	private PrimitiveCollection&lt;Equipment&gt; pcs = null;</span>
+
+<span class="nc" id="L41">	private boolean wasRestricted = false;</span>
+
+<span class="nc" id="L43">	private boolean negated = false;</span>
+
+	@Override
+	public String getTokenName()
+	{
+<span class="nc" id="L48">		return &quot;EQUIPPED&quot;;</span>
+	}
+
+	@Override
+	public Class&lt;Equipment&gt; getReferenceClass()
+	{
+<span class="nc" id="L54">		return Equipment.class;</span>
+	}
+
+	@Override
+	public String getLSTformat(boolean useAny)
+	{
+<span class="nc" id="L60">		StringBuilder sb = new StringBuilder();</span>
+<span class="nc bnc" id="L61" title="All 2 branches missed.">		if (negated)</span>
+		{
+<span class="nc" id="L63">			sb.append('!');</span>
+		}
+<span class="nc" id="L65">		sb.append(getTokenName());</span>
+<span class="nc bnc" id="L66" title="All 2 branches missed.">		if (wasRestricted)</span>
+		{
+<span class="nc" id="L68">			sb.append('[').append(pcs.getLSTformat(useAny)).append(']');</span>
+		}
+<span class="nc" id="L70">		return sb.toString();</span>
+	}
+
+	@Override
+	public boolean initialize(LoadContext context, SelectionCreator&lt;Equipment&gt; sc, String condition, String value,
+		boolean negate)
+	{
+<span class="nc bnc" id="L77" title="All 2 branches missed.">		if (condition != null)</span>
+		{
+<span class="nc" id="L79">			Logging.addParseMessage(Level.SEVERE,</span>
+<span class="nc" id="L80">				getTokenName() + &quot; Must not be a conditional Qualifier (no equals), e.g. &quot; + getTokenName());</span>
+<span class="nc" id="L81">			return false;</span>
+		}
+<span class="nc" id="L83">		negated = negate;</span>
+<span class="nc bnc" id="L84" title="All 2 branches missed.">		if (value == null)</span>
+		{
+<span class="nc" id="L86">			pcs = sc.getAllReference();</span>
+		}
+		else
+		{
+<span class="nc" id="L90">			pcs = context.getPrimitiveChoiceFilter(sc, value);</span>
+<span class="nc" id="L91">			wasRestricted = true;</span>
+		}
+<span class="nc bnc" id="L93" title="All 2 branches missed.">		return pcs != null;</span>
+	}
+
+	@Override
+	public GroupingState getGroupingState()
+	{
+<span class="nc bnc" id="L99" title="All 2 branches missed.">		GroupingState gs = pcs == null ? GroupingState.ANY : pcs.getGroupingState().reduce();</span>
+<span class="nc bnc" id="L100" title="All 2 branches missed.">		return negated ? gs.negate() : gs;</span>
+	}
+
+	@Override
+	public int hashCode()
+	{
+<span class="nc bnc" id="L106" title="All 2 branches missed.">		return pcs == null ? 0 : pcs.hashCode();</span>
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+<span class="nc bnc" id="L112" title="All 2 branches missed.">		if (o instanceof EquippedToken other)</span>
+		{
+<span class="nc bnc" id="L114" title="All 2 branches missed.">			if (negated == other.negated)</span>
+			{
+<span class="nc bnc" id="L116" title="All 2 branches missed.">				if (pcs == null)</span>
+				{
+<span class="nc bnc" id="L118" title="All 2 branches missed.">					return other.pcs == null;</span>
+				}
+<span class="nc" id="L120">				return pcs.equals(other.pcs);</span>
+			}
+		}
+<span class="nc" id="L123">		return false;</span>
+	}
+
+	@Override
+	public &lt;R&gt; Collection&lt;? extends R&gt; getCollection(PlayerCharacter pc, Converter&lt;Equipment, R&gt; c)
+	{
+<span class="nc" id="L129">		Converter&lt;Equipment, R&gt; conv = new AddFilterConverter&lt;&gt;(c, this);</span>
+<span class="nc bnc" id="L130" title="All 2 branches missed.">		conv = negated ? new NegateFilterConverter&lt;&gt;(conv) : conv;</span>
+<span class="nc" id="L131">		return pcs.getCollection(pc, conv);</span>
+	}
+
+	@Override
+	public boolean allow(PlayerCharacter pc, Equipment sk)
+	{
+<span class="nc" id="L137">		return pc.getEquippedEquipmentSet().contains(sk);</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

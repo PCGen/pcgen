@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CharacterSpellResistanceFacet.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.facet.analysis</a> &gt; <span class="el_source">CharacterSpellResistanceFacet.java</span></div><h1>CharacterSpellResistanceFacet.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) Thomas Parker, 2009.
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package pcgen.cdom.facet.analysis;
+
+import java.util.Map;
+import java.util.Set;
+
+import pcgen.cdom.formula.Formula;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.content.SpellResistance;
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.facet.CDOMObjectConsolidationFacet;
+import pcgen.cdom.facet.FormulaResolvingFacet;
+import pcgen.cdom.facet.base.AbstractSourcedListFacet;
+import pcgen.cdom.facet.event.DataFacetChangeEvent;
+import pcgen.cdom.facet.event.DataFacetChangeListener;
+
+/**
+ * CharacterSpellResistanceFacet is a Facet that tracks the SpellResistance
+ * objects that have been granted to a Player Character.
+ * 
+ */
+<span class="fc" id="L39">public class CharacterSpellResistanceFacet extends AbstractSourcedListFacet&lt;CharID, Formula&gt;</span>
+		implements DataFacetChangeListener&lt;CharID, CDOMObject&gt;
+{
+	private FormulaResolvingFacet formulaResolvingFacet;
+
+	private CDOMObjectConsolidationFacet consolidationFacet;
+
+	/**
+	 * Captures any SpellResistance objects granted by CDOMObjects added to the
+	 * Player Character and adds those SpellResisteance objects to this
+	 * CharacterSpellResistanceFacet for the Player Character.
+	 * 
+	 * Triggered when one of the Facets to which CharacterSpellResistanceFacet
+	 * listens fires a DataFacetChangeEvent to indicate a CDOMObject was added
+	 * to a Player Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 */
+	@Override
+	public void dataAdded(DataFacetChangeEvent&lt;CharID, CDOMObject&gt; dfce)
+	{
+<span class="fc" id="L62">		CDOMObject cdo = dfce.getCDOMObject();</span>
+<span class="fc" id="L63">		SpellResistance sr = cdo.get(ObjectKey.SR);</span>
+<span class="fc bfc" id="L64" title="All 2 branches covered.">		if (sr != null)</span>
+		{
+<span class="fc" id="L66">			add(dfce.getCharID(), sr.getReduction(), cdo);</span>
+		}
+<span class="fc" id="L68">	}</span>
+
+	/**
+	 * Captures any SpellResistance objects granted by CDOMObjects removed from
+	 * the Player Character and removes those SpellResisteance objects to this
+	 * CharacterSpellResistanceFacet for the Player Character.
+	 * 
+	 * Triggered when one of the Facets to which CharacterSpellResistanceFacet
+	 * listens fires a DataFacetChangeEvent to indicate a CDOMObject was removed
+	 * from a Player Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 */
+	@Override
+	public void dataRemoved(DataFacetChangeEvent&lt;CharID, CDOMObject&gt; dfce)
+	{
+<span class="fc" id="L86">		removeAll(dfce.getCharID(), dfce.getCDOMObject());</span>
+<span class="fc" id="L87">	}</span>
+
+	/**
+	 * Returns the Spell Resistance for the Player Character identified by the
+	 * given CharID.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character for which the
+	 *            Spell Resistance will be returned
+	 * @return The Spell Resistance for the Player Character identified by the
+	 *         given CharID
+	 */
+	public int getSR(CharID id)
+	{
+<span class="nc" id="L101">		Map&lt;Formula, Set&lt;Object&gt;&gt; componentMap = getCachedMap(id);</span>
+<span class="nc" id="L102">		int sr = 0;</span>
+<span class="nc bnc" id="L103" title="All 2 branches missed.">		if (componentMap != null)</span>
+		{
+<span class="nc bnc" id="L105" title="All 2 branches missed.">			for (Map.Entry&lt;Formula, Set&lt;Object&gt;&gt; me : componentMap.entrySet())</span>
+			{
+<span class="nc" id="L107">				Formula f = me.getKey();</span>
+<span class="nc" id="L108">				Set&lt;Object&gt; sourceSet = me.getValue();</span>
+<span class="nc bnc" id="L109" title="All 2 branches missed.">				for (Object source : sourceSet)</span>
+				{
+<span class="nc bnc" id="L111" title="All 2 branches missed.">					String sourceString = (source instanceof CDOMObject) ? ((CDOMObject) source).getQualifiedKey() : &quot;&quot;;</span>
+<span class="nc" id="L112">					sr = Math.max(sr, formulaResolvingFacet.resolve(id, f, sourceString).intValue());</span>
+<span class="nc" id="L113">				}</span>
+<span class="nc" id="L114">			}</span>
+		}
+<span class="nc" id="L116">		return sr;</span>
+	}
+
+	public void setFormulaResolvingFacet(FormulaResolvingFacet formulaResolvingFacet)
+	{
+<span class="fc" id="L121">		this.formulaResolvingFacet = formulaResolvingFacet;</span>
+<span class="fc" id="L122">	}</span>
+
+	public void setConsolidationFacet(CDOMObjectConsolidationFacet consolidationFacet)
+	{
+<span class="fc" id="L126">		this.consolidationFacet = consolidationFacet;</span>
+<span class="fc" id="L127">	}</span>
+
+	/**
+	 * Initializes the connections for CharacterSpellResistanceFacet to other
+	 * facets.
+	 * 
+	 * This method is automatically called by the Spring framework during
+	 * initialization of the CharacterSpellResistanceFacet.
+	 */
+	public void init()
+	{
+<span class="fc" id="L138">		consolidationFacet.addDataFacetChangeListener(this);</span>
+<span class="fc" id="L139">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

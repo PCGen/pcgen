@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SkillArmorCheck.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.enumeration</a> &gt; <span class="el_source">SkillArmorCheck.java</span></div><h1>SkillArmorCheck.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2007 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ *
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.cdom.enumeration;
+
+import java.util.List;
+
+import pcgen.base.lang.UnreachableError;
+import pcgen.cdom.util.CControl;
+import pcgen.core.Equipment;
+import pcgen.core.Globals;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.RuleConstants;
+import pcgen.core.SettingsHandler;
+import pcgen.io.exporttoken.EqToken;
+import pcgen.util.enumeration.Load;
+
+/**
+ * A SkillArmorCheck refers to a method of calculating an Armor Check Penalty.
+ */
+<span class="fc" id="L35">public enum SkillArmorCheck</span>
+{
+	// # NO - Armor check penalty does not apply (Default).
+	// # YES - Armor check penalty applies to this skill.
+	// # PROFICIENT - Armor check penalty applies if the character is not
+	// proficient in it.
+	// # DOUBLE - Armor check penalty of double normal applies to this skill.
+	// # WEIGHT - Weight carried penalty applies to the skill check.
+
+	/*
+	 * WARNING: These are ordered, and the order MUST NOT BE CHANGED, due to
+	 * impacts to pcgen.io.exporttoken.SkillToken (among potentially other
+	 * places)
+	 */
+<span class="fc" id="L49">	NONE</span>
+	{
+		@Override
+		public int calculateBonus(PlayerCharacter pc)
+		{
+<span class="nc" id="L54">			return 0;</span>
+		}
+	},
+<span class="fc" id="L57">	YES, NONPROF</span>
+	{
+		@Override
+		protected boolean useEquipment(PlayerCharacter pc, Equipment equipment)
+		{
+<span class="nc bnc" id="L62" title="All 2 branches missed.">			return !pc.isProficientWith(equipment);</span>
+		}
+
+		@Override
+		protected int calculateMin(PlayerCharacter pc)
+		{
+<span class="nc" id="L68">			return 0;</span>
+		}
+	},
+<span class="fc" id="L71">	DOUBLE</span>
+	{
+		@Override
+		protected int getMultiplier()
+		{
+<span class="nc" id="L76">			return 2;</span>
+		}
+	},
+<span class="fc" id="L79">	WEIGHT</span>
+	{
+		@Override
+		protected int calculateMax(PlayerCharacter pc)
+		{
+<span class="nc" id="L84">			return -(int) (pc.getDisplay().totalWeight().doubleValue() / 5.0);</span>
+		}
+
+	};
+
+	public int calculateBonus(PlayerCharacter pc)
+	{
+<span class="nc" id="L91">		int min = 0;</span>
+<span class="nc" id="L92">		int max = 0;</span>
+		/*
+		 * Simulate taking everything off before going swimming. Freq #505977
+		 */
+<span class="nc bnc" id="L96" title="All 2 branches missed.">		if (Globals.checkRule(RuleConstants.SYS_WTPSK))</span>
+		{
+<span class="nc" id="L98">			min = calculateMin(pc);</span>
+<span class="nc" id="L99">			max = calculateMax(pc);</span>
+		}
+<span class="nc" id="L101">		return getMultiplier() * Math.min(min, (max + (int) pc.getTotalBonusTo(&quot;MISC&quot;, &quot;ACCHECK&quot;)));</span>
+	}
+
+	protected int getMultiplier()
+	{
+<span class="nc" id="L106">		return 1;</span>
+	}
+
+	protected int calculateMin(PlayerCharacter pc)
+	{
+<span class="nc" id="L111">		int penalty = 0;</span>
+<span class="nc bnc" id="L112" title="All 2 branches missed.">		if (Globals.checkRule(RuleConstants.SYS_LDPACSK))</span>
+		{
+<span class="nc" id="L114">			final Load load = pc.getDisplay().getLoadType();</span>
+
+<span class="nc bnc" id="L116" title="All 4 branches missed.">			penalty = switch (load)</span>
+					{
+<span class="nc" id="L118">						case LIGHT -&gt; SettingsHandler.getGameAsProperty()</span>
+<span class="nc" id="L119">						                             .get()</span>
+<span class="nc" id="L120">						                             .getLoadInfo()</span>
+<span class="nc" id="L121">						                             .getLoadCheckPenalty(&quot;LIGHT&quot;);</span>
+<span class="nc" id="L122">						case MEDIUM -&gt; SettingsHandler.getGameAsProperty()</span>
+<span class="nc" id="L123">						                              .get()</span>
+<span class="nc" id="L124">						                              .getLoadInfo()</span>
+<span class="nc" id="L125">						                              .getLoadCheckPenalty(&quot;MEDIUM&quot;);</span>
+<span class="nc" id="L126">						case HEAVY, OVERLOAD -&gt; SettingsHandler.getGameAsProperty()</span>
+<span class="nc" id="L127">						                                       .get()</span>
+<span class="nc" id="L128">						                                       .getLoadInfo()</span>
+<span class="nc" id="L129">						                                       .getLoadCheckPenalty(&quot;HEAVY&quot;);</span>
+<span class="nc" id="L130">						default -&gt; throw new UnreachableError(</span>
+								&quot;Internal Error: In Skill.modifier the load &quot; + load + &quot; is not supported.&quot;);
+					};
+		}
+<span class="nc" id="L134">		return penalty;</span>
+	}
+
+	protected int calculateMax(PlayerCharacter pc)
+	{
+<span class="nc" id="L139">		String acCheckVar = pc.getControl(CControl.PCACCHECK);</span>
+<span class="nc bnc" id="L140" title="All 2 branches missed.">		if (acCheckVar == null)</span>
+		{
+<span class="nc" id="L142">			return calculateMaxOld(pc);</span>
+		}
+<span class="nc" id="L144">		return ((Number) pc.getGlobal(acCheckVar)).intValue();</span>
+	}
+
+	/**
+	 * @deprecated due to PCACCHECK code control
+	 */
+	@Deprecated
+	protected int calculateMaxOld(PlayerCharacter pc)
+	{
+<span class="nc" id="L153">		int max = 0;</span>
+<span class="nc" id="L154">		final List&lt;Equipment&gt; itemList = pc.getEquipmentOfType(&quot;Armor&quot;, 1);</span>
+<span class="nc bnc" id="L155" title="All 2 branches missed.">		for (Equipment eq : pc.getEquipmentOfType(&quot;Shield&quot;, 1))</span>
+		{
+<span class="nc bnc" id="L157" title="All 2 branches missed.">			if (!itemList.contains(eq))</span>
+			{
+<span class="nc" id="L159">				itemList.add(eq);</span>
+			}
+<span class="nc" id="L161">		}</span>
+<span class="nc bnc" id="L162" title="All 2 branches missed.">		for (Equipment eq : itemList)</span>
+		{
+<span class="nc bnc" id="L164" title="All 2 branches missed.">			if (useEquipment(pc, eq))</span>
+			{
+<span class="nc" id="L166">				max += EqToken.getAcCheckTokenInt(pc, eq);</span>
+			}
+<span class="nc" id="L168">		}</span>
+<span class="nc" id="L169">		return max;</span>
+	}
+
+	protected boolean useEquipment(PlayerCharacter pc, Equipment eq)
+	{
+<span class="nc" id="L174">		return true;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

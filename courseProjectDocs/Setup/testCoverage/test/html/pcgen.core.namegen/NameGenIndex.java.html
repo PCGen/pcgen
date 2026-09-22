@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>NameGenIndex.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.core.namegen</a> &gt; <span class="el_source">NameGenIndex.java</span></div><h1>NameGenIndex.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2026 Vest &lt;Vest@users.noreply.github.com&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ */
+package pcgen.core.namegen;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+import javax.xml.XMLConstants;
+import javax.xml.stream.XMLInputFactory;
+import javax.xml.stream.XMLStreamConstants;
+import javax.xml.stream.XMLStreamException;
+import javax.xml.stream.XMLStreamReader;
+
+import org.apache.commons.lang3.StringUtils;
+
+import pcgen.util.Logging;
+
+/**
+ * Lightweight pre-scan of the random-name XML directory. Reads only top-level
+ * {@code &lt;RULESET&gt;} / {@code &lt;LIST&gt;} attributes and the {@code &lt;CATEGORY&gt;}
+ * children of each ruleset — never the {@code &lt;RULE&gt;} or {@code &lt;VALUE&gt;}
+ * bodies — so it is dramatically cheaper than a full DOM parse.
+ *
+ * &lt;p&gt;Drives the lazy-load path: at startup the UI only needs to know which
+ * categories exist and which rulesets/lists each file declares. The bodies
+ * are parsed on demand by {@link NameGenLazyData} once the user picks a
+ * category.
+ */
+public final class NameGenIndex
+{
+	private static final String TAG_RULESET = &quot;RULESET&quot;;
+	private static final String TAG_CATEGORY = &quot;CATEGORY&quot;;
+	private static final String TAG_LIST = &quot;LIST&quot;;
+	private static final String ATTR_ID = &quot;id&quot;;
+	private static final String ATTR_TITLE = &quot;title&quot;;
+	private static final String ATTR_USAGE = &quot;usage&quot;;
+
+	private final Map&lt;String, RuleSetMeta&gt; rulesetsById;
+	private final Map&lt;String, File&gt; listIdToFile;
+	private final Map&lt;String, List&lt;String&gt;&gt; rulesetIdsByCategory;
+
+	private NameGenIndex(Map&lt;String, RuleSetMeta&gt; rulesetsById,
+			Map&lt;String, File&gt; listIdToFile,
+			Map&lt;String, List&lt;String&gt;&gt; rulesetIdsByCategory)
+<span class="fc" id="L59">	{</span>
+<span class="fc" id="L60">		this.rulesetsById = Map.copyOf(rulesetsById);</span>
+<span class="fc" id="L61">		this.listIdToFile = Map.copyOf(listIdToFile);</span>
+<span class="fc" id="L62">		this.rulesetIdsByCategory = unmodifiableDeep(rulesetIdsByCategory);</span>
+<span class="fc" id="L63">	}</span>
+
+	/**
+	 * Scan every {@code *.xml} file in {@code dataDir} for ruleset/list/
+	 * category metadata. Returns an empty index if no files match.
+	 *
+	 * @throws IOException if {@code dataDir} is not a directory or any file
+	 *                     fails to scan
+	 */
+	public static NameGenIndex scan(File dataDir) throws IOException
+	{
+<span class="pc bpc" id="L74" title="1 of 2 branches missed.">		if (!dataDir.isDirectory())</span>
+		{
+<span class="nc" id="L76">			throw new IOException(&quot;Not a directory: &quot; + dataDir);</span>
+		}
+<span class="fc" id="L78">		File[] dataFiles = dataDir.listFiles((dir, name) -&gt; name.endsWith(&quot;.xml&quot;));</span>
+<span class="pc bpc" id="L79" title="1 of 2 branches missed.">		if (dataFiles == null)</span>
+		{
+<span class="nc" id="L81">			throw new IOException(&quot;Cannot list files in: &quot; + dataDir);</span>
+		}
+<span class="fc" id="L83">		Arrays.sort(dataFiles);</span>
+
+<span class="fc" id="L85">		XMLInputFactory factory = newSecureInputFactory();</span>
+<span class="fc" id="L86">		Map&lt;String, RuleSetMeta&gt; rulesetsById = new LinkedHashMap&lt;&gt;();</span>
+<span class="fc" id="L87">		Map&lt;String, File&gt; listIdToFile = new LinkedHashMap&lt;&gt;();</span>
+<span class="fc" id="L88">		Map&lt;String, List&lt;String&gt;&gt; rulesetIdsByCategory = new LinkedHashMap&lt;&gt;();</span>
+
+<span class="fc bfc" id="L90" title="All 2 branches covered.">		for (File file : dataFiles)</span>
+		{
+<span class="fc" id="L92">			scanOne(file, factory, rulesetsById, listIdToFile, rulesetIdsByCategory);</span>
+		}
+<span class="fc" id="L94">		return new NameGenIndex(rulesetsById, listIdToFile, rulesetIdsByCategory);</span>
+	}
+
+	/** All ruleset ids declared anywhere, mapped to their metadata. */
+	public Map&lt;String, RuleSetMeta&gt; rulesetsById()
+	{
+<span class="fc" id="L100">		return rulesetsById;</span>
+	}
+
+	/** Owning file for a {@code &lt;LIST id=&quot;...&quot;&gt;}, or {@code null} if unknown. */
+	public File fileForList(String listId)
+	{
+<span class="fc" id="L106">		return listIdToFile.get(listId);</span>
+	}
+
+	/** Owning file for a {@code &lt;RULESET id=&quot;...&quot;&gt;}, or {@code null} if unknown. */
+	public File fileForRuleset(String rulesetId)
+	{
+<span class="fc" id="L112">		RuleSetMeta meta = rulesetsById.get(rulesetId);</span>
+<span class="pc bpc" id="L113" title="1 of 2 branches missed.">		return meta == null ? null : meta.file();</span>
+	}
+
+	/**
+	 * Ordered ruleset ids declared under each {@code &lt;CATEGORY title=&quot;...&quot;&gt;}.
+	 * Order matches scan order (file alphabetical, then declaration order).
+	 */
+	public Map&lt;String, List&lt;String&gt;&gt; rulesetIdsByCategory()
+	{
+<span class="fc" id="L122">		return rulesetIdsByCategory;</span>
+	}
+
+	/**
+	 * Per-ruleset metadata gathered without parsing rule bodies: enough to
+	 * populate the UI's category/title/gender pickers.
+	 */
+	public record RuleSetMeta(File file, String id, String title, String usage,
+			List&lt;String&gt; categoryTitles)
+	{
+<span class="fc" id="L132">		public RuleSetMeta</span>
+<span class="fc" id="L133">		{</span>
+<span class="fc" id="L134">			categoryTitles = List.copyOf(categoryTitles);</span>
+<span class="fc" id="L135">		}</span>
+	}
+
+	private static void scanOne(File file, XMLInputFactory factory,
+			Map&lt;String, RuleSetMeta&gt; rulesetsById,
+			Map&lt;String, File&gt; listIdToFile,
+			Map&lt;String, List&lt;String&gt;&gt; rulesetIdsByCategory) throws IOException
+	{
+<span class="fc" id="L143">		try (InputStream in = new FileInputStream(file))</span>
+		{
+			// Pass a systemId so the parser can resolve the DOCTYPE's
+			// relative SYSTEM &quot;generator.dtd&quot; against the data file's URL.
+<span class="fc" id="L147">			XMLStreamReader reader = factory.createXMLStreamReader(</span>
+<span class="fc" id="L148">					file.toURI().toString(), in);</span>
+			try
+			{
+<span class="fc" id="L151">				scanStream(reader, file, rulesetsById, listIdToFile, rulesetIdsByCategory);</span>
+			}
+			finally
+			{
+<span class="fc" id="L155">				reader.close();</span>
+			}
+		}
+<span class="nc" id="L158">		catch (XMLStreamException e)</span>
+		{
+<span class="nc" id="L160">			Logging.errorPrint(&quot;Failed to pre-scan &quot; + file.getName(), e);</span>
+<span class="nc" id="L161">			throw new IOException(&quot;XML error scanning &quot; + file.getName(), e);</span>
+<span class="fc" id="L162">		}</span>
+<span class="fc" id="L163">	}</span>
+
+	/**
+	 * Drives the StAX state machine over one document. The body of every
+	 * {@code &lt;LIST&gt;} is skipped via a depth counter on {@link ScanState}
+	 * rather than parsed; only attribute headers on {@code &lt;RULESET&gt;},
+	 * {@code &lt;CATEGORY&gt;}, and {@code &lt;LIST&gt;} matter to the index.
+	 */
+	private static void scanStream(XMLStreamReader reader, File file,
+			Map&lt;String, RuleSetMeta&gt; rulesetsById,
+			Map&lt;String, File&gt; listIdToFile,
+			Map&lt;String, List&lt;String&gt;&gt; rulesetIdsByCategory) throws XMLStreamException
+	{
+<span class="fc" id="L176">		ScanState state = new ScanState(file, rulesetsById, listIdToFile, rulesetIdsByCategory);</span>
+<span class="fc bfc" id="L177" title="All 2 branches covered.">		while (reader.hasNext())</span>
+		{
+<span class="fc" id="L179">			int event = reader.next();</span>
+<span class="fc bfc" id="L180" title="All 2 branches covered.">			if (event == XMLStreamConstants.START_ELEMENT)</span>
+			{
+<span class="fc" id="L182">				state.handleStart(reader);</span>
+			}
+<span class="fc bfc" id="L184" title="All 2 branches covered.">			else if (event == XMLStreamConstants.END_ELEMENT)</span>
+			{
+<span class="fc" id="L186">				state.handleEnd(reader.getLocalName());</span>
+			}
+<span class="fc" id="L188">		}</span>
+<span class="fc" id="L189">	}</span>
+
+	/**
+	 * Streaming-scan accumulator. Holds the in-flight {@code &lt;RULESET&gt;}'s
+	 * attributes and a depth counter for skipping {@code &lt;LIST&gt;} bodies, and
+	 * commits a {@link RuleSetMeta} record on each {@code &lt;/RULESET&gt;}.
+	 */
+	private static final class ScanState
+	{
+		private final File file;
+		private final Map&lt;String, RuleSetMeta&gt; rulesetsById;
+		private final Map&lt;String, File&gt; listIdToFile;
+		private final Map&lt;String, List&lt;String&gt;&gt; rulesetIdsByCategory;
+
+		private String currentRulesetId;
+		private String currentRulesetTitle;
+		private String currentRulesetUsage;
+		private List&lt;String&gt; currentCategories;
+		private int listDepth;
+
+		ScanState(File file,
+				Map&lt;String, RuleSetMeta&gt; rulesetsById,
+				Map&lt;String, File&gt; listIdToFile,
+				Map&lt;String, List&lt;String&gt;&gt; rulesetIdsByCategory)
+<span class="fc" id="L213">		{</span>
+<span class="fc" id="L214">			this.file = file;</span>
+<span class="fc" id="L215">			this.rulesetsById = rulesetsById;</span>
+<span class="fc" id="L216">			this.listIdToFile = listIdToFile;</span>
+<span class="fc" id="L217">			this.rulesetIdsByCategory = rulesetIdsByCategory;</span>
+<span class="fc" id="L218">		}</span>
+
+		void handleStart(XMLStreamReader reader)
+		{
+<span class="fc bfc" id="L222" title="All 2 branches covered.">			if (listDepth &gt; 0)</span>
+			{
+				// Inside a &lt;LIST&gt;; ignore everything until close.
+<span class="fc" id="L225">				listDepth++;</span>
+<span class="fc" id="L226">				return;</span>
+			}
+<span class="fc bfc" id="L228" title="All 4 branches covered.">			switch (reader.getLocalName())</span>
+			{
+<span class="fc" id="L230">				case TAG_RULESET -&gt; beginRuleSet(reader);</span>
+<span class="fc" id="L231">				case TAG_CATEGORY -&gt; addCategory(reader);</span>
+<span class="fc" id="L232">				case TAG_LIST -&gt; beginList(reader);</span>
+				default -&gt;
+				{
+					// We don't care about RULE/GETLIST/etc. for the index.
+				}
+			}
+<span class="fc" id="L238">		}</span>
+
+		void handleEnd(String localName)
+		{
+<span class="fc bfc" id="L242" title="All 2 branches covered.">			if (listDepth &gt; 0)</span>
+			{
+<span class="fc" id="L244">				listDepth--;</span>
+<span class="fc" id="L245">				return;</span>
+			}
+<span class="pc bpc" id="L247" title="1 of 4 branches missed.">			if (TAG_RULESET.equals(localName) &amp;&amp; currentRulesetId != null)</span>
+			{
+<span class="fc" id="L249">				commitRuleSet();</span>
+			}
+<span class="fc" id="L251">		}</span>
+
+		private void beginRuleSet(XMLStreamReader reader)
+		{
+<span class="fc" id="L255">			currentRulesetId = reader.getAttributeValue(null, ATTR_ID);</span>
+<span class="fc" id="L256">			currentRulesetTitle = StringUtils.defaultString(reader.getAttributeValue(null, ATTR_TITLE));</span>
+<span class="fc" id="L257">			currentRulesetUsage = StringUtils.defaultString(reader.getAttributeValue(null, ATTR_USAGE));</span>
+<span class="fc" id="L258">			currentCategories = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L259">		}</span>
+
+		private void addCategory(XMLStreamReader reader)
+		{
+<span class="pc bpc" id="L263" title="1 of 2 branches missed.">			if (currentCategories == null)</span>
+			{
+<span class="nc" id="L265">				return;</span>
+			}
+<span class="fc" id="L267">			String title = reader.getAttributeValue(null, ATTR_TITLE);</span>
+<span class="pc bpc" id="L268" title="1 of 2 branches missed.">			if (title != null)</span>
+			{
+<span class="fc" id="L270">				currentCategories.add(title);</span>
+			}
+<span class="fc" id="L272">		}</span>
+
+		private void beginList(XMLStreamReader reader)
+		{
+<span class="fc" id="L276">			String id = reader.getAttributeValue(null, ATTR_ID);</span>
+<span class="pc bpc" id="L277" title="1 of 2 branches missed.">			if (id != null)</span>
+			{
+<span class="fc" id="L279">				listIdToFile.put(id, file);</span>
+			}
+<span class="fc" id="L281">			listDepth = 1;</span>
+<span class="fc" id="L282">		}</span>
+
+		private void commitRuleSet()
+		{
+<span class="fc" id="L286">			RuleSetMeta meta = new RuleSetMeta(file, currentRulesetId,</span>
+					currentRulesetTitle, currentRulesetUsage,
+					currentCategories);
+<span class="fc" id="L289">			rulesetsById.put(currentRulesetId, meta);</span>
+<span class="fc bfc" id="L290" title="All 2 branches covered.">			for (String cat : currentCategories)</span>
+			{
+<span class="fc" id="L292">				rulesetIdsByCategory</span>
+<span class="fc" id="L293">						.computeIfAbsent(cat, k -&gt; new ArrayList&lt;&gt;())</span>
+<span class="fc" id="L294">						.add(currentRulesetId);</span>
+<span class="fc" id="L295">			}</span>
+<span class="fc" id="L296">			currentRulesetId = null;</span>
+<span class="fc" id="L297">			currentRulesetTitle = null;</span>
+<span class="fc" id="L298">			currentRulesetUsage = null;</span>
+<span class="fc" id="L299">			currentCategories = null;</span>
+<span class="fc" id="L300">		}</span>
+	}
+
+	private static XMLInputFactory newSecureInputFactory()
+	{
+<span class="fc" id="L305">		XMLInputFactory factory = XMLInputFactory.newInstance();</span>
+		// XXE hardening. The data files declare &lt;!DOCTYPE GENERATOR SYSTEM
+		// &quot;generator.dtd&quot;&gt; so we must allow `file` access for the local DTD,
+		// but not network access. External entity references stay disabled.
+<span class="fc" id="L309">		factory.setProperty(XMLInputFactory.IS_SUPPORTING_EXTERNAL_ENTITIES, false);</span>
+<span class="fc" id="L310">		factory.setProperty(XMLInputFactory.IS_REPLACING_ENTITY_REFERENCES, false);</span>
+<span class="fc" id="L311">		factory.setProperty(XMLConstants.ACCESS_EXTERNAL_DTD, &quot;file&quot;);</span>
+<span class="fc" id="L312">		return factory;</span>
+	}
+
+	private static Map&lt;String, List&lt;String&gt;&gt; unmodifiableDeep(Map&lt;String, List&lt;String&gt;&gt; src)
+	{
+<span class="fc" id="L317">		return src.entrySet().stream()</span>
+<span class="fc" id="L318">				.collect(Collectors.toMap(</span>
+						Map.Entry::getKey,
+<span class="fc" id="L320">						e -&gt; List.copyOf(e.getValue()),</span>
+<span class="nc" id="L321">						(a, b) -&gt; b,</span>
+						LinkedHashMap::new));
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Gender.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.enumeration</a> &gt; <span class="el_source">Gender.java</span></div><h1>Gender.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2007 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.cdom.enumeration;
+
+import pcgen.system.LanguageBundle;
+
+/**
+ * Represents the Genders available in PCGen.
+ * 
+ * It is designed to hold Genders in a type-safe fashion, so that they can be
+ * quickly compared and use less memory when identical Genders exist in two
+ * CDOMObjects.
+ */
+<span class="fc" id="L29">public enum Gender</span>
+{
+<span class="fc" id="L31">	Male</span>
+	{
+		@Override
+		public String toString()
+		{
+<span class="fc" id="L36">			return LanguageBundle.getString(&quot;in_genderMale&quot;);</span>
+		}
+	},
+
+<span class="fc" id="L40">	Female</span>
+	{
+		@Override
+		public String toString()
+		{
+<span class="nc" id="L45">			return LanguageBundle.getString(&quot;in_genderFemale&quot;);</span>
+		}
+	},
+
+<span class="fc" id="L49">	Neuter</span>
+	{
+		@Override
+		public String toString()
+		{
+<span class="nc" id="L54">			return LanguageBundle.getString(&quot;in_genderNeuter&quot;);</span>
+		}
+	},
+
+<span class="fc" id="L58">	Host</span>
+	{
+		@Override
+		public String toString()
+		{
+<span class="nc" id="L63">			return LanguageBundle.getString(&quot;in_genderHost&quot;);</span>
+		}
+	},
+<span class="fc" id="L66">	Unknown</span>
+	{
+		@Override
+		public String toString()
+		{
+<span class="nc" id="L71">			return LanguageBundle.getString(&quot;in_genderUnknown&quot;);</span>
+		}
+	};
+
+	public static Gender getDefaultValue()
+	{
+<span class="fc" id="L77">		return Male;</span>
+	}
+
+	/**
+	 * Retrieve a Gender object to match the name ({@link #name()}) or localized
+	 * name (output by {@link #toString()}). The localized lookup is kept for
+	 * legacy purpose when the localized name was saved in the character files
+	 * (instead of the {@link #name()}).
+	 * 
+	 * @param name
+	 *            The localized display name of the Gender.
+	 * @return The matching Gender.
+	 */
+	public static Gender getGenderByName(String name)
+	{
+<span class="pc bpc" id="L92" title="1 of 2 branches missed.">		for (Gender gender : values())</span>
+		{
+<span class="pc bpc" id="L94" title="1 of 2 branches missed.">			if (gender.toString().equals(name))</span>
+			{
+<span class="fc" id="L96">				return gender;</span>
+			}
+		}
+
+<span class="nc" id="L100">		return valueOf(name);</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

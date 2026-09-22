@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RandomChooser.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.util.chooser</a> &gt; <span class="el_source">RandomChooser.java</span></div><h1>RandomChooser.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2006 (C) Aaron Divinsky &lt;boomer70@yahoo.com&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.util.chooser;
+
+import pcgen.util.RandomUtil;
+import pcgen.facade.core.ChooserFacade;
+import pcgen.facade.core.InfoFacade;
+import pcgen.facade.util.ListFacade;
+
+/**
+ * An implementation of the Chooser Interface that does not display a GUI but
+ * simply selects a random choice from the available list of options.
+ */
+@Deprecated()
+<span class="nc" id="L30">public final class RandomChooser</span>
+{
+	public boolean makeChoice(ChooserFacade chooserFacade)
+	{
+<span class="nc bnc" id="L34" title="All 4 branches missed.">		while ((chooserFacade.getRemainingSelections().get() &gt; 0) &amp;&amp; !chooserFacade.getAvailableList().isEmpty())</span>
+		{
+<span class="nc" id="L36">			ListFacade&lt;InfoFacade&gt; availableList = chooserFacade.getAvailableList();</span>
+<span class="nc" id="L37">			final InfoFacade addObj = availableList.getElementAt(RandomUtil.getRandomInt(availableList.getSize() - 1));</span>
+<span class="nc" id="L38">			chooserFacade.addSelected(addObj);</span>
+<span class="nc" id="L39">		}</span>
+
+<span class="nc bnc" id="L41" title="All 4 branches missed.">		if ((chooserFacade.getRemainingSelections().get() == 0) || !chooserFacade.isRequireCompleteSelection())</span>
+		{
+<span class="nc" id="L43">			chooserFacade.commit();</span>
+<span class="nc" id="L44">			return true;</span>
+		}
+
+<span class="nc" id="L47">		chooserFacade.rollback();</span>
+<span class="nc" id="L48">		return false;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

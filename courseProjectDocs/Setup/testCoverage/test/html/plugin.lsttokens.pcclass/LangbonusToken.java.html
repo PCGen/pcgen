@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>LangbonusToken.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.lsttokens.pcclass</a> &gt; <span class="el_source">LangbonusToken.java</span></div><h1>LangbonusToken.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) 2008 Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package plugin.lsttokens.pcclass;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.StringTokenizer;
+
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.reference.ReferenceUtilities;
+import pcgen.core.Language;
+import pcgen.core.PCClass;
+import pcgen.rules.context.AssociatedChanges;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.TokenUtilities;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.ParseResult;
+
+/**
+ * Class deals with LANGBONUS Token
+ */
+<span class="fc" id="L40">public class LangbonusToken extends AbstractTokenWithSeparator&lt;PCClass&gt; implements CDOMPrimaryToken&lt;PCClass&gt;</span>
+{
+
+<span class="fc" id="L43">	private static final Class&lt;Language&gt; LANGUAGE_CLASS = Language.class;</span>
+
+	@Override
+	public String getTokenName()
+	{
+<span class="fc" id="L48">		return &quot;LANGBONUS&quot;;</span>
+	}
+
+	@Override
+	protected char separator()
+	{
+<span class="fc" id="L54">		return ',';</span>
+	}
+
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context, PCClass cl, String value)
+	{
+<span class="fc" id="L60">		StringTokenizer tok = new StringTokenizer(value, Constants.COMMA);</span>
+<span class="fc" id="L61">		boolean foundAny = false;</span>
+<span class="fc" id="L62">		boolean foundOther = false;</span>
+<span class="fc" id="L63">		boolean firstToken = true;</span>
+
+<span class="fc bfc" id="L65" title="All 2 branches covered.">		while (tok.hasMoreTokens())</span>
+		{
+<span class="fc" id="L67">			String tokText = tok.nextToken();</span>
+<span class="fc bfc" id="L68" title="All 2 branches covered.">			if (Constants.LST_DOT_CLEAR.equals(tokText))</span>
+			{
+<span class="fc bfc" id="L70" title="All 2 branches covered.">				if (!firstToken)</span>
+				{
+<span class="fc" id="L72">					return new ParseResult.Fail(&quot;Non-sensical situation was &quot; + &quot;encountered while parsing &quot;</span>
+<span class="fc" id="L73">						+ getTokenName() + &quot;: When used, .CLEAR must be the first argument&quot;);</span>
+				}
+<span class="fc" id="L75">				context.getListContext().removeAllFromList(getTokenName(), cl, Language.STARTING_LIST);</span>
+			}
+<span class="fc bfc" id="L77" title="All 2 branches covered.">			else if (tokText.startsWith(Constants.LST_DOT_CLEAR_DOT))</span>
+			{
+				CDOMReference&lt;Language&gt; lang;
+<span class="fc" id="L80">				String clearText = tokText.substring(7);</span>
+<span class="fc bfc" id="L81" title="All 2 branches covered.">				if (Constants.LST_ALL.equals(clearText))</span>
+				{
+<span class="fc" id="L83">					lang = context.getReferenceContext().getCDOMAllReference(LANGUAGE_CLASS);</span>
+				}
+				else
+				{
+<span class="fc" id="L87">					lang = TokenUtilities.getTypeOrPrimitive(context, LANGUAGE_CLASS, clearText);</span>
+				}
+<span class="fc bfc" id="L89" title="All 2 branches covered.">				if (lang == null)</span>
+				{
+<span class="fc" id="L91">					return new ParseResult.Fail(&quot;  Error was encountered while parsing &quot; + getTokenName() + &quot;: &quot; + value</span>
+						+ &quot; had an invalid .CLEAR. reference: &quot; + clearText);
+				}
+<span class="fc" id="L94">				context.getListContext().removeFromList(getTokenName(), cl, Language.STARTING_LIST, lang);</span>
+<span class="fc" id="L95">			}</span>
+			else
+			{
+				/*
+				 * Note this is done one-by-one, because .CLEAR. token type
+				 * needs to be able to perform the unlink. That could be
+				 * changed, but the increase in complexity isn't worth it.
+				 * (Changing it to a grouping object that didn't place links in
+				 * the graph would also make it harder to trace the source of
+				 * class skills, etc.)
+				 */
+				CDOMReference&lt;Language&gt; lang;
+<span class="fc bfc" id="L107" title="All 2 branches covered.">				if (Constants.LST_ALL.equals(tokText))</span>
+				{
+<span class="fc" id="L109">					foundAny = true;</span>
+<span class="fc" id="L110">					lang = context.getReferenceContext().getCDOMAllReference(LANGUAGE_CLASS);</span>
+				}
+				else
+				{
+<span class="fc" id="L114">					foundOther = true;</span>
+<span class="fc" id="L115">					lang = TokenUtilities.getTypeOrPrimitive(context, LANGUAGE_CLASS, tokText);</span>
+				}
+<span class="fc bfc" id="L117" title="All 2 branches covered.">				if (lang == null)</span>
+				{
+<span class="fc" id="L119">					return new ParseResult.Fail(&quot;  Error was encountered while parsing &quot; + getTokenName() + &quot;: &quot; + value</span>
+						+ &quot; had an invalid reference: &quot; + tokText);
+				}
+<span class="fc" id="L122">				context.getListContext().addToList(getTokenName(), cl, Language.STARTING_LIST, lang);</span>
+			}
+<span class="fc" id="L124">			firstToken = false;</span>
+<span class="fc" id="L125">		}</span>
+<span class="fc bfc" id="L126" title="All 4 branches covered.">		if (foundAny &amp;&amp; foundOther)</span>
+		{
+<span class="fc" id="L128">			return new ParseResult.Fail(</span>
+<span class="fc" id="L129">				&quot;Non-sensical &quot; + getTokenName() + &quot;: Contains ANY and a specific reference: &quot; + value);</span>
+		}
+<span class="fc" id="L131">		return ParseResult.SUCCESS;</span>
+	}
+
+	@Override
+	public String[] unparse(LoadContext context, PCClass pcl)
+	{
+<span class="fc" id="L137">		AssociatedChanges&lt;CDOMReference&lt;Language&gt;&gt; changes =</span>
+<span class="fc" id="L138">				context.getListContext().getChangesInList(getTokenName(), pcl, Language.STARTING_LIST);</span>
+<span class="fc" id="L139">		List&lt;String&gt; list = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L140">		Collection&lt;CDOMReference&lt;Language&gt;&gt; removedItems = changes.getRemoved();</span>
+<span class="pc bpc" id="L141" title="2 of 4 branches missed.">		if (removedItems != null &amp;&amp; !removedItems.isEmpty())</span>
+		{
+<span class="nc bnc" id="L143" title="All 2 branches missed.">			if (changes.includesGlobalClear())</span>
+			{
+<span class="nc" id="L145">				context.addWriteMessage(</span>
+<span class="nc" id="L146">					&quot;Non-sensical relationship in &quot; + getTokenName() + &quot;: global .CLEAR and local .CLEAR. performed&quot;);</span>
+<span class="nc" id="L147">				return null;</span>
+			}
+<span class="nc" id="L149">			list.add(Constants.LST_DOT_CLEAR_DOT + ReferenceUtilities.joinLstFormat(removedItems, &quot;,.CLEAR.&quot;));</span>
+		}
+<span class="pc bpc" id="L151" title="1 of 2 branches missed.">		if (changes.includesGlobalClear())</span>
+		{
+<span class="nc" id="L153">			list.add(Constants.LST_DOT_CLEAR);</span>
+		}
+<span class="fc" id="L155">		Collection&lt;CDOMReference&lt;Language&gt;&gt; addedItems = changes.getAdded();</span>
+<span class="pc bpc" id="L156" title="1 of 4 branches missed.">		if (addedItems != null &amp;&amp; !addedItems.isEmpty())</span>
+		{
+<span class="fc" id="L158">			list.add(ReferenceUtilities.joinLstFormat(addedItems, Constants.COMMA));</span>
+		}
+<span class="fc bfc" id="L160" title="All 2 branches covered.">		if (list.isEmpty())</span>
+		{
+			// Zero indicates no add or global clear
+<span class="fc" id="L163">			return null;</span>
+		}
+<span class="fc" id="L165">		return list.toArray(new String[0]);</span>
+	}
+
+	@Override
+	public Class&lt;PCClass&gt; getTokenClass()
+	{
+<span class="fc" id="L171">		return PCClass.class;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

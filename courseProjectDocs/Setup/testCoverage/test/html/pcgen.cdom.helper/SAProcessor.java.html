@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SAProcessor.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.helper</a> &gt; <span class="el_source">SAProcessor.java</span></div><h1>SAProcessor.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) Thomas Parker, 2012.
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package pcgen.cdom.helper;
+
+import java.util.Collections;
+import java.util.List;
+
+import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.ChooseDriver;
+import pcgen.cdom.base.QualifiedActor;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.SpecialAbility;
+import pcgen.util.Logging;
+
+public final class SAProcessor implements QualifiedActor&lt;SpecialAbility, SpecialAbility&gt;
+{
+	private final PlayerCharacter pc;
+
+	public SAProcessor(PlayerCharacter pc)
+<span class="fc" id="L35">	{</span>
+<span class="fc" id="L36">		this.pc = pc;</span>
+<span class="fc" id="L37">	}</span>
+
+	@Override
+	public SpecialAbility act(SpecialAbility sa, Object source)
+	{
+<span class="nc" id="L42">		final String key = sa.getKeyName();</span>
+<span class="nc" id="L43">		final int idx = key.indexOf(&quot;%CHOICE&quot;);</span>
+
+<span class="nc bnc" id="L45" title="All 2 branches missed.">		if (idx == -1)</span>
+		{
+<span class="nc" id="L47">			return sa;</span>
+		}
+
+<span class="nc" id="L50">		StringBuilder sb = new StringBuilder(100);</span>
+<span class="nc" id="L51">		sb.append(key.substring(0, idx));</span>
+
+<span class="nc bnc" id="L53" title="All 2 branches missed.">		if (source instanceof ChooseDriver object)</span>
+		{
+<span class="nc bnc" id="L55" title="All 2 branches missed.">			if (pc.hasAssociations(object))</span>
+			{
+<span class="nc" id="L57">				List&lt;String&gt; associationList = pc.getAssociationList(object);</span>
+<span class="nc" id="L58">				Collections.sort(associationList);</span>
+<span class="nc" id="L59">				sb.append(StringUtil.join(associationList, &quot;, &quot;));</span>
+<span class="nc" id="L60">			}</span>
+		}
+		else
+		{
+<span class="nc" id="L64">			Logging.errorPrint(</span>
+<span class="nc" id="L65">				&quot;In SpecialAbility resolution, &quot; + &quot;Error using object of type: &quot; + source.getClass().getName()</span>
+					+ &quot; because &quot; + &quot;%CHOICE&quot; + &quot; was requested but the object does not support CHOOSE&quot;);
+<span class="nc" id="L67">			sb.append(&quot;&lt;undefined&gt;&quot;);</span>
+		}
+
+<span class="nc" id="L70">		sb.append(key.substring(idx + 7));</span>
+<span class="nc" id="L71">		return new SpecialAbility(sb.toString(), sa.getSADesc());</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ActiveSpellsFacet.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.facet</a> &gt; <span class="el_source">ActiveSpellsFacet.java</span></div><h1>ActiveSpellsFacet.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) Thomas Parker, 2012.
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package pcgen.cdom.facet;
+
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
+
+import pcgen.cdom.formula.Formula;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.content.SpellLikeAbility;
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.base.AbstractSourcedListFacet;
+import pcgen.cdom.facet.event.DataFacetChangeEvent;
+import pcgen.cdom.facet.event.DataFacetChangeListener;
+import pcgen.cdom.facet.model.RaceFacet;
+import pcgen.cdom.facet.model.TemplateFacet;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.Race;
+import pcgen.core.character.CharacterSpell;
+import pcgen.core.character.SpellBook;
+import pcgen.core.character.SpellInfo;
+
+/**
+ * ActiveSpellsFacet is a Facet that tracks the active SPELLS for the
+ * PlayerCharacter
+ * 
+ */
+<span class="fc" id="L44">public class ActiveSpellsFacet extends AbstractSourcedListFacet&lt;CharID, CharacterSpell&gt;</span>
+		implements DataFacetChangeListener&lt;CharID, CDOMObject&gt;
+{
+	private RaceFacet raceFacet;
+
+	private TemplateFacet templateFacet;
+
+<span class="fc" id="L51">	private final PlayerCharacterTrackingFacet trackingFacet =</span>
+<span class="fc" id="L52">			FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);</span>
+
+	private FormulaResolvingFacet formulaResolvingFacet;
+
+	private SpellsFacet spellsFacet;
+
+	/**
+	 * Returns a new (empty) Map for this ActiveSpellsFacet. This overrides the
+	 * default provided in AbstractSourcedListFacet, in order to maintain a
+	 * sorted list of Spells for the Player Character. This does not require the
+	 * IdentityHashMap since CharacterSpell is not cloned, and behaves properly
+	 * with .equals() and .hashCode() in terms of maintaining identity (whereas
+	 * many CDOMObjects do not as of 5.16)
+	 * 
+	 * Note that this method should always be the only method used to construct
+	 * a Map for this ActiveSpellsFacet. It is actually preferred to use
+	 * getConstructingCacheMap(CharID) in order to implicitly call this method.
+	 * 
+	 * @return A new (empty) Map for use in this ActiveSpellsFacet.
+	 */
+	@Override
+	protected Map&lt;CharacterSpell, Set&lt;Object&gt;&gt; getComponentMap()
+	{
+<span class="nc" id="L75">		return new TreeMap&lt;&gt;();</span>
+	}
+
+	/**
+	 * Adds the Spells associated with a CDOMObject which is granted to a Player
+	 * Character.
+	 * 
+	 * Triggered when one of the Facets to which ActiveSpellsFacet listens fires
+	 * a DataFacetChangeEvent to indicate a CDOMObject was added to a Player
+	 * Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 */
+	@Override
+	public void dataAdded(DataFacetChangeEvent&lt;CharID, CDOMObject&gt; dfce)
+	{
+<span class="fc" id="L93">		process(dfce.getCharID());</span>
+<span class="fc" id="L94">	}</span>
+
+	/**
+	 * Currently used as a global reset for the spell list, since
+	 * ActiveSpellsFacet does not currently listen to all scenarios which can
+	 * alter Spells granted to a Player Character.
+	 * 
+	 * Use of this method outside this facet is discouraged, as the long term
+	 * goal is to get all of the processing for Spells into this Facet.
+	 * Therefore, use of this global reset indicates incomplete implementation
+	 * of Spells processing in this facet, and should be an indication that
+	 * additional work is required in order to enhance the capability of this
+	 * facet to appropriately update the Spells for a Player Character.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character that requires a
+	 *            reset on the list of spells granted to the Player Character.
+	 */
+	public void process(CharID id)
+	{
+<span class="fc" id="L114">		Race race = raceFacet.get(id);</span>
+<span class="fc" id="L115">		removeAll(id, race);</span>
+<span class="fc" id="L116">		PlayerCharacter pc = trackingFacet.getPC(id);</span>
+<span class="pc bpc" id="L117" title="1 of 2 branches missed.">		for (SpellLikeAbility sla : spellsFacet.getQualifiedSet(id))</span>
+		{
+<span class="nc" id="L119">			Formula times = sla.getCastTimes();</span>
+<span class="nc" id="L120">			int resolvedTimes = formulaResolvingFacet.resolve(id, times, sla.getQualifiedKey()).intValue();</span>
+<span class="nc" id="L121">			String book = sla.getSpellBook();</span>
+
+<span class="nc" id="L123">			final CharacterSpell cs = new CharacterSpell(race, sla.getSpell());</span>
+<span class="nc" id="L124">			cs.setFixedCasterLevel(sla.getFixedCasterLevel());</span>
+<span class="nc" id="L125">			SpellInfo si = cs.addInfo(0, resolvedTimes, book);</span>
+<span class="nc" id="L126">			si.setTimeUnit(sla.getCastTimeUnit());</span>
+<span class="nc" id="L127">			si.setFixedDC(sla.getDC());</span>
+
+<span class="nc" id="L129">			pc.addSpellBook(new SpellBook(book, SpellBook.TYPE_INNATE_SPELLS));</span>
+<span class="nc" id="L130">			add(id, cs, race);</span>
+<span class="nc" id="L131">		}</span>
+<span class="fc" id="L132">	}</span>
+
+	/**
+	 * Removes the Spells associated with a CDOMObject which is granted to a
+	 * Player Character.
+	 * 
+	 * Triggered when one of the Facets to which ActiveSpellsFacet listens fires
+	 * a DataFacetChangeEvent to indicate a CDOMObject was removed from a Player
+	 * Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 */
+	@Override
+	public void dataRemoved(DataFacetChangeEvent&lt;CharID, CDOMObject&gt; dfce)
+	{
+<span class="fc" id="L149">		process(dfce.getCharID());</span>
+<span class="fc" id="L150">	}</span>
+
+	public void setRaceFacet(RaceFacet raceFacet)
+	{
+<span class="fc" id="L154">		this.raceFacet = raceFacet;</span>
+<span class="fc" id="L155">	}</span>
+
+	public void setFormulaResolvingFacet(FormulaResolvingFacet formulaResolvingFacet)
+	{
+<span class="fc" id="L159">		this.formulaResolvingFacet = formulaResolvingFacet;</span>
+<span class="fc" id="L160">	}</span>
+
+	public void setSpellsFacet(SpellsFacet spellsFacet)
+	{
+<span class="fc" id="L164">		this.spellsFacet = spellsFacet;</span>
+<span class="fc" id="L165">	}</span>
+
+	public void setTemplateFacet(TemplateFacet templateFacet)
+	{
+<span class="fc" id="L169">		this.templateFacet = templateFacet;</span>
+<span class="fc" id="L170">	}</span>
+
+	/**
+	 * Initializes the connections for ActiveSpellsFacet to other facets.
+	 * 
+	 * This method is automatically called by the Spring framework during
+	 * initialization of the ActiveSpellsFacet.
+	 */
+	public void init()
+	{
+<span class="fc" id="L180">		raceFacet.addDataFacetChangeListener(this);</span>
+<span class="fc" id="L181">		templateFacet.addDataFacetChangeListener(this);</span>
+<span class="fc" id="L182">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

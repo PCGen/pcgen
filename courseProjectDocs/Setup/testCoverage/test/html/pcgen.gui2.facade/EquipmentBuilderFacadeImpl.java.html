@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>EquipmentBuilderFacadeImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.gui2.facade</a> &gt; <span class="el_source">EquipmentBuilderFacadeImpl.java</span></div><h1>EquipmentBuilderFacadeImpl.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2013 (C) James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.gui2.facade;
+
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.EnumMap;
+import java.util.EnumSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.StringKey;
+import pcgen.core.Equipment;
+import pcgen.core.EquipmentModifier;
+import pcgen.core.Globals;
+import pcgen.core.PObject;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.SizeAdjustment;
+import pcgen.core.SpecialProperty;
+import pcgen.core.analysis.EqModSpellInfo;
+import pcgen.core.spell.Spell;
+import pcgen.facade.core.AbilityFacade;
+import pcgen.facade.core.EquipmentBuilderFacade;
+import pcgen.facade.core.EquipmentFacade;
+import pcgen.facade.core.InfoFacade;
+import pcgen.facade.core.SpellBuilderFacade;
+import pcgen.facade.core.UIDelegate;
+import pcgen.facade.util.DefaultListFacade;
+import pcgen.facade.util.DefaultReferenceFacade;
+import pcgen.facade.util.ListFacade;
+import pcgen.facade.util.ReferenceFacade;
+import pcgen.system.LanguageBundle;
+import pcgen.util.enumeration.View;
+
+import org.apache.commons.lang3.StringUtils;
+
+/**
+ * EquipmentBuilderFacadeImpl is an implementation of the
+ * {@link EquipmentBuilderFacade} interface for the new user interface. It is
+ * intended to allow the ui to control the creation of a custom item of
+ * equipment without direct interaction with the core.
+ *
+ *
+ */
+public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
+{
+
+	private final UIDelegate delegate;
+	private final Equipment equip;
+	private final Map&lt;EquipmentHead, DefaultListFacade&lt;EquipmentModifier&gt;&gt; availListMap;
+	private final Map&lt;EquipmentHead, DefaultListFacade&lt;EquipmentModifier&gt;&gt; selectedListMap;
+	private final PlayerCharacter character;
+	private final Equipment baseEquipment;
+	private final EnumSet&lt;EquipmentHead&gt; equipHeads;
+	private final DefaultReferenceFacade&lt;SizeAdjustment&gt; sizeRef;
+
+	/**
+	 * Create a new EquipmentBuilderFacadeImpl instance for the customization of
+	 * a particular item of equipment for the character.
+	 * @param equip The equipment item being customized (must not be the base item).
+	 * @param character The character the equipment will be for.
+	 * @param delegate The handler for UI functions such as dialogs.
+	 */
+	EquipmentBuilderFacadeImpl(Equipment equip, PlayerCharacter character, UIDelegate delegate)
+<span class="nc" id="L86">	{</span>
+<span class="nc" id="L87">		this.equip = equip;</span>
+<span class="nc" id="L88">		this.character = character;</span>
+<span class="nc" id="L89">		this.delegate = delegate;</span>
+
+<span class="nc" id="L91">		sizeRef = new DefaultReferenceFacade&lt;&gt;(equip.getSizeAdjustment());</span>
+
+<span class="nc" id="L93">		final String sBaseKey = equip.getBaseItemKeyName();</span>
+<span class="nc" id="L94">		baseEquipment =</span>
+<span class="nc" id="L95">				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Equipment.class, sBaseKey);</span>
+
+<span class="nc bnc" id="L97" title="All 2 branches missed.">		equipHeads = equip.isDouble() ? EnumSet.range(EquipmentHead.PRIMARY, EquipmentHead.SECONDARY)</span>
+<span class="nc" id="L98">			: EnumSet.of(EquipmentHead.PRIMARY);</span>
+
+<span class="nc" id="L100">		availListMap = new EnumMap&lt;&gt;(EquipmentBuilderFacade.EquipmentHead.class);</span>
+<span class="nc" id="L101">		selectedListMap = new EnumMap&lt;&gt;(EquipmentBuilderFacade.EquipmentHead.class);</span>
+<span class="nc bnc" id="L102" title="All 2 branches missed.">		for (EquipmentHead head : equipHeads)</span>
+		{
+<span class="nc" id="L104">			availListMap.put(head, new DefaultListFacade&lt;&gt;());</span>
+<span class="nc" id="L105">			DefaultListFacade&lt;EquipmentModifier&gt; selectedList = new DefaultListFacade&lt;&gt;();</span>
+<span class="nc" id="L106">			selectedList.setContents(equip.getEqModifierList(head.isPrimary()));</span>
+<span class="nc" id="L107">			selectedListMap.put(head, selectedList);</span>
+<span class="nc" id="L108">		}</span>
+<span class="nc" id="L109">		refreshAvailList();</span>
+<span class="nc" id="L110">	}</span>
+
+	@Override
+	public boolean addModToEquipment(EquipmentModifier modifier, EquipmentHead head)
+	{
+<span class="nc bnc" id="L115" title="All 4 branches missed.">		if (modifier == null || head == null)</span>
+		{
+<span class="nc" id="L117">			return false;</span>
+		}
+
+		// Trash the cost modifications
+<span class="nc" id="L121">		equip.setCostMod(&quot;0&quot;);</span>
+
+		// Handle spells
+<span class="nc bnc" id="L124" title="All 2 branches missed.">		if (modifier.getSafe(StringKey.CHOICE_STRING).startsWith(&quot;EQBUILDER.SPELL&quot;))</span>
+		{
+<span class="nc bnc" id="L126" title="All 2 branches missed.">			if (!getSpellChoiceForEqMod(modifier))</span>
+			{
+<span class="nc" id="L128">				return false;</span>
+			}
+		}
+
+<span class="nc" id="L132">		equip.addEqModifier(modifier, head.isPrimary(), character);</span>
+
+<span class="nc bnc" id="L134" title="All 4 branches missed.">		if (equip.isDouble() &amp;&amp; modifier.getSafe(ObjectKey.ASSIGN_TO_ALL))</span>
+		{
+<span class="nc bnc" id="L136" title="All 2 branches missed.">			equip.addEqModifier(modifier, !head.isPrimary(), character);</span>
+		}
+
+<span class="nc" id="L139">		equip.nameItemFromModifiers(character);</span>
+
+<span class="nc" id="L141">		refreshAvailList();</span>
+<span class="nc" id="L142">		refreshSelectedList();</span>
+
+<span class="nc" id="L144">		return true;</span>
+	}
+
+	@Override
+	public boolean removeModFromEquipment(EquipmentModifier modifier, EquipmentHead head)
+	{
+<span class="nc bnc" id="L150" title="All 2 branches missed.">		if (modifier == null)</span>
+		{
+<span class="nc" id="L152">			return false;</span>
+		}
+
+<span class="nc bnc" id="L155" title="All 2 branches missed.">		if (baseEquipment.getEqModifierList(true).contains(modifier))</span>
+		{
+<span class="nc" id="L157">			delegate.showErrorMessage(Constants.APPLICATION_NAME,</span>
+<span class="nc" id="L158">				LanguageBundle.getFormattedString(&quot;in_eqCust_RemoveBaseErr&quot;, modifier));</span>
+<span class="nc" id="L159">			return false;</span>
+		}
+
+		// Trash the cost modifications
+<span class="nc" id="L163">		equip.setCostMod(&quot;0&quot;);</span>
+
+<span class="nc" id="L165">		equip.removeEqModifier(modifier, head.isPrimary(), character);</span>
+<span class="nc" id="L166">		equip.nameItemFromModifiers(character);</span>
+
+<span class="nc" id="L168">		refreshAvailList();</span>
+<span class="nc" id="L169">		refreshSelectedList();</span>
+
+<span class="nc" id="L171">		return true;</span>
+	}
+
+	@Override
+	public boolean setName(String name)
+	{
+<span class="nc bnc" id="L177" title="All 2 branches missed.">		if (StringUtils.isEmpty(name))</span>
+		{
+<span class="nc" id="L179">			return false;</span>
+		}
+
+<span class="nc" id="L182">		String aString = name.trim();</span>
+
+<span class="nc bnc" id="L184" title="All 6 branches missed.">		if ((aString.indexOf('|') &gt;= 0) || (aString.indexOf(':') &gt;= 0) || (aString.indexOf(';') &gt;= 0)</span>
+<span class="nc bnc" id="L185" title="All 2 branches missed.">			|| (aString.indexOf(',') &gt;= 0))</span>
+		{
+<span class="nc" id="L187">			delegate.showErrorMessage(Constants.APPLICATION_NAME,</span>
+<span class="nc" id="L188">				LanguageBundle.getString(&quot;in_eqCust_InvalidNameChar&quot;));</span>
+<span class="nc" id="L189">			return false;</span>
+		}
+
+<span class="nc" id="L192">		String oldName = &quot;(&quot; + equip.getItemNameFromModifiers() + &quot;)&quot;;</span>
+		// Replace illegal characters in old name
+<span class="nc" id="L194">		oldName = oldName.replaceAll(&quot;;:\\|,&quot;, &quot;@&quot;);</span>
+
+<span class="nc bnc" id="L196" title="All 2 branches missed.">		if (!oldName.toUpperCase().startsWith(Constants.GENERIC_ITEM))</span>
+		{
+<span class="nc" id="L198">			equip.addToListFor(ListKey.SPECIAL_PROPERTIES, SpecialProperty.createFromLst(oldName));</span>
+		}
+<span class="nc" id="L200">		equip.setName(aString);</span>
+
+<span class="nc" id="L202">		return true;</span>
+	}
+
+	@Override
+	public boolean setSProp(String sprop)
+	{
+<span class="nc" id="L208">		String aString = StringUtils.trimToEmpty(sprop);</span>
+
+<span class="nc bnc" id="L210" title="All 6 branches missed.">		if ((aString.indexOf('|') &gt;= 0) || (aString.indexOf(':') &gt;= 0) || (aString.indexOf(';') &gt;= 0))</span>
+		{
+<span class="nc" id="L212">			delegate.showErrorMessage(Constants.APPLICATION_NAME,</span>
+<span class="nc" id="L213">				LanguageBundle.getString(&quot;in_eqCust_InvalidSpropChar&quot;));</span>
+<span class="nc" id="L214">			return false;</span>
+		}
+
+<span class="nc" id="L217">		equip.removeListFor(ListKey.SPECIAL_PROPERTIES);</span>
+<span class="nc bnc" id="L218" title="All 2 branches missed.">		if (!aString.isEmpty())</span>
+		{
+<span class="nc" id="L220">			equip.addToListFor(ListKey.SPECIAL_PROPERTIES, SpecialProperty.createFromLst(aString));</span>
+		}
+
+<span class="nc" id="L223">		return true;</span>
+	}
+
+	@Override
+	public boolean setCost(String newValue)
+	{
+<span class="nc bnc" id="L229" title="All 2 branches missed.">		if (StringUtils.isEmpty(newValue))</span>
+		{
+<span class="nc" id="L231">			return false;</span>
+		}
+
+<span class="nc" id="L234">		String aString = newValue.trim();</span>
+
+		try
+		{
+<span class="nc" id="L238">			BigDecimal newCost = new BigDecimal(aString);</span>
+
+<span class="nc bnc" id="L240" title="All 2 branches missed.">			if (newCost.doubleValue() &lt; 0)</span>
+			{
+<span class="nc" id="L242">				delegate.showErrorMessage(Constants.APPLICATION_NAME,</span>
+<span class="nc" id="L243">					LanguageBundle.getString(&quot;in_eqCust_CostNegativeErr&quot;));</span>
+<span class="nc" id="L244">				return false;</span>
+			}
+
+<span class="nc" id="L247">			equip.setCostMod(&quot;0&quot;);</span>
+<span class="nc" id="L248">			equip.setCostMod(newCost.subtract(equip.getCost(character)));</span>
+<span class="nc" id="L249">			return true;</span>
+		}
+<span class="nc" id="L251">		catch (Exception e)</span>
+		{
+<span class="nc" id="L253">			delegate.showErrorMessage(Constants.APPLICATION_NAME,</span>
+<span class="nc" id="L254">				LanguageBundle.getString(&quot;in_eqCust_InvalidNumberErr&quot;));</span>
+		}
+
+<span class="nc" id="L257">		return false;</span>
+	}
+
+	@Override
+	public boolean setWeight(String newValue)
+	{
+<span class="nc bnc" id="L263" title="All 2 branches missed.">		if (StringUtils.isEmpty(newValue))</span>
+		{
+<span class="nc" id="L265">			return false;</span>
+		}
+
+<span class="nc" id="L268">		String aString = newValue.trim();</span>
+
+		try
+		{
+<span class="nc" id="L272">			BigDecimal newWeight = new BigDecimal(aString);</span>
+
+<span class="nc bnc" id="L274" title="All 2 branches missed.">			if (newWeight.doubleValue() &lt; 0)</span>
+			{
+<span class="nc" id="L276">				delegate.showErrorMessage(Constants.APPLICATION_NAME,</span>
+<span class="nc" id="L277">					LanguageBundle.getString(&quot;in_eqCust_WeightNegativeErr&quot;));</span>
+<span class="nc" id="L278">				return false;</span>
+			}
+
+<span class="nc" id="L281">			equip.put(ObjectKey.WEIGHT_MOD, BigDecimal.ZERO);</span>
+<span class="nc" id="L282">			equip.put(ObjectKey.WEIGHT_MOD, newWeight.subtract(BigDecimal.valueOf(equip.getWeightAsDouble(character))));</span>
+<span class="nc" id="L283">			return true;</span>
+		}
+<span class="nc" id="L285">		catch (Exception e)</span>
+		{
+<span class="nc" id="L287">			delegate.showErrorMessage(Constants.APPLICATION_NAME,</span>
+<span class="nc" id="L288">				LanguageBundle.getString(&quot;in_eqCust_InvalidNumberErr&quot;));</span>
+		}
+
+<span class="nc" id="L291">		return false;</span>
+	}
+
+	@Override
+	public boolean setDamage(String newValue)
+	{
+<span class="nc bnc" id="L297" title="All 2 branches missed.">		if (StringUtils.isEmpty(newValue))</span>
+		{
+<span class="nc" id="L299">			return false;</span>
+		}
+
+<span class="nc" id="L302">		String aString = newValue.trim();</span>
+
+<span class="nc" id="L304">		equip.put(StringKey.DAMAGE_OVERRIDE, aString);</span>
+<span class="nc" id="L305">		return true;</span>
+	}
+
+	@Override
+	public ListFacade&lt;EquipmentModifier&gt; getAvailList(EquipmentHead head)
+	{
+<span class="nc" id="L311">		return availListMap.get(head);</span>
+	}
+
+	@Override
+	public ListFacade&lt;EquipmentModifier&gt; getSelectedList(EquipmentHead head)
+	{
+<span class="nc" id="L317">		return selectedListMap.get(head);</span>
+	}
+
+	@Override
+	public EquipmentFacade getEquipment()
+	{
+<span class="nc" id="L323">		return equip;</span>
+	}
+
+	private void refreshAvailList()
+	{
+<span class="nc" id="L328">		List&lt;String&gt; aFilter = equip.typeList();</span>
+
+<span class="nc bnc" id="L330" title="All 2 branches missed.">		for (EquipmentHead head : equipHeads)</span>
+		{
+<span class="nc" id="L332">			List&lt;EquipmentModifier&gt; newEqMods = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L333" title="All 2 branches missed.">			for (EquipmentModifier aEqMod : Globals.getContext().getReferenceContext()</span>
+<span class="nc" id="L334">				.getConstructedCDOMObjects(EquipmentModifier.class))</span>
+			{
+<span class="nc bnc" id="L336" title="All 2 branches missed.">				if (equip.isVisible(character, aEqMod, head.isPrimary(), View.VISIBLE_DISPLAY))</span>
+				{
+<span class="nc bnc" id="L338" title="All 2 branches missed.">					if (aEqMod.isType(&quot;ALL&quot;))</span>
+					{
+<span class="nc" id="L340">						newEqMods.add(aEqMod);</span>
+					}
+					else
+					{
+<span class="nc bnc" id="L344" title="All 2 branches missed.">						for (String aType : aFilter)</span>
+						{
+<span class="nc bnc" id="L346" title="All 2 branches missed.">							if (aEqMod.isType(aType))</span>
+							{
+<span class="nc" id="L348">								newEqMods.add(aEqMod);</span>
+<span class="nc" id="L349">								break;</span>
+							}
+<span class="nc" id="L351">						}</span>
+					}
+				}
+<span class="nc" id="L354">			}</span>
+<span class="nc" id="L355">			availListMap.get(head).updateContents(newEqMods);</span>
+<span class="nc" id="L356">		}</span>
+<span class="nc" id="L357">	}</span>
+
+	private void refreshSelectedList()
+	{
+<span class="nc bnc" id="L361" title="All 2 branches missed.">		for (EquipmentHead eqHead : equipHeads)</span>
+		{
+<span class="nc" id="L363">			selectedListMap.get(eqHead).updateContents(equip.getEqModifierList(eqHead.isPrimary()));</span>
+<span class="nc" id="L364">		}</span>
+<span class="nc" id="L365">	}</span>
+
+	@Override
+	public boolean isResizable()
+	{
+<span class="nc" id="L370">		return Globals.canResizeHaveEffect(equip.typeList());</span>
+	}
+
+	@Override
+	public void setSize(SizeAdjustment newSize)
+	{
+<span class="nc bnc" id="L376" title="All 2 branches missed.">		if (newSize == null)</span>
+		{
+<span class="nc" id="L378">			return;</span>
+		}
+
+<span class="nc" id="L381">		equip.resizeItem(character, newSize);</span>
+<span class="nc" id="L382">		equip.nameItemFromModifiers(character);</span>
+<span class="nc" id="L383">		sizeRef.set(newSize);</span>
+<span class="nc" id="L384">	}</span>
+
+	@Override
+	public ReferenceFacade&lt;SizeAdjustment&gt; getSizeRef()
+	{
+<span class="nc" id="L389">		return sizeRef;</span>
+	}
+
+	@Override
+	public EnumSet&lt;EquipmentHead&gt; getEquipmentHeads()
+	{
+<span class="nc" id="L395">		return equipHeads;</span>
+	}
+
+	private boolean getSpellChoiceForEqMod(EquipmentModifier eqMod)
+	{
+<span class="nc" id="L400">		String choiceValue = eqMod.getSafe(StringKey.CHOICE_STRING).substring(15);</span>
+
+<span class="nc" id="L402">		SpellBuilderFacade spellBuilderFI = new SpellBuilderFacadeImpl(choiceValue, character, equip);</span>
+<span class="nc bnc" id="L403" title="All 2 branches missed.">		if (!delegate.showCustomSpellDialog(spellBuilderFI))</span>
+		{
+<span class="nc" id="L405">			return false;</span>
+		}
+
+<span class="nc" id="L408">		InfoFacade castingClass = spellBuilderFI.getClassRef().get();</span>
+<span class="nc" id="L409">		Spell theSpell = (Spell) spellBuilderFI.getSpellRef().get();</span>
+<span class="nc" id="L410">		String variant = spellBuilderFI.getVariantRef().get();</span>
+<span class="nc bnc" id="L411" title="All 2 branches missed.">		if (variant == null)</span>
+		{
+<span class="nc" id="L413">			variant = &quot;&quot;;</span>
+		}
+<span class="nc" id="L415">		String spellType = spellBuilderFI.getSpellTypeRef().get();</span>
+<span class="nc" id="L416">		int baseSpellLevel = spellBuilderFI.getSpellLevelRef().get();</span>
+<span class="nc" id="L417">		int casterLevel = spellBuilderFI.getCasterLevelRef().get();</span>
+<span class="nc" id="L418">		ListFacade&lt;AbilityFacade&gt; metamagicFeatsList = spellBuilderFI.getSelectedMetamagicFeats();</span>
+<span class="nc" id="L419">		Object[] metamagicFeats = new Object[metamagicFeatsList.getSize()];</span>
+<span class="nc" id="L420">		Arrays.setAll(metamagicFeats, metamagicFeatsList::getElementAt);</span>
+
+<span class="nc" id="L422">		int charges = getNumCharges(eqMod);</span>
+
+<span class="nc" id="L424">		EquipmentModifier existingEqMod = equip.getEqModifierKeyed(eqMod.getKeyName(), true);</span>
+<span class="nc bnc" id="L425" title="All 2 branches missed.">		if (existingEqMod == null)</span>
+		{
+<span class="nc" id="L427">			equip.addEqModifier(eqMod, true, character);</span>
+		}
+<span class="nc" id="L429">		existingEqMod = equip.getEqModifierKeyed(eqMod.getKeyName(), true);</span>
+
+<span class="nc" id="L431">		EqModSpellInfo.setSpellInfo(equip, existingEqMod, (PObject) castingClass, theSpell, variant, spellType,</span>
+			baseSpellLevel, casterLevel, metamagicFeats, charges);
+
+<span class="nc" id="L434">		return true;</span>
+	}
+
+	private int getNumCharges(EquipmentModifier eqMod)
+	{
+<span class="nc" id="L439">		int charges = -1;</span>
+
+<span class="nc" id="L441">		Integer min = eqMod.get(IntegerKey.MIN_CHARGES);</span>
+<span class="nc bnc" id="L442" title="All 4 branches missed.">		if (min != null &amp;&amp; min &gt; 0)</span>
+		{
+<span class="nc" id="L444">			Integer max = eqMod.get(IntegerKey.MAX_CHARGES);</span>
+			for (;;)
+			{
+<span class="nc" id="L447">				Optional&lt;String&gt; selectedValue = delegate.showInputDialog(Constants.APPLICATION_NAME,</span>
+<span class="nc" id="L448">					LanguageBundle.getFormattedString(&quot;in_csdChargesMessage&quot;, min, max), Integer.toString(max));</span>
+
+<span class="nc bnc" id="L450" title="All 2 branches missed.">				if (selectedValue.isPresent())</span>
+				{
+					try
+					{
+<span class="nc" id="L454">						final String aString = selectedValue.get().trim();</span>
+<span class="nc" id="L455">						charges = Integer.parseInt(aString);</span>
+
+<span class="nc bnc" id="L457" title="All 2 branches missed.">						if (charges &lt; min)</span>
+						{
+<span class="nc" id="L459">							continue;</span>
+						}
+
+<span class="nc bnc" id="L462" title="All 2 branches missed.">						if (charges &gt; max)</span>
+						{
+<span class="nc" id="L464">							continue;</span>
+						}
+
+<span class="nc" id="L467">						break;</span>
+					}
+<span class="nc" id="L469">					catch (NumberFormatException exc)</span>
+					{
+						// Request a new charges figure
+					}
+				}
+<span class="nc" id="L474">			}</span>
+		}
+<span class="nc" id="L476">		return charges;</span>
+	}
+
+	@Override
+	public String getBaseItemName()
+	{
+<span class="nc" id="L482">		return equip.getBaseItemName();</span>
+	}
+
+	@Override
+	public boolean isWeapon()
+	{
+<span class="nc" id="L488">		return equip.isWeapon();</span>
+	}
+
+	@Override
+	public String getDamage()
+	{
+<span class="nc" id="L494">		return equip.getDamage(character);</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

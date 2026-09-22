@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PreAbilityWriter.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.pretokens.writer</a> &gt; <span class="el_source">PreAbilityWriter.java</span></div><h1>PreAbilityWriter.java</h1><pre class="source lang-java linenums">/*
+ *
+ * Copyright 2004 (C) Frugal &lt;frugal@purplewombat.co.uk&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.       See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package plugin.pretokens.writer;
+
+import java.io.IOException;
+import java.io.Writer;
+
+import pcgen.core.prereq.Prerequisite;
+import pcgen.core.prereq.PrerequisiteOperator;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.output.prereq.AbstractPrerequisiteWriter;
+import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
+
+/**
+ * {@code PreAbilityWriter} outputs ability prereqs.
+ */
+<span class="fc" id="L33">public class PreAbilityWriter extends AbstractPrerequisiteWriter implements PrerequisiteWriterInterface</span>
+{
+
+	@Override
+	public String kindHandled()
+	{
+<span class="fc" id="L39">		return &quot;ability&quot;;</span>
+	}
+
+	@Override
+	public PrerequisiteOperator[] operatorsHandled()
+	{
+<span class="fc" id="L45">		return new PrerequisiteOperator[]{PrerequisiteOperator.GTEQ, PrerequisiteOperator.LT};</span>
+	}
+
+	@Override
+	public void write(Writer writer, Prerequisite prereq) throws PersistenceLayerException
+	{
+<span class="fc" id="L51">		checkValidOperator(prereq, operatorsHandled());</span>
+		try
+		{
+<span class="pc bpc" id="L54" title="1 of 2 branches missed.">			if (prereq.getOperator().equals(PrerequisiteOperator.LT))</span>
+			{
+<span class="nc" id="L56">				writer.write('!');</span>
+			}
+<span class="pc bpc" id="L58" title="1 of 2 branches missed.">			writer.write(&quot;PREABILITY:&quot; + (prereq.isOverrideQualify() ? &quot;Q:&quot; : &quot;&quot;));</span>
+<span class="fc" id="L59">			writer.write(prereq.getOperand());</span>
+<span class="fc" id="L60">			writer.write(',');</span>
+
+<span class="fc bfc" id="L62" title="All 2 branches covered.">			if (prereq.isOriginalCheckMult())</span>
+			{
+<span class="fc" id="L64">				writer.write(&quot;CHECKMULT,&quot;);</span>
+			}
+<span class="fc" id="L66">			String cat = prereq.getCategoryName();</span>
+<span class="fc bfc" id="L67" title="All 2 branches covered.">			if (cat == null)</span>
+			{
+<span class="fc" id="L69">				writer.write(&quot;CATEGORY=ANY,&quot;);</span>
+			}
+			else
+			{
+<span class="fc" id="L73">				writer.write(&quot;CATEGORY=&quot; + cat + ',');</span>
+			}
+
+<span class="fc" id="L76">			writer.write(prereq.getKey());</span>
+<span class="fc bfc" id="L77" title="All 2 branches covered.">			if (prereq.getSubKey() != null)</span>
+			{
+<span class="fc" id="L79">				writer.write(&quot; (&quot;);</span>
+<span class="fc" id="L80">				writer.write(prereq.getSubKey());</span>
+<span class="fc" id="L81">				writer.write(&quot;)&quot;);</span>
+			}
+		}
+<span class="nc" id="L84">		catch (IOException e)</span>
+		{
+<span class="nc" id="L86">			throw new PersistenceLayerException(e);</span>
+<span class="fc" id="L87">		}</span>
+<span class="fc" id="L88">	}</span>
+
+	@Override
+	public boolean specialCase(Writer writer, Prerequisite prereq) throws IOException
+	{
+<span class="fc" id="L93">		PrerequisiteOperator po = getConsolidateMethod(kindHandled(), prereq, false);</span>
+<span class="pc bpc" id="L94" title="1 of 2 branches missed.">		if (po == null)</span>
+		{
+<span class="nc" id="L96">			return false;</span>
+		}
+<span class="pc bpc" id="L98" title="1 of 2 branches missed.">		if (hasSubordinateCheckMult(prereq))</span>
+		{
+<span class="nc" id="L100">			return false;</span>
+		}
+<span class="fc" id="L102">		String cat = null;</span>
+<span class="fc" id="L103">		boolean foundCat = false;</span>
+<span class="fc bfc" id="L104" title="All 2 branches covered.">		for (Prerequisite p : prereq.getPrerequisites())</span>
+		{
+<span class="fc bfc" id="L106" title="All 2 branches covered.">			if (foundCat)</span>
+			{
+<span class="fc" id="L108">				String thiscat = p.getCategoryName();</span>
+<span class="fc bfc" id="L109" title="All 2 branches covered.">				if (thiscat == null)</span>
+				{
+<span class="pc bpc" id="L111" title="1 of 2 branches missed.">					if (cat != null)</span>
+					{
+<span class="nc" id="L113">						return false;</span>
+					}
+				}
+				else
+				{
+<span class="pc bpc" id="L118" title="1 of 2 branches missed.">					if (!thiscat.equals(cat))</span>
+					{
+<span class="nc" id="L120">						return false;</span>
+					}
+				}
+<span class="fc" id="L123">			}</span>
+			else
+			{
+<span class="fc" id="L126">				cat = p.getCategoryName();</span>
+<span class="fc" id="L127">				foundCat = true;</span>
+			}
+<span class="fc" id="L129">		}</span>
+<span class="fc bfc" id="L130" title="All 2 branches covered.">		if (!po.equals(prereq.getOperator()))</span>
+		{
+<span class="fc" id="L132">			writer.write('!');</span>
+		}
+
+<span class="pc bpc" id="L135" title="1 of 2 branches missed.">		writer.write(&quot;PRE&quot; + kindHandled().toUpperCase() + ':' + (prereq.isOverrideQualify() ? &quot;Q:&quot; : &quot;&quot;));</span>
+<span class="pc bpc" id="L136" title="1 of 2 branches missed.">		writer.write(po.equals(PrerequisiteOperator.GTEQ) ? prereq.getOperand() : &quot;1&quot;);</span>
+<span class="fc bfc" id="L137" title="All 2 branches covered.">		if (prereq.isOriginalCheckMult())</span>
+		{
+<span class="fc" id="L139">			writer.write(&quot;,CHECKMULT&quot;);</span>
+		}
+<span class="fc bfc" id="L141" title="All 2 branches covered.">		if (cat == null)</span>
+		{
+<span class="fc" id="L143">			writer.write(&quot;,CATEGORY=ANY&quot;);</span>
+		}
+		else
+		{
+<span class="fc" id="L147">			writer.write(&quot;,CATEGORY=&quot; + cat);</span>
+		}
+<span class="fc bfc" id="L149" title="All 2 branches covered.">		for (Prerequisite p : prereq.getPrerequisites())</span>
+		{
+<span class="fc" id="L151">			writer.write(',');</span>
+<span class="fc" id="L152">			writer.write(p.getKey());</span>
+<span class="fc bfc" id="L153" title="All 2 branches covered.">			if (p.getSubKey() != null)</span>
+			{
+<span class="fc" id="L155">				writer.write(&quot; (&quot;);</span>
+<span class="fc" id="L156">				writer.write(p.getSubKey());</span>
+<span class="fc" id="L157">				writer.write(&quot;)&quot;);</span>
+			}
+<span class="fc" id="L159">		}</span>
+<span class="fc" id="L160">		return true;</span>
+	}
+
+	private boolean hasSubordinateCheckMult(Prerequisite prereq)
+	{
+<span class="fc bfc" id="L165" title="All 2 branches covered.">		for (Prerequisite p : prereq.getPrerequisites())</span>
+		{
+<span class="pc bpc" id="L167" title="1 of 2 branches missed.">			if (p.isOriginalCheckMult())</span>
+			{
+<span class="nc" id="L169">				return true;</span>
+			}
+<span class="pc bpc" id="L171" title="1 of 2 branches missed.">			for (Prerequisite sub : p.getPrerequisites())</span>
+			{
+<span class="nc bnc" id="L173" title="All 2 branches missed.">				if (hasSubordinateCheckMult(sub))</span>
+				{
+<span class="nc" id="L175">					return true;</span>
+				}
+<span class="nc" id="L177">			}</span>
+<span class="fc" id="L178">		}</span>
+<span class="fc" id="L179">		return false;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

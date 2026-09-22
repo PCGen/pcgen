@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CollectionToAbilitySelection.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.choiceset</a> &gt; <span class="el_source">CollectionToAbilitySelection.java</span></div><h1>CollectionToAbilitySelection.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2010-14 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.cdom.choiceset;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Objects;
+import java.util.Set;
+import java.util.Stack;
+
+import pcgen.base.util.ObjectContainer;
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.ChooseInformation;
+import pcgen.cdom.base.Converter;
+import pcgen.cdom.base.PrimitiveChoiceSet;
+import pcgen.cdom.base.PrimitiveCollection;
+import pcgen.cdom.base.PrimitiveFilter;
+import pcgen.cdom.content.AbilitySelection;
+import pcgen.cdom.enumeration.GroupingState;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
+import pcgen.core.PlayerCharacter;
+import pcgen.util.Logging;
+
+/**
+ * A CollectionToAbilitySelection wraps a PrimitiveCollection of Ability objects and
+ * provide AbilitySelection objects.
+ */
+public class CollectionToAbilitySelection implements PrimitiveChoiceSet&lt;AbilitySelection&gt;
+{
+	/**
+	 * The underlying collection of Ability objects that are legal to choose from.
+	 */
+	private final PrimitiveCollection&lt;Ability&gt; collection;
+
+	/**
+	 * The AbilityCategory from which the Ability objects are drawn.
+	 */
+	private final AbilityCategory category;
+
+	/**
+	 * An infinite loop detection (it's possible a poorly written Ability can CHOOSE
+	 * itself, thus this would result in an infinite loop of resolution).
+	 */
+<span class="fc" id="L63">	private static Stack&lt;Ability&gt; infiniteLoopDetectionStack = new Stack&lt;&gt;();</span>
+
+	/**
+	 * Constructs a new CollectionToAbilitySelection for the given AbilityCategory and
+	 * PrimitiveCollection.
+	 * 
+	 * @param category
+	 *            The AbilityCategory from which the Ability objects are drawn
+	 * @param collection
+	 *            The underlying collection of Ability objects that are legal to choose
+	 *            from
+	 */
+	public CollectionToAbilitySelection(AbilityCategory category, PrimitiveCollection&lt;Ability&gt; collection)
+<span class="fc" id="L76">	{</span>
+<span class="fc" id="L77">		this.category = Objects.requireNonNull(category);</span>
+<span class="fc" id="L78">		this.collection = Objects.requireNonNull(collection);</span>
+<span class="fc" id="L79">	}</span>
+
+	@Override
+	public Class&lt;? super AbilitySelection&gt; getChoiceClass()
+	{
+<span class="nc" id="L84">		return AbilitySelection.class;</span>
+	}
+
+	@Override
+	public GroupingState getGroupingState()
+	{
+<span class="fc" id="L90">		return collection.getGroupingState();</span>
+	}
+
+	@Override
+	public String getLSTformat(boolean useAny)
+	{
+<span class="fc" id="L96">		return collection.getLSTformat(useAny);</span>
+	}
+
+	@Override
+	public Collection&lt;AbilitySelection&gt; getSet(PlayerCharacter pc)
+	{
+<span class="nc" id="L102">		Collection&lt;? extends AbilityWithChoice&gt; aColl = collection.getCollection(pc, new ExpandingConverter(pc));</span>
+<span class="nc" id="L103">		Set&lt;AbilitySelection&gt; returnSet = new HashSet&lt;&gt;();</span>
+<span class="nc bnc" id="L104" title="All 2 branches missed.">		for (AbilityWithChoice a : aColl)</span>
+		{
+<span class="nc" id="L106">			processAbility(pc, returnSet, a);</span>
+<span class="nc" id="L107">		}</span>
+<span class="nc" id="L108">		return returnSet;</span>
+	}
+
+	private void processAbility(PlayerCharacter character, Set&lt;AbilitySelection&gt; returnSet, AbilityWithChoice awc)
+	{
+<span class="nc" id="L113">		Ability a = awc.getAbility();</span>
+<span class="nc bnc" id="L114" title="All 2 branches missed.">		if (infiniteLoopDetectionStack.contains(a))</span>
+		{
+<span class="nc" id="L116">			Stack&lt;Ability&gt; current = new Stack&lt;&gt;();</span>
+<span class="nc" id="L117">			current.addAll(infiniteLoopDetectionStack);</span>
+<span class="nc" id="L118">			Logging.errorPrint(&quot;Error: Circular Expansion Found: &quot; + reportCircularExpansion(current));</span>
+<span class="nc" id="L119">			return;</span>
+		}
+		try
+		{
+<span class="nc" id="L123">			infiniteLoopDetectionStack.push(a);</span>
+<span class="nc bnc" id="L124" title="All 2 branches missed.">			if (a.getSafe(ObjectKey.MULTIPLE_ALLOWED))</span>
+			{
+<span class="nc" id="L126">				returnSet.addAll(addMultiplySelectableAbility(character, a, awc.getChoice()));</span>
+			}
+			else
+			{
+<span class="nc" id="L130">				returnSet.add(new AbilitySelection(a, null));</span>
+			}
+		}
+		finally
+		{
+<span class="nc" id="L135">			infiniteLoopDetectionStack.pop();</span>
+		}
+<span class="nc" id="L137">	}</span>
+
+	private Collection&lt;AbilitySelection&gt; addMultiplySelectableAbility(final PlayerCharacter aPC, Ability ability,
+		String subName)
+	{
+<span class="nc" id="L142">		boolean isPattern = false;</span>
+<span class="nc" id="L143">		String nameRoot = null;</span>
+<span class="nc bnc" id="L144" title="All 2 branches missed.">		if (subName != null)</span>
+		{
+<span class="nc" id="L146">			final int percIdx = subName.indexOf('%');</span>
+
+<span class="nc bnc" id="L148" title="All 2 branches missed.">			if (percIdx &gt; -1)</span>
+			{
+<span class="nc" id="L150">				isPattern = true;</span>
+<span class="nc" id="L151">				nameRoot = subName.substring(0, percIdx);</span>
+			}
+<span class="nc bnc" id="L153" title="All 2 branches missed.">			else if (!subName.isEmpty())</span>
+			{
+<span class="nc" id="L155">				nameRoot = subName;</span>
+			}
+		}
+
+<span class="nc" id="L159">		ChooseInformation&lt;?&gt; chooseInfo = ability.get(ObjectKey.CHOOSE_INFO);</span>
+<span class="nc" id="L160">		final List&lt;String&gt; availableList = getAvailableList(aPC, chooseInfo);</span>
+
+		// Remove any that don't match
+
+<span class="nc bnc" id="L164" title="All 4 branches missed.">		if (nameRoot != null &amp;&amp; !nameRoot.isEmpty())</span>
+		{
+<span class="nc bnc" id="L166" title="All 2 branches missed.">			for (int n = availableList.size() - 1; n &gt;= 0; --n)</span>
+			{
+<span class="nc" id="L168">				final String aString = availableList.get(n);</span>
+
+<span class="nc bnc" id="L170" title="All 2 branches missed.">				if (!aString.startsWith(nameRoot))</span>
+				{
+<span class="nc" id="L172">					availableList.remove(n);</span>
+				}
+			}
+
+			// Example: ADD:FEAT(Skill Focus(Craft (Basketweaving))) If you
+			// have no ranks in Craft (Basketweaving), the available list
+			// will
+			// be empty
+			//
+			// Make sure that the specified feat is available, even though
+			// it
+			// does not meet the prerequisite
+
+<span class="nc bnc" id="L185" title="All 4 branches missed.">			if (isPattern &amp;&amp; !availableList.isEmpty())</span>
+			{
+<span class="nc" id="L187">				availableList.add(nameRoot);</span>
+			}
+		}
+
+<span class="nc" id="L191">		List&lt;AbilitySelection&gt; returnList = new ArrayList&lt;&gt;(availableList.size());</span>
+<span class="nc bnc" id="L192" title="All 2 branches missed.">		for (String s : availableList)</span>
+		{
+<span class="nc" id="L194">			returnList.add(new AbilitySelection(ability, s));</span>
+<span class="nc" id="L195">		}</span>
+<span class="nc" id="L196">		return returnList;</span>
+	}
+
+	private &lt;T&gt; List&lt;String&gt; getAvailableList(final PlayerCharacter aPC, ChooseInformation&lt;T&gt; chooseInfo)
+	{
+<span class="nc" id="L201">		final List&lt;String&gt; availableList = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L202">		Collection&lt;? extends T&gt; tempAvailList = chooseInfo.getSet(aPC);</span>
+		// chooseInfo may have sent us back weaponprofs, abilities or
+		// strings, so we have to do a conversion here
+<span class="nc bnc" id="L205" title="All 2 branches missed.">		for (T o : tempAvailList)</span>
+		{
+<span class="nc" id="L207">			availableList.add(chooseInfo.encodeChoice(o));</span>
+<span class="nc" id="L208">		}</span>
+<span class="nc" id="L209">		return availableList;</span>
+	}
+
+	private String reportCircularExpansion(Stack&lt;Ability&gt; s)
+	{
+<span class="nc" id="L214">		StringBuilder sb = new StringBuilder(2000);</span>
+<span class="nc" id="L215">		processCircularExpansion(sb, s);</span>
+<span class="nc" id="L216">		sb.append(&quot;    which is a circular reference&quot;);</span>
+<span class="nc" id="L217">		return sb.toString();</span>
+	}
+
+	private void processCircularExpansion(StringBuilder sb, Stack&lt;Ability&gt; s)
+	{
+<span class="nc" id="L222">		Ability a = s.pop();</span>
+<span class="nc bnc" id="L223" title="All 2 branches missed.">		if (!s.isEmpty())</span>
+		{
+<span class="nc" id="L225">			processCircularExpansion(sb, s);</span>
+<span class="nc" id="L226">			sb.append(&quot;     which includes&quot;);</span>
+		}
+<span class="nc" id="L228">		sb.append(a.getCDOMCategory()).append(' ').append(a.getKeyName());</span>
+<span class="nc" id="L229">		sb.append(&quot; selects items: &quot;);</span>
+<span class="nc" id="L230">		sb.append(a.get(ObjectKey.CHOOSE_INFO).getLSTformat());</span>
+<span class="nc" id="L231">		sb.append('\n');</span>
+<span class="nc" id="L232">	}</span>
+
+	public AbilityCategory getCategory()
+	{
+<span class="fc" id="L236">		return category;</span>
+	}
+
+	@Override
+	public int hashCode()
+	{
+<span class="nc" id="L242">		return collection.hashCode();</span>
+	}
+
+	@Override
+	public boolean equals(Object obj)
+	{
+<span class="pc bpc" id="L248" title="1 of 2 branches missed.">		return (obj instanceof CollectionToAbilitySelection)</span>
+<span class="pc bpc" id="L249" title="1 of 2 branches missed.">			&amp;&amp; ((CollectionToAbilitySelection) obj).collection.equals(collection);</span>
+	}
+
+	public static class ExpandingConverter implements Converter&lt;Ability, AbilityWithChoice&gt;
+	{
+
+		private final PlayerCharacter character;
+
+		public ExpandingConverter(PlayerCharacter pc)
+<span class="nc" id="L258">		{</span>
+<span class="nc" id="L259">			character = pc;</span>
+<span class="nc" id="L260">		}</span>
+
+		@Override
+		public Collection&lt;AbilityWithChoice&gt; convert(ObjectContainer&lt;Ability&gt; ref)
+		{
+<span class="nc" id="L265">			Set&lt;AbilityWithChoice&gt; returnSet = new HashSet&lt;&gt;();</span>
+<span class="nc bnc" id="L266" title="All 2 branches missed.">			for (Ability a : ref.getContainedObjects())</span>
+			{
+<span class="nc" id="L268">				processAbility(ref, returnSet, a);</span>
+<span class="nc" id="L269">			}</span>
+<span class="nc" id="L270">			return returnSet;</span>
+		}
+
+		private void processAbility(ObjectContainer&lt;Ability&gt; ref, Set&lt;AbilityWithChoice&gt; returnSet, Ability a)
+		{
+<span class="nc" id="L275">			String choice = null;</span>
+<span class="nc bnc" id="L276" title="All 2 branches missed.">			if (ref instanceof CDOMReference)</span>
+			{
+<span class="nc" id="L278">				choice = ((CDOMReference&lt;?&gt;) ref).getChoice();</span>
+			}
+<span class="nc" id="L280">			returnSet.add(new AbilityWithChoice(a, choice));</span>
+<span class="nc" id="L281">		}</span>
+
+		@Override
+		public Collection&lt;AbilityWithChoice&gt; convert(ObjectContainer&lt;Ability&gt; ref, PrimitiveFilter&lt;Ability&gt; lim)
+		{
+<span class="nc" id="L286">			Set&lt;AbilityWithChoice&gt; returnSet = new HashSet&lt;&gt;();</span>
+<span class="nc bnc" id="L287" title="All 2 branches missed.">			for (Ability a : ref.getContainedObjects())</span>
+			{
+<span class="nc bnc" id="L289" title="All 2 branches missed.">				if (lim.allow(character, a))</span>
+				{
+<span class="nc" id="L291">					processAbility(ref, returnSet, a);</span>
+				}
+<span class="nc" id="L293">			}</span>
+<span class="nc" id="L294">			return returnSet;</span>
+		}
+	}
+
+	/*
+	 * A custom object, NOT an AbilitySelection. The reasoning is that
+	 * AbilitySelection does enforcement of MULT:YES to allow/require choices
+	 * and (1) We can't guarantee we have that here as all expansions may be
+	 * legal (2) We don't want to compromise on the tight enforcement by
+	 * AbilitySelection
+	 */
+	private static class AbilityWithChoice
+	{
+
+		private final Ability ability;
+		private final String choice;
+
+		AbilityWithChoice(Ability a, String c)
+<span class="nc" id="L312">		{</span>
+<span class="nc" id="L313">			ability = a;</span>
+<span class="nc" id="L314">			choice = c;</span>
+<span class="nc" id="L315">		}</span>
+
+		Ability getAbility()
+		{
+<span class="nc" id="L319">			return ability;</span>
+		}
+
+		String getChoice()
+		{
+<span class="nc" id="L324">			return choice;</span>
+		}
+
+		@Override
+		public int hashCode()
+		{
+<span class="nc bnc" id="L330" title="All 2 branches missed.">			return ability.hashCode() ^ ((choice == null) ? 17 : choice.hashCode());</span>
+		}
+
+		@Override
+		public boolean equals(Object o)
+		{
+<span class="nc bnc" id="L336" title="All 2 branches missed.">			if (o == this)</span>
+			{
+<span class="nc" id="L338">				return true;</span>
+			}
+<span class="nc bnc" id="L340" title="All 2 branches missed.">			if (o instanceof AbilityWithChoice other)</span>
+			{
+<span class="nc bnc" id="L342" title="All 4 branches missed.">				return ability.equals(other.ability) &amp;&amp; Objects.equals(choice, other.choice);</span>
+			}
+<span class="nc" id="L344">			return false;</span>
+		}
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

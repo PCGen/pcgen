@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Comparators.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.util</a> &gt; <span class="el_source">Comparators.java</span></div><h1>Comparators.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2008 (C) Connor Petty &lt;mistercpp2000@gmail.com&gt;
+ * 
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ * 
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.util;
+
+import java.io.Serializable;
+import java.text.Collator;
+import java.util.Comparator;
+import java.util.Date;
+
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.StringKey;
+import pcgen.facade.core.InfoFacade;
+import pcgen.gui2.util.treetable.TreeTableNode;
+
+@SuppressWarnings(&quot;unchecked&quot;)
+public final class Comparators
+{
+
+	private Comparators()
+	{
+	}
+
+<span class="nc" id="L38">	private static final Comparator&lt;Object&gt; tSC = new ToStringComparator();</span>
+<span class="nc" id="L39">	private static final Comparator&lt;Object&gt; tSICC = new ToStringIgnoreCaseComparator();</span>
+<span class="nc" id="L40">	private static final Comparator&lt;Object&gt; tSICCol = new ToStringIgnoreCaseCollator();</span>
+<span class="nc" id="L41">	private static final Comparator&lt;Integer&gt; iC = Comparator.comparingInt(o -&gt; o);</span>
+<span class="nc" id="L42">	private static final Comparator&lt;Number&gt; nC = Comparator.comparing(Number::doubleValue);</span>
+<span class="nc" id="L43">	private static final Comparator&lt;Date&gt; DC = Comparator.comparing(Date::getTime);</span>
+<span class="nc" id="L44">	private static final Comparator&lt;Object&gt; treeNodeComp = new TreeTableNodeComparator();</span>
+
+	private static Comparator&lt;Object&gt; toStringComparator()
+	{
+<span class="nc" id="L48">		return tSC;</span>
+	}
+
+	public static Comparator&lt;Object&gt; toStringIgnoreCaseComparator()
+	{
+<span class="nc" id="L53">		return tSICC;</span>
+	}
+
+	public static Comparator&lt;Object&gt; toStringIgnoreCaseCollator()
+	{
+<span class="nc" id="L58">		return tSICCol;</span>
+	}
+
+	public static &lt;T&gt; Comparator&lt;? super T&gt; getComparatorFor(Class&lt;T&gt; c)
+	{
+<span class="nc bnc" id="L63" title="All 2 branches missed.">		if (c == Integer.class)</span>
+		{
+<span class="nc" id="L65">			return (Comparator&lt;? super T&gt;) iC;</span>
+		}
+<span class="nc bnc" id="L67" title="All 2 branches missed.">		else if (c.getSuperclass() == Number.class)</span>
+		{
+<span class="nc" id="L69">			return (Comparator&lt;? super T&gt;) nC;</span>
+		}
+<span class="nc bnc" id="L71" title="All 2 branches missed.">		else if (c == Date.class)</span>
+		{
+<span class="nc" id="L73">			return (Comparator&lt;? super T&gt;)DC;</span>
+		}
+<span class="nc bnc" id="L75" title="All 2 branches missed.">		else if (c == String.class)</span>
+		{
+<span class="nc" id="L77">			return (Comparator&lt;? super T&gt;)String.CASE_INSENSITIVE_ORDER;</span>
+		}
+<span class="nc bnc" id="L79" title="All 6 branches missed.">		else if ((c == TreeTableNode.class) || (c == InfoFacade.class) || (c.getSuperclass() == InfoFacade.class))</span>
+		{
+<span class="nc" id="L81">			return treeNodeComp;</span>
+		}
+<span class="nc" id="L83">		return toStringComparator();</span>
+	}
+
+	/**
+	 * A {@code Comparator} to compare objects as
+	 * {@code String}s.  This is particularly useful for applications
+	 * such as maintaining a sorted {@code JComboBoxEx} and the like.
+	 */
+	private static final class ToStringComparator implements Comparator&lt;Object&gt;, Serializable
+	{
+
+		@Override
+		public int compare(Object o1, Object o2)
+		{
+			// Treat null as the empty string.
+<span class="nc bnc" id="L98" title="All 4 branches missed.">			return ((o1 == null) ? &quot;&quot; : o1.toString()).compareTo((o2 == null) ? &quot;&quot; : o2.toString());</span>
+		}
+
+	}
+
+	/**
+	 * A {@code Comparator} to compare objects as
+	 * {@code String}s ignoring case.  This is particularly useful
+	 * for applications such as maintaining a sorted
+	 * {@code JComboBoxEx} and the like.
+	 */
+	private static final class ToStringIgnoreCaseComparator implements Comparator&lt;Object&gt;, Serializable
+	{
+
+		@Override
+		public int compare(Object o1, Object o2)
+		{
+			// Treat null as the empty string.
+<span class="nc bnc" id="L116" title="All 4 branches missed.">			return ((o1 == null) ? &quot;&quot; : o1.toString()).compareToIgnoreCase((o2 == null) ? &quot;&quot; : o2.toString());</span>
+		}
+
+	}
+
+	/**
+	 * A {@code Comparator} to compare tree table nodes. This respects SORTKEY for the contained object.
+	 */
+	private static final class TreeTableNodeComparator implements Comparator&lt;Object&gt;, Serializable
+	{
+
+<span class="nc" id="L127">		private static final Collator COLLATOR = Collator.getInstance();</span>
+
+		@Override
+		public int compare(Object o1, Object o2)
+		{
+<span class="nc" id="L132">			String key1 = getSortKey(o1);</span>
+<span class="nc" id="L133">			String key2 = getSortKey(o2);</span>
+
+<span class="nc bnc" id="L135" title="All 2 branches missed.">			if (!key1.equals(key2))</span>
+			{
+<span class="nc" id="L137">				return COLLATOR.compare(key1, key2);</span>
+			}
+<span class="nc" id="L139">			return COLLATOR.compare(String.valueOf(o1), String.valueOf(o2));</span>
+		}
+
+		private static String getSortKey(Object obj1)
+		{
+			String key;
+<span class="nc bnc" id="L145" title="All 2 branches missed.">			if (obj1 == null)</span>
+			{
+<span class="nc" id="L147">				key = &quot;&quot;;</span>
+			}
+<span class="nc bnc" id="L149" title="All 2 branches missed.">			else if (obj1 instanceof CDOMObject co)</span>
+			{
+<span class="nc" id="L151">				key = co.get(StringKey.SORT_KEY);</span>
+<span class="nc bnc" id="L152" title="All 2 branches missed.">				if (key == null)</span>
+				{
+<span class="nc" id="L154">					key = co.getDisplayName();</span>
+				}
+			}
+<span class="nc bnc" id="L157" title="All 2 branches missed.">			else if (obj1 instanceof SortKeyAware)</span>
+			{
+<span class="nc" id="L159">				key = ((SortKeyAware) obj1).getSortKey();</span>
+			}
+			else
+			{
+<span class="nc" id="L163">				key = obj1.toString();</span>
+			}
+<span class="nc" id="L165">			return key;</span>
+		}
+	}
+
+	private static final class ToStringIgnoreCaseCollator implements Comparator&lt;Object&gt;, Serializable
+	{
+
+<span class="nc" id="L172">		private static final Collator COLLATOR = Collator.getInstance();</span>
+
+		@Override
+		public int compare(Object o1, Object o2)
+		{
+<span class="nc bnc" id="L177" title="All 2 branches missed.">			String s1 = (o1 == null) ? &quot;&quot; : o1.toString();</span>
+<span class="nc bnc" id="L178" title="All 2 branches missed.">			String s2 = (o2 == null) ? &quot;&quot; : o2.toString();</span>
+<span class="nc" id="L179">			return COLLATOR.compare(s1, s2);</span>
+		}
+
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

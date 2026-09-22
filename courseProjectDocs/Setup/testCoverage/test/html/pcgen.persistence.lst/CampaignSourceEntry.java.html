@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CampaignSourceEntry.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.persistence.lst</a> &gt; <span class="el_source">CampaignSourceEntry.java</span></div><h1>CampaignSourceEntry.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2003 (C) David Hibbs &lt;sage_sam@users.sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ *
+ *
+ */
+package pcgen.persistence.lst;
+
+import java.net.URI;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+import java.util.StringTokenizer;
+
+import pcgen.base.lang.StringUtil;
+import pcgen.base.util.HashMapToList;
+import pcgen.base.util.MapToList;
+import pcgen.cdom.base.Constants;
+import pcgen.core.Campaign;
+import pcgen.core.prereq.Prerequisite;
+import pcgen.core.utils.CoreUtility;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
+import pcgen.persistence.lst.prereq.PreParserFactory;
+import pcgen.util.Logging;
+
+/**
+ * This class is used to match a source file to the campaign that
+ * loaded it.
+ */
+public class CampaignSourceEntry implements SourceEntry
+{
+	private Campaign campaign;
+<span class="fc" id="L48">	private List&lt;String&gt; excludeItems = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L49">	private List&lt;String&gt; includeItems = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L50">	private List&lt;Prerequisite&gt; prerequisites = new ArrayList&lt;&gt;();</span>
+	private URIEntry uri;
+
+	/**
+	 * CampaignSourceEntry constructor.
+	 *
+	 * @param campaign Campaign that referenced the provided file.
+	 *         Must not be null.
+	 * @param lstLoc URL path to an LST source file
+	 *         Must not be null.
+	 */
+	public CampaignSourceEntry(Campaign campaign, URI lstLoc)
+	{
+<span class="fc" id="L63">		super();</span>
+<span class="fc" id="L64">		this.campaign = Objects.requireNonNull(campaign);</span>
+<span class="fc" id="L65">		this.uri = new URIEntry(campaign.getDisplayName(), Objects.requireNonNull(lstLoc));</span>
+<span class="fc" id="L66">	}</span>
+
+	public CampaignSourceEntry(Campaign campaign, URIEntry entry)
+	{
+<span class="fc" id="L70">		super();</span>
+<span class="fc" id="L71">		this.campaign = Objects.requireNonNull(campaign);</span>
+<span class="fc" id="L72">		this.uri = Objects.requireNonNull(entry);</span>
+<span class="fc" id="L73">	}</span>
+
+	/**
+	 * This method gets the Campaign that was the source of the
+	 * file. (I.e. the reason it was loaded)
+	 * @return Campaign that requested the file be loaded
+	 */
+	@Override
+	public Campaign getCampaign()
+	{
+<span class="nc" id="L83">		return campaign;</span>
+	}
+
+	/**
+	 * This method gets a list of the items contained in the given source
+	 * file to exclude from getting saved in memory.  All other objects
+	 * in the file are to be included.
+	 * @return List of String names of objects to exclude
+	 */
+	@Override
+	public List&lt;String&gt; getExcludeItems()
+	{
+<span class="fc" id="L95">		return excludeItems;</span>
+	}
+
+	/**
+	 * This method gets the file/path of the LST file.
+	 * @return String url-formatted path to the LST file
+	 */
+	@Override
+	public URI getURI()
+	{
+<span class="fc" id="L105">		return uri.getURI();</span>
+	}
+
+	/**
+	 * This method gets a list of the items contained in the given source
+	 * file to include in getting saved in memory.  All other objects
+	 * in the file are to be excluded.
+	 * @return List of String names of objects to include
+	 */
+	@Override
+	public List&lt;String&gt; getIncludeItems()
+	{
+<span class="fc" id="L117">		return includeItems;</span>
+	}
+
+	@Override
+	public boolean equals(Object arg0)
+	{
+<span class="pc bpc" id="L123" title="1 of 2 branches missed.">		if (arg0 == this)</span>
+		{
+<span class="nc" id="L125">			return true;</span>
+		}
+<span class="pc bpc" id="L127" title="1 of 2 branches missed.">		if (!(arg0 instanceof CampaignSourceEntry other))</span>
+		{
+<span class="nc" id="L129">			return false;</span>
+		}
+<span class="pc bpc" id="L131" title="2 of 4 branches missed.">		return uri.equals(other.uri) &amp;&amp; excludeItems.equals(other.excludeItems)</span>
+<span class="pc bpc" id="L132" title="1 of 2 branches missed.">			&amp;&amp; includeItems.equals(other.includeItems);</span>
+	}
+
+	@Override
+	public int hashCode()
+	{
+<span class="nc" id="L138">		return this.uri.getLSTformat().hashCode();</span>
+	}
+
+	@Override
+	public String toString()
+	{
+<span class="nc" id="L144">		return &quot;Campaign: &quot;</span>
+<span class="nc" id="L145">				+ campaign.getDisplayName()</span>
+				+ &quot;; SourceFile: &quot;
+<span class="nc" id="L147">				+ getURI();</span>
+	}
+
+	public static CampaignSourceEntry getNewCSE(Campaign campaign2, URI sourceUri, String value)
+	{
+<span class="pc bpc" id="L152" title="2 of 4 branches missed.">		if (value == null || value.isEmpty())</span>
+		{
+<span class="nc" id="L154">			Logging.errorPrint(&quot;Cannot build CampaignSourceEntry for empty value in &quot; + sourceUri);</span>
+<span class="nc" id="L155">			return null;</span>
+		}
+
+		// Check if include/exclude items were present
+<span class="fc" id="L159">		int pipePos = value.indexOf('|');</span>
+
+		CampaignSourceEntry cse;
+
+<span class="fc bfc" id="L163" title="All 2 branches covered.">		if (pipePos == -1)</span>
+		{
+<span class="fc bfc" id="L165" title="All 2 branches covered.">			if (value.startsWith(&quot;(&quot;))</span>
+			{
+<span class="fc" id="L167">				Logging.errorPrint(&quot;Invalid Campaign File, cannot start with (:&quot; + value);</span>
+<span class="fc" id="L168">				return null;</span>
+			}
+<span class="fc" id="L170">			URIEntry uri = URIEntry.getURIEntry(campaign2.getDisplayName(), sourceUri, value);</span>
+<span class="fc" id="L171">			cse = new CampaignSourceEntry(campaign2, uri);</span>
+<span class="fc" id="L172">		}</span>
+		else
+		{
+<span class="fc" id="L175">			URIEntry uri = URIEntry.getURIEntry(campaign2.getDisplayName(), sourceUri, value.substring(0, pipePos));</span>
+<span class="fc" id="L176">			cse = new CampaignSourceEntry(campaign2, uri);</span>
+
+			// Get the include/exclude item string
+<span class="fc" id="L179">			String inExString = value.substring(pipePos + 1);</span>
+
+<span class="fc" id="L181">			List&lt;String&gt; tagList = parseSuffix(inExString, sourceUri, value);</span>
+<span class="fc bfc" id="L182" title="All 2 branches covered.">			for (String tagString : tagList)</span>
+			{
+				// Check for surrounding parens
+<span class="fc bfc" id="L185" title="All 2 branches covered.">				if (tagString.startsWith(&quot;((&quot;))</span>
+				{
+<span class="fc" id="L187">					Logging.errorPrint(&quot;Found Suffix in Campaign Source with multiple parenthesis: &quot;</span>
+						+ &quot;Single set of parens required around INCLUDE/EXCLUDE&quot;);
+<span class="fc" id="L189">					Logging.errorPrint(&quot;Found: '&quot; + tagString + &quot;' in &quot; + value);</span>
+<span class="fc" id="L190">					return null;</span>
+				}
+
+				// Update the include or exclude items list, as appropriate
+<span class="fc bfc" id="L194" title="All 2 branches covered.">				if (tagString.startsWith(&quot;(INCLUDE:&quot;))</span>
+				{
+					// assume matching parens
+<span class="fc" id="L197">					tagString = inExString.substring(1, tagString.length() - 1);</span>
+<span class="fc" id="L198">					List&lt;String&gt; splitIncExc = cse.splitInExString(tagString);</span>
+<span class="fc bfc" id="L199" title="All 2 branches covered.">					if (splitIncExc == null)</span>
+					{
+						//Error
+<span class="fc" id="L202">						return null;</span>
+					}
+<span class="fc" id="L204">					cse.includeItems = splitIncExc;</span>
+<span class="fc" id="L205">				}</span>
+<span class="fc bfc" id="L206" title="All 2 branches covered.">				else if (tagString.startsWith(&quot;(EXCLUDE:&quot;))</span>
+				{
+					// assume matching parens
+<span class="fc" id="L209">					tagString = inExString.substring(1, tagString.length() - 1);</span>
+<span class="fc" id="L210">					List&lt;String&gt; splitIncExc = cse.splitInExString(tagString);</span>
+<span class="fc bfc" id="L211" title="All 2 branches covered.">					if (splitIncExc == null)</span>
+					{
+						//Error
+<span class="fc" id="L214">						return null;</span>
+					}
+<span class="fc" id="L216">					cse.excludeItems = splitIncExc;</span>
+<span class="fc" id="L217">				}</span>
+<span class="pc bpc" id="L218" title="1 of 2 branches missed.">				else if (PreParserFactory.isPreReqString(tagString))</span>
+				{
+					Prerequisite prereq;
+					try
+					{
+<span class="nc" id="L223">						prereq = PreParserFactory.getInstance().parse(tagString);</span>
+					}
+<span class="nc" id="L225">					catch (PersistenceLayerException e)</span>
+					{
+<span class="nc" id="L227">						Logging.errorPrint(&quot;Error Initializing PreParserFactory.&quot;, e);</span>
+<span class="nc" id="L228">						return null;</span>
+<span class="nc" id="L229">					}</span>
+<span class="nc bnc" id="L230" title="All 2 branches missed.">					if (prereq == null)</span>
+					{
+<span class="nc" id="L232">						Logging.errorPrint(</span>
+							&quot;Found invalid prerequisite in Campaign Source: '&quot; + tagString + &quot;' in &quot; + value);
+<span class="nc" id="L234">						return null;</span>
+					}
+<span class="nc" id="L236">					cse.prerequisites.add(prereq);</span>
+<span class="nc" id="L237">				}</span>
+				else
+				{
+<span class="fc" id="L240">					Logging.errorPrint(&quot;Invalid Suffix (must have &quot; + &quot;'(INCLUDE' '(EXCLUDE' or a PRExxx immediately &quot;</span>
+						+ &quot;following the pipe (no spaces).  Found: '&quot; + inExString + &quot;' on Campaign Source: '&quot; + value
+						+ &quot;' in &quot; + sourceUri);
+<span class="fc" id="L243">					return null;</span>
+				}
+<span class="fc" id="L245">			}</span>
+<span class="fc" id="L246">			validatePrereqs(cse.getPrerequisites(), sourceUri);</span>
+		}
+<span class="fc" id="L248">		return cse;</span>
+	}
+
+	/**
+	 * Convert a string occurring after the first | into a list of tokens. We 
+	 * expect INCLUDE or EXCLUSE in brackets (as these can contain |) 
+	 * and PREreqs.
+	 * 
+	 * @param suffix  The string to be parsed, should only be the suffix
+	 * @param sourceUri The source we can use to report errors against.
+	 * @param value The full value we can use to report errors against.
+	 * @return A list of the discrete tags that were specified, null if there 
+	 * was an error reported to the log. 
+	 */
+	static List&lt;String&gt; parseSuffix(String suffix, URI sourceUri, String value)
+	{
+<span class="fc" id="L264">		List&lt;String&gt; tagList = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L265">		StringBuilder currentTag = new StringBuilder();</span>
+<span class="fc" id="L266">		int bracketLevel = 0;</span>
+
+<span class="fc" id="L268">		StringTokenizer tokenizer = new StringTokenizer(suffix, &quot;|()&quot;, true);</span>
+<span class="fc bfc" id="L269" title="All 2 branches covered.">		while (tokenizer.hasMoreTokens())</span>
+		{
+<span class="fc" id="L271">			String token = tokenizer.nextToken();</span>
+<span class="fc bfc" id="L272" title="All 4 branches covered.">			switch (token)</span>
+			{
+				case &quot;(&quot;:
+<span class="fc" id="L275">					currentTag.append(token);</span>
+<span class="fc" id="L276">					bracketLevel++;</span>
+
+<span class="fc" id="L278">					break;</span>
+				case &quot;)&quot;:
+<span class="pc bpc" id="L280" title="1 of 2 branches missed.">					if (bracketLevel &gt; 0)</span>
+					{
+<span class="fc" id="L282">						bracketLevel--;</span>
+					}
+<span class="fc" id="L284">					currentTag.append(token);</span>
+<span class="fc" id="L285">					break;</span>
+				case &quot;|&quot;:
+<span class="fc bfc" id="L287" title="All 2 branches covered.">					if (bracketLevel &gt; 0)</span>
+					{
+<span class="fc" id="L289">						currentTag.append(token);</span>
+<span class="pc bpc" id="L290" title="1 of 2 branches missed.">					} else if (currentTag.length() &gt; 0)</span>
+					{
+<span class="fc" id="L292">						tagList.add(currentTag.toString());</span>
+<span class="fc" id="L293">						currentTag = new StringBuilder();</span>
+					}
+					break;
+				default:
+<span class="fc" id="L297">					currentTag.append(token);</span>
+					break;
+			}
+<span class="fc" id="L300">		}</span>
+<span class="fc bfc" id="L301" title="All 2 branches covered.">		if (currentTag.length() &gt; 0)</span>
+		{
+<span class="fc" id="L303">			tagList.add(currentTag.toString());</span>
+		}
+
+		// Check for a bracket mismatch
+<span class="fc bfc" id="L307" title="All 2 branches covered.">		if (bracketLevel &gt; 0)</span>
+		{
+<span class="fc" id="L309">			Logging.errorPrint(&quot;Suffix in Campaign Source with missing closing parenthesis, Found: '&quot; + suffix</span>
+				+ &quot;' on Campaign Source: '&quot; + value + &quot;' in &quot; + sourceUri);
+<span class="fc" id="L311">			return null;</span>
+		}
+<span class="fc" id="L313">		return tagList;</span>
+	}
+
+	/**
+	 * Check that all prerequisites specified in the PCC file are 
+	 * supported. Any unsupported prereqs will be reported as LST 
+	 * errors. This is a recursive function allowing it to 
+	 * check nested prereqs.
+	 * 
+	 * @param prereqList The prerequisites to be checked.
+	 */
+	private static void validatePrereqs(List&lt;Prerequisite&gt; prereqList, URI sourceUri)
+	{
+<span class="pc bpc" id="L326" title="2 of 4 branches missed.">		if (prereqList == null || prereqList.isEmpty())</span>
+		{
+<span class="fc" id="L328">			return;</span>
+		}
+
+<span class="nc bnc" id="L331" title="All 2 branches missed.">		for (Prerequisite prereq : prereqList)</span>
+		{
+<span class="nc bnc" id="L333" title="All 2 branches missed.">			if (prereq.isCharacterRequired())</span>
+			{
+<span class="nc" id="L335">				final PrerequisiteWriter prereqWriter = new PrerequisiteWriter();</span>
+<span class="nc" id="L336">				ArrayList&lt;Prerequisite&gt; displayList = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L337">				displayList.add(prereq);</span>
+<span class="nc" id="L338">				String lstString = prereqWriter.getPrerequisiteString(displayList, Constants.TAB);</span>
+<span class="nc" id="L339">				Logging.log(Logging.LST_ERROR,</span>
+<span class="nc" id="L340">					&quot;Prereq '&quot; + prereq.getKind() + &quot;' is not supported in PCC files. Prereq was '&quot; + lstString</span>
+						+ &quot;' in &quot; + sourceUri + &quot;. Prereq will be ignored.&quot;);
+<span class="nc" id="L342">			}</span>
+			else
+			{
+<span class="nc" id="L345">				validatePrereqs(prereq.getPrerequisites(), sourceUri);</span>
+			}
+<span class="nc" id="L347">		}</span>
+<span class="nc" id="L348">	}</span>
+
+	/**
+	 * Split an include or exclude string accounting for the possible presence 
+	 * of a leading category.
+	 * @param inExString The string to be split
+	 * @return A list of keys, optionally with leading category keys
+	 */
+	private List&lt;String&gt; splitInExString(String inExString)
+	{
+<span class="fc" id="L358">		boolean hasCategory = false;</span>
+<span class="fc" id="L359">		boolean hasKeyOnly = false;</span>
+<span class="fc" id="L360">		List&lt;String&gt; catKeyList = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L361">		String target = inExString.substring(8);</span>
+<span class="fc bfc" id="L362" title="All 2 branches covered.">		if (target.isEmpty())</span>
+		{
+<span class="fc" id="L364">			Logging.errorPrint(&quot;Must Specify Items after :&quot;);</span>
+<span class="fc" id="L365">			return null;</span>
+		}
+<span class="fc" id="L367">		List&lt;String&gt; keyList = CoreUtility.split(target, '|');</span>
+<span class="fc bfc" id="L368" title="All 2 branches covered.">		for (String key : keyList)</span>
+		{
+<span class="fc bfc" id="L370" title="All 2 branches covered.">			if (key.startsWith(&quot;CATEGORY=&quot;))</span>
+			{
+<span class="fc" id="L372">				hasCategory = true;</span>
+<span class="fc" id="L373">				List&lt;String&gt; abilityKeyList = CoreUtility.split(key.substring(9), ',');</span>
+<span class="fc" id="L374">				String category = abilityKeyList.get(0);</span>
+<span class="fc" id="L375">				abilityKeyList.remove(0);</span>
+<span class="fc bfc" id="L376" title="All 2 branches covered.">				for (String string : abilityKeyList)</span>
+				{
+<span class="fc" id="L378">					catKeyList.add(category + ',' + string);</span>
+<span class="fc" id="L379">				}</span>
+<span class="fc" id="L380">			}</span>
+			else
+			{
+<span class="fc" id="L383">				hasKeyOnly = true;</span>
+<span class="fc" id="L384">				catKeyList.add(key);</span>
+			}
+<span class="fc" id="L386">		}</span>
+<span class="fc bfc" id="L387" title="All 4 branches covered.">		if (hasKeyOnly &amp;&amp; hasCategory)</span>
+		{
+<span class="fc" id="L389">			Logging.log(Logging.LST_ERROR, &quot;Invalid &quot; + inExString.substring(0, 7) + &quot; value on &quot; + uri.getLSTformat()</span>
+<span class="fc" id="L390">				+ &quot; in &quot; + campaign.getDisplayName() + &quot;. Abilities must always have categories (e.g. &quot;</span>
+<span class="fc" id="L391">				+ inExString.substring(0, 8) + &quot;CATEGORY=cat1,key1,key2|CATEGORY=cat2,key1 ) and &quot;</span>
+<span class="fc" id="L392">				+ &quot;other file types should never have categories (e.g. &quot; + inExString.substring(0, 8) + &quot;key1|key2 ).&quot;);</span>
+<span class="fc" id="L393">			return null;</span>
+		}
+
+<span class="fc" id="L396">		return catKeyList;</span>
+	}
+
+	public String getLSTformat()
+	{
+<span class="fc" id="L401">		StringBuilder sb = new StringBuilder();</span>
+<span class="fc" id="L402">		sb.append(uri.getLSTformat());</span>
+<span class="fc bfc" id="L403" title="All 2 branches covered.">		if (!includeItems.isEmpty())</span>
+		{
+<span class="fc" id="L405">			sb.append(Constants.PIPE);</span>
+<span class="fc" id="L406">			sb.append(&quot;(INCLUDE:&quot;);</span>
+<span class="fc" id="L407">			sb.append(joinIncExcList(includeItems));</span>
+<span class="fc" id="L408">			sb.append(')');</span>
+		}
+<span class="fc bfc" id="L410" title="All 2 branches covered.">		else if (!excludeItems.isEmpty())</span>
+		{
+<span class="fc" id="L412">			sb.append(Constants.PIPE);</span>
+<span class="fc" id="L413">			sb.append(&quot;(EXCLUDE:&quot;);</span>
+<span class="fc" id="L414">			sb.append(joinIncExcList(excludeItems));</span>
+<span class="fc" id="L415">			sb.append(')');</span>
+		}
+<span class="fc" id="L417">		return sb.toString();</span>
+	}
+
+	private String joinIncExcList(List&lt;String&gt; list)
+	{
+<span class="fc" id="L422">		MapToList&lt;String, String&gt; map = new HashMapToList&lt;&gt;();</span>
+<span class="fc bfc" id="L423" title="All 2 branches covered.">		for (String s : list)</span>
+		{
+<span class="fc" id="L425">			int commaLoc = s.indexOf(',');</span>
+<span class="fc bfc" id="L426" title="All 2 branches covered.">			if (commaLoc == -1)</span>
+			{
+<span class="fc" id="L428">				return StringUtil.join(list, Constants.PIPE);</span>
+			}
+			else
+			{
+<span class="fc" id="L432">				map.addToListFor(s.substring(0, commaLoc), s.substring(commaLoc + 1));</span>
+			}
+<span class="fc" id="L434">		}</span>
+<span class="fc" id="L435">		StringBuilder sb = new StringBuilder(200);</span>
+<span class="fc" id="L436">		boolean needPipe = false;</span>
+<span class="fc bfc" id="L437" title="All 2 branches covered.">		for (String category : map.getKeySet())</span>
+		{
+<span class="fc bfc" id="L439" title="All 2 branches covered.">			if (needPipe)</span>
+			{
+<span class="fc" id="L441">				sb.append(Constants.PIPE);</span>
+			}
+<span class="fc" id="L443">			needPipe = true;</span>
+<span class="fc" id="L444">			sb.append(&quot;CATEGORY=&quot;);</span>
+<span class="fc" id="L445">			sb.append(category);</span>
+<span class="fc" id="L446">			sb.append(Constants.COMMA);</span>
+<span class="fc" id="L447">			sb.append(StringUtil.join(map.getListFor(category), Constants.COMMA));</span>
+<span class="fc" id="L448">		}</span>
+<span class="fc" id="L449">		return sb.toString();</span>
+	}
+
+	public CampaignSourceEntry getRelatedTarget(String fileName)
+	{
+<span class="nc" id="L454">		return new CampaignSourceEntry(campaign, uri.getRelatedTarget(fileName));</span>
+	}
+
+	public List&lt;Prerequisite&gt; getPrerequisites()
+	{
+<span class="fc" id="L459">		return prerequisites;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

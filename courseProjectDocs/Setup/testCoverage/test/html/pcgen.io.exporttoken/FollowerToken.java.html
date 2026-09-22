@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FollowerToken.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.io.exporttoken</a> &gt; <span class="el_source">FollowerToken.java</span></div><h1>FollowerToken.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2006 (C) James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.     See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ *
+ *
+ */
+package pcgen.io.exporttoken;
+
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.StringWriter;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.StringTokenizer;
+
+import pcgen.core.Globals;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.character.Follower;
+import pcgen.core.display.CharacterDisplay;
+import pcgen.io.ExportHandler;
+import pcgen.util.Logging;
+
+/**
+ * Deal with FOLLOWER Token
+ *
+ *
+ */
+<span class="nc" id="L42">public class FollowerToken extends Token</span>
+{
+	/** Token Name */
+	public static final String TOKENNAME = &quot;FOLLOWER&quot;;
+
+	@Override
+	public String getTokenName()
+	{
+<span class="nc" id="L50">		return TOKENNAME;</span>
+	}
+
+	@Override
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	{
+		/* FOLLOWER%.subtag stuff handled in here*/
+
+		// New token syntax FOLLOWER.x instead of FOLLOWERx
+<span class="nc" id="L59">		StringTokenizer aTok = new StringTokenizer(tokenSource, &quot;.&quot;);</span>
+<span class="nc" id="L60">		String fString = aTok.nextToken(); // FOLLOWER</span>
+		final int i;
+
+<span class="nc bnc" id="L63" title="All 2 branches missed.">		if (&quot;FOLLOWER&quot;.equals(fString))</span>
+		{
+<span class="nc" id="L65">			i = Integer.parseInt(aTok.nextToken());</span>
+		}
+		else
+		{
+<span class="nc" id="L69">			Logging.errorPrint(&quot;Old syntax FOLLOWERx will be replaced for FOLLOWER.x&quot;);</span>
+
+<span class="nc" id="L71">			i = Integer.parseInt(tokenSource.substring(8, tokenSource.indexOf('.')));</span>
+		}
+
+<span class="nc" id="L74">		StringBuilder restString = new StringBuilder();</span>
+<span class="nc bnc" id="L75" title="All 2 branches missed.">		while (aTok.hasMoreTokens())</span>
+		{
+<span class="nc" id="L77">			restString.append(&quot;.&quot;).append(aTok.nextToken());</span>
+		}
+<span class="nc bnc" id="L79" title="All 2 branches missed.">		if (restString.indexOf(&quot;.&quot;) == 0)</span>
+		{
+<span class="nc" id="L81">			restString = restString.deleteCharAt(0);</span>
+		}
+
+<span class="nc" id="L84">		String result = &quot;&quot;;</span>
+<span class="nc" id="L85">		final List&lt;Follower&gt; followers = new ArrayList&lt;&gt;(pc.getDisplay().getFollowerList());</span>
+<span class="nc bnc" id="L86" title="All 2 branches missed.">		if (i &lt; followers.size())</span>
+		{
+<span class="nc" id="L88">			result = FollowerToken.getFollowerOutput(eh, restString.toString(), followers.get(i));</span>
+		}
+
+<span class="nc" id="L91">		return result;</span>
+	}
+
+	/**
+	 * Process a token for a follower (must already be loaded) and return the output.
+	 *  
+	 * @param eh The ExportHandler being used for output.
+	 * @param followerToken The token to be processed.
+	 * @param follower The follower to be reported upon.
+	 * @return The follower's token output
+	 */
+	public static String getFollowerOutput(ExportHandler eh, String followerToken, final Follower follower)
+	{
+<span class="nc" id="L104">		StringWriter writer = new StringWriter();</span>
+<span class="nc" id="L105">		BufferedWriter bw = new BufferedWriter(writer);</span>
+
+<span class="nc bnc" id="L107" title="All 4 branches missed.">		String token = followerToken != null &amp;&amp; followerToken.isEmpty() ? &quot;NAME&quot; : followerToken;</span>
+
+<span class="nc bnc" id="L109" title="All 2 branches missed.">		for (PlayerCharacter eachPC : Globals.getPCList())</span>
+		{
+<span class="nc" id="L111">			CharacterDisplay eachDisplay = eachPC.getDisplay();</span>
+<span class="nc bnc" id="L112" title="All 2 branches missed.">			if (follower.getFileName().equals(eachDisplay.getFileName())</span>
+<span class="nc bnc" id="L113" title="All 2 branches missed.">				&amp;&amp; follower.getName().equals(eachDisplay.getName()))</span>
+			{
+<span class="nc" id="L115">                eh.replaceToken(token, bw, eachPC);</span>
+			}
+<span class="nc" id="L117">		}</span>
+		try
+		{
+<span class="nc" id="L120">			bw.flush();</span>
+		}
+<span class="nc" id="L122">		catch (IOException e)</span>
+		{
+<span class="nc" id="L124">			Logging.errorPrint(&quot;Ignoring error while processing FOLLOWER or FOLLOWERTYPE token&quot;, e);</span>
+<span class="nc" id="L125">		}</span>
+<span class="nc" id="L126">		return writer.toString();</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

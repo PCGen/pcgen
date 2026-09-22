@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Delta.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.util</a> &gt; <span class="el_source">Delta.java</span></div><h1>Delta.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2001 (C) B. K. Oxley (binkley) &lt;binkley@alumni.rice.edu&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public License
+ * as published by the Free Software Foundation; either version 2.1 of
+ * the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307
+ * USA
+ *
+ */
+package pcgen.util;
+
+/**
+ * A helper for {@code java.lang.Integer} which understands a
+ * leading plus sign for string conversion.
+ *
+ * @see java.lang.Integer
+ */
+public final class Delta
+{
+	private Delta()
+	{
+	}
+
+	/**
+	 * Construct a @see java.lang.Integer and strip a leading plus
+	 * sign since {@code Integer} does not understand it.
+	 * @param s
+	 * @return Integer
+	 */
+	public static Integer decode(String s)
+	{
+<span class="nc bnc" id="L42" title="All 4 branches missed.">		if ((!s.isEmpty()) &amp;&amp; (s.charAt(0) == '+'))</span>
+		{
+<span class="nc" id="L44">			s = s.substring(1);</span>
+		}
+
+<span class="nc" id="L47">		return Integer.decode(s);</span>
+	}
+
+	/**
+	 * Parse a string with an option plus or minus followed by digits
+	 * into an int.
+	 * @param s a string that may or may not be a valid delta
+	 * @return int
+	 * @exception java.lang.NumberFormatException
+	 * This exception is thrown if the string does not match the
+	 * required format for a delta.
+	 */
+	public static int parseInt(String s)
+	{
+<span class="pc bpc" id="L61" title="1 of 2 branches missed.">		if (s.charAt(0) == '+')</span>
+		{
+<span class="nc" id="L63">			s = s.substring(1);</span>
+		}
+
+<span class="fc" id="L66">		return Integer.parseInt(s);</span>
+	}
+
+	/**
+	 * toString
+	 * @param v
+	 * @return String
+	 */
+	public static String toString(Integer v)
+	{
+<span class="nc" id="L76">		return toString(v.intValue());</span>
+	}
+
+	/**
+	 * Returns a String representation of an integer value.  If the value is
+	 * positive a plus sign (+) will be prepended.
+	 * 
+	 * @param v An integer to convert.
+	 * 
+	 * @return String value of integer.
+	 */
+	public static String toString(final int v)
+	{
+<span class="nc bnc" id="L89" title="All 2 branches missed.">		if (v &gt;= 0)</span>
+		{
+<span class="nc" id="L91">			return &quot;+&quot; + v;</span>
+		}
+
+<span class="nc" id="L94">		return String.valueOf(v);</span>
+	}
+
+	/**
+	 * toString
+	 * @param v
+	 * @return String
+	 */
+	public static String toString(Float v)
+	{
+<span class="nc" id="L104">		return toString(v.floatValue());</span>
+	}
+
+	/**
+	 * toString
+	 * @param v
+	 * @return String
+	 */
+	public static String toString(float v)
+	{
+<span class="nc bnc" id="L114" title="All 2 branches missed.">		if (v &gt;= 0.0)</span>
+		{
+<span class="nc" id="L116">			return &quot;+&quot; + v;</span>
+		}
+
+<span class="nc" id="L119">		return Float.toString(v);</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

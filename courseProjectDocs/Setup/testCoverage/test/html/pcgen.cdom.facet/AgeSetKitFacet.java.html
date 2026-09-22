@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AgeSetKitFacet.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.facet</a> &gt; <span class="el_source">AgeSetKitFacet.java</span></div><h1>AgeSetKitFacet.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) Thomas Parker, 2010.
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package pcgen.cdom.facet;
+
+import java.util.Collection;
+import java.util.List;
+
+import pcgen.base.util.HashMapToList;
+import pcgen.cdom.base.TransitionChoice;
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.analysis.AgeSetFacet;
+import pcgen.cdom.facet.base.AbstractStorageFacet;
+import pcgen.cdom.facet.event.DataFacetChangeEvent;
+import pcgen.cdom.facet.event.DataFacetChangeListener;
+import pcgen.cdom.facet.model.BioSetFacet;
+import pcgen.core.AgeSet;
+import pcgen.core.BioSet;
+import pcgen.core.Kit;
+import pcgen.core.PlayerCharacter;
+
+/**
+ * AgeSetKitFacet stores
+ * 
+ */
+<span class="fc" id="L40">public class AgeSetKitFacet extends AbstractStorageFacet&lt;CharID&gt; implements DataFacetChangeListener&lt;CharID, Integer&gt;</span>
+{
+<span class="fc" id="L42">	private final PlayerCharacterTrackingFacet trackingFacet =</span>
+<span class="fc" id="L43">			FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);</span>
+
+	private AgeSetFacet ageSetFacet;
+
+	private BioSetFacet bioSetFacet;
+
+	/**
+	 * Drives the selection of the AgeSet Kit for a Player Character when
+	 * relevant changes (change to an AgeSet) are made to a Player Character.
+	 * 
+	 * Triggered when one of the Facets to which AgeSetKitFacet listens fires a
+	 * DataFacetChangeEvent to indicate a CDOMObject was added to a Player
+	 * Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 */
+	@Override
+	public void dataAdded(DataFacetChangeEvent&lt;CharID, Integer&gt; dfce)
+	{
+<span class="nc" id="L64">		CharID id = dfce.getCharID();</span>
+<span class="nc" id="L65">		AgeSet ageSet = ageSetFacet.get(id);</span>
+<span class="nc" id="L66">		PlayerCharacter pc = trackingFacet.getPC(id);</span>
+		// TODO Is ageSet null check necessary?
+<span class="nc bnc" id="L68" title="All 4 branches missed.">		if (ageSet == null || pc.isImporting())</span>
+		{
+<span class="nc" id="L70">			return;</span>
+		}
+<span class="nc" id="L72">		int ageSetIndex = ageSetFacet.getAgeSetIndex(id);</span>
+		/*
+		 * TODO The method of storing what AgeSets have had kit selections made
+		 * should be converted to store the actual AgeSet rather than the index,
+		 * in order to reduce the number of calls to ageSetFacet.getAgeSetIndex.
+		 * This (of course) drives the move of the AgeSets for which a kit
+		 * selection has been made into a Facet. It is possible that the
+		 * CacheInfo of AgeSetKitFacet is actually a good place to store that
+		 * information (or it may be implicit with the information already
+		 * stored there??)
+		 */
+<span class="nc bnc" id="L83" title="All 2 branches missed.">		if (!pc.hasMadeKitSelectionForAgeSet(ageSetIndex))</span>
+		{
+<span class="nc" id="L85">			CacheInfo cache = getConstructingClassInfo(id);</span>
+<span class="nc" id="L86">			List&lt;Kit&gt; kits = cache.get(ageSet);</span>
+<span class="nc bnc" id="L87" title="All 2 branches missed.">			if (kits != null)</span>
+			{
+				// Need to do selection
+<span class="nc" id="L90">				BioSet bioSet = bioSetFacet.get(id);</span>
+<span class="nc bnc" id="L91" title="All 2 branches missed.">				for (TransitionChoice&lt;Kit&gt; kit : ageSet.getKits())</span>
+				{
+<span class="nc" id="L93">					Collection&lt;? extends Kit&gt; choice = kit.driveChoice(pc);</span>
+<span class="nc" id="L94">					cache.put(ageSet, choice);</span>
+<span class="nc" id="L95">					kit.act(choice, bioSet, pc);</span>
+<span class="nc" id="L96">				}</span>
+			}
+<span class="nc" id="L98">			pc.setHasMadeKitSelectionForAgeSet(ageSetIndex, true);</span>
+		}
+<span class="nc" id="L100">	}</span>
+
+	/**
+	 * Triggered when one of the Facets to which AgeSetKitFacet listens fires a
+	 * DataFacetChangeEvent to indicate a CDOMObject was added to a Player
+	 * Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 */
+	@Override
+	public void dataRemoved(DataFacetChangeEvent&lt;CharID, Integer&gt; dfce)
+	{
+		/*
+		 * CONSIDER Kits seem to be fire &amp; forget - so nothing? Probably not, as
+		 * if the age is changed downward, it's likely that the kits from the
+		 * &quot;older&quot; ages should be removed...
+		 */
+<span class="nc" id="L119">	}</span>
+
+	/**
+	 * Returns the Cached Info for this AgeSetKitFacet and the given CharID. May
+	 * return null if no information has been set in this AgeSetKitFacet for the
+	 * given CharID.
+	 * 
+	 * Note that this method SHOULD NOT be public. The CacheInfo is owned by
+	 * AgeSetKitFacet, and since it can be modified, a reference to that object
+	 * should not be exposed to any object other than AgeSetKitFacet.
+	 * 
+	 * @param id
+	 *            The CharID for which the CacheInfo should be returned
+	 * @return The CacheInfo for the Player Character represented by the given
+	 *         CharID; null if no information has been set in this
+	 *         AgeSetKitFacet for the Player Character.
+	 */
+	private CacheInfo getClassInfo(CharID id)
+	{
+<span class="nc" id="L138">		return (CacheInfo) getCache(id);</span>
+	}
+
+	/**
+	 * Returns a non-null CacheInfo for this AgeSetKitFacet and the given
+	 * CharID. Will return a new, empty CacheInfo if no information has been set
+	 * in this AgeSetKitFacet for the given CharID. Will not return null.
+	 * 
+	 * Note that this method SHOULD NOT be public. The CacheInfo object is owned
+	 * by AgeSetKitFacet, and since it can be modified, a reference to that
+	 * object should not be exposed to any object other than AgeSetKitFacet.
+	 * 
+	 * @param id
+	 *            The CharID for which the CacheInfo should be returned
+	 * @return The CacheInfo for the Player Character represented by the given
+	 *         CharID.
+	 */
+	private CacheInfo getConstructingClassInfo(CharID id)
+	{
+<span class="nc" id="L157">		CacheInfo info = getClassInfo(id);</span>
+<span class="nc bnc" id="L158" title="All 2 branches missed.">		if (info == null)</span>
+		{
+<span class="nc" id="L160">			info = new CacheInfo();</span>
+<span class="nc" id="L161">			setCache(id, info);</span>
+		}
+<span class="nc" id="L163">		return info;</span>
+	}
+
+	/**
+	 * CacheInfo is the data structure used to store information in
+	 * AgeSetKitFacet. This class should not be exposed outside of
+	 * AgeSetKitFacet.
+	 * 
+	 */
+<span class="nc" id="L172">	private static class CacheInfo</span>
+	{
+
+<span class="nc" id="L175">		private HashMapToList&lt;AgeSet, Kit&gt; kitMap = new HashMapToList&lt;&gt;();</span>
+
+		List&lt;Kit&gt; get(AgeSet ageSet)
+		{
+<span class="nc" id="L179">			return kitMap.getListFor(ageSet);</span>
+		}
+
+		void put(AgeSet ageSet, Collection&lt;? extends Kit&gt; choice)
+		{
+<span class="nc" id="L184">			kitMap.addAllToListFor(ageSet, choice);</span>
+<span class="nc" id="L185">		}</span>
+	}
+
+	public void setAgeSetFacet(AgeSetFacet ageSetFacet)
+	{
+<span class="fc" id="L190">		this.ageSetFacet = ageSetFacet;</span>
+<span class="fc" id="L191">	}</span>
+
+	public void setBioSetFacet(BioSetFacet bioSetFacet)
+	{
+<span class="fc" id="L195">		this.bioSetFacet = bioSetFacet;</span>
+<span class="fc" id="L196">	}</span>
+
+	/**
+	 * Copies the contents of the AgeSetKitFacet from one Player Character to
+	 * another Player Character, based on the given CharIDs representing those
+	 * Player Characters.
+	 * 
+	 * This is a method in AgeSetKitFacet in order to avoid exposing the mutable
+	 * Collection object to other classes. This should not be inlined, as the
+	 * Collection is internal information to AgeSetKitFacet and should not be
+	 * exposed to other classes.
+	 * 
+	 * Note also the copy is a one-time event and no references are maintained
+	 * between the Player Characters represented by the given CharIDs (meaning
+	 * once this copy takes place, any change to the AgeSetKitFacet of one
+	 * Player Character will only impact the Player Character where the
+	 * AgeSetKitFacet was changed).
+	 * 
+	 * @param source
+	 *            The CharID representing the Player Character from which the
+	 *            information should be copied
+	 * @param copy
+	 *            The CharID representing the Player Character to which the
+	 *            information should be copied
+	 */
+	@Override
+	public void copyContents(CharID source, CharID copy)
+	{
+<span class="nc" id="L224">		CacheInfo ci = getClassInfo(source);</span>
+<span class="nc bnc" id="L225" title="All 2 branches missed.">		if (ci != null)</span>
+		{
+<span class="nc" id="L227">			CacheInfo copyci = getConstructingClassInfo(copy);</span>
+<span class="nc" id="L228">			copyci.kitMap.addAllLists(ci.kitMap);</span>
+		}
+<span class="nc" id="L230">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

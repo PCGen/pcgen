@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CoreUtils.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.gui2.facade</a> &gt; <span class="el_source">CoreUtils.java</span></div><h1>CoreUtils.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) Thomas Parker, 2013.
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package pcgen.gui2.facade;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import pcgen.base.lang.StringUtil;
+import pcgen.base.util.HashMapToList;
+import pcgen.base.util.MapToList;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.Identified;
+import pcgen.cdom.base.PrereqObject;
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.helper.AllowUtilities;
+import pcgen.cdom.meta.CorePerspective;
+import pcgen.cdom.meta.CorePerspectiveDB;
+import pcgen.cdom.meta.CoreViewNodeBase;
+import pcgen.cdom.meta.FacetView;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.QualifiedObject;
+import pcgen.core.prereq.PrerequisiteUtilities;
+import pcgen.facade.core.CoreViewNodeFacade;
+import pcgen.util.Logging;
+
+final class CoreUtils
+{
+	private CoreUtils()
+	{
+	}
+
+	static &lt;T&gt; List&lt;CoreViewNodeFacade&gt; buildCoreDebugList(PlayerCharacter pc, CorePerspective pers)
+	{
+<span class="nc" id="L53">		CharID id = pc.getCharID();</span>
+<span class="nc" id="L54">		List&lt;CoreViewNodeFacade&gt; coreViewList = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L55">		Collection&lt;Object&gt; locations = CorePerspectiveDB.getLocations(pers);</span>
+<span class="nc" id="L56">		MapToList&lt;Object, FacetView&lt;T&gt;&gt; sources = new HashMapToList&lt;&gt;();</span>
+<span class="nc" id="L57">		Map&lt;FacetView&lt;T&gt;, CoreViewNodeBase&gt; facetToNode = new HashMap&lt;&gt;();</span>
+
+		/*
+		 * Create the nodes that are part of this perspective.
+		 */
+<span class="nc bnc" id="L62" title="All 2 branches missed.">		for (Object location : locations)</span>
+		{
+			//Create (w/ identifier)
+<span class="nc" id="L65">			FacetView&lt;T&gt; view = CorePerspectiveDB.getView(pers, location);</span>
+<span class="nc" id="L66">			CoreViewNodeBase node = new LocationCoreViewNode&lt;&gt;(location);</span>
+<span class="nc" id="L67">			facetToNode.put(view, node);</span>
+<span class="nc" id="L68">			coreViewList.add(node);</span>
+			//Store what facets listen to my content (for use later)
+<span class="nc bnc" id="L70" title="All 2 branches missed.">			for (Object listener : view.getChildren())</span>
+			{
+<span class="nc" id="L72">				Object lView = CorePerspectiveDB.getViewOfFacet(listener);</span>
+<span class="nc bnc" id="L73" title="All 2 branches missed.">				Object src = (lView == null) ? listener : lView;</span>
+<span class="nc" id="L74">				sources.addToListFor(src, view);</span>
+			}
+<span class="nc" id="L76">			Collection&lt;Object&gt; parents = CorePerspectiveDB.getVirtualParents(view);</span>
+<span class="nc bnc" id="L77" title="All 2 branches missed.">			if (parents != null)</span>
+			{
+<span class="nc bnc" id="L79" title="All 2 branches missed.">				for (Object parent : parents)</span>
+				{
+<span class="nc" id="L81">					FacetView&lt;T&gt; parentView = CorePerspectiveDB.getViewOfFacet(parent);</span>
+<span class="nc bnc" id="L82" title="All 2 branches missed.">					if (parentView == null)</span>
+					{
+<span class="nc" id="L84">						Logging.errorPrint(&quot;Expected &quot; + parent + &quot; to be a registered Facet in Perspective &quot; + pers);</span>
+					}
+<span class="nc" id="L86">					sources.addToListFor(view, parentView);</span>
+<span class="nc" id="L87">				}</span>
+			}
+<span class="nc" id="L89">		}</span>
+<span class="nc bnc" id="L90" title="All 2 branches missed.">		for (Object location : locations)</span>
+		{
+<span class="nc" id="L92">			FacetView&lt;T&gt; view = CorePerspectiveDB.getView(pers, location);</span>
+<span class="nc" id="L93">			CoreViewNodeBase node = facetToNode.get(view);</span>
+			/*
+			 * Check the source of each child to identify if:
+			 * 
+			 * (a) The source is a Loadable that can thus be identified as such
+			 * 
+			 * (b) The source is a known facet (and thus is identified as such)
+			 * 
+			 * (c) the source is not something recognized
+			 */
+<span class="nc bnc" id="L103" title="All 2 branches missed.">			for (T obj : view.getSet(id))</span>
+			{
+<span class="nc" id="L105">				List&lt;String&gt; sourceDesc = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L106" title="All 2 branches missed.">				for (Object src : view.getSources(id, obj))</span>
+				{
+<span class="nc bnc" id="L108" title="All 2 branches missed.">					if (src instanceof Identified)</span>
+					{
+<span class="nc" id="L110">						sourceDesc.add(getLoadID(src));</span>
+					}
+					else
+					{
+<span class="nc" id="L114">						FacetView&lt;Object&gt; srcView = CorePerspectiveDB.getViewOfFacet(src);</span>
+<span class="nc bnc" id="L115" title="All 2 branches missed.">						if (srcView == null)</span>
+						{
+							//Not a recognized view
+<span class="nc" id="L118">							sourceDesc.add(&quot;Orphaned [&quot; + src.getClass().getSimpleName() + &quot;]&quot;);</span>
+						}
+<span class="nc bnc" id="L120" title="All 2 branches missed.">						else if (facetToNode.get(srcView) == null)</span>
+						{
+							//A View, but not part of this perspective
+<span class="nc" id="L123">							sourceDesc.add(&quot;Other Perspective [&quot; + CorePerspectiveDB.getPerspectiveOfFacet(src) + &quot;: &quot;</span>
+<span class="nc" id="L124">								+ srcView.getDescription() + &quot;]&quot;);</span>
+						}
+					}
+<span class="nc" id="L127">				}</span>
+				//Insert the contents of the facet as children of this node
+<span class="nc" id="L129">				ObjectCoreViewNode&lt;T&gt; sourceNode = new ObjectCoreViewNode&lt;&gt;(pc, obj, sourceDesc);</span>
+<span class="nc" id="L130">				sourceNode.addGrantedByNode(node);</span>
+<span class="nc" id="L131">				coreViewList.add(sourceNode);</span>
+<span class="nc" id="L132">			}</span>
+<span class="nc" id="L133">		}</span>
+		/*
+		 * For each location, put sources as children in the tree
+		 */
+<span class="nc bnc" id="L137" title="All 2 branches missed.">		for (Object location : locations)</span>
+		{
+<span class="nc" id="L139">			FacetView&lt;T&gt; view = CorePerspectiveDB.getView(pers, location);</span>
+<span class="nc" id="L140">			CoreViewNodeBase node = facetToNode.get(view);</span>
+<span class="nc" id="L141">			List&lt;FacetView&lt;T&gt;&gt; facetInputs = sources.getListFor(view);</span>
+<span class="nc bnc" id="L142" title="All 2 branches missed.">			if (facetInputs != null)</span>
+			{
+<span class="nc bnc" id="L144" title="All 2 branches missed.">				for (FacetView&lt;T&gt; facet : facetInputs)</span>
+				{
+<span class="nc" id="L146">					facetToNode.get(facet).addGrantedByNode(node);</span>
+<span class="nc" id="L147">				}</span>
+			}
+<span class="nc" id="L149">		}</span>
+<span class="nc" id="L150">		return coreViewList;</span>
+	}
+
+	private static &lt;T&gt; String getLoadID(T obj)
+	{
+<span class="nc bnc" id="L155" title="All 2 branches missed.">		if (obj instanceof Identified l)</span>
+		{
+<span class="nc" id="L157">			String name = l.getDisplayName();</span>
+<span class="nc" id="L158">			String id = obj.getClass().getSimpleName() + &quot;: &quot; + name;</span>
+<span class="nc bnc" id="L159" title="All 2 branches missed.">			if (!l.getKeyName().equals(name))</span>
+			{
+<span class="nc" id="L161">				id = id + &quot; [&quot; + l.getKeyName() + &quot;]&quot;;</span>
+			}
+<span class="nc" id="L163">			return id;</span>
+		}
+<span class="nc bnc" id="L165" title="All 2 branches missed.">		else if (obj instanceof QualifiedObject&lt;?&gt; qo)</span>
+		{
+<span class="nc" id="L167">			return getLoadID(qo.getRawObject());</span>
+		}
+<span class="nc bnc" id="L169" title="All 2 branches missed.">		else if (obj instanceof CDOMReference&lt;?&gt; ref)</span>
+		{
+<span class="nc" id="L171">			return ref.getReferenceClass().getSimpleName() + &quot; Primitive: &quot; + ref.getLSTformat(false);</span>
+		}
+		else
+		{
+<span class="nc" id="L175">			return obj.getClass().getSimpleName() + &quot;: &quot; + obj.toString();</span>
+		}
+	}
+
+	private static String getRequirementsInfo(PlayerCharacter pc, Object object)
+	{
+<span class="nc bnc" id="L181" title="All 2 branches missed.">		if (object instanceof PrereqObject)</span>
+		{
+<span class="nc" id="L183">			CDOMObject source = null;</span>
+<span class="nc bnc" id="L184" title="All 2 branches missed.">			if (object instanceof CDOMObject)</span>
+			{
+<span class="nc" id="L186">				source = ((CDOMObject) object);</span>
+			}
+<span class="nc" id="L188">            return &quot;&lt;html&gt;&quot;</span>
+<span class="nc" id="L189">                    + PrerequisiteUtilities.preReqHTMLStringsForList(pc, source, source.getPrerequisiteList(), false)</span>
+<span class="nc" id="L190">                    + AllowUtilities.getAllowInfo(pc, source)</span>
+                    + &quot;&lt;/html&gt;&quot;;
+		}
+<span class="nc" id="L193">		return &quot;&quot;;</span>
+	}
+
+	private static class LocationCoreViewNode&lt;T&gt; extends CoreViewNodeBase
+	{
+
+		private final Object object;
+
+		/**
+		 * Create a new instance of CoreUtils.LocationCoreViewNode
+		 */
+		LocationCoreViewNode(Object object)
+<span class="nc" id="L205">		{</span>
+<span class="nc" id="L206">			this.object = object;</span>
+<span class="nc" id="L207">		}</span>
+
+		@Override
+		public String getNodeType()
+		{
+<span class="nc" id="L212">			return &quot;Location&quot;;</span>
+		}
+
+		@Override
+		public String getKey()
+		{
+<span class="nc" id="L218">			return object.toString();</span>
+		}
+
+		@Override
+		public String getSource()
+		{
+<span class="nc" id="L224">			return &quot;&quot;;</span>
+		}
+
+		@Override
+		public String getRequirements()
+		{
+<span class="nc" id="L230">			return &quot;&quot;;</span>
+		}
+
+		@Override
+		public String toString()
+		{
+<span class="nc" id="L236">			return getLoadID(object);</span>
+		}
+
+	}
+
+	private static final class ObjectCoreViewNode&lt;T&gt; extends CoreViewNodeBase
+	{
+
+		private final T object;
+		private final List&lt;String&gt; sourceDesc;
+		private final PlayerCharacter pc;
+
+		/**
+		 * Create a new instance of CoreUtils.LocationCoreViewNode
+		 */
+		private ObjectCoreViewNode(PlayerCharacter pc, T object, List&lt;String&gt; sourceDesc)
+<span class="nc" id="L252">		{</span>
+<span class="nc" id="L253">			this.pc = pc;</span>
+<span class="nc" id="L254">			this.object = object;</span>
+<span class="nc" id="L255">			this.sourceDesc = sourceDesc;</span>
+<span class="nc" id="L256">		}</span>
+
+		@Override
+		public String getNodeType()
+		{
+<span class="nc" id="L261">			return &quot;Source&quot;;</span>
+		}
+
+		@Override
+		public String getKey()
+		{
+<span class="nc bnc" id="L267" title="All 2 branches missed.">			if (object instanceof CDOMObject)</span>
+			{
+<span class="nc" id="L269">				return ((CDOMObject) object).getKeyName();</span>
+			}
+<span class="nc" id="L271">			return object.toString();</span>
+		}
+
+		@Override
+		public String getSource()
+		{
+<span class="nc" id="L277">			return StringUtil.join(sourceDesc, &quot;, &quot;);</span>
+		}
+
+		@Override
+		public String getRequirements()
+		{
+<span class="nc" id="L283">			return CoreUtils.getRequirementsInfo(pc, object);</span>
+		}
+
+		@Override
+		public String toString()
+		{
+<span class="nc" id="L289">			return getLoadID(object);</span>
+		}
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

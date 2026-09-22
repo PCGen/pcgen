@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TableFormatManager.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.format.table</a> &gt; <span class="el_source">TableFormatManager.java</span></div><h1>TableFormatManager.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2016 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.cdom.format.table;
+
+import java.util.Objects;
+import java.util.Optional;
+
+import pcgen.base.util.FormatManager;
+import pcgen.base.util.Indirect;
+import pcgen.base.util.ValueStore;
+
+/**
+ * A TableFormatManager is a FormatManager that defines the format of a
+ * DataTable.
+ */
+public final class TableFormatManager implements FormatManager&lt;DataTable&gt;
+{
+
+	/**
+	 * The FormatManager used to construct or look up DataTable objects.
+	 */
+	private final FormatManager&lt;DataTable&gt; tableFormat;
+
+	/**
+	 * The Format of any DataTable referred to by this TableFormatManager.
+	 */
+	private final FormatManager&lt;?&gt; lookupFormat;
+
+	/**
+	 * Constructs a new TableFormatManager that will use the underlying FormatManager to
+	 * construct and look up DataTable objects. The DataTable should have the lookup
+	 * format matching the format of the given FormatManager.
+	 * 
+	 * @param tableFormat
+	 *            The FormatManager used to construct or look up DataTable objects
+	 * @param lookupFormat
+	 *            The FormatManager for the format of the Lookup column of the DataTable
+	 *            format represented by this TableFormatManager
+	 */
+	public TableFormatManager(FormatManager&lt;DataTable&gt; tableFormat, FormatManager&lt;?&gt; lookupFormat)
+<span class="fc" id="L56">	{</span>
+<span class="fc" id="L57">		this.tableFormat = Objects.requireNonNull(tableFormat);</span>
+<span class="fc" id="L58">		this.lookupFormat = Objects.requireNonNull(lookupFormat);</span>
+<span class="fc" id="L59">	}</span>
+
+	@Override
+	public DataTable convert(String inputStr)
+	{
+		//TODO Does this need validation that the lookup/result columns are appropriate?
+<span class="fc" id="L65">		return tableFormat.convert(inputStr);</span>
+	}
+
+	@Override
+	public Indirect&lt;DataTable&gt; convertIndirect(String inputStr)
+	{
+		/*
+		 * TODO Need validation that the lookup column is appropriate?
+		 * Yes, probably during the initialization of these references, it will
+		 * need to be checked... but how? Does this need to be like Categorized
+		 * references? ugh
+		 */
+<span class="nc" id="L77">		return tableFormat.convertIndirect(inputStr);</span>
+	}
+
+	@Override
+	public String unconvert(DataTable table)
+	{
+<span class="nc" id="L83">		return table.getName();</span>
+	}
+
+	@Override
+	public Class&lt;DataTable&gt; getManagedClass()
+	{
+<span class="fc" id="L89">		return DataTable.class;</span>
+	}
+
+	@Override
+	public String getIdentifierType()
+	{
+<span class="nc" id="L95">        return &quot;TABLE[&quot;</span>
+<span class="nc" id="L96">                + lookupFormat.getIdentifierType()</span>
+                + &quot;]&quot;;
+	}
+
+	@Override
+	public Optional&lt;FormatManager&lt;?&gt;&gt; getComponentManager()
+	{
+<span class="nc" id="L103">		return Optional.empty();</span>
+	}
+
+	@Override
+	public int hashCode()
+	{
+<span class="nc" id="L109">		return lookupFormat.hashCode() + 33;</span>
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+<span class="pc bpc" id="L115" title="1 of 2 branches missed.">		if (o instanceof TableFormatManager other)</span>
+		{
+<span class="fc" id="L117">			return lookupFormat.equals(other.lookupFormat);</span>
+		}
+<span class="nc" id="L119">		return false;</span>
+	}
+
+	/**
+	 * Returns the FormatManager for the format of the Lookup column of the
+	 * DataTable format represented by this TableFormatManager.
+	 * 
+	 * @return The FormatManager for the format of the Lookup column of the
+	 *         DataTable format represented by this TableFormatManager
+	 */
+	public FormatManager&lt;?&gt; getLookupFormat()
+	{
+<span class="fc" id="L131">		return lookupFormat;</span>
+	}
+
+	@Override
+	public boolean isDirect()
+	{
+<span class="nc" id="L137">		return false;</span>
+	}
+
+	@Override
+	public DataTable initializeFrom(ValueStore valueStore)
+	{
+<span class="nc" id="L143">		DataTable empty = new DataTable();</span>
+<span class="nc" id="L144">		empty.setName(&quot;&lt;empty table&gt;&quot;);</span>
+<span class="nc" id="L145">		return empty;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

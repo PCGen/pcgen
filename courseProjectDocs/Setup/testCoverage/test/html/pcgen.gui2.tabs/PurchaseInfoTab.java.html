@@ -1,0 +1,1669 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PurchaseInfoTab.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.gui2.tabs</a> &gt; <span class="el_source">PurchaseInfoTab.java</span></div><h1>PurchaseInfoTab.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2011 Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ * 
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ * 
+ */
+package pcgen.gui2.tabs;
+
+import static pcgen.gui2.tabs.equip.EquipmentSelection.EQUIPMENT_ARRAY_FLAVOR;
+
+import java.awt.BorderLayout;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.awt.datatransfer.Transferable;
+import java.awt.datatransfer.UnsupportedFlavorException;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.io.IOException;
+import java.math.BigDecimal;
+import java.text.NumberFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
+
+import javax.swing.AbstractAction;
+import javax.swing.Box;
+import javax.swing.DropMode;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
+import javax.swing.JComponent;
+import javax.swing.JFormattedTextField;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTree;
+import javax.swing.SwingConstants;
+import javax.swing.TransferHandler;
+import javax.swing.border.EmptyBorder;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.tree.DefaultMutableTreeNode;
+
+import pcgen.cdom.base.Constants;
+import pcgen.core.Equipment;
+import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.core.EquipmentFacade;
+import pcgen.facade.core.EquipmentListFacade;
+import pcgen.facade.core.EquipmentListFacade.EquipmentListEvent;
+import pcgen.facade.core.EquipmentListFacade.EquipmentListListener;
+import pcgen.facade.core.GearBuySellFacade;
+import pcgen.facade.util.DefaultListFacade;
+import pcgen.facade.util.ListFacade;
+import pcgen.gui2.UIPropertyContext;
+import pcgen.gui2.filter.FilterBar;
+import pcgen.gui2.filter.FilterButton;
+import pcgen.gui2.filter.FilteredTreeViewTable;
+import pcgen.gui2.filter.SearchFilterPanel;
+import pcgen.gui2.tabs.equip.EquipmentSelection;
+import pcgen.gui2.tabs.models.BigDecimalFieldHandler;
+import pcgen.gui2.tabs.models.CharacterComboBoxModel;
+import pcgen.gui2.tabs.models.CharacterTreeCellRenderer;
+import pcgen.gui2.tabs.models.CharacterTreeCellRenderer.Handler;
+import pcgen.gui2.tools.FlippingSplitPane;
+import pcgen.gui2.tools.Icons;
+import pcgen.gui2.tools.InfoPane;
+import pcgen.gui2.util.SignIcon;
+import pcgen.gui2.util.SignIcon.Sign;
+import pcgen.gui2.util.event.PopupMouseAdapter;
+import pcgen.gui2.util.treeview.CachedDataView;
+import pcgen.gui2.util.treeview.DataView;
+import pcgen.gui2.util.treeview.DataViewColumn;
+import pcgen.gui2.util.treeview.DefaultDataViewColumn;
+import pcgen.gui2.util.treeview.TreeView;
+import pcgen.gui2.util.treeview.TreeViewModel;
+import pcgen.gui2.util.treeview.TreeViewPath;
+import pcgen.gui3.utilty.ColorUtilty;
+import pcgen.system.CharacterManager;
+import pcgen.system.LanguageBundle;
+import pcgen.util.enumeration.Tab;
+
+/**
+ * A character tab providing the user with the ability to buy and sell
+ * equipment.
+ */
+@SuppressWarnings(&quot;serial&quot;)
+public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoTab
+{
+
+<span class="nc" id="L115">	private static final Set&lt;String&gt; PRIMARY_TYPES = new HashSet&lt;&gt;();</span>
+	private final FilteredTreeViewTable&lt;CharacterFacade, EquipmentFacade&gt; availableTable;
+	private final FilteredTreeViewTable&lt;CharacterFacade, EquipmentFacade&gt; purchasedTable;
+	private final EquipmentRenderer equipmentRenderer;
+	private final JCheckBox autoResizeBox;
+	private final JButton addCustomButton;
+	private final JButton addEquipmentButton;
+	private final JButton sellEquipmentButton;
+	private final JButton removeEquipmentButton;
+	private final InfoPane infoPane;
+	private final JFormattedTextField wealthLabel;
+	private final JFormattedTextField goldField;
+	private final JFormattedTextField goldModField;
+	private final JComboBox buySellRateBox;
+	private final JButton fundsAddButton;
+	private final JButton fundsSubtractButton;
+	private final JCheckBox allowDebt;
+	private final List&lt;JLabel&gt; currencyLabels;
+
+	/**
+	 * Create a new instance of PurchaseInfoTab
+	 */
+	public PurchaseInfoTab()
+<span class="nc" id="L138">	{</span>
+<span class="nc" id="L139">		this.availableTable = new FilteredTreeViewTable&lt;&gt;();</span>
+<span class="nc" id="L140">		this.purchasedTable = new FilteredTreeViewTable&lt;&gt;();</span>
+<span class="nc" id="L141">		this.equipmentRenderer = new EquipmentRenderer();</span>
+<span class="nc" id="L142">		this.autoResizeBox = new JCheckBox();</span>
+<span class="nc" id="L143">		this.addCustomButton = new JButton();</span>
+<span class="nc" id="L144">		this.addEquipmentButton = new JButton();</span>
+<span class="nc" id="L145">		this.sellEquipmentButton = new JButton();</span>
+<span class="nc" id="L146">		this.removeEquipmentButton = new JButton();</span>
+<span class="nc" id="L147">		this.infoPane = new InfoPane();</span>
+<span class="nc" id="L148">		this.wealthLabel = new JFormattedTextField(NumberFormat.getNumberInstance());</span>
+<span class="nc" id="L149">		this.goldField = new JFormattedTextField(NumberFormat.getNumberInstance());</span>
+<span class="nc" id="L150">		this.goldModField = new JFormattedTextField(NumberFormat.getNumberInstance());</span>
+<span class="nc" id="L151">		this.buySellRateBox = new JComboBox&lt;&gt;();</span>
+<span class="nc" id="L152">		this.fundsAddButton = new JButton();</span>
+<span class="nc" id="L153">		this.fundsSubtractButton = new JButton();</span>
+<span class="nc" id="L154">		this.allowDebt = new JCheckBox();</span>
+<span class="nc" id="L155">		this.currencyLabels = new ArrayList&lt;&gt;();</span>
+
+<span class="nc" id="L157">		initComponents();</span>
+<span class="nc" id="L158">	}</span>
+
+	private void initComponents()
+	{
+<span class="nc" id="L162">		setOrientation(VERTICAL_SPLIT);</span>
+<span class="nc" id="L163">		FlippingSplitPane splitPane = new FlippingSplitPane(); //$NON-NLS-1$</span>
+<span class="nc" id="L164">		splitPane.setOrientation(HORIZONTAL_SPLIT);</span>
+		{ // Top Left panel
+<span class="nc" id="L166">			FilterBar&lt;CharacterFacade, EquipmentFacade&gt; filterBar = new FilterBar&lt;&gt;();</span>
+			{ // Filters
+<span class="nc" id="L168">				filterBar.addDisplayableFilter(new SearchFilterPanel());</span>
+<span class="nc" id="L169">				FilterButton&lt;CharacterFacade, EquipmentFacade&gt; premadeFilter =</span>
+						new FilterButton&lt;&gt;(&quot;EqQualified&quot;); //$NON-NLS-1$
+<span class="nc" id="L171">				premadeFilter.setText(LanguageBundle.getString(&quot;in_igQualFilter&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L172">				premadeFilter.setFilter(CharacterFacade::isQualifiedFor);</span>
+<span class="nc" id="L173">				FilterButton&lt;CharacterFacade, EquipmentFacade&gt; customFilter =</span>
+						new FilterButton&lt;&gt;(&quot;EqAffordable&quot;); //$NON-NLS-1$
+<span class="nc" id="L175">				customFilter.setText(LanguageBundle.getString(&quot;in_igAffordFilter&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L176">				customFilter.setFilter((context, element) -&gt;</span>
+<span class="nc bnc" id="L177" title="All 2 branches missed.">						context.getInfoFactory().getCost(element) &lt;= context.getFundsRef().get().floatValue());</span>
+<span class="nc" id="L178">				filterBar.addDisplayableFilter(premadeFilter);</span>
+<span class="nc" id="L179">				filterBar.addDisplayableFilter(customFilter);</span>
+			}
+<span class="nc" id="L181">			JPanel panel = new JPanel(new BorderLayout());</span>
+<span class="nc" id="L182">			panel.add(filterBar, BorderLayout.NORTH);</span>
+
+<span class="nc" id="L184">			availableTable.setTreeCellRenderer(equipmentRenderer);</span>
+<span class="nc" id="L185">			availableTable.setDisplayableFilter(filterBar);</span>
+<span class="nc" id="L186">			panel.add(new JScrollPane(availableTable), BorderLayout.CENTER);</span>
+
+<span class="nc" id="L188">			Box box = Box.createHorizontalBox();</span>
+<span class="nc" id="L189">			box.add(Box.createHorizontalStrut(5));</span>
+<span class="nc" id="L190">			box.add(autoResizeBox);</span>
+<span class="nc" id="L191">			box.add(Box.createHorizontalGlue());</span>
+<span class="nc" id="L192">			addCustomButton.setHorizontalTextPosition(SwingConstants.LEADING);</span>
+<span class="nc" id="L193">			box.add(addCustomButton);</span>
+<span class="nc" id="L194">			box.add(Box.createHorizontalStrut(5));</span>
+<span class="nc" id="L195">			addEquipmentButton.setHorizontalTextPosition(SwingConstants.LEADING);</span>
+<span class="nc" id="L196">			box.add(addEquipmentButton);</span>
+<span class="nc" id="L197">			box.add(Box.createHorizontalStrut(5));</span>
+<span class="nc" id="L198">			box.setBorder(new EmptyBorder(0, 0, 5, 0));</span>
+<span class="nc" id="L199">			panel.add(box, BorderLayout.SOUTH);</span>
+<span class="nc" id="L200">			splitPane.setLeftComponent(panel);</span>
+		}
+		{// Top Right panel
+<span class="nc" id="L203">			FilterBar&lt;CharacterFacade, EquipmentFacade&gt; filterBar = new FilterBar&lt;&gt;();</span>
+<span class="nc" id="L204">			filterBar.addDisplayableFilter(new SearchFilterPanel());</span>
+
+<span class="nc" id="L206">			JPanel panel = new JPanel(new BorderLayout());</span>
+<span class="nc" id="L207">			panel.add(filterBar, BorderLayout.NORTH);</span>
+
+<span class="nc" id="L209">			purchasedTable.setDisplayableFilter(filterBar);</span>
+<span class="nc" id="L210">			purchasedTable.setTreeCellRenderer(equipmentRenderer);</span>
+<span class="nc" id="L211">			panel.add(new JScrollPane(purchasedTable), BorderLayout.CENTER);</span>
+
+<span class="nc" id="L213">			Box box = Box.createHorizontalBox();</span>
+<span class="nc" id="L214">			box.add(Box.createHorizontalStrut(5));</span>
+<span class="nc" id="L215">			sellEquipmentButton.setToolTipText(LanguageBundle.getString(&quot;in_ieSellEq_Tooltip&quot;));</span>
+<span class="nc" id="L216">			box.add(sellEquipmentButton);</span>
+<span class="nc" id="L217">			removeEquipmentButton.setToolTipText(LanguageBundle.getString(&quot;in_ieRemEq_Tooltip&quot;));</span>
+<span class="nc" id="L218">			box.add(removeEquipmentButton);</span>
+<span class="nc" id="L219">			box.add(Box.createHorizontalGlue());</span>
+<span class="nc" id="L220">			box.setBorder(new EmptyBorder(0, 0, 5, 0));</span>
+<span class="nc" id="L221">			panel.add(box, BorderLayout.SOUTH);</span>
+<span class="nc" id="L222">			splitPane.setRightComponent(panel);</span>
+		}
+<span class="nc" id="L224">		setTopComponent(splitPane);</span>
+<span class="nc" id="L225">		splitPane = new FlippingSplitPane(); //$NON-NLS-1$</span>
+<span class="nc" id="L226">		splitPane.setOrientation(HORIZONTAL_SPLIT);</span>
+		{// Bottom Left Panel
+<span class="nc" id="L228">			JPanel panel = new JPanel();</span>
+<span class="nc" id="L229">			initMoneyPanel(panel);</span>
+<span class="nc" id="L230">			splitPane.setLeftComponent(panel);</span>
+		}
+		// Bottom Right Panel
+<span class="nc" id="L233">		infoPane.setTitle(LanguageBundle.getString(&quot;in_igEqInfo&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L234">		splitPane.setRightComponent(infoPane);</span>
+<span class="nc" id="L235">		splitPane.setResizeWeight(0.25);</span>
+<span class="nc" id="L236">		setResizeWeight(1);</span>
+<span class="nc" id="L237">		setBottomComponent(splitPane);</span>
+<span class="nc" id="L238">	}</span>
+
+	/**
+	 * Create the money panel laying out all components.
+	 *
+	 * @param panel The panel to be populated.
+	 */
+	private void initMoneyPanel(JPanel panel)
+	{
+<span class="nc" id="L247">		panel.setLayout(new GridBagLayout());</span>
+
+<span class="nc" id="L249">		GridBagConstraints leftGbc = new GridBagConstraints();</span>
+<span class="nc" id="L250">		Insets panelInsets = panel.getInsets();</span>
+<span class="nc" id="L251">		leftGbc.insets = new Insets(2, panelInsets.left, 2, 10);</span>
+<span class="nc" id="L252">		leftGbc.gridwidth = 2;</span>
+<span class="nc" id="L253">		leftGbc.fill = GridBagConstraints.HORIZONTAL;</span>
+<span class="nc" id="L254">		leftGbc.anchor = GridBagConstraints.LINE_START;</span>
+
+<span class="nc" id="L256">		GridBagConstraints middleGbc = new GridBagConstraints();</span>
+<span class="nc" id="L257">		middleGbc.insets = new Insets(2, 5, 2, 5);</span>
+<span class="nc" id="L258">		middleGbc.gridwidth = 1;</span>
+<span class="nc" id="L259">		middleGbc.fill = GridBagConstraints.HORIZONTAL;</span>
+<span class="nc" id="L260">		middleGbc.anchor = GridBagConstraints.LINE_END;</span>
+
+<span class="nc" id="L262">		GridBagConstraints rightGbc = new GridBagConstraints();</span>
+<span class="nc" id="L263">		rightGbc.insets = new Insets(2, 10, 2, panelInsets.right);</span>
+<span class="nc" id="L264">		rightGbc.gridwidth = GridBagConstraints.REMAINDER;</span>
+<span class="nc" id="L265">		rightGbc.fill = GridBagConstraints.HORIZONTAL;</span>
+
+<span class="nc" id="L267">		GridBagConstraints fullLineGbc = new GridBagConstraints();</span>
+<span class="nc" id="L268">		fullLineGbc.insets = new Insets(2, panelInsets.left, 2, panelInsets.right);</span>
+<span class="nc" id="L269">		fullLineGbc.gridwidth = GridBagConstraints.REMAINDER;</span>
+<span class="nc" id="L270">		fullLineGbc.fill = GridBagConstraints.HORIZONTAL;</span>
+
+<span class="nc" id="L272">		JLabel label = new JLabel(LanguageBundle.getString(&quot;in_igValueLabel&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L273">		panel.add(label, leftGbc);</span>
+<span class="nc" id="L274">		wealthLabel.setEditable(false);</span>
+<span class="nc" id="L275">		wealthLabel.setColumns(10);</span>
+<span class="nc" id="L276">		wealthLabel.setHorizontalAlignment(SwingConstants.RIGHT);</span>
+<span class="nc" id="L277">		panel.add(wealthLabel, middleGbc);</span>
+<span class="nc" id="L278">		panel.add(createCurrencyLabel(), rightGbc);</span>
+
+<span class="nc" id="L280">		label = new JLabel(LanguageBundle.getString(&quot;in_igFundsLabel&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L281">		panel.add(label, leftGbc);</span>
+<span class="nc" id="L282">		goldField.setHorizontalAlignment(SwingConstants.RIGHT);</span>
+<span class="nc" id="L283">		goldField.setColumns(10);</span>
+<span class="nc" id="L284">		goldField.setMinimumSize(new Dimension(50, goldField.getPreferredSize().height));</span>
+<span class="nc" id="L285">		panel.add(goldField, middleGbc);</span>
+<span class="nc" id="L286">		panel.add(createCurrencyLabel(), rightGbc);</span>
+
+<span class="nc" id="L288">		label = new JLabel(LanguageBundle.getString(&quot;in_igAddSubFundsLabel&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L289">		panel.add(label, fullLineGbc);</span>
+
+<span class="nc" id="L291">		JPanel expmodPanel = new JPanel();</span>
+		{
+<span class="nc" id="L293">			GridBagConstraints gbc2 = new GridBagConstraints();</span>
+<span class="nc" id="L294">			gbc2.fill = GridBagConstraints.HORIZONTAL;</span>
+<span class="nc" id="L295">			gbc2.weightx = 1.0;</span>
+<span class="nc" id="L296">			gbc2.insets = new Insets(0, 1, 0, 1);</span>
+<span class="nc" id="L297">			expmodPanel.add(fundsAddButton, gbc2);</span>
+<span class="nc" id="L298">			expmodPanel.add(fundsSubtractButton, gbc2);</span>
+		}
+<span class="nc" id="L300">		panel.add(expmodPanel, leftGbc);</span>
+<span class="nc" id="L301">		goldModField.setHorizontalAlignment(SwingConstants.RIGHT);</span>
+<span class="nc" id="L302">		panel.add(goldModField, middleGbc);</span>
+<span class="nc" id="L303">		panel.add(createCurrencyLabel(), rightGbc);</span>
+
+<span class="nc" id="L305">		label = new JLabel(LanguageBundle.getString(&quot;in_igBuySellRateLabel&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L306">		fullLineGbc.insets = new Insets(10, 2, 2, 2);</span>
+<span class="nc" id="L307">		panel.add(label, fullLineGbc);</span>
+<span class="nc" id="L308">		buySellRateBox.setPrototypeDisplayValue(&quot;QuiteLongPrototypeDisplayValue&quot;); //$NON-NLS-1$</span>
+<span class="nc" id="L309">		fullLineGbc.insets = new Insets(2, 2, 2, 2);</span>
+<span class="nc" id="L310">		panel.add(buySellRateBox, fullLineGbc);</span>
+
+<span class="nc" id="L312">		panel.add(allowDebt, fullLineGbc);</span>
+
+<span class="nc" id="L314">		fullLineGbc.weighty = 1.0f;</span>
+<span class="nc" id="L315">		panel.add(new JLabel(), fullLineGbc);</span>
+<span class="nc" id="L316">	}</span>
+
+	/**
+	 * Create a new label with the currency abbreviation.
+	 *
+	 * @return A new label
+	 */
+	private JLabel createCurrencyLabel()
+	{
+		JLabel label;
+<span class="nc" id="L326">		label = new JLabel(&quot;&quot;); //$NON-NLS-1$</span>
+<span class="nc" id="L327">		currencyLabels.add(label);</span>
+<span class="nc" id="L328">		return label;</span>
+	}
+
+	@Override
+	public ModelMap createModels(final CharacterFacade character)
+	{
+<span class="nc" id="L334">		ModelMap models = new ModelMap();</span>
+<span class="nc" id="L335">		models.put(AvailableTreeViewModel.class, new AvailableTreeViewModel(character));</span>
+<span class="nc" id="L336">		models.put(PurchasedTreeViewModel.class, new PurchasedTreeViewModel(character));</span>
+<span class="nc" id="L337">		models.put(UseAutoResizeAction.class, new UseAutoResizeAction(character));</span>
+<span class="nc" id="L338">		models.put(AddCustomAction.class, new AddCustomAction(character));</span>
+<span class="nc" id="L339">		models.put(AddAction.class, new AddAction(character));</span>
+<span class="nc" id="L340">		models.put(SellAction.class, new SellAction(character));</span>
+<span class="nc" id="L341">		models.put(RemoveAction.class, new RemoveAction(character));</span>
+<span class="nc" id="L342">		models.put(DeleteCustomAction.class, new DeleteCustomAction(character));</span>
+<span class="nc" id="L343">		models.put(FundsAddAction.class, new FundsAddAction(character));</span>
+<span class="nc" id="L344">		models.put(FundsSubtractAction.class, new FundsSubtractAction(character));</span>
+<span class="nc" id="L345">		models.put(AllowDebtAction.class, new AllowDebtAction(character));</span>
+<span class="nc" id="L346">		models.put(EquipInfoHandler.class, new EquipInfoHandler(character));</span>
+<span class="nc" id="L347">		models.put(Handler.class, equipmentRenderer.createHandler(character));</span>
+<span class="nc" id="L348">		models.put(EquipmentFilterHandler.class, new EquipmentFilterHandler(character));</span>
+<span class="nc" id="L349">		models.put(EquipmentTransferHandler.class, new EquipmentTransferHandler(character));</span>
+<span class="nc" id="L350">		models.put(CurrencyLabelHandler.class, new CurrencyLabelHandler(character));</span>
+<span class="nc" id="L351">		models.put(BuyPopupMenuHandler.class, new BuyPopupMenuHandler(character));</span>
+<span class="nc" id="L352">		models.put(SellPopupMenuHandler.class, new SellPopupMenuHandler(character));</span>
+
+<span class="nc" id="L354">		models.put(CurrencyFieldHandler.class, new CurrencyFieldHandler(character));</span>
+
+<span class="nc" id="L356">		CharacterComboBoxModel&lt;GearBuySellFacade&gt; buySellModel = new CharacterComboBoxModel&lt;&gt;(</span>
+<span class="nc" id="L357">				character.getDataSet().getGearBuySellSchemes(), character.getGearBuySellRef())</span>
+<span class="nc" id="L358">		{</span>
+
+			@Override
+			public void setSelectedItem(Object anItem)
+			{
+<span class="nc" id="L363">				character.setGearBuySellRef((GearBuySellFacade) anItem);</span>
+<span class="nc" id="L364">			}</span>
+
+		};
+<span class="nc" id="L367">		models.put(CharacterComboBoxModel.class, buySellModel);</span>
+
+<span class="nc" id="L369">		return models;</span>
+	}
+
+	@Override
+	public void restoreModels(ModelMap models)
+	{
+<span class="nc" id="L375">		models.get(EquipmentFilterHandler.class).install();</span>
+<span class="nc" id="L376">		models.get(Handler.class).install();</span>
+<span class="nc" id="L377">		models.get(AvailableTreeViewModel.class).install();</span>
+<span class="nc" id="L378">		purchasedTable.setTreeViewModel(models.get(PurchasedTreeViewModel.class));</span>
+<span class="nc" id="L379">		autoResizeBox.setAction(models.get(UseAutoResizeAction.class));</span>
+<span class="nc" id="L380">		addCustomButton.setAction(models.get(AddCustomAction.class));</span>
+<span class="nc" id="L381">		addEquipmentButton.setAction(models.get(AddAction.class));</span>
+<span class="nc" id="L382">		sellEquipmentButton.setAction(models.get(SellAction.class));</span>
+<span class="nc" id="L383">		removeEquipmentButton.setAction(models.get(RemoveAction.class));</span>
+<span class="nc" id="L384">		fundsAddButton.setAction(models.get(FundsAddAction.class));</span>
+<span class="nc" id="L385">		fundsSubtractButton.setAction(models.get(FundsSubtractAction.class));</span>
+<span class="nc" id="L386">		buySellRateBox.setModel(models.get(CharacterComboBoxModel.class));</span>
+<span class="nc" id="L387">		allowDebt.setAction(models.get(AllowDebtAction.class));</span>
+
+<span class="nc" id="L389">		models.get(EquipInfoHandler.class).install();</span>
+<span class="nc" id="L390">		models.get(EquipmentTransferHandler.class).install();</span>
+<span class="nc" id="L391">		models.get(UseAutoResizeAction.class).install();</span>
+<span class="nc" id="L392">		models.get(AddAction.class).install();</span>
+<span class="nc" id="L393">		models.get(SellAction.class).install();</span>
+<span class="nc" id="L394">		models.get(RemoveAction.class).install();</span>
+<span class="nc" id="L395">		models.get(CurrencyFieldHandler.class).install();</span>
+<span class="nc" id="L396">		models.get(CurrencyLabelHandler.class).install();</span>
+<span class="nc" id="L397">		models.get(BuyPopupMenuHandler.class).install();</span>
+<span class="nc" id="L398">		models.get(SellPopupMenuHandler.class).install();</span>
+<span class="nc" id="L399">		models.get(AllowDebtAction.class).install();</span>
+<span class="nc" id="L400">	}</span>
+
+	@Override
+	public void storeModels(ModelMap models)
+	{
+<span class="nc" id="L405">		models.get(EquipInfoHandler.class).uninstall();</span>
+<span class="nc" id="L406">		models.get(AddAction.class).uninstall();</span>
+<span class="nc" id="L407">		models.get(SellAction.class).uninstall();</span>
+<span class="nc" id="L408">		models.get(RemoveAction.class).uninstall();</span>
+<span class="nc" id="L409">		models.get(CurrencyFieldHandler.class).uninstall();</span>
+<span class="nc" id="L410">		models.get(BuyPopupMenuHandler.class).uninstall();</span>
+<span class="nc" id="L411">		models.get(SellPopupMenuHandler.class).uninstall();</span>
+<span class="nc" id="L412">		models.get(Handler.class).uninstall();</span>
+<span class="nc" id="L413">	}</span>
+
+	@Override
+	public TabTitle getTabTitle()
+	{
+<span class="nc" id="L418">		return new TabTitle(Tab.PURCHASE);</span>
+	}
+
+	private static List&lt;EquipmentFacade&gt; getMenuTargets(JTable table, MouseEvent e)
+	{
+<span class="nc" id="L423">		int row = table.rowAtPoint(e.getPoint());</span>
+<span class="nc bnc" id="L424" title="All 2 branches missed.">		if (!table.isRowSelected(row))</span>
+		{
+<span class="nc bnc" id="L426" title="All 4 branches missed.">			if ((row &gt;= 0) &amp;&amp; (table.getRowCount() &gt; row))</span>
+			{
+<span class="nc" id="L428">				table.setRowSelectionInterval(row, row);</span>
+			}
+		}
+<span class="nc" id="L431">		return Arrays.stream(table.getSelectedRows())</span>
+<span class="nc" id="L432">		             .mapToObj(selRow -&gt; table.getModel().getValueAt(selRow, 0))</span>
+<span class="nc" id="L433">		             .filter(value -&gt; value instanceof EquipmentFacade)</span>
+<span class="nc" id="L434">		             .map(value -&gt; (EquipmentFacade) value)</span>
+<span class="nc" id="L435">		             .collect(Collectors.toList());</span>
+	}
+
+	private class CurrencyFieldHandler
+	{
+
+		private final BigDecimalFieldHandler fundsHandler;
+		private final BigDecimalFieldHandler wealthHandler;
+
+		CurrencyFieldHandler(final CharacterFacade character)
+<span class="nc" id="L445">		{</span>
+			/**
+			 * Handler for the Current Funds field. This listens for and
+			 * processes both changes to the value from the character and
+			 * modifications to the field made by the user.
+			 */
+<span class="nc" id="L451">			fundsHandler = new BigDecimalFieldHandler(goldField, character.getFundsRef())</span>
+<span class="nc" id="L452">			{</span>
+
+				@Override
+				protected void valueChanged(BigDecimal value)
+				{
+<span class="nc" id="L457">					character.setFunds(value);</span>
+<span class="nc" id="L458">					availableTable.refilter();</span>
+<span class="nc" id="L459">				}</span>
+
+			};
+			/**
+			 * Handler for theTotal Wealth field. This listens for and processes
+			 * changes to the value from the character.
+			 */
+<span class="nc" id="L466">			wealthHandler = new BigDecimalFieldHandler(wealthLabel, character.getWealthRef())</span>
+<span class="nc" id="L467">			{</span>
+
+				@Override
+				protected void valueChanged(BigDecimal value)
+				{
+					// Ignored for this read-only field
+<span class="nc" id="L473">				}</span>
+
+			};
+<span class="nc" id="L476">		}</span>
+
+		void install()
+		{
+<span class="nc" id="L480">			fundsHandler.install();</span>
+<span class="nc" id="L481">			wealthHandler.install();</span>
+<span class="nc" id="L482">		}</span>
+
+		void uninstall()
+		{
+<span class="nc" id="L486">			fundsHandler.uninstall();</span>
+<span class="nc" id="L487">			wealthHandler.uninstall();</span>
+<span class="nc" id="L488">		}</span>
+	}
+
+	private class AddAction extends AbstractAction
+	{
+
+		private final CharacterFacade character;
+
+		AddAction(CharacterFacade character)
+<span class="nc" id="L497">		{</span>
+<span class="nc" id="L498">			super(LanguageBundle.getString(&quot;in_ieAddEq&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L499">			putValue(SMALL_ICON, Icons.Forward16.getImageIcon());</span>
+<span class="nc" id="L500">			this.character = character;</span>
+<span class="nc" id="L501">		}</span>
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+<span class="nc" id="L506">			List&lt;?&gt; data = availableTable.getSelectedData();</span>
+<span class="nc bnc" id="L507" title="All 2 branches missed.">			if (data != null)</span>
+			{
+<span class="nc bnc" id="L509" title="All 2 branches missed.">				for (Object object : data)</span>
+				{
+<span class="nc bnc" id="L511" title="All 2 branches missed.">					if (object instanceof EquipmentFacade equip)</span>
+					{
+<span class="nc bnc" id="L513" title="All 2 branches missed.">						if (character.isAutoResize())</span>
+						{
+<span class="nc" id="L515">							equip = character.getEquipmentSizedForCharacter(equip);</span>
+						}
+<span class="nc" id="L517">						character.addPurchasedEquipment(equip, 1, false, false);</span>
+					}
+<span class="nc" id="L519">				}</span>
+<span class="nc" id="L520">				availableTable.refilter();</span>
+			}
+<span class="nc" id="L522">		}</span>
+
+		void install()
+		{
+<span class="nc" id="L526">			availableTable.addActionListener(this);</span>
+<span class="nc" id="L527">		}</span>
+
+		void uninstall()
+		{
+<span class="nc" id="L531">			availableTable.removeActionListener(this);</span>
+<span class="nc" id="L532">		}</span>
+
+	}
+
+	private class AddCustomAction extends AbstractAction
+	{
+
+		private final CharacterFacade character;
+
+		AddCustomAction(CharacterFacade character)
+<span class="nc" id="L542">		{</span>
+<span class="nc" id="L543">			super(LanguageBundle.getString(&quot;in_igAddCustom&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L544">			putValue(SMALL_ICON, Icons.Forward16.getImageIcon());</span>
+<span class="nc" id="L545">			this.character = character;</span>
+<span class="nc" id="L546">		}</span>
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+<span class="nc" id="L551">			List&lt;?&gt; data = availableTable.getSelectedData();</span>
+<span class="nc bnc" id="L552" title="All 2 branches missed.">			if (data != null)</span>
+			{
+<span class="nc bnc" id="L554" title="All 2 branches missed.">				for (Object object : data)</span>
+				{
+<span class="nc bnc" id="L556" title="All 2 branches missed.">					if (object instanceof EquipmentFacade equip)</span>
+					{
+<span class="nc bnc" id="L558" title="All 2 branches missed.">						if (character.isAutoResize())</span>
+						{
+<span class="nc" id="L560">							equip = character.getEquipmentSizedForCharacter(equip);</span>
+						}
+<span class="nc" id="L562">						character.addPurchasedEquipment(equip, 1, true, false);</span>
+					}
+<span class="nc" id="L564">				}</span>
+			}
+<span class="nc" id="L566">		}</span>
+
+	}
+
+	/**
+	 * The Class {@code DeleteCustomAction} defines an action to delete a
+	 * custom equipment item.
+	 */
+	private class DeleteCustomAction extends AbstractAction
+	{
+
+		private final CharacterFacade character;
+
+		DeleteCustomAction(CharacterFacade character)
+<span class="nc" id="L580">		{</span>
+<span class="nc" id="L581">			super(LanguageBundle.getString(&quot;in_igDeleteCustom&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L582">			this.character = character;</span>
+<span class="nc" id="L583">		}</span>
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+<span class="nc" id="L588">			List&lt;?&gt; data = availableTable.getSelectedData();</span>
+<span class="nc bnc" id="L589" title="All 2 branches missed.">			if (data != null)</span>
+			{
+<span class="nc bnc" id="L591" title="All 2 branches missed.">				for (Object object : data)</span>
+				{
+<span class="nc bnc" id="L593" title="All 2 branches missed.">					if (object instanceof EquipmentFacade equip)</span>
+					{
+<span class="nc" id="L595">						character.deleteCustomEquipment(equip);</span>
+					}
+<span class="nc" id="L597">				}</span>
+			}
+<span class="nc" id="L599">		}</span>
+
+	}
+
+	private class UseAutoResizeAction extends AbstractAction
+	{
+
+		private final CharacterFacade character;
+
+		UseAutoResizeAction(CharacterFacade character)
+<span class="nc" id="L609">		{</span>
+<span class="nc" id="L610">			super(LanguageBundle.getString(&quot;in_igAutoResize&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L611">			this.character = character;</span>
+<span class="nc" id="L612">		}</span>
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+<span class="nc" id="L617">			character.setAutoResize(autoResizeBox.isSelected());</span>
+<span class="nc" id="L618">		}</span>
+
+		void install()
+		{
+<span class="nc" id="L622">			autoResizeBox.setSelected(character.isAutoResize());</span>
+<span class="nc" id="L623">		}</span>
+
+	}
+
+	private final class SellAction extends AbstractAction
+	{
+
+		private final CharacterFacade character;
+
+		private SellAction(CharacterFacade character)
+<span class="nc" id="L633">		{</span>
+<span class="nc" id="L634">			super(LanguageBundle.getString(&quot;in_ieSellEq&quot;));</span>
+<span class="nc" id="L635">			putValue(SMALL_ICON, Icons.Back16.getImageIcon());</span>
+<span class="nc" id="L636">			this.character = character;</span>
+<span class="nc" id="L637">		}</span>
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+<span class="nc" id="L642">			List&lt;?&gt; data = purchasedTable.getSelectedData();</span>
+<span class="nc bnc" id="L643" title="All 2 branches missed.">			if (data != null)</span>
+			{
+<span class="nc bnc" id="L645" title="All 2 branches missed.">				for (Object object : data)</span>
+				{
+<span class="nc" id="L647">					character.removePurchasedEquipment((EquipmentFacade) object, 1, false);</span>
+<span class="nc" id="L648">				}</span>
+<span class="nc" id="L649">				availableTable.refilter();</span>
+			}
+<span class="nc" id="L651">		}</span>
+
+		void install()
+		{
+<span class="nc" id="L655">			purchasedTable.addActionListener(this);</span>
+<span class="nc" id="L656">		}</span>
+
+		void uninstall()
+		{
+<span class="nc" id="L660">			purchasedTable.removeActionListener(this);</span>
+<span class="nc" id="L661">		}</span>
+	}
+
+	private final class RemoveAction extends AbstractAction
+	{
+
+		private final CharacterFacade character;
+
+		private RemoveAction(CharacterFacade character)
+<span class="nc" id="L670">		{</span>
+<span class="nc" id="L671">			super(LanguageBundle.getString(&quot;in_ieRemEq&quot;));</span>
+<span class="nc" id="L672">			putValue(SMALL_ICON, Icons.Back16.getImageIcon());</span>
+<span class="nc" id="L673">			this.character = character;</span>
+<span class="nc" id="L674">		}</span>
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+<span class="nc" id="L679">			List&lt;?&gt; data = purchasedTable.getSelectedData();</span>
+<span class="nc bnc" id="L680" title="All 2 branches missed.">			if (data != null)</span>
+			{
+<span class="nc" id="L682">				data.forEach(object -&gt; character.removePurchasedEquipment((EquipmentFacade) object, 1, true));</span>
+<span class="nc" id="L683">				availableTable.refilter();</span>
+			}
+<span class="nc" id="L685">		}</span>
+
+		void install()
+		{
+<span class="nc" id="L689">			purchasedTable.addActionListener(this);</span>
+<span class="nc" id="L690">		}</span>
+
+		void uninstall()
+		{
+<span class="nc" id="L694">			purchasedTable.removeActionListener(this);</span>
+<span class="nc" id="L695">		}</span>
+	}
+
+	/**
+	 * Handler for actions from the add funds button. Also defines the
+	 * appearance of the button.
+	 */
+	private class FundsAddAction extends AbstractAction
+	{
+
+		private final CharacterFacade character;
+
+		FundsAddAction(CharacterFacade character)
+<span class="nc" id="L708">		{</span>
+<span class="nc" id="L709">			this.character = character;</span>
+<span class="nc" id="L710">			putValue(SMALL_ICON, new SignIcon(Sign.Plus));</span>
+<span class="nc" id="L711">		}</span>
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+<span class="nc" id="L716">			Object value = goldModField.getValue();</span>
+<span class="nc bnc" id="L717" title="All 2 branches missed.">			if (value == null)</span>
+			{
+<span class="nc" id="L719">				return;</span>
+			}
+<span class="nc" id="L721">			BigDecimal modVal = BigDecimal.valueOf(((Number) value).doubleValue());</span>
+<span class="nc" id="L722">			character.adjustFunds(modVal);</span>
+<span class="nc" id="L723">		}</span>
+
+	}
+
+	/**
+	 * Handler for actions from the subtract funds button. Also defines the
+	 * appearance of the button.
+	 */
+	private class FundsSubtractAction extends AbstractAction
+	{
+
+		private final CharacterFacade character;
+
+		FundsSubtractAction(CharacterFacade character)
+<span class="nc" id="L737">		{</span>
+<span class="nc" id="L738">			this.character = character;</span>
+<span class="nc" id="L739">			putValue(SMALL_ICON, new SignIcon(Sign.Minus));</span>
+<span class="nc" id="L740">		}</span>
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+<span class="nc" id="L745">			Object value = goldModField.getValue();</span>
+<span class="nc bnc" id="L746" title="All 2 branches missed.">			if (value == null)</span>
+			{
+<span class="nc" id="L748">				return;</span>
+			}
+<span class="nc" id="L750">			BigDecimal modVal = BigDecimal.valueOf(((Number) value).doubleValue() * -1);</span>
+<span class="nc" id="L751">			character.adjustFunds(modVal);</span>
+<span class="nc" id="L752">		}</span>
+
+	}
+
+	/**
+	 * The Class {@code AllowDebtAction} links the allow debt checkbox to a
+	 * character.
+	 */
+	private class AllowDebtAction extends AbstractAction
+	{
+
+		private final CharacterFacade character;
+
+		AllowDebtAction(CharacterFacade character)
+<span class="nc" id="L766">		{</span>
+<span class="nc" id="L767">			super(LanguageBundle.getString(&quot;in_igAllowDebt&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L768">			this.character = character;</span>
+<span class="nc" id="L769">		}</span>
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+<span class="nc" id="L774">			character.setAllowDebt(allowDebt.isSelected());</span>
+<span class="nc" id="L775">		}</span>
+
+		void install()
+		{
+<span class="nc" id="L779">			allowDebt.setSelected(character.isAllowDebt());</span>
+<span class="nc" id="L780">		}</span>
+
+	}
+
+	private class EquipInfoHandler implements ListSelectionListener
+	{
+
+		private final CharacterFacade character;
+		private String text;
+		private List&lt;EquipmentFacade&gt; oldList;
+
+		EquipInfoHandler(CharacterFacade character)
+<span class="nc" id="L792">		{</span>
+<span class="nc" id="L793">			this.character = character;</span>
+<span class="nc" id="L794">			this.text = &quot;&quot;; //$NON-NLS-1$</span>
+<span class="nc" id="L795">			oldList = null;</span>
+<span class="nc" id="L796">		}</span>
+
+		void install()
+		{
+<span class="nc" id="L800">			availableTable.getSelectionModel().addListSelectionListener(this);</span>
+<span class="nc" id="L801">			purchasedTable.getSelectionModel().addListSelectionListener(this);</span>
+<span class="nc" id="L802">			infoPane.setText(text);</span>
+<span class="nc" id="L803">		}</span>
+
+		void uninstall()
+		{
+<span class="nc" id="L807">			availableTable.getSelectionModel().removeListSelectionListener(this);</span>
+<span class="nc" id="L808">			purchasedTable.getSelectionModel().removeListSelectionListener(this);</span>
+<span class="nc" id="L809">		}</span>
+
+		@Override
+		public void valueChanged(ListSelectionEvent e)
+		{
+<span class="nc" id="L814">			JTable target = availableTable;</span>
+<span class="nc bnc" id="L815" title="All 2 branches missed.">			if (purchasedTable.getSelectionModel().equals(e.getSource()))</span>
+			{
+<span class="nc" id="L817">				target = purchasedTable;</span>
+			}
+<span class="nc bnc" id="L819" title="All 2 branches missed.">			if (!e.getValueIsAdjusting())</span>
+			{
+<span class="nc" id="L821">				int[] selectedRows = target.getSelectedRows();</span>
+<span class="nc" id="L822">				List&lt;EquipmentFacade&gt; newList = new ArrayList&lt;&gt;(selectedRows.length);</span>
+<span class="nc bnc" id="L823" title="All 2 branches missed.">				for (int row : selectedRows)</span>
+				{
+<span class="nc bnc" id="L825" title="All 2 branches missed.">					if (row != -1)</span>
+					{
+<span class="nc" id="L827">						Object value = target.getModel().getValueAt(row, 0);</span>
+<span class="nc bnc" id="L828" title="All 2 branches missed.">						if (value instanceof EquipmentFacade)</span>
+						{
+<span class="nc" id="L830">							newList.add((EquipmentFacade) value);</span>
+						}
+					}
+				}
+<span class="nc bnc" id="L834" title="All 4 branches missed.">				if (newList.isEmpty() || newList.equals(oldList))</span>
+				{
+<span class="nc" id="L836">					return;</span>
+				}
+<span class="nc" id="L838">				oldList = newList;</span>
+<span class="nc" id="L839">				StringBuilder sb = new StringBuilder(2000);</span>
+<span class="nc bnc" id="L840" title="All 2 branches missed.">				for (EquipmentFacade equip : newList)</span>
+				{
+<span class="nc" id="L842">					sb.append(character.getInfoFactory().getHTMLInfo(equip));</span>
+<span class="nc" id="L843">				}</span>
+<span class="nc" id="L844">				text = &quot;&lt;html&gt;&quot; + sb + &quot;&lt;/html&gt;&quot;; //$NON-NLS-1$ //$NON-NLS-2$</span>
+<span class="nc" id="L845">				infoPane.setText(text);</span>
+			}
+<span class="nc" id="L847">		}</span>
+
+	}
+
+	/**
+	 * The Class {@code CurrencyLabelHandler} manages the currently
+	 * displayed currency.
+	 */
+	private class CurrencyLabelHandler
+	{
+
+		private final CharacterFacade character;
+
+		CurrencyLabelHandler(CharacterFacade character)
+<span class="nc" id="L861">		{</span>
+<span class="nc" id="L862">			this.character = character;</span>
+<span class="nc" id="L863">		}</span>
+
+		void install()
+		{
+<span class="nc" id="L867">			String currencyDisplay = character.getDataSet().getGameMode().getCurrencyDisplay();</span>
+<span class="nc bnc" id="L868" title="All 2 branches missed.">			for (JLabel label : currencyLabels)</span>
+			{
+<span class="nc" id="L870">				label.setText(currencyDisplay);</span>
+<span class="nc" id="L871">			}</span>
+<span class="nc" id="L872">		}</span>
+
+	}
+
+	private class AvailableTreeViewModel extends CachedDataView&lt;EquipmentFacade&gt;
+			implements TreeViewModel&lt;EquipmentFacade&gt;
+	{
+
+<span class="nc" id="L880">		private final ListFacade&lt;? extends TreeView&lt;EquipmentFacade&gt;&gt; treeviews =</span>
+<span class="nc" id="L881">				new DefaultListFacade&lt;&gt;(Arrays.asList(EquipmentTreeView.values()));</span>
+<span class="nc" id="L882">		private final List&lt;DefaultDataViewColumn&gt; columns =</span>
+<span class="nc" id="L883">				Arrays.asList(new DefaultDataViewColumn(&quot;in_igEqModelColCost&quot;, Float.class, true), //$NON-NLS-1$</span>
+					new DefaultDataViewColumn(&quot;in_igEqModelColWeight&quot;, Float.class, true), //$NON-NLS-1$
+					new DefaultDataViewColumn(&quot;in_descrip&quot;, String.class, false), //$NON-NLS-1$
+					new DefaultDataViewColumn(&quot;in_igEqModelColSource&quot;, String.class, false)); //$NON-NLS-1$
+		private final CharacterFacade character;
+		private final ListFacade&lt;EquipmentFacade&gt; equipmentList;
+
+		AvailableTreeViewModel(CharacterFacade character)
+<span class="nc" id="L891">		{</span>
+<span class="nc" id="L892">			this.character = character;</span>
+<span class="nc" id="L893">			this.equipmentList = character.getDataSet().getEquipment();</span>
+
+<span class="nc bnc" id="L895" title="All 2 branches missed.">			if (PRIMARY_TYPES.isEmpty())</span>
+			{
+<span class="nc bnc" id="L897" title="All 2 branches missed.">				for (int i = 0; i &lt; equipmentList.getSize(); i++)</span>
+				{
+<span class="nc" id="L899">					EquipmentFacade eq = equipmentList.getElementAt(i);</span>
+<span class="nc" id="L900">					List&lt;String&gt; types = eq.getTypesForDisplay();</span>
+<span class="nc bnc" id="L901" title="All 2 branches missed.">					if (!types.isEmpty())</span>
+					{
+<span class="nc" id="L903">						PRIMARY_TYPES.add(types.get(0));</span>
+					}
+				}
+			}
+<span class="nc" id="L907">		}</span>
+
+		@Override
+		public ListFacade&lt;? extends TreeView&lt;EquipmentFacade&gt;&gt; getTreeViews()
+		{
+<span class="nc" id="L912">			return treeviews;</span>
+		}
+
+		@Override
+		public int getDefaultTreeViewIndex()
+		{
+<span class="nc" id="L918">			return 2;</span>
+		}
+
+		@Override
+		public DataView&lt;EquipmentFacade&gt; getDataView()
+		{
+<span class="nc" id="L924">			return this;</span>
+		}
+
+		@Override
+		public ListFacade&lt;EquipmentFacade&gt; getDataModel()
+		{
+<span class="nc" id="L930">			return equipmentList;</span>
+		}
+
+		@Override
+		public List&lt;? extends DataViewColumn&gt; getDataColumns()
+		{
+<span class="nc" id="L936">			return columns;</span>
+		}
+
+		@Override
+		public String getPrefsKey()
+		{
+<span class="nc" id="L942">			return &quot;PurchaseAvail&quot;; //$NON-NLS-1$</span>
+		}
+
+		@Override
+		public Object getDataInternal(EquipmentFacade obj, int column)
+		{
+<span class="nc bnc" id="L948" title="All 5 branches missed.">			return switch (column)</span>
+					{
+<span class="nc" id="L950">						case 0 -&gt; character.getInfoFactory().getCost(obj);</span>
+<span class="nc" id="L951">						case 1 -&gt; character.getInfoFactory().getWeight(obj);</span>
+<span class="nc" id="L952">						case 2 -&gt; character.getInfoFactory().getDescription(obj);</span>
+<span class="nc" id="L953">						case 3 -&gt; obj.getSource();</span>
+<span class="nc" id="L954">						default -&gt; null;</span>
+					};
+		}
+
+		@Override
+		public void setData(Object value, EquipmentFacade element, int column)
+		{
+<span class="nc" id="L961">		}</span>
+
+		void install()
+		{
+<span class="nc" id="L965">			availableTable.setTreeViewModel(this);</span>
+<span class="nc" id="L966">		}</span>
+	}
+
+	private class PurchasedTreeViewModel
+			implements TreeViewModel&lt;EquipmentFacade&gt;, DataView&lt;EquipmentFacade&gt;, EquipmentListListener
+	{
+
+<span class="nc" id="L973">		private final ListFacade&lt;? extends TreeView&lt;EquipmentFacade&gt;&gt; treeviews =</span>
+<span class="nc" id="L974">				new DefaultListFacade&lt;&gt;(Arrays.asList(EquipmentTreeView.values()));</span>
+<span class="nc" id="L975">		private final List&lt;DefaultDataViewColumn&gt; columns =</span>
+<span class="nc" id="L976">				Arrays.asList(new DefaultDataViewColumn(&quot;in_igEqModelColCost&quot;, Float.class, true), //$NON-NLS-1$</span>
+					new DefaultDataViewColumn(&quot;in_igEqModelColWeight&quot;, Float.class, false), //$NON-NLS-1$
+					new DefaultDataViewColumn(&quot;in_igEqModelColQty&quot;, Integer.class, true), //$NON-NLS-1$
+					new DefaultDataViewColumn(&quot;in_descrip&quot;, String.class, false)); //$NON-NLS-1$
+		private final CharacterFacade character;
+		private final EquipmentListFacade equipmentList;
+
+		PurchasedTreeViewModel(CharacterFacade character)
+<span class="nc" id="L984">		{</span>
+<span class="nc" id="L985">			this.character = character;</span>
+<span class="nc" id="L986">			this.equipmentList = character.getPurchasedEquipment();</span>
+<span class="nc" id="L987">			this.equipmentList.addEquipmentListListener(this);</span>
+<span class="nc" id="L988">		}</span>
+
+		@Override
+		public ListFacade&lt;? extends TreeView&lt;EquipmentFacade&gt;&gt; getTreeViews()
+		{
+<span class="nc" id="L993">			return treeviews;</span>
+		}
+
+		@Override
+		public int getDefaultTreeViewIndex()
+		{
+<span class="nc" id="L999">			return 0;</span>
+		}
+
+		@Override
+		public DataView&lt;EquipmentFacade&gt; getDataView()
+		{
+<span class="nc" id="L1005">			return this;</span>
+		}
+
+		@Override
+		public ListFacade&lt;EquipmentFacade&gt; getDataModel()
+		{
+<span class="nc" id="L1011">			return equipmentList;</span>
+		}
+
+		@Override
+		public Object getData(EquipmentFacade obj, int column)
+		{
+<span class="nc bnc" id="L1017" title="All 5 branches missed.">			return switch (column)</span>
+					{
+<span class="nc" id="L1019">						case 0 -&gt; character.getInfoFactory().getCost(obj);</span>
+<span class="nc" id="L1020">						case 1 -&gt; character.getInfoFactory().getWeight(obj);</span>
+<span class="nc" id="L1021">						case 2 -&gt; equipmentList.getQuantity(obj);</span>
+<span class="nc" id="L1022">						case 3 -&gt; character.getInfoFactory().getDescription(obj);</span>
+<span class="nc" id="L1023">						default -&gt; null;</span>
+					};
+		}
+
+		@Override
+		public void setData(Object value, EquipmentFacade element, int column)
+		{
+<span class="nc" id="L1030">		}</span>
+
+		@Override
+		public List&lt;? extends DataViewColumn&gt; getDataColumns()
+		{
+<span class="nc" id="L1035">			return columns;</span>
+		}
+
+		@Override
+		public void quantityChanged(EquipmentListEvent equipment)
+		{
+<span class="nc" id="L1041">			purchasedTable.refreshModelData();</span>
+<span class="nc" id="L1042">		}</span>
+
+		@Override
+		public String getPrefsKey()
+		{
+<span class="nc" id="L1047">			return &quot;Purchased&quot;; //$NON-NLS-1$</span>
+		}
+
+	}
+
+<span class="nc" id="L1052">	private enum EquipmentTreeView implements TreeView&lt;EquipmentFacade&gt;</span>
+	{
+
+<span class="nc" id="L1055">		NAME(LanguageBundle.getString(&quot;in_nameLabel&quot;)), //$NON-NLS-1$</span>
+<span class="nc" id="L1056">		TYPE_NAME(LanguageBundle.getString(&quot;in_typeName&quot;)), //$NON-NLS-1$</span>
+<span class="nc" id="L1057">		TYPE_SUBTYPE_NAME(LanguageBundle.getString(&quot;in_typeSubtypeName&quot;)), //$NON-NLS-1$</span>
+<span class="nc" id="L1058">		SOURCE_NAME(LanguageBundle.getString(&quot;in_sourceName&quot;)); //$NON-NLS-1$</span>
+		private final String name;
+
+		private EquipmentTreeView(String name)
+<span class="nc" id="L1062">		{</span>
+<span class="nc" id="L1063">			this.name = name;</span>
+<span class="nc" id="L1064">		}</span>
+
+		@Override
+		public String getViewName()
+		{
+<span class="nc" id="L1069">			return name;</span>
+		}
+
+		@Override
+		public List&lt;TreeViewPath&lt;EquipmentFacade&gt;&gt; getPaths(EquipmentFacade pobj)
+		{
+<span class="nc bnc" id="L1075" title="All 5 branches missed.">			switch (this)</span>
+			{
+				case TYPE_SUBTYPE_NAME:
+<span class="nc" id="L1078">					List&lt;String&gt; types = pobj.getTypesForDisplay();</span>
+<span class="nc bnc" id="L1079" title="All 4 branches missed.">					if (types != null &amp;&amp; types.size() &gt; 1)</span>
+					{
+<span class="nc" id="L1081">						List&lt;TreeViewPath&lt;EquipmentFacade&gt;&gt; paths = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L1082" title="All 2 branches missed.">						for (String type : types)</span>
+						{
+<span class="nc bnc" id="L1084" title="All 2 branches missed.">							if (PRIMARY_TYPES.contains(type))</span>
+							{
+<span class="nc bnc" id="L1086" title="All 2 branches missed.">								for (String subType : types)</span>
+								{
+<span class="nc bnc" id="L1088" title="All 2 branches missed.">									if (!type.equals(subType))</span>
+									{
+<span class="nc" id="L1090">										paths.add(new TreeViewPath&lt;&gt;(pobj, type, subType));</span>
+									}
+<span class="nc" id="L1092">								}</span>
+							}
+<span class="nc" id="L1094">						}</span>
+<span class="nc" id="L1095">						return paths;</span>
+					}
+					// Less then two types, fall through to treat it as a type tree.
+				case TYPE_NAME:
+<span class="nc" id="L1099">					types = pobj.getTypesForDisplay();</span>
+<span class="nc bnc" id="L1100" title="All 4 branches missed.">					if (types != null &amp;&amp; !types.isEmpty())</span>
+					{
+<span class="nc" id="L1102">						List&lt;TreeViewPath&lt;EquipmentFacade&gt;&gt; paths = new ArrayList&lt;&gt;(types.size());</span>
+<span class="nc bnc" id="L1103" title="All 2 branches missed.">						for (String type : types)</span>
+						{
+<span class="nc bnc" id="L1105" title="All 2 branches missed.">							if (PRIMARY_TYPES.contains(type))</span>
+							{
+<span class="nc" id="L1107">								paths.add(new TreeViewPath&lt;&gt;(pobj, type));</span>
+							}
+<span class="nc" id="L1109">						}</span>
+<span class="nc" id="L1110">						return paths;</span>
+					}
+					// No types, fall through and treat it as just a name.
+				case NAME:
+<span class="nc" id="L1114">					return Collections.singletonList(new TreeViewPath&lt;&gt;(pobj));</span>
+				case SOURCE_NAME:
+<span class="nc" id="L1116">					return Collections.singletonList(new TreeViewPath&lt;&gt;(pobj, pobj.getSourceForNodeDisplay()));</span>
+				default:
+<span class="nc" id="L1118">					throw new InternalError();</span>
+			}
+
+		}
+
+	}
+
+	/**
+	 * The Class {@code EquipmentRenderer} displays the tree cells of the
+	 * available and purchased equipment tables.
+	 */
+	private static class EquipmentRenderer extends CharacterTreeCellRenderer
+	{
+
+		@Override
+		public Component getTreeCellRendererComponent(JTree tree, Object value, boolean sel, boolean expanded,
+			boolean leaf, int row, boolean focus)
+		{
+
+<span class="nc" id="L1137">			super.getTreeCellRendererComponent(tree, value, sel, expanded, leaf, row, focus);</span>
+<span class="nc" id="L1138">			Object equipObj = ((DefaultMutableTreeNode) value).getUserObject();</span>
+<span class="nc bnc" id="L1139" title="All 4 branches missed.">			if (equipObj instanceof EquipmentFacade &amp;&amp; !character.isQualifiedFor((EquipmentFacade) equipObj))</span>
+			{
+<span class="nc" id="L1141">				setForeground(ColorUtilty.colorToAWTColor(UIPropertyContext.getNotQualifiedColor()));</span>
+			}
+<span class="nc" id="L1143">			return this;</span>
+		}
+
+	}
+
+	private class EquipmentFilterHandler
+	{
+
+		private final CharacterFacade character;
+
+		EquipmentFilterHandler(CharacterFacade character)
+<span class="nc" id="L1154">		{</span>
+<span class="nc" id="L1155">			this.character = character;</span>
+<span class="nc" id="L1156">		}</span>
+
+		void install()
+		{
+<span class="nc" id="L1160">			availableTable.setContext(character);</span>
+<span class="nc" id="L1161">		}</span>
+
+	}
+
+	private class EquipmentTransferHandler extends TransferHandler
+	{
+
+		private final CharacterFacade character;
+
+		EquipmentTransferHandler(CharacterFacade character)
+<span class="nc" id="L1171">		{</span>
+<span class="nc" id="L1172">			this.character = character;</span>
+<span class="nc" id="L1173">		}</span>
+
+		void install()
+		{
+<span class="nc" id="L1177">			availableTable.setDragEnabled(true);</span>
+<span class="nc" id="L1178">			availableTable.setDropMode(DropMode.ON);</span>
+<span class="nc" id="L1179">			availableTable.setTransferHandler(this);</span>
+
+<span class="nc" id="L1181">			purchasedTable.setDragEnabled(true);</span>
+<span class="nc" id="L1182">			purchasedTable.setDropMode(DropMode.ON);</span>
+<span class="nc" id="L1183">			purchasedTable.setTransferHandler(this);</span>
+<span class="nc" id="L1184">		}</span>
+
+		@Override
+		public int getSourceActions(JComponent c)
+		{
+<span class="nc" id="L1189">			return MOVE;</span>
+		}
+
+		@Override
+		protected Transferable createTransferable(JComponent c)
+		{
+<span class="nc" id="L1195">			List&lt;?&gt; data = null;</span>
+<span class="nc bnc" id="L1196" title="All 2 branches missed.">			if (c == availableTable)</span>
+			{
+<span class="nc" id="L1198">				data = availableTable.getSelectedData();</span>
+			}
+<span class="nc bnc" id="L1200" title="All 2 branches missed.">			else if (c == purchasedTable)</span>
+			{
+<span class="nc" id="L1202">				data = purchasedTable.getSelectedData();</span>
+			}
+<span class="nc bnc" id="L1204" title="All 2 branches missed.">			if (data == null)</span>
+			{
+<span class="nc" id="L1206">				return null;</span>
+			}
+<span class="nc bnc" id="L1208" title="All 2 branches missed.">			data.removeIf(o -&gt; !(o instanceof EquipmentFacade));</span>
+<span class="nc bnc" id="L1209" title="All 2 branches missed.">			if (data.isEmpty())</span>
+			{
+<span class="nc" id="L1211">				return null;</span>
+			}
+
+<span class="nc" id="L1214">			EquipmentFacade[] equipArray = data.toArray(new EquipmentFacade[0]);</span>
+<span class="nc" id="L1215">			return new EquipmentSelection(equipArray);</span>
+		}
+
+		@Override
+		public boolean canImport(TransferSupport support)
+		{
+<span class="nc bnc" id="L1221" title="All 2 branches missed.">			if (!support.isDataFlavorSupported(EQUIPMENT_ARRAY_FLAVOR))</span>
+			{
+<span class="nc" id="L1223">				return false;</span>
+			}
+<span class="nc" id="L1225">			support.setShowDropLocation(false);</span>
+<span class="nc" id="L1226">			return true;</span>
+		}
+
+		private EquipmentFacade[] getEquipmentArray(TransferSupport support)
+		{
+<span class="nc" id="L1231">			EquipmentFacade[] equipmentArray = null;</span>
+			try
+			{
+<span class="nc" id="L1234">				equipmentArray = (EquipmentFacade[]) support.getTransferable().getTransferData(EQUIPMENT_ARRAY_FLAVOR);</span>
+			}
+<span class="nc" id="L1236">			catch (UnsupportedFlavorException | IOException ex)</span>
+			{
+<span class="nc" id="L1238">			}</span>
+<span class="nc" id="L1239">			return equipmentArray;</span>
+		}
+
+		@Override
+		public boolean importData(TransferSupport support)
+		{
+<span class="nc bnc" id="L1245" title="All 2 branches missed.">			if (!canImport(support))</span>
+			{
+<span class="nc" id="L1247">				return false;</span>
+			}
+<span class="nc bnc" id="L1249" title="All 2 branches missed.">			if (!support.isDrop())</span>
+			{
+<span class="nc" id="L1251">				return false;</span>
+			}
+<span class="nc" id="L1253">			EquipmentFacade[] equipmentArray = getEquipmentArray(support);</span>
+<span class="nc bnc" id="L1254" title="All 2 branches missed.">			if (support.getComponent() == availableTable)</span>
+			{
+<span class="nc bnc" id="L1256" title="All 2 branches missed.">				for (EquipmentFacade equipmentFacade : equipmentArray)</span>
+				{
+<span class="nc" id="L1258">					character.removePurchasedEquipment(equipmentFacade, 1, false);</span>
+				}
+			}
+<span class="nc bnc" id="L1261" title="All 2 branches missed.">			else if (support.getComponent() == purchasedTable)</span>
+			{
+<span class="nc bnc" id="L1263" title="All 2 branches missed.">				for (EquipmentFacade equipmentFacade : equipmentArray)</span>
+				{
+<span class="nc" id="L1265">					EquipmentFacade equip = character.getEquipmentSizedForCharacter(equipmentFacade);</span>
+<span class="nc" id="L1266">					character.addPurchasedEquipment(equip, 1, false, false);</span>
+				}
+			}
+<span class="nc" id="L1269">			availableTable.refilter();</span>
+<span class="nc" id="L1270">			return true;</span>
+		}
+
+	}
+
+	private class BuyPopupMenuHandler extends PopupMouseAdapter
+	{
+
+		private final CharacterFacade character;
+
+		BuyPopupMenuHandler(CharacterFacade character)
+<span class="nc" id="L1281">		{</span>
+<span class="nc" id="L1282">			this.character = character;</span>
+<span class="nc" id="L1283">		}</span>
+
+		@Override
+		public void showPopup(MouseEvent e)
+		{
+<span class="nc" id="L1288">			List&lt;EquipmentFacade&gt; targets = getMenuTargets(availableTable, e);</span>
+<span class="nc bnc" id="L1289" title="All 2 branches missed.">			if (targets.isEmpty())</span>
+			{
+<span class="nc" id="L1291">				return;</span>
+			}
+
+<span class="nc" id="L1294">			JPopupMenu popupMenu = new JPopupMenu();</span>
+<span class="nc" id="L1295">			popupMenu.add(new BuyNumMenuItem(character, targets, 1));</span>
+<span class="nc" id="L1296">			JMenu buyMenu = new JMenu(LanguageBundle.getString(&quot;in_igBuyQuantity&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L1297">			buyMenu.add(new BuyNumMenuItem(character, targets, 2));</span>
+<span class="nc" id="L1298">			buyMenu.add(new BuyNumMenuItem(character, targets, 5));</span>
+<span class="nc" id="L1299">			buyMenu.add(new BuyNumMenuItem(character, targets, 10));</span>
+<span class="nc" id="L1300">			buyMenu.add(new BuyNumMenuItem(character, targets, 15));</span>
+<span class="nc" id="L1301">			buyMenu.add(new BuyNumMenuItem(character, targets, 20));</span>
+<span class="nc" id="L1302">			buyMenu.add(new BuyNumMenuItem(character, targets, 50));</span>
+<span class="nc" id="L1303">			popupMenu.add(buyMenu);</span>
+<span class="nc" id="L1304">			popupMenu.add(new BuyNumMenuItem(character, targets, 0));</span>
+<span class="nc" id="L1305">			popupMenu.addSeparator();</span>
+<span class="nc" id="L1306">			popupMenu.add(new AddCustomAction(character));</span>
+<span class="nc" id="L1307">			popupMenu.add(new DeleteCustomAction(character));</span>
+<span class="nc" id="L1308">			popupMenu.show(e.getComponent(), e.getX(), e.getY());</span>
+<span class="nc" id="L1309">		}</span>
+
+		void install()
+		{
+<span class="nc" id="L1313">			availableTable.addMouseListener(this);</span>
+<span class="nc" id="L1314">		}</span>
+
+		void uninstall()
+		{
+<span class="nc" id="L1318">			availableTable.removeMouseListener(this);</span>
+<span class="nc" id="L1319">		}</span>
+
+	}
+
+	/**
+	 * Menu item for buying a quanity of an item at the current rate.
+	 */
+	private class BuyNumMenuItem extends JMenuItem implements ActionListener
+	{
+
+		private final int quantity;
+		private final CharacterFacade character;
+		private final List&lt;EquipmentFacade&gt; targets;
+
+		BuyNumMenuItem(CharacterFacade character, List&lt;EquipmentFacade&gt; targets, int quantity)
+<span class="nc" id="L1334">		{</span>
+<span class="nc" id="L1335">			super(LanguageBundle.getFormattedString(</span>
+<span class="nc bnc" id="L1336" title="All 2 branches missed.">				quantity &gt; 0 ? &quot;in_igBuyMenuCommand&quot; : &quot;in_igBuyN&quot;, quantity)); //$NON-NLS-1$ //$NON-NLS-2$</span>
+<span class="nc" id="L1337">			this.character = character;</span>
+<span class="nc" id="L1338">			this.targets = targets;</span>
+<span class="nc" id="L1339">			this.quantity = quantity;</span>
+<span class="nc bnc" id="L1340" title="All 2 branches missed.">			if (quantity &gt; 0)</span>
+			{
+<span class="nc" id="L1342">				setToolTipText(LanguageBundle.getFormattedString(&quot;in_igBuyMenuDesc&quot;, quantity)); //$NON-NLS-1$</span>
+			}
+			else
+			{
+<span class="nc" id="L1346">				setToolTipText(LanguageBundle.getString(&quot;in_igBuyNMenuDesc&quot;)); //$NON-NLS-1$</span>
+			}
+<span class="nc" id="L1348">			setIcon(Icons.Add16.getImageIcon());</span>
+
+<span class="nc" id="L1350">			addActionListener(this);</span>
+<span class="nc" id="L1351">		}</span>
+
+		/**
+		 * Action to buy a certain number of items.
+		 */
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+<span class="nc" id="L1359">			int num = quantity;</span>
+<span class="nc bnc" id="L1360" title="All 2 branches missed.">			if (num == 0)</span>
+			{
+<span class="nc" id="L1362">				String selectedValue =</span>
+<span class="nc" id="L1363">						JOptionPane.showInputDialog(</span>
+<span class="nc" id="L1364">							null, LanguageBundle.getString(&quot;in_igBuyEnterQuantity&quot;), //$NON-NLS-1$</span>
+							Constants.APPLICATION_NAME, JOptionPane.QUESTION_MESSAGE);
+<span class="nc bnc" id="L1366" title="All 2 branches missed.">				if (selectedValue != null)</span>
+				{
+					try
+					{
+<span class="nc" id="L1370">						num = (int) Float.parseFloat(selectedValue);</span>
+					}
+<span class="nc" id="L1372">					catch (NumberFormatException ex)</span>
+					{
+						//Ignored
+<span class="nc" id="L1375">					}</span>
+				}
+			}
+<span class="nc bnc" id="L1378" title="All 2 branches missed.">			if (num &gt; 0)</span>
+			{
+<span class="nc bnc" id="L1380" title="All 2 branches missed.">				for (EquipmentFacade equip : targets)</span>
+				{
+<span class="nc bnc" id="L1382" title="All 2 branches missed.">					if (character.isAutoResize())</span>
+					{
+<span class="nc" id="L1384">						equip = character.getEquipmentSizedForCharacter(equip);</span>
+					}
+<span class="nc" id="L1386">					character.addPurchasedEquipment(equip, num, false, false);</span>
+<span class="nc" id="L1387">					availableTable.refilter();</span>
+<span class="nc" id="L1388">				}</span>
+			}
+<span class="nc" id="L1390">		}</span>
+
+	}
+
+	private class SellPopupMenuHandler extends PopupMouseAdapter
+	{
+
+		private final CharacterFacade character;
+
+		SellPopupMenuHandler(CharacterFacade character)
+<span class="nc" id="L1400">		{</span>
+<span class="nc" id="L1401">			this.character = character;</span>
+<span class="nc" id="L1402">		}</span>
+
+		@Override
+		public void showPopup(MouseEvent e)
+		{
+<span class="nc" id="L1407">			List&lt;EquipmentFacade&gt; targets = getMenuTargets(purchasedTable, e);</span>
+<span class="nc bnc" id="L1408" title="All 2 branches missed.">			if (targets.isEmpty())</span>
+			{
+<span class="nc" id="L1410">				return;</span>
+			}
+
+<span class="nc" id="L1413">			JPopupMenu popupMenu = new JPopupMenu();</span>
+<span class="nc" id="L1414">			popupMenu.add(new SellNumMenuItem(character, targets, 1));</span>
+<span class="nc" id="L1415">			JMenu sellMenu = new JMenu(LanguageBundle.getString(&quot;in_igSellQuantity&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L1416">			sellMenu.add(new SellNumMenuItem(character, targets, 2));</span>
+<span class="nc" id="L1417">			sellMenu.add(new SellNumMenuItem(character, targets, 5));</span>
+<span class="nc" id="L1418">			sellMenu.add(new SellNumMenuItem(character, targets, 10));</span>
+<span class="nc" id="L1419">			sellMenu.add(new SellNumMenuItem(character, targets, 15));</span>
+<span class="nc" id="L1420">			sellMenu.add(new SellNumMenuItem(character, targets, 20));</span>
+<span class="nc" id="L1421">			sellMenu.add(new SellNumMenuItem(character, targets, 50));</span>
+<span class="nc" id="L1422">			popupMenu.add(sellMenu);</span>
+<span class="nc" id="L1423">			popupMenu.add(new SellNumMenuItem(character, targets, 0));</span>
+<span class="nc" id="L1424">			popupMenu.add(new SellNumMenuItem(character, targets, SellNumMenuItem.SELL_ALL_QUANTITY));</span>
+<span class="nc" id="L1425">			popupMenu.addSeparator();</span>
+<span class="nc" id="L1426">			JMenu moveMenu = new JMenu(LanguageBundle.getString(&quot;in_igMoveItemMenuTitle&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L1427">			moveMenu.setEnabled(false);</span>
+<span class="nc bnc" id="L1428" title="All 2 branches missed.">			for (CharacterFacade dest : CharacterManager.getCharacters())</span>
+			{
+<span class="nc bnc" id="L1430" title="All 2 branches missed.">				if (dest != character)</span>
+				{
+<span class="nc" id="L1432">					moveMenu.add(new MoveItemMenuItem(character, dest, targets));</span>
+<span class="nc" id="L1433">					moveMenu.setEnabled(true);</span>
+				}
+<span class="nc" id="L1435">			}</span>
+<span class="nc" id="L1436">			popupMenu.add(moveMenu);</span>
+<span class="nc" id="L1437">			JMenu copyMenu = new JMenu(LanguageBundle.getString(&quot;in_igCopyItemMenuTitle&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L1438">			copyMenu.setEnabled(false);</span>
+<span class="nc bnc" id="L1439" title="All 2 branches missed.">			for (CharacterFacade dest : CharacterManager.getCharacters())</span>
+			{
+<span class="nc bnc" id="L1441" title="All 2 branches missed.">				if (dest != character)</span>
+				{
+<span class="nc" id="L1443">					copyMenu.add(new CopyItemMenuItem(dest, targets));</span>
+<span class="nc" id="L1444">					copyMenu.setEnabled(true);</span>
+				}
+<span class="nc" id="L1446">			}</span>
+<span class="nc" id="L1447">			popupMenu.add(copyMenu);</span>
+<span class="nc" id="L1448">			popupMenu.addSeparator();</span>
+<span class="nc" id="L1449">			popupMenu.add(new ModifyChargesMenuItem(character, targets));</span>
+<span class="nc" id="L1450">			popupMenu.add(new AddNoteMenuItem(character, targets));</span>
+<span class="nc" id="L1451">			popupMenu.show(e.getComponent(), e.getX(), e.getY());</span>
+<span class="nc" id="L1452">		}</span>
+
+		void install()
+		{
+<span class="nc" id="L1456">			purchasedTable.addMouseListener(this);</span>
+<span class="nc" id="L1457">		}</span>
+
+		void uninstall()
+		{
+<span class="nc" id="L1461">			purchasedTable.removeMouseListener(this);</span>
+<span class="nc" id="L1462">		}</span>
+
+	}
+
+	/**
+	 * Menu item for selling a quantity of an item at the current rate.
+	 */
+	private class SellNumMenuItem extends JMenuItem implements ActionListener
+	{
+
+		static final int SELL_ALL_QUANTITY = -5;
+		private final int quantity;
+		private final CharacterFacade character;
+		private final List&lt;EquipmentFacade&gt; targets;
+
+		SellNumMenuItem(CharacterFacade character, List&lt;EquipmentFacade&gt; targets, int quantity)
+<span class="nc" id="L1478">		{</span>
+<span class="nc" id="L1479">			super(</span>
+<span class="nc" id="L1480">				LanguageBundle.getFormattedString(</span>
+<span class="nc bnc" id="L1481" title="All 4 branches missed.">					quantity &gt; 0 ? &quot;in_igSellMenuCommand&quot; : (quantity == SELL_ALL_QUANTITY //$NON-NLS-1$</span>
+<span class="nc" id="L1482">					? &quot;in_igSellAll&quot; : &quot;in_igSellN&quot;), quantity)); //$NON-NLS-1$ //$NON-NLS-2$</span>
+<span class="nc" id="L1483">			this.character = character;</span>
+<span class="nc" id="L1484">			this.targets = targets;</span>
+<span class="nc" id="L1485">			this.quantity = quantity;</span>
+<span class="nc bnc" id="L1486" title="All 2 branches missed.">			if (quantity &gt; 0)</span>
+			{
+<span class="nc" id="L1488">				setToolTipText(LanguageBundle.getFormattedString(&quot;in_igSellMenuDesc&quot;, quantity)); //$NON-NLS-1$</span>
+			}
+<span class="nc bnc" id="L1490" title="All 2 branches missed.">			else if (quantity == SELL_ALL_QUANTITY)</span>
+			{
+<span class="nc" id="L1492">				setToolTipText(LanguageBundle.getString(&quot;in_igSellAllMenuDesc&quot;)); //$NON-NLS-1$</span>
+			}
+			else
+			{
+<span class="nc" id="L1496">				setToolTipText(LanguageBundle.getString(&quot;in_igSellNMenuDesc&quot;)); //$NON-NLS-1$</span>
+			}
+<span class="nc" id="L1498">			setIcon(Icons.Remove16.getImageIcon());</span>
+
+<span class="nc" id="L1500">			addActionListener(this);</span>
+<span class="nc" id="L1501">		}</span>
+
+		/**
+		 * Action to buy a certain number of items.
+		 */
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+<span class="nc bnc" id="L1509" title="All 2 branches missed.">			boolean sellAll = quantity == SELL_ALL_QUANTITY;</span>
+<span class="nc" id="L1510">			int num = quantity;</span>
+<span class="nc bnc" id="L1511" title="All 2 branches missed.">			if (num == 0)</span>
+			{
+<span class="nc" id="L1513">				String selectedValue =</span>
+<span class="nc" id="L1514">						JOptionPane.showInputDialog(</span>
+<span class="nc" id="L1515">							null, LanguageBundle.getString(&quot;in_igBuyEnterQuantity&quot;), //$NON-NLS-1$</span>
+							Constants.APPLICATION_NAME, JOptionPane.QUESTION_MESSAGE);
+<span class="nc bnc" id="L1517" title="All 2 branches missed.">				if (selectedValue != null)</span>
+				{
+					try
+					{
+<span class="nc" id="L1521">						num = (int) Float.parseFloat(selectedValue);</span>
+					}
+<span class="nc" id="L1523">					catch (NumberFormatException ex)</span>
+					{
+						//Ignored
+<span class="nc" id="L1526">					}</span>
+				}
+			}
+<span class="nc bnc" id="L1529" title="All 4 branches missed.">			if (num &gt; 0 || sellAll)</span>
+			{
+<span class="nc bnc" id="L1531" title="All 2 branches missed.">				for (EquipmentFacade equip : targets)</span>
+				{
+<span class="nc bnc" id="L1533" title="All 2 branches missed.">					if (sellAll)</span>
+					{
+<span class="nc" id="L1535">						num = character.getPurchasedEquipment().getQuantity(equip);</span>
+					}
+<span class="nc" id="L1537">					character.removePurchasedEquipment(equip, num, false);</span>
+<span class="nc" id="L1538">				}</span>
+<span class="nc" id="L1539">				availableTable.refilter();</span>
+			}
+<span class="nc" id="L1541">		}</span>
+
+	}
+
+	private static class ModifyChargesMenuItem extends JMenuItem implements ActionListener
+	{
+
+		private final CharacterFacade character;
+		private final List&lt;EquipmentFacade&gt; targets;
+
+		ModifyChargesMenuItem(CharacterFacade character, List&lt;EquipmentFacade&gt; targets)
+		{
+<span class="nc" id="L1553">			super(LanguageBundle.getString(&quot;in_igModifyCharges&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L1554">			this.character = character;</span>
+<span class="nc" id="L1555">			this.targets = targets;</span>
+			// Set enabled only if there are items with charges
+<span class="nc" id="L1557">			boolean hasItemWithCharges = false;</span>
+<span class="nc bnc" id="L1558" title="All 2 branches missed.">			for (EquipmentFacade equipment : targets)</span>
+			{
+<span class="nc bnc" id="L1560" title="All 4 branches missed.">				if (equipment instanceof Equipment &amp;&amp; ((Equipment) equipment).getMaxCharges() &gt; 0)</span>
+				{
+<span class="nc" id="L1562">					hasItemWithCharges = true;</span>
+<span class="nc" id="L1563">					break;</span>
+				}
+<span class="nc" id="L1565">			}</span>
+<span class="nc" id="L1566">			setEnabled(hasItemWithCharges);</span>
+<span class="nc" id="L1567">			addActionListener(this);</span>
+<span class="nc" id="L1568">		}</span>
+
+		/**
+		 * Action to modify the number of charges on the items.
+		 */
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+<span class="nc" id="L1576">			character.modifyCharges(targets);</span>
+<span class="nc" id="L1577">		}</span>
+
+	}
+
+	private static class AddNoteMenuItem extends JMenuItem implements ActionListener
+	{
+
+		private final CharacterFacade character;
+		private final List&lt;EquipmentFacade&gt; targets;
+
+		AddNoteMenuItem(CharacterFacade character, List&lt;EquipmentFacade&gt; targets)
+		{
+<span class="nc" id="L1589">			super(LanguageBundle.getString(&quot;in_igAddNote&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L1590">			this.character = character;</span>
+<span class="nc" id="L1591">			this.targets = targets;</span>
+
+<span class="nc" id="L1593">			addActionListener(this);</span>
+<span class="nc" id="L1594">		}</span>
+
+		/**
+		 * Action to modify the number of charges on the items.
+		 */
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+<span class="nc" id="L1602">			character.addNote(targets);</span>
+<span class="nc" id="L1603">		}</span>
+
+	}
+
+	private static class MoveItemMenuItem extends JMenuItem implements ActionListener
+	{
+
+		private final CharacterFacade character;
+		private final CharacterFacade destination;
+		private final List&lt;EquipmentFacade&gt; targets;
+
+		MoveItemMenuItem(CharacterFacade character, CharacterFacade destination, List&lt;EquipmentFacade&gt; targets)
+		{
+<span class="nc" id="L1616">			super(destination.getNameRef().get());</span>
+<span class="nc" id="L1617">			this.character = character;</span>
+<span class="nc" id="L1618">			this.destination = destination;</span>
+<span class="nc" id="L1619">			this.targets = targets;</span>
+
+<span class="nc" id="L1621">			addActionListener(this);</span>
+<span class="nc" id="L1622">		}</span>
+
+		/**
+		 * Action to move the items between characters.
+		 */
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+<span class="nc bnc" id="L1630" title="All 2 branches missed.">			for (EquipmentFacade item : targets)</span>
+			{
+<span class="nc" id="L1632">				character.removePurchasedEquipment(item, 1, true);</span>
+<span class="nc" id="L1633">				destination.addPurchasedEquipment(item, 1, false, true);</span>
+<span class="nc" id="L1634">			}</span>
+<span class="nc" id="L1635">		}</span>
+
+	}
+
+	private static class CopyItemMenuItem extends JMenuItem implements ActionListener
+	{
+
+		private final CharacterFacade destination;
+		private final List&lt;EquipmentFacade&gt; targets;
+
+		CopyItemMenuItem(CharacterFacade destination, List&lt;EquipmentFacade&gt; targets)
+		{
+<span class="nc" id="L1647">			super(destination.getNameRef().get());</span>
+<span class="nc" id="L1648">			this.destination = destination;</span>
+<span class="nc" id="L1649">			this.targets = targets;</span>
+
+<span class="nc" id="L1651">			addActionListener(this);</span>
+<span class="nc" id="L1652">		}</span>
+
+		/**
+		 * Action to copy the items to another character.
+		 */
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+<span class="nc bnc" id="L1660" title="All 2 branches missed.">			for (EquipmentFacade item : targets)</span>
+			{
+<span class="nc" id="L1662">				destination.addPurchasedEquipment(item, 1, false, true);</span>
+<span class="nc" id="L1663">			}</span>
+<span class="nc" id="L1664">		}</span>
+
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

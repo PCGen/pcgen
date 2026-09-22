@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RepeatlevelToken.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.lsttokens.template</a> &gt; <span class="el_source">RepeatlevelToken.java</span></div><h1>RepeatlevelToken.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) 2008 Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package plugin.lsttokens.template;
+
+import java.util.Collection;
+import java.util.Set;
+import java.util.StringTokenizer;
+import java.util.TreeSet;
+
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.core.PCTemplate;
+import pcgen.rules.context.Changes;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.ComplexParseResult;
+import pcgen.rules.persistence.token.ParseResult;
+
+/**
+ * Class deals with REPEATLEVEL Token
+ */
+<span class="fc" id="L39">public class RepeatlevelToken extends AbstractTokenWithSeparator&lt;PCTemplate&gt; implements CDOMPrimaryToken&lt;PCTemplate&gt;</span>
+{
+
+	@Override
+	public String getTokenName()
+	{
+<span class="fc" id="L45">		return &quot;REPEATLEVEL&quot;;</span>
+	}
+
+	@Override
+	protected char separator()
+	{
+<span class="fc" id="L51">		return '|';</span>
+	}
+
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context, PCTemplate template, String value)
+	{
+<span class="fc" id="L57">		ParseResult pr = checkForIllegalSeparator(':', value);</span>
+<span class="fc bfc" id="L58" title="All 2 branches covered.">		if (!pr.passed())</span>
+		{
+<span class="fc" id="L60">			return pr;</span>
+		}
+		//
+		// x|y|z:level:&lt;level assigned item&gt;
+		//
+<span class="fc" id="L65">		int endRepeat = value.indexOf(Constants.COLON);</span>
+<span class="fc bfc" id="L66" title="All 2 branches covered.">		if (endRepeat &lt; 0)</span>
+		{
+<span class="fc" id="L68">			return new ParseResult.Fail(&quot;Malformed &quot; + getTokenName() + &quot; Token (No Colon): &quot; + value);</span>
+		}
+<span class="fc" id="L70">		int endLevel = value.indexOf(Constants.COLON, endRepeat + 1);</span>
+<span class="fc bfc" id="L71" title="All 2 branches covered.">		if (endLevel &lt; 0)</span>
+		{
+<span class="fc" id="L73">			return new ParseResult.Fail(&quot;Malformed &quot; + getTokenName() + &quot; Token (Only One Colon): &quot; + value);</span>
+		}
+<span class="fc" id="L75">		int endAssignType = value.indexOf(Constants.COLON, endLevel + 1);</span>
+<span class="fc bfc" id="L76" title="All 2 branches covered.">		if (endAssignType == -1)</span>
+		{
+<span class="fc" id="L78">			return new ParseResult.Fail(&quot;Malformed &quot; + getTokenName() + &quot; Token (Only Two Colons): &quot; + value);</span>
+		}
+
+<span class="fc" id="L81">		String repeatedInfo = value.substring(0, endRepeat);</span>
+<span class="fc" id="L82">		StringTokenizer repeatToken = new StringTokenizer(repeatedInfo, Constants.PIPE);</span>
+<span class="fc bfc" id="L83" title="All 2 branches covered.">		if (repeatToken.countTokens() != 3)</span>
+		{
+<span class="fc" id="L85">			return new ParseResult.Fail(</span>
+<span class="fc" id="L86">				&quot;Malformed &quot; + getTokenName() + &quot; Token (incorrect PIPE count in repeat): &quot; + repeatedInfo);</span>
+		}
+
+<span class="fc" id="L89">		String levelIncrement = repeatToken.nextToken();</span>
+		int lvlIncrement;
+		try
+		{
+<span class="fc" id="L93">			lvlIncrement = Integer.parseInt(levelIncrement);</span>
+		}
+<span class="fc" id="L95">		catch (NumberFormatException nfe)</span>
+		{
+<span class="fc" id="L97">			return new ParseResult.Fail(</span>
+<span class="fc" id="L98">				&quot;Malformed &quot; + getTokenName() + &quot; Token (Level Increment was not an Integer): &quot; + levelIncrement);</span>
+<span class="fc" id="L99">		}</span>
+<span class="fc bfc" id="L100" title="All 2 branches covered.">		if (lvlIncrement &lt;= 0)</span>
+		{
+<span class="fc" id="L102">			return new ParseResult.Fail(</span>
+<span class="fc" id="L103">				&quot;Malformed &quot; + getTokenName() + &quot; Token (Level Increment was &lt;= 0): &quot; + lvlIncrement);</span>
+		}
+
+<span class="fc" id="L106">		String consecutiveString = repeatToken.nextToken();</span>
+		int consecutive;
+		try
+		{
+<span class="fc" id="L110">			consecutive = Integer.parseInt(consecutiveString);</span>
+		}
+<span class="fc" id="L112">		catch (NumberFormatException nfe)</span>
+		{
+<span class="fc" id="L114">			return new ParseResult.Fail(</span>
+<span class="fc" id="L115">				&quot;Malformed &quot; + getTokenName() + &quot; Token (Consecutive Value was not an Integer): &quot; + consecutiveString);</span>
+<span class="fc" id="L116">		}</span>
+<span class="fc bfc" id="L117" title="All 2 branches covered.">		if (consecutive &lt; 0)</span>
+		{
+<span class="fc" id="L119">			return new ParseResult.Fail(</span>
+<span class="fc" id="L120">				&quot;Malformed &quot; + getTokenName() + &quot; Token (Consecutive String was &lt;= 0): &quot; + consecutive);</span>
+		}
+
+<span class="fc" id="L123">		String maxLevelString = repeatToken.nextToken();</span>
+		int maxLevel;
+		try
+		{
+<span class="fc" id="L127">			maxLevel = Integer.parseInt(maxLevelString);</span>
+		}
+<span class="fc" id="L129">		catch (NumberFormatException nfe)</span>
+		{
+<span class="fc" id="L131">			return new ParseResult.Fail(</span>
+<span class="fc" id="L132">				&quot;Malformed &quot; + getTokenName() + &quot; Token (Max Level was not an Integer): &quot; + maxLevelString);</span>
+<span class="fc" id="L133">		}</span>
+<span class="fc bfc" id="L134" title="All 2 branches covered.">		if (maxLevel &lt;= 0)</span>
+		{
+<span class="fc" id="L136">			return new ParseResult.Fail(&quot;Malformed &quot; + getTokenName() + &quot; Token (Max Level was &lt;= 0): &quot; + maxLevel);</span>
+		}
+
+<span class="fc" id="L139">		String levelString = value.substring(endRepeat + 1, endLevel);</span>
+		int iLevel;
+		try
+		{
+<span class="fc" id="L143">			iLevel = Integer.parseInt(levelString);</span>
+		}
+<span class="fc" id="L145">		catch (NumberFormatException nfe)</span>
+		{
+<span class="fc" id="L147">			return new ParseResult.Fail(</span>
+<span class="fc" id="L148">				&quot;Malformed &quot; + getTokenName() + &quot; Token (Level was not a number): &quot; + levelString);</span>
+<span class="fc" id="L149">		}</span>
+<span class="fc bfc" id="L150" title="All 2 branches covered.">		if (iLevel &lt;= 0)</span>
+		{
+<span class="fc" id="L152">			return new ParseResult.Fail(&quot;Malformed &quot; + getTokenName() + &quot; Token (Level was &lt;= 0): &quot; + iLevel);</span>
+		}
+
+<span class="fc bfc" id="L155" title="All 2 branches covered.">		if (iLevel &gt; maxLevel)</span>
+		{
+<span class="fc" id="L157">			return new ParseResult.Fail(&quot;Malformed &quot; + getTokenName() + &quot; Token (Starting Level was &gt; Maximum Level)&quot;);</span>
+		}
+<span class="fc bfc" id="L159" title="All 2 branches covered.">		if (iLevel + lvlIncrement &gt; maxLevel)</span>
+		{
+<span class="fc" id="L161">			return new ParseResult.Fail(</span>
+<span class="fc" id="L162">				&quot;Malformed &quot; + getTokenName() + &quot; Token (Does not repeat, Staring Level + Increment &gt; Maximum Level)&quot;);</span>
+		}
+<span class="fc bfc" id="L164" title="All 4 branches covered.">		if (consecutive != 0 &amp;&amp; ((maxLevel - iLevel) / lvlIncrement) &lt; consecutive)</span>
+		{
+<span class="fc" id="L166">			ComplexParseResult cpr = new ComplexParseResult();</span>
+<span class="fc" id="L167">			cpr.addErrorMessage(</span>
+<span class="fc" id="L168">				&quot;Malformed &quot; + getTokenName() + &quot; Token (Does not use Skip Interval value): &quot; + consecutive);</span>
+<span class="fc" id="L169">			cpr.addErrorMessage(&quot;  You should set the interval to zero&quot;);</span>
+<span class="fc" id="L170">			return cpr;</span>
+		}
+
+<span class="fc" id="L173">		String typeStr = value.substring(endLevel + 1, endAssignType);</span>
+<span class="fc" id="L174">		String contentStr = value.substring(endAssignType + 1);</span>
+		/*
+		 * typeStr and contentStr can't be null due to hasIllegalSeparator check
+		 * on colon above
+		 */
+
+<span class="fc" id="L180">		PCTemplate consolidator = new PCTemplate();</span>
+<span class="fc" id="L181">		consolidator.put(IntegerKey.CONSECUTIVE, consecutive);</span>
+<span class="fc" id="L182">		consolidator.put(IntegerKey.MAX_LEVEL, maxLevel);</span>
+<span class="fc" id="L183">		consolidator.put(IntegerKey.LEVEL_INCREMENT, lvlIncrement);</span>
+<span class="fc" id="L184">		consolidator.put(IntegerKey.START_LEVEL, iLevel);</span>
+<span class="fc" id="L185">		context.getObjectContext().addToList(template, ListKey.REPEATLEVEL_TEMPLATES, consolidator);</span>
+<span class="fc" id="L186">		context.getReferenceContext().getManufacturer(PCTemplate.class).addDerivativeObject(consolidator);</span>
+
+<span class="fc bfc" id="L188" title="All 2 branches covered.">		for (int count = consecutive; iLevel &lt;= maxLevel; iLevel += lvlIncrement)</span>
+		{
+<span class="fc bfc" id="L190" title="All 4 branches covered.">			if ((consecutive == 0) || (count != 0))</span>
+			{
+<span class="fc" id="L192">				PCTemplate derivative = new PCTemplate();</span>
+<span class="fc" id="L193">				derivative.put(IntegerKey.LEVEL, count);</span>
+<span class="fc" id="L194">				context.getReferenceContext().getManufacturer(PCTemplate.class).addDerivativeObject(derivative);</span>
+<span class="fc" id="L195">				context.getObjectContext().addToList(consolidator, ListKey.LEVEL_TEMPLATES, derivative);</span>
+<span class="fc bfc" id="L196" title="All 2 branches covered.">				if (!context.processToken(derivative, typeStr, contentStr))</span>
+				{
+<span class="fc" id="L198">					return ParseResult.INTERNAL_ERROR;</span>
+				}
+			}
+<span class="fc bfc" id="L201" title="All 2 branches covered.">			if (consecutive != 0)</span>
+			{
+<span class="fc bfc" id="L203" title="All 2 branches covered.">				if (count == 0)</span>
+				{
+<span class="fc" id="L205">					count = consecutive;</span>
+				}
+				else
+				{
+<span class="fc" id="L209">					--count;</span>
+				}
+			}
+		}
+<span class="fc" id="L213">		return ParseResult.SUCCESS;</span>
+	}
+
+	@Override
+	public String[] unparse(LoadContext context, PCTemplate pct)
+	{
+<span class="fc" id="L219">		Changes&lt;PCTemplate&gt; changes = context.getObjectContext().getListChanges(pct, ListKey.REPEATLEVEL_TEMPLATES);</span>
+<span class="fc" id="L220">		Collection&lt;PCTemplate&gt; added = changes.getAdded();</span>
+<span class="pc bpc" id="L221" title="1 of 4 branches missed.">		if (added == null || added.isEmpty())</span>
+		{
+<span class="fc" id="L223">			return null;</span>
+		}
+<span class="fc" id="L225">		Set&lt;String&gt; list = new TreeSet&lt;&gt;();</span>
+<span class="fc bfc" id="L226" title="All 2 branches covered.">		for (PCTemplate agg : added)</span>
+		{
+<span class="fc" id="L228">			StringBuilder sb = new StringBuilder();</span>
+<span class="fc" id="L229">			Integer consecutive = agg.get(IntegerKey.CONSECUTIVE);</span>
+<span class="fc" id="L230">			Integer maxLevel = agg.get(IntegerKey.MAX_LEVEL);</span>
+<span class="fc" id="L231">			Integer lvlIncrement = agg.get(IntegerKey.LEVEL_INCREMENT);</span>
+<span class="fc" id="L232">			Integer iLevel = agg.get(IntegerKey.START_LEVEL);</span>
+<span class="fc" id="L233">			sb.append(lvlIncrement).append(Constants.PIPE);</span>
+<span class="fc" id="L234">			sb.append(consecutive).append(Constants.PIPE);</span>
+<span class="fc" id="L235">			sb.append(maxLevel).append(Constants.COLON);</span>
+<span class="fc" id="L236">			sb.append(iLevel).append(Constants.COLON);</span>
+<span class="fc" id="L237">			Changes&lt;PCTemplate&gt; subchanges = context.getObjectContext().getListChanges(agg, ListKey.LEVEL_TEMPLATES);</span>
+<span class="fc" id="L238">			Collection&lt;PCTemplate&gt; perAddCollection = subchanges.getAdded();</span>
+<span class="pc bpc" id="L239" title="2 of 4 branches missed.">			if (perAddCollection == null || perAddCollection.isEmpty())</span>
+			{
+<span class="nc" id="L241">				context.addWriteMessage(&quot;Invalid Consolidator built in &quot; + getTokenName() + &quot;: had no subTemplates&quot;);</span>
+<span class="nc" id="L242">				return null;</span>
+			}
+<span class="fc" id="L244">			PCTemplate next = perAddCollection.iterator().next();</span>
+<span class="fc" id="L245">			Collection&lt;String&gt; unparse = context.unparse(next);</span>
+<span class="pc bpc" id="L246" title="1 of 2 branches missed.">			if (unparse != null)</span>
+			{
+<span class="fc" id="L248">				int masterLength = sb.length();</span>
+<span class="fc bfc" id="L249" title="All 2 branches covered.">				for (String str : unparse)</span>
+				{
+<span class="fc" id="L251">					sb.setLength(masterLength);</span>
+<span class="fc" id="L252">					list.add(sb.append(str).toString());</span>
+<span class="fc" id="L253">				}</span>
+			}
+<span class="fc" id="L255">		}</span>
+<span class="pc bpc" id="L256" title="1 of 2 branches missed.">		if (list.isEmpty())</span>
+		{
+<span class="nc" id="L258">			return null;</span>
+		}
+<span class="fc" id="L260">		return list.toArray(new String[0]);</span>
+	}
+
+	@Override
+	public Class&lt;PCTemplate&gt; getTokenClass()
+	{
+<span class="fc" id="L266">		return PCTemplate.class;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

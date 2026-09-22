@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>LSTConverter.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.gui2.converter</a> &gt; <span class="el_source">LSTConverter.java</span></div><h1>LSTConverter.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) 2009 Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package pcgen.gui2.converter;
+
+import java.io.File;
+import java.io.IOException;
+import java.io.Writer;
+import java.net.URI;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Observable;
+import java.util.Optional;
+import java.util.Set;
+
+import pcgen.base.util.DoubleKeyMapToList;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.core.Ability;
+import pcgen.core.ArmorProf;
+import pcgen.core.Campaign;
+import pcgen.core.Deity;
+import pcgen.core.Domain;
+import pcgen.core.EquipmentModifier;
+import pcgen.core.Globals;
+import pcgen.core.Language;
+import pcgen.core.PCAlignment;
+import pcgen.core.PCCheck;
+import pcgen.core.PCStat;
+import pcgen.core.PCTemplate;
+import pcgen.core.Race;
+import pcgen.core.ShieldProf;
+import pcgen.core.SizeAdjustment;
+import pcgen.core.Skill;
+import pcgen.core.WeaponProf;
+import pcgen.core.character.CompanionMod;
+import pcgen.core.spell.Spell;
+import pcgen.gui2.converter.loader.AbilityLoader;
+import pcgen.gui2.converter.loader.BasicLoader;
+import pcgen.gui2.converter.loader.PCClassLoader;
+import pcgen.gui2.converter.loader.CopyLoader;
+import pcgen.gui2.converter.loader.EquipmentLoader;
+import pcgen.gui2.converter.loader.SelfCopyLoader;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.SourceFileLoader;
+import pcgen.persistence.lst.AbilityCategoryLoader;
+import pcgen.persistence.lst.CampaignSourceEntry;
+import pcgen.persistence.lst.GenericLoader;
+import pcgen.persistence.lst.LstFileLoader;
+import pcgen.rules.context.EditorLoadContext;
+import pcgen.rules.persistence.CDOMControlLoader;
+import pcgen.system.LanguageBundle;
+import pcgen.util.Logging;
+
+public class LSTConverter extends Observable
+{
+<span class="nc" id="L75">	private final AbilityCategoryLoader catLoader = new AbilityCategoryLoader();</span>
+<span class="nc" id="L76">	private final GenericLoader&lt;SizeAdjustment&gt; sizeLoader = new GenericLoader&lt;&gt;(SizeAdjustment.class);</span>
+<span class="nc" id="L77">	private final GenericLoader&lt;PCCheck&gt; savesLoader = new GenericLoader&lt;&gt;(PCCheck.class);</span>
+<span class="nc" id="L78">	private final GenericLoader&lt;PCAlignment&gt; alignmentLoader = new GenericLoader&lt;&gt;(PCAlignment.class);</span>
+<span class="nc" id="L79">	private final GenericLoader&lt;PCStat&gt; statLoader = new GenericLoader&lt;&gt;(PCStat.class);</span>
+<span class="nc" id="L80">	private final CDOMControlLoader dataControlLoader = new CDOMControlLoader();</span>
+	private final EditorLoadContext context;
+	private final List&lt;Loader&gt; loaders;
+<span class="nc" id="L83">	private final Set&lt;URI&gt; written = new HashSet&lt;&gt;();</span>
+	private final String outDir;
+	private final File rootDir;
+<span class="nc" id="L86">	private final DoubleKeyMapToList&lt;Loader, URI, CDOMObject&gt; injected = new DoubleKeyMapToList&lt;&gt;();</span>
+	private final ConversionDecider decider;
+	private final Writer changeLogWriter;
+
+	public LSTConverter(EditorLoadContext lc, File root, String outputDir, ConversionDecider cd, Writer changeLogWriter)
+<span class="nc" id="L91">	{</span>
+<span class="nc" id="L92">		context = lc;</span>
+<span class="nc" id="L93">		rootDir = root;</span>
+<span class="nc" id="L94">		outDir = outputDir;</span>
+<span class="nc" id="L95">		decider = cd;</span>
+
+<span class="nc" id="L97">		this.changeLogWriter = changeLogWriter;</span>
+<span class="nc" id="L98">		loaders = setupLoaders(context, changeLogWriter);</span>
+<span class="nc" id="L99">	}</span>
+
+	/**
+	 * Return the number of files referred to by the campaign
+	 * @param campaign The campaign to be tallied.
+	 * @return The number of lst files used.
+	 */
+	public int getNumFilesInCampaign(Campaign campaign)
+	{
+<span class="nc" id="L108">		int numFiles = 0;</span>
+
+<span class="nc bnc" id="L110" title="All 2 branches missed.">		for (final Loader loader : loaders)</span>
+		{
+<span class="nc" id="L112">			List&lt;CampaignSourceEntry&gt; files = loader.getFiles(campaign);</span>
+<span class="nc" id="L113">			numFiles += files.size();</span>
+<span class="nc" id="L114">		}</span>
+<span class="nc" id="L115">		return numFiles;</span>
+	}
+
+	/**
+	 * Initialise the list of campaigns. This will load the ability
+	 * categories in advance of the conversion.
+	 * @param campaigns The campaigns or sources to be converted.
+	 */
+	public void initCampaigns(List&lt;Campaign&gt; campaigns)
+	{
+<span class="nc" id="L125">		List&lt;CampaignSourceEntry&gt; dataDefFileList = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L126" title="All 2 branches missed.">		for (Campaign campaign : campaigns)</span>
+		{
+			// load ability categories first as they used to only be at the game
+			// mode
+			try
+			{
+<span class="nc" id="L132">				catLoader.loadLstFiles(context, campaign.getSafeListFor(ListKey.FILE_ABILITY_CATEGORY));</span>
+<span class="nc" id="L133">				sizeLoader.loadLstFiles(context, campaign.getSafeListFor(ListKey.FILE_SIZE));</span>
+<span class="nc" id="L134">				statLoader.loadLstFiles(context, campaign.getSafeListFor(ListKey.FILE_STAT));</span>
+<span class="nc" id="L135">				savesLoader.loadLstFiles(context, campaign.getSafeListFor(ListKey.FILE_SAVE));</span>
+<span class="nc" id="L136">				alignmentLoader.loadLstFiles(context, campaign.getSafeListFor(ListKey.FILE_ALIGNMENT));</span>
+<span class="nc" id="L137">				alignmentLoader.loadLstFiles(Globals.getContext(), campaign.getSafeListFor(ListKey.FILE_ALIGNMENT));</span>
+
+			}
+<span class="nc" id="L140">			catch (PersistenceLayerException e)</span>
+			{
+<span class="nc" id="L142">				Logging.errorPrint(e.getMessage(), e);</span>
+<span class="nc" id="L143">			}</span>
+<span class="nc" id="L144">			dataDefFileList.addAll(campaign.getSafeListFor(ListKey.FILE_DATACTRL));</span>
+
+<span class="nc" id="L146">		}</span>
+
+		// Load using the new LstFileLoaders
+		try
+		{
+<span class="nc" id="L151">			SourceFileLoader.addDefaultDataControlIfNeeded(dataDefFileList);</span>
+<span class="nc" id="L152">			dataControlLoader.loadLstFiles(context, dataDefFileList);</span>
+<span class="nc" id="L153">			SourceFileLoader.processFactDefinitions(context);</span>
+		}
+<span class="nc" id="L155">		catch (PersistenceLayerException e)</span>
+		{
+<span class="nc" id="L157">			Logging.errorPrint(&quot;LSTConverter.initCampaigns failed&quot;, e);</span>
+<span class="nc" id="L158">		}</span>
+
+<span class="nc" id="L160">	}</span>
+
+	public void processCampaign(Campaign campaign)
+	{
+<span class="nc" id="L164">		startItem(campaign);</span>
+<span class="nc" id="L165">	}</span>
+
+	private void startItem(final Campaign campaign)
+	{
+<span class="nc bnc" id="L169" title="All 2 branches missed.">		for (final Loader loader : loaders)</span>
+		{
+<span class="nc" id="L171">			List&lt;CampaignSourceEntry&gt; files = loader.getFiles(campaign);</span>
+<span class="nc bnc" id="L172" title="All 2 branches missed.">			for (final CampaignSourceEntry cse : files)</span>
+			{
+<span class="nc" id="L174">				final URI uri = cse.getURI();</span>
+<span class="nc" id="L175">				setChanged();</span>
+<span class="nc" id="L176">				notifyObservers(uri);</span>
+<span class="nc bnc" id="L177" title="All 2 branches missed.">				if (!&quot;file&quot;.equalsIgnoreCase(uri.getScheme()))</span>
+				{
+<span class="nc" id="L179">					Logging.log(Logging.WARNING, &quot;Skipping campaign &quot; + uri + &quot; from &quot; + campaign.getSourceURI()</span>
+						+ &quot; as it is not a local file.&quot;);
+<span class="nc" id="L181">					continue;</span>
+				}
+<span class="nc" id="L183">				File in = new File(uri);</span>
+				// Use canonical name to stop reruns for the same file referred to using ..
+				URI canonicalUri;
+				try
+				{
+<span class="nc" id="L188">					canonicalUri = in.getCanonicalFile().toURI();</span>
+				}
+<span class="nc" id="L190">				catch (IOException e1)</span>
+				{
+<span class="nc" id="L192">					Logging.log(Logging.WARNING, &quot;Skipping campaign &quot; + uri + &quot; from &quot; + campaign.getSourceURI()</span>
+<span class="nc" id="L193">						+ &quot; as it could not be made canonical. &quot; + e1.getMessage());</span>
+<span class="nc" id="L194">					continue;</span>
+<span class="nc" id="L195">				}</span>
+<span class="nc bnc" id="L196" title="All 2 branches missed.">				if (written.contains(canonicalUri))</span>
+				{
+<span class="nc" id="L198">					continue;</span>
+				}
+<span class="nc" id="L200">				written.add(canonicalUri);</span>
+<span class="nc" id="L201">				File base = findSubRoot(rootDir, in);</span>
+<span class="nc bnc" id="L202" title="All 2 branches missed.">				if (base == null)</span>
+				{
+<span class="nc" id="L204">					Logging.log(Logging.WARNING, &quot;Skipping campaign &quot; + uri + &quot; from &quot; + campaign.getSourceURI()</span>
+						+ &quot; as it is not in the selected source directory.&quot;);
+<span class="nc" id="L206">					continue;</span>
+				}
+<span class="nc" id="L208">				String relative = in.toString().substring(base.toString().length() + 1);</span>
+<span class="nc bnc" id="L209" title="All 2 branches missed.">				if (!in.exists())</span>
+				{
+<span class="nc" id="L211">					Logging.log(Logging.WARNING, &quot;Skipping campaign &quot; + uri + &quot; from &quot; + campaign.getSourceURI()</span>
+<span class="nc" id="L212">						+ &quot; as it does not exist. Campaign is &quot; + cse.getCampaign().getSourceURI());</span>
+<span class="nc" id="L213">					continue;</span>
+				}
+<span class="nc" id="L215">				File outFile = new File(outDir, File.separator + relative);</span>
+<span class="nc bnc" id="L216" title="All 2 branches missed.">				if (outFile.exists())</span>
+				{
+<span class="nc" id="L218">					Logging.log(Logging.WARNING, &quot;Won't overwrite: &quot; + outFile);</span>
+<span class="nc" id="L219">					continue;</span>
+				}
+<span class="nc" id="L221">				ensureParents(outFile.getParentFile());</span>
+				try
+				{
+<span class="nc" id="L224">					changeLogWriter.append(&quot;\nProcessing &quot;).append(String.valueOf(in)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L225">					load(uri, loader)</span>
+<span class="nc" id="L226">							.ifPresent((String result) -&gt; {</span>
+<span class="nc" id="L227">								try (Writer out = Files.newBufferedWriter(outFile.toPath(), StandardCharsets.UTF_8))</span>
+								{
+<span class="nc" id="L229">									out.write(result);</span>
+<span class="nc" id="L230">								} catch (IOException e)</span>
+								{
+<span class="nc" id="L232">									Logging.errorPrint(e.getLocalizedMessage(), e);</span>
+<span class="nc" id="L233">								}</span>
+<span class="nc" id="L234">							});</span>
+				}
+<span class="nc" id="L236">				catch (PersistenceLayerException | IOException e)</span>
+				{
+<span class="nc" id="L238">					Logging.errorPrint(e.getLocalizedMessage(), e);</span>
+<span class="nc" id="L239">				}</span>
+<span class="nc" id="L240">			}</span>
+<span class="nc" id="L241">		}</span>
+<span class="nc" id="L242">	}</span>
+
+	private List&lt;Loader&gt; setupLoaders(EditorLoadContext context, Writer changeLogWriter)
+	{
+<span class="nc" id="L246">		List&lt;Loader&gt; loaderList = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L247">		loaderList.add(new BasicLoader&lt;&gt;(context, WeaponProf.class, ListKey.FILE_WEAPON_PROF, changeLogWriter));</span>
+<span class="nc" id="L248">		loaderList.add(new BasicLoader&lt;&gt;(context, ArmorProf.class, ListKey.FILE_ARMOR_PROF, changeLogWriter));</span>
+<span class="nc" id="L249">		loaderList.add(new BasicLoader&lt;&gt;(context, ShieldProf.class, ListKey.FILE_SHIELD_PROF, changeLogWriter));</span>
+<span class="nc" id="L250">		loaderList.add(new BasicLoader&lt;&gt;(context, Skill.class, ListKey.FILE_SKILL, changeLogWriter));</span>
+<span class="nc" id="L251">		loaderList.add(new BasicLoader&lt;&gt;(context, Language.class, ListKey.FILE_LANGUAGE, changeLogWriter));</span>
+<span class="nc" id="L252">		loaderList.add(new BasicLoader&lt;&gt;(context, Ability.class, ListKey.FILE_FEAT, changeLogWriter));</span>
+<span class="nc" id="L253">		loaderList.add(new AbilityLoader(context, Ability.class, ListKey.FILE_ABILITY, changeLogWriter));</span>
+<span class="nc" id="L254">		loaderList.add(new BasicLoader&lt;&gt;(context, Race.class, ListKey.FILE_RACE, changeLogWriter));</span>
+<span class="nc" id="L255">		loaderList.add(new BasicLoader&lt;&gt;(context, Domain.class, ListKey.FILE_DOMAIN, changeLogWriter));</span>
+<span class="nc" id="L256">		loaderList.add(new BasicLoader&lt;&gt;(context, Spell.class, ListKey.FILE_SPELL, changeLogWriter));</span>
+<span class="nc" id="L257">		loaderList.add(new BasicLoader&lt;&gt;(context, Deity.class, ListKey.FILE_DEITY, changeLogWriter));</span>
+<span class="nc" id="L258">		loaderList.add(new BasicLoader&lt;&gt;(context, PCTemplate.class, ListKey.FILE_TEMPLATE, changeLogWriter));</span>
+<span class="nc" id="L259">		loaderList.add(new EquipmentLoader(context, ListKey.FILE_EQUIP, changeLogWriter));</span>
+<span class="nc" id="L260">		loaderList.add(new BasicLoader&lt;&gt;(context, EquipmentModifier.class, ListKey.FILE_EQUIP_MOD, changeLogWriter));</span>
+<span class="nc" id="L261">		loaderList.add(new BasicLoader&lt;&gt;(context, CompanionMod.class, ListKey.FILE_COMPANION_MOD, changeLogWriter));</span>
+<span class="nc" id="L262">		loaderList.add(new PCClassLoader(context, changeLogWriter));</span>
+<span class="nc" id="L263">		loaderList.add(new CopyLoader(ListKey.FILE_ABILITY_CATEGORY));</span>
+<span class="nc" id="L264">		loaderList.add(new CopyLoader(ListKey.LICENSE_FILE));</span>
+<span class="nc" id="L265">		loaderList.add(new CopyLoader(ListKey.FILE_KIT));</span>
+<span class="nc" id="L266">		loaderList.add(new CopyLoader(ListKey.FILE_BIO_SET));</span>
+<span class="nc" id="L267">		loaderList.add(new CopyLoader(ListKey.FILE_DATACTRL));</span>
+<span class="nc" id="L268">		loaderList.add(new CopyLoader(ListKey.FILE_STAT));</span>
+<span class="nc" id="L269">		loaderList.add(new CopyLoader(ListKey.FILE_SAVE));</span>
+<span class="nc" id="L270">		loaderList.add(new CopyLoader(ListKey.FILE_SIZE));</span>
+<span class="nc" id="L271">		loaderList.add(new CopyLoader(ListKey.FILE_ALIGNMENT));</span>
+<span class="nc" id="L272">		loaderList.add(new CopyLoader(ListKey.FILE_PCC));</span>
+<span class="nc" id="L273">		loaderList.add(new SelfCopyLoader());</span>
+<span class="nc" id="L274">		return loaderList;</span>
+	}
+
+	private void ensureParents(File parentFile)
+	{
+<span class="nc bnc" id="L279" title="All 2 branches missed.">		if (!parentFile.exists())</span>
+		{
+<span class="nc" id="L281">			ensureParents(parentFile.getParentFile());</span>
+<span class="nc" id="L282">			parentFile.mkdir();</span>
+		}
+<span class="nc" id="L284">	}</span>
+
+	private File findSubRoot(File root, File in)
+	{
+<span class="nc" id="L288">		File parent = in.getParentFile();</span>
+<span class="nc bnc" id="L289" title="All 2 branches missed.">		if (parent == null)</span>
+		{
+<span class="nc" id="L291">			return null;</span>
+		}
+<span class="nc bnc" id="L293" title="All 2 branches missed.">		if (parent.getAbsolutePath().equals(root.getAbsolutePath()))</span>
+		{
+<span class="nc" id="L295">			return parent;</span>
+		}
+<span class="nc" id="L297">		return findSubRoot(root, parent);</span>
+	}
+
+	private Optional&lt;String&gt; load(URI uri, Loader loader) throws PersistenceLayerException
+	{
+<span class="nc" id="L302">		context.setSourceURI(uri);</span>
+<span class="nc" id="L303">		context.setExtractURI(uri);</span>
+		try
+		{
+<span class="nc" id="L306">			return LstFileLoader.readFromURI(uri)</span>
+<span class="nc" id="L307">				.map((String dataBuffer) -&gt; {</span>
+<span class="nc" id="L308">					StringBuilder resultBuffer = new StringBuilder(dataBuffer.length());</span>
+
+<span class="nc" id="L310">					String[] fileLines = dataBuffer.split(LstFileLoader.LINE_SEPARATOR_REGEXP);</span>
+<span class="nc bnc" id="L311" title="All 2 branches missed.">					for (int line = 0; line &lt; fileLines.length; line++)</span>
+					{
+<span class="nc" id="L313">						String lineString = fileLines[line];</span>
+<span class="nc bnc" id="L314" title="All 4 branches missed.">						if ((lineString.isEmpty()) || (lineString.charAt(0) == LstFileLoader.LINE_COMMENT_CHAR)</span>
+<span class="nc bnc" id="L315" title="All 2 branches missed.">								|| lineString.startsWith(&quot;SOURCE&quot;))</span>
+						{
+<span class="nc" id="L317">							resultBuffer.append(lineString);</span>
+						}
+						else
+						{
+							try
+							{
+<span class="nc" id="L323">								List&lt;CDOMObject&gt; newObj = loader.process(resultBuffer, line, lineString, decider);</span>
+<span class="nc bnc" id="L324" title="All 2 branches missed.">								if (newObj != null)</span>
+								{
+<span class="nc bnc" id="L326" title="All 2 branches missed.">									for (CDOMObject cdo : newObj)</span>
+									{
+<span class="nc" id="L328">										injected.addToListFor(loader, uri, cdo);</span>
+<span class="nc" id="L329">									}</span>
+								}
+							}
+<span class="nc" id="L332">							catch (PersistenceLayerException | InterruptedException e)</span>
+							{
+<span class="nc" id="L334">								String message = LanguageBundle.getFormattedString(&quot;Errors.LstFileLoader.LoadError&quot;, //$NON-NLS-1$</span>
+<span class="nc" id="L335">										uri, e.getMessage());</span>
+<span class="nc" id="L336">								Logging.errorPrint(message, e);</span>
+<span class="nc" id="L337">								return null;</span>
+<span class="nc" id="L338">							}</span>
+						}
+<span class="nc" id="L340">						resultBuffer.append(&quot;\n&quot;);</span>
+					}
+<span class="nc" id="L342">					return resultBuffer.toString();</span>
+				});
+		}
+<span class="nc" id="L345">		catch (PersistenceLayerException ple)</span>
+		{
+<span class="nc" id="L347">			Logging.errorPrint(LanguageBundle.getFormattedString(&quot;Errors.LstFileLoader.LoadError&quot;, //$NON-NLS-1$</span>
+<span class="nc" id="L348">					uri, ple.getMessage()));</span>
+<span class="nc" id="L349">			return Optional.empty();</span>
+		}
+	}
+
+	public Collection&lt;Loader&gt; getInjectedLoaders()
+	{
+<span class="nc" id="L355">		return injected.getKeySet();</span>
+	}
+
+	public Collection&lt;URI&gt; getInjectedURIs(Loader l)
+	{
+<span class="nc" id="L360">		return injected.getSecondaryKeySet(l);</span>
+	}
+
+	public Collection&lt;CDOMObject&gt; getInjectedObjects(Loader l, URI uri)
+	{
+<span class="nc" id="L365">		return injected.getListFor(l, uri);</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

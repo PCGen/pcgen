@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ChoiceSetUtilities.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.choiceset</a> &gt; <span class="el_source">ChoiceSetUtilities.java</span></div><h1>ChoiceSetUtilities.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) 2008 Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package pcgen.cdom.choiceset;
+
+import java.util.Collection;
+
+import pcgen.cdom.base.PrimitiveChoiceSet;
+
+/**
+ * ChoiceSetUtilities is a set of utility methods for use with objects that
+ * implement pcgen.cdom.base.PrimitiveChoiceSet
+ * 
+ * @see pcgen.cdom.base.PrimitiveChoiceSet
+ */
+public final class ChoiceSetUtilities
+{
+
+	private ChoiceSetUtilities()
+	{
+	}
+
+	/**
+	 * Compares two PrimitiveChoiceSet objects to establish which should &quot;sort&quot;
+	 * first.
+	 * 
+	 * @param pcs1
+	 *            The first PrimitiveChoiceSet object to be used in the
+	 *            comparison
+	 * @param pcs2
+	 *            The second PrimitiveChoiceSet object to be used in the
+	 *            comparison
+	 * @return 0 if the PrimitiveChoiceSet objects are equal (at least in name,
+	 *         may not be consistent-with-equals), less than zero if the first
+	 *         given PrimitiveChoiceSet should be sorted before the second, and
+	 *         greater than zero if the first given PrimitiveChoiceSet should be
+	 *         sorted after the second.
+	 */
+	public static int compareChoiceSets(PrimitiveChoiceSet&lt;?&gt; pcs1, PrimitiveChoiceSet&lt;?&gt; pcs2)
+	{
+<span class="nc" id="L55">		String base = pcs1.getLSTformat(false);</span>
+<span class="nc bnc" id="L56" title="All 2 branches missed.">		if (base == null)</span>
+		{
+<span class="nc bnc" id="L58" title="All 2 branches missed.">			if (pcs2.getLSTformat(false) == null)</span>
+			{
+<span class="nc" id="L60">				return 0;</span>
+			}
+			else
+			{
+<span class="nc" id="L64">				return -1;</span>
+			}
+		}
+		else
+		{
+<span class="nc bnc" id="L69" title="All 2 branches missed.">			if (pcs2.getLSTformat(false) == null)</span>
+			{
+<span class="nc" id="L71">				return 1;</span>
+			}
+			else
+			{
+<span class="nc" id="L75">				return base.compareTo(pcs2.getLSTformat(false));</span>
+			}
+		}
+	}
+
+	/**
+	 * Concatenates the LST format of the given Collection of PrimitiveChoiceSet
+	 * objects into a String using the separator as the delimiter.
+	 * 
+	 * The LST format for each CDOMReference is determined by calling the
+	 * getLSTformat() method on the PrimitiveChoiceSet.
+	 * 
+	 * The items will be joined in the order determined by the ordering of the
+	 * given Collection.
+	 * 
+	 * Ownership of the Collection provided to this method is not transferred
+	 * and this constructor will not modify the given Collection.
+	 * 
+	 * @param pcsCollection
+	 *            An Collection of PrimitiveChoiceSet objects
+	 * @param separator
+	 *            The separating string
+	 * @param useAny
+	 *            use &quot;ANY&quot; for the global &quot;ALL&quot; reference when creating the LST
+	 *            format
+	 * @return A 'separator' separated String containing the LST format of the
+	 *         given Collection of PrimitiveChoiceSet objects
+	 */
+	public static String joinLstFormat(Collection&lt;? extends PrimitiveChoiceSet&lt;?&gt;&gt; pcsCollection, String separator,
+		boolean useAny)
+	{
+<span class="nc bnc" id="L106" title="All 2 branches missed.">		if (pcsCollection == null)</span>
+		{
+<span class="nc" id="L108">			return &quot;&quot;;</span>
+		}
+
+<span class="nc" id="L111">		final StringBuilder result = new StringBuilder(pcsCollection.size() * 10);</span>
+
+<span class="nc" id="L113">		boolean needjoin = false;</span>
+
+<span class="nc bnc" id="L115" title="All 2 branches missed.">		for (PrimitiveChoiceSet&lt;?&gt; pcs : pcsCollection)</span>
+		{
+<span class="nc bnc" id="L117" title="All 2 branches missed.">			if (needjoin)</span>
+			{
+<span class="nc" id="L119">				result.append(separator);</span>
+			}
+<span class="nc" id="L121">			needjoin = true;</span>
+<span class="nc" id="L122">			result.append(pcs.getLSTformat(useAny));</span>
+<span class="nc" id="L123">		}</span>
+
+<span class="nc" id="L125">		return result.toString();</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

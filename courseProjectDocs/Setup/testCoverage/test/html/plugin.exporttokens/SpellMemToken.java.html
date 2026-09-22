@@ -1,0 +1,522 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SpellMemToken.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.exporttokens</a> &gt; <span class="el_source">SpellMemToken.java</span></div><h1>SpellMemToken.java</h1><pre class="source lang-java linenums">/*
+ * SpellMemToken.java
+ * Copyright 2004 (C) James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.     See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package plugin.exporttokens;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+import java.util.StringTokenizer;
+import java.util.TreeSet;
+
+import pcgen.base.util.HashMapToList;
+import pcgen.cdom.base.CDOMList;
+import pcgen.cdom.enumeration.FactKey;
+import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.SourceFormat;
+import pcgen.cdom.enumeration.StringKey;
+import pcgen.core.Ability;
+import pcgen.core.Globals;
+import pcgen.core.PCClass;
+import pcgen.core.PObject;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.SettingsHandler;
+import pcgen.core.analysis.OutputNameFormatting;
+import pcgen.core.character.CharacterSpell;
+import pcgen.core.character.SpellInfo;
+import pcgen.core.spell.Spell;
+import pcgen.io.ExportHandler;
+import pcgen.io.exporttoken.Token;
+import pcgen.util.Delta;
+
+/**
+ * {@code SpellMemToken} displays information about the spells
+ * in the character spellbooks..
+ */
+
+// SPELLMEM.x.x.x.x.LABEL classNum.bookNum.level.spellnumber
+// LABEL is TIMES,NAME,RANGE,etc. if not supplied it defaults to NAME
+<span class="nc" id="L57">public class SpellMemToken extends Token</span>
+{
+	/** token name */
+	public static final String TOKENNAME = &quot;SPELLMEM&quot;;
+
+	@Override
+	public String getTokenName()
+	{
+<span class="nc" id="L65">		return TOKENNAME;</span>
+	}
+
+	@Override
+	public String getToken(String tokenSource, PlayerCharacter aPC, ExportHandler eh)
+	{
+<span class="nc" id="L71">		StringBuilder retValue = new StringBuilder();</span>
+
+		// New Token syntax - SPELLMEM.x instead of SPELLMEMx
+<span class="nc" id="L74">		final StringTokenizer aTok = new StringTokenizer(tokenSource, &quot;.&quot;);</span>
+
+<span class="nc" id="L76">		aTok.nextToken();</span>
+		final int classNum;
+
+<span class="nc" id="L79">		classNum = Integer.parseInt(aTok.nextToken());</span>
+
+<span class="nc" id="L81">		final int bookNum = Integer.parseInt(aTok.nextToken());</span>
+<span class="nc" id="L82">		final int spellLevel = Integer.parseInt(aTok.nextToken());</span>
+<span class="nc" id="L83">		final int spellNumber = Integer.parseInt(aTok.nextToken());</span>
+<span class="nc" id="L84">		String aLabel = &quot;NAME&quot;;</span>
+
+<span class="nc bnc" id="L86" title="All 2 branches missed.">		if (aTok.hasMoreTokens())</span>
+		{
+<span class="nc" id="L88">			aLabel = aTok.nextToken();</span>
+		}
+
+<span class="nc" id="L91">		String altLabel = &quot;&quot;;</span>
+
+<span class="nc bnc" id="L93" title="All 2 branches missed.">		if (aTok.hasMoreTokens())</span>
+		{
+<span class="nc" id="L95">			altLabel = aTok.nextToken();</span>
+		}
+
+<span class="nc" id="L98">		final PObject aObject = aPC.getSpellClassAtIndex(classNum);</span>
+
+<span class="nc bnc" id="L100" title="All 8 branches missed.">		if ((aObject == null) &amp;&amp; (eh != null) &amp;&amp; eh.getExistsOnly() &amp;&amp; (classNum != -1))</span>
+		{
+<span class="nc" id="L102">			eh.setNoMoreItems(true);</span>
+		}
+
+<span class="nc" id="L105">		String bookName = Globals.getDefaultSpellBook();</span>
+
+<span class="nc bnc" id="L107" title="All 2 branches missed.">		if (bookNum &gt; 0)</span>
+		{
+<span class="nc" id="L109">			bookName = aPC.getDisplay().getSpellBookNames().get(bookNum);</span>
+		}
+
+<span class="nc bnc" id="L112" title="All 4 branches missed.">		if ((aObject != null) || (classNum == -1))</span>
+		{
+<span class="nc bnc" id="L114" title="All 2 branches missed.">			if (classNum == -1)</span>
+			{
+<span class="nc" id="L116">				bookName = Globals.getDefaultSpellBook();</span>
+			}
+
+<span class="nc bnc" id="L119" title="All 4 branches missed.">			if ((bookName != null) &amp;&amp; !bookName.isEmpty())</span>
+			{
+<span class="nc" id="L121">				Spell aSpell = null;</span>
+
+<span class="nc" id="L123">				CharacterSpell selectedCSpell = null;</span>
+<span class="nc bnc" id="L124" title="All 2 branches missed.">				if (classNum == -1)</span>
+				{
+					// List of all the character's spells (including SLAs)
+<span class="nc" id="L127">					final List&lt;CharacterSpell&gt; charSpellList = new ArrayList&lt;&gt;();</span>
+
+					// For each class
+<span class="nc bnc" id="L130" title="All 2 branches missed.">					for (PCClass pcClass : aPC.getDisplay().getClassSet())</span>
+					{
+						// Get the spells provided by the class
+<span class="nc" id="L133">						List&lt;CharacterSpell&gt; aList = aPC.getCharacterSpells(pcClass, null, bookName, spellLevel);</span>
+
+						// Add to the list if they are not there already
+<span class="nc" id="L136">						aList.stream()</span>
+<span class="nc bnc" id="L137" title="All 2 branches missed.">						     .filter(cs -&gt; !charSpellList.contains(cs))</span>
+<span class="nc" id="L138">						     .forEach(charSpellList::add);</span>
+<span class="nc" id="L139">					}</span>
+
+					// Sort the list
+<span class="nc" id="L142">					Collections.sort(charSpellList);</span>
+
+					// Set cs to the spell asked for
+<span class="nc bnc" id="L145" title="All 2 branches missed.">					if (spellNumber &lt; charSpellList.size())</span>
+					{
+<span class="nc" id="L147">						selectedCSpell = charSpellList.get(spellNumber);</span>
+<span class="nc" id="L148">						aSpell = selectedCSpell.getSpell();</span>
+					}
+<span class="nc" id="L150">				}</span>
+				else
+                {
+                    // List of spells provided by this PObject
+<span class="nc" id="L154">                    final List&lt;CharacterSpell&gt; charSpells = aPC.getCharacterSpells(aObject, null, bookName, spellLevel);</span>
+
+<span class="nc bnc" id="L156" title="All 2 branches missed.">                    if (spellNumber &lt; charSpells.size())</span>
+                    {
+<span class="nc" id="L158">                        selectedCSpell = charSpells.get(spellNumber);</span>
+<span class="nc" id="L159">                        aSpell = selectedCSpell.getSpell();</span>
+                    }
+                }
+
+				// We never found the requested spell
+<span class="nc bnc" id="L164" title="All 2 branches missed.">				if (selectedCSpell == null)</span>
+				{
+<span class="nc bnc" id="L166" title="All 4 branches missed.">					if ((eh != null) &amp;&amp; eh.getExistsOnly())</span>
+					{
+<span class="nc" id="L168">						eh.setNoMoreItems(true);</span>
+					}
+
+<span class="nc" id="L171">					return retValue.toString();</span>
+				}
+
+				// Get the SpellInfo for the selected spell
+<span class="nc" id="L175">				final SpellInfo si = selectedCSpell.getSpellInfoFor(bookName, spellLevel);</span>
+
+<span class="nc bnc" id="L177" title="All 4 branches missed.">				if ((aSpell != null) &amp;&amp; (si != null))</span>
+				{
+<span class="nc bnc" id="L179" title="All 4 branches missed.">					if (&quot;NAME&quot;.equals(aLabel) || &quot;OUTPUTNAME&quot;.equals(aLabel))</span>
+					{
+<span class="nc" id="L181">						retValue.append(OutputNameFormatting.getOutputName(aSpell)).append(si);</span>
+					}
+<span class="nc bnc" id="L183" title="All 2 branches missed.">					else if (&quot;BASENAME&quot;.equals(aLabel))</span>
+					{
+<span class="nc" id="L185">						retValue.append(OutputNameFormatting.getOutputName(aSpell));</span>
+					}
+<span class="nc bnc" id="L187" title="All 2 branches missed.">					else if (&quot;APPLIEDNAME&quot;.equals(aLabel))</span>
+					{
+<span class="nc" id="L189">						retValue.append(getAppliedName(si));</span>
+					}
+<span class="nc bnc" id="L191" title="All 2 branches missed.">					else if (&quot;PPCOST&quot;.equals(aLabel))</span>
+					{
+<span class="nc bnc" id="L193" title="All 2 branches missed.">						if (si.getActualPPCost() != -1)</span>
+						{
+<span class="nc" id="L195">							retValue.append(si.getActualPPCost());</span>
+						}
+					}
+<span class="nc bnc" id="L198" title="All 2 branches missed.">					else if (&quot;TIMES&quot;.equals(aLabel))</span>
+					{
+<span class="nc bnc" id="L200" title="All 2 branches missed.">						if (si.getTimes() == SpellInfo.TIMES_AT_WILL)</span>
+						{
+<span class="nc" id="L202">							retValue.append(&quot;At Will&quot;);</span>
+						}
+						else
+						{
+<span class="nc" id="L206">							retValue.append(si.getTimes());</span>
+						}
+					}
+<span class="nc bnc" id="L209" title="All 2 branches missed.">					else if (&quot;TIMEUNIT&quot;.equals(aLabel))</span>
+					{
+<span class="nc" id="L211">						retValue.append(si.getTimeUnit());</span>
+					}
+					else
+					// if (aSpell != null) can't be null
+					{
+<span class="nc bnc" id="L216" title="All 2 branches missed.">						if (&quot;RANGE&quot;.equals(aLabel))</span>
+						{
+<span class="nc" id="L218">							retValue.append(aPC.getSpellRange(selectedCSpell, si));</span>
+						}
+<span class="nc bnc" id="L220" title="All 2 branches missed.">						else if (&quot;CASTERLEVEL&quot;.equals(aLabel))</span>
+						{
+<span class="nc" id="L222">							retValue.append(aPC.getCasterLevelForSpell(selectedCSpell));</span>
+						}
+<span class="nc bnc" id="L224" title="All 2 branches missed.">						else if (&quot;CASTINGTIME&quot;.equals(aLabel))</span>
+						{
+<span class="nc" id="L226">							retValue.append(aSpell.getListAsString(ListKey.CASTTIME));</span>
+						}
+<span class="nc bnc" id="L228" title="All 2 branches missed.">						else if (&quot;COMPONENTS&quot;.equals(aLabel))</span>
+						{
+<span class="nc" id="L230">							retValue.append(aSpell.getListAsString(ListKey.COMPONENTS));</span>
+						}
+<span class="nc bnc" id="L232" title="All 2 branches missed.">						else if (&quot;CONCENTRATION&quot;.equals(aLabel))</span>
+						{
+<span class="nc bnc" id="L234" title="All 2 branches missed.">							if (!SettingsHandler.getGameAsProperty().get().getSpellBaseConcentration().isEmpty())</span>
+							{
+<span class="nc" id="L236">								int concentration = aPC.getConcentration(aSpell, selectedCSpell, si);</span>
+<span class="nc" id="L237">								retValue.append(Delta.toString(concentration));</span>
+<span class="nc" id="L238">							}</span>
+						}
+<span class="nc bnc" id="L240" title="All 2 branches missed.">						else if (&quot;COST&quot;.equals(aLabel))</span>
+						{
+<span class="nc" id="L242">							retValue.append(aSpell.getSafe(ObjectKey.COST));</span>
+						}
+<span class="nc bnc" id="L244" title="All 2 branches missed.">						else if (&quot;DC&quot;.equals(aLabel))</span>
+						{
+<span class="nc" id="L246">							String SaveInfo = aSpell.getListAsString(ListKey.SAVE_INFO);</span>
+<span class="nc bnc" id="L247" title="All 6 branches missed.">							if (!&quot;&quot;.equals(SaveInfo) &amp;&amp; !&quot;None&quot;.equals(SaveInfo) &amp;&amp; !&quot;No&quot;.equals(SaveInfo))</span>
+							{
+<span class="nc" id="L249">								int dc = aPC.getDC(aSpell, selectedCSpell, si);</span>
+<span class="nc" id="L250">								retValue.append(dc);</span>
+							}
+<span class="nc" id="L252">						}</span>
+<span class="nc bnc" id="L253" title="All 2 branches missed.">						else if (&quot;DURATION&quot;.equals(aLabel))</span>
+						{
+<span class="nc" id="L255">							String mString =</span>
+<span class="nc" id="L256">									aPC.parseSpellString(selectedCSpell, aSpell.getListAsString(ListKey.DURATION));</span>
+<span class="nc" id="L257">							retValue.append(mString);</span>
+<span class="nc" id="L258">						}</span>
+<span class="nc bnc" id="L259" title="All 4 branches missed.">						else if (&quot;DESC&quot;.equals(aLabel) || &quot;EFFECT&quot;.equals(aLabel))</span>
+						{
+<span class="nc" id="L261">							String mString = aPC.getInfoToken(&quot;.INFO.DESC&quot;, aSpell);</span>
+<span class="nc bnc" id="L262" title="All 2 branches missed.">							if (mString.equals(&quot;.INFO.DESC&quot;))</span>
+							{
+<span class="nc" id="L264">								mString = aPC.parseSpellString(selectedCSpell, aPC.getDescription(aSpell));</span>
+							}
+<span class="nc" id="L266">							retValue.append(mString);</span>
+<span class="nc" id="L267">						}</span>
+<span class="nc bnc" id="L268" title="All 4 branches missed.">						else if (&quot;TARGET&quot;.equals(aLabel) || &quot;EFFECTYPE&quot;.equals(aLabel))</span>
+						{
+<span class="nc" id="L270">							String mString =</span>
+<span class="nc" id="L271">									aPC.parseSpellString(selectedCSpell, aSpell.getSafe(StringKey.TARGET_AREA));</span>
+<span class="nc" id="L272">							retValue.append(mString);</span>
+<span class="nc" id="L273">						}</span>
+<span class="nc bnc" id="L274" title="All 2 branches missed.">						else if (&quot;SAVEINFO&quot;.equals(aLabel))</span>
+						{
+<span class="nc" id="L276">							retValue.append(aSpell.getListAsString(ListKey.SAVE_INFO));</span>
+						}
+<span class="nc bnc" id="L278" title="All 2 branches missed.">						else if (&quot;SCHOOL&quot;.equals(aLabel))</span>
+						{
+<span class="nc" id="L280">							retValue.append(aSpell.getListAsString(ListKey.SPELL_SCHOOL));</span>
+						}
+<span class="nc bnc" id="L282" title="All 2 branches missed.">						else if (&quot;SOURCELEVEL&quot;.equals(aLabel))</span>
+						{
+<span class="nc" id="L284">							retValue.append(replaceTokenSpellMemSourceLevel(aSpell, aPC));</span>
+						}
+<span class="nc bnc" id="L286" title="All 2 branches missed.">						else if (&quot;SOURCE&quot;.equals(aLabel))</span>
+						{
+<span class="nc" id="L288">							retValue.append(SourceFormat.getFormattedString(aSpell, Globals.getSourceDisplay(), true));</span>
+						}
+<span class="nc bnc" id="L290" title="All 2 branches missed.">						else if (&quot;SOURCESHORT&quot;.equals(aLabel))</span>
+						{
+<span class="nc" id="L292">							retValue.append(SourceFormat.formatShort(aSpell, 8));</span>
+						}
+<span class="nc bnc" id="L294" title="All 2 branches missed.">						else if (&quot;SOURCEPAGE&quot;.equals(aLabel))</span>
+						{
+<span class="nc" id="L296">							retValue.append(aSpell.get(StringKey.SOURCE_PAGE));</span>
+						}
+<span class="nc bnc" id="L298" title="All 2 branches missed.">						else if (&quot;SOURCEWEB&quot;.equals(aLabel))</span>
+						{
+<span class="nc" id="L300">							String aTemp = aSpell.get(StringKey.SOURCE_WEB);</span>
+
+<span class="nc bnc" id="L302" title="All 4 branches missed.">							if ((aTemp != null) &amp;&amp; !aTemp.isEmpty())</span>
+							{
+<span class="nc" id="L304">								retValue.append(aTemp);</span>
+							}
+<span class="nc" id="L306">						}</span>
+<span class="nc bnc" id="L307" title="All 2 branches missed.">						else if (&quot;SOURCELINK&quot;.equals(aLabel))</span>
+						{
+<span class="nc" id="L309">							String aTemp = aSpell.get(StringKey.SOURCE_LINK);</span>
+
+<span class="nc bnc" id="L311" title="All 4 branches missed.">							if ((aTemp != null) &amp;&amp; !aTemp.isEmpty())</span>
+							{
+<span class="nc" id="L313">								retValue.append(aTemp);</span>
+							}
+<span class="nc" id="L315">						}</span>
+<span class="nc bnc" id="L316" title="All 2 branches missed.">						else if (&quot;SUBSCHOOL&quot;.equals(aLabel))</span>
+						{
+<span class="nc" id="L318">							retValue.append(aSpell.getListAsString(ListKey.SPELL_SUBSCHOOL));</span>
+						}
+<span class="nc bnc" id="L320" title="All 2 branches missed.">						else if (&quot;DESCRIPTOR&quot;.equals(aLabel))</span>
+						{
+<span class="nc" id="L322">							retValue.append(aSpell.getListAsString(ListKey.SPELL_DESCRIPTOR));</span>
+						}
+<span class="nc bnc" id="L324" title="All 2 branches missed.">						else if (&quot;FULLSCHOOL&quot;.equals(aLabel))</span>
+						{
+<span class="nc" id="L326">							String aTemp = aSpell.getListAsString(ListKey.SPELL_SCHOOL);</span>
+
+<span class="nc bnc" id="L328" title="All 2 branches missed.">							if ((!aSpell.getListAsString(ListKey.SPELL_SUBSCHOOL).isEmpty())</span>
+<span class="nc bnc" id="L329" title="All 2 branches missed.">								&amp;&amp; (!&quot;NONE&quot;.equalsIgnoreCase(aSpell.getListAsString(ListKey.SPELL_SUBSCHOOL).trim())))</span>
+							{
+<span class="nc" id="L331">								aTemp += (&quot; (&quot; + aSpell.getListAsString(ListKey.SPELL_SUBSCHOOL) + ')');</span>
+							}
+
+<span class="nc bnc" id="L334" title="All 2 branches missed.">							if (!aSpell.getListAsString(ListKey.SPELL_DESCRIPTOR).isEmpty())</span>
+							{
+<span class="nc" id="L336">								aTemp += (&quot; [&quot; + aSpell.getListAsString(ListKey.SPELL_DESCRIPTOR) + ']');</span>
+							}
+
+<span class="nc" id="L339">							retValue.append(aTemp);</span>
+<span class="nc" id="L340">						}</span>
+<span class="nc bnc" id="L341" title="All 2 branches missed.">						else if (&quot;SR&quot;.equals(aLabel))</span>
+						{
+<span class="nc" id="L343">							retValue.append(aSpell.getListAsString(ListKey.SPELL_RESISTANCE));</span>
+						}
+<span class="nc bnc" id="L345" title="All 2 branches missed.">						else if (&quot;SRSHORT&quot;.equals(aLabel))</span>
+						{
+<span class="nc bnc" id="L347" title="All 2 branches missed.">							if (&quot;No&quot;.equals(aSpell.getListAsString(ListKey.SPELL_RESISTANCE)))</span>
+							{
+<span class="nc" id="L349">								retValue.append('N');</span>
+							}
+							else
+							{
+<span class="nc" id="L353">								retValue.append('Y');</span>
+							}
+						}
+<span class="nc bnc" id="L356" title="All 2 branches missed.">						else if (&quot;CLASS&quot;.equals(aLabel))</span>
+						{
+<span class="nc" id="L358">							retValue.append(OutputNameFormatting.getOutputName(aObject));</span>
+						}
+<span class="nc bnc" id="L360" title="All 2 branches missed.">						else if (&quot;DCSTAT&quot;.equals(aLabel))</span>
+						{
+<span class="nc bnc" id="L362" title="All 2 branches missed.">							if (aObject instanceof PCClass aClass)</span>
+							{
+<span class="nc" id="L364">								retValue.append(aClass.getSpellBaseStat());</span>
+							}
+						}
+<span class="nc bnc" id="L367" title="All 2 branches missed.">						else if (&quot;TYPE&quot;.equals(aLabel))</span>
+						{
+<span class="nc" id="L369">							PCClass aClass = null;</span>
+
+<span class="nc bnc" id="L371" title="All 2 branches missed.">							if (aObject instanceof PCClass)</span>
+							{
+<span class="nc" id="L373">								aClass = (PCClass) aObject;</span>
+							}
+
+<span class="nc bnc" id="L376" title="All 2 branches missed.">							if (aClass != null)</span>
+							{
+<span class="nc" id="L378">								retValue.append(aClass.getSpellType());</span>
+							}
+<span class="nc" id="L380">						}</span>
+<span class="nc bnc" id="L381" title="All 2 branches missed.">						else if (aLabel.startsWith(&quot;DESCRIPTION&quot;))</span>
+						{
+<span class="nc" id="L383">							final String sString = aPC.getDescription(aSpell);</span>
+
+<span class="nc bnc" id="L385" title="All 2 branches missed.">							if (altLabel.isEmpty())</span>
+							{
+<span class="nc" id="L387">								retValue.append(sString);</span>
+							}
+							else
+							{
+<span class="nc" id="L391">								retValue.append(sString.replaceAll(&quot;\r?\n&quot;, altLabel));</span>
+							}
+<span class="nc" id="L393">						}</span>
+<span class="nc bnc" id="L394" title="All 2 branches missed.">						else if (aLabel.startsWith(&quot;BONUSSPELL&quot;))</span>
+						{
+<span class="nc" id="L396">							String sString = &quot;*&quot;;</span>
+
+<span class="nc bnc" id="L398" title="All 2 branches missed.">							if (aLabel.length() &gt; 10)</span>
+							{
+<span class="nc" id="L400">								sString = aLabel.substring(10);</span>
+							}
+
+<span class="nc" id="L403">							retValue.append(getBonusSpellValue(aPC, spellLevel, sString, altLabel, aObject, bookName,</span>
+								selectedCSpell, aSpell));
+<span class="nc" id="L405">						}</span>
+<span class="nc bnc" id="L406" title="All 2 branches missed.">						else if (&quot;XPCOST&quot;.equals(aLabel))</span>
+						{
+<span class="nc" id="L408">							retValue.append(aSpell.getSafe(IntegerKey.XP_COST));</span>
+						}
+<span class="nc bnc" id="L410" title="All 2 branches missed.">						else if (&quot;CT&quot;.equals(aLabel))</span>
+						{
+<span class="nc" id="L412">							retValue.append(aSpell.getSafe(IntegerKey.CASTING_THRESHOLD));</span>
+						}
+					}
+				}
+<span class="nc bnc" id="L416" title="All 4 branches missed.">				else if ((eh != null) &amp;&amp; eh.getExistsOnly())</span>
+				{
+<span class="nc" id="L418">					eh.setNoMoreItems(true);</span>
+				}
+<span class="nc" id="L420">			}</span>
+<span class="nc bnc" id="L421" title="All 4 branches missed.">			else if ((eh != null) &amp;&amp; eh.getExistsOnly())</span>
+			{
+<span class="nc" id="L423">				eh.setNoMoreItems(true);</span>
+			}
+		}
+
+<span class="nc" id="L427">		return retValue.toString();</span>
+	}
+
+	private static String getAppliedName(final SpellInfo si)
+	{
+<span class="nc" id="L432">		List&lt;Ability&gt; featList = si.getFeatList();</span>
+<span class="nc bnc" id="L433" title="All 4 branches missed.">		if ((featList == null) || featList.isEmpty())</span>
+		{
+<span class="nc" id="L435">			return &quot;&quot;;</span>
+		}
+
+<span class="nc" id="L438">		final StringBuilder aBuf = new StringBuilder(50);</span>
+<span class="nc bnc" id="L439" title="All 2 branches missed.">		for (int i = 0; i &lt; featList.size(); i++)</span>
+		{
+<span class="nc" id="L441">			Object an = featList.get(i).getResolved(FactKey.valueOf(&quot;AppliedName&quot;));</span>
+<span class="nc bnc" id="L442" title="All 2 branches missed.">			aBuf.append((an == null) ? &quot;&quot; : an);</span>
+<span class="nc bnc" id="L443" title="All 2 branches missed.">			if (i &lt; featList.size())</span>
+			{
+<span class="nc" id="L445">				aBuf.append(' ');</span>
+			}
+		}
+
+<span class="nc" id="L449">		return aBuf.toString();</span>
+	}
+
+	/**
+	 * Display an * is the spell is a domain/specialty spell,
+	 * display ** if it is ONLY a domain/specialty spell. A value
+	 * may also be supplied that will be displayed for non-specialty spells.
+	 *
+	 * @param aPC The character being processed.
+	 * @param spellLevel The level of the spell.
+	 * @param sString The indicator to use for domain/specialty spells.
+	 * @param altLabel The indicator to use for non domain/specialty spells.
+	 * @param aObject The class containing the spell.
+	 * @param bookName The name of the spell book.
+	 * @param cs The spell as it applies to the character
+	 * @param aSpell The generic spell.
+	 * @return The annotation string indicating domain/specialty status
+	 */
+	private static String getBonusSpellValue(PlayerCharacter aPC, final int spellLevel, String sString,
+	                                         String altLabel,
+	                                         final PObject aObject, String bookName, CharacterSpell cs, Spell aSpell)
+	{
+<span class="nc" id="L471">		StringBuilder retValue = new StringBuilder();</span>
+
+<span class="nc bnc" id="L473" title="All 8 branches missed.">		if ((aObject != null) &amp;&amp; (cs != null) &amp;&amp; cs.isSpecialtySpell(aPC) &amp;&amp; (aObject instanceof PCClass))</span>
+		{
+<span class="nc" id="L475">			final List&lt;CharacterSpell&gt; charSpells = aPC.getCharacterSpells(aObject, aSpell, bookName, spellLevel);</span>
+<span class="nc" id="L476">			boolean isDomainOnly = charSpells.stream().allMatch(cSpell -&gt; cSpell.isSpecialtySpell(aPC));</span>
+
+<span class="nc bnc" id="L478" title="All 2 branches missed.">			if (isDomainOnly)</span>
+			{
+<span class="nc" id="L480">				retValue.append(sString);</span>
+			}
+			else
+			{
+<span class="nc" id="L484">				retValue.append(sString).append(sString);</span>
+			}
+<span class="nc" id="L486">		}</span>
+		else
+		{
+<span class="nc" id="L489">			retValue.append(altLabel);</span>
+		}
+
+<span class="nc" id="L492">		return retValue.toString();</span>
+	}
+
+	private static String replaceTokenSpellMemSourceLevel(Spell aSpell, PlayerCharacter aPC)
+	{
+<span class="nc" id="L497">		final HashMapToList&lt;CDOMList&lt;Spell&gt;, Integer&gt; tempHash = aPC.getSpellLevelInfo(aSpell);</span>
+		String tempSource;
+<span class="nc" id="L499">		final Collection&lt;String&gt; levelSet = new TreeSet&lt;&gt;();</span>
+
+<span class="nc bnc" id="L501" title="All 2 branches missed.">		for (CDOMList&lt;Spell&gt; spellList : tempHash.getKeySet())</span>
+		{
+<span class="nc" id="L503">			String classKey = spellList.getKeyName();</span>
+<span class="nc bnc" id="L504" title="All 2 branches missed.">			for (Integer lvl : tempHash.getListFor(spellList))</span>
+			{
+<span class="nc" id="L506">				PCClass pcc = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class,</span>
+					classKey);
+<span class="nc bnc" id="L508" title="All 2 branches missed.">				if (pcc != null)</span>
+				{
+<span class="nc" id="L510">					classKey = pcc.getAbbrev();</span>
+				}
+<span class="nc" id="L512">				levelSet.add(classKey + lvl);</span>
+<span class="nc" id="L513">			}</span>
+<span class="nc" id="L514">		}</span>
+
+<span class="nc" id="L516">		tempSource = String.join(&quot;, &quot;, levelSet);</span>
+
+<span class="nc" id="L518">		return tempSource;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

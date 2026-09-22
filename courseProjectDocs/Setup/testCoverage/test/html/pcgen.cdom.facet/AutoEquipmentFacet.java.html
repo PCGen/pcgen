@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AutoEquipmentFacet.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.facet</a> &gt; <span class="el_source">AutoEquipmentFacet.java</span></div><h1>AutoEquipmentFacet.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) Thomas Parker, 2009.
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package pcgen.cdom.facet;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.facet.base.AbstractQualifiedListFacet;
+import pcgen.cdom.facet.event.DataFacetChangeEvent;
+import pcgen.cdom.facet.event.DataFacetChangeListener;
+import pcgen.core.Equipment;
+import pcgen.core.QualifiedObject;
+
+/**
+ * AutoEquipmentFacet is a Facet that tracks the Automatic Equipment objects
+ * (those granted by AUTO:EQUIP) that are contained in a Player Character.
+ * 
+ */
+<span class="fc" id="L39">public class AutoEquipmentFacet extends AbstractQualifiedListFacet&lt;QualifiedObject&lt;CDOMReference&lt;Equipment&gt;&gt;&gt;</span>
+		implements DataFacetChangeListener&lt;CharID, CDOMObject&gt;
+{
+
+	private CDOMObjectConsolidationFacet consolidationFacet;
+
+	/**
+	 * Adds Equipment granted to a Player Character by AUTO:EQUIP.
+	 * 
+	 * Triggered when one of the Facets to which AutoEquipmentFacet listens
+	 * fires a DataFacetChangeEvent to indicate a CDOMObject was added to a
+	 * Player Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 */
+	@Override
+	public void dataAdded(DataFacetChangeEvent&lt;CharID, CDOMObject&gt; dfce)
+	{
+<span class="fc" id="L59">		CDOMObject cdo = dfce.getCDOMObject();</span>
+<span class="fc" id="L60">		List&lt;QualifiedObject&lt;CDOMReference&lt;Equipment&gt;&gt;&gt; list = cdo.getSafeListFor(ListKey.EQUIPMENT);</span>
+<span class="pc bpc" id="L61" title="1 of 2 branches missed.">		if (list != null)</span>
+		{
+<span class="fc" id="L63">			addAll(dfce.getCharID(), list, cdo);</span>
+		}
+<span class="fc" id="L65">	}</span>
+
+	/**
+	 * Removes Equipment granted to a Player Character by AUTO:EQUIP from the
+	 * Player Character when the granting object is removed from the Player
+	 * Character.
+	 * 
+	 * Triggered when one of the Facets to which AutoEquipmentFacet listens
+	 * fires a DataFacetChangeEvent to indicate a CDOMObject was removed from a
+	 * Player Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 */
+	@Override
+	public void dataRemoved(DataFacetChangeEvent&lt;CharID, CDOMObject&gt; dfce)
+	{
+<span class="fc" id="L83">		removeAll(dfce.getCharID(), dfce.getCDOMObject());</span>
+<span class="fc" id="L84">	}</span>
+
+	/**
+	 * Returns a List of Equipment granted to the Player Character by all
+	 * AUTO:EQUIPMENT tokens on objects added to the Player Character.
+	 * 
+	 * This method is value-semantic in that ownership of the returned List is
+	 * transferred to the class calling this method. Modification of the
+	 * returned List will not modify this AutoEquipmentFacet and modification of
+	 * this AutoEquipmentFacet will not modify the returned Collection.
+	 * Modifications to the returned List will also not modify any future or
+	 * previous objects returned by this (or other) methods on
+	 * AutoEquipmentFacet. If you wish to modify the information stored in this
+	 * AutoEquipmentFacet, you must use the add*() and remove*() methods of
+	 * AutoEquipmentFacet.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character for which the list
+	 *            of all equipment granted by AUTO:EQUIP will be returned.
+	 * @return The List of Equipment granted by the Player Character by all
+	 *         AUTO:EQUIP tokens on objects added to the Player Character.
+	 */
+	public List&lt;Equipment&gt; getAutoEquipment(CharID id)
+	{
+<span class="nc" id="L108">		List&lt;Equipment&gt; list = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L109" title="All 2 branches missed.">		for (QualifiedObject&lt;CDOMReference&lt;Equipment&gt;&gt; qo : getQualifiedSet(id))</span>
+		{
+<span class="nc" id="L111">			Collection&lt;Equipment&gt; equipList = qo.getRawObject().getContainedObjects();</span>
+<span class="nc bnc" id="L112" title="All 2 branches missed.">			for (Equipment e : equipList)</span>
+			{
+<span class="nc" id="L114">				e = e.clone();</span>
+<span class="nc" id="L115">				e.setQty(1);</span>
+<span class="nc" id="L116">				e.setAutomatic(true);</span>
+<span class="nc" id="L117">				list.add(e);</span>
+<span class="nc" id="L118">			}</span>
+<span class="nc" id="L119">		}</span>
+<span class="nc" id="L120">		return list;</span>
+	}
+
+	public void setConsolidationFacet(CDOMObjectConsolidationFacet consolidationFacet)
+	{
+<span class="fc" id="L125">		this.consolidationFacet = consolidationFacet;</span>
+<span class="fc" id="L126">	}</span>
+
+	/**
+	 * Initializes the connections for AutoEquipmentFacet to other facets.
+	 * 
+	 * This method is automatically called by the Spring framework during
+	 * initialization of the AutoEquipmentFacet.
+	 */
+	public void init()
+	{
+<span class="fc" id="L136">		consolidationFacet.addDataFacetChangeListener(this);</span>
+<span class="fc" id="L137">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

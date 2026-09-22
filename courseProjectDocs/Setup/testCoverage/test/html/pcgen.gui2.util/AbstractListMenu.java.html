@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AbstractListMenu.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.gui2.util</a> &gt; <span class="el_source">AbstractListMenu.java</span></div><h1>AbstractListMenu.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2008 Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ * 
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ * 
+ */
+package pcgen.gui2.util;
+
+import java.awt.Dimension;
+import java.awt.Point;
+import java.awt.event.ItemListener;
+import java.awt.event.MouseEvent;
+import java.util.Objects;
+
+import javax.swing.Action;
+import javax.swing.JCheckBoxMenuItem;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+
+import pcgen.facade.util.ListFacade;
+import pcgen.facade.util.event.ListEvent;
+import pcgen.facade.util.event.ListListener;
+
+public abstract class AbstractListMenu&lt;E&gt; extends JMenu implements ListListener&lt;E&gt;
+{
+
+	private ListFacade&lt;E&gt; listModel;
+<span class="nc" id="L40">	private int oldSize = 0;</span>
+<span class="nc" id="L41">	private int offset = 0;</span>
+
+	protected AbstractListMenu(Action action)
+	{
+<span class="nc" id="L45">		this(action, null);</span>
+<span class="nc" id="L46">	}</span>
+
+	private AbstractListMenu(Action action, ListFacade&lt;E&gt; listModel)
+	{
+<span class="nc" id="L50">		super(action);</span>
+<span class="nc" id="L51">		setListModel(listModel);</span>
+<span class="nc" id="L52">	}</span>
+
+	@Override
+	public void elementAdded(ListEvent&lt;E&gt; e)
+	{
+<span class="nc" id="L57">		rebuildListMenu();</span>
+<span class="nc" id="L58">	}</span>
+
+	@Override
+	public void elementRemoved(ListEvent&lt;E&gt; e)
+	{
+<span class="nc" id="L63">		rebuildListMenu();</span>
+<span class="nc" id="L64">	}</span>
+
+	@Override
+	public void elementsChanged(ListEvent&lt;E&gt; e)
+	{
+<span class="nc" id="L69">		rebuildListMenu();</span>
+<span class="nc" id="L70">	}</span>
+
+	@Override
+	public void elementModified(ListEvent&lt;E&gt; e)
+	{
+<span class="nc" id="L75">	}</span>
+
+	@Override
+	public Point getToolTipLocation(MouseEvent event)
+	{
+<span class="nc" id="L80">		Dimension size = getSize();</span>
+<span class="nc" id="L81">		double oneRowUpHeight = (size.getHeight() * -1) - 5;</span>
+<span class="nc" id="L82">		return new Point((int) size.getWidth(), (int) oneRowUpHeight);</span>
+	}
+
+	private void rebuildListMenu()
+	{
+<span class="nc bnc" id="L87" title="All 2 branches missed.">		for (int i = 0; i &lt; oldSize; i++)</span>
+		{
+<span class="nc" id="L89">			remove(offset);</span>
+		}
+<span class="nc" id="L91">		oldSize = listModel.getSize();</span>
+<span class="nc bnc" id="L92" title="All 2 branches missed.">		for (int i = 0; i &lt; oldSize; i++)</span>
+		{
+<span class="nc" id="L94">			add(createMenuItem(listModel.getElementAt(i), i), i + offset);</span>
+		}
+<span class="nc" id="L96">		checkEnabled();</span>
+<span class="nc" id="L97">	}</span>
+
+	/**
+	 * @param offset the offset to set
+	 */
+	public void setOffset(int offset)
+	{
+<span class="nc" id="L104">		this.offset = offset;</span>
+<span class="nc" id="L105">	}</span>
+
+	public void setListModel(ListFacade&lt;E&gt; listModel)
+	{
+<span class="nc" id="L109">		ListFacade&lt;E&gt; oldModel = this.listModel;</span>
+<span class="nc bnc" id="L110" title="All 2 branches missed.">		if (oldModel != null)</span>
+		{
+<span class="nc" id="L112">			oldModel.removeListListener(this);</span>
+<span class="nc bnc" id="L113" title="All 2 branches missed.">			for (int x = 0; x &lt; oldSize; x++)</span>
+			{
+<span class="nc" id="L115">				remove(offset);</span>
+			}
+		}
+<span class="nc" id="L118">		this.listModel = listModel;</span>
+<span class="nc bnc" id="L119" title="All 2 branches missed.">		if (listModel != null)</span>
+		{
+<span class="nc" id="L121">			oldSize = listModel.getSize();</span>
+<span class="nc bnc" id="L122" title="All 2 branches missed.">			for (int x = 0; x &lt; oldSize; x++)</span>
+			{
+<span class="nc" id="L124">				add(createMenuItem(listModel.getElementAt(x), x), x + offset);</span>
+			}
+<span class="nc" id="L126">			listModel.addListListener(this);</span>
+		}
+<span class="nc" id="L128">		checkEnabled();</span>
+<span class="nc" id="L129">	}</span>
+
+	/**
+	 * Create a new dynamic menu item. The menu can optionally have a number at the 
+	 * start of the menu item to allow quick selection.
+	 * @param item The item to create a menu for.
+	 * @param index The 0 based index of the items position in the dynamic item list.
+	 * @return A menu item.
+	 */
+	protected abstract JMenuItem createMenuItem(E item, int index);
+
+	private void checkEnabled()
+	{
+<span class="nc bnc" id="L142" title="All 2 branches missed.">		setEnabled(getMenuComponentCount() != 0);</span>
+<span class="nc" id="L143">	}</span>
+
+	protected static final class CheckBoxMenuItem extends JCheckBoxMenuItem
+	{
+
+		private final Object item;
+
+		public CheckBoxMenuItem(Object item, boolean selected, ItemListener listener)
+		{
+<span class="nc" id="L152">			super(Objects.requireNonNull(item).toString());</span>
+<span class="nc" id="L153">			this.item = Objects.requireNonNull(item);</span>
+<span class="nc" id="L154">			setSelected(selected);</span>
+<span class="nc" id="L155">			addItemListener(Objects.requireNonNull(listener));</span>
+<span class="nc" id="L156">		}</span>
+
+		@Override
+		public Object[] getSelectedObjects()
+		{
+<span class="nc" id="L161">			return new Object[]{item};</span>
+		}
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

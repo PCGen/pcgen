@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DefaultVarValue.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.content</a> &gt; <span class="el_source">DefaultVarValue.java</span></div><h1>DefaultVarValue.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2015 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.cdom.content;
+
+import pcgen.base.util.FormatManager;
+import pcgen.base.util.Indirect;
+
+/**
+ * DefaultVarValue is actually a shell (unused at runtime). It is leveraged by
+ * (and necessary for) CDOMLineLoader to create an object for tokens to process
+ * and unparse, but the values stored here are not used at runtime.
+ */
+<span class="fc" id="L28">public class DefaultVarValue extends UserContent</span>
+{
+
+	/**
+	 * The FormatManager for which the default variable value is defined.
+	 */
+	private FormatManager&lt;?&gt; formatManager;
+
+	/**
+	 * The Indirect which supplies the default value for the type of object managed by the
+	 * formatManager in this DefaultVarValue.
+	 */
+	private Indirect&lt;?&gt; indirect;
+
+	@Override
+	public String getDisplayName()
+	{
+<span class="nc" id="L45">		return getKeyName();</span>
+	}
+
+	/**
+	 * Sets the FormatManager that manages the data format for which this object
+	 * holds the default value.
+	 * 
+	 * @param fmtManager
+	 *            the FormatManager that manages the data format for which this
+	 *            object holds the default value
+	 */
+	public void setFormatManager(FormatManager&lt;?&gt; fmtManager)
+	{
+<span class="fc" id="L58">		formatManager = fmtManager;</span>
+<span class="fc" id="L59">	}</span>
+
+	/**
+	 * Returns the FormatManager that manages the data format for which this
+	 * object holds the default value.
+	 * 
+	 * @return the FormatManager that manages the data format for which this
+	 *         object holds the default value
+	 */
+	public FormatManager&lt;?&gt; getFormatManager()
+	{
+<span class="fc" id="L70">		return formatManager;</span>
+	}
+
+	/**
+	 * Sets the Indirect to be used as the supplier of the default value for the format
+	 * contained by this DefaultVarValue.
+	 * 
+	 * @param indirect
+	 *            the Indirect to be used as the supplier of the default value for the
+	 *            format contained by this DefaultVarValue
+	 */
+	public void setIndirect(Indirect&lt;?&gt; indirect)
+	{
+<span class="fc" id="L83">		this.indirect = indirect;</span>
+<span class="fc" id="L84">	}</span>
+
+	/**
+	 * Returns the Indirect containing the default variable value.
+	 * 
+	 * @return the Indirect containing the default variable value
+	 */
+	public Indirect&lt;?&gt; getIndirect()
+	{
+<span class="fc" id="L93">		return indirect;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

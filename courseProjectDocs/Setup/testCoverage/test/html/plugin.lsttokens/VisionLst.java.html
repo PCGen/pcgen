@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>VisionLst.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.lsttokens</a> &gt; <span class="el_source">VisionLst.java</span></div><h1>VisionLst.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2008 (C) Thomas Parker &lt;thpr@users.sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package plugin.lsttokens;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.StringTokenizer;
+import java.util.TreeSet;
+
+import pcgen.base.lang.StringUtil;
+import pcgen.base.util.HashMapToList;
+import pcgen.base.util.MapToList;
+import pcgen.cdom.base.AssociatedPrereqObject;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.Ungranted;
+import pcgen.cdom.reference.ReferenceUtilities;
+import pcgen.core.Vision;
+import pcgen.core.prereq.Prerequisite;
+import pcgen.rules.context.AssociatedChanges;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.ComplexParseResult;
+import pcgen.rules.persistence.token.ParseResult;
+
+/**
+ * {@code VisionLst} handles the processing of the VISION tag in LST
+ * code.
+ *
+ * (Sun, 15 Jun 2008) $
+ */
+<span class="fc" id="L52">public class VisionLst extends AbstractTokenWithSeparator&lt;CDOMObject&gt; implements CDOMPrimaryToken&lt;CDOMObject&gt;</span>
+{
+
+	@Override
+	public String getTokenName()
+	{
+<span class="fc" id="L58">		return &quot;VISION&quot;;</span>
+	}
+
+	@Override
+	protected char separator()
+	{
+<span class="fc" id="L64">		return '|';</span>
+	}
+
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
+	{
+<span class="pc bpc" id="L70" title="1 of 2 branches missed.">		if (obj instanceof Ungranted)</span>
+		{
+<span class="nc" id="L72">			return new ParseResult.Fail(</span>
+<span class="nc" id="L73">				&quot;Cannot use &quot; + getTokenName() + &quot; on an Ungranted object type: &quot; + obj.getClass().getSimpleName());</span>
+		}
+<span class="fc" id="L75">		StringTokenizer aTok = new StringTokenizer(value, Constants.PIPE);</span>
+<span class="fc" id="L76">		String visionString = aTok.nextToken();</span>
+<span class="fc bfc" id="L77" title="All 2 branches covered.">		if (looksLikeAPrerequisite(visionString))</span>
+		{
+<span class="fc" id="L79">			return new ParseResult.Fail(&quot;Cannot have only PRExxx subtoken in &quot; + getTokenName() + &quot;: &quot; + value);</span>
+		}
+
+<span class="fc" id="L82">		ArrayList&lt;AssociatedPrereqObject&gt; edgeList = new ArrayList&lt;&gt;();</span>
+
+<span class="fc" id="L84">		boolean foundClear = false;</span>
+
+		while (true)
+		{
+<span class="fc bfc" id="L88" title="All 2 branches covered.">			if (Constants.LST_DOT_CLEAR.equals(visionString))</span>
+			{
+<span class="fc" id="L90">				context.getListContext().removeAllFromList(getTokenName(), obj, Vision.VISIONLIST);</span>
+<span class="fc" id="L91">				foundClear = true;</span>
+			}
+<span class="fc bfc" id="L93" title="All 2 branches covered.">			else if (visionString.startsWith(Constants.LST_DOT_CLEAR_DOT))</span>
+			{
+				try
+				{
+<span class="fc" id="L97">					Vision vis = Vision.getVision(visionString.substring(7));</span>
+<span class="fc" id="L98">					context.getListContext().removeFromList(getTokenName(), obj, Vision.VISIONLIST,</span>
+<span class="fc" id="L99">						context.getReferenceContext().getCDOMDirectReference(vis));</span>
+				}
+<span class="nc" id="L101">				catch (IllegalArgumentException e)</span>
+				{
+<span class="nc" id="L103">					ComplexParseResult cpr = new ComplexParseResult();</span>
+<span class="nc" id="L104">					cpr.addErrorMessage(&quot;Bad Syntax for Cleared Vision in &quot; + getTokenName());</span>
+<span class="nc" id="L105">					cpr.addErrorMessage(e.getMessage());</span>
+<span class="nc" id="L106">					return cpr;</span>
+<span class="fc" id="L107">				}</span>
+<span class="fc" id="L108">				foundClear = true;</span>
+			}
+<span class="fc bfc" id="L110" title="All 2 branches covered.">			else if (looksLikeAPrerequisite(visionString))</span>
+			{
+<span class="fc" id="L112">				break;</span>
+			}
+			else
+			{
+				try
+				{
+<span class="fc" id="L118">					Vision vision = Vision.getVision(visionString);</span>
+<span class="fc" id="L119">					AssociatedPrereqObject edge = context.getListContext().addToList(getTokenName(), obj,</span>
+<span class="fc" id="L120">						Vision.VISIONLIST, context.getReferenceContext().getCDOMDirectReference(vision));</span>
+<span class="fc" id="L121">					edgeList.add(edge);</span>
+				}
+<span class="fc" id="L123">				catch (IllegalArgumentException e)</span>
+				{
+<span class="fc" id="L125">					ComplexParseResult cpr = new ComplexParseResult();</span>
+<span class="fc" id="L126">					cpr.addErrorMessage(&quot;Bad Syntax for Vision in &quot; + getTokenName());</span>
+<span class="fc" id="L127">					cpr.addErrorMessage(e.getMessage());</span>
+<span class="fc" id="L128">					return cpr;</span>
+<span class="fc" id="L129">				}</span>
+			}
+<span class="fc bfc" id="L131" title="All 2 branches covered.">			if (!aTok.hasMoreTokens())</span>
+			{
+<span class="fc" id="L133">				return ParseResult.SUCCESS;</span>
+			}
+<span class="fc" id="L135">			visionString = aTok.nextToken();</span>
+		}
+
+<span class="fc bfc" id="L138" title="All 2 branches covered.">		if (foundClear)</span>
+		{
+<span class="fc" id="L140">			return new ParseResult.Fail(&quot;Cannot use PREREQs when using .CLEAR or .CLEAR. in &quot; + getTokenName());</span>
+		}
+
+		while (true)
+		{
+<span class="fc" id="L145">			Prerequisite prereq = getPrerequisite(visionString);</span>
+<span class="fc bfc" id="L146" title="All 2 branches covered.">			if (prereq == null)</span>
+			{
+<span class="fc" id="L148">				return new ParseResult.Fail(</span>
+<span class="fc" id="L149">					&quot;   (Did you put vision after the &quot; + &quot;PRExxx tags in &quot; + getTokenName() + &quot;:?)&quot;);</span>
+			}
+<span class="fc bfc" id="L151" title="All 2 branches covered.">			for (AssociatedPrereqObject edge : edgeList)</span>
+			{
+<span class="fc" id="L153">				edge.addPrerequisite(prereq);</span>
+<span class="fc" id="L154">			}</span>
+<span class="fc bfc" id="L155" title="All 2 branches covered.">			if (!aTok.hasMoreTokens())</span>
+			{
+<span class="fc" id="L157">				break;</span>
+			}
+<span class="fc" id="L159">			visionString = aTok.nextToken();</span>
+<span class="fc" id="L160">		}</span>
+<span class="fc" id="L161">		return ParseResult.SUCCESS;</span>
+	}
+
+	@Override
+	public String[] unparse(LoadContext context, CDOMObject obj)
+	{
+<span class="fc" id="L167">		AssociatedChanges&lt;CDOMReference&lt;Vision&gt;&gt; changes =</span>
+<span class="fc" id="L168">				context.getListContext().getChangesInList(getTokenName(), obj, Vision.VISIONLIST);</span>
+<span class="fc" id="L169">		List&lt;String&gt; list = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L170">		Collection&lt;CDOMReference&lt;Vision&gt;&gt; removedItems = changes.getRemoved();</span>
+<span class="pc bpc" id="L171" title="1 of 2 branches missed.">		if (changes.includesGlobalClear())</span>
+		{
+<span class="nc bnc" id="L173" title="All 4 branches missed.">			if (removedItems != null &amp;&amp; !removedItems.isEmpty())</span>
+			{
+<span class="nc" id="L175">				context.addWriteMessage(</span>
+<span class="nc" id="L176">					&quot;Non-sensical relationship in &quot; + getTokenName() + &quot;: global .CLEAR and local .CLEAR. performed&quot;);</span>
+<span class="nc" id="L177">				return null;</span>
+			}
+<span class="nc" id="L179">			list.add(Constants.LST_DOT_CLEAR);</span>
+		}
+<span class="pc bpc" id="L181" title="2 of 4 branches missed.">		else if (removedItems != null &amp;&amp; !removedItems.isEmpty())</span>
+		{
+<span class="nc" id="L183">			list.add(Constants.LST_DOT_CLEAR_DOT + ReferenceUtilities.joinLstFormat(removedItems, &quot;|.CLEAR.&quot;));</span>
+		}
+<span class="fc" id="L185">		MapToList&lt;CDOMReference&lt;Vision&gt;, AssociatedPrereqObject&gt; mtl = changes.getAddedAssociations();</span>
+<span class="pc bpc" id="L186" title="1 of 4 branches missed.">		if (mtl != null &amp;&amp; !mtl.isEmpty())</span>
+		{
+<span class="fc" id="L188">			MapToList&lt;Set&lt;Prerequisite&gt;, Vision&gt; m = new HashMapToList&lt;&gt;();</span>
+<span class="fc bfc" id="L189" title="All 2 branches covered.">			for (CDOMReference&lt;Vision&gt; ab : mtl.getKeySet())</span>
+			{
+<span class="fc bfc" id="L191" title="All 2 branches covered.">				for (AssociatedPrereqObject assoc : mtl.getListFor(ab))</span>
+				{
+<span class="fc" id="L193">					m.addAllToListFor(new HashSet&lt;&gt;(assoc.getPrerequisiteList()), ab.getContainedObjects());</span>
+<span class="fc" id="L194">				}</span>
+<span class="fc" id="L195">			}</span>
+<span class="fc" id="L196">			Set&lt;String&gt; set = new TreeSet&lt;&gt;();</span>
+<span class="fc bfc" id="L197" title="All 2 branches covered.">			for (Set&lt;Prerequisite&gt; prereqs : m.getKeySet())</span>
+			{
+<span class="fc" id="L199">				StringBuilder sb = new StringBuilder(StringUtil.join(m.getListFor(prereqs), Constants.PIPE));</span>
+<span class="pc bpc" id="L200" title="1 of 4 branches missed.">				if (prereqs != null &amp;&amp; !prereqs.isEmpty())</span>
+				{
+<span class="fc" id="L202">					sb.append(Constants.PIPE);</span>
+<span class="fc" id="L203">					sb.append(getPrerequisiteString(context, prereqs));</span>
+				}
+<span class="fc" id="L205">				set.add(sb.toString());</span>
+<span class="fc" id="L206">			}</span>
+<span class="fc" id="L207">			list.addAll(set);</span>
+		}
+<span class="fc bfc" id="L209" title="All 2 branches covered.">		if (list.isEmpty())</span>
+		{
+<span class="fc" id="L211">			return null;</span>
+		}
+<span class="fc" id="L213">		return list.toArray(new String[0]);</span>
+	}
+
+	@Override
+	public Class&lt;CDOMObject&gt; getTokenClass()
+	{
+<span class="fc" id="L219">		return CDOMObject.class;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

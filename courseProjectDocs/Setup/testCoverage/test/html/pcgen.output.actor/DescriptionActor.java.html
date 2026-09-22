@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DescriptionActor.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.output.actor</a> &gt; <span class="el_source">DescriptionActor.java</span></div><h1>DescriptionActor.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2016 Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ * 
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ * 
+ */
+package pcgen.output.actor;
+
+import java.util.Collections;
+import java.util.List;
+
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.ObjectWrapperFacet;
+import pcgen.cdom.facet.PlayerCharacterTrackingFacet;
+import pcgen.cdom.helper.SpringHelper;
+import pcgen.core.Description;
+import pcgen.core.PObject;
+import pcgen.core.PlayerCharacter;
+import pcgen.output.base.OutputActor;
+
+import freemarker.template.TemplateModel;
+import freemarker.template.TemplateModelException;
+
+/**
+ * A DescriptionActor is designed to process an interpolation and convert the
+ * a list of descriptions from a PObject into a TemplateModel.
+ * 
+ * Note that the actual name of the interpolation is stored externally to this
+ * Actor (in CDOMObjectWrapperInfo to be precise)
+ */
+public class DescriptionActor implements OutputActor&lt;PObject&gt;
+{
+
+	private final ListKey&lt;Description&gt; listKey;
+
+	/**
+	 * Constructs a new DescriptionActor with the given ListKey as the ListKey used to
+	 * fetch the Description from the CDOMObject.
+	 * 
+	 * @param listKey
+	 *            the ListKey used to fetch the Description from the CDOMObject
+	 */
+	public DescriptionActor(ListKey&lt;Description&gt; listKey)
+<span class="fc" id="L59">	{</span>
+<span class="fc" id="L60">		this.listKey = listKey;</span>
+<span class="fc" id="L61">	}</span>
+
+	@Override
+	public TemplateModel process(CharID id, PObject d) throws TemplateModelException
+	{
+<span class="nc" id="L66">		List&lt;Description&gt; theBenefits = d.getListFor(listKey);</span>
+<span class="nc bnc" id="L67" title="All 2 branches missed.">		if (theBenefits == null)</span>
+		{
+<span class="nc" id="L69">			return FacetLibrary.getFacet(ObjectWrapperFacet.class).wrap(id, Constants.EMPTY_STRING);</span>
+		}
+<span class="nc" id="L71">		PlayerCharacterTrackingFacet charStore = SpringHelper.getBean(PlayerCharacterTrackingFacet.class);</span>
+<span class="nc bnc" id="L72" title="All 2 branches missed.">		PlayerCharacter aPC = (charStore == null) ? null : charStore.getPC(id);</span>
+<span class="nc bnc" id="L73" title="All 2 branches missed.">		if (aPC == null)</span>
+		{
+			// SpringHelper.getBean returns null when no bean is registered, and
+			// PlayerCharacterTrackingFacet.getPC documents that null may be returned
+			// in unit-test paths where no PC has been associated with the CharID.
+<span class="nc" id="L78">			return FacetLibrary.getFacet(ObjectWrapperFacet.class).wrap(id, Constants.EMPTY_STRING);</span>
+		}
+<span class="nc" id="L80">		final StringBuilder buf = new StringBuilder(250);</span>
+<span class="nc" id="L81">		boolean needSpace = false;</span>
+<span class="nc bnc" id="L82" title="All 2 branches missed.">		for (final Description desc : theBenefits)</span>
+		{
+<span class="nc" id="L84">			final String str = desc.getDescription(aPC, Collections.singletonList(d));</span>
+<span class="nc bnc" id="L85" title="All 2 branches missed.">			if (!str.isEmpty())</span>
+			{
+<span class="nc bnc" id="L87" title="All 2 branches missed.">				if (needSpace)</span>
+				{
+<span class="nc" id="L89">					buf.append(' ');</span>
+				}
+<span class="nc" id="L91">				buf.append(str);</span>
+<span class="nc" id="L92">				needSpace = true;</span>
+			}
+<span class="nc" id="L94">		}</span>
+<span class="nc" id="L95">		return FacetLibrary.getFacet(ObjectWrapperFacet.class).wrap(id, buf.toString());</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

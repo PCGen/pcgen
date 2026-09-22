@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DescriptionInfoTab.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.gui2.tabs</a> &gt; <span class="el_source">DescriptionInfoTab.java</span></div><h1>DescriptionInfoTab.java</h1><pre class="source lang-java linenums">/**
+ * DescriptionInfoTab.java Copyright James Dempsey, 2010
+ *
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ *
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.gui2.tabs;
+
+import java.awt.CardLayout;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.stream.IntStream;
+
+import javax.swing.AbstractAction;
+import javax.swing.Box;
+import javax.swing.DefaultListModel;
+import javax.swing.DefaultListSelectionModel;
+import javax.swing.JButton;
+import javax.swing.JList;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.ListModel;
+import javax.swing.ListSelectionModel;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+
+import pcgen.core.NoteItem;
+import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.util.ListFacade;
+import pcgen.facade.util.event.ListEvent;
+import pcgen.facade.util.event.ListListener;
+import pcgen.gui2.tabs.bio.BiographyInfoPane;
+import pcgen.gui2.tabs.bio.CampaignHistoryInfoPane;
+import pcgen.gui2.tabs.bio.NoteInfoPane;
+import pcgen.gui2.tabs.bio.PortraitInfoPane;
+import pcgen.gui2.tools.FlippingSplitPane;
+import pcgen.system.LanguageBundle;
+import pcgen.util.enumeration.Tab;
+
+/**
+ * The Class {@code DescriptionInfoTab} is a placeholder for the yet to be
+ * implemented description tab.
+ */
+@SuppressWarnings(&quot;serial&quot;)
+public class DescriptionInfoTab extends FlippingSplitPane implements CharacterInfoTab
+{
+
+<span class="nc" id="L63">	private final TabTitle tabTitle = new TabTitle(Tab.DESCRIPTION);</span>
+	private final PortraitInfoPane portraitPane;
+	private final BiographyInfoPane bioPane;
+	private final CampaignHistoryInfoPane histPane;
+	private final JList pageList;
+	private final JButton addButton;
+	private final JPanel pagePanel;
+
+	/**
+	 * Create a new instance of DescriptionInfoTab
+	 */
+	public DescriptionInfoTab()
+	{
+<span class="nc" id="L76">		super(); //$NON-NLS-1$</span>
+<span class="nc" id="L77">		this.portraitPane = new PortraitInfoPane();</span>
+<span class="nc" id="L78">		this.bioPane = new BiographyInfoPane();</span>
+<span class="nc" id="L79">		this.histPane = new CampaignHistoryInfoPane();</span>
+<span class="nc" id="L80">		this.pageList = new JList&lt;&gt;();</span>
+<span class="nc" id="L81">		this.addButton = new JButton();</span>
+<span class="nc" id="L82">		this.pagePanel = new JPanel();</span>
+<span class="nc" id="L83">		initComponents();</span>
+<span class="nc" id="L84">	}</span>
+
+	private void initComponents()
+	{
+<span class="nc" id="L88">		addButton.setAlignmentX(0.5f);</span>
+
+<span class="nc" id="L90">		Box box = Box.createVerticalBox();</span>
+<span class="nc" id="L91">		box.add(new JScrollPane(pageList));</span>
+<span class="nc" id="L92">		box.add(Box.createVerticalStrut(5));</span>
+		{
+<span class="nc" id="L94">			Box hbox = Box.createHorizontalBox();</span>
+<span class="nc" id="L95">			hbox.add(Box.createRigidArea(new Dimension(8, 0)));</span>
+<span class="nc" id="L96">			hbox.add(addButton);</span>
+<span class="nc" id="L97">			hbox.add(Box.createRigidArea(new Dimension(8, 0)));</span>
+<span class="nc" id="L98">			box.add(hbox);</span>
+		}
+<span class="nc" id="L100">		box.add(Box.createVerticalStrut(4));</span>
+<span class="nc" id="L101">		setLeftComponent(box);</span>
+
+<span class="nc" id="L103">		CardLayout pages = new CardLayout();</span>
+
+<span class="nc" id="L105">		pagePanel.setLayout(pages);</span>
+<span class="nc" id="L106">		addPage(bioPane);</span>
+<span class="nc" id="L107">		addPage(portraitPane);</span>
+<span class="nc" id="L108">		addPage(histPane);</span>
+<span class="nc" id="L109">		setRightComponent(pagePanel);</span>
+<span class="nc" id="L110">		setResizeWeight(0);</span>
+<span class="nc" id="L111">	}</span>
+
+	private &lt;T extends Component &amp; CharacterInfoTab&gt; void addPage(T page)
+	{
+<span class="nc" id="L115">		pagePanel.add(page, page.getTabTitle().getValue(TabTitle.TITLE));</span>
+<span class="nc" id="L116">	}</span>
+
+	/**
+	 * @param page
+	 */
+	private &lt;T extends Component &amp; CharacterInfoTab&gt; void removePage(T page)
+	{
+<span class="nc" id="L123">		pagePanel.remove(page);</span>
+<span class="nc" id="L124">	}</span>
+
+	@Override
+	public ModelMap createModels(CharacterFacade character)
+	{
+<span class="nc" id="L129">		ModelMap models = new ModelMap();</span>
+<span class="nc" id="L130">		DefaultListModel&lt;PageItem&gt; listModel = new DefaultListModel&lt;&gt;();</span>
+<span class="nc" id="L131">		List&lt;NoteInfoPane&gt; notePaneList = new ArrayList&lt;&gt;();</span>
+
+<span class="nc" id="L133">		PageItem firstPage = new PageItem(</span>
+<span class="nc" id="L134">			character, LanguageBundle.getString(&quot;in_descBiography&quot;), bioPane); //$NON-NLS-1$</span>
+<span class="nc" id="L135">		listModel.addElement(firstPage);</span>
+<span class="nc" id="L136">		listModel.addElement(new PageItem(</span>
+<span class="nc" id="L137">			character, LanguageBundle.getString(&quot;in_portrait&quot;), portraitPane)); //$NON-NLS-1$</span>
+<span class="nc" id="L138">		listModel.addElement(new PageItem(</span>
+<span class="nc" id="L139">			character, LanguageBundle.getString(&quot;in_descCampHist&quot;), histPane)); //$NON-NLS-1$</span>
+
+<span class="nc" id="L141">		models.put(ListModel.class, listModel);</span>
+<span class="nc" id="L142">		models.put(List.class, notePaneList);</span>
+<span class="nc" id="L143">		models.put(NoteListHandler.class, new NoteListHandler(character, listModel, notePaneList));</span>
+
+<span class="nc" id="L145">		ListSelectionModel model = new DefaultListSelectionModel();</span>
+<span class="nc" id="L146">		model.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);</span>
+<span class="nc" id="L147">		model.setSelectionInterval(0, 0);</span>
+<span class="nc" id="L148">		models.put(ListSelectionModel.class, model);</span>
+<span class="nc" id="L149">		models.put(PageHandler.class, new PageHandler(model, firstPage));</span>
+<span class="nc" id="L150">		models.put(AddAction.class, new AddAction(character));</span>
+
+<span class="nc" id="L152">		return models;</span>
+	}
+
+	@Override
+	public void restoreModels(ModelMap models)
+	{
+<span class="nc" id="L158">		pageList.setModel(models.get(ListModel.class));</span>
+<span class="nc" id="L159">		pageList.setSelectionModel(models.get(ListSelectionModel.class));</span>
+<span class="nc" id="L160">		models.get(NoteListHandler.class).install();</span>
+<span class="nc" id="L161">		models.get(PageHandler.class).install();</span>
+<span class="nc" id="L162">		addButton.setAction(models.get(AddAction.class));</span>
+<span class="nc" id="L163">	}</span>
+
+	@Override
+	public void storeModels(ModelMap models)
+	{
+<span class="nc" id="L168">		pageList.setSelectionModel(new DefaultListSelectionModel());</span>
+<span class="nc" id="L169">		models.get(PageHandler.class).uninstall();</span>
+<span class="nc" id="L170">		models.get(NoteListHandler.class).uninstall();</span>
+<span class="nc" id="L171">	}</span>
+
+	@Override
+	public TabTitle getTabTitle()
+	{
+<span class="nc" id="L176">		return tabTitle;</span>
+	}
+
+	private class NoteListHandler implements ListListener&lt;NoteItem&gt;
+	{
+
+		private static final int NUM_NON_NOTE_NODES = 3;
+		private final ListFacade&lt;NoteItem&gt; notes;
+		private final DefaultListModel&lt;PageItem&gt; listModel;
+		private final List&lt;NoteInfoPane&gt; notePaneList;
+		private final CharacterFacade character;
+
+		NoteListHandler(CharacterFacade character, DefaultListModel&lt;PageItem&gt; listModel,
+			List&lt;NoteInfoPane&gt; notePaneList)
+<span class="nc" id="L190">		{</span>
+<span class="nc" id="L191">			this.character = character;</span>
+<span class="nc" id="L192">			this.listModel = listModel;</span>
+<span class="nc" id="L193">			this.notePaneList = notePaneList;</span>
+<span class="nc" id="L194">			this.notes = character.getDescriptionFacade().getNotes();</span>
+
+<span class="nc bnc" id="L196" title="All 2 branches missed.">			for (NoteItem note : notes)</span>
+			{
+<span class="nc" id="L198">				createNotePane(note, character, listModel, notePaneList, -1);</span>
+<span class="nc" id="L199">			}</span>
+
+<span class="nc" id="L201">		}</span>
+
+		private NoteInfoPane createNotePane(NoteItem note, CharacterFacade character,
+			DefaultListModel&lt;PageItem&gt; listModel, List&lt;NoteInfoPane&gt; notePaneList, int pos)
+		{
+<span class="nc" id="L206">			NoteInfoPane notePane = new NoteInfoPane(note);</span>
+<span class="nc" id="L207">			PageItem pageItem = new PageItem(character, note, notePane);</span>
+<span class="nc bnc" id="L208" title="All 4 branches missed.">			if (pos &gt;= 0 &amp;&amp; pos &lt; notePaneList.size())</span>
+			{
+				// List model also has the portrait etc tabs, so we have to skip over those.
+<span class="nc" id="L211">				listModel.insertElementAt(pageItem, pos + NUM_NON_NOTE_NODES);</span>
+<span class="nc" id="L212">				notePaneList.add(pos, notePane);</span>
+			}
+			else
+			{
+<span class="nc" id="L216">				listModel.addElement(pageItem);</span>
+<span class="nc" id="L217">				notePaneList.add(notePane);</span>
+			}
+<span class="nc" id="L219">			return notePane;</span>
+		}
+
+		void install()
+		{
+<span class="nc" id="L224">			notes.addListListener(this);</span>
+
+<span class="nc bnc" id="L226" title="All 2 branches missed.">			for (NoteInfoPane noteInfoPane : notePaneList)</span>
+			{
+<span class="nc" id="L228">				addPage(noteInfoPane);</span>
+<span class="nc" id="L229">			}</span>
+<span class="nc" id="L230">		}</span>
+
+		void uninstall()
+		{
+<span class="nc" id="L234">			notes.removeListListener(this);</span>
+
+<span class="nc bnc" id="L236" title="All 2 branches missed.">			for (NoteInfoPane noteInfoPane : notePaneList)</span>
+			{
+<span class="nc" id="L238">				removePage(noteInfoPane);</span>
+<span class="nc" id="L239">			}</span>
+<span class="nc" id="L240">		}</span>
+
+		@Override
+		public void elementAdded(ListEvent&lt;NoteItem&gt; e)
+		{
+<span class="nc" id="L245">			NoteItem note = e.getElement();</span>
+<span class="nc" id="L246">			NoteInfoPane notePane = createNotePane(note, character, listModel, notePaneList, e.getIndex());</span>
+<span class="nc" id="L247">			addPage(notePane);</span>
+<span class="nc" id="L248">		}</span>
+
+		@Override
+		public void elementRemoved(ListEvent&lt;NoteItem&gt; e)
+		{
+<span class="nc" id="L253">			NoteItem note = e.getElement();</span>
+<span class="nc bnc" id="L254" title="All 2 branches missed.">			if (note == null)</span>
+			{
+<span class="nc" id="L256">				return;</span>
+			}
+
+<span class="nc" id="L259">			removeNote(note);</span>
+			// Select the next node
+<span class="nc" id="L261">			int index = e.getIndex() + NUM_NON_NOTE_NODES;</span>
+<span class="nc bnc" id="L262" title="All 2 branches missed.">			if (index &gt;= pageList.getModel().getSize())</span>
+			{
+<span class="nc" id="L264">				index = pageList.getModel().getSize() - 1;</span>
+			}
+<span class="nc" id="L266">			pageList.setSelectedIndex(index);</span>
+<span class="nc" id="L267">		}</span>
+
+		private void removeNote(NoteItem note)
+		{
+<span class="nc bnc" id="L271" title="All 2 branches missed.">			for (Iterator&lt;NoteInfoPane&gt; iterator = notePaneList.iterator(); iterator.hasNext();)</span>
+			{
+<span class="nc" id="L273">				NoteInfoPane pane = iterator.next();</span>
+<span class="nc bnc" id="L274" title="All 2 branches missed.">				if (pane.getNote().equals(note))</span>
+				{
+<span class="nc" id="L276">					iterator.remove();</span>
+<span class="nc" id="L277">					break;</span>
+				}
+<span class="nc" id="L279">			}</span>
+<span class="nc" id="L280">			IntStream.range(0, listModel.getSize())</span>
+<span class="nc" id="L281">			         .mapToObj(listModel::elementAt)</span>
+<span class="nc bnc" id="L282" title="All 2 branches missed.">			         .filter(item -&gt; note == item.note)</span>
+<span class="nc" id="L283">			         .findFirst()</span>
+<span class="nc" id="L284">			         .ifPresent(listModel::removeElement);</span>
+<span class="nc" id="L285">		}</span>
+
+		@Override
+		public void elementsChanged(ListEvent&lt;NoteItem&gt; e)
+		{
+<span class="nc" id="L290">			notePaneList.forEach(listModel::removeElement);</span>
+<span class="nc" id="L291">			notePaneList.clear();</span>
+<span class="nc bnc" id="L292" title="All 2 branches missed.">			for (NoteItem note : notes)</span>
+			{
+<span class="nc" id="L294">				createNotePane(note, character, listModel, notePaneList, -1);</span>
+<span class="nc" id="L295">			}</span>
+<span class="nc" id="L296">		}</span>
+
+		@Override
+		public void elementModified(ListEvent&lt;NoteItem&gt; e)
+		{
+<span class="nc" id="L301">			NoteItem note = e.getElement();</span>
+<span class="nc bnc" id="L302" title="All 2 branches missed.">			if (note == null)</span>
+			{
+<span class="nc" id="L304">				return;</span>
+			}
+
+<span class="nc" id="L307">			int noteIndex = e.getIndex();</span>
+<span class="nc" id="L308">			listModel.set(noteIndex, listModel.getElementAt(noteIndex));</span>
+<span class="nc" id="L309">		}</span>
+	}
+
+	private static class PageItem
+	{
+
+		private final NoteItem note;
+		private final String name;
+		private final String id;
+		private final CharacterInfoTab page;
+		private final ModelMap data;
+
+		/**
+		 * Create a new instance of PageItem to represent a Note.
+		 *
+		 * @param character The character being displayed.
+		 * @param note      The note being represented.
+		 * @param page      The page to display the note.
+		 */
+		PageItem(CharacterFacade character, NoteItem note, CharacterInfoTab page)
+<span class="nc" id="L329">		{</span>
+<span class="nc" id="L330">			this.note = note;</span>
+<span class="nc" id="L331">			this.name = &quot;&quot;; //$NON-NLS-1$</span>
+<span class="nc" id="L332">			this.id = (String) page.getTabTitle().getValue(TabTitle.TITLE);</span>
+<span class="nc" id="L333">			this.page = page;</span>
+<span class="nc" id="L334">			this.data = page.createModels(character);</span>
+<span class="nc" id="L335">		}</span>
+
+		/**
+		 * Create a new instance of PageItem to represent a pre-defined panel.
+		 *
+		 * @param character The character being displayed.
+		 * @param name      The name of the page.
+		 * @param page      The pre-defined page..
+		 */
+		PageItem(CharacterFacade character, String name, CharacterInfoTab page)
+<span class="nc" id="L345">		{</span>
+<span class="nc" id="L346">			this.note = null;</span>
+<span class="nc" id="L347">			this.name = name;</span>
+<span class="nc" id="L348">			this.id = (String) page.getTabTitle().getValue(TabTitle.TITLE);</span>
+<span class="nc" id="L349">			this.page = page;</span>
+<span class="nc" id="L350">			this.data = page.createModels(character);</span>
+<span class="nc" id="L351">		}</span>
+
+		@Override
+		public String toString()
+		{
+<span class="nc bnc" id="L356" title="All 2 branches missed.">			return note == null ? name : note.getName();</span>
+		}
+
+		void storeModels()
+		{
+<span class="nc" id="L361">			page.storeModels(data);</span>
+<span class="nc" id="L362">		}</span>
+
+		void restoreModels()
+		{
+<span class="nc" id="L366">			page.restoreModels(data);</span>
+<span class="nc" id="L367">		}</span>
+
+	}
+
+	private class PageHandler implements ListSelectionListener
+	{
+
+		private final ListSelectionModel selectionModel;
+		private PageItem currentPage;
+
+		PageHandler(ListSelectionModel selectionModel, PageItem currentPage)
+<span class="nc" id="L378">		{</span>
+<span class="nc" id="L379">			this.selectionModel = selectionModel;</span>
+<span class="nc" id="L380">			this.currentPage = currentPage;</span>
+<span class="nc" id="L381">		}</span>
+
+		@Override
+		public void valueChanged(ListSelectionEvent e)
+		{
+<span class="nc bnc" id="L386" title="All 2 branches missed.">			if (e.getValueIsAdjusting())</span>
+			{
+<span class="nc" id="L388">				return;</span>
+			}
+<span class="nc" id="L390">			PageItem item = (PageItem) pageList.getSelectedValue();</span>
+<span class="nc bnc" id="L391" title="All 2 branches missed.">			if (item == null)</span>
+			{
+<span class="nc" id="L393">				return;</span>
+			}
+<span class="nc" id="L395">			currentPage.storeModels();</span>
+<span class="nc" id="L396">			currentPage = item;</span>
+<span class="nc" id="L397">			currentPage.restoreModels();</span>
+<span class="nc" id="L398">			CardLayout pages = (CardLayout) pagePanel.getLayout();</span>
+<span class="nc" id="L399">			pages.show(pagePanel, currentPage.id);</span>
+<span class="nc" id="L400">		}</span>
+
+		void install()
+		{
+<span class="nc" id="L404">			selectionModel.addListSelectionListener(this);</span>
+<span class="nc" id="L405">			currentPage.restoreModels();</span>
+<span class="nc" id="L406">			CardLayout pages = (CardLayout) pagePanel.getLayout();</span>
+<span class="nc" id="L407">			pages.show(pagePanel, currentPage.id);</span>
+<span class="nc" id="L408">		}</span>
+
+		void uninstall()
+		{
+<span class="nc" id="L412">			selectionModel.removeListSelectionListener(this);</span>
+<span class="nc" id="L413">			currentPage.storeModels();</span>
+<span class="nc" id="L414">		}</span>
+
+	}
+
+	/**
+	 * The Class {@code AddAction} acts on a user pressing the Add Note
+	 * button.
+	 */
+	private static class AddAction extends AbstractAction
+	{
+
+		private final CharacterFacade character;
+
+		AddAction(CharacterFacade character)
+		{
+<span class="nc" id="L429">			super(LanguageBundle.getString(&quot;in_descAddPage&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L430">			this.character = character;</span>
+<span class="nc" id="L431">		}</span>
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+<span class="nc" id="L436">			character.getDescriptionFacade().addNewNote();</span>
+<span class="nc" id="L437">		}</span>
+
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

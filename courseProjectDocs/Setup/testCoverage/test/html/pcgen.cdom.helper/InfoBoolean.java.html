@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>InfoBoolean.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.helper</a> &gt; <span class="el_source">InfoBoolean.java</span></div><h1>InfoBoolean.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2018 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or modify it under the terms
+ * of the GNU Lesser General Public License as published by the Free Software Foundation;
+ * either version 2.1 of the License, or (at your option) any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT ANY
+ * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+ * PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License along with
+ * this library; if not, write to the Free Software Foundation, Inc., 59 Temple Place,
+ * Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.cdom.helper;
+
+import java.util.Objects;
+
+import pcgen.base.formula.inst.NEPFormula;
+
+/**
+ * An InfoBoolean is a class designed to hold both a name and a Boolean formula. The name
+ * is intended to match the name of an INFO token.
+ */
+public class InfoBoolean
+{
+	/**
+	 * The INFO name associated with this InfoBoolean.
+	 */
+	private final String infoName;
+
+	/**
+	 * The Boolean Formula for this InfoBoolean.
+	 */
+	private final NEPFormula&lt;Boolean&gt; formula;
+
+	/**
+	 * Constructs a new InfoBoolean with the given name and formula.
+	 * 
+	 * @param infoName
+	 *            The INFO name associated with this InfoBoolean
+	 * @param formula
+	 *            The Boolean Formula for this InfoBoolean
+	 */
+	public InfoBoolean(String infoName, NEPFormula&lt;Boolean&gt; formula)
+<span class="nc" id="L47">	{</span>
+<span class="nc" id="L48">		this.infoName = Objects.requireNonNull(infoName);</span>
+<span class="nc" id="L49">		this.formula = Objects.requireNonNull(formula);</span>
+<span class="nc" id="L50">	}</span>
+
+	/**
+	 * Returns the INFO name associated with this InfoBoolean.
+	 * 
+	 * @return The INFO name associated with this InfoBoolean
+	 */
+	public String getInfoName()
+	{
+<span class="nc" id="L59">		return infoName;</span>
+	}
+
+	/**
+	 * Returns the Boolean Formula for this InfoBoolean.
+	 * 
+	 * @return The Boolean Formula for this InfoBoolean
+	 */
+	public NEPFormula&lt;Boolean&gt; getFormula()
+	{
+<span class="nc" id="L69">		return formula;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

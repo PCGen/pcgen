@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PCGenAction.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.gui2.tools</a> &gt; <span class="el_source">PCGenAction.java</span></div><h1>PCGenAction.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2008 Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ * 
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ * 
+ */
+package pcgen.gui2.tools;
+
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.InputEvent;
+import java.util.StringTokenizer;
+
+import javax.swing.AbstractAction;
+import javax.swing.KeyStroke;
+
+public class PCGenAction extends AbstractAction
+{
+	public PCGenAction(String prop)
+	{
+<span class="nc" id="L33">		this(prop, null, null, null);</span>
+<span class="nc" id="L34">	}</span>
+
+	public PCGenAction(String prop, Icons icon)
+	{
+<span class="nc" id="L38">		this(prop, null, null, icon);</span>
+<span class="nc" id="L39">	}</span>
+
+	public PCGenAction(String prop, String command)
+	{
+<span class="nc" id="L43">		this(prop, command, null, null);</span>
+<span class="nc" id="L44">	}</span>
+
+	public PCGenAction(String prop, String command, Icons icon)
+	{
+<span class="nc" id="L48">		this(prop, command, null, icon);</span>
+<span class="nc" id="L49">	}</span>
+
+	public PCGenAction(String prop, String command, String accelerator)
+	{
+<span class="nc" id="L53">		this(prop, command, accelerator, null);</span>
+<span class="nc" id="L54">	}</span>
+
+	public PCGenAction(String prop, String command, String accelerator, Icons icon, Object... substitutes)
+<span class="nc" id="L57">	{</span>
+<span class="nc" id="L58">		CommonMenuText.name(this, prop, substitutes);</span>
+
+<span class="nc bnc" id="L60" title="All 2 branches missed.">		if (command != null)</span>
+		{
+<span class="nc" id="L62">			putValue(ACTION_COMMAND_KEY, command);</span>
+		}
+<span class="nc bnc" id="L64" title="All 2 branches missed.">		if (accelerator != null)</span>
+		{
+			// accelerator has three possible forms:
+			// 1) shortcut +
+			// 2) shortcut-alt +
+			// 3) F1
+			// (error checking is for the weak!)
+<span class="nc" id="L71">			int iShortCut = InputEvent.CTRL_DOWN_MASK;</span>
+<span class="nc" id="L72">			int menuShortcutKeyMask = Toolkit.getDefaultToolkit().getMenuShortcutKeyMaskEx();</span>
+<span class="nc" id="L73">			StringTokenizer aTok = new StringTokenizer(accelerator);</span>
+
+			// get the first argument
+<span class="nc" id="L76">			String aString = aTok.nextToken();</span>
+
+<span class="nc bnc" id="L78" title="All 2 branches missed.">			if (aString.equalsIgnoreCase(&quot;shortcut&quot;))</span>
+			{
+<span class="nc" id="L80">				iShortCut = menuShortcutKeyMask;</span>
+			}
+<span class="nc bnc" id="L82" title="All 2 branches missed.">			else if (aString.equalsIgnoreCase(&quot;alt&quot;))</span>
+			{
+<span class="nc" id="L84">				iShortCut = InputEvent.ALT_DOWN_MASK;</span>
+			}
+<span class="nc bnc" id="L86" title="All 2 branches missed.">			else if (aString.equalsIgnoreCase(&quot;shift-shortcut&quot;))</span>
+			{
+<span class="nc" id="L88">				iShortCut = menuShortcutKeyMask | InputEvent.SHIFT_DOWN_MASK;</span>
+			}
+<span class="nc bnc" id="L90" title="All 2 branches missed.">			else if (aString.matches(&quot;F[0-9]+&quot;))</span>
+			{
+<span class="nc" id="L92">				iShortCut = 0;</span>
+			}
+
+<span class="nc bnc" id="L95" title="All 2 branches missed.">			if (aTok.hasMoreTokens())</span>
+			{
+				// get the second argument
+<span class="nc" id="L98">				aString = aTok.nextToken();</span>
+			}
+
+<span class="nc" id="L101">			KeyStroke aKey = KeyStroke.getKeyStroke(aString);</span>
+
+<span class="nc bnc" id="L103" title="All 2 branches missed.">			if (aKey != null)</span>
+			{
+<span class="nc" id="L105">				int iKeyCode = aKey.getKeyCode();</span>
+<span class="nc" id="L106">				putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke(iKeyCode, iShortCut));</span>
+			}
+		}
+<span class="nc bnc" id="L109" title="All 2 branches missed.">		if (icon != null)</span>
+		{
+<span class="nc" id="L111">			putValue(SMALL_ICON, icon.getImageIcon());</span>
+		}
+<span class="nc" id="L113">	}</span>
+
+	/**
+	 * Does nothing.
+	 */
+	@Override
+	public void actionPerformed(ActionEvent e)
+	{
+
+<span class="nc" id="L122">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

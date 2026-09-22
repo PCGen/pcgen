@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TokenSupport.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.rules.persistence</a> &gt; <span class="el_source">TokenSupport.java</span></div><h1>TokenSupport.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2008 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ *
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.rules.persistence;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+
+import pcgen.base.proxy.DeferredMethodController;
+import pcgen.base.proxy.StagingInfo;
+import pcgen.base.util.CaseInsensitiveMap;
+import pcgen.base.util.DoubleKeyMapToList;
+import pcgen.util.ProxyUtilities;
+import pcgen.base.util.TripleKeyMapToList;
+import pcgen.util.WeightedCollection;
+import pcgen.cdom.base.GroupDefinition;
+import pcgen.cdom.base.Loadable;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.TokenLibrary.SubTokenIterator;
+import pcgen.rules.persistence.TokenLibrary.TokenIterator;
+import pcgen.rules.persistence.token.CDOMInterfaceToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.CDOMSubToken;
+import pcgen.rules.persistence.token.CDOMToken;
+import pcgen.rules.persistence.token.ComplexParseResult;
+import pcgen.rules.persistence.token.DeferredToken;
+import pcgen.rules.persistence.token.ParseResult;
+import pcgen.rules.persistence.util.Revision;
+import pcgen.rules.persistence.util.TokenFamily;
+import pcgen.rules.persistence.util.TokenFamilyIterator;
+import pcgen.rules.persistence.util.TokenFamilySubIterator;
+import pcgen.util.Logging;
+
+<span class="fc" id="L53">public class TokenSupport</span>
+{
+<span class="fc" id="L55">	private final TokenFamily localTokens = new TokenFamily(new Revision(0, 0, 0));</span>
+
+<span class="fc" id="L57">	private final DoubleKeyMapToList&lt;Class&lt;?&gt;, String, CDOMToken&lt;?&gt;&gt; tokenCache = new DoubleKeyMapToList&lt;&gt;();</span>
+
+<span class="fc" id="L59">	private final TripleKeyMapToList&lt;Class&lt;?&gt;, String, String, CDOMToken&lt;?&gt;&gt; subTokenCache =</span>
+			new TripleKeyMapToList&lt;&gt;(HashMap.class, CaseInsensitiveMap.class, CaseInsensitiveMap.class);
+
+	/**
+	 * Processes the given token information in the scope of the given LoadContext and
+	 * object.
+	 * 
+	 * @param context
+	 *            The LoadContext to support how the token is processed
+	 * @param target
+	 *            The object on which the token will be processed
+	 * @param tokenName
+	 *            The name of the token to be processed
+	 * @param tokenValue
+	 *            The value of the token to be processed
+	 * @return true if the parsing was successful; false otherwise
+	 */
+	public &lt;T extends Loadable&gt; boolean processToken(LoadContext context, T target, String tokenName, String tokenValue)
+	{
+		//Interface tokens override everything else... even if NOT VALID!
+<span class="fc" id="L79">		CDOMInterfaceToken&lt;?, ?&gt; interfaceToken = TokenLibrary.getInterfaceToken(tokenName);</span>
+<span class="fc bfc" id="L80" title="All 2 branches covered.">		if (interfaceToken != null)</span>
+		{
+<span class="fc" id="L82">			Class&lt;? extends Loadable&gt; targetClass = target.getClass();</span>
+<span class="pc bpc" id="L83" title="1 of 2 branches missed.">			if (interfaceToken.getTokenClass().isAssignableFrom(targetClass)</span>
+<span class="pc bpc" id="L84" title="1 of 2 branches missed.">				&amp;&amp; interfaceToken.getReadInterface().isAssignableFrom(targetClass))</span>
+			{
+<span class="fc" id="L86">				return processInterfaceToken(context, target, tokenName, tokenValue, interfaceToken);</span>
+			}
+			//We want to fall through to class tokens if the interface token isn't usable
+		}
+<span class="fc" id="L90">		return processClassTokens(context, target, tokenName, tokenValue);</span>
+	}
+
+	private &lt;T extends Loadable&gt; boolean processClassTokens(LoadContext context, T target, String tokenName,
+		String tokenValue)
+	{
+		//Must be true
+		@SuppressWarnings(&quot;unchecked&quot;)
+<span class="fc" id="L98">		Class&lt;T&gt; cl = (Class&lt;T&gt;) target.getClass();</span>
+<span class="fc" id="L99">		List&lt;? extends CDOMToken&lt;T&gt;&gt; tokenList = getTokens(cl, tokenName);</span>
+<span class="fc bfc" id="L100" title="All 2 branches covered.">		if (tokenList != null)</span>
+		{
+<span class="fc bfc" id="L102" title="All 2 branches covered.">			for (CDOMToken&lt;T&gt; token : tokenList)</span>
+			{
+				ParseResult parse;
+				try
+				{
+<span class="fc" id="L107">					parse = token.parseToken(context, target, tokenValue);</span>
+				}
+<span class="nc" id="L109">				catch (IllegalArgumentException e)</span>
+				{
+<span class="nc" id="L111">					Logging.errorPrint(&quot;IllegalArgumentException&quot;, e);</span>
+<span class="nc" id="L112">					Logging.addParseMessage(Logging.LST_ERROR,</span>
+<span class="nc" id="L113">						&quot;Token generated an IllegalArgumentException: &quot; + e.getLocalizedMessage());</span>
+<span class="nc" id="L114">					parse = new ParseResult.Fail(&quot;Token processing failed&quot;);</span>
+<span class="fc" id="L115">				}</span>
+				// Need to add messages as there may be warnings.
+<span class="fc" id="L117">				parse.addMessagesToLog(context.getSourceURI());</span>
+<span class="fc bfc" id="L118" title="All 2 branches covered.">				if (parse.passed())</span>
+				{
+<span class="fc" id="L120">					return true;</span>
+				}
+<span class="pc bpc" id="L122" title="1 of 2 branches missed.">				if (Logging.isLoggable(Logging.LST_ERROR))</span>
+				{
+<span class="fc" id="L124">					Logging.addParseMessage(Logging.LST_ERROR, &quot;Failed in parsing typeStr: &quot; + tokenName + ' '</span>
+<span class="fc" id="L125">						+ tokenValue + &quot; for &quot; + cl.getName() + ' ' + target.getDisplayName());</span>
+				}
+<span class="fc" id="L127">			}</span>
+		}
+<span class="pc bpc" id="L129" title="1 of 2 branches missed.">		if (tokenName.startsWith(&quot; &quot;))</span>
+		{
+<span class="nc" id="L131">			Logging.addParseMessage(Logging.LST_ERROR,</span>
+<span class="nc" id="L132">				&quot;Illegal whitespace at start of token '&quot; + tokenName + &quot;' '&quot; + tokenValue + &quot;' for &quot; + cl.getName()</span>
+<span class="nc" id="L133">					+ ' ' + target.getDisplayName() + &quot; in &quot; + context.getSourceURI());</span>
+		}
+		else
+		{
+<span class="fc" id="L137">			Logging.addParseMessage(Logging.LST_ERROR, &quot;Illegal Token '&quot; + tokenName + &quot;' '&quot; + tokenValue + &quot;' for &quot;</span>
+<span class="fc" id="L138">				+ cl.getName() + ' ' + target.getDisplayName() + &quot; in &quot; + context.getSourceURI());</span>
+		}
+<span class="fc" id="L140">		return false;</span>
+	}
+
+	private &lt;R, W&gt; boolean processInterfaceToken(LoadContext context, Object target,
+		String tokenName, String tokenValue, CDOMInterfaceToken&lt;R, W&gt; interfaceToken)
+	{
+		//Suppressed as we checked this before this method is called
+		@SuppressWarnings(&quot;unchecked&quot;)
+		StagingInfo&lt;R, W&gt; info =
+<span class="fc" id="L149">				ProxyUtilities.getStagingFactory().produceStaging(</span>
+<span class="fc" id="L150">					interfaceToken.getReadInterface(), interfaceToken.getTokenClass(), (R) target);</span>
+		ParseResult parse;
+		try
+		{
+<span class="fc" id="L154">			parse = interfaceToken.parseToken(context, info.getWriteProxy(), tokenValue);</span>
+		}
+<span class="nc" id="L156">		catch (IllegalArgumentException e)</span>
+		{
+<span class="nc" id="L158">			Logging.errorPrint(e.getLocalizedMessage(), e);</span>
+<span class="nc" id="L159">			Logging.addParseMessage(Logging.LST_ERROR,</span>
+<span class="nc" id="L160">				&quot;Token generated an IllegalArgumentException: &quot; + e.getLocalizedMessage());</span>
+<span class="nc" id="L161">			parse = new ParseResult.Fail(&quot;Token processing failed&quot;);</span>
+<span class="fc" id="L162">		}</span>
+		// Need to add messages as there may be warnings.
+<span class="fc" id="L164">		parse.addMessagesToLog(context.getSourceURI());</span>
+<span class="pc bpc" id="L165" title="1 of 2 branches missed.">		if (parse.passed())</span>
+		{
+			//Suppressed as we checked this before this method is called
+			@SuppressWarnings(&quot;unchecked&quot;)
+<span class="fc" id="L169">			DeferredMethodController&lt;W&gt; controller =</span>
+<span class="fc" id="L170">					new DeferredMethodController&lt;&gt;(info.getStagingObject(), (W) target);</span>
+<span class="fc" id="L171">			context.addDeferredMethodController(controller);</span>
+<span class="fc" id="L172">			return true;</span>
+		}
+<span class="nc bnc" id="L174" title="All 2 branches missed.">		if (Logging.isLoggable(Logging.LST_INFO))</span>
+		{
+<span class="nc" id="L176">			Logging.addParseMessage(Logging.LST_INFO, &quot;Failed in parsing token: &quot; + tokenName + ' ' + tokenValue</span>
+<span class="nc" id="L177">				+ &quot; for &quot; + target.getClass().getName() + ' ' + target);</span>
+		}
+<span class="nc" id="L179">		return false;</span>
+	}
+
+	private &lt;T extends Loadable&gt; List&lt;? extends CDOMToken&lt;T&gt;&gt; getTokens(Class&lt;T&gt; cl, String name)
+	{
+<span class="fc" id="L184">		List list = tokenCache.getListFor(cl, name);</span>
+<span class="fc bfc" id="L185" title="All 2 branches covered.">		if (list == null)</span>
+		{
+<span class="fc" id="L187">			CDOMToken&lt;?&gt; local = localTokens.getToken(cl, name);</span>
+<span class="pc bpc" id="L188" title="1 of 2 branches missed.">			if (local != null)</span>
+			{
+<span class="nc" id="L190">				tokenCache.addToListFor(cl, name, local);</span>
+			}
+<span class="fc bfc" id="L192" title="All 2 branches covered.">			for (Iterator&lt;? extends CDOMToken&lt;T&gt;&gt; it = new TokenIterator&lt;&gt;(cl, name); it.hasNext();)</span>
+			{
+<span class="fc" id="L194">				CDOMToken&lt;T&gt; token = it.next();</span>
+<span class="fc" id="L195">				tokenCache.addToListFor(cl, name, token);</span>
+<span class="fc" id="L196">			}</span>
+<span class="fc" id="L197">			list = tokenCache.getListFor(cl, name);</span>
+		}
+<span class="fc" id="L199">		return list;</span>
+	}
+
+	private &lt;T&gt; List&lt;? extends CDOMToken&lt;T&gt;&gt; getTokens(Class&lt;T&gt; cl, String name, String subtoken)
+	{
+<span class="fc" id="L204">		List list = subTokenCache.getListFor(cl, name, subtoken);</span>
+<span class="fc bfc" id="L205" title="All 2 branches covered.">		if (list == null)</span>
+		{
+<span class="fc" id="L207">			CDOMToken&lt;?&gt; local = localTokens.getSubToken(cl, name, subtoken);</span>
+<span class="fc bfc" id="L208" title="All 2 branches covered.">			if (local != null)</span>
+			{
+<span class="fc" id="L210">				subTokenCache.addToListFor(cl, name, subtoken, local);</span>
+			}
+<span class="fc bfc" id="L212" title="All 2 branches covered.">			for (Iterator&lt;CDOMSubToken&lt;T&gt;&gt; it = new SubTokenIterator&lt;&gt;(cl, name, subtoken); it.hasNext();)</span>
+			{
+<span class="fc" id="L214">				CDOMToken&lt;T&gt; token = it.next();</span>
+<span class="fc" id="L215">				subTokenCache.addToListFor(cl, name, subtoken, token);</span>
+<span class="fc" id="L216">			}</span>
+<span class="fc" id="L217">			list = subTokenCache.getListFor(cl, name, subtoken);</span>
+		}
+<span class="fc" id="L219">		return list;</span>
+	}
+
+	public &lt;T&gt; ParseResult processSubToken(LoadContext context, T cdo, String tokenName, String key, String value)
+	{
+<span class="fc" id="L224">		ComplexParseResult cpr = new ComplexParseResult();</span>
+<span class="fc" id="L225">		Class&lt;T&gt; cl = (Class&lt;T&gt;) cdo.getClass();</span>
+<span class="fc" id="L226">		List&lt;? extends CDOMToken&lt;T&gt;&gt; tokenList = getTokens(cl, tokenName, key);</span>
+<span class="fc bfc" id="L227" title="All 2 branches covered.">		if (tokenList != null)</span>
+		{
+<span class="fc bfc" id="L229" title="All 2 branches covered.">			for (CDOMToken&lt;T&gt; token : tokenList)</span>
+			{
+<span class="fc" id="L231">				ParseResult pr = token.parseToken(context, cdo, value);</span>
+<span class="fc bfc" id="L232" title="All 2 branches covered.">				if (pr.passed())</span>
+				{
+<span class="fc" id="L234">					return pr;</span>
+				}
+<span class="fc" id="L236">				cpr.copyMessages(pr);</span>
+<span class="fc" id="L237">				cpr.addErrorMessage(&quot;Failed in parsing subtoken: &quot; + key + &quot; of &quot; + value);</span>
+<span class="fc" id="L238">			}</span>
+		}
+		/*
+		 * CONSIDER a better option than toString, given that T != CDOMObject
+		 */
+<span class="fc" id="L243">		cpr.addErrorMessage(</span>
+<span class="fc" id="L244">			&quot;Illegal &quot; + tokenName + &quot; subtoken '&quot; + key + &quot;' '&quot; + value + &quot;' for &quot; + cl.getName() + ' ' + cdo);</span>
+<span class="fc" id="L245">		return cpr;</span>
+	}
+
+	public &lt;T&gt; String[] unparseSubtoken(LoadContext context, T cdo, String tokenName)
+	{
+<span class="pc bpc" id="L250" title="1 of 2 branches missed.">		char separator = tokenName.charAt(0) == '*' ? ':' : '|';</span>
+<span class="fc" id="L251">		Collection&lt;String&gt; set = new WeightedCollection&lt;&gt;(String.CASE_INSENSITIVE_ORDER);</span>
+<span class="fc" id="L252">		Class&lt;T&gt; cl = (Class&lt;T&gt;) cdo.getClass();</span>
+<span class="fc" id="L253">		TokenFamilySubIterator&lt;T&gt; it = new TokenFamilySubIterator&lt;&gt;(cl, tokenName);</span>
+<span class="fc bfc" id="L254" title="All 2 branches covered.">		while (it.hasNext())</span>
+		{
+<span class="fc" id="L256">			CDOMSecondaryToken&lt;? super T&gt; token = it.next();</span>
+<span class="fc" id="L257">			String[] s = token.unparse(context, cdo);</span>
+<span class="fc bfc" id="L258" title="All 2 branches covered.">			if (s != null)</span>
+			{
+<span class="fc bfc" id="L260" title="All 2 branches covered.">				for (String aString : s)</span>
+				{
+<span class="fc" id="L262">					set.add(token.getTokenName() + separator + aString);</span>
+				}
+			}
+<span class="fc" id="L265">		}</span>
+<span class="fc" id="L266">		Set&lt;CDOMSecondaryToken&lt;? super T&gt;&gt; local = localTokens.getSubTokens(cl, tokenName);</span>
+<span class="fc bfc" id="L267" title="All 2 branches covered.">		for (CDOMSecondaryToken&lt;? super T&gt; token : local)</span>
+		{
+<span class="fc" id="L269">			String[] s = token.unparse(context, cdo);</span>
+<span class="pc bpc" id="L270" title="1 of 2 branches missed.">			if (s != null)</span>
+			{
+<span class="fc bfc" id="L272" title="All 2 branches covered.">				for (String aString : s)</span>
+				{
+<span class="fc" id="L274">					set.add(token.getTokenName() + separator + aString);</span>
+				}
+			}
+<span class="fc" id="L277">		}</span>
+
+<span class="fc bfc" id="L279" title="All 2 branches covered.">		if (set.isEmpty())</span>
+		{
+<span class="fc" id="L281">			return null;</span>
+		}
+<span class="fc" id="L283">		return set.toArray(new String[0]);</span>
+	}
+
+	/**
+	 * Unparses an object into the LST tokens that would build the object.
+	 * 
+	 * @param context
+	 *            The LoadContext used to interpret the contents of the object
+	 * @param loadable
+	 *            The Loadable object to be unparsed
+	 * @return A Collection of Strings indicating the tokens that would build the object
+	 */
+	public &lt;T extends Loadable, R extends Loadable&gt; Collection&lt;String&gt; unparse(LoadContext context, T loadable)
+	{
+<span class="fc" id="L297">		Collection&lt;String&gt; set = new WeightedCollection&lt;&gt;(String.CASE_INSENSITIVE_ORDER);</span>
+		@SuppressWarnings(&quot;unchecked&quot;)
+<span class="fc" id="L299">		Class&lt;T&gt; cl = (Class&lt;T&gt;) loadable.getClass();</span>
+<span class="pc bpc" id="L300" title="1 of 2 branches missed.">		for (CDOMInterfaceToken&lt;?, ?&gt; interfaceToken : TokenLibrary.getInterfaceTokens())</span>
+		{
+<span class="nc bnc" id="L302" title="All 2 branches missed.">			if (interfaceToken.getReadInterface().isAssignableFrom(cl))</span>
+			{
+				@SuppressWarnings(&quot;unchecked&quot;)
+<span class="nc" id="L305">				CDOMInterfaceToken&lt;R, T&gt; token = (CDOMInterfaceToken&lt;R, T&gt;) interfaceToken;</span>
+				@SuppressWarnings(&quot;unchecked&quot;)
+<span class="nc" id="L307">				String[] s = token.unparse(context, (R) loadable);</span>
+<span class="nc bnc" id="L308" title="All 2 branches missed.">				if (s != null)</span>
+				{
+<span class="nc bnc" id="L310" title="All 2 branches missed.">					for (String aString : s)</span>
+					{
+<span class="nc" id="L312">						set.add(token.getTokenName() + ':' + aString);</span>
+					}
+				}
+			}
+<span class="nc" id="L316">		}</span>
+<span class="fc" id="L317">		TokenFamilyIterator&lt;T&gt; it = new TokenFamilyIterator&lt;&gt;(cl);</span>
+<span class="fc bfc" id="L318" title="All 2 branches covered.">		while (it.hasNext())</span>
+		{
+<span class="fc" id="L320">			CDOMPrimaryToken&lt;? super T&gt; token = it.next();</span>
+<span class="fc" id="L321">			String[] s = token.unparse(context, loadable);</span>
+<span class="fc bfc" id="L322" title="All 2 branches covered.">			if (s != null)</span>
+			{
+<span class="fc bfc" id="L324" title="All 2 branches covered.">				for (String aString : s)</span>
+				{
+<span class="fc" id="L326">					set.add(token.getTokenName() + ':' + aString);</span>
+				}
+			}
+<span class="fc" id="L329">		}</span>
+<span class="pc bpc" id="L330" title="1 of 2 branches missed.">		if (set.isEmpty())</span>
+		{
+<span class="nc" id="L332">			return null;</span>
+		}
+<span class="fc" id="L334">		return set;</span>
+	}
+
+	public Collection&lt;DeferredToken&lt;? extends Loadable&gt;&gt; getDeferredTokens()
+	{
+<span class="fc" id="L339">		List&lt;DeferredToken&lt;? extends Loadable&gt;&gt; c = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L340">		c.addAll(localTokens.getDeferredTokens());</span>
+<span class="fc" id="L341">		c.addAll(TokenFamily.CURRENT.getDeferredTokens());</span>
+<span class="fc" id="L342">		return c;</span>
+	}
+
+	public void loadLocalToken(Object token)
+	{
+<span class="fc" id="L347">		TokenLibrary.loadFamily(localTokens, token);</span>
+<span class="fc" id="L348">	}</span>
+
+	public &lt;T&gt; GroupDefinition&lt;T&gt; getGroup(Class&lt;T&gt; cl, String s)
+	{
+<span class="fc" id="L352">		return localTokens.getGroup(cl, s);</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

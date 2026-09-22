@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SourcedateLst.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.lsttokens</a> &gt; <span class="el_source">SourcedateLst.java</span></div><h1>SourcedateLst.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2014 (C) Stefan Radermacher
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package plugin.lsttokens;
+
+import java.net.URI;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.core.Campaign;
+import pcgen.persistence.lst.InstallLstToken;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.ParseResult;
+import pcgen.util.Logging;
+
+<span class="fc" id="L37">public class SourcedateLst extends AbstractNonEmptyToken&lt;CDOMObject&gt;</span>
+		implements CDOMPrimaryToken&lt;CDOMObject&gt;, InstallLstToken
+{
+
+	@Override
+	public String getTokenName()
+	{
+<span class="fc" id="L44">		return &quot;SOURCEDATE&quot;;</span>
+	}
+
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context, CDOMObject obj, String value)
+	{
+<span class="fc" id="L50">		Date theDate = getDate(value);</span>
+<span class="pc bpc" id="L51" title="1 of 2 branches missed.">		if (theDate == null)</span>
+		{
+<span class="nc" id="L53">			return ParseResult.INTERNAL_ERROR;</span>
+		}
+<span class="fc" id="L55">		context.getObjectContext().put(obj, ObjectKey.SOURCE_DATE, theDate);</span>
+<span class="fc" id="L56">		return ParseResult.SUCCESS;</span>
+	}
+
+	private static Date getDate(String value)
+	{
+<span class="fc" id="L61">		DateFormat df = new SimpleDateFormat(&quot;yyyy-MM&quot;, Locale.ROOT); //$NON-NLS-1$</span>
+		Date theDate;
+		try
+		{
+<span class="fc" id="L65">			theDate = df.parse(value);</span>
+		}
+<span class="fc" id="L67">		catch (ParseException pe)</span>
+		{
+<span class="fc" id="L69">			df = DateFormat.getDateInstance();</span>
+			try
+			{
+<span class="fc" id="L72">				theDate = df.parse(value);</span>
+			}
+<span class="nc" id="L74">			catch (ParseException e)</span>
+			{
+				try
+				{
+<span class="nc" id="L78">					DateFormat formatter = new SimpleDateFormat(&quot;E MMM dd HH:mm:ss Z yyyy&quot;, Locale.ROOT);</span>
+<span class="nc" id="L79">					theDate = formatter.parse(value);</span>
+				}
+<span class="nc" id="L81">				catch (ParseException ipe)</span>
+				{
+<span class="nc" id="L83">					Logging.log(Logging.LST_ERROR, &quot;Error parsing date&quot;, ipe);</span>
+<span class="nc" id="L84">					return null;</span>
+<span class="nc" id="L85">				}</span>
+<span class="fc" id="L86">			}</span>
+<span class="fc" id="L87">		}</span>
+<span class="fc" id="L88">		return theDate;</span>
+	}
+
+	@Override
+	public String[] unparse(LoadContext context, CDOMObject obj)
+	{
+<span class="fc" id="L94">		Date date = context.getObjectContext().getObject(obj, ObjectKey.SOURCE_DATE);</span>
+<span class="fc bfc" id="L95" title="All 2 branches covered.">		if (date == null)</span>
+		{
+<span class="fc" id="L97">			return null;</span>
+		}
+<span class="fc" id="L99">		DateFormat df = DateFormat.getDateInstance(DateFormat.LONG);</span>
+<span class="fc" id="L100">		return new String[]{df.format(date)};</span>
+	}
+
+	@Override
+	public Class&lt;CDOMObject&gt; getTokenClass()
+	{
+<span class="fc" id="L106">		return CDOMObject.class;</span>
+	}
+
+	@Override
+	public boolean parse(Campaign campaign, String value, URI sourceURI)
+	{
+<span class="nc" id="L112">		Date theDate = getDate(value);</span>
+<span class="nc bnc" id="L113" title="All 2 branches missed.">		if (theDate == null)</span>
+		{
+<span class="nc" id="L115">			return false;</span>
+		}
+<span class="nc" id="L117">		campaign.put(ObjectKey.SOURCE_DATE, theDate);</span>
+<span class="nc" id="L118">		return true;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

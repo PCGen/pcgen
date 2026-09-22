@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>LocationPanel.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.gui2.prefs</a> &gt; <span class="el_source">LocationPanel.java</span></div><h1>LocationPanel.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2010(C) James Dempsey
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.gui2.prefs;
+
+import java.io.File;
+
+import pcgen.cdom.base.Constants;
+import pcgen.gui3.GuiAssertions;
+import pcgen.gui3.GuiUtility;
+import pcgen.system.ConfigurationSettings;
+import pcgen.system.ConfigurationSettings.SettingsFilesPath;
+import pcgen.system.LanguageBundle;
+import pcgen.system.PCGenSettings;
+
+import javafx.event.ActionEvent;
+import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
+import javafx.stage.DirectoryChooser;
+import org.apache.commons.lang3.SystemUtils;
+
+/**
+ * The Class {@code LocationPanel} is responsible for
+ * displaying file location related preferences and allowing the 
+ * preferences to be edited by the user.
+ */
+public final class LocationPanel extends PCGenPrefsPanel
+{
+<span class="nc" id="L48">	private static final String IN_LOCATION = LanguageBundle.getString(&quot;in_Prefs_location&quot;);</span>
+
+	private static final String IN_CHOOSE = &quot;...&quot;;
+
+	private final ToggleGroup groupFilesDir;
+	private final RadioButton pcgenFilesDirRadio;
+	private final RadioButton selectFilesDirRadio;
+	private final RadioButton usersFilesDirRadio;
+<span class="nc" id="L56">	private final CheckBox pcgenCreateBackupCharacter = new CheckBox();</span>
+
+	private final Button pcgenCharacterDirButton;
+	private final Button pcgenCustomDirButton;
+	private final Button pcgenVendorDataDirButton;
+	private final Button pcgenHomebrewDataDirButton;
+	private final Button pcgenDataDirButton;
+	private final Button pcgenDocsDirButton;
+	private Button pcgenFilesDirButton;
+	private final Button pcgenOutputSheetDirButton;
+	private final Button pcgenPreviewDirButton;
+	private final Button pcgenPortraitsDirButton;
+	private final Button pcgenSystemDirButton;
+	private final Button pcgenBackupCharacterDirButton;
+
+	private final TextField pcgenCharacterDir;
+	private final TextField pcgenCustomDir;
+	private final TextField pcgenVendorDataDir;
+	private final TextField pcgenHomebrewDataDir;
+	private final TextField pcgenDataDir;
+	private final TextField pcgenDocsDir;
+	private final TextField pcgenFilesDir;
+	private final TextField pcgenOutputSheetDir;
+	private final TextField pcgenBackupCharacterDir;
+	private final TextField pcgenPreviewDir;
+	private final TextField pcgenPortraitsDir;
+	private final TextField pcgenSystemDir;
+
+	/**
+	 * Instantiates a new location panel.
+	 */
+	public LocationPanel()
+<span class="nc" id="L88">	{</span>
+<span class="nc" id="L89">		GuiAssertions.assertIsNotJavaFXThread();</span>
+<span class="nc" id="L90">		VBox vBox = new VBox();</span>
+		// todo: make a custom component that combines a label, textfield, and browse button
+
+<span class="nc" id="L93">		Text in_prefs_pcgenCharacterDir = new Text(LanguageBundle.getString(&quot;in_Prefs_pcgenCharacterDir&quot;) + &quot;: &quot;);</span>
+<span class="nc" id="L94">		vBox.getChildren().add(in_prefs_pcgenCharacterDir);</span>
+<span class="nc" id="L95">		pcgenCharacterDir = new TextField(String.valueOf(PCGenSettings.getPcgDir()));</span>
+
+<span class="nc" id="L97">		vBox.getChildren().add(pcgenCharacterDir);</span>
+<span class="nc" id="L98">		pcgenCharacterDirButton = new Button(IN_CHOOSE);</span>
+<span class="nc" id="L99">		vBox.getChildren().add(pcgenCharacterDirButton);</span>
+<span class="nc" id="L100">		pcgenCharacterDirButton.setOnAction(this::prefsButtonHandler);</span>
+
+<span class="nc" id="L102">		in_prefs_pcgenCharacterDir = new Text(LanguageBundle.getString(&quot;in_Prefs_pcgenPortraitsDir&quot;));</span>
+<span class="nc" id="L103">		vBox.getChildren().add(in_prefs_pcgenCharacterDir);</span>
+<span class="nc" id="L104">		pcgenPortraitsDir = new TextField(String.valueOf(PCGenSettings.getPortraitsDir()));</span>
+
+<span class="nc" id="L106">		vBox.getChildren().add(pcgenPortraitsDir);</span>
+<span class="nc" id="L107">		pcgenPortraitsDirButton = new Button(IN_CHOOSE);</span>
+<span class="nc" id="L108">		vBox.getChildren().add(pcgenPortraitsDirButton);</span>
+<span class="nc" id="L109">		pcgenPortraitsDirButton.setOnAction(this::prefsButtonHandler);</span>
+
+<span class="nc" id="L111">		in_prefs_pcgenCharacterDir = new Text(LanguageBundle.getString(&quot;in_Prefs_pcgenDataDir&quot;) + &quot;: &quot;);</span>
+<span class="nc" id="L112">		vBox.getChildren().add(in_prefs_pcgenCharacterDir);</span>
+<span class="nc" id="L113">		pcgenDataDir = new TextField(String.valueOf(ConfigurationSettings.getPccFilesDir()));</span>
+
+<span class="nc" id="L115">		vBox.getChildren().add(pcgenDataDir);</span>
+<span class="nc" id="L116">		pcgenDataDirButton = new Button(IN_CHOOSE);</span>
+<span class="nc" id="L117">		vBox.getChildren().add(pcgenDataDirButton);</span>
+<span class="nc" id="L118">		pcgenDataDirButton.setOnAction(this::prefsButtonHandler);</span>
+
+<span class="nc" id="L120">		in_prefs_pcgenCharacterDir = new Text(LanguageBundle.getString(&quot;in_Prefs_pcgenCustomDir&quot;) + &quot;: &quot;);</span>
+<span class="nc" id="L121">		vBox.getChildren().add(in_prefs_pcgenCharacterDir);</span>
+<span class="nc" id="L122">		pcgenCustomDir = new TextField(String.valueOf(PCGenSettings.getCustomDir()));</span>
+
+<span class="nc" id="L124">		vBox.getChildren().add(pcgenCustomDir);</span>
+<span class="nc" id="L125">		pcgenCustomDirButton = new Button(IN_CHOOSE);</span>
+<span class="nc" id="L126">		vBox.getChildren().add(pcgenCustomDirButton);</span>
+<span class="nc" id="L127">		pcgenCustomDirButton.setOnAction(this::prefsButtonHandler);</span>
+
+<span class="nc" id="L129">		in_prefs_pcgenCharacterDir = new Text(LanguageBundle.getString(&quot;in_Prefs_pcgenVendorDataDir&quot;) + &quot;: &quot;);</span>
+<span class="nc" id="L130">		vBox.getChildren().add(in_prefs_pcgenCharacterDir);</span>
+<span class="nc" id="L131">		pcgenVendorDataDir = new TextField(String.valueOf(PCGenSettings.getVendorDataDir()));</span>
+
+<span class="nc" id="L133">		vBox.getChildren().add(pcgenVendorDataDir);</span>
+<span class="nc" id="L134">		pcgenVendorDataDirButton = new Button(IN_CHOOSE);</span>
+<span class="nc" id="L135">		vBox.getChildren().add(pcgenVendorDataDirButton);</span>
+<span class="nc" id="L136">		pcgenVendorDataDirButton.setOnAction(this::prefsButtonHandler);</span>
+
+<span class="nc" id="L138">		in_prefs_pcgenCharacterDir = new Text(LanguageBundle.getString(&quot;in_Prefs_pcgenHomebrewDataDir&quot;) + &quot;: &quot;);</span>
+<span class="nc" id="L139">		vBox.getChildren().add(in_prefs_pcgenCharacterDir);</span>
+<span class="nc" id="L140">		pcgenHomebrewDataDir = new TextField(String.valueOf(PCGenSettings.getHomebrewDataDir()));</span>
+
+<span class="nc" id="L142">		vBox.getChildren().add(pcgenHomebrewDataDir);</span>
+<span class="nc" id="L143">		pcgenHomebrewDataDirButton = new Button(IN_CHOOSE);</span>
+<span class="nc" id="L144">		vBox.getChildren().add(pcgenHomebrewDataDirButton);</span>
+<span class="nc" id="L145">		pcgenHomebrewDataDirButton.setOnAction(this::prefsButtonHandler);</span>
+
+<span class="nc" id="L147">		in_prefs_pcgenCharacterDir = new Text(LanguageBundle.getString(&quot;in_Prefs_pcgenDocsDir&quot;) + &quot;: &quot;);</span>
+<span class="nc" id="L148">		vBox.getChildren().add(in_prefs_pcgenCharacterDir);</span>
+<span class="nc" id="L149">		pcgenDocsDir = new TextField(String.valueOf(ConfigurationSettings.getDocsDir()));</span>
+
+<span class="nc" id="L151">		vBox.getChildren().add(pcgenDocsDir);</span>
+<span class="nc" id="L152">		pcgenDocsDirButton = new Button(IN_CHOOSE);</span>
+<span class="nc" id="L153">		vBox.getChildren().add(pcgenDocsDirButton);</span>
+<span class="nc" id="L154">		pcgenDocsDirButton.setOnAction(this::prefsButtonHandler);</span>
+
+<span class="nc" id="L156">		in_prefs_pcgenCharacterDir = new Text(LanguageBundle.getString(&quot;in_Prefs_pcgenSystemDir&quot;) + &quot;: &quot;);</span>
+<span class="nc" id="L157">		vBox.getChildren().add(in_prefs_pcgenCharacterDir);</span>
+<span class="nc" id="L158">		pcgenSystemDir = new TextField(String.valueOf(ConfigurationSettings.getSystemsDir()));</span>
+
+<span class="nc" id="L160">		vBox.getChildren().add(pcgenSystemDir);</span>
+<span class="nc" id="L161">		pcgenSystemDirButton = new Button(IN_CHOOSE);</span>
+<span class="nc" id="L162">		vBox.getChildren().add(pcgenSystemDirButton);</span>
+<span class="nc" id="L163">		pcgenSystemDirButton.setOnAction(this::prefsButtonHandler);</span>
+
+		// Output Sheet directory
+<span class="nc" id="L166">		in_prefs_pcgenCharacterDir = new Text(LanguageBundle.getString(&quot;in_Prefs_pcgenOutputSheetDir&quot;) + &quot;: &quot;);</span>
+<span class="nc" id="L167">		vBox.getChildren().add(in_prefs_pcgenCharacterDir);</span>
+<span class="nc" id="L168">		pcgenOutputSheetDir = new TextField(String.valueOf(ConfigurationSettings.getOutputSheetsDir()));</span>
+<span class="nc" id="L169">		vBox.getChildren().add(pcgenOutputSheetDir);</span>
+<span class="nc" id="L170">		pcgenOutputSheetDirButton = new Button(IN_CHOOSE);</span>
+<span class="nc" id="L171">		vBox.getChildren().add(pcgenOutputSheetDirButton);</span>
+<span class="nc" id="L172">		pcgenOutputSheetDirButton.setOnAction(this::prefsButtonHandler);</span>
+
+<span class="nc" id="L174">		in_prefs_pcgenCharacterDir = new Text(LanguageBundle.getString(&quot;in_Prefs_pcgenPreviewDir&quot;) + &quot;: &quot;);</span>
+<span class="nc" id="L175">		vBox.getChildren().add(in_prefs_pcgenCharacterDir);</span>
+<span class="nc" id="L176">		pcgenPreviewDir = new TextField(String.valueOf(ConfigurationSettings.getPreviewDir()));</span>
+<span class="nc" id="L177">		vBox.getChildren().add(pcgenPreviewDir);</span>
+<span class="nc" id="L178">		pcgenPreviewDirButton = new Button(IN_CHOOSE);</span>
+<span class="nc" id="L179">		vBox.getChildren().add(pcgenPreviewDirButton);</span>
+<span class="nc" id="L180">		pcgenPreviewDirButton.setOnAction(this::prefsButtonHandler);</span>
+
+<span class="nc" id="L182">		in_prefs_pcgenCharacterDir = new Text(LanguageBundle.getString(&quot;in_Prefs_pcgenCreateBackupCharacter&quot;) + &quot;: &quot;);</span>
+<span class="nc" id="L183">		vBox.getChildren().add(in_prefs_pcgenCharacterDir);</span>
+<span class="nc" id="L184">		vBox.getChildren().add(pcgenCreateBackupCharacter);</span>
+
+<span class="nc" id="L186">		in_prefs_pcgenCharacterDir = new Text(LanguageBundle.getString(&quot;in_Prefs_pcgenBackupCharacterDir&quot;) + &quot;: &quot;);</span>
+<span class="nc" id="L187">		vBox.getChildren().add(in_prefs_pcgenCharacterDir);</span>
+<span class="nc" id="L188">		pcgenBackupCharacterDir = new TextField(String.valueOf(PCGenSettings.getBackupPcgDir()));</span>
+<span class="nc" id="L189">		vBox.getChildren().add(pcgenBackupCharacterDir);</span>
+<span class="nc" id="L190">		pcgenBackupCharacterDirButton = new Button(IN_CHOOSE);</span>
+<span class="nc" id="L191">		vBox.getChildren().add(pcgenBackupCharacterDirButton);</span>
+<span class="nc" id="L192">		pcgenBackupCharacterDirButton.setOnAction(this::prefsButtonHandler);</span>
+
+		// Where to store options.ini file
+<span class="nc" id="L195">		in_prefs_pcgenCharacterDir = new Text(LanguageBundle.getString(&quot;in_Prefs_pcgenFilesDir&quot;) + &quot;: &quot;);</span>
+<span class="nc" id="L196">		vBox.getChildren().add(in_prefs_pcgenCharacterDir);</span>
+
+<span class="nc" id="L198">		pcgenFilesDirRadio = new RadioButton(LanguageBundle.getFormattedString(&quot;in_Prefs_progDir&quot;, Constants.APPLICATION_NAME));</span>
+<span class="nc" id="L199">		usersFilesDirRadio = new RadioButton(LanguageBundle.getString(&quot;in_Prefs_homeDir&quot;));</span>
+<span class="nc" id="L200">		selectFilesDirRadio = new RadioButton(LanguageBundle.getString(&quot;in_Prefs_selectDir&quot;));</span>
+<span class="nc" id="L201">		pcgenFilesDir = new TextField(String.valueOf(ConfigurationSettings.getSettingsDir()));</span>
+
+<span class="nc" id="L203">		String fType = ConfigurationSettings.getSystemProperty(ConfigurationSettings.SETTINGS_FILES_PATH);</span>
+
+<span class="nc bnc" id="L205" title="All 4 branches missed.">		if ((fType == null) || (fType.length() &lt; 1))</span>
+		{
+			// make sure we have a default
+<span class="nc" id="L208">			fType = ConfigurationSettings.getDefaultSettingsFilesPath();</span>
+<span class="nc" id="L209">			ConfigurationSettings.setSystemProperty(ConfigurationSettings.SETTINGS_FILES_PATH, fType);</span>
+		}
+
+<span class="nc" id="L212">		pcgenFilesDir.setText(ConfigurationSettings.getSettingsDir());</span>
+<span class="nc bnc" id="L213" title="All 2 branches missed.">		if (fType.equals(SettingsFilesPath.pcgen.name()))</span>
+		{
+<span class="nc" id="L215">			pcgenFilesDirRadio.setSelected(true);</span>
+		}
+<span class="nc bnc" id="L217" title="All 4 branches missed.">		else if (fType.equals(SettingsFilesPath.user.name()) || fType.equals(SettingsFilesPath.mac_user.name())</span>
+<span class="nc bnc" id="L218" title="All 2 branches missed.">			|| fType.equals(SettingsFilesPath.FD_USER.name()))</span>
+		{
+<span class="nc" id="L220">			usersFilesDirRadio.setSelected(true);</span>
+		}
+		else
+		{
+<span class="nc" id="L224">			selectFilesDirRadio.setSelected(true);</span>
+		}
+
+<span class="nc" id="L227">		vBox.getChildren().add(pcgenFilesDirRadio);</span>
+<span class="nc" id="L228">		vBox.getChildren().add(usersFilesDirRadio);</span>
+
+<span class="nc" id="L230">		groupFilesDir = new ToggleGroup();</span>
+<span class="nc" id="L231">		pcgenFilesDirRadio.setToggleGroup(groupFilesDir);</span>
+<span class="nc" id="L232">		usersFilesDirRadio.setToggleGroup(groupFilesDir);</span>
+<span class="nc" id="L233">		selectFilesDirRadio.setToggleGroup(groupFilesDir);</span>
+
+<span class="nc" id="L235">		pcgenFilesDirRadio.setOnAction(evt -&gt; {</span>
+<span class="nc" id="L236">			pcgenFilesDir.setText(SettingsFilesPath.pcgen.getSettingsDir());</span>
+<span class="nc" id="L237">			pcgenFilesDirButton.setDisable(true);</span>
+<span class="nc" id="L238">		});</span>
+<span class="nc" id="L239">		usersFilesDirRadio.setOnAction(evt -&gt; {</span>
+<span class="nc" id="L240">			pcgenFilesDir.setText(ConfigurationSettings.getUserSettingsDirFromFilePath());</span>
+<span class="nc" id="L241">			pcgenFilesDirButton.setDisable(true);</span>
+<span class="nc" id="L242">		});</span>
+<span class="nc" id="L243">		selectFilesDirRadio.setOnAction(evt -&gt; {</span>
+<span class="nc" id="L244">			pcgenFilesDir.setText(&quot;&quot;);</span>
+<span class="nc" id="L245">			pcgenFilesDirButton.setDisable(false);</span>
+<span class="nc" id="L246">		});</span>
+
+<span class="nc" id="L248">		vBox.getChildren().add(selectFilesDirRadio);</span>
+<span class="nc" id="L249">		vBox.getChildren().add(pcgenFilesDir);</span>
+<span class="nc" id="L250">		pcgenFilesDirButton = new Button(IN_CHOOSE);</span>
+<span class="nc bnc" id="L251" title="All 2 branches missed.">		pcgenFilesDirButton.setDisable(!selectFilesDirRadio.isSelected());</span>
+<span class="nc" id="L252">		vBox.getChildren().add(pcgenFilesDirButton);</span>
+<span class="nc" id="L253">		pcgenFilesDirButton.setOnAction(this::prefsButtonHandler);</span>
+
+<span class="nc" id="L255">		this.add(GuiUtility.wrapParentAsJFXPanel(vBox));</span>
+<span class="nc" id="L256">	}</span>
+
+	@Override
+	public String getTitle()
+	{
+<span class="nc" id="L261">		return IN_LOCATION;</span>
+	}
+
+	@Override
+	public void setOptionsBasedOnControls()
+	{
+<span class="nc" id="L267">		PCGenSettings.getInstance().setProperty(PCGenSettings.PCG_SAVE_PATH, pcgenCharacterDir.getText());</span>
+<span class="nc" id="L268">		PCGenSettings.getInstance().setProperty(PCGenSettings.CHAR_PORTRAITS_PATH, pcgenPortraitsDir.getText());</span>
+<span class="nc" id="L269">		PCGenSettings.getInstance().setProperty(PCGenSettings.CUSTOM_DATA_DIR, pcgenCustomDir.getText());</span>
+<span class="nc" id="L270">		PCGenSettings.getInstance().setProperty(PCGenSettings.VENDOR_DATA_DIR, pcgenVendorDataDir.getText());</span>
+<span class="nc" id="L271">		PCGenSettings.getInstance().setProperty(PCGenSettings.HOMEBREW_DATA_DIR, pcgenHomebrewDataDir.getText());</span>
+<span class="nc" id="L272">		ConfigurationSettings.setSystemProperty(ConfigurationSettings.PCC_FILES_DIR, pcgenDataDir.getText());</span>
+<span class="nc" id="L273">		ConfigurationSettings.setSystemProperty(ConfigurationSettings.DOCS_DIR, pcgenDocsDir.getText());</span>
+<span class="nc" id="L274">		ConfigurationSettings.setSystemProperty(ConfigurationSettings.SYSTEMS_DIR, pcgenSystemDir.getText());</span>
+<span class="nc bnc" id="L275" title="All 2 branches missed.">		if (pcgenFilesDirRadio.isSelected())</span>
+		{
+<span class="nc" id="L277">			ConfigurationSettings.setSystemProperty(ConfigurationSettings.SETTINGS_FILES_PATH,</span>
+<span class="nc" id="L278">				SettingsFilesPath.pcgen.name());</span>
+		}
+<span class="nc bnc" id="L280" title="All 2 branches missed.">		else if (usersFilesDirRadio.isSelected())</span>
+		{
+<span class="nc bnc" id="L282" title="All 2 branches missed.">			if (SystemUtils.IS_OS_MAC_OSX)</span>
+			{
+<span class="nc" id="L284">				ConfigurationSettings.setSystemProperty(ConfigurationSettings.SETTINGS_FILES_PATH,</span>
+<span class="nc" id="L285">					SettingsFilesPath.mac_user.name());</span>
+			}
+			else
+			{
+<span class="nc" id="L289">				ConfigurationSettings.setSystemProperty(ConfigurationSettings.SETTINGS_FILES_PATH,</span>
+<span class="nc" id="L290">					SettingsFilesPath.user.name());</span>
+			}
+		}
+		else
+		{
+<span class="nc" id="L295">			ConfigurationSettings.setSystemProperty(ConfigurationSettings.SETTINGS_FILES_PATH, pcgenFilesDir.getText());</span>
+		}
+<span class="nc" id="L297">		ConfigurationSettings.setSystemProperty(ConfigurationSettings.SETTINGS_FILES_PATH, pcgenFilesDir.getText());</span>
+<span class="nc" id="L298">		ConfigurationSettings.setSystemProperty(ConfigurationSettings.OUTPUT_SHEETS_DIR, pcgenOutputSheetDir.getText());</span>
+<span class="nc" id="L299">		PCGenSettings.OPTIONS_CONTEXT.setBoolean(PCGenSettings.OPTION_CREATE_PCG_BACKUP,</span>
+<span class="nc" id="L300">			pcgenCreateBackupCharacter.isSelected());</span>
+<span class="nc" id="L301">		PCGenSettings.getInstance().setProperty(PCGenSettings.BACKUP_PCG_PATH, pcgenBackupCharacterDir.getText());</span>
+
+<span class="nc" id="L303">		ConfigurationSettings.setSystemProperty(ConfigurationSettings.PREVIEW_DIR, pcgenPreviewDir.getText());</span>
+<span class="nc" id="L304">	}</span>
+
+	@Override
+	public void applyOptionValuesToControls()
+	{
+<span class="nc" id="L309">		pcgenCreateBackupCharacter</span>
+<span class="nc" id="L310">			.setSelected(PCGenSettings.OPTIONS_CONTEXT.getBoolean(PCGenSettings.OPTION_CREATE_PCG_BACKUP));</span>
+<span class="nc" id="L311">	}</span>
+
+	// todo: split this into different functions instead of a giant if-then list
+	private void prefsButtonHandler(final ActionEvent actionEvent)
+	{
+<span class="nc" id="L316">		GuiAssertions.assertIsJavaFXThread();</span>
+<span class="nc" id="L317">		Button source = (Button) actionEvent.getSource();</span>
+
+<span class="nc bnc" id="L319" title="All 2 branches missed.">		if (source == pcgenCharacterDirButton)</span>
+		{
+<span class="nc" id="L321">			final String dialogTitle = LanguageBundle.getString(&quot;in_Prefs_pcgenCharacterDirTitle&quot;);</span>
+<span class="nc" id="L322">			final String currentPath = PCGenSettings.getPcgDir();</span>
+<span class="nc" id="L323">			askForPath(currentPath, dialogTitle, pcgenCharacterDir);</span>
+<span class="nc" id="L324">		}</span>
+<span class="nc bnc" id="L325" title="All 2 branches missed.">		else if (source == pcgenBackupCharacterDirButton)</span>
+		{
+<span class="nc" id="L327">			final String dialogTitle = LanguageBundle.getString(&quot;in_Prefs_pcgenBackupCharacterDirTitle&quot;);</span>
+<span class="nc" id="L328">			final String currentPath = PCGenSettings.getBackupPcgDir();</span>
+<span class="nc" id="L329">			askForPath(currentPath, dialogTitle, pcgenBackupCharacterDir);</span>
+<span class="nc" id="L330">		}</span>
+<span class="nc bnc" id="L331" title="All 2 branches missed.">		else if (source == pcgenPortraitsDirButton)</span>
+		{
+<span class="nc" id="L333">			final String dialogTitle = LanguageBundle.getString(&quot;in_Prefs_pcgenPortraitDirTitle&quot;);</span>
+<span class="nc" id="L334">			final String currentPath = PCGenSettings.getPortraitsDir();</span>
+<span class="nc" id="L335">			askForPath(currentPath, dialogTitle, pcgenPortraitsDir);</span>
+<span class="nc" id="L336">		}</span>
+<span class="nc bnc" id="L337" title="All 2 branches missed.">		else if (source == pcgenCustomDirButton)</span>
+		{
+<span class="nc" id="L339">			final String dialogTitle = LanguageBundle.getString(&quot;in_Prefs_pcgenCustomDirTitle&quot;);</span>
+<span class="nc" id="L340">			final String currentPath = PCGenSettings.getCustomDir();</span>
+<span class="nc" id="L341">			askForPath(currentPath, dialogTitle, pcgenCustomDir);</span>
+<span class="nc" id="L342">		}</span>
+<span class="nc bnc" id="L343" title="All 2 branches missed.">		else if (source == pcgenVendorDataDirButton)</span>
+		{
+<span class="nc" id="L345">			final String dialogTitle = LanguageBundle.getString(&quot;in_Prefs_pcgenVendorDataDirTitle&quot;);</span>
+<span class="nc" id="L346">			final String currentPath = PCGenSettings.getVendorDataDir();</span>
+<span class="nc" id="L347">			askForPath(currentPath, dialogTitle, pcgenVendorDataDir);</span>
+<span class="nc" id="L348">		}</span>
+<span class="nc bnc" id="L349" title="All 2 branches missed.">		else if (source == pcgenHomebrewDataDirButton)</span>
+		{
+<span class="nc" id="L351">			final String dialogTitle = LanguageBundle.getString(&quot;in_Prefs_pcgenHomebrewDataDirTitle&quot;);</span>
+<span class="nc" id="L352">			final String currentPath = PCGenSettings.getHomebrewDataDir();</span>
+<span class="nc" id="L353">			askForPath(currentPath, dialogTitle, pcgenHomebrewDataDir);</span>
+<span class="nc" id="L354">		}</span>
+<span class="nc bnc" id="L355" title="All 2 branches missed.">		else if (source == pcgenDataDirButton)</span>
+		{
+<span class="nc" id="L357">			final String dialogTitle = LanguageBundle.getString(&quot;in_Prefs_pcgenDataDirTitle&quot;);</span>
+<span class="nc" id="L358">			final String currentPath = ConfigurationSettings.getPccFilesDir();</span>
+<span class="nc" id="L359">			askForPath(currentPath, dialogTitle, pcgenDataDir);</span>
+<span class="nc" id="L360">		}</span>
+<span class="nc bnc" id="L361" title="All 2 branches missed.">		else if (source == pcgenDocsDirButton)</span>
+		{
+<span class="nc" id="L363">			final String dialogTitle = LanguageBundle.getString(&quot;in_Prefs_pcgenDocsDirTitle&quot;);</span>
+<span class="nc" id="L364">			final String currentPath = ConfigurationSettings.getDocsDir();</span>
+<span class="nc" id="L365">			askForPath(currentPath, dialogTitle, pcgenDocsDir);</span>
+<span class="nc" id="L366">		}</span>
+<span class="nc bnc" id="L367" title="All 2 branches missed.">		else if (source == pcgenSystemDirButton)</span>
+		{
+<span class="nc" id="L369">			final String dialogTitle = LanguageBundle.getString(&quot;in_Prefs_pcgenSystemDirTitle&quot;);</span>
+<span class="nc" id="L370">			final String currentPath = ConfigurationSettings.getSystemsDir();</span>
+<span class="nc" id="L371">			askForPath(currentPath, dialogTitle, pcgenSystemDir);</span>
+<span class="nc" id="L372">		}</span>
+<span class="nc bnc" id="L373" title="All 2 branches missed.">		else if (source == pcgenFilesDirButton)</span>
+		{
+<span class="nc" id="L375">			final String dialogTitle = LanguageBundle.getString(&quot;in_Prefs_pcgenFilesDirTitle&quot;);</span>
+<span class="nc" id="L376">			final String currentPath = ConfigurationSettings.getSettingsDir();</span>
+<span class="nc" id="L377">			askForPath(currentPath, dialogTitle, pcgenFilesDir);</span>
+<span class="nc" id="L378">		}</span>
+<span class="nc bnc" id="L379" title="All 2 branches missed.">		else if (source == pcgenOutputSheetDirButton)</span>
+		{
+<span class="nc" id="L381">			final String dialogTitle = LanguageBundle.getString(&quot;in_Prefs_pcgenOutputSheetDirTitle&quot;);</span>
+<span class="nc" id="L382">			final String currentPath = ConfigurationSettings.getOutputSheetsDir();</span>
+<span class="nc" id="L383">			askForPath(currentPath, dialogTitle, pcgenOutputSheetDir);</span>
+<span class="nc" id="L384">		}</span>
+<span class="nc bnc" id="L385" title="All 2 branches missed.">		else if (source == pcgenPreviewDirButton)</span>
+		{
+<span class="nc" id="L387">			final String dialogTitle = LanguageBundle.getString(&quot;in_Prefs_pcgenPreviewDirTitle&quot;);</span>
+<span class="nc" id="L388">			final String currentPath = ConfigurationSettings.getPreviewDir();</span>
+<span class="nc" id="L389">			askForPath(currentPath, dialogTitle, pcgenPreviewDir);</span>
+<span class="nc" id="L390">		}</span>
+		else
+		{
+<span class="nc" id="L393">			throw new IllegalStateException(&quot;illegal source in location panel&quot; + source);</span>
+		}
+
+<span class="nc" id="L396">	}</span>
+
+	/**
+	 * Ask for a path, and return it (possibly return the currentPath.)
+	 * @param currentPath when entering the method
+	 * @param dialogTitle to show
+	 * @param textField to update with the path information
+	 */
+	private static void askForPath(final String currentPath, final String dialogTitle, final TextField textField)
+	{
+<span class="nc" id="L406">		GuiAssertions.assertIsJavaFXThread();</span>
+<span class="nc" id="L407">		askForPath(new File(currentPath), dialogTitle, textField);</span>
+<span class="nc" id="L408">	}</span>
+
+	/**
+	 * Ask for a path, and return it (possibly return the currentPath.)
+	 * @param currentPath when entering the method
+	 * @param dialogTitle to show
+	 * @param textField to update with the path information
+	 */
+	private static void askForPath(final File currentPath, final String dialogTitle, final TextField textField)
+	{
+<span class="nc" id="L418">		GuiAssertions.assertIsJavaFXThread();</span>
+<span class="nc" id="L419">		DirectoryChooser directoryChooser = new DirectoryChooser();</span>
+<span class="nc" id="L420">		directoryChooser.setInitialDirectory(currentPath);</span>
+<span class="nc" id="L421">		directoryChooser.setTitle(dialogTitle);</span>
+<span class="nc" id="L422">		File returnFile = directoryChooser.showDialog(null);</span>
+<span class="nc bnc" id="L423" title="All 2 branches missed.">		if (returnFile == null)</span>
+		{
+<span class="nc" id="L425">			returnFile = currentPath;</span>
+		}
+
+<span class="nc" id="L428">		textField.setText(returnFile.toString());</span>
+<span class="nc" id="L429">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

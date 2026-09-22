@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - testPrimitiveIllegalBadArgs()</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<div class="breadcrumbs">
+<a class="breadcrumb" href="../index.html">all</a> &gt; 
+<a class="breadcrumb" href="index.html">plugin.primitive.spell.AllTokenTest</a> &gt; 
+<span class="breadcrumb">testPrimitiveIllegalBadArgs()</span>
+</div>
+<div class="tab-container">
+<ul class="tabLinks">
+<li>
+<a class="successGroup" href="#">Gradle Test Run :test</a>
+</li>
+</ul>
+<div class="tab">
+<h2>Gradle Test Run :test</h2>
+<h1>testPrimitiveIllegalBadArgs()</h1>
+<div class="tab-container">
+<ul class="tabLinks">
+<li>
+<a class="" href="#">summary</a>
+</li>
+<li>
+<a class="" href="#">error output</a>
+</li>
+</ul>
+<div class="tab">
+<h2>summary</h2>
+<div>
+<div class="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox">
+<div class="counter">1</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox">
+<div class="counter">0</div>
+<p>skipped</p>
+</div>
+</td>
+<td>
+<div class="infoBox duration">
+<div class="counter">0.009s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="tab">
+<h2>error output</h2>
+<span class="code">
+<pre id="root-0-test-stderr-testPrimitiveIllegalBadArgs()">2026-09-22T11:12:21.717 SEVERE Test worker#3 ChoiceSetLoadUtilities:418 Found error in Qualifier Choice: QUALIFIED[ALL=Foo[Hi]] had close bracket, but had characters following the close bracket
+2026-09-22T11:12:21.717 SEVERE Test worker#3 ChoiceSetLoadUtilities:254 Found error in Primitive Choice: QUALIFIED[ALL=Foo[Hi]] had close bracket, but had characters following the close bracket
+2026-09-22T11:12:21.718 LSTERROR Test worker#3 AbstractTokenTestCase:246 SPELLS arguments uses double separator || : QUALIFIED[TestWP2||ALL]] (Source: file:/TESTCASE )
+2026-09-22T11:12:21.718 LSTERROR Test worker#3 AbstractTokenTestCase:246 Failed in parsing subtoken: SPELLS of QUALIFIED[TestWP2||ALL]] (Source: file:/TESTCASE )
+2026-09-22T11:12:21.718 LSTERROR Test worker#3 AbstractTokenTestCase:246 Illegal CHOOSE subtoken 'SPELLS' 'QUALIFIED[TestWP2||ALL]]' for pcgen.core.Race TestObj (Source: file:/TESTCASE )
+2026-09-22T11:12:21.718 LSTERROR Test worker#3 AbstractTokenTestCase:246 Choice argument was not valid: QUALIFIED[TYPE=Foo]ALL
+2026-09-22T11:12:21.718 LSTERROR Test worker#3 AbstractTokenTestCase:246 Internal error. (Source: file:/TESTCASE )
+2026-09-22T11:12:21.718 LSTERROR Test worker#3 AbstractTokenTestCase:246 Failed in parsing subtoken: SPELLS of QUALIFIED[TYPE=Foo]ALL (Source: file:/TESTCASE )
+2026-09-22T11:12:21.718 LSTERROR Test worker#3 AbstractTokenTestCase:246 Illegal CHOOSE subtoken 'SPELLS' 'QUALIFIED[TYPE=Foo]ALL' for pcgen.core.Race TestObj (Source: file:/TESTCASE )
+2026-09-22T11:12:21.719 LSTERROR Test worker#3 AbstractTokenTestCase:246 Choice arguments may not end with , : ALL,
+2026-09-22T11:12:21.719 LSTERROR Test worker#3 AbstractTokenTestCase:246 Failed in parsing typeStr: QUALIFIED[ALL,]
+2026-09-22T11:12:21.719 LSTERROR Test worker#3 AbstractTokenTestCase:246 Choice argument was not valid: QUALIFIED[ALL,]
+2026-09-22T11:12:21.719 LSTERROR Test worker#3 AbstractTokenTestCase:246 Internal error. (Source: file:/TESTCASE )
+2026-09-22T11:12:21.719 LSTERROR Test worker#3 AbstractTokenTestCase:246 Failed in parsing subtoken: SPELLS of QUALIFIED[ALL,] (Source: file:/TESTCASE )
+2026-09-22T11:12:21.722 LSTERROR Test worker#3 AbstractTokenTestCase:246 Illegal CHOOSE subtoken 'SPELLS' 'QUALIFIED[ALL,]' for pcgen.core.Race TestObj (Source: file:/TESTCASE )
+2026-09-22T11:12:21.722 LSTERROR Test worker#3 AbstractTokenTestCase:246 Choice arguments uses double separator ,, : QUALIFIED[TYPE=Foo,,ALL]
+2026-09-22T11:12:21.722 LSTERROR Test worker#3 AbstractTokenTestCase:246 Internal error. (Source: file:/TESTCASE )
+2026-09-22T11:12:21.722 LSTERROR Test worker#3 AbstractTokenTestCase:246 Failed in parsing subtoken: SPELLS of QUALIFIED[TYPE=Foo,,ALL] (Source: file:/TESTCASE )
+2026-09-22T11:12:21.722 LSTERROR Test worker#3 AbstractTokenTestCase:246 Illegal CHOOSE subtoken 'SPELLS' 'QUALIFIED[TYPE=Foo,,ALL]' for pcgen.core.Race TestObj (Source: file:/TESTCASE )
+2026-09-22T11:12:21.723 LSTERROR Test worker#3 AbstractTokenTestCase:246 SPELLS arguments uses double separator || : QUALIFIED[TestWP3||ALL] (Source: file:/TESTCASE )
+2026-09-22T11:12:21.723 LSTERROR Test worker#3 AbstractTokenTestCase:246 Failed in parsing subtoken: SPELLS of QUALIFIED[TestWP3||ALL] (Source: file:/TESTCASE )
+2026-09-22T11:12:21.723 LSTERROR Test worker#3 AbstractTokenTestCase:246 Illegal CHOOSE subtoken 'SPELLS' 'QUALIFIED[TestWP3||ALL]' for pcgen.core.Race TestObj (Source: file:/TESTCASE )
+2026-09-22T11:12:21.723 LSTERROR Test worker#3 AbstractTokenTestCase:246 Choice argument was not valid: QUALIFIED[TYPE=Foo]ALL
+2026-09-22T11:12:21.723 LSTERROR Test worker#3 AbstractTokenTestCase:246 Internal error. (Source: file:/TESTCASE )
+2026-09-22T11:12:21.723 LSTERROR Test worker#3 AbstractTokenTestCase:246 Failed in parsing subtoken: SPELLS of QUALIFIED[TYPE=Foo]ALL,TYPE=Bar (Source: file:/TESTCASE )
+2026-09-22T11:12:21.723 LSTERROR Test worker#3 AbstractTokenTestCase:246 Illegal CHOOSE subtoken 'SPELLS' 'QUALIFIED[TYPE=Foo]ALL,TYPE=Bar' for pcgen.core.Race TestObj (Source: file:/TESTCASE )
+2026-09-22T11:12:21.723 LSTERROR Test worker#3 AbstractTokenTestCase:246 Choice argument was not valid: QUALIFIED[ALL=Foo[KNOWN=]]
+2026-09-22T11:12:21.723 LSTERROR Test worker#3 AbstractTokenTestCase:246 Internal error. (Source: file:/TESTCASE )
+2026-09-22T11:12:21.723 LSTERROR Test worker#3 AbstractTokenTestCase:246 Failed in parsing subtoken: SPELLS of QUALIFIED[ALL=Foo[KNOWN=]] (Source: file:/TESTCASE )
+2026-09-22T11:12:21.723 LSTERROR Test worker#3 AbstractTokenTestCase:246 Illegal CHOOSE subtoken 'SPELLS' 'QUALIFIED[ALL=Foo[KNOWN=]]' for pcgen.core.Race TestObj (Source: file:/TESTCASE )
+2026-09-22T11:12:21.724 LSTERROR Test worker#3 AbstractTokenTestCase:246 Choice argument was not valid: QUALIFIED[ALL=Foo[Hi]]
+2026-09-22T11:12:21.724 LSTERROR Test worker#3 AbstractTokenTestCase:246 Internal error. (Source: file:/TESTCASE )
+2026-09-22T11:12:21.724 LSTERROR Test worker#3 AbstractTokenTestCase:246 Failed in parsing subtoken: SPELLS of QUALIFIED[ALL=Foo[Hi]] (Source: file:/TESTCASE )
+2026-09-22T11:12:21.724 LSTERROR Test worker#3 AbstractTokenTestCase:246 Illegal CHOOSE subtoken 'SPELLS' 'QUALIFIED[ALL=Foo[Hi]]' for pcgen.core.Race TestObj (Source: file:/TESTCASE )
+</pre>
+<button class="clipboard-copy-btn" aria-label="Copy to clipboard" data-copy-element-id="root-0-test-stderr-testPrimitiveIllegalBadArgs()">Copy</button>
+</span>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="https://www.gradle.org">Gradle 9.7.1</a> at Sep 22, 2026, 11:12:45 AM</p>
+</div>
+</div>
+</body>
+</html>

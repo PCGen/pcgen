@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AllGroupingToken.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.grouping</a> &gt; <span class="el_source">AllGroupingToken.java</span></div><h1>AllGroupingToken.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2018 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or modify it under the terms
+ * of the GNU Lesser General Public License as published by the Free Software Foundation;
+ * either version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful, but WITHOUT ANY
+ * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+ * PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License along with
+ * this library; if not, write to the Free Software Foundation, Inc., 59 Temple Place,
+ * Suite 330, Boston, MA 02111-1307 USA
+ */
+package plugin.grouping;
+
+import java.util.Objects;
+import java.util.function.Consumer;
+
+import pcgen.cdom.base.Loadable;
+import pcgen.cdom.formula.PCGenScoped;
+import pcgen.cdom.grouping.GroupingCollection;
+import pcgen.cdom.grouping.GroupingDefinition;
+import pcgen.cdom.grouping.GroupingInfo;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.ChoiceSetLoadUtilities;
+
+/**
+ * AllGroupingToken parses the &quot;ALL&quot; Grouping to be able to create an appropriate
+ * GroupingCollection.
+ * 
+ * @param &lt;T&gt;
+ *            The Format of the object type returned during processing by this
+ *            AllGroupingToken
+ */
+<span class="fc" id="L37">public class AllGroupingToken&lt;T extends Loadable&gt; implements GroupingDefinition&lt;T&gt;</span>
+{
+
+	@Override
+	public String getIdentification()
+	{
+<span class="fc" id="L43">		return &quot;ALL&quot;;</span>
+	}
+
+	@Override
+	public Class&lt;Object&gt; getUsableLocation()
+	{
+<span class="fc" id="L49">		return Object.class;</span>
+	}
+
+	@Override
+	public GroupingCollection&lt;T&gt; process(LoadContext context, GroupingInfo&lt;T&gt; info)
+	{
+<span class="pc bpc" id="L55" title="3 of 4 branches missed.">		if ((info.getCharacteristic() != null) &amp;&amp; (!info.getCharacteristic().isEmpty()))</span>
+		{
+<span class="nc" id="L57">			throw new IllegalArgumentException(&quot;Instructions using = prohibited for ALL Grouping&quot;);</span>
+		}
+<span class="fc" id="L59">		AllGrouping&lt;T&gt; allGrouping = new AllGrouping&lt;&gt;(info);</span>
+<span class="pc bpc" id="L60" title="1 of 2 branches missed.">		if (info.hasChild())</span>
+		{
+<span class="nc" id="L62">			GroupingCollection&lt;?&gt; childCollection =</span>
+<span class="nc" id="L63">					ChoiceSetLoadUtilities.getDynamicGroup(context, info.getChild());</span>
+<span class="nc" id="L64">			allGrouping.setChild(childCollection);</span>
+		}
+<span class="fc" id="L66">		return allGrouping;</span>
+	}
+
+	@Override
+	public boolean requiresDirect()
+	{
+<span class="fc" id="L72">		return false;</span>
+	}
+
+	/**
+	 * AllGrouping serves as the GroupingCollection for the &quot;ALL&quot; Grouping.
+	 * 
+	 * @param &lt;T&gt;
+	 *            The Format of the object type contained by this AllGrouping
+	 */
+	private static class AllGrouping&lt;T extends Loadable&gt; implements GroupingCollection&lt;T&gt;
+	{
+
+		/**
+		 * The GroupingInfo used to determine the format of objects contained by this
+		 * AllGrouping.
+		 */
+		private GroupingInfo&lt;T&gt; groupingInfo;
+
+		/**
+		 * The child GroupingCollection providing additional grouping information.
+		 */
+		private GroupingCollection&lt;?&gt; childGrouping;
+
+		/**
+		 * Constructs a new AllGrouping from the given GroupingInfo.
+		 * 
+		 * @param groupingInfo
+		 *            The GroupingInfo used to determine the format of objects contained
+		 *            by this AllGrouping
+		 */
+		AllGrouping(GroupingInfo&lt;T&gt; groupingInfo)
+<span class="fc" id="L103">		{</span>
+<span class="fc" id="L104">			this.groupingInfo = Objects.requireNonNull(groupingInfo);</span>
+<span class="fc" id="L105">		}</span>
+
+		void setChild(GroupingCollection&lt;?&gt; childCollection)
+		{
+<span class="nc" id="L109">			childGrouping = childCollection;</span>
+<span class="nc" id="L110">		}</span>
+
+		@Override
+		public String getInstructions()
+		{
+<span class="fc" id="L115">			return groupingInfo.getInstructions();</span>
+		}
+
+		@Override
+		public void process(PCGenScoped o, Consumer&lt;PCGenScoped&gt; consumer)
+		{
+<span class="nc bnc" id="L121" title="All 2 branches missed.">			if (childGrouping == null)</span>
+			{
+<span class="nc" id="L123">				consumer.accept(o);</span>
+			}
+			else
+			{
+<span class="nc" id="L127">				GroupingInfo&lt;?&gt; childInfo = groupingInfo.getChild();</span>
+<span class="nc bnc" id="L128" title="All 2 branches missed.">				for (PCGenScoped childObject : o.getChildren(childInfo.getObjectType()))</span>
+				{
+<span class="nc" id="L130">					childGrouping.process(childObject, consumer);</span>
+<span class="nc" id="L131">				}</span>
+			}
+<span class="nc" id="L133">		}</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

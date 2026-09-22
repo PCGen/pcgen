@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>EvaluatorFactory.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.core.term</a> &gt; <span class="el_source">EvaluatorFactory.java</span></div><h1>EvaluatorFactory.java</h1><pre class="source lang-java linenums">/**
+ * Copyright (c) 2008 Andrew Wilson &lt;nuance@users.sourceforge.net&gt;.
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ * Created 03-Oct-2008 17:46:37
+ */
+
+package pcgen.core.term;
+
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import pcgen.core.Globals;
+import pcgen.core.PCStat;
+import pcgen.util.Logging;
+
+public final class EvaluatorFactory
+{
+
+	Pattern internalVarPattern;
+	Map&lt;String, TermEvaluatorBuilder&gt; BuilderStore;
+
+<span class="nc" id="L42">	private final Map&lt;String, TermEvaluator&gt; SrcNeutralEvaluatorStore = new HashMap&lt;&gt;();</span>
+<span class="nc" id="L43">	private final Map&lt;String, Map&lt;String, TermEvaluator&gt;&gt; SrcDependantEvaluatorStore = new HashMap&lt;&gt;();</span>
+
+<span class="nc" id="L45">	public static final EvaluatorFactory PC = new EvaluatorFactory(true, TermEvaluatorBuilderPCVar.values());</span>
+
+<span class="nc" id="L47">	public static final EvaluatorFactory EQ = new EvaluatorFactory(false, TermEvaluatorBuilderEQVar.values());</span>
+
+	private EvaluatorFactory(boolean addStats, final TermEvaluatorBuilder[] termEvaluatorBuilders)
+<span class="nc" id="L50">	{</span>
+<span class="nc bnc" id="L51" title="All 2 branches missed.">		TermEvaluatorBuilder[] evals = (addStats) ? addStatBuilder(termEvaluatorBuilders) : termEvaluatorBuilders;</span>
+
+<span class="nc" id="L53">		BuilderStore = new TreeMap&lt;&gt;();</span>
+<span class="nc" id="L54">		StringBuilder sb = new StringBuilder(&quot;^(&quot;);</span>
+
+<span class="nc" id="L56">		boolean add = false;</span>
+
+<span class="nc bnc" id="L58" title="All 2 branches missed.">		for (TermEvaluatorBuilder e : evals)</span>
+		{
+<span class="nc bnc" id="L60" title="All 2 branches missed.">			if (add)</span>
+			{
+<span class="nc" id="L62">				sb.append(&quot;|&quot;);</span>
+			}
+			else
+			{
+<span class="nc" id="L66">				add = true;</span>
+			}
+<span class="nc" id="L68">			sb.append(e.getTermConstructorPattern());</span>
+
+<span class="nc" id="L70">			String[] keys = e.getTermConstructorKeys();</span>
+<span class="nc bnc" id="L71" title="All 2 branches missed.">			for (String k : keys)</span>
+			{
+<span class="nc" id="L73">				BuilderStore.put(k, e);</span>
+			}
+		}
+
+<span class="nc" id="L77">		sb.append(&quot;)&quot;);</span>
+<span class="nc" id="L78">		internalVarPattern = Pattern.compile(sb.toString());</span>
+<span class="nc" id="L79">	}</span>
+
+	private static TermEvaluatorBuilder[] addStatBuilder(TermEvaluatorBuilder[] builderArray)
+	{
+<span class="nc" id="L83">		int end = builderArray.length;</span>
+
+<span class="nc" id="L85">		TermEvaluatorBuilder[] tempArray = new TermEvaluatorBuilder[end + 1];</span>
+
+<span class="nc" id="L87">		System.arraycopy(builderArray, 0, tempArray, 0, end);</span>
+
+<span class="nc" id="L89">		tempArray[end] = makeStatBuilder();</span>
+
+<span class="nc" id="L91">		return tempArray;</span>
+	}
+
+	private static TermEvaluatorBuilder makeStatBuilder()
+	{
+<span class="nc" id="L96">		Collection&lt;PCStat&gt; stats = Globals.getContext().getReferenceContext().getConstructedCDOMObjects(PCStat.class);</span>
+<span class="nc" id="L97">		List&lt;String&gt; s = new LinkedList&lt;&gt;();</span>
+<span class="nc" id="L98">		StringBuilder pSt = new StringBuilder(stats.size() * 4 + 6);</span>
+
+<span class="nc" id="L100">		pSt.append(&quot;(?:&quot;);</span>
+<span class="nc" id="L101">		boolean add1 = false;</span>
+<span class="nc bnc" id="L102" title="All 2 branches missed.">		for (PCStat stat : stats)</span>
+		{
+<span class="nc bnc" id="L104" title="All 2 branches missed.">			if (add1)</span>
+			{
+<span class="nc" id="L106">				pSt.append(&quot;|&quot;);</span>
+			}
+			else
+			{
+<span class="nc" id="L110">				add1 = true;</span>
+			}
+<span class="nc" id="L112">			pSt.append(stat.getKeyName());</span>
+<span class="nc" id="L113">			s.add(stat.getKeyName());</span>
+<span class="nc" id="L114">		}</span>
+<span class="nc" id="L115">		pSt.append(&quot;)&quot;);</span>
+
+<span class="nc" id="L117">		return new TermEvaluatorBuilderPCStat(pSt.toString(), s.toArray(new String[0]), false);</span>
+	}
+
+	private TermEvaluator makeTermEvaluator(String term, String source)
+	{
+
+<span class="nc" id="L123">		Matcher mat = internalVarPattern.matcher(term);</span>
+
+<span class="nc bnc" id="L125" title="All 2 branches missed.">		if (mat.find())</span>
+		{
+<span class="nc" id="L127">			String matchedPortion = mat.group(1);</span>
+<span class="nc" id="L128">			TermEvaluatorBuilder f = BuilderStore.get(matchedPortion);</span>
+
+			try
+			{
+<span class="nc bnc" id="L132" title="All 4 branches missed.">				if (f.isEntireTerm() &amp;&amp; (term.length() != matchedPortion.length()))</span>
+				{
+<span class="nc" id="L134">					return null;</span>
+				}
+				else
+				{
+<span class="nc" id="L138">					return f.getTermEvaluator(term, source, matchedPortion);</span>
+				}
+			}
+<span class="nc" id="L141">			catch (TermEvaulatorException e)</span>
+			{
+<span class="nc bnc" id="L143" title="All 2 branches missed.">				if (Logging.isDebugMode())</span>
+				{
+<span class="nc" id="L145">					Logging.log(Logging.DEBUG, e.toString());</span>
+				}
+			}
+		}
+
+<span class="nc" id="L150">		return null;</span>
+	}
+
+	public TermEvaluator getTermEvaluator(String term, String source)
+	{
+
+<span class="nc" id="L156">		Map&lt;String, TermEvaluator&gt; inner = SrcDependantEvaluatorStore.get(term);</span>
+
+<span class="nc bnc" id="L158" title="All 2 branches missed.">		if (inner == null)</span>
+		{
+<span class="nc" id="L160">			TermEvaluator evaluator = SrcNeutralEvaluatorStore.get(term);</span>
+<span class="nc bnc" id="L161" title="All 2 branches missed.">			if (evaluator != null)</span>
+			{
+<span class="nc" id="L163">				return evaluator;</span>
+			}
+<span class="nc" id="L165">		}</span>
+		else
+		{
+<span class="nc" id="L168">			TermEvaluator evaluator = inner.get(source);</span>
+<span class="nc bnc" id="L169" title="All 2 branches missed.">			if (evaluator != null)</span>
+			{
+<span class="nc" id="L171">				return evaluator;</span>
+			}
+		}
+
+<span class="nc" id="L175">		TermEvaluator evaluator = makeTermEvaluator(term, source);</span>
+
+<span class="nc bnc" id="L177" title="All 2 branches missed.">		if (evaluator == null)</span>
+		{
+<span class="nc" id="L179">			return null;</span>
+		}
+
+<span class="nc bnc" id="L182" title="All 2 branches missed.">		if (evaluator.isSourceDependant())</span>
+		{
+<span class="nc" id="L184">			Map&lt;String, TermEvaluator&gt; i = SrcDependantEvaluatorStore.get(term);</span>
+<span class="nc bnc" id="L185" title="All 2 branches missed.">			Map&lt;String, TermEvaluator&gt; j = (i == null) ? new HashMap&lt;&gt;() : i;</span>
+<span class="nc" id="L186">			j.put(source, evaluator);</span>
+<span class="nc" id="L187">			SrcDependantEvaluatorStore.put(term, j);</span>
+<span class="nc" id="L188">		}</span>
+		else
+		{
+<span class="nc" id="L191">			SrcNeutralEvaluatorStore.put(term, evaluator);</span>
+		}
+
+<span class="nc" id="L194">		return evaluator;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

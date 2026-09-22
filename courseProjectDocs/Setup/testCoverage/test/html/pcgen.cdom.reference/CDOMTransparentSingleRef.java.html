@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CDOMTransparentSingleRef.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.reference</a> &gt; <span class="el_source">CDOMTransparentSingleRef.java</span></div><h1>CDOMTransparentSingleRef.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) 2007-18 Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package pcgen.cdom.reference;
+
+import java.util.Collection;
+import java.util.Objects;
+
+import pcgen.cdom.base.Loadable;
+import pcgen.cdom.enumeration.GroupingState;
+
+/**
+ * A CDOMTransparentSingleRef is a CDOMReference which is intended to contain a
+ * another CDOMSingleRef, to which the CDOMTransparentSingleRef will delegate
+ * behavior.
+ * 
+ * A CDOMTransparentSingleRef, unlike many CDOMReference objects, can be
+ * cleared, and the underlying CDOMSingleRef can be changed.
+ * 
+ * @see TransparentReference for a description of cases in which
+ *      TransparentReferences like CDOMTransparentSingleRef are typically used
+ * 
+ * @param &lt;T&gt;
+ *            The Class of the underlying object contained by this
+ *            CDOMTransparentSingleRef
+ */
+public class CDOMTransparentSingleRef&lt;T extends Loadable&gt; extends CDOMSingleRef&lt;T&gt; implements TransparentReference&lt;T&gt;
+{
+
+	/**
+	 * The Class that indicates the types of objects objects contained in this
+	 * CDOMTransparentSingleRef.
+	 */
+	private final Class&lt;T&gt; refClass;
+
+	/**
+	 * Holds the reference to which this CDOMTransparentSingleRef will delegate
+	 * behavior.
+	 */
+<span class="nc" id="L54">	private CDOMSingleRef&lt;T&gt; subReference = null;</span>
+
+	/**
+	 * The String representation of the Format of objects in this CDOMTransparentSingleRef (e.g.
+	 * &quot;ABILITY=FEAT&quot;).
+	 */
+	private final String formatRepresentation;
+
+	/**
+	 * Constructs a new CDOMTransparentSingleRef for the given Class and name.
+	 * 
+	 * @param formatRepresentation
+	 *            the persistent representation of the ClassIdentity of the objects to be
+	 *            stored in this CDOMTransparentSingleRef
+	 * @param objClass
+	 *            The Class of the underlying object contained by this
+	 *            CDOMTransparentSingleRef.
+	 * @param key
+	 *            An identifier of the object this CDOMTransparentSingleRef contains.
+	 */
+	public CDOMTransparentSingleRef(String formatRepresentation, Class&lt;T&gt; objClass, String key)
+	{
+<span class="nc" id="L76">		super(key);</span>
+<span class="nc" id="L77">		this.formatRepresentation = Objects.requireNonNull(formatRepresentation);</span>
+<span class="nc" id="L78">		refClass = Objects.requireNonNull(objClass);</span>
+<span class="nc" id="L79">	}</span>
+
+	/**
+	 * Returns true if the given Object is the Object to which this
+	 * CDOMTransparentSingleRef refers.
+	 * 
+	 * Note that the behavior of this class is undefined if the underlying
+	 * CDOMSingleRef has not yet been resolved.
+	 * 
+	 * @param item
+	 *            The object to be tested to see if it is referred to by this
+	 *            CDOMTransparentSingleRef.
+	 * @return true if the given Object is the Object to which this
+	 *         CDOMTransparentSingleRef refers; false otherwise.
+	 * @throws IllegalStateException
+	 *             if no underlying CDOMSingleRef has been defined.
+	 */
+	@Override
+	public boolean contains(T item)
+	{
+<span class="nc bnc" id="L99" title="All 2 branches missed.">		if (subReference == null)</span>
+		{
+<span class="nc" id="L101">			throw new IllegalStateException(&quot;Cannot ask for contains: &quot; + getReferenceClass().getName() + &quot; Reference &quot;</span>
+<span class="nc" id="L102">				+ getName() + &quot; has not been resolved&quot;);</span>
+		}
+<span class="nc" id="L104">		return subReference.contains(item);</span>
+	}
+
+	/**
+	 * Returns the given Object this CDOMTransparentSingleRef contains.
+	 * 
+	 * Note that the behavior of this class is undefined if the underlying
+	 * CDOMSingleRef has not yet been resolved.
+	 * 
+	 * @return the given Object this CDOMTransparentSingleRef contains.
+	 * @throws IllegalStateException
+	 *             if no underlying CDOMSingleRef has been defined.
+	 */
+	@Override
+	public T get()
+	{
+<span class="nc bnc" id="L120" title="All 2 branches missed.">		if (subReference == null)</span>
+		{
+<span class="nc" id="L122">			throw new IllegalStateException(&quot;Cannot ask for resolution: Reference has not been resolved&quot;);</span>
+		}
+<span class="nc" id="L124">		return subReference.get();</span>
+	}
+
+	/** 
+	 * Check if the reference has been resolved yet. i.e. load of the object has been completed.
+	 * @return true if the reference has been resolved, false if not.
+	 */
+	@Override
+	public boolean hasBeenResolved()
+	{
+<span class="nc bnc" id="L134" title="All 4 branches missed.">		return subReference != null &amp;&amp; subReference.hasBeenResolved();</span>
+	}
+
+	/**
+	 * Returns a representation of this CDOMTransparentSingleRef, suitable for
+	 * storing in an LST file.
+	 * 
+	 * Note that this will return the identifier of the underlying reference (of
+	 * the types given at construction), often the &quot;key&quot; in LST terminology.
+	 * 
+	 * @return A representation of this CDOMTransparentSingleRef, suitable for
+	 *         storing in an LST file.
+	 */
+	@Override
+	public String getLSTformat(boolean useAny)
+	{
+<span class="nc" id="L150">		return getName();</span>
+	}
+
+	@Override
+	public boolean equals(Object obj)
+	{
+<span class="nc bnc" id="L156" title="All 2 branches missed.">		if (obj instanceof CDOMTransparentSingleRef&lt;?&gt; ref)</span>
+		{
+<span class="nc bnc" id="L158" title="All 4 branches missed.">			return getReferenceClass().equals(ref.getReferenceClass()) &amp;&amp; getName().equals(ref.getName());</span>
+		}
+<span class="nc" id="L160">		return false;</span>
+	}
+
+	@Override
+	public int hashCode()
+	{
+<span class="nc" id="L166">		return getReferenceClass().hashCode() ^ getName().hashCode();</span>
+	}
+
+	/**
+	 * Throws an exception. This method may not be called because a
+	 * CDOMTransparentSingleRef is resolved using an underlying CDOMSingleRef.
+	 * 
+	 * @see CDOMTransparentSingleRef#resolve(ReferenceManufacturer)
+	 * 
+	 * @param item
+	 *            ignored
+	 * @throws IllegalStateException
+	 *             because a CDOMTransparentSingleRef is resolved using an
+	 *             underlying CDOMSingleRef.
+	 */
+	@Override
+	public void addResolution(T item)
+	{
+<span class="nc" id="L184">		throw new IllegalStateException(&quot;Cannot resolve a Transparent Reference&quot;);</span>
+	}
+
+	/**
+	 * Resolves this CDOMTransparentSingleRef using the given
+	 * ReferenceManufacturer. The underlying CDOMSingleRef for this
+	 * CDOMTransparentSingleRef will be set to a CDOMSingleRef constructed by
+	 * the given ReferenceManufacturer (using the identifier provided during
+	 * construction of this CDOMTransparentSingleRef)
+	 * 
+	 * This method may be called more than once; each time it is called it will
+	 * overwrite the existing CDOMSingleRef to which this
+	 * CDOMTransparentSingleRef delegates its behavior.
+	 * 
+	 * @throws IllegalArgumentException
+	 *             if the Reference Class of the given ReferenceManufacturer is
+	 *             different than the Reference Class of this
+	 *             CDOMTransparentSingleRef
+	 * @throws NullPointerException
+	 *             if the given ReferenceManufacturer is null
+	 */
+	@Override
+	public void resolve(ReferenceManufacturer&lt;T&gt; rm)
+	{
+<span class="nc bnc" id="L208" title="All 2 branches missed.">		if (rm.getReferenceClass().equals(getReferenceClass()))</span>
+		{
+<span class="nc" id="L210">			subReference = rm.getReference(getName());</span>
+		}
+		else
+		{
+<span class="nc" id="L214">			throw new IllegalArgumentException(&quot;Cannot resolve a &quot; + getReferenceClass().getSimpleName()</span>
+<span class="nc" id="L215">				+ &quot; Reference to a &quot; + rm.getReferenceClass().getSimpleName());</span>
+		}
+<span class="nc" id="L217">	}</span>
+
+	/**
+	 * Returns a Collection containing the single Object to which this
+	 * CDOMTransparentSingleRef refers.
+	 * 
+	 * The semantics of this method are defined solely by the semantics of the
+	 * underlying CDOMSingleRef. Ownership of the Collection returned by this
+	 * method may or may not be transferred to the calling object (check the
+	 * documentation of the underlying CDOMSingleRef).
+	 * 
+	 * Note that if you know this CDOMTransparentSingleRef is a CDOMSingleRef,
+	 * you are better off using resolvesTo() as the result will be much faster
+	 * than having to extract the object out of the Collection returned by this
+	 * method.
+	 * 
+	 * @return A Collection containing the single Object to which this
+	 *         CDOMTransparentSingleRef refers.
+	 */
+	@Override
+	public Collection&lt;T&gt; getContainedObjects()
+	{
+<span class="nc" id="L239">		return subReference.getContainedObjects();</span>
+	}
+
+	/**
+	 * Returns the GroupingState for this CDOMTransparentSingleRef. The
+	 * GroupingState indicates how this CDOMTransparentSingleRef can be combined
+	 * with other PrimitiveChoiceFilters.
+	 * 
+	 * @return The GroupingState for this CDOMTransparentSingleRef.
+	 */
+	@Override
+	public GroupingState getGroupingState()
+	{
+<span class="nc" id="L252">		return GroupingState.ALLOWS_UNION;</span>
+	}
+
+	@Override
+	public String getChoice()
+	{
+<span class="nc bnc" id="L258" title="All 2 branches missed.">		return subReference == null ? null : subReference.getChoice();</span>
+	}
+
+	@Override
+	public void setChoice(String choice)
+	{
+<span class="nc" id="L264">		throw new IllegalStateException(&quot;Cannot set Choice on a Transparent Reference&quot;);</span>
+	}
+
+	@Override
+	public Class&lt;T&gt; getReferenceClass()
+	{
+<span class="nc" id="L270">		return refClass;</span>
+	}
+
+	@Override
+	public String getReferenceDescription()
+	{
+<span class="nc bnc" id="L276" title="All 2 branches missed.">		return (subReference == null) ? (refClass.getSimpleName() + &quot; &quot; + getName())</span>
+<span class="nc" id="L277">			: subReference.getReferenceDescription();</span>
+	}
+
+	@Override
+	public String getPersistentFormat()
+	{
+		// TODO Auto-generated method stub
+<span class="nc" id="L284">		return formatRepresentation;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

@@ -1,0 +1,485 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ChooserDialog.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.gui2.dialog</a> &gt; <span class="el_source">ChooserDialog.java</span></div><h1>ChooserDialog.java</h1><pre class="source lang-java linenums">/*
+ * Copyright James Dempsey, 2012
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.gui2.dialog;
+
+import java.awt.BorderLayout;
+import java.awt.Container;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Frame;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JSplitPane;
+import javax.swing.JTextField;
+import javax.swing.ListSelectionModel;
+import javax.swing.WindowConstants;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+
+import pcgen.cdom.base.Constants;
+import pcgen.core.chooser.InfoWrapper;
+import pcgen.facade.core.ChooserFacade;
+import pcgen.facade.core.ChooserFacade.ChooserTreeViewType;
+import pcgen.facade.core.InfoFacade;
+import pcgen.facade.core.InfoFactory;
+import pcgen.facade.util.DefaultListFacade;
+import pcgen.facade.util.DelegatingListFacade;
+import pcgen.facade.util.ListFacade;
+import pcgen.facade.util.event.ReferenceEvent;
+import pcgen.facade.util.event.ReferenceListener;
+import pcgen.gui2.UIPropertyContext;
+import pcgen.gui2.tools.Icons;
+import pcgen.gui2.tools.InfoPane;
+import pcgen.gui2.util.FacadeListModel;
+import pcgen.gui2.util.JListEx;
+import pcgen.gui2.util.JTreeViewTable;
+import pcgen.gui2.util.treeview.DataView;
+import pcgen.gui2.util.treeview.DataViewColumn;
+import pcgen.gui2.util.treeview.TreeView;
+import pcgen.gui2.util.treeview.TreeViewModel;
+import pcgen.gui2.util.treeview.TreeViewPath;
+import pcgen.gui3.GuiUtility;
+import pcgen.gui3.component.OKCloseButtonBar;
+import pcgen.system.LanguageBundle;
+import pcgen.system.PropertyContext;
+
+import javafx.scene.control.ButtonBar;
+import org.apache.commons.lang3.StringUtils;
+
+/**
+ * The Class {@code ChooserDialog} provides a general dialog to allow the
+ * user to select from a number of predefined choices. A ChooserFacade instance 
+ * must be supplied, this defines the choices available, the text to be displayed 
+ * on screen and the actions to be taken when the user confirms their choices. The 
+ * chooser is generally displayed via a call to UIDelgate.showGeneralChooser.
+ * &lt;p&gt;
+ * This class is based heavily on Connor Petty's LanguageChooserDialog class.
+ *
+ * 
+ */
+public class ChooserDialog extends JDialog implements ActionListener, ReferenceListener&lt;Integer&gt;, ListSelectionListener
+{
+
+	private final ChooserFacade chooser;
+	private final JTreeViewTable&lt;InfoFacade&gt; availTable;
+	private final JTextField availInput;
+	private final JLabel remainingLabel;
+	private final GeneralTreeViewModel treeViewModel;
+	private final FacadeListModel&lt;InfoFacade&gt; listModel;
+	private final JListEx list;
+	private final InfoPane infoPane;
+	private boolean committed;
+
+	/**
+	 * Create a new instance of ChooserDialog for selecting from the data supplied in the chooserFacade. 
+	 * @param frame The window we are opening relative to.
+	 * @param chooser The definition of what should be displayed.
+	 */
+	public ChooserDialog(Frame frame, ChooserFacade chooser)
+	{
+<span class="nc" id="L111">		super(frame, true);</span>
+<span class="nc" id="L112">		this.chooser = chooser;</span>
+<span class="nc bnc" id="L113" title="All 2 branches missed.">		if (chooser.isUserInput())</span>
+		{
+<span class="nc" id="L115">			this.availTable = null;</span>
+<span class="nc" id="L116">			this.availInput = new JTextField(20);</span>
+		}
+		else
+		{
+<span class="nc" id="L120">			this.availTable = new JTreeViewTable&lt;&gt;();</span>
+<span class="nc" id="L121">			this.availInput = null;</span>
+		}
+<span class="nc" id="L123">		this.remainingLabel = new JLabel();</span>
+<span class="nc" id="L124">		this.treeViewModel = new GeneralTreeViewModel();</span>
+<span class="nc" id="L125">		this.list = new JListEx();</span>
+<span class="nc" id="L126">		this.listModel = new FacadeListModel&lt;&gt;();</span>
+<span class="nc" id="L127">		this.infoPane = new InfoPane();</span>
+
+<span class="nc" id="L129">		treeViewModel.setDelegate(chooser.getAvailableList());</span>
+<span class="nc" id="L130">		listModel.setListFacade(chooser.getSelectedList());</span>
+<span class="nc" id="L131">		chooser.getRemainingSelections().addReferenceListener(this);</span>
+<span class="nc" id="L132">		overridePrefs();</span>
+<span class="nc" id="L133">		initComponents();</span>
+<span class="nc" id="L134">		pack();</span>
+<span class="nc" id="L135">	}</span>
+
+	@Override
+	public void setVisible(boolean b)
+	{
+		//
+		// Only do this if 1 entry and can add...
+		//
+<span class="nc" id="L143">		ListFacade&lt;InfoFacade&gt; availableList = chooser.getAvailableList();</span>
+<span class="nc bnc" id="L144" title="All 8 branches missed.">		if ((availableList != null) &amp;&amp; (availableList.getSize() == 1) &amp;&amp; (listModel.getSize() == 0) &amp;&amp; b</span>
+<span class="nc bnc" id="L145" title="All 2 branches missed.">			&amp;&amp; !chooser.isUserInput())</span>
+		{
+<span class="nc" id="L147">			final int method = UIPropertyContext.getSingleChoiceAction();</span>
+
+<span class="nc bnc" id="L149" title="All 2 branches missed.">			if (method != Constants.CHOOSER_SINGLE_CHOICE_METHOD_NONE)</span>
+			{
+<span class="nc" id="L151">				chooser.addSelected(availableList.getElementAt(0));</span>
+
+<span class="nc bnc" id="L153" title="All 2 branches missed.">				if (method == Constants.CHOOSER_SINGLE_CHOICE_METHOD_SELECT_EXIT)</span>
+				{
+<span class="nc" id="L155">					chooser.commit();</span>
+<span class="nc" id="L156">					committed = true;</span>
+<span class="nc" id="L157">					return;</span>
+				}
+			}
+		}
+
+<span class="nc" id="L162">		super.setVisible(b);</span>
+<span class="nc" id="L163">	}</span>
+
+	/**
+	 * We don't want some things recalled in preferences (e.g. tree sorting) as they
+	 * aren't the same for all choose data. Ensure we put out desired values in first.  
+	 */
+	private void overridePrefs()
+	{
+<span class="nc" id="L171">		UIPropertyContext baseContext = UIPropertyContext.createContext(&quot;tablePrefs&quot;);</span>
+<span class="nc" id="L172">		PropertyContext context = baseContext.createChildContext(treeViewModel.getDataView().getPrefsKey());</span>
+<span class="nc" id="L173">		final String VIEW_INDEX_PREFS_KEY = &quot;viewIdx&quot;;</span>
+<span class="nc" id="L174">		context.setInt(VIEW_INDEX_PREFS_KEY, treeViewModel.getDefaultTreeViewIndex());</span>
+<span class="nc" id="L175">	}</span>
+
+	private void initComponents()
+	{
+<span class="nc" id="L179">		setTitle(chooser.getName());</span>
+<span class="nc" id="L180">		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);</span>
+<span class="nc" id="L181">		addWindowListener(new WindowAdapter()</span>
+<span class="nc" id="L182">		{</span>
+
+			@Override
+			public void windowClosed(WindowEvent e)
+			{
+				//detach listeners from the chooser
+<span class="nc" id="L188">				treeViewModel.setDelegate(null);</span>
+<span class="nc" id="L189">				listModel.setListFacade(null);</span>
+<span class="nc" id="L190">				chooser.getRemainingSelections().removeReferenceListener(ChooserDialog.this);</span>
+<span class="nc" id="L191">			}</span>
+
+		});
+<span class="nc" id="L194">		Container pane = getContentPane();</span>
+<span class="nc" id="L195">		pane.setLayout(new BorderLayout());</span>
+
+<span class="nc" id="L197">		JSplitPane split = new JSplitPane();</span>
+<span class="nc" id="L198">		JPanel leftPane = new JPanel(new BorderLayout());</span>
+<span class="nc bnc" id="L199" title="All 2 branches missed.">		if (availTable != null)</span>
+		{
+<span class="nc" id="L201">			availTable.setAutoCreateRowSorter(true);</span>
+<span class="nc" id="L202">			availTable.setTreeViewModel(treeViewModel);</span>
+<span class="nc" id="L203">			availTable.getRowSorter().toggleSortOrder(0);</span>
+<span class="nc" id="L204">			availTable.addActionListener(this);</span>
+<span class="nc" id="L205">			leftPane.add(new JScrollPane(availTable), BorderLayout.CENTER);</span>
+		}
+		else
+		{
+<span class="nc" id="L209">			availInput.addActionListener(this);</span>
+<span class="nc" id="L210">			Dimension maxDim = new Dimension(Integer.MAX_VALUE, availInput.getPreferredSize().height);</span>
+<span class="nc" id="L211">			availInput.setMaximumSize(maxDim);</span>
+<span class="nc" id="L212">			JPanel availPanel = new JPanel();</span>
+<span class="nc" id="L213">			availPanel.setLayout(new BoxLayout(availPanel, BoxLayout.PAGE_AXIS));</span>
+<span class="nc" id="L214">			availPanel.add(Box.createRigidArea(new Dimension(10, 30)));</span>
+<span class="nc" id="L215">			availPanel.add(Box.createVerticalGlue());</span>
+<span class="nc" id="L216">			availPanel.add(new JLabel(LanguageBundle.getString(&quot;in_uichooser_value&quot;)));</span>
+<span class="nc" id="L217">			availPanel.add(availInput);</span>
+<span class="nc" id="L218">			availPanel.add(Box.createVerticalGlue());</span>
+<span class="nc" id="L219">			leftPane.add(availPanel, BorderLayout.WEST);</span>
+		}
+
+<span class="nc" id="L222">		JPanel buttonPane1 = new JPanel(new FlowLayout());</span>
+<span class="nc" id="L223">		JButton addButton = new JButton(chooser.getAddButtonName());</span>
+<span class="nc" id="L224">		addButton.setActionCommand(&quot;ADD&quot;);</span>
+<span class="nc" id="L225">		addButton.addActionListener(this);</span>
+<span class="nc" id="L226">		buttonPane1.add(addButton);</span>
+<span class="nc" id="L227">		buttonPane1.add(new JLabel(Icons.Forward16.getImageIcon()));</span>
+<span class="nc" id="L228">		leftPane.add(buttonPane1, BorderLayout.SOUTH);</span>
+
+<span class="nc" id="L230">		split.setLeftComponent(leftPane);</span>
+
+<span class="nc" id="L232">		JPanel rightPane = new JPanel(new BorderLayout());</span>
+<span class="nc" id="L233">		JPanel labelPane = new JPanel(new GridBagLayout());</span>
+
+<span class="nc" id="L235">		GridBagConstraints gbc = new GridBagConstraints();</span>
+<span class="nc" id="L236">		gbc.gridwidth = GridBagConstraints.REMAINDER;</span>
+<span class="nc" id="L237">		labelPane.add(new JLabel(chooser.getSelectionCountName()), new GridBagConstraints());</span>
+<span class="nc" id="L238">		remainingLabel.setText(chooser.getRemainingSelections().get().toString());</span>
+<span class="nc" id="L239">		labelPane.add(remainingLabel, gbc);</span>
+<span class="nc" id="L240">		labelPane.add(new JLabel(chooser.getSelectedTableTitle()), gbc);</span>
+<span class="nc" id="L241">		rightPane.add(labelPane, BorderLayout.NORTH);</span>
+
+<span class="nc" id="L243">		list.setModel(listModel);</span>
+<span class="nc" id="L244">		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);</span>
+<span class="nc" id="L245">		list.addActionListener(this);</span>
+<span class="nc" id="L246">		rightPane.add(new JScrollPane(list), BorderLayout.CENTER);</span>
+
+<span class="nc" id="L248">		JPanel buttonPane2 = new JPanel(new FlowLayout());</span>
+<span class="nc" id="L249">		buttonPane2.add(new JLabel(Icons.Back16.getImageIcon()));</span>
+<span class="nc" id="L250">		JButton removeButton = new JButton(chooser.getRemoveButtonName());</span>
+<span class="nc" id="L251">		removeButton.setActionCommand(&quot;REMOVE&quot;);</span>
+<span class="nc" id="L252">		removeButton.addActionListener(this);</span>
+<span class="nc" id="L253">		buttonPane2.add(removeButton);</span>
+<span class="nc" id="L254">		rightPane.add(buttonPane2, BorderLayout.SOUTH);</span>
+
+<span class="nc" id="L256">		split.setRightComponent(rightPane);</span>
+
+<span class="nc bnc" id="L258" title="All 2 branches missed.">		if (chooser.isInfoAvailable())</span>
+		{
+<span class="nc" id="L260">			JSplitPane infoSplit = new JSplitPane(JSplitPane.VERTICAL_SPLIT);</span>
+<span class="nc" id="L261">			infoSplit.setTopComponent(split);</span>
+<span class="nc" id="L262">			infoSplit.setBottomComponent(infoPane);</span>
+<span class="nc" id="L263">			infoSplit.setResizeWeight(0.8);</span>
+<span class="nc" id="L264">			pane.add(infoSplit, BorderLayout.CENTER);</span>
+<span class="nc bnc" id="L265" title="All 2 branches missed.">			if (availTable != null)</span>
+			{
+<span class="nc" id="L267">				availTable.getSelectionModel().addListSelectionListener(this);</span>
+			}
+<span class="nc" id="L269">		}</span>
+		else
+		{
+<span class="nc" id="L272">			pane.add(split, BorderLayout.CENTER);</span>
+		}
+
+<span class="nc" id="L275">		ButtonBar okCloseButtonBar = new OKCloseButtonBar(</span>
+				this::doOK,
+				this::doCancel
+		);
+
+<span class="nc" id="L280">		pane.add(GuiUtility.wrapParentAsJFXPanel(okCloseButtonBar), BorderLayout.PAGE_END);</span>
+<span class="nc" id="L281">	}</span>
+
+	@Override
+	public void referenceChanged(ReferenceEvent&lt;Integer&gt; e)
+	{
+<span class="nc" id="L286">		remainingLabel.setText(e.getNewReference().toString());</span>
+<span class="nc" id="L287">	}</span>
+
+	@Override
+	public void valueChanged(ListSelectionEvent e)
+	{
+<span class="nc bnc" id="L292" title="All 4 branches missed.">		if (availTable != null &amp;&amp; !e.getValueIsAdjusting())</span>
+		{
+<span class="nc bnc" id="L294" title="All 4 branches missed.">			if (e.getSource() == availTable.getSelectionModel() &amp;&amp; availTable.getSelectedObject() instanceof InfoFacade target)</span>
+			{
+<span class="nc" id="L296">				InfoFactory factory = chooser.getInfoFactory();</span>
+<span class="nc bnc" id="L297" title="All 4 branches missed.">				if (factory != null &amp;&amp; target != null)</span>
+				{
+<span class="nc" id="L299">					infoPane.setText(factory.getHTMLInfo(target));</span>
+				}
+			}
+		}
+<span class="nc" id="L303">	}</span>
+
+	private void doOK(final javafx.event.ActionEvent event)
+	{
+<span class="nc bnc" id="L307" title="All 4 branches missed.">		if (chooser.isRequireCompleteSelection() &amp;&amp; chooser.getRemainingSelections().get() &gt; 0)</span>
+		{
+<span class="nc" id="L309">			JOptionPane.showMessageDialog(this,</span>
+<span class="nc" id="L310">					LanguageBundle.getFormattedString(&quot;in_chooserRequireComplete&quot;, //$NON-NLS-1$</span>
+<span class="nc" id="L311">							chooser.getRemainingSelections().get()), chooser.getName(), JOptionPane.INFORMATION_MESSAGE);</span>
+		}
+		else
+		{
+<span class="nc" id="L315">			committed = true;</span>
+<span class="nc" id="L316">			chooser.commit();</span>
+<span class="nc" id="L317">			dispose();</span>
+		}
+
+<span class="nc" id="L320">	}</span>
+
+	private void doCancel(final javafx.event.ActionEvent event)
+	{
+<span class="nc" id="L324">		committed = false;</span>
+<span class="nc" id="L325">		chooser.rollback();</span>
+<span class="nc" id="L326">		dispose();</span>
+<span class="nc" id="L327">	}</span>
+
+
+	@Override
+	public void actionPerformed(ActionEvent e)
+	{
+<span class="nc bnc" id="L333" title="All 6 branches missed.">		if (availTable != null &amp;&amp; (e.getActionCommand().equals(&quot;ADD&quot;) || e.getSource() == availTable))</span>
+		{
+<span class="nc" id="L335">			List&lt;Object&gt; data = availTable.getSelectedData();</span>
+<span class="nc bnc" id="L336" title="All 2 branches missed.">			if (!data.isEmpty())</span>
+			{
+<span class="nc bnc" id="L338" title="All 2 branches missed.">				for (Object object : data)</span>
+				{
+<span class="nc bnc" id="L340" title="All 2 branches missed.">					if (object instanceof InfoFacade)</span>
+					{
+<span class="nc" id="L342">						chooser.addSelected((InfoFacade) object);</span>
+					}
+<span class="nc" id="L344">				}</span>
+			}
+<span class="nc" id="L346">			return;</span>
+		}
+<span class="nc bnc" id="L348" title="All 6 branches missed.">		if (availInput != null &amp;&amp; (e.getActionCommand().equals(&quot;ADD&quot;) || e.getSource() == availInput))</span>
+		{
+<span class="nc" id="L350">			String data = availInput.getText();</span>
+<span class="nc bnc" id="L351" title="All 2 branches missed.">			if (StringUtils.isNotBlank(data))</span>
+			{
+<span class="nc" id="L353">				chooser.addSelected(new InfoWrapper(data));</span>
+			}
+<span class="nc" id="L355">			availInput.setText(&quot;&quot;);</span>
+<span class="nc" id="L356">			return;</span>
+		}
+
+<span class="nc bnc" id="L359" title="All 4 branches missed.">		if (e.getActionCommand().equals(&quot;REMOVE&quot;) || e.getSource() == list)</span>
+		{
+<span class="nc" id="L361">			Object value = list.getSelectedValue();</span>
+<span class="nc bnc" id="L362" title="All 4 branches missed.">			if (value != null &amp;&amp; value instanceof InfoFacade)</span>
+			{
+<span class="nc" id="L364">				chooser.removeSelected((InfoFacade) value);</span>
+<span class="nc bnc" id="L365" title="All 2 branches missed.">				if (availInput != null)</span>
+				{
+<span class="nc" id="L367">					availInput.setText(value.toString());</span>
+				}
+			}
+<span class="nc" id="L370">			return;</span>
+		}
+<span class="nc" id="L372">	}</span>
+
+	/**
+	 * Returns the means by which the dialog was closed.   
+	 * @return the committed status, false for cancelled, true for OKed. 
+	 */
+	public boolean isCommitted()
+	{
+<span class="nc" id="L380">		return committed;</span>
+	}
+
+<span class="nc" id="L383">	private class GeneralTreeViewModel extends DelegatingListFacade&lt;InfoFacade&gt;</span>
+			implements TreeViewModel&lt;InfoFacade&gt;, DataView&lt;InfoFacade&gt;
+	{
+
+		@Override
+		public ListFacade&lt;? extends TreeView&lt;InfoFacade&gt;&gt; getTreeViews()
+		{
+<span class="nc" id="L390">			DefaultListFacade&lt;TreeView&lt;InfoFacade&gt;&gt; views = new DefaultListFacade&lt;&gt;();</span>
+<span class="nc" id="L391">			views.addElement(new ChooserTreeView(ChooserTreeViewType.NAME, chooser.getAvailableTableTitle(), chooser));</span>
+<span class="nc" id="L392">			views.addElement(</span>
+<span class="nc" id="L393">					new ChooserTreeView(ChooserTreeViewType.TYPE_NAME, chooser.getAvailableTableTypeNameTitle(), chooser));</span>
+<span class="nc" id="L394">			return views;</span>
+		}
+
+		@Override
+		public int getDefaultTreeViewIndex()
+		{
+<span class="nc" id="L400">			return chooser.getDefaultView().ordinal();</span>
+		}
+
+		@Override
+		public DataView&lt;InfoFacade&gt; getDataView()
+		{
+<span class="nc" id="L406">			return this;</span>
+		}
+
+		@Override
+		public ListFacade&lt;InfoFacade&gt; getDataModel()
+		{
+<span class="nc" id="L412">			return this;</span>
+		}
+
+		@Override
+		public Object getData(InfoFacade element, int column)
+		{
+<span class="nc" id="L418">			return null;</span>
+		}
+
+		@Override
+		public void setData(Object value, InfoFacade element, int column)
+		{
+<span class="nc" id="L424">		}</span>
+
+		@Override
+		public List&lt;? extends DataViewColumn&gt; getDataColumns()
+		{
+<span class="nc" id="L429">			return Collections.emptyList();</span>
+		}
+
+		@Override
+		public String getPrefsKey()
+		{
+<span class="nc" id="L435">			return chooser.getAvailableTableTypeNameTitle();</span>
+		}
+
+	}
+
+	private static final class ChooserTreeView implements TreeView&lt;InfoFacade&gt;
+	{
+
+		private final String viewName;
+		private final ChooserFacade chooser;
+		private final ChooserTreeViewType viewType;
+
+		private ChooserTreeView(ChooserTreeViewType viewType, String name, ChooserFacade chooser)
+<span class="nc" id="L448">		{</span>
+<span class="nc" id="L449">			this.viewType = viewType;</span>
+<span class="nc" id="L450">			this.viewName = name;</span>
+<span class="nc" id="L451">			this.chooser = chooser;</span>
+<span class="nc" id="L452">		}</span>
+
+		@Override
+		public String getViewName()
+		{
+<span class="nc" id="L457">			return viewName;</span>
+		}
+
+		@Override
+		public List&lt;TreeViewPath&lt;InfoFacade&gt;&gt; getPaths(InfoFacade pobj)
+		{
+<span class="nc bnc" id="L463" title="All 3 branches missed.">			switch (viewType)</span>
+			{
+				case TYPE_NAME:
+<span class="nc" id="L466">					List&lt;TreeViewPath&lt;InfoFacade&gt;&gt; paths = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L467" title="All 2 branches missed.">					for (String type : chooser.getBranchNames(pobj))</span>
+					{
+<span class="nc" id="L469">						paths.add(new TreeViewPath&lt;&gt;(pobj, type));</span>
+<span class="nc" id="L470">					}</span>
+<span class="nc bnc" id="L471" title="All 2 branches missed.">					if (!paths.isEmpty())</span>
+					{
+<span class="nc" id="L473">						return paths;</span>
+					}
+					// Otherwise treat as a name entry
+				case NAME:
+<span class="nc" id="L477">					return Collections.singletonList(new TreeViewPath&lt;&gt;(pobj));</span>
+				default:
+<span class="nc" id="L479">					throw new InternalError();</span>
+			}
+		}
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

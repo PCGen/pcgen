@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SpellReferenceChoiceSet.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.choiceset</a> &gt; <span class="el_source">SpellReferenceChoiceSet.java</span></div><h1>SpellReferenceChoiceSet.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2007, 2008 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.cdom.choiceset;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Objects;
+import java.util.Set;
+import java.util.TreeSet;
+import java.util.logging.Level;
+
+import pcgen.cdom.base.CDOMListObject;
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.PrimitiveChoiceSet;
+import pcgen.cdom.enumeration.GroupingState;
+import pcgen.cdom.list.DomainSpellList;
+import pcgen.cdom.reference.ReferenceUtilities;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.spell.Spell;
+import pcgen.util.Logging;
+
+/**
+ * A SpellReferenceChoiceSet contains references to CDOMListObjects. This is a
+ * specialized PrimitiveChoiceSet designed for use with {@code CDOMListObject&lt;Spell&gt;}
+ * lists.
+ * 
+ * The contents of a SpellReferenceChoiceSet is defined at construction of the
+ * SpellReferenceChoiceSet. The contents of a SpellReferenceChoiceSet is fixed,
+ * and will not vary by the PlayerCharacter used to resolve the
+ * SpellReferenceChoiceSet.
+ * 
+ * This exists as a special case (from a generic PrimitiveChoiceSet) for two
+ * reasons: (1) getChoiceClass() is hardcoded to return CDOMListObject (vs. the
+ * risk of returning an inconsistent answer like ClassSpellList or
+ * DomainSpellList [this may contain either or both]) (2) getLSTformat needs to
+ * correct for DomainSpellList references having a &quot;DOMAIN.&quot; prefix in order to
+ * distinguish them from ClassSpellList references/names
+ */
+public final class SpellReferenceChoiceSet implements PrimitiveChoiceSet&lt;CDOMListObject&lt;Spell&gt;&gt;
+{
+	/**
+	 * The underlying Set of CDOMReferences that contain the CDOMListObjects in
+	 * this SpellReferenceChoiceSet
+	 */
+	private final Set&lt;CDOMReference&lt;? extends CDOMListObject&lt;Spell&gt;&gt;&gt; set;
+
+	/**
+	 * Constructs a new SpellReferenceChoiceSet which contains the Set of
+	 * CDOMListObjects contained within the given CDOMReferences. The
+	 * CDOMReferences do not need to be resolved at the time of construction of
+	 * the SpellReferenceChoiceSet.
+	 * 
+	 * This constructor is both reference-semantic and value-semantic. Ownership
+	 * of the Collection provided to this constructor is not transferred.
+	 * Modification of the Collection (after this constructor completes) does
+	 * not result in modifying the ReferenceChoiceSet, and the
+	 * SpellReferenceChoiceSet will not modify the given Collection. However,
+	 * this SpellReferenceChoiceSet will maintain hard references to the
+	 * CDOMReference objects contained within the given Collection.
+	 * 
+	 * @param listRefCollection
+	 *            A Collection of CDOMReferences which define the Set of
+	 *            CDOMListObjects contained within the SpellReferenceChoiceSet
+	 * @throws IllegalArgumentException
+	 *             if the given Collection is null or empty.
+	 */
+	public SpellReferenceChoiceSet(Collection&lt;CDOMReference&lt;? extends CDOMListObject&lt;Spell&gt;&gt;&gt; listRefCollection)
+<span class="fc" id="L86">	{</span>
+<span class="fc" id="L87">		Objects.requireNonNull(listRefCollection, &quot;Choice Collection cannot be null&quot;);</span>
+<span class="pc bpc" id="L88" title="1 of 2 branches missed.">		if (listRefCollection.isEmpty())</span>
+		{
+<span class="nc" id="L90">			throw new IllegalArgumentException(&quot;Choice Collection cannot be empty&quot;);</span>
+		}
+<span class="fc" id="L92">		set = new HashSet&lt;&gt;(listRefCollection);</span>
+<span class="pc bpc" id="L93" title="1 of 2 branches missed.">		if (set.size() != listRefCollection.size())</span>
+		{
+<span class="nc bnc" id="L95" title="All 2 branches missed.">			if (Logging.isLoggable(Level.WARNING))</span>
+			{
+<span class="nc" id="L97">				Logging.log(Level.WARNING, &quot;Found duplicate item in &quot; + listRefCollection);</span>
+			}
+			//TODO need to trigger a bad GroupingState...
+		}
+<span class="fc" id="L101">	}</span>
+
+	/**
+	 * Returns a representation of this SpellReferenceChoiceSet, suitable for
+	 * storing in an LST file.
+	 * 
+	 * @param useAny
+	 *            use &quot;ANY&quot; for the global &quot;ALL&quot; reference when creating the LST
+	 *            format
+	 * @return A representation of this SpellReferenceChoiceSet, suitable for
+	 *         storing in an LST file.
+	 */
+	@Override
+	public String getLSTformat(boolean useAny)
+	{
+<span class="fc" id="L116">		Set&lt;CDOMReference&lt;?&gt;&gt; sortedSet = new TreeSet&lt;&gt;(ReferenceUtilities.REFERENCE_SORTER);</span>
+<span class="fc" id="L117">		sortedSet.addAll(set);</span>
+<span class="fc" id="L118">		StringBuilder sb = new StringBuilder();</span>
+<span class="fc" id="L119">		List&lt;CDOMReference&lt;?&gt;&gt; domainList = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L120">		boolean needComma = false;</span>
+<span class="fc bfc" id="L121" title="All 2 branches covered.">		for (CDOMReference&lt;?&gt; ref : sortedSet)</span>
+		{
+<span class="fc bfc" id="L123" title="All 2 branches covered.">			if (DomainSpellList.class.equals(ref.getReferenceClass()))</span>
+			{
+<span class="fc" id="L125">				domainList.add(ref);</span>
+			}
+			else
+			{
+<span class="fc bfc" id="L129" title="All 2 branches covered.">				if (needComma)</span>
+				{
+<span class="fc" id="L131">					sb.append(Constants.COMMA);</span>
+				}
+<span class="fc" id="L133">				sb.append(ref.getLSTformat(false));</span>
+<span class="fc" id="L134">				needComma = true;</span>
+			}
+<span class="fc" id="L136">		}</span>
+<span class="fc bfc" id="L137" title="All 2 branches covered.">		for (CDOMReference&lt;?&gt; ref : domainList)</span>
+		{
+<span class="fc bfc" id="L139" title="All 2 branches covered.">			if (needComma)</span>
+			{
+<span class="fc" id="L141">				sb.append(Constants.COMMA);</span>
+			}
+<span class="fc" id="L143">			sb.append(&quot;DOMAIN.&quot;);</span>
+<span class="fc" id="L144">			sb.append(ref.getLSTformat(false));</span>
+<span class="fc" id="L145">			needComma = true;</span>
+<span class="fc" id="L146">		}</span>
+<span class="fc" id="L147">		return sb.toString();</span>
+	}
+
+	/**
+	 * The class of object this SpellReferenceChoiceSet contains.
+	 * 
+	 * @return The class of object this SpellReferenceChoiceSet contains.
+	 */
+	@Override
+	public Class&lt;CDOMListObject&gt; getChoiceClass()
+	{
+<span class="nc" id="L158">		return CDOMListObject.class;</span>
+	}
+
+	/**
+	 * Returns a Set containing the CDOMListObjects which this
+	 * SpellReferenceChoiceSet contains. The contents of a
+	 * SpellReferenceChoiceSet is fixed, and will not vary by the
+	 * PlayerCharacter used to resolve the SpellReferenceChoiceSet.
+	 * 
+	 * The behavior of this method is undefined if the CDOMReference objects
+	 * provided during the construction of this SpellReferenceChoiceSet are not
+	 * yet resolved.
+	 * 
+	 * This method is value-semantic, meaning that ownership of the Set returned
+	 * by this method will be transferred to the calling object. Modification of
+	 * the returned Set should not result in modifying the
+	 * SpellReferenceChoiceSet, and modifying the SpellReferenceChoiceSet after
+	 * the Set is returned should not modify the Set.
+	 * 
+	 * @param pc
+	 *            The PlayerCharacter for which the choices in this
+	 *            SpellReferenceChoiceSet should be returned.
+	 * @return A Set containing the CDOMListObjects which this
+	 *         SpellReferenceChoiceSet contains.
+	 */
+	@Override
+	public Set&lt;CDOMListObject&lt;Spell&gt;&gt; getSet(PlayerCharacter pc)
+	{
+<span class="nc" id="L186">		Set&lt;CDOMListObject&lt;Spell&gt;&gt; returnSet = new HashSet&lt;&gt;();</span>
+<span class="nc bnc" id="L187" title="All 2 branches missed.">		for (CDOMReference&lt;? extends CDOMListObject&lt;Spell&gt;&gt; ref : set)</span>
+		{
+<span class="nc" id="L189">			returnSet.addAll(ref.getContainedObjects());</span>
+<span class="nc" id="L190">		}</span>
+<span class="nc" id="L191">		return returnSet;</span>
+	}
+
+	@Override
+	public int hashCode()
+	{
+<span class="nc" id="L197">		return set.size();</span>
+	}
+
+	@Override
+	public boolean equals(Object obj)
+	{
+<span class="pc bpc" id="L203" title="1 of 2 branches missed.">		if (obj == this)</span>
+		{
+<span class="nc" id="L205">			return true;</span>
+		}
+<span class="pc bpc" id="L207" title="1 of 2 branches missed.">		if (obj instanceof SpellReferenceChoiceSet other)</span>
+		{
+<span class="fc" id="L209">			return set.equals(other.set);</span>
+		}
+<span class="nc" id="L211">		return false;</span>
+	}
+
+	/**
+	 * Returns the GroupingState for this SpellReferenceChoiceSet. The
+	 * GroupingState indicates how this SpellReferenceChoiceSet can be combined
+	 * with other PrimitiveChoiceSets.
+	 * 
+	 * @return The GroupingState for this SpellReferenceChoiceSet.
+	 */
+	@Override
+	public GroupingState getGroupingState()
+	{
+<span class="fc" id="L224">		GroupingState state = GroupingState.EMPTY;</span>
+<span class="fc bfc" id="L225" title="All 2 branches covered.">		for (CDOMReference&lt;? extends CDOMListObject&lt;Spell&gt;&gt; listref : set)</span>
+		{
+<span class="fc" id="L227">			state = state.add(listref.getGroupingState());</span>
+<span class="fc" id="L228">		}</span>
+		//TODO I think this needs state.compound(GroupingState.ALLOWS_UNION)??
+<span class="fc" id="L230">		return state;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

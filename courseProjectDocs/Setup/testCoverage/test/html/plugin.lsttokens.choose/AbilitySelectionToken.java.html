@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AbilitySelectionToken.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.lsttokens.choose</a> &gt; <span class="el_source">AbilitySelectionToken.java</span></div><h1>AbilitySelectionToken.java</h1><pre class="source lang-java linenums">/*
+ * AbilitySelectionToken.java
+ * Copyright 2013 (C) James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package plugin.lsttokens.choose;
+
+import java.util.List;
+
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.CategorizedAbilitySelectionChooseInformation;
+import pcgen.cdom.base.ChooseDriver;
+import pcgen.cdom.base.ChooseInformation;
+import pcgen.cdom.base.ChooseSelectionActor;
+import pcgen.cdom.base.Chooser;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.PrimitiveCollection;
+import pcgen.cdom.choiceset.CollectionToAbilitySelection;
+import pcgen.cdom.content.AbilitySelection;
+import pcgen.cdom.enumeration.AssociationListKey;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.reference.ReferenceManufacturer;
+import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
+import pcgen.core.PlayerCharacter;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.ParseResult;
+
+/**
+ * New chooser plugin, handles ability selection.
+ * 
+ * 
+ */
+<span class="fc" id="L49">public class AbilitySelectionToken extends AbstractTokenWithSeparator&lt;CDOMObject&gt;</span>
+		implements CDOMSecondaryToken&lt;CDOMObject&gt;, Chooser&lt;AbilitySelection&gt;
+{
+<span class="fc" id="L52">	private static final Class&lt;AbilityCategory&gt; ABILITY_CATEGORY_CLASS = AbilityCategory.class;</span>
+
+	@Override
+	public String getParentToken()
+	{
+<span class="fc" id="L57">		return &quot;CHOOSE&quot;;</span>
+	}
+
+	@Override
+	protected char separator()
+	{
+<span class="fc" id="L63">		return '|';</span>
+	}
+
+	protected ParseResult parseTokenWithSeparator(LoadContext context, ReferenceManufacturer&lt;Ability&gt; rm,
+		AbilityCategory cat, CDOMObject obj, String value)
+	{
+<span class="fc" id="L69">		int pipeLoc = value.lastIndexOf('|');</span>
+		String activeValue;
+		String title;
+<span class="fc bfc" id="L72" title="All 2 branches covered.">		if (pipeLoc == -1)</span>
+		{
+<span class="fc" id="L74">			activeValue = value;</span>
+<span class="fc" id="L75">			title = getDefaultTitle();</span>
+		}
+		else
+		{
+<span class="fc" id="L79">			String titleString = value.substring(pipeLoc + 1);</span>
+<span class="fc bfc" id="L80" title="All 2 branches covered.">			if (titleString.startsWith(&quot;TITLE=&quot;))</span>
+			{
+<span class="fc" id="L82">				title = titleString.substring(6);</span>
+<span class="pc bpc" id="L83" title="1 of 2 branches missed.">				if (title.startsWith(&quot;\&quot;&quot;))</span>
+				{
+<span class="nc" id="L85">					title = title.substring(1, title.length() - 1);</span>
+				}
+<span class="fc bfc" id="L87" title="All 2 branches covered.">				if (title.isEmpty())</span>
+				{
+<span class="fc" id="L89">					return new ParseResult.Fail(</span>
+<span class="fc" id="L90">						getParentToken() + Constants.COLON + getTokenName() + &quot; had TITLE= but no title: &quot; + value);</span>
+				}
+<span class="fc" id="L92">				activeValue = value.substring(0, pipeLoc);</span>
+			}
+			else
+			{
+<span class="fc" id="L96">				activeValue = value;</span>
+<span class="fc" id="L97">				title = getDefaultTitle();</span>
+			}
+		}
+
+<span class="fc" id="L101">		PrimitiveCollection&lt;Ability&gt; prim = context.getChoiceSet(rm, activeValue);</span>
+<span class="fc bfc" id="L102" title="All 2 branches covered.">		if (prim == null)</span>
+		{
+<span class="fc" id="L104">			return ParseResult.INTERNAL_ERROR;</span>
+		}
+<span class="fc bfc" id="L106" title="All 2 branches covered.">		if (!prim.getGroupingState().isValid())</span>
+		{
+<span class="fc" id="L108">			return new ParseResult.Fail(</span>
+<span class="fc" id="L109">				&quot;Non-sensical &quot; + getFullName() + &quot;: Contains ANY and a specific reference: &quot; + value);</span>
+		}
+<span class="fc" id="L111">		CollectionToAbilitySelection pcs = new CollectionToAbilitySelection(cat, prim);</span>
+<span class="fc" id="L112">		CategorizedAbilitySelectionChooseInformation tc =</span>
+<span class="fc" id="L113">				new CategorizedAbilitySelectionChooseInformation(getTokenName(), pcs);</span>
+<span class="fc" id="L114">		tc.setTitle(title);</span>
+<span class="fc" id="L115">		tc.setChoiceActor(this);</span>
+<span class="fc" id="L116">		context.getObjectContext().put(obj, ObjectKey.CHOOSE_INFO, tc);</span>
+<span class="fc" id="L117">		return ParseResult.SUCCESS;</span>
+	}
+
+	private String getFullName()
+	{
+<span class="fc" id="L122">		return getParentToken() + Constants.COLON + getTokenName();</span>
+	}
+
+	@Override
+	public String[] unparse(LoadContext context, CDOMObject cdo)
+	{
+<span class="fc" id="L128">		ChooseInformation&lt;?&gt; tc = context.getObjectContext().getObject(cdo, ObjectKey.CHOOSE_INFO);</span>
+<span class="fc bfc" id="L129" title="All 2 branches covered.">		if (tc == null)</span>
+		{
+<span class="fc" id="L131">			return null;</span>
+		}
+<span class="pc bpc" id="L133" title="1 of 2 branches missed.">		if (!tc.getName().equals(getTokenName()))</span>
+		{
+			// Don't unparse anything that isn't owned by this SecondaryToken
+			/*
+			 * TODO Either this really needs to be a check against the subtoken
+			 * (which thus needs to be stored in the ChooseInfo) or there needs
+			 * to be a loadtime check that no more than once CHOOSE subtoken
+			 * uses the same AssociationListKey... :P
+			 */
+<span class="nc" id="L142">			return null;</span>
+		}
+<span class="fc bfc" id="L144" title="All 2 branches covered.">		if (!tc.getGroupingState().isValid())</span>
+		{
+<span class="fc" id="L146">			context.addWriteMessage(&quot;Invalid combination of objects&quot; + &quot; was used in: &quot; + getParentToken()</span>
+<span class="fc" id="L147">				+ Constants.COLON + getTokenName());</span>
+<span class="fc" id="L148">			return null;</span>
+		}
+
+<span class="fc" id="L151">		StringBuilder sb = new StringBuilder();</span>
+<span class="pc bpc" id="L152" title="1 of 2 branches missed.">		if (tc instanceof CategorizedAbilitySelectionChooseInformation)</span>
+		{
+<span class="fc" id="L154">			sb.append(((CategorizedAbilitySelectionChooseInformation) tc).getCategory().getKeyName());</span>
+		}
+		else
+		{
+			// We have a migrating FEATSELECTION token
+<span class="nc" id="L159">			sb.append(&quot;FEAT&quot;);</span>
+		}
+<span class="fc" id="L161">		sb.append('|');</span>
+<span class="fc" id="L162">		sb.append(tc.getLSTformat());</span>
+<span class="fc" id="L163">		String title = tc.getTitle();</span>
+<span class="fc bfc" id="L164" title="All 2 branches covered.">		if (!title.equals(getDefaultTitle()))</span>
+		{
+<span class="fc" id="L166">			sb.append(&quot;|TITLE=&quot;);</span>
+<span class="fc" id="L167">			sb.append(title);</span>
+		}
+<span class="fc" id="L169">		return new String[]{sb.toString()};</span>
+	}
+
+	@Override
+	public void applyChoice(ChooseDriver owner, AbilitySelection st, PlayerCharacter pc)
+	{
+<span class="nc" id="L175">		restoreChoice(pc, owner, st);</span>
+<span class="nc" id="L176">	}</span>
+
+	@Override
+	public void removeChoice(PlayerCharacter pc, ChooseDriver owner, AbilitySelection choice)
+	{
+<span class="nc" id="L181">		pc.removeAssoc(owner, getListKey(), choice);</span>
+<span class="nc" id="L182">		List&lt;ChooseSelectionActor&lt;?&gt;&gt; actors = owner.getActors();</span>
+<span class="nc bnc" id="L183" title="All 2 branches missed.">		if (actors != null)</span>
+		{
+<span class="nc bnc" id="L185" title="All 2 branches missed.">			for (ChooseSelectionActor ca : actors)</span>
+			{
+<span class="nc" id="L187">				ca.removeChoice(owner, choice, pc);</span>
+<span class="nc" id="L188">			}</span>
+		}
+<span class="nc" id="L190">	}</span>
+
+	@Override
+	public void restoreChoice(PlayerCharacter pc, ChooseDriver owner, AbilitySelection choice)
+	{
+<span class="nc" id="L195">		pc.addAssoc(owner, getListKey(), choice);</span>
+<span class="nc" id="L196">		List&lt;ChooseSelectionActor&lt;?&gt;&gt; actors = owner.getActors();</span>
+<span class="nc bnc" id="L197" title="All 2 branches missed.">		if (actors != null)</span>
+		{
+<span class="nc bnc" id="L199" title="All 2 branches missed.">			for (ChooseSelectionActor ca : actors)</span>
+			{
+<span class="nc" id="L201">				ca.applyChoice(owner, choice, pc);</span>
+<span class="nc" id="L202">			}</span>
+		}
+<span class="nc" id="L204">	}</span>
+
+	@Override
+	public List&lt;AbilitySelection&gt; getCurrentlySelected(ChooseDriver owner, PlayerCharacter pc)
+	{
+<span class="nc" id="L209">		return pc.getAssocList(owner, getListKey());</span>
+	}
+
+	@Override
+	public boolean allow(AbilitySelection choice, PlayerCharacter pc, boolean allowStack)
+	{
+		/*
+		 * This is universally true, as any filter for qualify, etc. was dealt
+		 * with by the ChoiceSet built during parse
+		 */
+<span class="nc" id="L219">		return true;</span>
+	}
+
+<span class="fc" id="L222">	private static final Class&lt;Ability&gt; ABILITY_CLASS = Ability.class;</span>
+
+	@Override
+	public String getTokenName()
+	{
+<span class="fc" id="L227">		return &quot;ABILITYSELECTION&quot;;</span>
+	}
+
+	@Override
+	public ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
+	{
+<span class="fc" id="L233">		int barLoc = value.indexOf('|');</span>
+<span class="fc bfc" id="L234" title="All 2 branches covered.">		if (barLoc == -1)</span>
+		{
+<span class="fc" id="L236">			return new ParseResult.Fail(&quot;CHOOSE:&quot; + getTokenName() + &quot; requires a CATEGORY and arguments : &quot; + value);</span>
+		}
+<span class="fc" id="L238">		String cat = value.substring(0, barLoc);</span>
+<span class="fc" id="L239">		AbilityCategory acRef = context.getReferenceContext().get(ABILITY_CATEGORY_CLASS, cat);</span>
+<span class="fc" id="L240">		String abilities = value.substring(barLoc + 1);</span>
+<span class="fc" id="L241">		ReferenceManufacturer&lt;Ability&gt; rm =</span>
+<span class="fc" id="L242">				context.getReferenceContext().getManufacturerByFormatName(&quot;ABILITY=&quot; + cat, ABILITY_CLASS);</span>
+<span class="pc bpc" id="L243" title="1 of 2 branches missed.">		if (rm == null)</span>
+		{
+<span class="nc" id="L245">			return new ParseResult.Fail(&quot;Could not get Reference Manufacturer for Category: &quot; + cat);</span>
+		}
+<span class="fc" id="L247">		return parseTokenWithSeparator(context, rm, acRef, obj, abilities);</span>
+	}
+
+	@Override
+	public Class&lt;CDOMObject&gt; getTokenClass()
+	{
+<span class="fc" id="L253">		return CDOMObject.class;</span>
+	}
+
+	protected String getDefaultTitle()
+	{
+<span class="fc" id="L258">		return &quot;Ability choice&quot;;</span>
+	}
+
+	protected AssociationListKey&lt;AbilitySelection&gt; getListKey()
+	{
+<span class="nc" id="L263">		return AssociationListKey.getKeyFor(AbilitySelection.class, &quot;CHOOSE*ABILITYSELECTION&quot;);</span>
+	}
+
+	// TODO - code below here needs to be made category aware
+	@Override
+	public AbilitySelection decodeChoice(LoadContext context, String s)
+	{
+<span class="fc" id="L270">		return AbilitySelection.getAbilitySelectionFromPersistentFormat(context, s);</span>
+	}
+
+	@Override
+	public String encodeChoice(AbilitySelection choice)
+	{
+<span class="fc" id="L276">		return choice.getPersistentFormat();</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

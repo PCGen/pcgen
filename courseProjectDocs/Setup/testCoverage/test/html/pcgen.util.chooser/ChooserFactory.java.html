@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ChooserFactory.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.util.chooser</a> &gt; <span class="el_source">ChooserFactory.java</span></div><h1>ChooserFactory.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2002 (C) Jonas Karlsson
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.util.chooser;
+
+import java.util.Optional;
+
+import pcgen.facade.core.UIDelegate;
+
+/**
+ * This factory class returns a Chooser of the appropriate type. This is intended
+ * to reduce the core/gui interdependence. Much more work is needed on this...
+ * Currently only a SwingChooser has been implemented.
+ */
+@Deprecated()
+public final class ChooserFactory
+{
+	private static UIDelegate delegate;
+<span class="nc" id="L33">	private static  boolean useRandomChooser = false;</span>
+
+	private ChooserFactory()
+	{
+	}
+
+	/**
+	 * Retrieve an optional handler for making choices. If no handler is 
+	 * currently registered, it is expected that the UI class caller will 
+	 * display an interactive dialog. If multiple handlers are currently 
+	 * registered the most recently registered (LIFO) will be returned.
+	 * 
+	 * @return The most recently registered ChoiceHandler, if any.
+	 */
+	public static Optional&lt;RandomChooser&gt; getChoiceHandler()
+	{
+<span class="nc bnc" id="L49" title="All 2 branches missed.">		if (useRandomChooser)</span>
+		{
+<span class="nc" id="L51">			return Optional.of(new RandomChooser());</span>
+		}
+		else
+		{
+<span class="nc" id="L55">			return Optional.empty();</span>
+		}
+	}
+
+	/**
+	 * Used by tests to use random choice.
+	 */
+	public static void useRandomChooser()
+	{
+<span class="nc" id="L64">		useRandomChooser = true;</span>
+<span class="nc" id="L65">	}</span>
+
+	/**
+	 * @return the delegate
+	 */
+	public static UIDelegate getDelegate()
+	{
+<span class="nc" id="L72">		return delegate;</span>
+	}
+
+	/**
+	 * @param delegate the delgate to set
+	 */
+	public static void setDelegate(UIDelegate delegate)
+	{
+<span class="nc" id="L80">		ChooserFactory.delegate = delegate;</span>
+<span class="nc" id="L81">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

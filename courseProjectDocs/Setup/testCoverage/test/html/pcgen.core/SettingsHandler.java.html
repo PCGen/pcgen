@@ -1,0 +1,1359 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SettingsHandler.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.core</a> &gt; <span class="el_source">SettingsHandler.java</span></div><h1>SettingsHandler.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2001 (C) Jonas Karlsson
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.core;
+
+import java.awt.Color;
+import java.awt.SystemColor;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Properties;
+import java.util.StringTokenizer;
+
+import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.SourceFormat;
+import pcgen.core.utils.CoreUtility;
+import pcgen.core.utils.SortedProperties;
+import pcgen.persistence.PersistenceManager;
+import pcgen.system.ConfigurationSettings;
+import pcgen.system.LanguageBundle;
+import pcgen.util.Logging;
+
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleObjectProperty;
+import org.apache.commons.lang3.SystemUtils;
+
+/**
+ *
+ * Should be cleaned up more.
+ * 
+ * &lt;b&gt;NB: This class is being gradually replaced with use of 
+ * {@link pcgen.system.PropertyContext} and its children.&lt;/b&gt;   
+ *
+ **/
+public final class SettingsHandler
+{
+
+	//
+	// For EqBuilder
+	//
+<span class="fc" id="L67">	private static final IntegerProperty maxPotionSpellLevel =</span>
+			new SimpleIntegerProperty(Constants.DEFAULT_MAX_POTION_SPELL_LEVEL);
+<span class="fc" id="L69">	private static final IntegerProperty maxWandSpellLevel =</span>
+			new SimpleIntegerProperty(Constants.DEFAULT_MAX_WAND_SPELL_LEVEL);
+
+	// do settings need a restart
+<span class="fc" id="L73">	private static final BooleanProperty settingsNeedRestart = new SimpleBooleanProperty(false);</span>
+
+	// Map of RuleCheck keys and their settings
+<span class="fc" id="L76">	private static final Map&lt;String, String&gt; ruleCheckMap = new HashMap&lt;&gt;();</span>
+
+<span class="fc" id="L78">	private static final Properties FILTERSETTINGS = new Properties();</span>
+<span class="fc" id="L79">	private static final ObjectProperty&lt;GameMode&gt; game = new SimpleObjectProperty&lt;&gt;(new GameMode(&quot;default&quot;));</span>
+<span class="fc" id="L80">	private static boolean loadURLs = false;</span>
+<span class="fc" id="L81">	private static boolean hpMaxAtFirstLevel = true;</span>
+<span class="fc" id="L82">	private static boolean hpMaxAtFirstClassLevel = true;</span>
+<span class="fc" id="L83">	private static boolean hpMaxAtFirstPCClassLevelOnly = true;</span>
+<span class="fc" id="L84">	private static int hpRollMethod = Constants.HP_STANDARD;</span>
+<span class="fc" id="L85">	private static int hpPercent = Constants.DEFAULT_HP_PERCENT;</span>
+<span class="fc" id="L86">	private static boolean ignoreMonsterHDCap = false;</span>
+
+<span class="fc" id="L88">	private static boolean gearTab_IgnoreCost = false;</span>
+<span class="fc" id="L89">	private static boolean gearTab_AllowDebt = false;</span>
+<span class="fc" id="L90">	private static int gearTab_SellRate = Constants.DEFAULT_GEAR_TAB_SELL_RATE;</span>
+<span class="fc" id="L91">	private static int gearTab_BuyRate = Constants.DEFAULT_GEAR_TAB_BUY_RATE;</span>
+	
+<span class="fc" id="L93">	private static final SortedProperties OPTIONS = new SortedProperties();</span>
+<span class="fc" id="L94">	private static final Properties FILEPATHS = new Properties();</span>
+<span class="fc" id="L95">	private static final String FILE_LOCATION = Globals.getFilepathsPath();</span>
+<span class="fc" id="L96">	private static File backupPcgPath = null;</span>
+<span class="fc" id="L97">	private static boolean createPcgBackup = true;</span>
+	
+<span class="fc" id="L99">	private static File gmgenPluginDir = new File(Globals.getDefaultPath() + File.separator + &quot;plugins&quot;); //$NON-NLS-1$</span>
+	/**
+	 * The default colour of items in the GUI which the character does qualify
+	 * for. 0xFFFFFF is black. */
+<span class="fc" id="L103">	private static int prereqQualifyColor = SystemColor.text.getRGB() &amp; 0x00FFFFFF;</span>
+	/**
+	 * The default colour of items in the GUI which the character does not qualify
+	 * for. 0xFF0000 is red. */
+<span class="fc" id="L107">	private static int prereqFailColor = 0xFF0000;</span>
+
+	/////////////////////////////////////////////////
+<span class="fc" id="L110">	private static boolean saveCustomInLst = false;</span>
+<span class="fc" id="L111">	private static String selectedCharacterHTMLOutputSheet = &quot;&quot;; //$NON-NLS-1$</span>
+<span class="fc" id="L112">	private static String selectedCharacterPDFOutputSheet = &quot;&quot;; //$NON-NLS-1$</span>
+<span class="fc" id="L113">	private static boolean saveOutputSheetWithPC = false;</span>
+<span class="fc" id="L114">	private static boolean printSpellsWithPC = true;</span>
+<span class="fc" id="L115">	private static String selectedPartyHTMLOutputSheet = &quot;&quot;; //$NON-NLS-1$</span>
+<span class="fc" id="L116">	private static String selectedPartyPDFOutputSheet = &quot;&quot;; //$NON-NLS-1$</span>
+<span class="fc" id="L117">	private static String selectedEqSetTemplate = &quot;&quot;; //$NON-NLS-1$</span>
+<span class="fc" id="L118">	private static String selectedSpellSheet = &quot;&quot;; //$NON-NLS-1$</span>
+<span class="fc" id="L119">	private static boolean showHPDialogAtLevelUp = true;</span>
+<span class="fc" id="L120">	private static boolean showStatDialogAtLevelUp = true;</span>
+<span class="fc" id="L121">	private static boolean showWarningAtFirstLevelUp = true;</span>
+<span class="fc" id="L122">	private static boolean alwaysOverwrite = false;</span>
+<span class="fc" id="L123">	private static String defaultOSType = &quot;&quot;; //$NON-NLS-1$</span>
+
+<span class="fc" id="L125">	private static final String TMP_PATH = System.getProperty(&quot;java.io.tmpdir&quot;); //$NON-NLS-1$</span>
+<span class="fc" id="L126">	private static final File TEMP_PATH = new File(getTmpPath());</span>
+<span class="fc" id="L127">	private static boolean useHigherLevelSlotsDefault = false;</span>
+<span class="fc" id="L128">	private static boolean weaponProfPrintout = Constants.DEFAULT_PRINTOUT_WEAPONPROF;</span>
+<span class="fc" id="L129">	private static String postExportCommandStandard = &quot;&quot;; //$NON-NLS-1$</span>
+<span class="fc" id="L130">	private static String postExportCommandPDF = &quot;&quot;; //$NON-NLS-1$</span>
+<span class="fc" id="L131">	private static boolean hideMonsterClasses = false;</span>
+<span class="fc" id="L132">	private static boolean guiUsesOutputNameEquipment = false;</span>
+<span class="fc" id="L133">	private static boolean guiUsesOutputNameSpells = false;</span>
+<span class="fc" id="L134">	private static int lastTipShown = -1;</span>
+<span class="fc" id="L135">	private static boolean showTipOfTheDay = true;</span>
+
+	private SettingsHandler()
+	{
+	}
+
+	public static void setAlwaysOverwrite(final boolean argAlwaysOverwrite)
+	{
+<span class="nc" id="L143">		alwaysOverwrite = argAlwaysOverwrite;</span>
+<span class="nc" id="L144">	}</span>
+
+	public static boolean getAlwaysOverwrite()
+	{
+<span class="nc" id="L148">		return alwaysOverwrite;</span>
+	}
+
+	public static void setDefaultOSType(final String argDefaultOSType)
+	{
+<span class="nc" id="L153">		defaultOSType = argDefaultOSType;</span>
+<span class="nc" id="L154">	}</span>
+
+	public static String getDefaultOSType()
+	{
+<span class="nc" id="L158">		return defaultOSType;</span>
+	}
+
+	/**
+	 * Sets the path to the backup directory for character files.
+	 *
+	 * @param  path  the {@code File} representing the path
+	 */
+	public static void setBackupPcgPath(final File path)
+	{
+<span class="nc" id="L168">		backupPcgPath = path;</span>
+<span class="nc" id="L169">	}</span>
+
+	/**
+	 * Returns the path to the backup directory for character files.
+	 *
+	 * @return    the {@code backupPcgPath} property
+	 */
+	public static File getBackupPcgPath()
+	{
+<span class="nc" id="L178">		return backupPcgPath;</span>
+	}
+
+	/**
+	 * Sets the flag to determine whether PCGen should backup pcg files before saving
+	 *
+	 * @param  argCreatePcgBackup  the {@code flag}
+	 */
+	public static void setCreatePcgBackup(final boolean argCreatePcgBackup)
+	{
+<span class="nc" id="L188">		createPcgBackup = argCreatePcgBackup;</span>
+<span class="nc" id="L189">	}</span>
+
+	/**
+	 * Returns the flag to determine whether PCGen should backup pcg files before saving
+	 *
+	 * @return    the {@code createPcgBackup} property
+	 */
+	public static boolean getCreatePcgBackup()
+	{
+<span class="nc" id="L198">		return createPcgBackup;</span>
+	}
+
+	public static String getFilePaths()
+	{
+<span class="nc" id="L203">		String def_type = &quot;user&quot;;</span>
+<span class="nc bnc" id="L204" title="All 2 branches missed.">		if (SystemUtils.IS_OS_MAC)</span>
+		{
+<span class="nc" id="L206">			def_type = &quot;mac_user&quot;;</span>
+		}
+<span class="nc" id="L208">		return FILEPATHS.getProperty(&quot;pcgen.filepaths&quot;, def_type); //$NON-NLS-1$</span>
+	}
+
+
+	/**
+	 * Puts all properties into the {@code Properties} object,
+	 * ({@code options}). This is called by
+	 * {@code writeOptionsProperties}, which then saves the
+	 * {@code options} into a file.
+	 * @param optionName
+	 * @param optionValue
+	 */
+	public static void setGMGenOption(final String optionName, final boolean optionValue)
+	{
+<span class="nc bnc" id="L222" title="All 2 branches missed.">		setGMGenOption(optionName, optionValue ? &quot;true&quot; : &quot;false&quot;); //$NON-NLS-1$ //$NON-NLS-2$</span>
+<span class="nc" id="L223">	}</span>
+
+	public static void setGMGenOption(final String optionName, final int optionValue)
+	{
+<span class="nc" id="L227">		setGMGenOption(optionName, String.valueOf(optionValue));</span>
+<span class="nc" id="L228">	}</span>
+
+	public static void setGMGenOption(final String optionName, final String optionValue)
+	{
+<span class="nc" id="L232">		getOptions().setProperty(&quot;gmgen.options.&quot; + optionName, optionValue); //$NON-NLS-1$</span>
+<span class="nc" id="L233">	}</span>
+
+	/**
+	 * Set most of this objects static properties from the loaded {@code options}.
+	 * Called by readOptionsProperties. Most of the static properties are
+	 * set as a side effect, with the main screen size being returned.
+	 * @param optionName
+	 * @param defaultValue
+	 *
+	 * @return the default {@code Dimension} to set the screen size to
+	 */
+	public static boolean getGMGenOption(final String optionName, final boolean defaultValue)
+	{
+<span class="nc bnc" id="L246" title="All 2 branches missed.">		final String option = getGMGenOption(optionName, defaultValue ? &quot;true&quot; : &quot;false&quot;); //$NON-NLS-1$ //$NON-NLS-2$</span>
+
+<span class="nc" id="L248">		return &quot;true&quot;.equalsIgnoreCase(option); //$NON-NLS-1$</span>
+	}
+
+	public static int getGMGenOption(final String optionName, final int defaultValue)
+	{
+<span class="nc" id="L253">		return Integer.decode(getGMGenOption(optionName, String.valueOf(defaultValue)));</span>
+	}
+
+	public static String getGMGenOption(final String optionName, final String defaultValue)
+	{
+<span class="nc" id="L258">		return getOptions().getProperty(&quot;gmgen.options.&quot; + optionName, defaultValue); //$NON-NLS-1$</span>
+	}
+
+	public static void setGUIUsesOutputNameEquipment(final boolean argUseOutputNameEquipment)
+	{
+<span class="nc" id="L263">		guiUsesOutputNameEquipment = argUseOutputNameEquipment;</span>
+<span class="nc" id="L264">	}</span>
+
+	public static void setGUIUsesOutputNameSpells(final boolean argUseOutputNameSpells)
+	{
+<span class="nc" id="L268">		guiUsesOutputNameSpells = argUseOutputNameSpells;</span>
+<span class="nc" id="L269">	}</span>
+
+	public static void setGame(final String key)
+	{
+<span class="fc" id="L273">		final GameMode newMode = SystemCollections.getGameModeNamed(key);</span>
+
+<span class="pc bpc" id="L275" title="1 of 2 branches missed.">		if (newMode != null)</span>
+		{
+<span class="nc" id="L277">			game.setValue(newMode);</span>
+		}
+		// new key for game mode specific options are pcgen.options.gameMode.X.optionName
+		// but offer downward compatible support to read in old version for unitSet from 5.8.0
+<span class="fc" id="L281">		String unitSetName = getOptions().getProperty(&quot;pcgen.options.gameMode.&quot; + key + &quot;.unitSetName&quot;,</span>
+<span class="fc" id="L282">			getOptions().getProperty(&quot;pcgen.options.unitSetName.&quot; + key, game.get().getDefaultUnitSet()));</span>
+<span class="pc bpc" id="L283" title="1 of 2 branches missed.">		if (!game.get().selectUnitSet(unitSetName))</span>
+		{
+<span class="pc bpc" id="L285" title="1 of 2 branches missed.">			if (!game.get().selectDefaultUnitSet())</span>
+			{
+<span class="fc" id="L287">				game.get().selectUnitSet(Constants.STANDARD_UNITSET_NAME);</span>
+			}
+		}
+<span class="fc" id="L290">		game.get().setDefaultXPTableName(getPCGenOption(</span>
+			&quot;gameMode.&quot; + key + &quot;.xpTableName&quot;, &quot;&quot;)); //$NON-NLS-1$ //$NON-NLS-2$
+<span class="fc" id="L292">		game.get().setDefaultCharacterType(getPCGenOption(</span>
+			&quot;gameMode.&quot; + key + &quot;.characterType&quot;, &quot;&quot;)); //$NON-NLS-1$ //$NON-NLS-2$
+
+<span class="fc" id="L295">		AbilityCategory featTemplate = game.get().getFeatTemplate();</span>
+<span class="pc bpc" id="L296" title="1 of 2 branches missed.">		if (featTemplate != null)</span>
+		{
+<span class="nc" id="L298">			AbilityCategory.FEAT.copyFields(featTemplate);</span>
+		}
+<span class="fc" id="L300">		getChosenCampaignFiles(game.get());</span>
+<span class="fc" id="L301">	}</span>
+
+	public static ObjectProperty&lt;GameMode&gt; getGameAsProperty()
+	{
+<span class="fc" id="L305">		return game;</span>
+	}
+
+	public static void setGearTab_AllowDebt(final boolean allowDebt)
+	{
+<span class="nc" id="L310">		gearTab_AllowDebt = allowDebt;</span>
+<span class="nc" id="L311">	}</span>
+
+	public static boolean getGearTab_AllowDebt()
+	{
+<span class="nc" id="L315">		return gearTab_AllowDebt;</span>
+	}
+
+	public static void setGearTab_BuyRate(final int argBuyRate)
+	{
+<span class="nc" id="L320">		gearTab_BuyRate = argBuyRate;</span>
+<span class="nc" id="L321">	}</span>
+
+	public static int getGearTab_BuyRate()
+	{
+<span class="nc" id="L325">		return gearTab_BuyRate;</span>
+	}
+
+	public static void setGearTab_IgnoreCost(final boolean ignoreCost)
+	{
+<span class="nc" id="L330">		gearTab_IgnoreCost = ignoreCost;</span>
+<span class="nc" id="L331">	}</span>
+
+	public static boolean getGearTab_IgnoreCost()
+	{
+<span class="nc" id="L335">		return gearTab_IgnoreCost;</span>
+	}
+
+	public static void setGearTab_SellRate(final int argSellRate)
+	{
+<span class="nc" id="L340">		gearTab_SellRate = argSellRate;</span>
+<span class="nc" id="L341">	}</span>
+
+	public static int getGearTab_SellRate()
+	{
+<span class="nc" id="L345">		return gearTab_SellRate;</span>
+	}
+
+	public static void setGmgenPluginDir(final File aFile)
+	{
+<span class="fc" id="L350">		gmgenPluginDir = aFile;</span>
+<span class="fc" id="L351">	}</span>
+
+	public static File getGmgenPluginDir()
+	{
+<span class="fc" id="L355">		return gmgenPluginDir;</span>
+	}
+
+	public static void setHPMaxAtFirstLevel(final boolean aBool)
+	{
+<span class="nc" id="L360">		hpMaxAtFirstLevel = aBool;</span>
+<span class="nc" id="L361">	}</span>
+
+	public static boolean isHPMaxAtFirstLevel()
+	{
+<span class="nc" id="L365">		return hpMaxAtFirstLevel;</span>
+	}
+
+	public static void setHPMaxAtFirstClassLevel(final boolean aBool)
+	{
+<span class="nc" id="L370">		hpMaxAtFirstClassLevel = aBool;</span>
+<span class="nc" id="L371">	}</span>
+
+	public static boolean isHPMaxAtFirstClassLevel()
+	{
+<span class="nc" id="L375">		return hpMaxAtFirstClassLevel;</span>
+	}
+
+	public static void setHPMaxAtFirstPCClassLevelOnly(final boolean aBool)
+	{
+<span class="nc" id="L380">		hpMaxAtFirstPCClassLevelOnly = aBool;</span>
+<span class="nc" id="L381">	}</span>
+
+	public static boolean isHPMaxAtFirstPCClassLevelOnly()
+	{
+<span class="nc" id="L385">		return hpMaxAtFirstPCClassLevelOnly;</span>
+	}
+
+	public static void setHPPercent(final int argHPPct)
+	{
+<span class="nc" id="L390">		hpPercent = argHPPct;</span>
+<span class="nc" id="L391">	}</span>
+
+	public static int getHPPercent()
+	{
+<span class="nc" id="L395">		return hpPercent;</span>
+	}
+
+	public static void setHPRollMethod(final int aBool)
+	{
+<span class="nc" id="L400">		hpRollMethod = aBool;</span>
+<span class="nc" id="L401">	}</span>
+
+	public static int getHPRollMethod()
+	{
+<span class="nc" id="L405">		return hpRollMethod;</span>
+	}
+
+	public static String getHTMLOutputSheetPath()
+	{
+<span class="nc bnc" id="L410" title="All 2 branches missed.">		if (&quot;&quot;.equals(selectedCharacterHTMLOutputSheet)) //$NON-NLS-1$</span>
+		{
+<span class="nc" id="L412">			return ConfigurationSettings.getOutputSheetsDir();</span>
+		}
+
+<span class="nc" id="L415">		return new File(selectedCharacterHTMLOutputSheet).getParentFile().getAbsolutePath();</span>
+	}
+
+	public static void setHideMonsterClasses(final boolean argHideMonsterClasses)
+	{
+<span class="nc" id="L420">		hideMonsterClasses = argHideMonsterClasses;</span>
+<span class="nc" id="L421">	}</span>
+
+	public static void setIgnoreMonsterHDCap(final boolean argIgoreCap)
+	{
+<span class="nc" id="L425">		ignoreMonsterHDCap = argIgoreCap;</span>
+<span class="nc" id="L426">	}</span>
+
+	public static boolean isIgnoreMonsterHDCap()
+	{
+<span class="nc" id="L430">		return ignoreMonsterHDCap;</span>
+	}
+
+	public static void setLastTipShown(final int argLastTipShown)
+	{
+<span class="nc" id="L435">		lastTipShown = argLastTipShown;</span>
+<span class="nc" id="L436">	}</span>
+
+	public static int getLastTipShown()
+	{
+<span class="nc" id="L440">		return lastTipShown;</span>
+	}
+
+	public static void setLoadURLs(final boolean aBool)
+	{
+<span class="nc" id="L445">		loadURLs = aBool;</span>
+<span class="nc" id="L446">	}</span>
+
+	public static boolean isLoadURLs()
+	{
+<span class="nc" id="L450">		return loadURLs;</span>
+	}
+
+	public static IntegerProperty maxWandSpellLevel()
+	{
+<span class="nc" id="L455">		return maxWandSpellLevel;</span>
+	}
+
+	public static IntegerProperty maxPotionSpellLevel()
+	{
+<span class="nc" id="L460">		return maxPotionSpellLevel;</span>
+	}
+
+	public static BooleanProperty settingsNeedRestartProperty()
+	{
+<span class="nc" id="L465">		return settingsNeedRestart;</span>
+	}
+
+	public static SortedProperties getOptions()
+	{
+<span class="fc" id="L470">		return OPTIONS;</span>
+	}
+
+	public static void getOptionsFromProperties(final PlayerCharacter aPC)
+	{
+		// Read in the buy/sell percentages for the gear tab
+		// If not in the .ini file and ignoreCost is set, then use 0%
+		// Otherwise set buy to 100% and sell to %50
+		//
+<span class="nc" id="L479">		int buyRate = getPCGenOption(&quot;GearTab.buyRate&quot;, -1); //$NON-NLS-1$</span>
+<span class="nc" id="L480">		int sellRate = getPCGenOption(&quot;GearTab.sellRate&quot;, -1); //$NON-NLS-1$</span>
+
+<span class="nc bnc" id="L482" title="All 4 branches missed.">		if ((buyRate &lt; 0) || (sellRate &lt; 0))</span>
+		{
+<span class="nc bnc" id="L484" title="All 2 branches missed.">			if (getPCGenOption(&quot;GearTab.ignoreCost&quot;, false)) //$NON-NLS-1$</span>
+			{
+<span class="nc" id="L486">				buyRate = 0;</span>
+<span class="nc" id="L487">				sellRate = 0;</span>
+			}
+			else
+			{
+<span class="nc" id="L491">				buyRate = 100;</span>
+<span class="nc" id="L492">				sellRate = 50;</span>
+			}
+		}
+
+<span class="nc" id="L496">		loadURLs = getPCGenOption(&quot;loadURLs&quot;, false); //$NON-NLS-1$</span>
+
+<span class="nc" id="L498">		Globals.setSourceDisplay(</span>
+<span class="nc" id="L499">			SourceFormat.values()[getPCGenOption(&quot;sourceDisplay&quot;, SourceFormat.LONG.ordinal())]); //$NON-NLS-1$</span>
+
+<span class="nc" id="L501">		setAlwaysOverwrite(getPCGenOption(&quot;alwaysOverwrite&quot;, false)); //$NON-NLS-1$</span>
+<span class="nc" id="L502">		setCreatePcgBackup(getPCGenOption(&quot;createPcgBackup&quot;, true));</span>
+<span class="nc" id="L503">		setDefaultOSType(getPCGenOption(&quot;defaultOSType&quot;, null)); //$NON-NLS-1$</span>
+<span class="nc" id="L504">		setGearTab_AllowDebt(getPCGenOption(&quot;GearTab.allowDebt&quot;, false)); //$NON-NLS-1$</span>
+<span class="nc" id="L505">		setGearTab_BuyRate(buyRate);</span>
+<span class="nc" id="L506">		setGearTab_IgnoreCost(getPCGenOption(&quot;GearTab.ignoreCost&quot;, false)); //$NON-NLS-1$</span>
+<span class="nc" id="L507">		setGearTab_SellRate(sellRate);</span>
+<span class="nc" id="L508">		setGUIUsesOutputNameEquipment(getPCGenOption(&quot;GUIUsesOutputNameEquipment&quot;, false)); //$NON-NLS-1$</span>
+<span class="nc" id="L509">		setGUIUsesOutputNameSpells(getPCGenOption(&quot;GUIUsesOutputNameSpells&quot;, false)); //$NON-NLS-1$</span>
+<span class="nc" id="L510">		setHideMonsterClasses(getPCGenOption(&quot;hideMonsterClasses&quot;, false)); //$NON-NLS-1$</span>
+<span class="nc" id="L511">		setHPMaxAtFirstLevel(getPCGenOption(&quot;hpMaxAtFirstLevel&quot;, true)); //$NON-NLS-1$</span>
+<span class="nc" id="L512">		setHPMaxAtFirstClassLevel(getPCGenOption(&quot;hpMaxAtFirstClassLevel&quot;, false)); //$NON-NLS-1$</span>
+<span class="nc" id="L513">		setHPMaxAtFirstPCClassLevelOnly(getPCGenOption(&quot;hpMaxAtFirstPCClassLevelOnly&quot;, false)); //$NON-NLS-1$</span>
+<span class="nc" id="L514">		setHPPercent(getPCGenOption(&quot;hpPercent&quot;, 100)); //$NON-NLS-1$</span>
+<span class="nc" id="L515">		setHPRollMethod(getPCGenOption(&quot;hpRollMethod&quot;, Constants.HP_STANDARD)); //$NON-NLS-1$</span>
+<span class="nc" id="L516">		setIgnoreMonsterHDCap(getPCGenOption(&quot;ignoreMonsterHDCap&quot;, false)); //$NON-NLS-1$</span>
+<span class="nc" id="L517">		setLastTipShown(getPCGenOption(&quot;lastTipOfTheDayTipShown&quot;, -1)); //$NON-NLS-1$</span>
+<span class="nc" id="L518">		maxWandSpellLevel.set(getPCGenOption(&quot;maxWandSpellLevel&quot;, 4));</span>
+<span class="nc" id="L519">		maxPotionSpellLevel.set(getPCGenOption(&quot;maxPotionSpellLevel&quot;, 3));</span>
+<span class="nc" id="L520">		setGmgenPluginDir(</span>
+<span class="nc" id="L521">			new File(expandRelativePath(getOptions().getProperty(&quot;gmgen.files.gmgenPluginDir&quot;, //$NON-NLS-1$</span>
+<span class="nc" id="L522">			System.getProperty(&quot;user.dir&quot;) + File.separator + &quot;plugins&quot;)))); //$NON-NLS-1$ //$NON-NLS-2$</span>
+<span class="nc" id="L523">		setBackupPcgPath(</span>
+<span class="nc" id="L524">			new File(expandRelativePath(getOptions().getProperty(&quot;pcgen.files.characters.backup&quot;, &quot;&quot;)))); //$NON-NLS-1$</span>
+<span class="nc" id="L525">		setPostExportCommandStandard(getPCGenOption(&quot;postExportCommandStandard&quot;, &quot;&quot;)); //$NON-NLS-1$ //$NON-NLS-2$</span>
+<span class="nc" id="L526">		setPostExportCommandPDF(getPCGenOption(&quot;postExportCommandPDF&quot;, &quot;&quot;)); //$NON-NLS-1$ //$NON-NLS-2$</span>
+<span class="nc" id="L527">		setPrereqFailColor(getPCGenOption(&quot;prereqFailColor&quot;, Color.red.getRGB())); //$NON-NLS-1$</span>
+<span class="nc" id="L528">		setPrereqQualifyColor(getPCGenOption(&quot;prereqQualifyColor&quot;, SystemColor.text.getRGB())); //$NON-NLS-1$</span>
+<span class="nc" id="L529">		setSaveCustomInLst(getPCGenOption(&quot;saveCustomInLst&quot;, false)); //$NON-NLS-1$</span>
+<span class="nc" id="L530">		setSaveOutputSheetWithPC(getPCGenOption(&quot;saveOutputSheetWithPC&quot;, false)); //$NON-NLS-1$</span>
+<span class="nc" id="L531">		setPrintSpellsWithPC(getPCGenOption(&quot;printSpellsWithPC&quot;, true)); //$NON-NLS-1$</span>
+<span class="nc" id="L532">		setSelectedSpellSheet(</span>
+<span class="nc" id="L533">			expandRelativePath(</span>
+<span class="nc" id="L534">				getOptions().getProperty(&quot;pcgen.files.selectedSpellOutputSheet&quot;, &quot;&quot;))); //$NON-NLS-1$ //$NON-NLS-2$</span>
+<span class="nc" id="L535">		setSelectedCharacterHTMLOutputSheet(</span>
+<span class="nc" id="L536">			expandRelativePath(getOptions().getProperty(&quot;pcgen.files.selectedCharacterHTMLOutputSheet&quot;, //$NON-NLS-1$</span>
+				&quot;&quot;)), //$NON-NLS-1$
+			aPC);
+<span class="nc" id="L539">		setSelectedCharacterPDFOutputSheet(</span>
+<span class="nc" id="L540">			expandRelativePath(getOptions().getProperty(&quot;pcgen.files.selectedCharacterPDFOutputSheet&quot;, //$NON-NLS-1$</span>
+				&quot;&quot;)), //$NON-NLS-1$
+			aPC);
+<span class="nc" id="L543">		setSelectedEqSetTemplate(</span>
+<span class="nc" id="L544">			expandRelativePath(</span>
+<span class="nc" id="L545">				getOptions().getProperty(&quot;pcgen.files.selectedEqSetTemplate&quot;, &quot;&quot;))); //$NON-NLS-1$ //$NON-NLS-2$</span>
+<span class="nc" id="L546">		setSelectedPartyHTMLOutputSheet(</span>
+<span class="nc" id="L547">			expandRelativePath(getOptions().getProperty(&quot;pcgen.files.selectedPartyHTMLOutputSheet&quot;, //$NON-NLS-1$</span>
+				&quot;&quot;))); //$NON-NLS-1$
+<span class="nc" id="L549">		setSelectedPartyPDFOutputSheet(</span>
+<span class="nc" id="L550">			expandRelativePath(getOptions().getProperty(&quot;pcgen.files.selectedPartyPDFOutputSheet&quot;, //$NON-NLS-1$</span>
+				&quot;&quot;))); //$NON-NLS-1$
+<span class="nc" id="L552">		setShowHPDialogAtLevelUp(getPCGenOption(&quot;showHPDialogAtLevelUp&quot;, true)); //$NON-NLS-1$</span>
+<span class="nc" id="L553">		setOutputDeprecationMessages(getPCGenOption(&quot;outputDeprecationMessages&quot;, true));</span>
+<span class="nc" id="L554">		setInputUnconstructedMessages(getPCGenOption(&quot;inputUnconstructedMessages&quot;, false));</span>
+<span class="nc" id="L555">		setShowStatDialogAtLevelUp(getPCGenOption(&quot;showStatDialogAtLevelUp&quot;, true)); //$NON-NLS-1$</span>
+<span class="nc" id="L556">		setShowTipOfTheDay(getPCGenOption(&quot;showTipOfTheDay&quot;, true)); //$NON-NLS-1$</span>
+<span class="nc" id="L557">		setShowWarningAtFirstLevelUp(getPCGenOption(&quot;showWarningAtFirstLevelUp&quot;, true)); //$NON-NLS-1$</span>
+<span class="nc" id="L558">		setUseHigherLevelSlotsDefault(getPCGenOption(&quot;useHigherLevelSlotsDefault&quot;, false)); //$NON-NLS-1$</span>
+<span class="nc" id="L559">		setWeaponProfPrintout(getPCGenOption(&quot;weaponProfPrintout&quot;, Constants.DEFAULT_PRINTOUT_WEAPONPROF));</span>
+
+		// Load up all the RuleCheck stuff from the options.ini file
+		// It's stored as:
+		//   pcgen.options.rulechecks=aKey:Y|bKey:N|cKey:Y
+<span class="nc" id="L564">		parseRuleChecksFromOptions(getPCGenOption(&quot;ruleChecks&quot;, &quot;&quot;)); //$NON-NLS-1$ //$NON-NLS-2$</span>
+
+<span class="nc" id="L566">	}</span>
+
+	/**
+	 * Retreive the chosen campaign files from properties for
+	 * use by the rest of PCGen.
+	 *
+	 * @param gameMode The GameMode to reteieve the files for.
+	 */
+	private static void getChosenCampaignFiles(GameMode gameMode)
+	{
+		List&lt;String&gt; uriStringList =
+<span class="fc" id="L577">				CoreUtility.split(</span>
+<span class="fc" id="L578">					getOptions().getProperty(</span>
+<span class="fc" id="L579">						&quot;pcgen.files.chosenCampaignSourcefiles.&quot; + gameMode.getName(), //$NON-NLS-1$</span>
+				&quot;&quot;), ',');
+<span class="fc" id="L581">		List&lt;URI&gt; uriList = new ArrayList&lt;&gt;(uriStringList.size());</span>
+<span class="pc bpc" id="L582" title="1 of 2 branches missed.">		for (String str : uriStringList)</span>
+		{
+			try
+			{
+<span class="nc" id="L586">				uriList.add(new URI(str));</span>
+			}
+<span class="nc" id="L588">			catch (URISyntaxException e)</span>
+			{
+<span class="nc" id="L590">				Logging</span>
+<span class="nc" id="L591">					.errorPrint(&quot;Settings error: Unable to convert &quot; + str + &quot; to a URI: &quot; + e.getLocalizedMessage());</span>
+<span class="nc" id="L592">			}</span>
+<span class="nc" id="L593">		}</span>
+<span class="fc" id="L594">		PersistenceManager.getInstance().setChosenCampaignSourcefiles(uriList, gameMode);</span>
+<span class="fc" id="L595">	}</span>
+
+	public static void setOptionsProperties(final PlayerCharacter aPC)
+	{
+<span class="nc bnc" id="L599" title="All 4 branches missed.">		if (getBackupPcgPath() != null &amp;&amp; !getBackupPcgPath().getPath().equals(&quot;&quot;))</span>
+		{
+<span class="nc" id="L601">			getOptions().setProperty(&quot;pcgen.files.characters.backup&quot;, //$NON-NLS-1$</span>
+<span class="nc" id="L602">				retractRelativePath(getBackupPcgPath().getAbsolutePath()));</span>
+		}
+		else
+		{
+<span class="nc" id="L606">			getOptions().setProperty(&quot;pcgen.files.characters.backup&quot;, &quot;&quot;); //$NON-NLS-1$</span>
+		}
+
+<span class="nc" id="L609">		getOptions().setProperty(</span>
+<span class="nc" id="L610">			&quot;pcgen.files.selectedSpellOutputSheet&quot;, retractRelativePath(getSelectedSpellSheet())); //$NON-NLS-1$</span>
+<span class="nc" id="L611">		getOptions().setProperty(&quot;pcgen.files.selectedCharacterHTMLOutputSheet&quot;, //$NON-NLS-1$</span>
+<span class="nc" id="L612">			retractRelativePath(getSelectedCharacterHTMLOutputSheet(aPC)));</span>
+<span class="nc" id="L613">		getOptions().setProperty(&quot;pcgen.files.selectedCharacterPDFOutputSheet&quot;, //$NON-NLS-1$</span>
+<span class="nc" id="L614">			retractRelativePath(getSelectedCharacterPDFOutputSheet(aPC)));</span>
+<span class="nc" id="L615">		getOptions().setProperty(&quot;pcgen.files.selectedPartyHTMLOutputSheet&quot;, //$NON-NLS-1$</span>
+<span class="nc" id="L616">			retractRelativePath(getSelectedPartyHTMLOutputSheet()));</span>
+<span class="nc" id="L617">		getOptions().setProperty(&quot;pcgen.files.selectedPartyPDFOutputSheet&quot;, //$NON-NLS-1$</span>
+<span class="nc" id="L618">			retractRelativePath(getSelectedPartyPDFOutputSheet()));</span>
+<span class="nc" id="L619">		getOptions().setProperty(</span>
+<span class="nc" id="L620">			&quot;pcgen.files.selectedEqSetTemplate&quot;, retractRelativePath(getSelectedEqSetTemplate())); //$NON-NLS-1$</span>
+<span class="nc" id="L621">		getOptions().setProperty(&quot;pcgen.files.chosenCampaignSourcefiles&quot;, //$NON-NLS-1$</span>
+<span class="nc" id="L622">			StringUtil.join(PersistenceManager.getInstance().getChosenCampaignSourcefiles(), &quot;, &quot;));</span>
+
+<span class="nc" id="L624">		getOptions().setProperty(</span>
+<span class="nc" id="L625">			&quot;pcgen.options.custColumnWidth&quot;, StringUtil.join(Globals.getCustColumnWidth(), &quot;, &quot;)); //$NON-NLS-1$</span>
+
+<span class="nc bnc" id="L627" title="All 2 branches missed.">		if (getGmgenPluginDir() != null)</span>
+		{
+<span class="nc" id="L629">			getOptions().setProperty(&quot;gmgen.files.gmgenPluginDir&quot;, //$NON-NLS-1$</span>
+<span class="nc" id="L630">				retractRelativePath(getGmgenPluginDir().getAbsolutePath()));</span>
+		}
+		else
+		{
+<span class="nc" id="L634">			getOptions().setProperty(&quot;gmgen.files.gmgenPluginDir&quot;, &quot;&quot;); //$NON-NLS-1$ //$NON-NLS-2$</span>
+		}
+
+<span class="nc bnc" id="L637" title="All 2 branches missed.">		if (getGameAsProperty().get() != null)</span>
+		{
+<span class="nc" id="L639">			setPCGenOption(&quot;game&quot;, getGameAsProperty().get().getName()); //$NON-NLS-1$</span>
+		}
+		else
+		{
+<span class="nc" id="L643">			setPCGenOption(&quot;game&quot;, &quot;&quot;); //$NON-NLS-1$ //$NON-NLS-2$</span>
+		}
+
+<span class="nc bnc" id="L646" title="All 2 branches missed.">		for (int idx = 0; idx &lt; SystemCollections.getUnmodifiableGameModeList().size(); idx++)</span>
+		{
+<span class="nc" id="L648">			final GameMode gameMode = SystemCollections.getUnmodifiableGameModeList().get(idx);</span>
+<span class="nc" id="L649">			String gameModeKey = gameMode.getName();</span>
+<span class="nc bnc" id="L650" title="All 4 branches missed.">			if (gameMode.getUnitSet() != null &amp;&amp; gameMode.getUnitSet().getDisplayName() != null)</span>
+			{
+<span class="nc" id="L652">				setPCGenOption(&quot;gameMode.&quot; + gameModeKey + &quot;.unitSetName&quot;, gameMode.getUnitSet().getDisplayName());</span>
+			}
+<span class="nc" id="L654">			setPCGenOption(&quot;gameMode.&quot; + gameModeKey + &quot;.purchaseMethodName&quot;, //$NON-NLS-1$</span>
+<span class="nc" id="L655">				gameMode.getPurchaseModeMethodName());</span>
+<span class="nc" id="L656">			setPCGenOption(&quot;gameMode.&quot; + gameModeKey + &quot;.rollMethod&quot;, //$NON-NLS-1$</span>
+<span class="nc" id="L657">				gameMode.getRollMethod());</span>
+<span class="nc" id="L658">			setPCGenOption(&quot;gameMode.&quot; + gameModeKey + &quot;.rollMethodExpression&quot;, //$NON-NLS-1$</span>
+<span class="nc" id="L659">				gameMode.getRollMethodExpressionName());</span>
+<span class="nc" id="L660">			setPCGenOption(&quot;gameMode.&quot; + gameModeKey + &quot;.allStatsValue&quot;, gameMode.getAllStatsValue());</span>
+<span class="nc" id="L661">			setPCGenOption(&quot;gameMode.&quot; + gameModeKey + &quot;.xpTableName&quot;, gameMode.getDefaultXPTableName());</span>
+<span class="nc" id="L662">			setPCGenOption(&quot;gameMode.&quot; + gameModeKey + &quot;.characterType&quot;, gameMode.getDefaultCharacterType());</span>
+		}
+
+<span class="nc" id="L665">		setRuleChecksInOptions(&quot;ruleChecks&quot;); //$NON-NLS-1$</span>
+
+<span class="nc" id="L667">		setPCGenOption(&quot;alwaysOverwrite&quot;, getAlwaysOverwrite()); //$NON-NLS-1$</span>
+<span class="nc" id="L668">		setPCGenOption(&quot;createPcgBackup&quot;, getCreatePcgBackup()); //$NON-NLS-1$</span>
+<span class="nc" id="L669">		setPCGenOption(&quot;defaultOSType&quot;, getDefaultOSType()); //$NON-NLS-1$</span>
+<span class="nc" id="L670">		setPCGenOption(&quot;GearTab.allowDebt&quot;, getGearTab_AllowDebt()); //$NON-NLS-1$</span>
+<span class="nc" id="L671">		setPCGenOption(&quot;GearTab.buyRate&quot;, getGearTab_BuyRate()); //$NON-NLS-1$</span>
+<span class="nc" id="L672">		setPCGenOption(&quot;GearTab.ignoreCost&quot;, getGearTab_IgnoreCost()); //$NON-NLS-1$</span>
+<span class="nc" id="L673">		setPCGenOption(&quot;GearTab.sellRate&quot;, getGearTab_SellRate()); //$NON-NLS-1$</span>
+<span class="nc" id="L674">		setPCGenOption(&quot;GUIUsesOutputNameEquipment&quot;, guiUsesOutputNameEquipment()); //$NON-NLS-1$</span>
+<span class="nc" id="L675">		setPCGenOption(&quot;GUIUsesOutputNameSpells&quot;, guiUsesOutputNameSpells()); //$NON-NLS-1$</span>
+<span class="nc" id="L676">		setPCGenOption(&quot;hideMonsterClasses&quot;, hideMonsterClasses()); //$NON-NLS-1$</span>
+<span class="nc" id="L677">		setPCGenOption(&quot;hpMaxAtFirstLevel&quot;, isHPMaxAtFirstLevel()); //$NON-NLS-1$</span>
+<span class="nc" id="L678">		setPCGenOption(&quot;hpMaxAtFirstClassLevel&quot;, isHPMaxAtFirstClassLevel()); //$NON-NLS-1$</span>
+<span class="nc" id="L679">		setPCGenOption(&quot;hpMaxAtFirstPCClassLevelOnly&quot;, isHPMaxAtFirstPCClassLevelOnly()); //$NON-NLS-1$</span>
+<span class="nc" id="L680">		setPCGenOption(&quot;hpPercent&quot;, getHPPercent()); //$NON-NLS-1$</span>
+<span class="nc" id="L681">		setPCGenOption(&quot;hpRollMethod&quot;, getHPRollMethod()); //$NON-NLS-1$</span>
+<span class="nc" id="L682">		setPCGenOption(&quot;ignoreMonsterHDCap&quot;, isIgnoreMonsterHDCap()); //$NON-NLS-1$</span>
+<span class="nc" id="L683">		setPCGenOption(&quot;lastTipOfTheDayTipShown&quot;, getLastTipShown()); //$NON-NLS-1$</span>
+<span class="nc" id="L684">		setPCGenOption(&quot;loadURLs&quot;, loadURLs); //$NON-NLS-1$</span>
+<span class="nc" id="L685">		setPCGenOption(&quot;maxPotionSpellLevel&quot;, maxPotionSpellLevel().get()); //$NON-NLS-1$</span>
+<span class="nc" id="L686">		setPCGenOption(&quot;maxWandSpellLevel&quot;, maxWandSpellLevel().get()); //$NON-NLS-1$</span>
+<span class="nc" id="L687">		setPCGenOption(&quot;postExportCommandStandard&quot;, SettingsHandler.getPostExportCommandStandard()); //$NON-NLS-1$</span>
+<span class="nc" id="L688">		setPCGenOption(&quot;postExportCommandPDF&quot;, SettingsHandler.getPostExportCommandPDF()); //$NON-NLS-1$</span>
+<span class="nc" id="L689">		setPCGenOption(&quot;prereqFailColor&quot;, &quot;0x&quot; + Integer.toHexString(getPrereqFailColor())); //$NON-NLS-1$ //$NON-NLS-2$</span>
+<span class="nc" id="L690">		setPCGenOption(&quot;prereqQualifyColor&quot;, &quot;0x&quot; //$NON-NLS-1$ //$NON-NLS-2$</span>
+<span class="nc" id="L691">						+ Integer.toHexString(getPrereqQualifyColor()));</span>
+<span class="nc" id="L692">		setPCGenOption(&quot;saveCustomInLst&quot;, isSaveCustomInLst()); //$NON-NLS-1$</span>
+<span class="nc" id="L693">		setPCGenOption(&quot;saveOutputSheetWithPC&quot;, getSaveOutputSheetWithPC()); //$NON-NLS-1$</span>
+<span class="nc" id="L694">		setPCGenOption(&quot;printSpellsWithPC&quot;, getPrintSpellsWithPC()); //$NON-NLS-1$</span>
+<span class="nc" id="L695">		setPCGenOption(&quot;showHPDialogAtLevelUp&quot;, getShowHPDialogAtLevelUp()); //$NON-NLS-1$</span>
+<span class="nc" id="L696">		setPCGenOption(&quot;showStatDialogAtLevelUp&quot;, getShowStatDialogAtLevelUp()); //$NON-NLS-1$</span>
+<span class="nc" id="L697">		setPCGenOption(&quot;showTipOfTheDay&quot;, getShowTipOfTheDay()); //$NON-NLS-1$</span>
+<span class="nc" id="L698">		setPCGenOption(&quot;showWarningAtFirstLevelUp&quot;, isShowWarningAtFirstLevelUp()); //$NON-NLS-1$</span>
+<span class="nc" id="L699">		setPCGenOption(&quot;sourceDisplay&quot;, Globals.getSourceDisplay().ordinal()); //$NON-NLS-1$</span>
+<span class="nc" id="L700">		setPCGenOption(&quot;useHigherLevelSlotsDefault&quot;, isUseHigherLevelSlotsDefault()); //$NON-NLS-1$</span>
+<span class="nc" id="L701">		setPCGenOption(&quot;weaponProfPrintout&quot;, SettingsHandler.getWeaponProfPrintout()); //$NON-NLS-1$</span>
+<span class="nc" id="L702">		setPCGenOption(&quot;outputDeprecationMessages&quot;, outputDeprecationMessages()); //$NON-NLS-1$</span>
+<span class="nc" id="L703">		setPCGenOption(&quot;inputUnconstructedMessages&quot;, inputUnconstructedMessages()); //$NON-NLS-1$</span>
+<span class="nc" id="L704">	}</span>
+
+	private static void setPCGenOption(final String optionName, final int optionValue)
+	{
+<span class="nc" id="L708">		setPCGenOption(optionName, String.valueOf(optionValue));</span>
+<span class="nc" id="L709">	}</span>
+
+	public static void setPCGenOption(final String optionName, final String optionValue)
+	{
+<span class="nc bnc" id="L713" title="All 2 branches missed.">		if (optionValue == null)</span>
+		{
+<span class="nc" id="L715">			getOptions().remove(&quot;pcgen.options.&quot; + optionName); //$NON-NLS-1$</span>
+		}
+		else
+		{
+<span class="nc" id="L719">			getOptions().setProperty(&quot;pcgen.options.&quot; + optionName, optionValue); //$NON-NLS-1$</span>
+		}
+<span class="nc" id="L721">	}</span>
+
+	private static int getPCGenOption(final String optionName, final int defaultValue)
+	{
+<span class="nc" id="L725">		return Integer.decode(getPCGenOption(optionName, String.valueOf(defaultValue)));</span>
+	}
+
+	public static String getPCGenOption(final String optionName, final String defaultValue)
+	{
+<span class="fc" id="L730">		return getOptions().getProperty(&quot;pcgen.options.&quot; + optionName, defaultValue); //$NON-NLS-1$</span>
+	}
+
+	public static String getPDFOutputSheetPath()
+	{
+<span class="nc bnc" id="L735" title="All 2 branches missed.">		if (&quot;&quot;.equals(selectedCharacterPDFOutputSheet)) //$NON-NLS-1$</span>
+		{
+<span class="nc" id="L737">			return ConfigurationSettings.getOutputSheetsDir();</span>
+		}
+
+<span class="nc" id="L740">		return new File(selectedCharacterPDFOutputSheet).getParentFile().getAbsolutePath();</span>
+	}
+
+	public static void setPostExportCommandStandard(final String argPreference)
+	{
+<span class="nc" id="L745">		postExportCommandStandard = argPreference;</span>
+<span class="nc" id="L746">	}</span>
+
+	public static void setPostExportCommandPDF(final String argPreference)
+	{
+<span class="nc" id="L750">		postExportCommandPDF = argPreference;</span>
+<span class="nc" id="L751">	}</span>
+
+	public static String getPostExportCommandStandard()
+	{
+<span class="nc" id="L755">		return postExportCommandStandard;</span>
+	}
+
+	public static String getPostExportCommandPDF()
+	{
+<span class="nc" id="L760">		return postExportCommandPDF;</span>
+	}
+
+	public static void setPrereqFailColor(final int newColor)
+	{
+<span class="nc" id="L765">		prereqFailColor = newColor &amp; 0x00FFFFFF;</span>
+<span class="nc" id="L766">	}</span>
+
+	public static int getPrereqFailColor()
+	{
+<span class="nc" id="L770">		return prereqFailColor;</span>
+	}
+
+	public static String getPrereqFailColorAsHtmlStart()
+	{
+<span class="nc" id="L775">		final StringBuilder rString = new StringBuilder(&quot;&lt;font color=&quot;); //$NON-NLS-1$</span>
+
+<span class="nc bnc" id="L777" title="All 2 branches missed.">		if (getPrereqFailColor() != 0)</span>
+		{
+<span class="nc" id="L779">	rString.append(&quot;\&quot;#&quot;) //$NON-NLS-1$</span>
+<span class="nc" id="L780">			.append(Integer.toHexString(getPrereqFailColor()))</span>
+<span class="nc" id="L781">			.append(&quot;\&quot;&quot;); //$NON-NLS-1$</span>
+		}
+		else
+		{
+<span class="nc" id="L785">			rString.append(&quot;red&quot;); //$NON-NLS-1$</span>
+		}
+
+<span class="nc" id="L788">		rString.append('&gt;');</span>
+
+<span class="nc" id="L790">		return rString.toString();</span>
+	}
+
+	public static String getPrereqFailColorAsHtmlEnd()
+	{
+<span class="nc" id="L795">		return &quot;&lt;/font&gt;&quot;; //$NON-NLS-1$</span>
+	}
+
+	public static void setPrereqQualifyColor(final int newColor)
+	{
+<span class="nc" id="L800">		prereqQualifyColor = newColor &amp; 0x00FFFFFF;</span>
+<span class="nc" id="L801">	}</span>
+
+	public static int getPrereqQualifyColor()
+	{
+<span class="nc" id="L805">		return prereqQualifyColor;</span>
+	}
+
+	/**
+	 * Output spells on standard PC output sheet?
+	 * @param arg
+	 **/
+	public static void setPrintSpellsWithPC(final boolean arg)
+	{
+<span class="nc" id="L814">		printSpellsWithPC = arg;</span>
+<span class="nc" id="L815">	}</span>
+
+	public static boolean getPrintSpellsWithPC()
+	{
+<span class="nc" id="L819">		return printSpellsWithPC;</span>
+	}
+
+	/**
+	 * Set's the ruleCheckMap key to 'Y' or 'N'
+	 * @param aKey
+	 * @param aBool
+	 **/
+	public static void setRuleCheck(final String aKey, final boolean aBool)
+	{
+<span class="nc bnc" id="L829" title="All 2 branches missed.">		String aVal = (aBool) ? &quot;Y&quot; : &quot;N&quot;;</span>
+
+<span class="nc" id="L831">		ruleCheckMap.put(aKey, aVal);</span>
+<span class="nc" id="L832">	}</span>
+
+	/**
+	 * Gets this PC's choice on a Rule
+	 * @param aKey
+	 * @return true or false
+	 **/
+	public static boolean getRuleCheck(final String aKey)
+	{
+<span class="nc bnc" id="L841" title="All 2 branches missed.">		if (ruleCheckMap.containsKey(aKey))</span>
+		{
+<span class="nc" id="L843">			final String aVal = ruleCheckMap.get(aKey);</span>
+<span class="nc" id="L844">			return aVal.equals(&quot;Y&quot;);</span>
+		}
+
+<span class="nc" id="L847">		return false;</span>
+	}
+
+	/**
+	 * save the outputsheet location with the PC?
+	 * @param arg
+	 **/
+	public static void setSaveOutputSheetWithPC(final boolean arg)
+	{
+<span class="nc" id="L856">		saveOutputSheetWithPC = arg;</span>
+<span class="nc" id="L857">	}</span>
+
+	public static boolean getSaveOutputSheetWithPC()
+	{
+<span class="nc" id="L861">		return saveOutputSheetWithPC;</span>
+	}
+
+	/**
+	 * Sets the current HTML output sheet for a single character.
+	 *
+	 * @param  path  a string containing the path to the HTML output sheet
+	 * @param aPC
+	 */
+	public static void setSelectedCharacterHTMLOutputSheet(final String path, final PlayerCharacter aPC)
+	{
+<span class="nc bnc" id="L872" title="All 4 branches missed.">		if (getSaveOutputSheetWithPC() &amp;&amp; (aPC != null))</span>
+		{
+<span class="nc" id="L874">			aPC.setSelectedCharacterHTMLOutputSheet(path);</span>
+		}
+
+<span class="nc" id="L877">		selectedCharacterHTMLOutputSheet = path;</span>
+<span class="nc" id="L878">	}</span>
+
+	/**
+	 * Returns the current HTML output sheet for a single character.
+	 *
+	 * @return    the {@code selectedCharacterHTMLOutputSheet} property
+	 * @param aPC
+	 **/
+	public static String getSelectedCharacterHTMLOutputSheet(final PlayerCharacter aPC)
+	{
+<span class="nc bnc" id="L888" title="All 4 branches missed.">		if (getSaveOutputSheetWithPC() &amp;&amp; (aPC != null))</span>
+		{
+<span class="nc bnc" id="L890" title="All 2 branches missed.">			if (!aPC.getSelectedCharacterHTMLOutputSheet().isEmpty())</span>
+			{
+<span class="nc" id="L892">				return aPC.getSelectedCharacterHTMLOutputSheet();</span>
+			}
+		}
+
+<span class="nc" id="L896">		return selectedCharacterHTMLOutputSheet;</span>
+	}
+
+	/**
+	 * Sets the current PDF output sheet for a single character.
+	 *
+	 * @param path  a string containing the path to the PDF output sheet
+	 * @param aPC
+	 */
+	public static void setSelectedCharacterPDFOutputSheet(final String path, final PlayerCharacter aPC)
+	{
+<span class="nc bnc" id="L907" title="All 4 branches missed.">		if (getSaveOutputSheetWithPC() &amp;&amp; (aPC != null))</span>
+		{
+<span class="nc" id="L909">			aPC.setSelectedCharacterPDFOutputSheet(path);</span>
+		}
+
+<span class="nc" id="L912">		selectedCharacterPDFOutputSheet = path;</span>
+<span class="nc" id="L913">	}</span>
+
+	/**
+	 * Returns the current PDF output sheet for a single character.
+	 *
+	 * @return    the {@code selectedCharacterPDFOutputSheet} property
+	 * @param aPC
+	 */
+	public static String getSelectedCharacterPDFOutputSheet(final PlayerCharacter aPC)
+	{
+<span class="nc bnc" id="L923" title="All 4 branches missed.">		if (getSaveOutputSheetWithPC() &amp;&amp; (aPC != null))</span>
+		{
+<span class="nc bnc" id="L925" title="All 2 branches missed.">			if (!aPC.getSelectedCharacterPDFOutputSheet().isEmpty())</span>
+			{
+<span class="nc" id="L927">				return aPC.getSelectedCharacterPDFOutputSheet();</span>
+			}
+		}
+
+<span class="nc" id="L931">		return selectedCharacterPDFOutputSheet;</span>
+	}
+
+	/**
+	 * Sets the current EquipSet template.
+	 *
+	 * @param  path  a string containing the path to the template
+	 **/
+	public static void setSelectedEqSetTemplate(final String path)
+	{
+<span class="nc" id="L941">		selectedEqSetTemplate = path;</span>
+<span class="nc" id="L942">	}</span>
+
+	/**
+	 * Returns the current EquipSet template.
+	 *
+	 * @return    the {@code selectedEqSetTemplate} property
+	 **/
+	public static String getSelectedEqSetTemplate()
+	{
+<span class="nc" id="L951">		return selectedEqSetTemplate;</span>
+	}
+
+	/**
+	 * Sets the current party HTML template.
+	 *
+	 * @param  path  a string containing the path to the template
+	 */
+	public static void setSelectedPartyHTMLOutputSheet(final String path)
+	{
+<span class="nc" id="L961">		selectedPartyHTMLOutputSheet = path;</span>
+<span class="nc" id="L962">	}</span>
+
+	/**
+	 * Returns the current party HTML template.
+	 *
+	 * @return    the {@code selectedPartyHTMLOutputSheet} property
+	 **/
+	public static String getSelectedPartyHTMLOutputSheet()
+	{
+<span class="nc" id="L971">		return selectedPartyHTMLOutputSheet;</span>
+	}
+
+	/**
+	 * Sets the current party PDF template.
+	 *
+	 * @param  path  a string containing the path to the template
+	 **/
+	public static void setSelectedPartyPDFOutputSheet(final String path)
+	{
+<span class="nc" id="L981">		selectedPartyPDFOutputSheet = path;</span>
+<span class="nc" id="L982">	}</span>
+
+	/**
+	 * Returns the current party PDF template.
+	 *
+	 * @return    the {@code selectedPartyPDFOutputSheet} property
+	 **/
+	public static String getSelectedPartyPDFOutputSheet()
+	{
+<span class="nc" id="L991">		return selectedPartyPDFOutputSheet;</span>
+	}
+
+	/**
+	 * Sets the current Spell output sheet
+	 *
+	 * @param  path  a string containing the path to the template
+	 **/
+	public static void setSelectedSpellSheet(final String path)
+	{
+<span class="nc" id="L1001">		selectedSpellSheet = path;</span>
+<span class="nc" id="L1002">	}</span>
+
+	/**
+	 * Returns the current spell output sheet
+	 *
+	 * @return    the {@code selectedSpellSheet} property
+	 **/
+	public static String getSelectedSpellSheet()
+	{
+<span class="nc" id="L1011">		return selectedSpellSheet;</span>
+	}
+
+	/**
+	 * Sets whether the hit point dialog should be shown at level up.
+	 * @param argShowHPDialogAtLevelUp Should the hit point dialog be shown at level up?
+	 */
+	public static void setShowHPDialogAtLevelUp(final boolean argShowHPDialogAtLevelUp)
+	{
+<span class="nc" id="L1020">		showHPDialogAtLevelUp = argShowHPDialogAtLevelUp;</span>
+<span class="nc" id="L1021">	}</span>
+
+	/**
+	 * Returns whether the hit point dialog should be shown at level up.
+	 * @return true if the hit point dialog should be shown at level up.
+	 */
+	public static boolean getShowHPDialogAtLevelUp()
+	{
+<span class="nc" id="L1029">		return showHPDialogAtLevelUp;</span>
+	}
+
+	/**
+	 * Sets whether the Stat dialog should be shown at level up.
+	 * @param argShowStatDialogAtLevelUp Should the Stat dialog should be shown at level up?
+	 */
+	public static void setShowStatDialogAtLevelUp(final boolean argShowStatDialogAtLevelUp)
+	{
+<span class="nc" id="L1038">		showStatDialogAtLevelUp = argShowStatDialogAtLevelUp;</span>
+<span class="nc" id="L1039">	}</span>
+
+	/**
+	 * Returns whether the Stat dialog should be shown at level up.
+	 * @return true if the Stat dialog should be shown at level up.
+	 */
+	public static boolean getShowStatDialogAtLevelUp()
+	{
+<span class="nc" id="L1047">		return showStatDialogAtLevelUp;</span>
+	}
+
+	public static void setShowTipOfTheDay(final boolean argShowTipOfTheDay)
+	{
+<span class="nc" id="L1052">		showTipOfTheDay = argShowTipOfTheDay;</span>
+<span class="nc" id="L1053">	}</span>
+
+	public static boolean getShowTipOfTheDay()
+	{
+<span class="nc" id="L1057">		return showTipOfTheDay;</span>
+	}
+
+	/**
+	 * Sets the argShowWarningAtFirstLevelUp.
+	 * @param argShowWarningAtFirstLevelUp The argShowWarningAtFirstLevelUp to set
+	 */
+	public static void setShowWarningAtFirstLevelUp(final boolean argShowWarningAtFirstLevelUp)
+	{
+<span class="nc" id="L1066">		SettingsHandler.showWarningAtFirstLevelUp = argShowWarningAtFirstLevelUp;</span>
+<span class="nc" id="L1067">	}</span>
+
+	/**
+	 * Returns the showWarningAtFirstLevelUp.
+	 * @return boolean
+	 */
+	public static boolean isShowWarningAtFirstLevelUp()
+	{
+<span class="nc" id="L1075">		return showWarningAtFirstLevelUp;</span>
+	}
+
+	/**
+	 * Returns the path to the temporary output location (for previews).
+	 *
+	 * @return    the {@code tempPath} property
+	 */
+	public static File getTempPath()
+	{
+<span class="fc" id="L1085">		return TEMP_PATH;</span>
+	}
+
+	/**
+	 * @return Returns the useHigherLevelSlotsDefault.
+	 */
+	public static boolean isUseHigherLevelSlotsDefault()
+	{
+<span class="fc" id="L1093">		return useHigherLevelSlotsDefault;</span>
+	}
+
+	/**
+	 * @param useHigherLevelSlotsDefault The useHigherLevelSlotsDefault to set.
+	 */
+	public static void setUseHigherLevelSlotsDefault(boolean useHigherLevelSlotsDefault)
+	{
+<span class="nc" id="L1101">		SettingsHandler.useHigherLevelSlotsDefault = useHigherLevelSlotsDefault;</span>
+<span class="nc" id="L1102">	}</span>
+
+	public static void setWeaponProfPrintout(final boolean argPreference)
+	{
+<span class="nc" id="L1106">		weaponProfPrintout = argPreference;</span>
+<span class="nc" id="L1107">	}</span>
+
+	public static boolean getWeaponProfPrintout()
+	{
+<span class="nc" id="L1111">		return weaponProfPrintout;</span>
+	}
+
+	public static boolean guiUsesOutputNameEquipment()
+	{
+<span class="nc" id="L1116">		return guiUsesOutputNameEquipment;</span>
+	}
+
+	public static boolean guiUsesOutputNameSpells()
+	{
+<span class="fc" id="L1121">		return guiUsesOutputNameSpells;</span>
+	}
+
+	/**
+	 * Checks to see if the user has set a value for this key
+	 * @param aKey
+	 * @return true or false
+	 **/
+	public static boolean hasRuleCheck(final String aKey)
+	{
+<span class="nc" id="L1131">		return ruleCheckMap.containsKey(aKey);</span>
+	}
+
+	public static boolean hideMonsterClasses()
+	{
+<span class="nc" id="L1136">		return hideMonsterClasses;</span>
+	}
+
+	/**
+	 * Opens the options.ini
+	 */
+	public static void readOptionsProperties()
+	{
+		// read in the filepath.ini settings before anything else
+<span class="nc" id="L1145">		readFilePaths();</span>
+
+		// now get the Filter settings
+<span class="nc" id="L1148">		readFilterSettings();</span>
+
+		// Globals.getOptionsPath() will _always_ return a string
+<span class="nc" id="L1151">		final String optionsLocation = Globals.getOptionsPath();</span>
+
+<span class="nc" id="L1153">		try(InputStream in = new FileInputStream(optionsLocation))</span>
+		{
+<span class="nc" id="L1155">			getOptions().load(in);</span>
+		}
+<span class="nc" id="L1157">		catch (IOException e)</span>
+		{
+			// Not an error, this file may not exist yet
+<span class="nc bnc" id="L1160" title="All 2 branches missed.">			if (Logging.isDebugMode())</span>
+			{
+<span class="nc" id="L1162">				Logging.debugPrint(LanguageBundle.getString(&quot;SettingsHandler.no.options.file&quot;)); //$NON-NLS-1$</span>
+			}
+<span class="nc" id="L1164">		}</span>
+<span class="nc" id="L1165">	}</span>
+
+	/**
+	 * Puts all properties into the {@code Properties} object,
+	 * ({@code options}). This is called by
+	 * {@code writeOptionsProperties}, which then saves the
+	 * {@code options} into a file.
+	 * @param optionName
+	 * @param optionValue
+	 */
+	private static void setPCGenOption(final String optionName, final boolean optionValue)
+	{
+<span class="nc bnc" id="L1177" title="All 2 branches missed.">		setPCGenOption(optionName, optionValue ? &quot;true&quot; : &quot;false&quot;); //$NON-NLS-1$ //$NON-NLS-2$</span>
+<span class="nc" id="L1178">	}</span>
+
+	/**
+	 * Set most of this objects static properties from the loaded {@code options}.
+	 * Called by readOptionsProperties. Most of the static properties are
+	 * set as a side effect, with the main screen size being returned.
+	 * @param optionName
+	 * @param defaultValue
+	 *
+	 * @return the default {@code Dimension} to set the screen size to
+	 */
+	private static boolean getPCGenOption(final String optionName, final boolean defaultValue)
+	{
+<span class="nc bnc" id="L1191" title="All 2 branches missed.">		final String option = getPCGenOption(optionName, defaultValue ? &quot;true&quot; : &quot;false&quot;); //$NON-NLS-1$ //$NON-NLS-2$</span>
+
+<span class="nc" id="L1193">		return &quot;true&quot;.equalsIgnoreCase(option); //$NON-NLS-1$</span>
+	}
+
+	/**
+	 * Set's the RuleChecks in the options.ini file
+	 * @param optionName
+	 **/
+	private static void setRuleChecksInOptions(final String optionName)
+	{
+<span class="nc" id="L1202">		StringBuilder value = new StringBuilder(); //$NON-NLS-1$</span>
+
+<span class="nc bnc" id="L1204" title="All 2 branches missed.">		for (final Map.Entry&lt;String, String&gt; entry : ruleCheckMap.entrySet())</span>
+		{
+<span class="nc" id="L1206">			final String aKey = entry.getKey();</span>
+<span class="nc" id="L1207">			final String aVal = entry.getValue();</span>
+
+<span class="nc bnc" id="L1209" title="All 2 branches missed.">			if (value.length() == 0)</span>
+			{
+<span class="nc" id="L1211">				value = new StringBuilder(aKey + &quot;|&quot; + aVal); //$NON-NLS-1$</span>
+			}
+			else
+			{
+<span class="nc" id="L1215">				value.append(&quot;,&quot;).append(aKey).append(&quot;|&quot;).append(aVal); //$NON-NLS-1$ //$NON-NLS-2$</span>
+			}
+<span class="nc" id="L1217">		}</span>
+
+		//setPCGenOption(optionName, value);
+<span class="nc" id="L1220">		getOptions().setProperty(&quot;pcgen.options.&quot; + optionName, value.toString()); //$NON-NLS-1$</span>
+<span class="nc" id="L1221">	}</span>
+
+	private static void setSaveCustomInLst(final boolean aBool)
+	{
+<span class="nc" id="L1225">		saveCustomInLst = aBool;</span>
+<span class="nc" id="L1226">	}</span>
+
+	private static boolean isSaveCustomInLst()
+	{
+<span class="nc" id="L1230">		return saveCustomInLst;</span>
+	}
+
+	private static String getTmpPath()
+	{
+<span class="fc" id="L1235">		return TMP_PATH;</span>
+	}
+
+	/*
+	 * If the path starts with an @ then it's a relative path
+	 */
+	private static String expandRelativePath(String path)
+	{
+<span class="nc bnc" id="L1243" title="All 2 branches missed.">		if (path.startsWith(&quot;@&quot;)) //$NON-NLS-1$</span>
+		{
+<span class="nc" id="L1245">			path = System.getProperty(&quot;user.dir&quot;) + path.substring(1); //$NON-NLS-1$</span>
+		}
+
+<span class="nc" id="L1248">		return path;</span>
+	}
+
+	/**
+	 * Parse all the user selected RuleChecks out of the options.ini file
+	 * of the form:
+	 *  aKey|Y,bKey|N,cKey|Y
+	 * @param aString
+	 **/
+	private static void parseRuleChecksFromOptions(final String aString)
+	{
+<span class="nc bnc" id="L1259" title="All 2 branches missed.">		if (aString.length() &lt;= 0)</span>
+		{
+<span class="nc" id="L1261">			return;</span>
+		}
+
+<span class="nc" id="L1264">		final StringTokenizer aTok = new StringTokenizer(aString, &quot;,&quot;); //$NON-NLS-1$</span>
+
+<span class="nc bnc" id="L1266" title="All 2 branches missed.">		while (aTok.hasMoreTokens())</span>
+		{
+<span class="nc" id="L1268">			final String bs = aTok.nextToken();</span>
+<span class="nc" id="L1269">			final StringTokenizer bTok = new StringTokenizer(bs, &quot;|&quot;); //$NON-NLS-1$</span>
+<span class="nc" id="L1270">			final String aKey = bTok.nextToken();</span>
+<span class="nc" id="L1271">			final String aVal = bTok.nextToken();</span>
+<span class="nc" id="L1272">			ruleCheckMap.put(aKey, aVal);</span>
+<span class="nc" id="L1273">		}</span>
+<span class="nc" id="L1274">	}</span>
+
+	/**
+	 * Opens the filepaths.ini file for reading
+	 **/
+	private static void readFilePaths()
+	{
+<span class="nc" id="L1281">		try(InputStream in = new FileInputStream(FILE_LOCATION))</span>
+		{
+<span class="nc" id="L1283">			FILEPATHS.load(in);</span>
+		}
+<span class="nc" id="L1285">		catch (IOException e)</span>
+		{
+			// Not an error, this file may not exist yet
+<span class="nc bnc" id="L1288" title="All 2 branches missed.">			if (Logging.isDebugMode())</span>
+			{
+<span class="nc" id="L1290">				Logging.debugPrint(LanguageBundle.getString(&quot;SettingsHandler.will.create.filepaths.ini&quot;)); //$NON-NLS-1$</span>
+			}
+<span class="nc" id="L1292">		}</span>
+<span class="nc" id="L1293">	}</span>
+
+	/**
+	 * Opens the filter.ini file for reading
+	 *
+	 * &lt;br&gt;author: Thomas Behr 10-03-02
+	 **/
+	private static void readFilterSettings()
+	{
+		// Globals.getFilterPath() will _always_ return a string
+<span class="nc" id="L1303">		final String filterLocation = Globals.getFilterPath();</span>
+
+<span class="nc" id="L1305">		try(InputStream in = new FileInputStream(filterLocation))</span>
+		{
+<span class="nc" id="L1307">			FILTERSETTINGS.load(in);</span>
+		}
+<span class="nc" id="L1309">		catch (IOException e)</span>
+		{
+			// Not an error, this file may not exist yet
+<span class="nc bnc" id="L1312" title="All 2 branches missed.">			if (Logging.isDebugMode())</span>
+			{
+<span class="nc" id="L1314">				Logging.debugPrint(LanguageBundle.getString(&quot;SettingsHandler.will.create.filter.ini&quot;)); //$NON-NLS-1$</span>
+			}
+<span class="nc" id="L1316">		}</span>
+<span class="nc" id="L1317">	}</span>
+
+	/*
+	 * setup relative paths
+	 */
+	private static String retractRelativePath(String path)
+	{
+<span class="nc" id="L1324">		final File userDir = new File(System.getProperty(&quot;user.dir&quot;)); //$NON-NLS-1$</span>
+
+<span class="nc bnc" id="L1326" title="All 2 branches missed.">		if (path.startsWith(userDir.getAbsolutePath()))</span>
+		{
+<span class="nc" id="L1328">			path = &quot;@&quot; + path.substring(userDir.getAbsolutePath().length()); //$NON-NLS-1$</span>
+		}
+
+<span class="nc" id="L1331">		return path;</span>
+	}
+
+<span class="fc" id="L1334">	private static boolean outputDeprecationMessages = true;</span>
+
+	public static boolean outputDeprecationMessages()
+	{
+<span class="fc" id="L1338">		return outputDeprecationMessages;</span>
+	}
+
+	public static void setOutputDeprecationMessages(boolean b)
+	{
+<span class="nc" id="L1343">		outputDeprecationMessages = b;</span>
+<span class="nc" id="L1344">	}</span>
+
+<span class="fc" id="L1346">	private static boolean inputUnconstructedMessages = true;</span>
+
+	public static boolean inputUnconstructedMessages()
+	{
+<span class="fc" id="L1350">		return inputUnconstructedMessages;</span>
+	}
+
+	public static void setInputUnconstructedMessages(boolean b)
+	{
+<span class="nc" id="L1355">		inputUnconstructedMessages = b;</span>
+<span class="nc" id="L1356">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

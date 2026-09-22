@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AbilityTreeViews.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.gui2.tabs.ability</a> &gt; <span class="el_source">AbilityTreeViews.java</span></div><h1>AbilityTreeViews.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2011 Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ * 
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ * 
+ */
+package pcgen.gui2.tabs.ability;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import pcgen.facade.core.AbilityFacade;
+import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.core.DataSetFacade;
+import pcgen.gui2.util.treeview.TreeView;
+import pcgen.gui2.util.treeview.TreeViewPath;
+import pcgen.system.LanguageBundle;
+import pcgen.util.Logging;
+
+import org.apache.commons.lang3.StringUtils;
+
+public final class AbilityTreeViews
+{
+
+	private AbilityTreeViews()
+	{
+	}
+
+	public static List&lt;TreeView&lt;AbilityFacade&gt;&gt; createTreeViewList(CharacterFacade character)
+	{
+<span class="nc" id="L44">		List&lt;TreeView&lt;AbilityFacade&gt;&gt; list = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L45">		list.add(new NameTreeView());</span>
+<span class="nc" id="L46">		list.add(new TypeTreeView());</span>
+<span class="nc" id="L47">		list.add(new PreReqTreeView(character.getDataSet()));</span>
+<span class="nc" id="L48">		list.add(new SourceTreeView());</span>
+<span class="nc" id="L49">		return list;</span>
+	}
+
+	private static class NameTreeView implements TreeView&lt;AbilityFacade&gt;
+	{
+
+		@Override
+		public String getViewName()
+		{
+<span class="nc" id="L58">			return LanguageBundle.getString(&quot;in_nameLabel&quot;); //$NON-NLS-1$</span>
+		}
+
+		@Override
+		public List&lt;TreeViewPath&lt;AbilityFacade&gt;&gt; getPaths(AbilityFacade pobj)
+		{
+<span class="nc" id="L64">			return Collections.singletonList(new TreeViewPath&lt;&gt;(pobj));</span>
+		}
+
+	}
+
+	private static class TypeTreeView implements TreeView&lt;AbilityFacade&gt;
+	{
+
+		@Override
+		public String getViewName()
+		{
+<span class="nc" id="L75">			return LanguageBundle.getString(&quot;in_typeName&quot;); //$NON-NLS-1$</span>
+		}
+
+		@Override
+		public List&lt;TreeViewPath&lt;AbilityFacade&gt;&gt; getPaths(AbilityFacade pobj)
+		{
+<span class="nc" id="L81">			List&lt;TreeViewPath&lt;AbilityFacade&gt;&gt; list = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L82">			List&lt;String&gt; types = pobj.getTypes();</span>
+<span class="nc bnc" id="L83" title="All 2 branches missed.">			if (types.isEmpty())</span>
+			{
+<span class="nc" id="L85">				list.add((new TreeViewPath&lt;&gt;(pobj)));</span>
+			}
+			else
+			{
+<span class="nc bnc" id="L89" title="All 2 branches missed.">				for (String type : types)</span>
+				{
+<span class="nc" id="L91">					list.add(new TreeViewPath&lt;&gt;(pobj, type));</span>
+<span class="nc" id="L92">				}</span>
+			}
+<span class="nc" id="L94">			return list;</span>
+		}
+
+	}
+
+	private static class SourceTreeView implements TreeView&lt;AbilityFacade&gt;
+	{
+
+		@Override
+		public String getViewName()
+		{
+<span class="nc" id="L105">			return LanguageBundle.getString(&quot;in_sourceName&quot;); //$NON-NLS-1$</span>
+		}
+
+		@Override
+		public List&lt;TreeViewPath&lt;AbilityFacade&gt;&gt; getPaths(AbilityFacade pobj)
+		{
+<span class="nc" id="L111">			return Collections.singletonList(new TreeViewPath&lt;&gt;(pobj, pobj.getSourceForNodeDisplay()));</span>
+		}
+
+	}
+
+	private static class PreReqTreeView implements TreeView&lt;AbilityFacade&gt;
+	{
+
+		private final DataSetFacade dataset;
+
+		PreReqTreeView(DataSetFacade dataset)
+<span class="nc" id="L122">		{</span>
+<span class="nc" id="L123">			this.dataset = dataset;</span>
+<span class="nc" id="L124">		}</span>
+
+		@Override
+		public String getViewName()
+		{
+<span class="nc" id="L129">			return LanguageBundle.getString(&quot;in_preReqTree&quot;); //$NON-NLS-1$</span>
+		}
+
+		@Override
+		public List&lt;TreeViewPath&lt;AbilityFacade&gt;&gt; getPaths(AbilityFacade pobj)
+		{
+<span class="nc" id="L135">			List&lt;List&lt;AbilityFacade&gt;&gt; abilityPaths = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L136">			addPaths(abilityPaths, dataset.getPrereqAbilities(pobj), new ArrayList&lt;&gt;());</span>
+<span class="nc bnc" id="L137" title="All 2 branches missed.">			if (abilityPaths.isEmpty())</span>
+			{
+<span class="nc" id="L139">				return Collections.singletonList(new TreeViewPath&lt;&gt;(pobj));</span>
+			}
+
+<span class="nc" id="L142">			List&lt;TreeViewPath&lt;AbilityFacade&gt;&gt; paths = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L143" title="All 2 branches missed.">			for (List&lt;AbilityFacade&gt; path : abilityPaths)</span>
+			{
+<span class="nc" id="L145">				Collections.reverse(path);</span>
+<span class="nc" id="L146">				paths.add(new TreeViewPath&lt;AbilityFacade&gt;(path.toArray(), pobj));</span>
+<span class="nc" id="L147">			}</span>
+<span class="nc" id="L148">			return paths;</span>
+		}
+
+		private void addPaths(List&lt;List&lt;AbilityFacade&gt;&gt; abilityPaths, List&lt;AbilityFacade&gt; preAbilities,
+			ArrayList&lt;AbilityFacade&gt; path)
+		{
+<span class="nc bnc" id="L154" title="All 2 branches missed.">			if (path.size() &gt; 20)</span>
+			{
+
+<span class="nc" id="L157">				Logging.errorPrint(&quot;Found probable ability prereq cycle [&quot; + StringUtils.join(path, &quot;,&quot;)</span>
+<span class="nc" id="L158">					+ &quot;] with prereqs [&quot; + StringUtils.join(preAbilities, &quot;,&quot;) + &quot;]. Skipping.&quot;);</span>
+<span class="nc" id="L159">				return;</span>
+			}
+<span class="nc bnc" id="L161" title="All 2 branches missed.">			for (AbilityFacade preAbility : preAbilities)</span>
+			{
+				@SuppressWarnings(&quot;unchecked&quot;)
+<span class="nc" id="L164">				ArrayList&lt;AbilityFacade&gt; pathclone = (ArrayList&lt;AbilityFacade&gt;) path.clone();</span>
+<span class="nc" id="L165">				pathclone.add(preAbility);</span>
+<span class="nc" id="L166">				List&lt;AbilityFacade&gt; preAbilities2 = dataset.getPrereqAbilities(preAbility);</span>
+				// Don't include self references in the path
+<span class="nc" id="L168">				preAbilities2.remove(preAbility);</span>
+<span class="nc" id="L169">				preAbilities2.removeAll(pathclone);</span>
+<span class="nc bnc" id="L170" title="All 2 branches missed.">				if (preAbilities2.isEmpty())</span>
+				{
+<span class="nc" id="L172">					abilityPaths.add(pathclone);</span>
+				}
+				else
+				{
+<span class="nc" id="L176">					addPaths(abilityPaths, preAbilities2, pathclone);</span>
+				}
+<span class="nc" id="L178">			}</span>
+<span class="nc" id="L179">		}</span>
+
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

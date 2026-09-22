@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BioItem.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.gui2.tabs.bio</a> &gt; <span class="el_source">BioItem.java</span></div><h1>BioItem.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) 2019 Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * extracted from BiographyInfoPane.java
+ * Copyright 2011 Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ * 
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ * 
+ */
+package pcgen.gui2.tabs.bio;
+
+import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
+import java.util.Optional;
+
+import javax.swing.Box;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.BiographyField;
+import pcgen.facade.core.CharacterFacade;
+import pcgen.gui2.tabs.models.CharacterComboBoxModel;
+import pcgen.gui2.util.ManagedField;
+import pcgen.system.LanguageBundle;
+
+abstract class BioItem
+{
+
+<span class="nc" id="L45">	private final JLabel label = new JLabel();</span>
+<span class="nc" id="L46">	private Optional&lt;JComboBox&lt;?&gt;&gt; combobox = Optional.empty();</span>
+<span class="nc" id="L47">	private Optional&lt;JTextField&gt; textField = Optional.empty();</span>
+<span class="nc" id="L48">	private Optional&lt;JLabel&gt; trailinglabel = Optional.empty();</span>
+
+	/**
+	 * The ManagedField holding the information for this BioItem.
+	 */
+<span class="nc" id="L53">	private Optional&lt;ManagedField&gt; textFieldHandler = Optional.empty();</span>
+
+	protected BioItem(String text, BiographyField bioField, CharacterFacade character)
+<span class="nc" id="L56">	{</span>
+<span class="nc bnc" id="L57" title="All 2 branches missed.">		if (text.startsWith(&quot;in_&quot;)) //$NON-NLS-1$</span>
+		{
+<span class="nc" id="L59">			label.setText(LanguageBundle.getString(text) + Constants.COLON);</span>
+		}
+		else
+		{
+<span class="nc" id="L63">			label.setText(text);</span>
+		}
+<span class="nc" id="L65">		label.setHorizontalAlignment(SwingConstants.RIGHT);</span>
+<span class="nc" id="L66">	}</span>
+
+	void addComponents(JPanel panel)
+	{
+<span class="nc" id="L70">		GridBagConstraints gbc = new GridBagConstraints();</span>
+<span class="nc" id="L71">		gbc.anchor = GridBagConstraints.PAGE_START;</span>
+<span class="nc" id="L72">		gbc.gridwidth = 1;</span>
+<span class="nc" id="L73">		gbc.fill = GridBagConstraints.BOTH;</span>
+<span class="nc" id="L74">		gbc.insets = new Insets(1, 2, 1, 2);</span>
+<span class="nc" id="L75">		panel.add(label, gbc);</span>
+<span class="nc" id="L76">		int numComponents = 0;</span>
+<span class="nc bnc" id="L77" title="All 2 branches missed.">		numComponents += textField.isPresent() ? 1 : 0;</span>
+<span class="nc bnc" id="L78" title="All 2 branches missed.">		numComponents += combobox.isPresent() ? 1 : 0;</span>
+<span class="nc bnc" id="L79" title="All 2 branches missed.">		numComponents += trailinglabel.isPresent() ? 1 : 0;</span>
+<span class="nc bnc" id="L80" title="All 3 branches missed.">		switch (numComponents)</span>
+		{
+<span class="nc" id="L82">			case 3 -&gt; gbc.weightx = 0.3333;</span>
+<span class="nc" id="L83">			case 2 -&gt; gbc.weightx = 0.5;</span>
+<span class="nc" id="L84">			default -&gt; gbc.weightx = 1.0;</span>
+		}
+<span class="nc" id="L86">		combobox.ifPresent(box -&gt; panel.add(box, gbc));</span>
+<span class="nc bnc" id="L87" title="All 2 branches missed.">		if (trailinglabel.isEmpty())</span>
+		{
+<span class="nc" id="L89">			gbc.gridwidth = GridBagConstraints.REMAINDER;</span>
+		}
+<span class="nc" id="L91">		textField.ifPresent(field -&gt; panel.add(field, gbc));</span>
+<span class="nc" id="L92">		gbc.gridwidth = GridBagConstraints.REMAINDER;</span>
+<span class="nc bnc" id="L93" title="All 2 branches missed.">		if (trailinglabel.isPresent())</span>
+		{
+<span class="nc" id="L95">			panel.add(trailinglabel.get(), gbc);</span>
+		}
+<span class="nc bnc" id="L97" title="All 2 branches missed.">		else if (numComponents &lt; 2)</span>
+		{
+			//We need a filler component so just use the lightweight Box
+<span class="nc" id="L100">			panel.add(Box.createHorizontalGlue(), gbc);</span>
+		}
+<span class="nc" id="L102">	}</span>
+
+	protected void setTextFieldHandler(ManagedField handler)
+	{
+<span class="nc" id="L106">		textField.ifPresent(tField -&gt; {</span>
+<span class="nc" id="L107">			throw new IllegalStateException(</span>
+				&quot;The TextField has already been set&quot;); //$NON-NLS-1$
+		});
+<span class="nc" id="L110">		this.textField = Optional.of(handler.getTextField());</span>
+<span class="nc" id="L111">		textFieldHandler = Optional.of(handler);</span>
+<span class="nc" id="L112">	}</span>
+
+	protected void setComboBoxModel(CharacterComboBoxModel&lt;?&gt; model)
+	{
+<span class="nc" id="L116">		combobox.ifPresent(box -&gt; {</span>
+<span class="nc" id="L117">			throw new IllegalStateException(</span>
+				&quot;The CharacterComboBoxModel has already been set&quot;); //$NON-NLS-1$
+		});
+<span class="nc" id="L120">		JComboBox&lt;?&gt; newComboBox = new JComboBox&lt;&gt;(model);</span>
+<span class="nc" id="L121">		this.combobox = Optional.of(newComboBox);</span>
+<span class="nc" id="L122">		newComboBox.setPreferredSize(new Dimension(10,</span>
+<span class="nc" id="L123">			BiographyInfoPane.TEMPLATE_TEXT_FIELD.getPreferredSize().height));</span>
+<span class="nc" id="L124">	}</span>
+
+	/**
+	 * @param text The text to be displayed in a label after the entry fields.
+	 */
+	protected void setTrailingLabel(String text)
+	{
+<span class="nc" id="L131">		trailinglabel.ifPresent(box -&gt; {</span>
+<span class="nc" id="L132">			throw new IllegalStateException(</span>
+				&quot;The trailing label has already been set&quot;); //$NON-NLS-1$
+		});
+<span class="nc" id="L135">		this.trailinglabel = Optional.of(new JLabel(text));</span>
+<span class="nc" id="L136">	}</span>
+
+	void setVisible(boolean visible)
+	{
+<span class="nc" id="L140">		label.setVisible(visible);</span>
+<span class="nc" id="L141">		combobox.ifPresent(box -&gt; box.setVisible(visible));</span>
+<span class="nc" id="L142">		textField.ifPresent(field -&gt; field.setVisible(visible));</span>
+<span class="nc" id="L143">		trailinglabel.ifPresent(endLabel -&gt; endLabel.setVisible(visible));</span>
+<span class="nc" id="L144">	}</span>
+
+	/**
+	 * Installs this BioItem by attaching itself to the buttons.
+	 */
+	void install()
+	{
+<span class="nc" id="L151">		textFieldHandler.ifPresent(ManagedField::install);</span>
+<span class="nc" id="L152">	}</span>
+
+	/**
+	 * Uninstalls this BioItem by removing its listeners from the buttons.
+	 */
+	void uninstall()
+	{
+<span class="nc" id="L159">		textFieldHandler.ifPresent(ManagedField::uninstall);</span>
+<span class="nc" id="L160">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

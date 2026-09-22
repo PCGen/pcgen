@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>EquipmentModifier.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.core</a> &gt; <span class="el_source">EquipmentModifier.java</span></div><h1>EquipmentModifier.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2001 (C) Greg Bingleman &lt;byngl@hotmail.com&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.core;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import java.util.regex.Pattern;
+
+import pcgen.cdom.formula.Formula;
+import pcgen.base.formula.base.VarScoped;
+import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.content.SpellResistance;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.Type;
+import pcgen.cdom.formula.scope.EquipmentPartScope;
+import pcgen.core.analysis.BonusCalc;
+import pcgen.core.bonus.Bonus;
+import pcgen.core.bonus.BonusObj;
+import pcgen.core.prereq.PrereqHandler;
+import pcgen.core.prereq.Prerequisite;
+import pcgen.core.utils.MessageType;
+import pcgen.core.utils.ShowMessageDelegate;
+import pcgen.util.Delta;
+
+/**
+ * Definition and games rules for an equipment modifier.
+ */
+<span class="fc" id="L48">public final class EquipmentModifier extends PObject</span>
+{
+<span class="fc" id="L50">	private static final String PERCENT_CHOICE_PATTERN = Pattern.quote(Constants.LST_PERCENT_CHOICE);</span>
+<span class="fc" id="L51">	private static final Formula CHOICE_FORMULA = FormulaFactory.getFormulaFor(&quot;%CHOICE&quot;);</span>
+
+	/**
+	 * returns all BonusObjs that are &quot;active&quot;, for example, ones that pass all
+	 * prerequisite tests and should be applied.
+	 *
+	 * @param   caller  The object that will be used to test prerequisites
+	 *                  against to determine if a bonus should be applied.
+	 * @param   aPC     The PC that the prerequisites will be applied against to
+	 *                  determine if a bonus is active
+	 *
+	 * @return  returns all BonusObjs that are &quot;active&quot;
+	 */
+	public List&lt;BonusObj&gt; getActiveBonuses(final Equipment caller, final PlayerCharacter aPC)
+	{
+<span class="nc" id="L66">		final List&lt;BonusObj&gt; aList = new ArrayList&lt;&gt;();</span>
+
+<span class="nc bnc" id="L68" title="All 2 branches missed.">		for (BonusObj bonus : getBonusList(caller))</span>
+		{
+<span class="nc bnc" id="L70" title="All 2 branches missed.">			if (PrereqHandler.passesAll(bonus, caller, aPC))</span>
+			{
+<span class="nc" id="L72">				aPC.setApplied(bonus, true);</span>
+<span class="nc" id="L73">				aList.add(bonus);</span>
+			}
+<span class="nc" id="L75">		}</span>
+
+<span class="nc" id="L77">		return aList;</span>
+	}
+
+	/**
+	 * This is prohibited since the associations are stored on the Equipment.
+	 * Thankfully, bonuses are usually exported through the Equipment, via
+	 * getBonusList(Equipment) or via getActiveBonuses(Equipment, PC), not
+	 * as a stand-alone behavior.
+	 */
+	@Override
+	public List&lt;BonusObj&gt; getBonusList(PlayerCharacter pc)
+	{
+<span class="nc" id="L89">		throw new UnsupportedOperationException(</span>
+			&quot;Cannot resolve bonuses on EqMod via PlayerCharacter - requires Equipment&quot;);
+	}
+
+	/**
+	 * This method assumes that there can only be one bonus in any given
+	 * Equipment modifier that uses %CHOICE.  It retrieves the list of bonuses
+	 * using the super classes getBonusList() and then examines each of them in
+	 * turn.  If it finds that one of the bonuses contains %CHOICE, it replaces
+	 * it with a one new bonus object for every entry in &quot;associated&quot;.
+	 *
+	 * @param e a PObject that has the associated bonuses
+	 *
+	 * @return  a complete list of bonus objects with %CHOICE expanded to
+	 *          include one entry for each associated choice.
+	 */
+	@Override
+	public List&lt;BonusObj&gt; getBonusList(Equipment e)
+	{
+<span class="nc" id="L108">		return getBonusList(super.getBonusList(e), e.getAssociationList(this));</span>
+	}
+
+	private List&lt;BonusObj&gt; getBonusList(List&lt;BonusObj&gt; bonusList, List&lt;String&gt; associations)
+	{
+<span class="nc" id="L113">		ArrayList&lt;BonusObj&gt; myBonusList = new ArrayList&lt;&gt;(bonusList);</span>
+<span class="nc bnc" id="L114" title="All 2 branches missed.">		for (int i = myBonusList.size() - 1; i &gt; -1; i--)</span>
+		{
+<span class="nc" id="L116">			final BonusObj aBonus = myBonusList.get(i);</span>
+<span class="nc" id="L117">			final String aString = aBonus.toString();</span>
+
+<span class="nc" id="L119">			final int idx = aString.indexOf(&quot;%CHOICE&quot;);</span>
+
+<span class="nc bnc" id="L121" title="All 2 branches missed.">			if (idx &gt;= 0)</span>
+			{
+				// Add an entry for each of the associated list entries
+<span class="nc bnc" id="L124" title="All 2 branches missed.">				for (String assoc : associations)</span>
+				{
+					final BonusObj newBonus =
+<span class="nc" id="L127">							Bonus.newBonus(Globals.getContext(), aString.replaceAll(PERCENT_CHOICE_PATTERN, assoc));</span>
+
+<span class="nc bnc" id="L129" title="All 2 branches missed.">					if (aBonus.hasPrerequisites())</span>
+					{
+<span class="nc" id="L131">						newBonus.clearPrerequisiteList();</span>
+<span class="nc bnc" id="L132" title="All 2 branches missed.">						for (Prerequisite prereq : aBonus.getPrerequisiteList())</span>
+						{
+							try
+							{
+<span class="nc" id="L136">								newBonus.addPrerequisite(prereq.specify(assoc));</span>
+							}
+<span class="nc" id="L138">							catch (CloneNotSupportedException e)</span>
+							{
+								// TODO Handle this?
+<span class="nc" id="L141">							}</span>
+<span class="nc" id="L142">						}</span>
+					}
+
+<span class="nc" id="L145">					myBonusList.add(newBonus);</span>
+<span class="nc" id="L146">				}</span>
+
+<span class="nc" id="L148">				myBonusList.remove(aBonus);</span>
+			}
+		}
+
+<span class="nc" id="L152">		return myBonusList;</span>
+	}
+
+	/**
+	 * Does this Equipment Modifier add aType to the equipment it is applied
+	 * to? If aType begins with an &amp;#34; (Exclamation Mark) the &amp;#34; will
+	 * be removed before checking the type.
+	 *
+	 * @param type the type string to check for.
+	 * @return Whether the item is of this type
+	 */
+	public boolean isIType(Type type)
+	{
+<span class="nc" id="L165">		return containsInList(ListKey.ITEM_TYPES, type);</span>
+	}
+
+	/**
+	 * A list of Special properties tailored to the PC and the piece of
+	 * equipment passed as arguments.
+	 *
+	 * @param   caller  The Equipment this modifier is applied to.
+	 * @param   pc      The Pc that the Special Property will be tailored for
+	 *
+	 * @return  a list of strings representing Special properties to be
+	 * applied to the Equipment
+	 */
+	public List&lt;String&gt; getSpecialProperties(final Equipment caller, final PlayerCharacter pc)
+	{
+<span class="nc" id="L180">		final List&lt;String&gt; retList = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L181" title="All 2 branches missed.">		for (SpecialProperty sp : getSafeListFor(ListKey.SPECIAL_PROPERTIES))</span>
+		{
+<span class="nc" id="L183">			String propName = sp.getParsedText(pc, caller, this);</span>
+
+			// TODO WTF is this loop doing? how many times does it expect &quot;%CHOICE&quot; to
+			// appear in the special property?
+
+<span class="nc bnc" id="L188" title="All 2 branches missed.">			for (String assoc : caller.getAssociationList(this))</span>
+			{
+<span class="nc" id="L190">				propName = propName.replaceFirst(&quot;%CHOICE&quot;, assoc);</span>
+<span class="nc" id="L191">			}</span>
+
+<span class="nc bnc" id="L193" title="All 4 branches missed.">			if ((propName != null) &amp;&amp; !propName.equals(&quot;&quot;))</span>
+			{
+<span class="nc" id="L195">				retList.add(propName);</span>
+			}
+<span class="nc" id="L197">		}</span>
+
+<span class="nc" id="L199">		return retList;</span>
+	}
+
+	/**
+	 * Get the bonus to
+	 * @param aPC a Player Character object
+	 * @param aType
+	 * @param aName
+	 * @param obj
+	 * @return bonus
+	 */
+	public double bonusTo(final PlayerCharacter aPC, final String aType, final String aName, final Equipment obj)
+	{
+<span class="nc" id="L212">		return BonusCalc.bonusTo(this, aType, aName, obj, getBonusList(obj), aPC);</span>
+	}
+
+	/**
+	 * Clone an EquipmentModifier
+	 *
+	 * @return  a clone of the EquipmentModifier
+	 */
+	@Override
+	public EquipmentModifier clone()
+	{
+<span class="nc" id="L223">		EquipmentModifier aObj = null;</span>
+
+		try
+		{
+<span class="nc" id="L227">			aObj = (EquipmentModifier) super.clone();</span>
+		}
+<span class="nc" id="L229">		catch (CloneNotSupportedException exc)</span>
+		{
+<span class="nc" id="L231">			ShowMessageDelegate.showMessageDialog(exc.getMessage(), Constants.APPLICATION_NAME, MessageType.ERROR);</span>
+<span class="nc" id="L232">		}</span>
+
+<span class="nc" id="L234">		return aObj;</span>
+	}
+
+	/* TODO: This needs to call getEquipNamePortion until after 5.10, when it can
+	 * be changed to a programmer useful string as per normal.
+	 */
+
+	/**
+	 * Return a string representation of the EquipmentModifier.
+	 *
+	 * @return  a String representation of the EquipmentModifier
+	 */
+	@Override
+	public String toString()
+	{
+<span class="nc" id="L249">		return getDisplayName();</span>
+	}
+
+	public int getSR(Equipment parent, PlayerCharacter aPC)
+	{
+<span class="nc" id="L254">		SpellResistance sr = get(ObjectKey.SR);</span>
+<span class="nc bnc" id="L255" title="All 2 branches missed.">		if (sr == null)</span>
+		{
+<span class="nc" id="L257">			return 0;</span>
+		}
+
+<span class="nc bnc" id="L260" title="All 4 branches missed.">		if (sr.getReduction().equals(CHOICE_FORMULA) &amp;&amp; parent.hasAssociations(this))</span>
+		{
+<span class="nc" id="L262">			return Delta.parseInt(parent.getFirstAssociation(this));</span>
+		}
+
+<span class="nc" id="L265">		return sr.getReduction().resolve(parent, true, aPC, getQualifiedKey()).intValue();</span>
+	}
+
+	/**
+	 * lets this object compare to others.
+	 *
+	 * @param   o  The object to compare to
+	 *
+	 * @return  -1, 0 or 1 as per Comparator
+	 */
+	@Override
+	public int compareTo(final Object o)
+	{
+<span class="nc bnc" id="L278" title="All 2 branches missed.">		if (o instanceof EquipmentModifier)</span>
+		{
+<span class="nc" id="L280">			return getKeyName().compareTo(((CDOMObject) o).getKeyName());</span>
+		}
+
+<span class="nc" id="L283">		return getKeyName().compareTo(o.toString());</span>
+	}
+
+	public String getDisplayType()
+	{
+<span class="nc" id="L288">		List&lt;Type&gt; trueTypeList = getTrueTypeList(true);</span>
+<span class="nc" id="L289">		return StringUtil.join(trueTypeList, &quot;.&quot;);</span>
+	}
+
+	@Override
+	public Optional&lt;String&gt; getLocalScopeName()
+	{
+<span class="nc" id="L295">		return Optional.of(EquipmentPartScope.PC_EQUIPMENT_PART);</span>
+	}
+
+	private VarScoped variableParent;
+
+	public void setVariableParent(VarScoped vs)
+	{
+<span class="fc" id="L302">		variableParent = vs;</span>
+<span class="fc" id="L303">	}</span>
+
+	@Override
+	public Optional&lt;VarScoped&gt; getVariableParent()
+	{
+<span class="nc" id="L308">		return Optional.ofNullable(variableParent);</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Load.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.util.enumeration</a> &gt; <span class="el_source">Load.java</span></div><h1>Load.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2014 (C) Stefan Radermacher
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.util.enumeration;
+
+import java.awt.Font;
+import java.util.function.DoubleFunction;
+import java.util.function.Function;
+import java.util.function.Supplier;
+import javafx.scene.paint.Color;
+import pcgen.core.utils.CoreUtility;
+import pcgen.gui2.UIPropertyContext;
+import pcgen.gui2.util.FontManipulation;
+
+<span class="fc" id="L29">public enum Load</span>
+{
+<span class="fc" id="L31">	LIGHT(FontManipulation::plain, UIPropertyContext::getQualifiedColor),</span>
+<span class="fc" id="L32">	MEDIUM(FontManipulation::bold, UIPropertyContext::getAutomaticColor),</span>
+<span class="fc" id="L33">	HEAVY(FontManipulation::bold_italic, UIPropertyContext::getVirtualColor),</span>
+<span class="fc" id="L34">	OVERLOAD(FontManipulation::bold_italic, UIPropertyContext::getNotQualifiedColor);</span>
+
+<span class="pc" id="L36">	private static final DoubleFunction&lt;Double&gt; LIGHT_ENCUMBERED_MOVE = unencumberedMove -&gt; unencumberedMove;</span>
+<span class="fc" id="L37">	private static final DoubleFunction&lt;Double&gt;  MEDIUM_HEAVY_ENCUMBERED_MOVE = unencumberedMove -&gt; {</span>
+<span class="nc bnc" id="L38" title="All 4 branches missed.">		if (CoreUtility.doublesEqual(unencumberedMove, 5) || CoreUtility.doublesEqual(unencumberedMove, 10))</span>
+		{
+<span class="nc" id="L40">			return 5.0;</span>
+		}
+		else
+		{
+<span class="nc" id="L44">			return (Math.floor(unencumberedMove / 15) * 10) + (((int) unencumberedMove) % 15);</span>
+		}
+	};
+<span class="pc" id="L47">	private static final DoubleFunction&lt;Double&gt;  OVERLOADED_ENCUMBERED_MOVE = unencumberedMove -&gt; 0.0;</span>
+
+	static
+	{
+<span class="fc" id="L51">		LIGHT.encumberedMoveFunction = LIGHT_ENCUMBERED_MOVE;</span>
+<span class="fc" id="L52">		MEDIUM.encumberedMoveFunction = MEDIUM_HEAVY_ENCUMBERED_MOVE;</span>
+<span class="fc" id="L53">		HEAVY.encumberedMoveFunction = MEDIUM_HEAVY_ENCUMBERED_MOVE;</span>
+<span class="fc" id="L54">		OVERLOAD.encumberedMoveFunction = OVERLOADED_ENCUMBERED_MOVE;</span>
+<span class="fc" id="L55">	}</span>
+
+	private final Function&lt;Font, Font&gt; fontFunction;
+	private final Supplier&lt;Color&gt; colorFunction;
+	private DoubleFunction&lt;Double&gt;  encumberedMoveFunction;
+
+	Load(Function&lt;Font, Font&gt; fontFunction, Supplier&lt;Color&gt; colorFunction)
+<span class="fc" id="L62">	{</span>
+<span class="fc" id="L63">		this.fontFunction = fontFunction;</span>
+<span class="fc" id="L64">		this.colorFunction = colorFunction;</span>
+<span class="fc" id="L65">	}</span>
+
+	public Font getFont(Font font)
+	{
+<span class="nc" id="L69">		return fontFunction.apply(font);</span>
+	}
+
+	public Color getColor()
+	{
+<span class="nc" id="L74">		return colorFunction.get();</span>
+	}
+
+
+	@Override
+	public String toString()
+	{
+<span class="nc" id="L81">		return name();</span>
+	}
+
+	private boolean checkLtEq(Load x)
+	{
+<span class="nc bnc" id="L86" title="All 2 branches missed.">		return ordinal() &lt;= x.ordinal();</span>
+	}
+
+	public Load max(Load x)
+	{
+<span class="nc bnc" id="L91" title="All 2 branches missed.">		return checkLtEq(x) ? x : this;</span>
+	}
+
+	/**
+	 * @param val should be a string value to be checked for equality (case-insensitive) with
+	 * 				one of the enum values for this enumeration
+	 * @return the enumeration that matches the given string, or null if none match
+	 */
+	public static Load getLoadType(String val)
+	{
+<span class="nc" id="L101">		return valueOf(val.toUpperCase());</span>
+	}
+
+
+	public double calcEncumberedMove(final double unencumberedMove)
+	{
+<span class="nc" id="L107">		return encumberedMoveFunction.apply(unencumberedMove);</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

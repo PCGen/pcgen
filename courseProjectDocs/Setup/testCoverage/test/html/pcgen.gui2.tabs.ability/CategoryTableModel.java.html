@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CategoryTableModel.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.gui2.tabs.ability</a> &gt; <span class="el_source">CategoryTableModel.java</span></div><h1>CategoryTableModel.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2011 Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ * 
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ * 
+ */
+package pcgen.gui2.tabs.ability;
+
+import javax.swing.JTable;
+
+import pcgen.core.AbilityCategory;
+import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.util.ListFacade;
+import pcgen.facade.util.event.ChangeEvent;
+import pcgen.facade.util.event.ChangeListener;
+import pcgen.gui2.filter.Filter;
+import pcgen.gui2.filter.FilteredListFacadeTableModel;
+
+/**
+ * The model for the bottom left table showing the ability categories and 
+ * their pool points.
+ * 
+ */
+public class CategoryTableModel extends FilteredListFacadeTableModel&lt;AbilityCategory&gt; implements ChangeListener
+{
+
+<span class="nc" id="L39">	boolean installed = false;</span>
+	private final JTable categoryTable;
+
+	public CategoryTableModel(CharacterFacade character, ListFacade&lt;AbilityCategory&gt; categories,
+		Filter&lt;CharacterFacade, AbilityCategory&gt; filter, JTable theCategoryTable)
+	{
+<span class="nc" id="L45">		super(character);</span>
+<span class="nc" id="L46">		this.categoryTable = theCategoryTable;</span>
+<span class="nc" id="L47">		setDelegate(categories);</span>
+<span class="nc" id="L48">		setFilter(filter);</span>
+<span class="nc" id="L49">	}</span>
+
+	public AbilityCategory getCategory(int index)
+	{
+<span class="nc" id="L53">		return sortedList.getElementAt(index);</span>
+	}
+
+	@Override
+	public int getColumnCount()
+	{
+<span class="nc" id="L59">		return 3;</span>
+	}
+
+	@Override
+	public boolean isCellEditable(int rowIndex, int columnIndex)
+	{
+<span class="nc bnc" id="L65" title="All 2 branches missed.">		if (columnIndex == 2)</span>
+		{
+<span class="nc" id="L67">			return sortedList.getElementAt(rowIndex).allowPoolMod();</span>
+		}
+<span class="nc" id="L69">		return false;</span>
+	}
+
+	@Override
+	public void setValueAt(Object aValue, int rowIndex, int columnIndex)
+	{
+<span class="nc" id="L75">		character.setRemainingSelection(sortedList.getElementAt(rowIndex), (Integer) aValue);</span>
+<span class="nc" id="L76">	}</span>
+
+	@Override
+	public String getColumnName(int column)
+	{
+<span class="nc bnc" id="L81" title="All 4 branches missed.">		return switch (column)</span>
+				{
+<span class="nc" id="L83">					case 0 -&gt; &quot;Category&quot;;</span>
+<span class="nc" id="L84">					case 1 -&gt; &quot;Total&quot;;</span>
+<span class="nc" id="L85">					case 2 -&gt; &quot;Remaining&quot;;</span>
+<span class="nc" id="L86">					default -&gt; throw new IndexOutOfBoundsException();</span>
+				};
+	}
+
+	@Override
+	public Class&lt;?&gt; getColumnClass(int columnIndex)
+	{
+<span class="nc bnc" id="L93" title="All 2 branches missed.">		if (columnIndex == 0)</span>
+		{
+<span class="nc" id="L95">			return Object.class;</span>
+		}
+<span class="nc" id="L97">		return Integer.class;</span>
+	}
+
+	@Override
+	protected Object getValueAt(AbilityCategory category, int column)
+	{
+<span class="nc bnc" id="L103" title="All 4 branches missed.">		return switch (column)</span>
+				{
+<span class="nc" id="L105">					case 0 -&gt; category;</span>
+<span class="nc" id="L106">					case 1 -&gt; character.getTotalSelections(category);</span>
+<span class="nc" id="L107">					case 2 -&gt; character.getRemainingSelections(category);</span>
+<span class="nc" id="L108">					default -&gt; throw new IndexOutOfBoundsException();</span>
+				};
+	}
+
+	@Override
+	public void ItemChanged(ChangeEvent event)
+	{
+<span class="nc" id="L115">		AbilityCategory facade = null;</span>
+<span class="nc bnc" id="L116" title="All 2 branches missed.">		if (installed)</span>
+		{
+<span class="nc" id="L118">			int selectedRow = categoryTable.getSelectedRow();</span>
+<span class="nc bnc" id="L119" title="All 4 branches missed.">			if (selectedRow &gt;= 0 &amp;&amp; selectedRow &lt; sortedList.getSize())</span>
+			{
+<span class="nc" id="L121">				facade = sortedList.getElementAt(selectedRow);</span>
+			}
+		}
+<span class="nc" id="L124">		Object data = event.getSource();</span>
+<span class="nc" id="L125">		refilter();</span>
+<span class="nc bnc" id="L126" title="All 2 branches missed.">		for (int i = 0; i &lt; getRowCount(); i++)</span>
+		{
+<span class="nc" id="L128">			AbilityCategory rowCat = getCategory(i);</span>
+<span class="nc bnc" id="L129" title="All 2 branches missed.">			if (rowCat == data)</span>
+			{
+<span class="nc" id="L131">				fireTableRowsUpdated(i, i);</span>
+			}
+		}
+
+<span class="nc bnc" id="L135" title="All 2 branches missed.">		if (facade != null)</span>
+		{
+<span class="nc bnc" id="L137" title="All 2 branches missed.">			for (int i = 0; i &lt; sortedList.getSize(); i++)</span>
+			{
+<span class="nc bnc" id="L139" title="All 2 branches missed.">				if (facade == sortedList.getElementAt(i))</span>
+				{
+<span class="nc" id="L141">					categoryTable.getSelectionModel().setSelectionInterval(i, i);</span>
+<span class="nc" id="L142">					break;</span>
+				}
+			}
+		}
+<span class="nc" id="L146">	}</span>
+
+	/**
+	 * Engage this class instance with the current UI. 
+	 */
+	public void install()
+	{
+<span class="nc" id="L153">		character.addAbilityCatSelectionListener(this);</span>
+<span class="nc" id="L154">		installed = true;</span>
+<span class="nc" id="L155">	}</span>
+
+	/**
+	 * Detach this class instance from the current UI. 
+	 */
+	public void uninstall()
+	{
+<span class="nc" id="L162">		installed = false;</span>
+<span class="nc" id="L163">		character.removeAbilityCatSelectionListener(this);</span>
+<span class="nc" id="L164">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

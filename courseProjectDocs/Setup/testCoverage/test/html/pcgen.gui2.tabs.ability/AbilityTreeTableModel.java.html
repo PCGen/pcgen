@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AbilityTreeTableModel.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.gui2.tabs.ability</a> &gt; <span class="el_source">AbilityTreeTableModel.java</span></div><h1>AbilityTreeTableModel.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2011 Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ * 
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ * 
+ */
+package pcgen.gui2.tabs.ability;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+import javax.swing.JTable;
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableColumnModel;
+import javax.swing.table.TableCellRenderer;
+import javax.swing.tree.MutableTreeNode;
+
+import pcgen.core.AbilityCategory;
+import pcgen.facade.core.AbilityFacade;
+import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.util.ListFacade;
+import pcgen.facade.util.SortedListFacade;
+import pcgen.facade.util.event.ListEvent;
+import pcgen.facade.util.event.ListListener;
+import pcgen.gui2.tabs.Utilities;
+import pcgen.gui2.util.JTreeTable;
+import pcgen.gui2.util.table.Row;
+import pcgen.gui2.util.table.TableCellUtilities;
+import pcgen.gui2.util.treetable.AbstractTreeTableModel;
+import pcgen.gui2.util.treetable.DefaultSortableTreeTableNode;
+import pcgen.gui2.util.treetable.DefaultTreeTableNode;
+import pcgen.gui2.util.treetable.SortableTreeTableModel;
+import pcgen.gui2.util.treetable.TreeTableNode;
+import pcgen.system.LanguageBundle;
+import pcgen.util.Comparators;
+
+/**
+ * The Class {@code AbilityTreeTableModel} is a model for the
+ * selected abilities tree table. It lists the abilities held by the 
+ * character in a tree structure by category.
+ * 
+ * 
+ */
+public class AbilityTreeTableModel extends AbstractTreeTableModel implements SortableTreeTableModel
+{
+
+	private final CharacterFacade character;
+
+	public AbilityTreeTableModel(CharacterFacade character, ListFacade&lt;AbilityCategory&gt; categories)
+<span class="nc" id="L64">	{</span>
+<span class="nc" id="L65">		this.character = character;</span>
+<span class="nc" id="L66">		this.setRoot(new RootTreeTableNode(categories));</span>
+<span class="nc" id="L67">	}</span>
+
+	/**
+	 * Initialise a tree table that will be backed by an AbilityTreeTableModel.
+	 * @param treeTable The tree table to be initialized.
+	 */
+	public static void initializeTreeTable(JTreeTable treeTable)
+	{
+<span class="nc" id="L75">		treeTable.getTree().putClientProperty(&quot;JTree.lineStyle&quot;, &quot;Horizontal&quot;); //$NON-NLS-1$ //$NON-NLS-2$</span>
+<span class="nc" id="L76">		treeTable.setAutoCreateColumnsFromModel(false);</span>
+<span class="nc" id="L77">		DefaultTableColumnModel model = new DefaultTableColumnModel();</span>
+<span class="nc" id="L78">		TableCellRenderer headerRenderer = treeTable.getTableHeader().getDefaultRenderer();</span>
+<span class="nc" id="L79">		model.addColumn(Utilities.createTableColumn(0, &quot;in_featSelectedAbilities&quot;, headerRenderer, true)); //$NON-NLS-1$</span>
+<span class="nc" id="L80">		model.addColumn(Utilities.createTableColumn(1, &quot;in_featChoices&quot;, //$NON-NLS-1$</span>
+			headerRenderer, true));
+<span class="nc" id="L82">		treeTable.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);</span>
+<span class="nc" id="L83">		treeTable.setColumnModel(model);</span>
+<span class="nc" id="L84">		treeTable.setDefaultRenderer(String.class, new TableCellUtilities.AlignRenderer(SwingConstants.LEFT, true));</span>
+<span class="nc" id="L85">	}</span>
+
+	@Override
+	public Class&lt;?&gt; getColumnClass(int column)
+	{
+<span class="nc bnc" id="L90" title="All 2 branches missed.">		if (column == 0)</span>
+		{
+<span class="nc" id="L92">			return TreeTableNode.class;</span>
+		}
+<span class="nc" id="L94">		return AbilityFacade.class;</span>
+	}
+
+	@Override
+	public String getColumnName(int column)
+	{
+<span class="nc bnc" id="L100" title="All 3 branches missed.">		return switch (column)</span>
+				{
+<span class="nc" id="L102">					case 0 -&gt; LanguageBundle.getString(&quot;in_featSelectedAbilities&quot;); //$NON-NLS-1$</span>
+<span class="nc" id="L103">					case 1 -&gt; LanguageBundle.getString(&quot;in_featChoices&quot;); //$NON-NLS-1$</span>
+
+<span class="nc" id="L105">					default -&gt; &quot;Unknown column&quot;;</span>
+				};
+
+	}
+
+	@Override
+	public int getColumnCount()
+	{
+<span class="nc" id="L113">		return 2;</span>
+	}
+
+	@Override
+	public RootTreeTableNode getRoot()
+	{
+<span class="nc" id="L119">		return (RootTreeTableNode) super.getRoot();</span>
+	}
+
+	@Override
+	public void sortModel(Comparator&lt;Row&gt; comparator)
+	{
+<span class="nc" id="L125">		getRoot().sortChildren(comparator);</span>
+<span class="nc" id="L126">		reload();</span>
+<span class="nc" id="L127">	}</span>
+
+	private class RootTreeTableNode extends DefaultSortableTreeTableNode implements ListListener&lt;AbilityCategory&gt;
+	{
+
+		private final ListFacade&lt;AbilityCategory&gt; cats;
+
+		RootTreeTableNode(ListFacade&lt;AbilityCategory&gt; cats)
+<span class="nc" id="L135">		{</span>
+<span class="nc" id="L136">			super(Collections.singletonList(new Object()));</span>
+<span class="nc" id="L137">			this.cats = new SortedListFacade&lt;&gt;(Comparators.toStringIgnoreCaseComparator(), cats);</span>
+<span class="nc" id="L138">			addChildren();</span>
+<span class="nc" id="L139">			cats.addListListener(this);</span>
+<span class="nc" id="L140">		}</span>
+
+		private void addChildren()
+		{
+<span class="nc bnc" id="L144" title="All 2 branches missed.">			for (AbilityCategory category : cats)</span>
+			{
+<span class="nc" id="L146">				add(new CategoryTreeTableNode(category));</span>
+<span class="nc" id="L147">			}</span>
+<span class="nc" id="L148">		}</span>
+
+		@Override
+		public void elementAdded(ListEvent&lt;AbilityCategory&gt; e)
+		{
+<span class="nc" id="L153">			insertNodeInto(new CategoryTreeTableNode(e.getElement()), this, e.getIndex());</span>
+<span class="nc" id="L154">		}</span>
+
+		@Override
+		public void elementRemoved(ListEvent&lt;AbilityCategory&gt; e)
+		{
+<span class="nc" id="L159">			removeNodeFromParent((MutableTreeNode) getChildAt(e.getIndex()));</span>
+<span class="nc" id="L160">		}</span>
+
+		@Override
+		public void elementsChanged(ListEvent&lt;AbilityCategory&gt; e)
+		{
+<span class="nc" id="L165">			removeAllChildren();</span>
+<span class="nc" id="L166">			addChildren();</span>
+<span class="nc" id="L167">			AbilityTreeTableModel.this.nodeStructureChanged(this);</span>
+<span class="nc" id="L168">		}</span>
+
+		@Override
+		public void elementModified(ListEvent&lt;AbilityCategory&gt; e)
+		{
+<span class="nc" id="L173">		}</span>
+
+	}
+
+	private class CategoryTreeTableNode extends DefaultSortableTreeTableNode implements ListListener&lt;AbilityFacade&gt;
+	{
+
+		private final ListFacade&lt;AbilityFacade&gt; abilities;
+
+		CategoryTreeTableNode(AbilityCategory category)
+<span class="nc" id="L183">		{</span>
+<span class="nc" id="L184">			setUserObject(category);</span>
+<span class="nc" id="L185">			setValues(Collections.singletonList(category));</span>
+<span class="nc" id="L186">			this.abilities = new SortedListFacade&lt;&gt;(Comparators.toStringIgnoreCaseComparator(),</span>
+<span class="nc" id="L187">				character.getAbilities(category));</span>
+<span class="nc" id="L188">			addChildren();</span>
+<span class="nc" id="L189">			abilities.addListListener(this);</span>
+<span class="nc" id="L190">		}</span>
+
+		private void addChildren()
+		{
+<span class="nc bnc" id="L194" title="All 2 branches missed.">			for (AbilityFacade ability : abilities)</span>
+			{
+<span class="nc" id="L196">				DefaultTreeTableNode node = buildAbilityNode(ability);</span>
+<span class="nc" id="L197">				node.setUserObject(ability);</span>
+<span class="nc" id="L198">				add(node);</span>
+<span class="nc" id="L199">			}</span>
+<span class="nc" id="L200">		}</span>
+
+		private DefaultTreeTableNode buildAbilityNode(AbilityFacade ability)
+		{
+<span class="nc" id="L204">			List&lt;Object&gt; data = new ArrayList&lt;&gt;(2);</span>
+<span class="nc" id="L205">			data.add(ability);</span>
+<span class="nc" id="L206">			data.add(character.getInfoFactory().getChoices(ability));</span>
+<span class="nc" id="L207">            return new DefaultSortableTreeTableNode(data);</span>
+		}
+
+		@Override
+		public void elementAdded(ListEvent&lt;AbilityFacade&gt; e)
+		{
+			//Logging.errorPrint(&quot;Adding &quot; + category + &quot; - &quot;  + e.getElement());
+<span class="nc" id="L214">			DefaultTreeTableNode node = buildAbilityNode(e.getElement());</span>
+<span class="nc" id="L215">			node.setUserObject(e.getElement());</span>
+<span class="nc" id="L216">			insertNodeInto(node, this, e.getIndex());</span>
+<span class="nc" id="L217">		}</span>
+
+		@Override
+		public void elementRemoved(ListEvent&lt;AbilityFacade&gt; e)
+		{
+			//Logging.errorPrint(&quot;Removing &quot; + category + &quot; - &quot;  + e.getElement());
+<span class="nc" id="L223">			removeNodeFromParent((MutableTreeNode) getChildAt(e.getIndex()));</span>
+<span class="nc" id="L224">		}</span>
+
+		@Override
+		public void elementsChanged(ListEvent&lt;AbilityFacade&gt; e)
+		{
+			//Logging.errorPrint(&quot;Changing &quot; + category + &quot; - &quot; + e.getSource());
+<span class="nc" id="L230">			removeAllChildren();</span>
+<span class="nc" id="L231">			addChildren();</span>
+<span class="nc" id="L232">			AbilityTreeTableModel.this.nodeStructureChanged(this);</span>
+<span class="nc" id="L233">		}</span>
+
+		@Override
+		public void elementModified(ListEvent&lt;AbilityFacade&gt; e)
+		{
+			//Logging.errorPrint(&quot;Modifying &quot; + category + &quot; - &quot; + e.getElement());
+<span class="nc" id="L239">			MutableTreeNode oldNode = (MutableTreeNode) getChildAt(e.getIndex());</span>
+<span class="nc" id="L240">			DefaultTreeTableNode node = buildAbilityNode(e.getElement());</span>
+<span class="nc" id="L241">			node.setUserObject(e.getElement());</span>
+<span class="nc" id="L242">			insertNodeInto(node, this, e.getIndex());</span>
+<span class="nc" id="L243">			removeNodeFromParent(oldNode);</span>
+<span class="nc" id="L244">		}</span>
+
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

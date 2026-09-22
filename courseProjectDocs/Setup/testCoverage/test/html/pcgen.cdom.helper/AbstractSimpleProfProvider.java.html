@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AbstractSimpleProfProvider.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.helper</a> &gt; <span class="el_source">AbstractSimpleProfProvider.java</span></div><h1>AbstractSimpleProfProvider.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) 2008 Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package pcgen.cdom.helper;
+
+import pcgen.cdom.base.CDOMObject;
+import pcgen.core.PlayerCharacter;
+
+/**
+ * A AbstractSimpleProfProvider is an object that provides proficiency based on
+ * a single proficiency.
+ * 
+ * Classes that extend this class are primary used at runtime to grant
+ * individual proficiencies based on application of a CHOOSE to an AUTO: token
+ * using %LIST.
+ * 
+ * @param &lt;T&gt;
+ *            The type of Proficiency (CDOMObject) that this
+ *            AbstractSimpleProfProvider provides
+ * 
+ */
+public abstract class AbstractSimpleProfProvider&lt;T extends CDOMObject&gt; implements ProfProvider&lt;T&gt;
+{
+
+	/**
+	 * The single proficiency that this AbstractSimpleProfProvider provides
+	 */
+	private final T prof;
+
+	/**
+	 * Constructs a new AbstractSimpleProfProvider that provides proficiency
+	 * based on a the given proficiency
+	 * 
+	 * @param proficiency
+	 *            The proficiency that this AbstractSimpleProfProvider provides
+	 */
+	public AbstractSimpleProfProvider(T proficiency)
+<span class="fc" id="L52">	{</span>
+<span class="fc" id="L53">		prof = proficiency;</span>
+<span class="fc" id="L54">	}</span>
+
+	/**
+	 * Returns true if this AbstractSimpleProfProvider provides the given
+	 * proficiency.
+	 * 
+	 * @param proficiency
+	 *            The proficiency to be tested to see if this
+	 *            AbstractSimpleProfProvider provides the given proficiency
+	 * @return true if this AbstractSimpleProfProvider provides the given
+	 *         proficiency; false otherwise.
+	 */
+	@Override
+	public boolean providesProficiency(T proficiency)
+	{
+<span class="nc" id="L69">		return prof.equals(proficiency);</span>
+	}
+
+	/**
+	 * Returns true, as AbstractSimpleProfProvider is not a conditional object
+	 * (never contains Prerequisites)
+	 * 
+	 * @param playerCharacter
+	 *            The &lt;tt&gt;PlayerCharacter&lt;/tt&gt; to test (ignored)
+	 * @return true, as AbstractSimpleProfProvider is not a conditional object
+	 */
+	@Override
+	public boolean qualifies(PlayerCharacter playerCharacter, Object owner)
+	{
+<span class="nc" id="L83">		return true;</span>
+	}
+
+	/**
+	 * Returns false, as AbstractSimpleProfProvider never grants proficiency
+	 * based on Equipment TYPE (AbstractSimpleProfProvider only contains a
+	 * single proficiency object)
+	 * 
+	 * 
+	 * @param type
+	 *            The TYPE of Equipment to be tested to see if this
+	 *            AbstractSimpleProfProvider provides proficiency with the given
+	 *            Equipment TYPE (ignored)
+	 * @return false, as AbstractSimpleProfProvider never grants proficiency
+	 *         based on Equipment TYPE
+	 */
+	@Override
+	public boolean providesEquipmentType(String type)
+	{
+<span class="nc" id="L102">		return false;</span>
+	}
+
+	/**
+	 * Returns the LST format for this AbstractSimpleProfProvider. Provided
+	 * primarily to allow the Token/Loader system to properly unparse the
+	 * AbstractSimpleProfProvider.
+	 * 
+	 * @return The LST format of this AbstractSimpleProfProvider
+	 */
+	@Override
+	public String getLstFormat()
+	{
+<span class="fc" id="L115">		return prof.getKeyName();</span>
+	}
+
+	protected boolean hasSameProf(AbstractSimpleProfProvider&lt;T&gt; aspp)
+	{
+<span class="fc" id="L120">		return prof.equals(aspp.prof);</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

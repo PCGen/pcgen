@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SourcesPreferencesPanelController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.gui3.preferences</a> &gt; <span class="el_source">SourcesPreferencesPanelController.java</span></div><h1>SourcesPreferencesPanelController.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2019 (C) Eitan Adler &lt;lists@eitanadler.com&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+
+package pcgen.gui3.preferences;
+
+import java.util.List;
+
+import pcgen.cdom.enumeration.SourceFormat;
+import pcgen.core.Globals;
+import pcgen.core.SettingsHandler;
+import pcgen.gui2.UIPropertyContext;
+import pcgen.gui3.GuiAssertions;
+import pcgen.gui3.ResettableController;
+import pcgen.system.LanguageBundle;
+import pcgen.system.PCGenSettings;
+import pcgen.util.Logging;
+
+import javafx.collections.FXCollections;
+import javafx.fxml.FXML;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.ChoiceBox;
+
+<span class="nc" id="L38">public class SourcesPreferencesPanelController implements ResettableController</span>
+{
+	@FXML
+	private CheckBox campLoad;
+	@FXML
+	private CheckBox charCampLoad;
+	@FXML
+	private CheckBox allowOptsInSource;
+	@FXML
+	private CheckBox saveCustom;
+	@FXML
+	private CheckBox showOGL;
+	@FXML
+	private CheckBox showMature;
+	@FXML
+	private ChoiceBox&lt;String&gt; sourceOptions;
+	@FXML
+	private CheckBox loadURL;
+	@FXML
+	private CheckBox allowOverride;
+	@FXML
+	private CheckBox skipSourceSelect;
+	@FXML
+	private CheckBox useAdvancedSourceSelect;
+	@FXML
+	private CheckBox allowMultiLineObjectsSelect;
+
+	@FXML
+	private void initialize()
+	{
+<span class="nc" id="L68">		var choices = FXCollections.observableArrayList(List.of(</span>
+<span class="nc" id="L69">				LanguageBundle.getString(&quot;in_Prefs_sdLong&quot;),</span>
+<span class="nc" id="L70">				LanguageBundle.getString(&quot;in_Prefs_sdMedium&quot;),</span>
+<span class="nc" id="L71">				LanguageBundle.getString(&quot;in_Prefs_sdShort&quot;),</span>
+<span class="nc" id="L72">				LanguageBundle.getString(&quot;in_Prefs_sdPage&quot;),</span>
+<span class="nc" id="L73">				LanguageBundle.getString(&quot;in_Prefs_sdWeb&quot;)));</span>
+<span class="nc" id="L74">		sourceOptions.setItems(choices);</span>
+<span class="nc" id="L75">	}</span>
+
+
+	@Override
+	public void apply()
+	{
+<span class="nc" id="L81">		PCGenSettings.OPTIONS_CONTEXT.setBoolean(PCGenSettings.OPTION_AUTOLOAD_SOURCES_AT_START, campLoad.isSelected());</span>
+<span class="nc" id="L82">		PCGenSettings.OPTIONS_CONTEXT.setBoolean(PCGenSettings.OPTION_AUTOLOAD_SOURCES_WITH_PC,</span>
+<span class="nc" id="L83">				charCampLoad.isSelected());</span>
+<span class="nc" id="L84">		PCGenSettings.OPTIONS_CONTEXT.setBoolean(PCGenSettings.OPTION_ALLOWED_IN_SOURCES,</span>
+<span class="nc" id="L85">				allowOptsInSource.isSelected());</span>
+<span class="nc" id="L86">		PCGenSettings.OPTIONS_CONTEXT.setBoolean(PCGenSettings.OPTION_SAVE_CUSTOM_EQUIPMENT, saveCustom.isSelected());</span>
+<span class="nc" id="L87">		PCGenSettings.OPTIONS_CONTEXT.setBoolean(PCGenSettings.OPTION_SHOW_LICENSE, showOGL.isSelected());</span>
+<span class="nc" id="L88">		PCGenSettings.OPTIONS_CONTEXT.setBoolean(PCGenSettings.OPTION_SHOW_MATURE_ON_LOAD, showMature.isSelected());</span>
+<span class="nc" id="L89">		SettingsHandler.setLoadURLs(loadURL.isSelected());</span>
+<span class="nc" id="L90">		PCGenSettings.OPTIONS_CONTEXT.setBoolean(PCGenSettings.OPTION_ALLOW_OVERRIDE_DUPLICATES,</span>
+<span class="nc" id="L91">				allowOverride.isSelected());</span>
+
+<span class="nc" id="L93">		UIPropertyContext.getInstance().setBoolean(UIPropertyContext.SKIP_SOURCE_SELECTION,</span>
+<span class="nc" id="L94">				skipSourceSelect.isSelected());</span>
+<span class="nc" id="L95">		UIPropertyContext.getInstance().setBoolean(UIPropertyContext.SOURCE_USE_BASIC_KEY,</span>
+<span class="nc bnc" id="L96" title="All 2 branches missed.">				!useAdvancedSourceSelect.isSelected());</span>
+<span class="nc" id="L97">		PCGenSettings.OPTIONS_CONTEXT.setBoolean(PCGenSettings.OPTION_SOURCES_ALLOW_MULTI_LINE,</span>
+<span class="nc" id="L98">				allowMultiLineObjectsSelect.isSelected());</span>
+
+<span class="nc bnc" id="L100" title="All 6 branches missed.">		switch (sourceOptions.getSelectionModel().getSelectedIndex())</span>
+		{
+<span class="nc" id="L102">			case 0 -&gt; Globals.setSourceDisplay(SourceFormat.LONG);</span>
+<span class="nc" id="L103">			case 1 -&gt; Globals.setSourceDisplay(SourceFormat.MEDIUM);</span>
+<span class="nc" id="L104">			case 2 -&gt; Globals.setSourceDisplay(SourceFormat.SHORT);</span>
+<span class="nc" id="L105">			case 3 -&gt; Globals.setSourceDisplay(SourceFormat.PAGE);</span>
+<span class="nc" id="L106">			case 4 -&gt; Globals.setSourceDisplay(SourceFormat.WEB);</span>
+<span class="nc" id="L107">			default -&gt; Logging.errorPrint(</span>
+					&quot;In PreferencesDialog.setOptionsBasedOnControls &quot; + &quot;(sourceOptions) the index &quot;
+<span class="nc" id="L109">							+ sourceOptions.getSelectionModel().getSelectedIndex() + &quot; is unsupported.&quot;);</span>
+		}
+<span class="nc" id="L111">	}</span>
+
+	@Override
+	public void reset()
+	{
+<span class="nc" id="L116">		GuiAssertions.assertIsJavaFXThread();</span>
+<span class="nc" id="L117">		campLoad.setSelected(</span>
+<span class="nc" id="L118">				PCGenSettings.OPTIONS_CONTEXT.initBoolean(PCGenSettings.OPTION_AUTOLOAD_SOURCES_AT_START, false));</span>
+<span class="nc" id="L119">		charCampLoad.setSelected(</span>
+<span class="nc" id="L120">				PCGenSettings.OPTIONS_CONTEXT.initBoolean(PCGenSettings.OPTION_AUTOLOAD_SOURCES_WITH_PC, true));</span>
+<span class="nc" id="L121">		allowOptsInSource</span>
+<span class="nc" id="L122">				.setSelected(PCGenSettings.OPTIONS_CONTEXT.initBoolean(PCGenSettings.OPTION_ALLOWED_IN_SOURCES, true));</span>
+
+<span class="nc" id="L124">		saveCustom.setSelected(PCGenSettings.OPTIONS_CONTEXT.getBoolean(PCGenSettings.OPTION_SAVE_CUSTOM_EQUIPMENT));</span>
+<span class="nc" id="L125">		showOGL.setSelected(PCGenSettings.OPTIONS_CONTEXT.getBoolean(PCGenSettings.OPTION_SHOW_LICENSE));</span>
+<span class="nc" id="L126">		showMature.setSelected(PCGenSettings.OPTIONS_CONTEXT.getBoolean(PCGenSettings.OPTION_SHOW_MATURE_ON_LOAD));</span>
+<span class="nc" id="L127">		loadURL.setSelected(SettingsHandler.isLoadURLs());</span>
+<span class="nc" id="L128">		allowOverride.setSelected(</span>
+<span class="nc" id="L129">				PCGenSettings.OPTIONS_CONTEXT.initBoolean(PCGenSettings.OPTION_ALLOW_OVERRIDE_DUPLICATES, true));</span>
+<span class="nc" id="L130">		skipSourceSelect</span>
+<span class="nc" id="L131">				.setSelected(UIPropertyContext.getInstance().getBoolean(UIPropertyContext.SKIP_SOURCE_SELECTION));</span>
+<span class="nc" id="L132">		useAdvancedSourceSelect</span>
+<span class="nc bnc" id="L133" title="All 2 branches missed.">				.setSelected(!UIPropertyContext.getInstance().getBoolean(UIPropertyContext.SOURCE_USE_BASIC_KEY));</span>
+<span class="nc" id="L134">		allowMultiLineObjectsSelect</span>
+<span class="nc" id="L135">				.setSelected(PCGenSettings.OPTIONS_CONTEXT.getBoolean(PCGenSettings.OPTION_SOURCES_ALLOW_MULTI_LINE));</span>
+
+<span class="nc bnc" id="L137" title="All 6 branches missed.">		switch (Globals.getSourceDisplay())</span>
+		{
+<span class="nc" id="L139">			case LONG -&gt; sourceOptions.getSelectionModel().select(0);</span>
+<span class="nc" id="L140">			case MEDIUM -&gt; sourceOptions.getSelectionModel().select(1);</span>
+<span class="nc" id="L141">			case SHORT -&gt; sourceOptions.getSelectionModel().select(2);</span>
+<span class="nc" id="L142">			case PAGE -&gt; sourceOptions.getSelectionModel().select(3);</span>
+<span class="nc" id="L143">			case WEB -&gt; sourceOptions.getSelectionModel().select(4);</span>
+<span class="nc" id="L144">			default -&gt; Logging.errorPrint(</span>
+					&quot;In PreferencesDialog.applyOptionValuesToControls &quot; + &quot;(source display) the option &quot;
+<span class="nc" id="L146">							+ Globals.getSourceDisplay() + &quot; is unsupported.&quot;);</span>
+		}
+<span class="nc" id="L148">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

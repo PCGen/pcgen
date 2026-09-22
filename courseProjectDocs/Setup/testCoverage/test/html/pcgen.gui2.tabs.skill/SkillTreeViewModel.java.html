@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SkillTreeViewModel.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.gui2.tabs.skill</a> &gt; <span class="el_source">SkillTreeViewModel.java</span></div><h1>SkillTreeViewModel.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2010 Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ * 
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ * 
+ */
+package pcgen.gui2.tabs.skill;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
+import javax.swing.ListSelectionModel;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+
+import pcgen.base.lang.StringUtil;
+import pcgen.cdom.enumeration.SkillCost;
+import pcgen.cdom.enumeration.Type;
+import pcgen.core.Skill;
+import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.core.CharacterLevelFacade;
+import pcgen.facade.core.CharacterLevelsFacade;
+import pcgen.facade.core.CharacterLevelsFacade.CharacterLevelEvent;
+import pcgen.facade.core.CharacterLevelsFacade.SkillBonusListener;
+import pcgen.facade.core.CharacterLevelsFacade.SkillBreakdown;
+import pcgen.facade.util.DefaultListFacade;
+import pcgen.facade.util.ListFacade;
+import pcgen.gui2.filter.FilteredTreeViewTable;
+import pcgen.gui2.util.treeview.DataView;
+import pcgen.gui2.util.treeview.DataViewColumn;
+import pcgen.gui2.util.treeview.DefaultDataViewColumn;
+import pcgen.gui2.util.treeview.TreeView;
+import pcgen.gui2.util.treeview.TreeViewModel;
+import pcgen.gui2.util.treeview.TreeViewPath;
+import pcgen.system.LanguageBundle;
+
+import org.apache.commons.lang3.StringUtils;
+
+public class SkillTreeViewModel
+		implements TreeViewModel&lt;Skill&gt;, DataView&lt;Skill&gt;, SkillBonusListener, ListSelectionListener
+{
+
+<span class="nc" id="L57">	private static final List&lt;? extends DataViewColumn&gt; COLUMNS =</span>
+<span class="nc" id="L58">			Arrays.asList(new DefaultDataViewColumn(&quot;in_iskTotal&quot;, Integer.class, true),</span>
+				new DefaultDataViewColumn(&quot;in_iskModifier&quot;, Integer.class, true),
+				new DefaultDataViewColumn(&quot;in_skillRanks&quot;, Float.class, true, true),
+				new DefaultDataViewColumn(&quot;in_classString&quot;, String.class, true),
+				new DefaultDataViewColumn(&quot;in_skillSkillCost&quot;, String.class,
+<span class="nc bnc" id="L63" title="All 2 branches missed.">					SkillCost.CLASS.getCost() != SkillCost.CROSS_CLASS.getCost()),</span>
+				new DefaultDataViewColumn(&quot;in_descrip&quot;, String.class), //$NON-NLS-1$
+				new DefaultDataViewColumn(&quot;in_source&quot;, String.class));
+	private final DefaultListFacade&lt;TreeView&lt;Skill&gt;&gt; treeviews;
+	private final CharacterFacade character;
+	private final CharacterLevelsFacade levels;
+	private final ListSelectionModel selectionModel;
+	private FilteredTreeViewTable&lt;CharacterFacade, Skill&gt; table;
+
+	public SkillTreeViewModel(CharacterFacade character, ListSelectionModel selectionModel)
+<span class="nc" id="L73">	{</span>
+<span class="nc" id="L74">		this.character = character;</span>
+<span class="nc" id="L75">		this.levels = character.getCharacterLevelsFacade();</span>
+<span class="nc" id="L76">		this.selectionModel = selectionModel;</span>
+
+<span class="nc" id="L78">		List&lt;? extends TreeView&lt;Skill&gt;&gt; views = Arrays.asList(SkillTreeView.NAME, SkillTreeView.TYPE_NAME,</span>
+			SkillTreeView.KEYSTAT_NAME, SkillTreeView.KEYSTAT_TYPE_NAME, COST_NAME, COST_TYPE_NAME);
+<span class="nc" id="L80">		treeviews = new DefaultListFacade&lt;&gt;(views);</span>
+<span class="nc" id="L81">	}</span>
+
+	public void install(FilteredTreeViewTable&lt;CharacterFacade, Skill&gt; ftvt)
+	{
+<span class="nc" id="L85">		this.table = ftvt;</span>
+<span class="nc" id="L86">		ftvt.setTreeViewModel(this);</span>
+<span class="nc" id="L87">		levels.addSkillBonusListener(this);</span>
+<span class="nc" id="L88">		selectionModel.addListSelectionListener(this);</span>
+<span class="nc" id="L89">	}</span>
+
+	public void uninstall()
+	{
+<span class="nc" id="L93">		table = null;</span>
+<span class="nc" id="L94">		levels.removeSkillBonusListener(this);</span>
+<span class="nc" id="L95">		selectionModel.removeListSelectionListener(this);</span>
+<span class="nc" id="L96">	}</span>
+
+	@Override
+	public ListFacade&lt;? extends TreeView&lt;Skill&gt;&gt; getTreeViews()
+	{
+<span class="nc" id="L101">		return treeviews;</span>
+	}
+
+	@Override
+	public int getDefaultTreeViewIndex()
+	{
+<span class="nc" id="L107">		return 1;</span>
+	}
+
+	@Override
+	public DataView&lt;Skill&gt; getDataView()
+	{
+<span class="nc" id="L113">		return this;</span>
+	}
+
+	@Override
+	public ListFacade&lt;Skill&gt; getDataModel()
+	{
+<span class="nc" id="L119">		return character.getDataSet().getSkills();</span>
+	}
+
+	@Override
+	public String getPrefsKey()
+	{
+<span class="nc" id="L125">		return &quot;SkillTreeAvail&quot;; //$NON-NLS-1$</span>
+	}
+
+	@Override
+	public Object getData(Skill obj, int column)
+	{
+<span class="nc bnc" id="L131" title="All 2 branches missed.">		if (selectionModel.isSelectionEmpty())</span>
+		{
+<span class="nc bnc" id="L133" title="All 5 branches missed.">			return switch (column)</span>
+					{
+<span class="nc" id="L135">						case 0, 1, 4 -&gt; 0;</span>
+<span class="nc" id="L136">						case 2 -&gt; 0.0;</span>
+<span class="nc" id="L137">						case 3, 5 -&gt; null;</span>
+<span class="nc" id="L138">						case 6 -&gt; obj.getSource();</span>
+<span class="nc" id="L139">						default -&gt; null;</span>
+					};
+		}
+<span class="nc" id="L142">		int index = selectionModel.getMinSelectionIndex();</span>
+<span class="nc" id="L143">		CharacterLevelFacade level = levels.getElementAt(index);</span>
+<span class="nc" id="L144">		SkillBreakdown skillBreakdown = levels.getSkillBreakdown(level, obj);</span>
+<span class="nc bnc" id="L145" title="All 8 branches missed.">		return switch (column)</span>
+				{
+<span class="nc" id="L147">					case 0 -&gt; skillBreakdown.total;</span>
+<span class="nc" id="L148">					case 1 -&gt; skillBreakdown.modifier;</span>
+<span class="nc" id="L149">					case 2 -&gt; skillBreakdown.ranks;</span>
+<span class="nc bnc" id="L150" title="All 2 branches missed.">					case 3 -&gt; levels.getSkillCost(level, obj) == SkillCost.CLASS</span>
+<span class="nc" id="L151">							? LanguageBundle.getString(&quot;in_yes&quot;) //$NON-NLS-1$</span>
+<span class="nc" id="L152">							: LanguageBundle.getString(&quot;in_no&quot;); //$NON-NLS-1$</span>
+<span class="nc bnc" id="L153" title="All 2 branches missed.">					case 4 -&gt; levels.getSkillCost(level, obj) == null ? null : levels.getSkillCost(level, obj).getCost();</span>
+<span class="nc" id="L154">					case 5 -&gt; character.getInfoFactory().getDescription(obj);</span>
+<span class="nc" id="L155">					case 6 -&gt; obj.getSource();</span>
+<span class="nc" id="L156">					default -&gt; null;</span>
+				};
+	}
+
+	@Override
+	public void setData(Object value, Skill element, int column)
+	{
+<span class="nc" id="L163">	}</span>
+
+	@Override
+	public List&lt;? extends DataViewColumn&gt; getDataColumns()
+	{
+<span class="nc" id="L168">		return COLUMNS;</span>
+	}
+
+	@Override
+	public void skillBonusChanged(CharacterLevelEvent e)
+	{
+<span class="nc" id="L174">		table.refreshModelData();</span>
+<span class="nc" id="L175">	}</span>
+
+	/**
+	 * Create a TreeViewPath for the skill and paths but trimming off the final 
+	 * path if it is empty. 
+	 * @param pobj The skill
+	 * @param path The paths under which the skills should be shown.
+	 * @return The TreeViewPath.
+	 */
+	protected static TreeViewPath&lt;Skill&gt; createTreeViewPath(Skill pobj, Object... path)
+	{
+		Object[] displayPath;
+<span class="nc bnc" id="L187" title="All 4 branches missed.">		if (path.length &gt; 0 &amp;&amp; StringUtils.isEmpty(String.valueOf(path[path.length - 1])))</span>
+		{
+<span class="nc" id="L189">			displayPath = Arrays.copyOf(path, path.length - 1);</span>
+		}
+		else
+		{
+<span class="nc" id="L193">			displayPath = path;</span>
+		}
+<span class="nc bnc" id="L195" title="All 2 branches missed.">		if (displayPath.length == 0)</span>
+		{
+<span class="nc" id="L197">			return new TreeViewPath&lt;&gt;(pobj);</span>
+		}
+<span class="nc" id="L199">		return new TreeViewPath&lt;&gt;(pobj, displayPath);</span>
+	}
+
+<span class="nc" id="L202">	private enum SkillTreeView implements TreeView&lt;Skill&gt;</span>
+	{
+
+<span class="nc" id="L205">		NAME(&quot;in_Name&quot;), //$NON-NLS-1$</span>
+<span class="nc" id="L206">		TYPE_NAME(&quot;in_typeName&quot;), //$NON-NLS-1$</span>
+<span class="nc" id="L207">		KEYSTAT_NAME(&quot;in_keyStatName&quot;), //$NON-NLS-1$</span>
+<span class="nc" id="L208">		KEYSTAT_TYPE_NAME(&quot;in_keyStatTypeName&quot;); //$NON-NLS-1$</span>
+		private final String name;
+
+		private SkillTreeView(String nameKey)
+<span class="nc" id="L212">		{</span>
+<span class="nc" id="L213">			this.name = LanguageBundle.getString(nameKey);</span>
+<span class="nc" id="L214">		}</span>
+
+		@Override
+		public String getViewName()
+		{
+<span class="nc" id="L219">			return name;</span>
+		}
+
+		@Override
+		@SuppressWarnings(&quot;unchecked&quot;)
+		public List&lt;TreeViewPath&lt;Skill&gt;&gt; getPaths(Skill pobj)
+		{
+<span class="nc bnc" id="L226" title="All 5 branches missed.">			TreeViewPath&lt;Skill&gt; path = switch (this)</span>
+					{
+<span class="nc" id="L228">						case NAME -&gt; new TreeViewPath&lt;&gt;(pobj);</span>
+<span class="nc" id="L229">						case TYPE_NAME -&gt; createTreeViewPath(pobj, getDisplayType(pobj));</span>
+<span class="nc" id="L230">						case KEYSTAT_NAME -&gt; new TreeViewPath&lt;&gt;(pobj, pobj.getKeyStatAbb());</span>
+<span class="nc" id="L231">						case KEYSTAT_TYPE_NAME -&gt; createTreeViewPath(pobj, pobj.getKeyStatAbb(), getDisplayType(pobj));</span>
+<span class="nc" id="L232">						default -&gt; throw new InternalError();</span>
+					};
+<span class="nc" id="L234">			return Collections.singletonList(path);</span>
+		}
+
+	}
+
+<span class="nc" id="L239">	private final TreeView&lt;Skill&gt; COST_NAME = new TreeView&lt;&gt;()</span>
+<span class="nc" id="L240">	{</span>
+
+		@Override
+		public String getViewName()
+		{
+<span class="nc" id="L245">			return LanguageBundle.getString(&quot;in_skillCost_Name&quot;); //$NON-NLS-1$</span>
+		}
+
+		@Override
+		@SuppressWarnings(&quot;unchecked&quot;)
+		public List&lt;TreeViewPath&lt;Skill&gt;&gt; getPaths(Skill pobj)
+		{
+<span class="nc" id="L252">			List&lt;Object&gt; path = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L253">			int index = selectionModel.getMinSelectionIndex();</span>
+<span class="nc bnc" id="L254" title="All 2 branches missed.">			if (index &gt;= 0)</span>
+			{
+<span class="nc" id="L256">				CharacterLevelFacade level = levels.getElementAt(index);</span>
+<span class="nc" id="L257">				path.add(levels.getSkillCost(level, pobj));</span>
+			}
+<span class="nc" id="L259">			return Collections.singletonList(createTreeViewPath(pobj, path.toArray()));</span>
+		}
+
+	};
+<span class="nc" id="L263">	private final TreeView&lt;Skill&gt; COST_TYPE_NAME = new TreeView&lt;&gt;()</span>
+<span class="nc" id="L264">	{</span>
+
+		@Override
+		public String getViewName()
+		{
+<span class="nc" id="L269">			return LanguageBundle.getString(&quot;in_skillCost_Type_Name&quot;); //$NON-NLS-1$</span>
+		}
+
+		@Override
+		@SuppressWarnings(&quot;unchecked&quot;)
+		public List&lt;TreeViewPath&lt;Skill&gt;&gt; getPaths(Skill pobj)
+		{
+<span class="nc" id="L276">			List&lt;Object&gt; path = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L277">			int index = selectionModel.getMinSelectionIndex();</span>
+<span class="nc bnc" id="L278" title="All 2 branches missed.">			if (index &gt;= 0)</span>
+			{
+<span class="nc" id="L280">				CharacterLevelFacade level = levels.getElementAt(index);</span>
+<span class="nc" id="L281">				path.add(levels.getSkillCost(level, pobj));</span>
+			}
+<span class="nc" id="L283">			path.add(getDisplayType(pobj));</span>
+<span class="nc" id="L284">			return Collections.singletonList(createTreeViewPath(pobj, path.toArray()));</span>
+		}
+
+	};
+
+	private static Object getDisplayType(Skill pobj)
+	{
+<span class="nc" id="L291">		List&lt;Type&gt; trueTypeList = pobj.getTrueTypeList(true);</span>
+<span class="nc" id="L292">		return StringUtil.join(trueTypeList, &quot;.&quot;);</span>
+	}
+
+	@Override
+	public void valueChanged(ListSelectionEvent arg0)
+	{
+<span class="nc bnc" id="L298" title="All 2 branches missed.">		if (arg0.getValueIsAdjusting())</span>
+		{
+<span class="nc" id="L300">			return;</span>
+		}
+
+<span class="nc bnc" id="L303" title="All 4 branches missed.">		if (table.getSelectedTreeView() == COST_NAME || table.getSelectedTreeView() == COST_TYPE_NAME)</span>
+		{
+<span class="nc" id="L305">			table.setTreeViewModel(this);</span>
+		}
+		else
+		{
+<span class="nc" id="L309">			table.refreshModelData();</span>
+		}
+<span class="nc" id="L311">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

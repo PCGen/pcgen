@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PreVariableParser.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.pretokens.parser</a> &gt; <span class="el_source">PreVariableParser.java</span></div><h1>PreVariableParser.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2003 (C) Chris Ward &lt;frugal@purplewombat.co.uk&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.	   See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package plugin.pretokens.parser;
+
+import pcgen.base.text.ParsingSeparator;
+import pcgen.core.prereq.Prerequisite;
+import pcgen.core.prereq.PrerequisiteException;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.prereq.AbstractPrerequisiteParser;
+
+/**
+ * A prerequisite parser class that handles the parsing of pre variable tokens.
+ */
+<span class="fc" id="L29">public class PreVariableParser extends AbstractPrerequisiteParser</span>
+{
+	/**
+	 * Get the type of prerequisite handled by this token.
+	 * @return the type of prerequisite handled by this token.
+	 */
+	@Override
+	public String[] kindsHandled()
+	{
+<span class="fc" id="L38">		return new String[]{&quot;VAR&quot;, &quot;VAREQ&quot;, &quot;VARLTEQ&quot;, &quot;VARLT&quot;, &quot;VARNEQ&quot;, &quot;VARGT&quot;, &quot;VARGTEQ&quot;};</span>
+	}
+
+	/**
+	 * Parse the pre req list
+	 *
+	 * @param kind The kind of the prerequisite (less the &quot;PRE&quot; prefix)
+	 * @param formula The body of the prerequisite.
+	 * @param invertResult Whether the prerequisite should invert the result.
+	 * @param overrideQualify
+	 *           if set true, this prerequisite will be enforced in spite
+	 *           of any &quot;QUALIFY&quot; tag that may be present.
+	 * @return PreReq
+	 * @throws PersistenceLayerException
+	 */
+	@Override
+	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+		throws PersistenceLayerException
+	{
+<span class="fc" id="L57">		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);</span>
+<span class="fc" id="L58">		prereq.setKind(&quot;var&quot;);</span>
+
+		// Get the comparator type SIZEGTEQ, BSIZE, SIZENEQ etc.
+<span class="fc" id="L61">		String compType = kind.substring(3);</span>
+<span class="pc bpc" id="L62" title="1 of 2 branches missed.">		if (compType.isEmpty())</span>
+		{
+<span class="nc" id="L64">			compType = &quot;gteq&quot;;</span>
+		}
+
+<span class="fc" id="L67">		ParsingSeparator ps = new ParsingSeparator(formula, ',');</span>
+<span class="fc" id="L68">		ps.addGroupingPair('[', ']');</span>
+<span class="fc" id="L69">		ps.addGroupingPair('(', ')');</span>
+
+		try
+		{
+<span class="fc" id="L73">			int count = 0;</span>
+<span class="fc bfc" id="L74" title="All 2 branches covered.">			while (ps.hasNext())</span>
+			{
+<span class="fc" id="L76">				String first = ps.next();</span>
+<span class="pc bpc" id="L77" title="1 of 2 branches missed.">				if (!ps.hasNext())</span>
+				{
+<span class="nc" id="L79">					throw new PersistenceLayerException(&quot;Unable to parse prerequisite 'PRE&quot; + kind + ':' + formula</span>
+						+ &quot;'. Incorrect parameter count (must be even)&quot;);
+				}
+<span class="fc" id="L82">				String second = ps.next();</span>
+				Prerequisite subreq;
+<span class="pc bpc" id="L84" title="2 of 4 branches missed.">				if (!ps.hasNext() &amp;&amp; count == 0)</span>
+				{
+<span class="fc" id="L86">					subreq = prereq;</span>
+				}
+				else
+				{
+<span class="nc" id="L90">					prereq.setKind(null); // PREMULT</span>
+<span class="nc" id="L91">					subreq = new Prerequisite();</span>
+<span class="nc" id="L92">					subreq.setKind(&quot;var&quot;);</span>
+<span class="nc" id="L93">					prereq.addPrerequisite(subreq);</span>
+<span class="nc" id="L94">					count++;</span>
+				}
+<span class="fc" id="L96">				subreq.setOperator(compType.intern());</span>
+<span class="fc" id="L97">				subreq.setKey(first.intern());</span>
+<span class="fc" id="L98">				subreq.setOperand(second.intern());</span>
+<span class="fc" id="L99">			}</span>
+<span class="pc bpc" id="L100" title="1 of 2 branches missed.">			if (count &gt; 0)</span>
+			{
+<span class="nc" id="L102">				prereq.setOperand(Integer.toString(count));</span>
+			}
+		}
+<span class="nc" id="L105">		catch (PrerequisiteException pe)</span>
+		{
+<span class="nc" id="L107">			throw new PersistenceLayerException(</span>
+<span class="nc" id="L108">				&quot;Unable to parse prerequisite 'PRE&quot; + kind + ':' + formula + &quot;'. &quot; + pe.getLocalizedMessage(), pe);</span>
+<span class="fc" id="L109">		}</span>
+
+<span class="pc bpc" id="L111" title="1 of 2 branches missed.">		if (invertResult)</span>
+		{
+<span class="nc" id="L113">			prereq.setOperator(prereq.getOperator().invert());</span>
+		}
+<span class="fc" id="L115">		prereq.setOverrideQualify(overrideQualify);</span>
+
+<span class="fc" id="L117">		return prereq;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

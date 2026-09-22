@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CControl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.util</a> &gt; <span class="el_source">CControl.java</span></div><h1>CControl.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2016-18 (C) Tom Parker &lt;thpr@sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or modify it under the terms
+ * of the GNU Lesser General Public License as published by the Free Software Foundation;
+ * either version 2.1 of the License, or (at your option) any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT ANY
+ * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+ * PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License along with
+ * this library; if not, write to the Free Software Foundation, Inc., 59 Temple Place,
+ * Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.cdom.util;
+
+import java.lang.reflect.Field;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Optional;
+
+import pcgen.base.lang.UnreachableError;
+import pcgen.base.util.CaseInsensitiveMap;
+
+/**
+ * Code Controls
+ */
+public final class CControl
+{
+
+	public static final String CRITMULT = &quot;CRITMULT&quot;;
+
+	public static final String CRITRANGE = &quot;CRITRANGE&quot;;
+
+	public static final String LEGS = &quot;LEGS&quot;;
+
+	public static final String CREATUREHANDS = &quot;CREATUREHANDS&quot;;
+
+	public static final String FUMBLERANGE = &quot;FUMBLERANGE&quot;;
+
+	public static final String ALTHP = &quot;ALTHP&quot;;
+
+	public static final String EQMAXDEX = &quot;EQMAXDEX&quot;;
+	public static final String PCMAXDEX = &quot;PCMAXDEX&quot;;
+
+	public static final String EQACCHECK = &quot;EQACCHECK&quot;;
+	public static final String PCACCHECK = &quot;PCACCHECK&quot;;
+
+	public static final String EQSPELLFAILURE = &quot;EQSPELLFAILURE&quot;;
+	public static final String PCSPELLFAILURE = &quot;PCSPELLFAILURE&quot;;
+
+	public static final String EDR = &quot;EDR&quot;;
+
+<span class="fc" id="L56">	public static final CControl FACE = new CControl(&quot;FACE&quot;, &quot;Face&quot;, Optional.empty(), &quot;ORDEREDPAIR&quot;);</span>
+
+	public static final String EQRANGE = &quot;EQRANGE&quot;;
+
+	public static final String SIZEMODDEFENSE = &quot;SIZEMODDEFENSE&quot;;
+	public static final String EQBASEACMOD = &quot;EQBASEACMOD&quot;;
+	public static final String EQACMOD = &quot;EQACMOD&quot;;
+	public static final String ALTERSAC = &quot;ALTERSAC&quot;;
+	public static final String ACVARTOTAL = &quot;ACVARTOTAL&quot;;
+	public static final String ACVARARMOR = &quot;ACVARARMOR&quot;;
+
+	public static final String EQREACH = &quot;EQREACH&quot;;
+	public static final String PCREACH = &quot;PCREACH&quot;;
+
+	public static final String INITIATIVE = &quot;INITIATIVE&quot;;
+	public static final String INITIATIVESTAT = &quot;INITIATIVESTAT&quot;;
+	public static final String INITIATIVEMISC = &quot;INITIATIVEMISC&quot;;
+	public static final String INITIATIVEBONUS = &quot;INITIATIVEBONUS&quot;;
+
+	public static final String STATINPUT = &quot;STATINPUT&quot;;
+
+	public static final String BASESAVE = &quot;BASESAVE&quot;;
+	public static final String TOTALSAVE = &quot;TOTALSAVE&quot;;
+	public static final String MISCSAVE = &quot;MISCSAVE&quot;;
+	public static final String EPICSAVE = &quot;EPICSAVE&quot;;
+	public static final String MAGICSAVE = &quot;MAGICSAVE&quot;;
+	public static final String STATMODSAVE = &quot;STATMODSAVE&quot;;
+	public static final String RACESAVE = &quot;RACESAVE&quot;;
+
+	/**
+	 * Code Control for the Base Size (original size for the race) of a PC.
+	 */
+	public static final String BASESIZE = &quot;BASESIZE&quot;;
+
+	/**
+	 * Code Control for the Current Size of a PC.
+	 */
+	public static final String PCSIZE = &quot;PCSIZE&quot;;
+
+	/**
+	 * Code control to take # of weapon hands off of WieldCategory
+	 */
+	public static final String WEAPONHANDS = &quot;WEAPONHANDS&quot;;
+	
+	/**
+	 * Code control to indicate the weight multiplier due to size difference from base
+	 * size on Equipment.
+	 */
+	public static final String WEIGHTMULTIPLIER = &quot;WEIGHTMULTIPLIER&quot;;
+
+	/**
+	 * Code control to take WieldCategory (Steps, etc) away from the old calculation system
+	 */
+	public static final String WIELDCAT = &quot;WIELDCAT&quot;;
+
+	/**
+	 * Code Control to indicate the cost modifier due to the size difference from base
+	 * size on Equipment
+	 */
+	public static final String COSTMULTIPLIER = &quot;COSTMULTIPLIER&quot;;
+
+	/**
+	 * Code Control for the Age Input Channel.
+	 */
+<span class="fc" id="L120">	public static final CControl AGEINPUT = new CControl(&quot;AGEINPUT&quot;, &quot;Age&quot;, Optional.empty(), &quot;NUMBER&quot;, true, false);</span>
+
+	/**
+	 * Code Control for the Alignment Input Channel.
+	 */
+<span class="fc" id="L125">	public static final CControl ALIGNMENTINPUT = new CControl(&quot;ALIGNMENTINPUT&quot;, &quot;Alignment&quot;, Optional.of(&quot;ALIGNMENTFEATURE&quot;), &quot;ALIGNMENT&quot;, true, true);</span>
+
+	/**
+	 * Enable/Disable the AlignmentFeature
+	 */
+	public static final String ALIGNMENTFEATURE = &quot;ALIGNMENTFEATURE&quot;;
+
+	/**
+	 * Code Control for the Hair Style Input Channel.
+	 */
+<span class="fc" id="L135">	public static final CControl CHARACTERTYPE = new CControl(&quot;CHARACERTYPE&quot;, &quot;CharacterType&quot;, Optional.empty(), &quot;STRING&quot;, true, false);</span>
+	
+	/**
+	 * Enable/Disable the DomainFeature
+	 */
+	public static final String DOMAINFEATURE = &quot;DOMAINFEATURE&quot;;
+
+	/**
+	 * Code control for the Deity of a PC.
+	 */
+<span class="fc" id="L145">	public static final CControl DEITYINPUT = new CControl(&quot;DEITYINPUT&quot;, &quot;Deity&quot;, Optional.of(&quot;DOMAINFEATURE&quot;), &quot;DEITY&quot;, true, true);</span>
+
+	/**
+	 * Code Control for the Gold Input Channel.
+	 */
+<span class="fc" id="L150">	public static final CControl GOLDINPUT = new CControl(&quot;GOLDINPUT&quot;, &quot;Gold&quot;, Optional.empty(), &quot;NUMBER&quot;, true, false);</span>
+	
+	/**
+	 * Code Control for the Hair Color Input Channel.
+	 */
+<span class="fc" id="L155">	public static final CControl HAIRCOLORINPUT = new CControl(&quot;HAIRCOLORINPUT&quot;, &quot;HairColor&quot;, Optional.empty(), &quot;STRING&quot;, true, false);</span>
+
+	/**
+	 * Code Control for the Hair Style Input Channel.
+	 */
+<span class="fc" id="L160">	public static final CControl HAIRSTYLEINPUT = new CControl(&quot;HAIRSTYLEINPUT&quot;, &quot;HairStyle&quot;, Optional.empty(), &quot;STRING&quot;, true, false);</span>
+	
+	/**
+	 * Code control for the Handedness of a PC.
+	 */
+<span class="fc" id="L165">	public static final CControl HANDEDINPUT = new CControl(&quot;HANDEDINPUT&quot;, &quot;Handed&quot;, Optional.empty(), &quot;HANDED&quot;, true, false);</span>
+
+	/**
+	 * Code control for the Available Handedness on a PC.
+	 */
+<span class="fc" id="L170">	public static final CControl AVAILHANDEDNESS = new CControl(&quot;AVAILHANDEDNESS&quot;, &quot;AvailableHandedness&quot;, Optional.empty(), &quot;ARRAY[HANDED]&quot;, true, false);</span>
+
+	/**
+	 * Code Control for the Height Input Channel.
+	 */
+<span class="fc" id="L175">	public static final CControl HEIGHTINPUT = new CControl(&quot;HEIGHTINPUT&quot;, &quot;Height&quot;, Optional.empty(), &quot;NUMBER&quot;, true, false);</span>
+	
+	/**
+	 * Code Control for the Skin Color Input Channel.
+	 */
+<span class="fc" id="L180">	public static final CControl SKINCOLORINPUT = new CControl(&quot;SKINCOLORINPUT&quot;, &quot;SkinColor&quot;, Optional.empty(), &quot;STRING&quot;, true, false);</span>
+	
+	/**
+	 * The name of a code control that contains a default value. This is used when a Code
+	 * Control is already used internally and is overridden by data (rather than just
+	 * being an on/off switch for data)
+	 */
+	private final String name;
+
+	/**
+	 * The default value (the internal variable name used)
+	 */
+	private final String defaultValue;
+
+	/**
+	 * The controlling Feature for the CodeControl
+	 */
+	private final Optional&lt;String&gt; controllingFeature;
+
+	/**
+	 * The Format identifier for the internal variable.
+	 */
+	private final String format;
+
+	/**
+	 * Indicates if the item is a channel.
+	 */
+	private final boolean isChannel;
+
+	/**
+	 * Indicates if a Channel should be auto granted.
+	 */
+	private final boolean isAutoGranted;
+
+	/**
+	 * Constructs a new CControl with the given characteristics.
+	 */
+	private CControl(String name, String defaultValue,
+		Optional&lt;String&gt; controllingFeature, String format, boolean isChannel,
+		boolean isAutoGranted)
+<span class="fc" id="L220">	{</span>
+<span class="fc" id="L221">		this.name = Objects.requireNonNull(name);</span>
+<span class="fc" id="L222">		this.defaultValue = Objects.requireNonNull(defaultValue);</span>
+<span class="fc" id="L223">		this.controllingFeature = Objects.requireNonNull(controllingFeature);</span>
+<span class="fc" id="L224">		this.format = Objects.requireNonNull(format);</span>
+<span class="fc" id="L225">		this.isChannel = isChannel;</span>
+<span class="fc" id="L226">		this.isAutoGranted = isAutoGranted;</span>
+<span class="fc" id="L227">	}</span>
+
+	/**
+	 * Constructs a new CControl with the given name, default variable name, controlling
+	 * feature, and format.
+	 */
+	public CControl(String name, String defaultValue, Optional&lt;String&gt; controllingFeature, String format)
+	{
+<span class="fc" id="L235">		this(name, defaultValue, controllingFeature, format, false, false);</span>
+<span class="fc" id="L236">	}</span>
+
+	public String getName()
+	{
+<span class="fc" id="L240">		return name;</span>
+	}
+
+	public String getDefaultValue()
+	{
+<span class="fc" id="L245">		return defaultValue;</span>
+	}
+
+	/**
+	 * Returns the Controlling Feature (if any) for this Code Control
+	 */
+	public Optional&lt;String&gt; getControllingFeature()
+	{
+<span class="fc" id="L253">		return controllingFeature;</span>
+	}
+
+	public String getFormat()
+	{
+<span class="fc" id="L258">		return format;</span>
+	}
+
+	public boolean isChannel()
+	{
+<span class="fc" id="L263">		return isChannel;</span>
+	}
+
+	public boolean isAutoGranted()
+	{
+<span class="fc" id="L268">		return isAutoGranted;</span>
+	}
+
+<span class="fc" id="L271">	private static CaseInsensitiveMap&lt;CControl&gt; map = null;</span>
+
+	static
+	{
+<span class="fc" id="L275">		buildMap();</span>
+<span class="fc" id="L276">	}</span>
+
+	private static void buildMap()
+	{
+<span class="fc" id="L280">		map = new CaseInsensitiveMap&lt;&gt;();</span>
+<span class="fc" id="L281">		Field[] fields = CControl.class.getDeclaredFields();</span>
+<span class="fc bfc" id="L282" title="All 2 branches covered.">        for (Field field : fields)</span>
+        {
+<span class="fc" id="L284">            int mod = field.getModifiers();</span>
+
+<span class="fc bfc" id="L286" title="All 4 branches covered.">            if (java.lang.reflect.Modifier.isStatic(mod) &amp;&amp; java.lang.reflect.Modifier.isFinal(mod)</span>
+<span class="pc bpc" id="L287" title="1 of 2 branches missed.">                    &amp;&amp; java.lang.reflect.Modifier.isPublic(mod))</span>
+            {
+                try
+                {
+<span class="fc" id="L291">                    Object obj = field.get(null);</span>
+<span class="fc bfc" id="L292" title="All 2 branches covered.">                    if (obj instanceof CControl)</span>
+                    {
+<span class="fc" id="L294">                        map.put(field.getName(), (CControl) obj);</span>
+                    }
+<span class="nc" id="L296">                } catch (IllegalArgumentException | IllegalAccessException e)</span>
+                {
+<span class="nc" id="L298">                    throw new UnreachableError(e);</span>
+<span class="fc" id="L299">                }</span>
+            }
+        }
+<span class="fc" id="L302">	}</span>
+
+	public static Collection&lt;CControl&gt; getChannelConstants()
+	{
+<span class="fc" id="L306">		return new HashSet&lt;&gt;(map.values());</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

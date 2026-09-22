@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PreSkillMultTester.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.pretokens.test</a> &gt; <span class="el_source">PreSkillMultTester.java</span></div><h1>PreSkillMultTester.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2001 (C) Bryan McRoberts &lt;merton_monk@yahoo.com&gt;
+ * Copyright 2003 (C) Chris Ward &lt;frugal@purplewombat.co.uk&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.	   See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */package plugin.pretokens.test;
+
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.Type;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.Skill;
+import pcgen.core.analysis.SkillRankControl;
+import pcgen.core.display.CharacterDisplay;
+import pcgen.core.prereq.AbstractPrerequisiteTest;
+import pcgen.core.prereq.Prerequisite;
+import pcgen.system.LanguageBundle;
+
+<span class="nc" id="L30">public class PreSkillMultTester extends AbstractPrerequisiteTest</span>
+{
+
+	@Override
+	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
+	{
+<span class="nc" id="L36">		CharacterDisplay display = character.getDisplay();</span>
+<span class="nc" id="L37">		int runningTotal = 0;</span>
+<span class="nc" id="L38">		final int requiredRanks = Integer.parseInt(prereq.getOperand());</span>
+
+<span class="nc" id="L40">		String requiredSkillKey = prereq.getKey().toUpperCase();</span>
+
+<span class="nc" id="L42">		final boolean isType =</span>
+<span class="nc bnc" id="L43" title="All 2 branches missed.">				(requiredSkillKey.startsWith(&quot;TYPE.&quot;) //$NON-NLS-1$</span>
+<span class="nc bnc" id="L44" title="All 2 branches missed.">						|| requiredSkillKey.startsWith(&quot;TYPE=&quot;)); //$NON-NLS-1$</span>
+<span class="nc bnc" id="L45" title="All 2 branches missed.">		if (isType)</span>
+		{
+<span class="nc" id="L47">			requiredSkillKey = requiredSkillKey.substring(5);</span>
+		}
+<span class="nc" id="L49">		final String skillKey = requiredSkillKey;</span>
+
+<span class="nc" id="L51">		final int percentageSignPosition = skillKey.lastIndexOf('%');</span>
+
+<span class="nc" id="L53">		boolean foundMatch = false;</span>
+<span class="nc bnc" id="L54" title="All 2 branches missed.">		for (Skill aSkill : display.getSkillSet())</span>
+		{
+<span class="nc" id="L56">			final String aSkillKey = aSkill.getKeyName().toUpperCase();</span>
+<span class="nc bnc" id="L57" title="All 2 branches missed.">			if (isType)</span>
+			{
+<span class="nc bnc" id="L59" title="All 2 branches missed.">				if (percentageSignPosition &gt;= 0)</span>
+				{
+<span class="nc bnc" id="L61" title="All 2 branches missed.">					for (Type type : aSkill.getTrueTypeList(false))</span>
+					{
+<span class="nc bnc" id="L63" title="All 2 branches missed.">						if (type.toString().toUpperCase().startsWith(skillKey.substring(0, percentageSignPosition)))</span>
+						{
+<span class="nc" id="L65">							foundMatch = true;</span>
+<span class="nc" id="L66">							break;</span>
+						}
+<span class="nc" id="L68">					}</span>
+				}
+<span class="nc bnc" id="L70" title="All 2 branches missed.">				else if (aSkill.isType(skillKey))</span>
+				{
+<span class="nc" id="L72">					foundMatch = true;</span>
+				}
+
+<span class="nc bnc" id="L75" title="All 2 branches missed.">				if (foundMatch)</span>
+				{
+<span class="nc" id="L77">					final int result = prereq.getOperator()</span>
+<span class="nc" id="L78">						.compare(SkillRankControl.getTotalRank(character, aSkill).intValue(), requiredRanks);</span>
+<span class="nc bnc" id="L79" title="All 2 branches missed.">					if (result == 0)</span>
+					{
+<span class="nc" id="L81">						foundMatch = false;</span>
+					}
+					else
+					{
+<span class="nc" id="L85">						runningTotal = result;</span>
+					}
+<span class="nc" id="L87">				}</span>
+			}
+<span class="nc bnc" id="L89" title="All 4 branches missed.">			else if (aSkillKey.equals(skillKey) || ((percentageSignPosition &gt;= 0)</span>
+<span class="nc bnc" id="L90" title="All 2 branches missed.">				&amp;&amp; aSkillKey.startsWith(skillKey.substring(0, percentageSignPosition))))</span>
+			{
+<span class="nc" id="L92">				final int result = prereq.getOperator()</span>
+<span class="nc" id="L93">					.compare(SkillRankControl.getTotalRank(character, aSkill).intValue(), requiredRanks);</span>
+<span class="nc bnc" id="L94" title="All 2 branches missed.">				if (result &gt; 0)</span>
+				{
+<span class="nc" id="L96">					foundMatch = true;</span>
+<span class="nc" id="L97">					runningTotal = result;</span>
+				}
+			}
+<span class="nc bnc" id="L100" title="All 2 branches missed.">			if (foundMatch)</span>
+			{
+<span class="nc" id="L102">				break;</span>
+			}
+<span class="nc" id="L104">		}</span>
+
+<span class="nc" id="L106">		return countedTotal(prereq, runningTotal);</span>
+	}
+
+	/**
+	 * Get the type of prerequisite handled by this token.
+	 * @return the type of prerequisite handled by this token.
+	 */
+	@Override
+	public String kindHandled()
+	{
+<span class="nc" id="L116">		return &quot;SKILLMULT&quot;; //$NON-NLS-1$</span>
+	}
+
+	@Override
+	public String toHtmlString(final Prerequisite prereq)
+	{
+<span class="nc" id="L122">		String skillName = prereq.getKey();</span>
+<span class="nc bnc" id="L123" title="All 4 branches missed.">		if (prereq.getSubKey() != null &amp;&amp; !prereq.getSubKey().equals(&quot;&quot;)) //$NON-NLS-1$</span>
+		{
+<span class="nc" id="L125">			skillName += &quot; (&quot; + prereq.getSubKey() + ')'; //$NON-NLS-1$ </span>
+
+		}
+
+<span class="nc" id="L129">        return LanguageBundle.getFormattedString(&quot;PreSkillMult.toHtml&quot;, //$NON-NLS-1$</span>
+<span class="nc" id="L130">            prereq.getOperator().toDisplayString(), prereq.getOperand(), skillName);</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

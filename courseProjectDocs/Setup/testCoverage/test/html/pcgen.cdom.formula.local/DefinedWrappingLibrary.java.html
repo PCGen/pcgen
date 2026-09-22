@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DefinedWrappingLibrary.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.formula.local</a> &gt; <span class="el_source">DefinedWrappingLibrary.java</span></div><h1>DefinedWrappingLibrary.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2018 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or modify it under the terms
+ * of the GNU Lesser General Public License as published by the Free Software Foundation;
+ * either version 2.1 of the License, or (at your option) any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT ANY
+ * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+ * PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License along with
+ * this library; if not, write to the Free Software Foundation, Inc., 59 Temple Place,
+ * Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.cdom.formula.local;
+
+import java.util.Objects;
+
+import pcgen.base.formula.base.FormulaFunction;
+import pcgen.base.formula.base.FunctionLibrary;
+import pcgen.base.util.FormatManager;
+
+/**
+ * An DefinedWrappingLibrary is a FunctionLibrary that contains two things: a Default
+ * FunctionLibrary for most functions, and a specific value contained by the a function of
+ * a specified name.
+ */
+public class DefinedWrappingLibrary implements FunctionLibrary
+{
+	/**
+	 * The underlying FunctionLibrary of this DefinedWrappingLibrary.
+	 */
+	private final FunctionLibrary functionLibrary;
+
+	/**
+	 * The name of the defined function.
+	 */
+	private final String definedName;
+
+	/**
+	 * The value of the defined function.
+	 */
+	private final Object definedValue;
+
+	/**
+	 * The FormatManager indicating the format of the return value for the defined
+	 * function of DefinedWrappingLibrary.
+	 */
+	private final FormatManager&lt;?&gt; formatManager;
+
+	/**
+	 * Constructs a new DefinedWrappingLibrary with the given underlying FunctionLibrary
+	 * and value to be used when the defined function is called.
+	 * 
+	 * @param functionLibrary
+	 *            The underlying FunctionLibrary of this DefinedWrappingLibrary
+	 * @param definedName
+	 *            The name of the defined function
+	 * @param definedValue
+	 *            The value of the defined function
+	 * @param formatManager
+	 *            The FormatManager indicating the format of the return value for this
+	 *            DefinedWrappingLibrary
+	 */
+	public DefinedWrappingLibrary(FunctionLibrary functionLibrary, String definedName, Object definedValue,
+		FormatManager&lt;?&gt; formatManager)
+<span class="fc" id="L68">	{</span>
+<span class="fc" id="L69">		this.functionLibrary = Objects.requireNonNull(functionLibrary);</span>
+<span class="fc" id="L70">		this.definedName = Objects.requireNonNull(definedName);</span>
+<span class="fc" id="L71">		this.definedValue = Objects.requireNonNull(definedValue);</span>
+<span class="fc" id="L72">		this.formatManager = Objects.requireNonNull(formatManager);</span>
+<span class="fc" id="L73">	}</span>
+
+	@Override
+	public FormulaFunction getFunction(String functionName)
+	{
+<span class="nc bnc" id="L78" title="All 2 branches missed.">		if (String.CASE_INSENSITIVE_ORDER.compare(functionName, definedName) == 0)</span>
+		{
+<span class="nc" id="L80">			return new DefinedFunction(definedName, definedValue, formatManager);</span>
+		}
+<span class="nc" id="L82">		return functionLibrary.getFunction(functionName);</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

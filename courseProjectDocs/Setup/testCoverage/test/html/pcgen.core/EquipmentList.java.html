@@ -1,0 +1,562 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>EquipmentList.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.core</a> &gt; <span class="el_source">EquipmentList.java</span></div><h1>EquipmentList.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2003 (C) Jonas Karlsson &lt;jujutsunerd@users.sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.core;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.StringTokenizer;
+
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.Type;
+import pcgen.core.prereq.PrereqHandler;
+import pcgen.core.utils.CoreUtility;
+import pcgen.util.Delta;
+import pcgen.util.Logging;
+
+/**
+ * Equipment-related lists and methods extracted from Globals.java. Will
+ * probably try to disentangle modifierlist into it's own class later.
+ */
+public final class EquipmentList
+{
+
+	/**
+	 * Private to ensure utility object can't be instantiated.
+	 */
+	private EquipmentList()
+	{
+		// Empty Constructor
+	}
+
+	/**
+	 * Return the equipment that has the passed-in name.
+	 *
+	 * @param baseName
+	 *          the name to return an equipment for
+	 * @param aPC
+	 *          TODO
+	 * @return the Equipment matching the name
+	 */
+	public static Equipment getEquipmentFromName(final String baseName, final PlayerCharacter aPC)
+	{
+<span class="nc" id="L57">		final List&lt;String&gt; modList = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L58">		final List&lt;String&gt; namList = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L59">		final List&lt;String&gt; sizList = new ArrayList&lt;&gt;();</span>
+		Equipment eq;
+<span class="nc" id="L61">		String aName = baseName;</span>
+<span class="nc" id="L62">		int i = aName.indexOf('(');</span>
+
+		// Remove all modifiers from item name and
+		// split into &quot;size&quot; and &quot;non-size&quot; lists
+<span class="nc bnc" id="L66" title="All 2 branches missed.">		if (i &gt;= 0)</span>
+		{
+<span class="nc" id="L68">			final StringTokenizer aTok = new StringTokenizer(aName.substring(i + 1), &quot;/)&quot;, false);</span>
+
+<span class="nc bnc" id="L70" title="All 2 branches missed.">			while (aTok.hasMoreTokens())</span>
+			{
+<span class="nc" id="L72">				final String cString = aTok.nextToken();</span>
+
+<span class="nc" id="L74">				SizeAdjustment sa = Globals.getContext().getReferenceContext()</span>
+<span class="nc" id="L75">					.silentlyGetConstructedCDOMObject(SizeAdjustment.class, cString);</span>
+
+<span class="nc bnc" id="L77" title="All 2 branches missed.">				if (sa != null)</span>
+				{
+<span class="nc" id="L79">					sizList.add(cString);</span>
+				}
+				else
+				{
+<span class="nc bnc" id="L83" title="All 2 branches missed.">					if (&quot;Mighty Composite&quot;.equalsIgnoreCase(cString))</span>
+					{
+<span class="nc" id="L85">						modList.add(&quot;Mighty&quot;);</span>
+<span class="nc" id="L86">						modList.add(&quot;Composite&quot;);</span>
+					}
+					else
+					{
+<span class="nc" id="L90">						modList.add(cString);</span>
+					}
+				}
+<span class="nc" id="L93">			}</span>
+
+<span class="nc" id="L95">			aName = aName.substring(0, i).trim();</span>
+		}
+
+		// Separate the &quot;non-size&quot; descriptors into 2 Lists.
+		// One containing those descriptors whose names match a
+		// modifier name, and the other containing those descriptors
+		// which are not possibly modifiers
+		// (because they're not in the modifier list).
+		//
+<span class="nc bnc" id="L104" title="All 2 branches missed.">		if (i &gt;= 0)</span>
+		{
+<span class="nc bnc" id="L106" title="All 2 branches missed.">			for (i = modList.size() - 1; i &gt;= 0; --i)</span>
+			{
+<span class="nc" id="L108">				final String namePart = modList.get(i);</span>
+
+<span class="nc bnc" id="L110" title="All 2 branches missed.">				if (getModifierNamed(namePart) == null)</span>
+				{
+<span class="nc" id="L112">					namList.add(0, namePart); // add to the start as otherwise the list</span>
+												// will be reversed
+<span class="nc" id="L114">					modList.remove(i);</span>
+				}
+			}
+		}
+
+		// Look for magic (or mighty) bonuses
+		//
+<span class="nc" id="L121">		int[] bonuses = null;</span>
+<span class="nc" id="L122">		int bonusCount = 0;</span>
+<span class="nc" id="L123">		i = aName.indexOf('+');</span>
+
+<span class="nc bnc" id="L125" title="All 2 branches missed.">		if (i &gt;= 0)</span>
+		{
+<span class="nc" id="L127">			final StringTokenizer aTok = new StringTokenizer(aName.substring(i), &quot;/&quot;, false);</span>
+<span class="nc" id="L128">			bonusCount = aTok.countTokens();</span>
+<span class="nc" id="L129">			bonuses = new int[bonusCount];</span>
+
+<span class="nc" id="L131">			int idx = 0;</span>
+
+<span class="nc bnc" id="L133" title="All 2 branches missed.">			while (aTok.hasMoreTokens())</span>
+			{
+<span class="nc" id="L135">				final String cString = aTok.nextToken();</span>
+<span class="nc" id="L136">				bonuses[idx++] = Delta.decode(cString);</span>
+<span class="nc" id="L137">			}</span>
+
+<span class="nc" id="L139">			aName = aName.substring(0, i).trim();</span>
+
+			//
+			// Mighty bows suffered a (much-needed) renaming
+			// (Long|Short)bow +n (Mighty/Composite) --&gt; (Long|Short)bow (+n
+			// Mighty/Composite)
+			// (Long|Short)bow +x/+n (Mighty/Composite) --&gt; (Long|Short)bow +x (+n
+			// Mighty/Composite)
+			//
+			// Look through the modifier list for MIGHTY,
+			// if found add the bonus to the start of the modifier's name
+			//
+<span class="nc bnc" id="L151" title="All 2 branches missed.">			if (bonusCount &gt; 0)</span>
+			{
+<span class="nc bnc" id="L153" title="All 2 branches missed.">				for (int idx1 = 0; idx1 &lt; namList.size(); ++idx1)</span>
+				{
+<span class="nc" id="L155">					String aString = namList.get(idx1);</span>
+
+<span class="nc bnc" id="L157" title="All 2 branches missed.">					if (&quot;Mighty&quot;.equalsIgnoreCase(aString))</span>
+					{
+<span class="nc" id="L159">						aString = Delta.toString(bonuses[bonusCount - 1]) + &quot; &quot; + aString;</span>
+<span class="nc" id="L160">						namList.set(idx1, aString);</span>
+<span class="nc" id="L161">						bonusCount -= 1;</span>
+					}
+				}
+			}
+		}
+
+		//
+		// aName : name of item minus all descriptors held in () as well as any
+		// bonuses
+		// namList : list of all descriptors which cannot be modifiers
+		// modList : list of all descriptors which *might* be modifiers
+		// sizList : list of all size descriptors
+		//
+<span class="nc" id="L174">		String omitString = &quot;&quot;;</span>
+<span class="nc" id="L175">		String bonusString = &quot;&quot;;</span>
+
+		while (true)
+		{
+<span class="nc" id="L179">			final String eqName = aName + bonusString;</span>
+<span class="nc" id="L180">			eq = findEquipment(eqName, null, namList, sizList, omitString);</span>
+
+<span class="nc bnc" id="L182" title="All 2 branches missed.">			if (eq != null)</span>
+			{
+<span class="nc bnc" id="L184" title="All 2 branches missed.">				if (sizList.size() &gt; 1) // was used in name, ignore as modifier</span>
+				{
+<span class="nc" id="L186">					sizList.remove(0);</span>
+				}
+
+				break;
+			}
+
+<span class="nc" id="L192">			eq = findEquipment(eqName, namList, null, sizList, omitString);</span>
+
+<span class="nc bnc" id="L194" title="All 2 branches missed.">			if (eq != null)</span>
+			{
+<span class="nc bnc" id="L196" title="All 2 branches missed.">				if (sizList.size() &gt; 1) // was used in name, ignore as modifier</span>
+				{
+<span class="nc" id="L198">					sizList.remove(0);</span>
+				}
+
+				break;
+			}
+
+<span class="nc" id="L204">			eq = findEquipment(eqName, namList, null, null, omitString);</span>
+
+<span class="nc bnc" id="L206" title="All 2 branches missed.">			if (eq != null)</span>
+			{
+<span class="nc" id="L208">				break;</span>
+			}
+
+			// If only 1 size then include it in name
+<span class="nc bnc" id="L212" title="All 2 branches missed.">			if (sizList.size() == 1)</span>
+			{
+<span class="nc" id="L214">				eq = findEquipment(eqName, sizList, namList, null, omitString);</span>
+
+<span class="nc bnc" id="L216" title="All 2 branches missed.">				if (eq == null)</span>
+				{
+<span class="nc" id="L218">					eq = findEquipment(eqName, namList, sizList, null, omitString);</span>
+				}
+
+<span class="nc bnc" id="L221" title="All 2 branches missed.">				if (eq != null)</span>
+				{
+<span class="nc" id="L223">					sizList.clear();</span>
+
+<span class="nc" id="L225">					break;</span>
+				}
+			}
+
+			// If we haven't found it yet,
+			// try stripping Thrown from name
+<span class="nc bnc" id="L231" title="All 2 branches missed.">			if (baseName.contains(&quot;Thrown&quot;))</span>
+			{
+<span class="nc bnc" id="L233" title="All 2 branches missed.">				if (omitString.isEmpty())</span>
+				{
+<span class="nc" id="L235">					omitString = &quot;Thrown&quot;;</span>
+
+<span class="nc" id="L237">					continue;</span>
+				}
+			}
+
+			// Still haven't found it?
+			// Try adding bonus to end of name
+<span class="nc bnc" id="L243" title="All 4 branches missed.">			if ((bonusCount &gt; 0) &amp;&amp; (bonuses != null))</span>
+			{
+<span class="nc bnc" id="L245" title="All 2 branches missed.">				if (bonusString.isEmpty())</span>
+				{
+<span class="nc" id="L247">					omitString = &quot;&quot;;</span>
+<span class="nc" id="L248">					bonusString = &quot; &quot; + Delta.toString(bonuses[0]);</span>
+
+<span class="nc" id="L250">					continue;</span>
+				}
+			}
+
+			break;
+		}
+
+<span class="nc bnc" id="L257" title="All 2 branches missed.">		if (eq != null)</span>
+		{
+<span class="nc" id="L259">			boolean bModified = false;</span>
+<span class="nc" id="L260">			boolean bError = false;</span>
+<span class="nc" id="L261">			eq = eq.clone();</span>
+
+			//
+			// Now attempt to add all the modifiers.
+			//
+<span class="nc bnc" id="L266" title="All 2 branches missed.">			for (final String namePart : modList)</span>
+			{
+<span class="nc" id="L268">				final EquipmentModifier eqMod = getQualifiedModifierNamed(namePart, eq);</span>
+
+<span class="nc bnc" id="L270" title="All 2 branches missed.">				if (eqMod != null)</span>
+				{
+<span class="nc" id="L272">					eq.addEqModifier(eqMod, true, aPC);</span>
+
+<span class="nc bnc" id="L274" title="All 4 branches missed.">					if (eqMod.getSafe(ObjectKey.ASSIGN_TO_ALL) &amp;&amp; eq.isDouble())</span>
+					{
+<span class="nc" id="L276">						eq.addEqModifier(eqMod, false, aPC);</span>
+<span class="nc" id="L277">						bModified = true;</span>
+					}
+				}
+				else
+				{
+<span class="nc" id="L282">					Logging.errorPrint(&quot;Could not find a qualified modifier named: &quot; + namePart + &quot; for &quot; + eq.getName()</span>
+<span class="nc" id="L283">						+ &quot;:&quot; + eq.typeList());</span>
+<span class="nc" id="L284">					bError = true;</span>
+				}
+<span class="nc" id="L286">			}</span>
+
+			// Found what appeared to be the base item,
+			// but one of the modifiers is not qualified
+			// to be attached to the item
+			//
+<span class="nc bnc" id="L292" title="All 2 branches missed.">			if (bError)</span>
+			{
+<span class="nc" id="L294">				return null;</span>
+			}
+
+<span class="nc bnc" id="L297" title="All 2 branches missed.">			if (!sizList.isEmpty())</span>
+			{
+				/*
+				 * CONSIDER This size can be further optimized by changing sizList
+				 */
+<span class="nc" id="L302">				eq.resizeItem(aPC, Globals.getContext().getReferenceContext()</span>
+<span class="nc" id="L303">					.silentlyGetConstructedCDOMObject(SizeAdjustment.class, sizList.get(0)));</span>
+<span class="nc" id="L304">				bModified = true;</span>
+
+<span class="nc bnc" id="L306" title="All 2 branches missed.">				if (sizList.size() &gt; 1)</span>
+				{
+<span class="nc" id="L308">					Logging.errorPrint(&quot;Too many sizes in item name, used only 1st of: &quot; + sizList);</span>
+				}
+			}
+
+<span class="nc bnc" id="L312" title="All 2 branches missed.">			if (bModified)</span>
+			{
+<span class="nc" id="L314">				eq.nameItemFromModifiers(aPC);</span>
+<span class="nc" id="L315">				Equipment equip = Globals.getContext().getReferenceContext()</span>
+<span class="nc" id="L316">					.silentlyGetConstructedCDOMObject(Equipment.class, eq.getKeyName());</span>
+<span class="nc bnc" id="L317" title="All 2 branches missed.">				if (equip == null)</span>
+				{
+<span class="nc" id="L319">					Globals.getContext().getReferenceContext().importObject(eq);</span>
+				}
+				else
+				{
+<span class="nc" id="L323">					eq = equip;</span>
+				}
+			}
+		}
+
+<span class="nc" id="L328">		return eq;</span>
+	}
+
+	/**
+	 * Get an Equipment object from the list matching the passed-in type(s).
+	 *
+	 * @param desiredTypes
+	 *          a '.' separated list of types to match
+	 * @param excludedTypes
+	 *          a '.' separated list of types to NOT match
+	 * @return the matching Equipment
+	 */
+	public static List&lt;Equipment&gt; getEquipmentOfType(final String desiredTypes, final String excludedTypes)
+	{
+<span class="nc" id="L342">		final List&lt;String&gt; desiredTypeList = CoreUtility.split(desiredTypes, '.');</span>
+<span class="nc" id="L343">		final List&lt;String&gt; excludedTypeList = CoreUtility.split(excludedTypes, '.');</span>
+<span class="nc" id="L344">		final List&lt;Equipment&gt; typeList = new ArrayList&lt;&gt;(100);</span>
+
+<span class="nc bnc" id="L346" title="All 2 branches missed.">		if (!desiredTypeList.isEmpty())</span>
+		{
+<span class="nc bnc" id="L348" title="All 2 branches missed.">			for (Equipment eq : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Equipment.class))</span>
+			{
+<span class="nc" id="L350">				boolean addIt = true;</span>
+
+				//
+				// Must have all of the types in the desired list
+				//
+<span class="nc bnc" id="L355" title="All 2 branches missed.">				for (String type : desiredTypeList)</span>
+				{
+<span class="nc bnc" id="L357" title="All 2 branches missed.">					if (!eq.isType(type))</span>
+					{
+<span class="nc" id="L359">						addIt = false;</span>
+
+<span class="nc" id="L361">						break;</span>
+					}
+<span class="nc" id="L363">				}</span>
+
+<span class="nc bnc" id="L365" title="All 4 branches missed.">				if (addIt &amp;&amp; (!excludedTypeList.isEmpty()))</span>
+				{
+					//
+					// Can't have any of the types on the excluded list
+					//
+<span class="nc bnc" id="L370" title="All 2 branches missed.">					for (String type : excludedTypeList)</span>
+					{
+<span class="nc bnc" id="L372" title="All 2 branches missed.">						if (eq.isType(type))</span>
+						{
+<span class="nc" id="L374">							addIt = false;</span>
+
+<span class="nc" id="L376">							break;</span>
+						}
+<span class="nc" id="L378">					}</span>
+				}
+
+<span class="nc bnc" id="L381" title="All 2 branches missed.">				if (addIt)</span>
+				{
+<span class="nc" id="L383">					typeList.add(eq);</span>
+				}
+<span class="nc" id="L385">			}</span>
+		}
+
+<span class="nc" id="L388">		return typeList;</span>
+	}
+
+	private static EquipmentModifier getModifierNamed(final String aName)
+	{
+<span class="nc" id="L393">		return Globals.getContext()</span>
+<span class="nc" id="L394">		              .getReferenceContext()</span>
+<span class="nc" id="L395">		              .getConstructedCDOMObjects(EquipmentModifier.class)</span>
+<span class="nc" id="L396">		              .stream()</span>
+<span class="nc" id="L397">		              .filter(eqMod -&gt; eqMod.getDisplayName().equals(aName))</span>
+<span class="nc" id="L398">		              .findFirst()</span>
+<span class="nc" id="L399">		              .orElse(null);</span>
+
+	}
+
+	private static EquipmentModifier getQualifiedModifierNamed(final String aName, final Equipment eq)
+	{
+		// Type matches, passes prereqs?
+<span class="nc" id="L406">		return Globals.getContext()</span>
+<span class="nc" id="L407">		              .getReferenceContext()</span>
+<span class="nc" id="L408">		              .getConstructedCDOMObjects(EquipmentModifier.class)</span>
+<span class="nc" id="L409">		              .stream()</span>
+<span class="nc" id="L410">		              .filter(eqMod -&gt; eqMod.getDisplayName().startsWith(aName))</span>
+<span class="nc" id="L411">		              .filter(eqMod -&gt; eq.typeList()</span>
+<span class="nc" id="L412">		                                 .stream()</span>
+<span class="nc" id="L413">		                                 .filter(eqMod::isType)</span>
+<span class="nc" id="L414">		                                 .anyMatch(t -&gt; PrereqHandler.passesAll(eqMod, eq, null)))</span>
+<span class="nc" id="L415">		              .findFirst()</span>
+<span class="nc" id="L416">		              .orElse(null);</span>
+
+	}
+
+	/**
+	 * Appends name parts to the newName.
+	 *
+	 * @param nameList
+	 * @param omitString
+	 * @param newName
+	 */
+	private static void appendNameParts(final List&lt;String&gt; nameList, final String omitString,
+		final StringBuilder newName)
+	{
+<span class="nc bnc" id="L430" title="All 2 branches missed.">		for (String namePart : nameList)</span>
+		{
+<span class="nc bnc" id="L432" title="All 4 branches missed.">			if ((!omitString.isEmpty()) &amp;&amp; namePart.equals(omitString))</span>
+			{
+<span class="nc" id="L434">				continue;</span>
+			}
+
+<span class="nc bnc" id="L437" title="All 2 branches missed.">			if (newName.length() &gt; 2)</span>
+			{
+<span class="nc" id="L439">				newName.append('/');</span>
+			}
+
+<span class="nc" id="L442">			newName.append(namePart);</span>
+<span class="nc" id="L443">		}</span>
+<span class="nc" id="L444">	}</span>
+
+	private static void createItem(final Equipment eq, final EquipmentModifier eqMod, final PlayerCharacter aPC,
+		final String choice, final EquipmentChoice equipChoice)
+	{
+<span class="nc" id="L449">		createItem(eq, eqMod, null, aPC, choice, equipChoice);</span>
+<span class="nc" id="L450">	}</span>
+
+	private static void createItem(Equipment eq, final EquipmentModifier eqMod, final SizeAdjustment sa,
+		final PlayerCharacter aPC, final String choice, final EquipmentChoice equipChoice)
+	{
+<span class="nc bnc" id="L455" title="All 2 branches missed.">		if (eq == null)</span>
+		{
+<span class="nc" id="L457">			return;</span>
+		}
+
+		try
+		{
+			// Armor without an armor bonus is an exception
+			//
+<span class="nc bnc" id="L464" title="All 2 branches missed.">			if (!eq.getSafe(ObjectKey.MOD_CONTROL).getModifiersAllowed()</span>
+<span class="nc bnc" id="L465" title="All 6 branches missed.">				|| (eq.isArmor() &amp;&amp; (eq.getACMod(aPC) == 0)</span>
+<span class="nc bnc" id="L466" title="All 2 branches missed.">					&amp;&amp; ((eqMod != null) &amp;&amp; !eqMod.getDisplayName().equalsIgnoreCase(&quot;MASTERWORK&quot;))))</span>
+			{
+<span class="nc" id="L468">				return;</span>
+			}
+
+<span class="nc" id="L471">			eq = eq.clone();</span>
+
+<span class="nc bnc" id="L473" title="All 2 branches missed.">			if (eq == null)</span>
+			{
+<span class="nc" id="L475">				Logging.errorPrint(&quot;could not clone item&quot;);</span>
+
+<span class="nc" id="L477">				return;</span>
+			}
+
+<span class="nc bnc" id="L480" title="All 2 branches missed.">			if (eqMod != null)</span>
+			{
+<span class="nc" id="L482">				eq.addEqModifier(eqMod, true, aPC, choice, equipChoice);</span>
+
+<span class="nc bnc" id="L484" title="All 4 branches missed.">				if (eq.isWeapon() &amp;&amp; eq.isDouble())</span>
+				{
+<span class="nc" id="L486">					eq.addEqModifier(eqMod, false, aPC, choice, equipChoice);</span>
+				}
+			}
+
+<span class="nc bnc" id="L490" title="All 2 branches missed.">			if (sa != null)</span>
+			{
+<span class="nc" id="L492">				eq.resizeItem(aPC, sa);</span>
+			}
+
+			//
+			// Change the names, to protect the innocent
+			//
+<span class="nc" id="L498">			final String sKeyName = eq.nameItemFromModifiers(aPC);</span>
+<span class="nc" id="L499">			final Equipment eqExists = Globals.getContext().getReferenceContext()</span>
+<span class="nc" id="L500">				.silentlyGetConstructedCDOMObject(Equipment.class, sKeyName);</span>
+
+<span class="nc bnc" id="L502" title="All 2 branches missed.">			if (eqExists != null)</span>
+			{
+<span class="nc" id="L504">				return;</span>
+			}
+
+<span class="nc" id="L507">			final Type newType = Type.CUSTOM;</span>
+
+<span class="nc bnc" id="L509" title="All 2 branches missed.">			if (!eq.isType(newType.toString()))</span>
+			{
+<span class="nc" id="L511">				eq.addType(newType);</span>
+			}
+
+<span class="nc" id="L514">			Globals.getContext().getReferenceContext().importObject(eq);</span>
+		}
+<span class="nc" id="L516">		catch (NumberFormatException exception)</span>
+		{
+<span class="nc" id="L518">			Logging.errorPrint(&quot;createItem: exception: &quot; + eq.getName());</span>
+<span class="nc" id="L519">		}</span>
+<span class="nc" id="L520">	}</span>
+
+	private static Equipment findEquipment(final String aName, final List&lt;String&gt; preNameList,
+		final List&lt;String&gt; postNameList, final List&lt;String&gt; sizList, final String omitString)
+	{
+<span class="nc" id="L525">		final StringBuilder newName = new StringBuilder(80);</span>
+<span class="nc" id="L526">		newName.append(&quot; (&quot;);</span>
+
+<span class="nc bnc" id="L528" title="All 2 branches missed.">		if (preNameList != null)</span>
+		{
+<span class="nc" id="L530">            appendNameParts(preNameList, omitString, newName);</span>
+		}
+
+<span class="nc bnc" id="L533" title="All 2 branches missed.">		if (sizList != null)</span>
+		{
+			// Append 1st size if multiple sizes
+			//
+<span class="nc bnc" id="L537" title="All 2 branches missed.">			if (sizList.size() &gt; 1)</span>
+			{
+<span class="nc" id="L539">				newName.append(sizList.get(0));</span>
+			}
+		}
+
+<span class="nc bnc" id="L543" title="All 2 branches missed.">		if (postNameList != null)</span>
+		{
+<span class="nc" id="L545">			appendNameParts(postNameList, omitString, newName);</span>
+		}
+
+<span class="nc bnc" id="L548" title="All 2 branches missed.">		if (newName.length() == 2)</span>
+		{
+<span class="nc" id="L550">			newName.setLength(0);</span>
+		}
+		else
+		{
+<span class="nc" id="L554">			newName.append(')');</span>
+		}
+
+<span class="nc" id="L557">        return Globals.getContext().getReferenceContext()</span>
+<span class="nc" id="L558">            .silentlyGetConstructedCDOMObject(Equipment.class, aName + newName);</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>VariableKey.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.enumeration</a> &gt; <span class="el_source">VariableKey.java</span></div><h1>VariableKey.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) 2007 Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package pcgen.cdom.enumeration;
+
+import java.util.Objects;
+
+import pcgen.base.enumeration.TypeSafeConstant;
+import pcgen.base.util.CaseInsensitiveMap;
+
+/**
+ * 
+ * This Class is a Type Safe Constant. It is designed to act as an index to a
+ * specific variable (set by DEFINE: in LST terms) within a CDOMObject.
+ */
+public final class VariableKey implements TypeSafeConstant
+{
+
+	/**
+	 * This Map contains the mappings from Strings to the Type Safe Constant
+	 */
+	private static CaseInsensitiveMap&lt;VariableKey&gt; typeMap;
+
+	/**
+	 * This is used to provide a unique ordinal to each constant in this class
+	 */
+<span class="fc" id="L41">	private static int ordinalCount = 0;</span>
+
+	/**
+	 * The name of this Constant
+	 */
+	private final String fieldName;
+
+	/**
+	 * The ordinal of this Constant
+	 */
+	private final int ordinal;
+
+	private VariableKey(String name)
+<span class="fc" id="L54">	{</span>
+<span class="fc" id="L55">		Objects.requireNonNull(name, &quot;Name for VariableKey cannot be null&quot;);</span>
+<span class="fc" id="L56">		ordinal = ordinalCount++;</span>
+<span class="fc" id="L57">		fieldName = name;</span>
+<span class="fc" id="L58">	}</span>
+
+	/**
+	 * Converts this Constant to a String (returns the name of this Constant)
+	 * 
+	 * @return The string representation (name) of this Constant
+	 */
+	@Override
+	public String toString()
+	{
+<span class="fc" id="L68">		return fieldName;</span>
+	}
+
+	/**
+	 * Gets the ordinal of this Constant
+	 */
+	@Override
+	public int getOrdinal()
+	{
+<span class="nc" id="L77">		return ordinal;</span>
+	}
+
+	/**
+	 * Returns the constant for the given String (the search for the constant is
+	 * case insensitive). If the constant does not already exist, a new Constant
+	 * is created with the given String as the name of the Constant.
+	 * 
+	 * @param name
+	 *            The name of the constant to be returned
+	 * @return The Constant for the given name
+	 */
+	public static VariableKey getConstant(String name)
+	{
+<span class="fc" id="L91">		initializeTypeMap();</span>
+<span class="fc" id="L92">		VariableKey key = typeMap.get(name);</span>
+<span class="fc bfc" id="L93" title="All 2 branches covered.">		if (key == null)</span>
+		{
+<span class="fc" id="L95">			key = new VariableKey(name);</span>
+<span class="fc" id="L96">			typeMap.put(name, key);</span>
+		}
+<span class="fc" id="L98">		return key;</span>
+	}
+
+	/**
+	 * Thread safe construction of typeMap
+	 */
+	private static synchronized void initializeTypeMap()
+	{
+<span class="fc bfc" id="L106" title="All 2 branches covered.">		if (typeMap == null)</span>
+		{
+<span class="fc" id="L108">			typeMap = new CaseInsensitiveMap&lt;&gt;();</span>
+		}
+<span class="fc" id="L110">	}</span>
+
+	/**
+	 * Returns the constant for the given String (the search for the constant is
+	 * case insensitive). If the constant does not already exist, an
+	 * IllegalArgumentException is thrown.
+	 * 
+	 * @param name
+	 *            The name of the constant to be returned
+	 * @return The Constant for the given name
+	 * @throws IllegalArgumentException
+	 *             if the given String is not a previously defined VariableKey
+	 */
+	public static VariableKey valueOf(String name)
+	{
+<span class="nc" id="L125">		initializeTypeMap();</span>
+<span class="nc" id="L126">		VariableKey key = typeMap.get(name);</span>
+<span class="nc bnc" id="L127" title="All 2 branches missed.">		if (key == null)</span>
+		{
+<span class="nc" id="L129">			throw new IllegalArgumentException(name + &quot; is not a previously defined VariableKey&quot;);</span>
+		}
+<span class="nc" id="L131">		return key;</span>
+	}
+
+	/**
+	 * Clears all of the Constants in this Class (forgetting the mapping from
+	 * the String to the Constant).
+	 */
+	/*
+	 * CONSIDER Need to consider the ramifications of this on TypeSafeMap, since
+	 * this does not (and really cannot) reset the ordinal count... Does this
+	 * method need to be renamed, such that it is clearConstantMap? - Tom
+	 * Parker, Feb 28, 2007
+	 */
+	public static void clearConstants()
+	{
+<span class="fc bfc" id="L146" title="All 2 branches covered.">		if (typeMap != null)</span>
+		{
+<span class="fc" id="L148">			typeMap.clear();</span>
+		}
+<span class="fc" id="L150">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

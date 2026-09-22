@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FactParser.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.content.fact</a> &gt; <span class="el_source">FactParser.java</span></div><h1>FactParser.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2014 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.cdom.content.fact;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
+import pcgen.base.util.Indirect;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.FactKey;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.ParseResult;
+
+/**
+ * A FactParser is a dynamically built subtoken created when a FACT: is defined
+ * 
+ * @param &lt;T&gt;
+ *            The type of object upon which the FactParser can be used
+ * @param &lt;F&gt;
+ *            The format of the data stored in the Fact
+ */
+public class FactParser&lt;T extends CDOMObject, F&gt; extends AbstractNonEmptyToken&lt;T&gt; implements CDOMSecondaryToken&lt;T&gt;
+{
+
+	/**
+	 * The underlying FactInfo indicating static information about the Fact for
+	 * which this FactParser can parse the LST information
+	 */
+	private final FactInfo&lt;T, F&gt; def;
+
+	/**
+	 * Constructs a new FactParser with the given FactInfo.
+	 * 
+	 * @param fi
+	 *            The FactInfo underlying this FactParser
+	 * @throws IllegalArgumentException
+	 *             if the given FactInfo is null
+	 */
+	public FactParser(FactInfo&lt;T, F&gt; fi)
+<span class="fc" id="L59">	{</span>
+<span class="fc" id="L60">		Objects.requireNonNull(fi, &quot;Fact Info cannot be null&quot;);</span>
+<span class="fc" id="L61">		def = fi;</span>
+<span class="fc" id="L62">	}</span>
+
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context, T obj, String value)
+	{
+<span class="fc" id="L67">		FactKey&lt;F&gt; fk = def.getFactKey();</span>
+<span class="pc bpc" id="L68" title="1 of 2 branches missed.">		if (Constants.LST_DOT_CLEAR.equals(value))</span>
+		{
+<span class="nc" id="L70">			context.getObjectContext().remove(obj, fk);</span>
+		}
+		else
+		{
+<span class="fc" id="L74">			Indirect&lt;F&gt; indirect = def.getFormatManager().convertIndirect(value);</span>
+<span class="fc" id="L75">			context.getObjectContext().put(obj, fk, indirect);</span>
+		}
+<span class="fc" id="L77">		return ParseResult.SUCCESS;</span>
+	}
+
+	@Override
+	public Class&lt;T&gt; getTokenClass()
+	{
+<span class="fc" id="L83">		return def.getUsableLocation();</span>
+	}
+
+	@Override
+	public String getTokenName()
+	{
+<span class="fc" id="L89">		return def.getFactName();</span>
+	}
+
+	@Override
+	public String getParentToken()
+	{
+<span class="fc" id="L95">		return &quot;FACT&quot;;</span>
+	}
+
+	@Override
+	public String[] unparse(LoadContext context, T obj)
+	{
+<span class="fc" id="L101">		FactKey&lt;F&gt; fk = def.getFactKey();</span>
+<span class="fc" id="L102">		boolean removed = context.getObjectContext().wasRemoved(obj, fk);</span>
+<span class="fc" id="L103">		List&lt;String&gt; results = new ArrayList&lt;&gt;(2);</span>
+<span class="pc bpc" id="L104" title="1 of 2 branches missed.">		if (removed)</span>
+		{
+<span class="nc" id="L106">			results.add(Constants.LST_DOT_CLEAR);</span>
+		}
+<span class="fc" id="L108">		Indirect&lt;F&gt; fact = context.getObjectContext().getFact(obj, fk);</span>
+<span class="fc bfc" id="L109" title="All 2 branches covered.">		if (fact != null)</span>
+		{
+<span class="fc" id="L111">			results.add(fact.getUnconverted());</span>
+		}
+<span class="fc" id="L113">		return results.toArray(new String[0]);</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PCCasterLevelTotalTermEvaluator.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.core.term</a> &gt; <span class="el_source">PCCasterLevelTotalTermEvaluator.java</span></div><h1>PCCasterLevelTotalTermEvaluator.java</h1><pre class="source lang-java linenums">/**
+ * Copyright (c) 2008 Andrew Wilson &lt;nuance@users.sourceforge.net&gt;.
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ * Created 04-Aug-2008 02:25:32
+ */
+
+package pcgen.core.term;
+
+import pcgen.cdom.base.Constants;
+import pcgen.core.PCClass;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.character.CharacterSpell;
+
+public class PCCasterLevelTotalTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
+{
+
+	public PCCasterLevelTotalTermEvaluator(String originalText)
+<span class="nc" id="L32">	{</span>
+<span class="nc" id="L33">		this.originalText = originalText;</span>
+<span class="nc" id="L34">	}</span>
+
+	// If no spell is given then we just want to total caster level
+	@Override
+	public Float resolve(PlayerCharacter pc)
+	{
+<span class="nc" id="L40">		return resolve(pc, null);</span>
+	}
+
+	@Override
+	public Float resolve(PlayerCharacter pc, final CharacterSpell aSpell)
+	{
+
+<span class="nc" id="L47">		int iLev = 0;</span>
+
+<span class="nc bnc" id="L49" title="All 2 branches missed.">		for (PCClass pcClass : pc.getDisplay().getClassSet())</span>
+		{
+<span class="nc bnc" id="L51" title="All 2 branches missed.">			if (!pcClass.getSpellType().equals(Constants.NONE))</span>
+			{
+<span class="nc" id="L53">				final String classKey = pcClass.getKeyName();</span>
+
+<span class="nc" id="L55">				String spellType = pcClass.getSpellType();</span>
+
+<span class="nc" id="L57">				int pcBonus = (int) pc.getTotalBonusTo(&quot;PCLEVEL&quot;, classKey);</span>
+				// BONUS:PCLEVEL|TYPE.&lt;spellType&gt; (e.g. the &quot;+1 Arcane Caster
+				// Level&quot; GM Award) applies to every class of that spell type,
+				// mirroring SpellSupportForPCClass.
+<span class="nc" id="L61">				pcBonus += (int) pc.getTotalBonusTo(&quot;PCLEVEL&quot;, &quot;TYPE.&quot; + spellType);</span>
+<span class="nc" id="L62">				final int castBonus = (int) pc.getTotalBonusTo(&quot;CASTERLEVEL&quot;, classKey);</span>
+<span class="nc bnc" id="L63" title="All 2 branches missed.">				final int iClass = (castBonus == 0) ? pc.getDisplay().getLevel(pcClass) : 0;</span>
+
+<span class="nc bnc" id="L65" title="All 2 branches missed.">				iLev += pc.getTotalCasterLevelWithSpellBonus(aSpell, (aSpell == null) ? null : aSpell.getSpell(),</span>
+					spellType, classKey, iClass + pcBonus);
+			}
+<span class="nc" id="L68">		}</span>
+
+<span class="nc" id="L70">		return (float) iLev;</span>
+	}
+
+
+	@Override
+	public boolean isSourceDependant()
+	{
+<span class="nc" id="L77">		return false;</span>
+	}
+
+	public boolean isStatic()
+	{
+<span class="nc" id="L82">		return false;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

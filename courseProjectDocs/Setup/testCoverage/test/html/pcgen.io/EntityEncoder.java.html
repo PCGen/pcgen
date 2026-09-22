@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>EntityEncoder.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.io</a> &gt; <span class="el_source">EntityEncoder.java</span></div><h1>EntityEncoder.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2002 (C) Thomas Behr &lt;ravenlock@gmx.de&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ */
+package pcgen.io;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.NoSuchElementException;
+import java.util.StringTokenizer;
+
+/**
+ * {@code EntityEncoder}&lt;br&gt;
+ * Encodes reserved characters and escape sequences as entities&lt;br&gt;
+ * Decodes entities as reserved characters and escape sequences
+ *
+ */
+public final class EntityEncoder
+{
+	private static final String ENCODE = &quot;\\\n\r\f:|[]&amp;&quot;;
+	private static final EntityMap ENTITIES;
+	private static final String ENCODE_LIGHT = &quot;\\\n\r\f|&amp;&quot;;
+	private static final EntityMap ENTITIES_LIGHT;
+
+	static
+	{
+<span class="fc" id="L41">		ENTITIES = new EntityMap();</span>
+<span class="fc" id="L42">		ENTITIES.put(&quot;\n&quot;, &quot;&amp;nl;&quot;);</span>
+<span class="fc" id="L43">		ENTITIES.put(&quot;\r&quot;, &quot;&amp;cr;&quot;);</span>
+<span class="fc" id="L44">		ENTITIES.put(&quot;\f&quot;, &quot;&amp;lf;&quot;);</span>
+<span class="fc" id="L45">		ENTITIES.put(&quot;:&quot;, &quot;&amp;colon;&quot;);</span>
+<span class="fc" id="L46">		ENTITIES.put(&quot;|&quot;, &quot;&amp;pipe;&quot;);</span>
+<span class="fc" id="L47">		ENTITIES.put(&quot;[&quot;, &quot;&amp;lbracket;&quot;);</span>
+<span class="fc" id="L48">		ENTITIES.put(&quot;]&quot;, &quot;&amp;rbracket;&quot;);</span>
+<span class="fc" id="L49">		ENTITIES.put(&quot;&amp;&quot;, &quot;&amp;amp;&quot;);</span>
+
+<span class="fc" id="L51">		ENTITIES_LIGHT = new EntityMap();</span>
+<span class="fc" id="L52">		ENTITIES_LIGHT.put(&quot;\n&quot;, &quot;&amp;nl;&quot;);</span>
+<span class="fc" id="L53">		ENTITIES_LIGHT.put(&quot;\r&quot;, &quot;&amp;cr;&quot;);</span>
+<span class="fc" id="L54">		ENTITIES_LIGHT.put(&quot;\f&quot;, &quot;&amp;lf;&quot;);</span>
+<span class="fc" id="L55">		ENTITIES_LIGHT.put(&quot;|&quot;, &quot;&amp;pipe;&quot;);</span>
+<span class="fc" id="L56">		ENTITIES_LIGHT.put(&quot;&amp;&quot;, &quot;&amp;amp;&quot;);</span>
+<span class="fc" id="L57">	}</span>
+
+	/**
+	 * Private constructor to disable instantiation.
+	 */
+	private EntityEncoder()
+	{
+	}
+
+	/**
+	 * decode characters.
+	 * {@literal 
+	 * &quot;\n&quot; &lt;- &quot;&amp;nl;&quot;
+	 * &quot;\r&quot; &lt;- &quot;&amp;cr;&quot;
+	 * &quot;\f&quot; &lt;- &quot;&amp;lf;&quot;
+	 * &quot;:&quot; &lt;- &quot;&amp;colon;&quot;
+	 * &quot;|&quot; &lt;- &quot;&amp;pipe;&quot;
+	 * &quot;[&quot; &lt;- &quot;&amp;lbracket;&quot;
+	 * &quot;]&quot; &lt;- &quot;&amp;rbracket;&quot;
+	 * &quot;&amp;&quot; &lt;- &quot;&amp;amp;&quot;
+	 * }
+	 * &lt;br&gt;author: Thomas Behr 09-09-02
+	 *
+	 * @param s   the String to decode
+	 * @return the decoded String
+	 */
+	public static String decode(String s)
+	{
+<span class="fc" id="L85">		final StringBuilder buffer = new StringBuilder();</span>
+<span class="fc" id="L86">		final StringTokenizer tokens = new StringTokenizer(s, &quot;&amp;;&quot;, true);</span>
+
+<span class="fc bfc" id="L88" title="All 2 branches covered.">		while (tokens.hasMoreTokens())</span>
+		{
+<span class="fc" id="L90">			String cToken = tokens.nextToken();</span>
+
+<span class="fc bfc" id="L92" title="All 2 branches covered.">			if (&quot;&amp;&quot;.equals(cToken))</span>
+			{
+<span class="fc" id="L94">				String tok1 = null;</span>
+<span class="fc" id="L95">				String tok2 = null;</span>
+
+				try
+				{
+<span class="fc" id="L99">					tok1 = tokens.nextToken();</span>
+<span class="fc" id="L100">					tok2 = tokens.nextToken();</span>
+<span class="fc" id="L101">					buffer.append(ENTITIES.get(cToken + tok1 + tok2));</span>
+				}
+<span class="nc" id="L103">				catch (NoSuchElementException exc)</span>
+				{
+<span class="nc" id="L105">					buffer.append(cToken);</span>
+
+<span class="nc bnc" id="L107" title="All 2 branches missed.">					if (tok1 != null)</span>
+					{
+<span class="nc" id="L109">						buffer.append(tok1);</span>
+
+<span class="nc bnc" id="L111" title="All 2 branches missed.">						if (tok2 != null)</span>
+						{
+<span class="nc" id="L113">							buffer.append(tok2);</span>
+						}
+					}
+<span class="fc" id="L116">				}</span>
+<span class="fc" id="L117">			}</span>
+			else
+			{
+<span class="fc" id="L120">				buffer.append(cToken);</span>
+			}
+<span class="fc" id="L122">		}</span>
+
+<span class="fc" id="L124">		return buffer.toString();</span>
+	}
+
+	/**
+	 * encode characters.
+	 * {@literal 
+	 * &quot;\n&quot; -&gt; &quot;&amp;nl;&quot;
+	 * &quot;\r&quot; -&gt; &quot;&amp;cr;&quot;
+	 * &quot;\f&quot; -&gt; &quot;&amp;lf;&quot;
+	 * &quot;:&quot; -&gt; &quot;&amp;colon;&quot;
+	 * &quot;|&quot; -&gt; &quot;&amp;pipe;&quot;
+	 * &quot;[&quot; -&gt; &quot;&amp;lbracket;&quot;
+	 * &quot;]&quot; -&gt; &quot;&amp;rbracket;&quot;
+	 * &quot;&amp;&quot; -&gt; &quot;&amp;amp;&quot;
+	 * }
+	 * &lt;br&gt;author: Thomas Behr 09-09-02
+	 *
+	 * @param s   the String to encode
+	 * @return the encoded String
+	 */
+	public static String encode(String s)
+	{
+<span class="fc" id="L146">		final StringBuilder buffer = new StringBuilder();</span>
+<span class="pc bpc" id="L147" title="1 of 2 branches missed.">		if (s != null)</span>
+		{
+<span class="fc" id="L149">			final StringTokenizer tokens = new StringTokenizer(s, ENCODE, true);</span>
+
+<span class="fc bfc" id="L151" title="All 2 branches covered.">			while (tokens.hasMoreTokens())</span>
+			{
+<span class="fc" id="L153">				buffer.append(ENTITIES.get(tokens.nextToken()));</span>
+			}
+		}
+<span class="fc" id="L156">		return buffer.toString();</span>
+	}
+
+	/**
+	 * Encode the characters.
+	 * {@literal 
+	 * &quot;\n&quot; -&gt; &quot;&amp;nl;&quot;
+	 * &quot;\r&quot; -&gt; &quot;&amp;cr;&quot;
+	 * &quot;\f&quot; -&gt; &quot;&amp;lf;&quot;
+	 * &quot;|&quot; -&gt; &quot;&amp;pipe;&quot;
+	 * &quot;&amp;&quot; -&gt; &quot;&amp;amp;&quot;
+	 * }
+	 *Note that this must be a subset of the encode function as 
+	 *the same decode function is used to decode these values.
+	 *
+	 * @param s   the String to encode
+	 * @return the encoded String
+	 */
+	public static String encodeLight(String s)
+	{
+<span class="fc" id="L176">		final StringBuilder buffer = new StringBuilder();</span>
+<span class="pc bpc" id="L177" title="1 of 2 branches missed.">		if (s != null)</span>
+		{
+<span class="fc" id="L179">			final StringTokenizer tokens = new StringTokenizer(s, ENCODE_LIGHT, true);</span>
+
+<span class="fc bfc" id="L181" title="All 2 branches covered.">			while (tokens.hasMoreTokens())</span>
+			{
+<span class="fc" id="L183">				buffer.append(ENTITIES_LIGHT.get(tokens.nextToken()));</span>
+			}
+		}
+<span class="fc" id="L186">		return buffer.toString();</span>
+	}
+}
+
+<span class="fc" id="L190">final class EntityMap</span>
+{
+<span class="fc" id="L192">	private final Map&lt;String, String&gt; map = new HashMap&lt;&gt;();</span>
+
+	/**
+	 * Get value
+	 * @param key
+	 * @return value
+	 */
+	String get(String key)
+	{
+<span class="fc" id="L201">		final String value = map.get(key);</span>
+
+<span class="fc bfc" id="L203" title="All 2 branches covered.">		return (value == null) ? key : value;</span>
+	}
+
+	/**
+	 * Put value in map
+	 * 
+	 * @param key
+	 * @param value
+	 */
+	void put(String key, String value)
+	{
+<span class="fc" id="L214">		map.put(key, value);</span>
+<span class="fc" id="L215">		map.put(value, key);</span>
+<span class="fc" id="L216">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

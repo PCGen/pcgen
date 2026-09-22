@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>StatBonusToken.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.lsttokens.equipmentmodifier.choose</a> &gt; <span class="el_source">StatBonusToken.java</span></div><h1>StatBonusToken.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2007 (C) Thomas Parker &lt;thpr@users.sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package plugin.lsttokens.equipmentmodifier.choose;
+
+import java.util.Collection;
+import java.util.StringTokenizer;
+
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.StringKey;
+import pcgen.core.EquipmentModifier;
+import pcgen.core.PCStat;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.ParseResult;
+import pcgen.util.Logging;
+
+<span class="nc" id="L32">public class StatBonusToken implements CDOMSecondaryToken&lt;EquipmentModifier&gt;</span>
+{
+
+	@Override
+	public String getTokenName()
+	{
+<span class="nc" id="L38">		return &quot;STATBONUS&quot;;</span>
+	}
+
+	@Override
+	public String getParentToken()
+	{
+<span class="nc" id="L44">		return &quot;CHOOSE&quot;;</span>
+	}
+
+	@Override
+	public ParseResult parseToken(LoadContext context, EquipmentModifier obj, String value)
+	{
+<span class="nc bnc" id="L50" title="All 2 branches missed.">		if (value == null)</span>
+		{
+<span class="nc" id="L52">			return new ParseResult.Fail(&quot;CHOOSE:&quot; + getTokenName() + &quot; requires additional arguments&quot;);</span>
+		}
+<span class="nc bnc" id="L54" title="All 2 branches missed.">		if (value.indexOf('[') != -1)</span>
+		{
+<span class="nc" id="L56">			return new ParseResult.Fail(&quot;CHOOSE:&quot; + getTokenName() + &quot; arguments may not contain [] : &quot; + value);</span>
+		}
+<span class="nc bnc" id="L58" title="All 2 branches missed.">		if (value.charAt(0) == '|')</span>
+		{
+<span class="nc" id="L60">			return new ParseResult.Fail(&quot;CHOOSE:&quot; + getTokenName() + &quot; arguments may not start with | : &quot; + value);</span>
+		}
+<span class="nc bnc" id="L62" title="All 2 branches missed.">		if (value.charAt(value.length() - 1) == '|')</span>
+		{
+<span class="nc" id="L64">			return new ParseResult.Fail(&quot;CHOOSE:&quot; + getTokenName() + &quot; arguments may not end with | : &quot; + value);</span>
+		}
+<span class="nc bnc" id="L66" title="All 2 branches missed.">		if (value.contains(&quot;||&quot;))</span>
+		{
+<span class="nc" id="L68">			return new ParseResult.Fail(&quot;CHOOSE:&quot; + getTokenName() + &quot; arguments uses double separator || : &quot; + value);</span>
+		}
+<span class="nc" id="L70">		int pipeLoc = value.indexOf(Constants.PIPE);</span>
+<span class="nc bnc" id="L71" title="All 2 branches missed.">		if (pipeLoc == -1)</span>
+		{
+<span class="nc" id="L73">			return new ParseResult.Fail(</span>
+<span class="nc" id="L74">				&quot;CHOOSE:&quot; + getTokenName() + &quot; must have two or more | delimited arguments : &quot; + value);</span>
+		}
+<span class="nc" id="L76">		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);</span>
+<span class="nc" id="L77">		Collection&lt;PCStat&gt; list = context.getReferenceContext().getConstructedCDOMObjects(PCStat.class);</span>
+<span class="nc" id="L78">		Integer min = null;</span>
+<span class="nc" id="L79">		Integer max = null;</span>
+<span class="nc bnc" id="L80" title="All 2 branches missed.">		while (tok.hasMoreTokens())</span>
+		{
+<span class="nc" id="L82">			String tokString = tok.nextToken();</span>
+<span class="nc bnc" id="L83" title="All 2 branches missed.">			if (tokString.startsWith(&quot;MIN=&quot;))</span>
+			{
+<span class="nc" id="L85">				min = Integer.valueOf(tokString.substring(4));</span>
+				// OK
+			}
+<span class="nc bnc" id="L88" title="All 2 branches missed.">			else if (tokString.startsWith(&quot;MAX=&quot;))</span>
+			{
+<span class="nc" id="L90">				max = Integer.valueOf(tokString.substring(4));</span>
+				// OK
+			}
+<span class="nc bnc" id="L93" title="All 2 branches missed.">			else if (tokString.startsWith(&quot;TITLE=&quot;))</span>
+			{
+<span class="nc" id="L95">				Logging.debugPrint(&quot;Do not process TITLE=&quot;);</span>
+			}
+<span class="nc bnc" id="L97" title="All 2 branches missed.">			else if (tokString.startsWith(&quot;INCREMENT=&quot;))</span>
+			{
+				// OK
+<span class="nc" id="L100">				Integer.parseInt(tokString.substring(4));</span>
+			}
+			else
+			{
+				// Ensure this is a primitive STAT
+<span class="nc" id="L105">				boolean found = false;</span>
+<span class="nc bnc" id="L106" title="All 2 branches missed.">				for (PCStat stat : list)</span>
+				{
+<span class="nc bnc" id="L108" title="All 2 branches missed.">					if (tokString.equals(stat.getKeyName()))</span>
+					{
+<span class="nc" id="L110">						found = true;</span>
+<span class="nc" id="L111">						break;</span>
+					}
+<span class="nc" id="L113">				}</span>
+<span class="nc bnc" id="L114" title="All 2 branches missed.">				if (!found)</span>
+				{
+<span class="nc" id="L116">					return new ParseResult.Fail(</span>
+						&quot;Did not find STAT: &quot; + tokString + &quot; used in CHOOSE:STATBONUS &quot; + value);
+				}
+			}
+<span class="nc" id="L120">		}</span>
+<span class="nc bnc" id="L121" title="All 2 branches missed.">		if (max == null)</span>
+		{
+<span class="nc bnc" id="L123" title="All 2 branches missed.">			if (min != null)</span>
+			{
+<span class="nc" id="L125">				return new ParseResult.Fail(&quot;Cannot have MIN=n without MAX=m in CHOOSE:STATBONUS: &quot; + value);</span>
+			}
+		}
+		else
+		{
+<span class="nc bnc" id="L130" title="All 2 branches missed.">			if (min == null)</span>
+			{
+<span class="nc" id="L132">				return new ParseResult.Fail(&quot;Cannot have MAX=n without MIN=m in CHOOSE:STATBONUS: &quot; + value);</span>
+			}
+<span class="nc bnc" id="L134" title="All 2 branches missed.">			if (max &lt; min)</span>
+			{
+<span class="nc" id="L136">				return new ParseResult.Fail(&quot;Cannot have MAX= less than MIN= in CHOOSE:STATBONUS: &quot; + value);</span>
+			}
+		}
+<span class="nc" id="L139">		context.getObjectContext().put(obj, StringKey.CHOICE_STRING, getTokenName() + '|' + value);</span>
+<span class="nc" id="L140">		return ParseResult.SUCCESS;</span>
+	}
+
+	@Override
+	public String[] unparse(LoadContext context, EquipmentModifier eqMod)
+	{
+<span class="nc" id="L146">		String chooseString = context.getObjectContext().getString(eqMod, StringKey.CHOICE_STRING);</span>
+<span class="nc bnc" id="L147" title="All 4 branches missed.">		if (chooseString == null || !chooseString.contains(getTokenName() + '|'))</span>
+		{
+<span class="nc" id="L149">			return null;</span>
+		}
+<span class="nc" id="L151">		return new String[]{chooseString.substring(getTokenName().length() + 1)};</span>
+	}
+
+	@Override
+	public Class&lt;EquipmentModifier&gt; getTokenClass()
+	{
+<span class="nc" id="L157">		return EquipmentModifier.class;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

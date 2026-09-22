@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CharacterHPDialog.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.gui2.dialog</a> &gt; <span class="el_source">CharacterHPDialog.java</span></div><h1>CharacterHPDialog.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2010 Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ * 
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ * 
+ */
+package pcgen.gui2.dialog;
+
+import java.awt.BorderLayout;
+import java.awt.Component;
+import java.awt.Container;
+import java.awt.Frame;
+import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+import javax.swing.AbstractCellEditor;
+import javax.swing.Box;
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.AbstractTableModel;
+import javax.swing.table.JTableHeader;
+import javax.swing.table.TableCellEditor;
+import javax.swing.table.TableCellRenderer;
+
+import pcgen.core.PCClass;
+import pcgen.core.RollingMethods;
+import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.core.CharacterLevelFacade;
+import pcgen.facade.core.CharacterLevelsFacade;
+import pcgen.facade.core.CharacterLevelsFacade.CharacterLevelEvent;
+import pcgen.facade.core.CharacterLevelsFacade.HitPointListener;
+import pcgen.facade.util.ReferenceFacade;
+import pcgen.facade.util.event.ReferenceListener;
+import pcgen.gui2.tools.Utility;
+import pcgen.gui2.util.table.IntegerEditor;
+
+import org.apache.commons.lang3.math.NumberUtils;
+
+public final class CharacterHPDialog extends JDialog implements ActionListener
+{
+
+	private final CharacterFacade character;
+	private final CharacterLevelsFacade levels;
+	private final JLabel totalHp;
+	private final HPTableModel tableModel;
+
+	private CharacterHPDialog(Frame frame, CharacterFacade character)
+	{
+<span class="nc" id="L68">		super(frame, true);</span>
+<span class="nc" id="L69">		this.character = character;</span>
+<span class="nc" id="L70">		this.levels = character.getCharacterLevelsFacade();</span>
+<span class="nc" id="L71">		this.totalHp = new JLabel();</span>
+<span class="nc" id="L72">		this.tableModel = new HPTableModel();</span>
+<span class="nc" id="L73">		initComponents();</span>
+<span class="nc" id="L74">		pack();</span>
+<span class="nc" id="L75">	}</span>
+
+	public static void showHPDialog(Component parent, CharacterFacade character)
+	{
+<span class="nc" id="L79">		Frame frame = JOptionPane.getFrameForComponent(parent);</span>
+<span class="nc" id="L80">		CharacterHPDialog dialog = new CharacterHPDialog(frame, character);</span>
+<span class="nc" id="L81">		dialog.setLocationRelativeTo(frame);</span>
+<span class="nc" id="L82">		dialog.setVisible(true);</span>
+<span class="nc" id="L83">	}</span>
+
+	private void initComponents()
+	{
+<span class="nc" id="L87">		setDefaultCloseOperation(DISPOSE_ON_CLOSE);</span>
+
+<span class="nc" id="L89">		Container pane = getContentPane();</span>
+<span class="nc" id="L90">		pane.setLayout(new BorderLayout());</span>
+<span class="nc" id="L91">		JTable table = new JTable(tableModel)</span>
+<span class="nc" id="L92">		{</span>
+
+			@Override
+			public TableCellEditor getCellEditor(int row, int column)
+			{
+<span class="nc bnc" id="L97" title="All 2 branches missed.">				if (column == 5)</span>
+				{//TODO: the max roll should be calculated in a different manner
+<span class="nc" id="L99">					String hd = levels.getClassTaken(levels.getElementAt(row)).getHD();</span>
+<span class="nc" id="L100">					int max = NumberUtils.toInt(hd);</span>
+<span class="nc" id="L101">					return new IntegerEditor(1, max);</span>
+				}
+				else
+				{
+<span class="nc" id="L105">					return super.getCellEditor(row, column);</span>
+				}
+			}
+
+		};
+<span class="nc" id="L110">		table.setDefaultRenderer(JButton.class, new Renderer());</span>
+<span class="nc" id="L111">		table.setDefaultEditor(JButton.class, new Editor());</span>
+<span class="nc" id="L112">		table.setCellSelectionEnabled(false);</span>
+<span class="nc" id="L113">		table.setRowHeight(new IntegerEditor(1, 10).getPreferredSize().height);</span>
+<span class="nc" id="L114">		JTableHeader header = table.getTableHeader();</span>
+<span class="nc" id="L115">		header.setReorderingAllowed(false);</span>
+
+<span class="nc" id="L117">		JScrollPane scrollPane = new JScrollPane(table);</span>
+<span class="nc" id="L118">		pane.add(scrollPane, BorderLayout.CENTER);</span>
+
+<span class="nc" id="L120">		Box box = Box.createHorizontalBox();</span>
+<span class="nc" id="L121">		box.add(new JLabel(&quot;Total Hp:&quot;));</span>
+<span class="nc" id="L122">		box.add(Box.createHorizontalStrut(3));</span>
+
+<span class="nc" id="L124">		final ReferenceListener&lt;Integer&gt; hpListener = e -&gt; totalHp.setText(e.getNewReference().toString());</span>
+<span class="nc" id="L125">		ReferenceFacade&lt;Integer&gt; hpRef = character.getTotalHPRef();</span>
+<span class="nc" id="L126">		totalHp.setText(hpRef.get().toString());</span>
+<span class="nc" id="L127">		hpRef.addReferenceListener(hpListener);</span>
+<span class="nc" id="L128">		box.add(totalHp);</span>
+<span class="nc" id="L129">		box.add(Box.createHorizontalStrut(5));</span>
+
+<span class="nc" id="L131">		JButton button = new JButton(&quot;Reroll All&quot;);</span>
+<span class="nc" id="L132">		button.setActionCommand(&quot;Reroll&quot;);</span>
+<span class="nc" id="L133">		button.addActionListener(this);</span>
+<span class="nc" id="L134">		box.add(button);</span>
+
+<span class="nc" id="L136">		box.add(Box.createHorizontalGlue());</span>
+<span class="nc" id="L137">		button = new JButton(&quot;Close&quot;);</span>
+<span class="nc" id="L138">		button.setActionCommand(&quot;Close&quot;);</span>
+<span class="nc" id="L139">		button.addActionListener(this);</span>
+<span class="nc" id="L140">		box.add(button);</span>
+<span class="nc" id="L141">		pane.add(box, BorderLayout.SOUTH);</span>
+<span class="nc" id="L142">		addWindowListener(new WindowAdapter()</span>
+<span class="nc" id="L143">		{</span>
+
+			@Override
+			public void windowClosed(WindowEvent e)
+			{
+				//Make sure to remove the listeners so that the garbage collector can
+				//dispose of this dialog and prevent a memory leak
+<span class="nc" id="L150">				levels.removeHitPointListener(tableModel);</span>
+<span class="nc" id="L151">				character.getTotalHPRef().removeReferenceListener(hpListener);</span>
+<span class="nc" id="L152">			}</span>
+
+		});
+
+<span class="nc" id="L156">		Utility.installEscapeCloseOperation(this);</span>
+<span class="nc" id="L157">	}</span>
+
+	@Override
+	public void actionPerformed(ActionEvent e)
+	{
+<span class="nc bnc" id="L162" title="All 2 branches missed.">		if (e.getActionCommand().equals(&quot;Reroll&quot;))</span>
+		{
+<span class="nc bnc" id="L164" title="All 2 branches missed.">			for (int l = 0; l &lt; levels.getSize(); l++)</span>
+			{
+<span class="nc" id="L166">				CharacterLevelFacade level = levels.getElementAt(l);</span>
+<span class="nc" id="L167">				int i = Integer.parseInt(levels.getClassTaken(level).getHD());</span>
+<span class="nc" id="L168">				int rolled = RollingMethods.roll(i);</span>
+<span class="nc" id="L169">				levels.setHPRolled(level, rolled);</span>
+			}
+<span class="nc" id="L171">			return;</span>
+		}
+<span class="nc" id="L173">		dispose();</span>
+<span class="nc" id="L174">	}</span>
+
+	private class HPTableModel extends AbstractTableModel implements HitPointListener
+	{
+
+		HPTableModel()
+<span class="nc" id="L180">		{</span>
+<span class="nc" id="L181">			levels.addHitPointListener(this);</span>
+<span class="nc" id="L182">		}</span>
+
+		@Override
+		public int getRowCount()
+		{
+<span class="nc" id="L187">			return levels.getSize();</span>
+		}
+
+		@Override
+		public int getColumnCount()
+		{
+<span class="nc" id="L193">			return 7;</span>
+		}
+
+		@Override
+		public boolean isCellEditable(int rowIndex, int columnIndex)
+		{
+<span class="nc bnc" id="L199" title="All 2 branches missed.">			return switch (columnIndex)</span>
+					{
+<span class="nc" id="L201">						case 5, 6 -&gt; true;</span>
+<span class="nc" id="L202">						default -&gt; false;</span>
+					};
+		}
+
+		@Override
+		public Class&lt;?&gt; getColumnClass(int columnIndex)
+		{
+<span class="nc bnc" id="L209" title="All 3 branches missed.">			return switch (columnIndex)</span>
+					{
+<span class="nc" id="L211">						case 0, 3, 4, 5 -&gt; Integer.class;</span>
+<span class="nc" id="L212">						case 6 -&gt; JButton.class;</span>
+<span class="nc" id="L213">						default -&gt; Object.class;</span>
+					};
+		}
+
+		@Override
+		public String getColumnName(int column)
+		{
+<span class="nc bnc" id="L220" title="All 7 branches missed.">			return switch (column)</span>
+					{
+<span class="nc" id="L222">						case 0 -&gt; &quot;Level&quot;;</span>
+<span class="nc" id="L223">						case 1 -&gt; &quot;Class&quot;;</span>
+<span class="nc" id="L224">						case 2 -&gt; &quot;Sides&quot;;</span>
+<span class="nc" id="L225">						case 3 -&gt; &quot;Total&quot;;</span>
+<span class="nc" id="L226">						case 4 -&gt; &quot;Adj&quot;;</span>
+<span class="nc" id="L227">						case 5 -&gt; &quot;Rolled&quot;;</span>
+<span class="nc" id="L228">						default -&gt; &quot;Reroll&quot;;</span>
+					};
+		}
+
+		@Override
+		public Object getValueAt(int rowIndex, int columnIndex)
+		{
+<span class="nc" id="L235">			CharacterLevelFacade level = levels.getElementAt(rowIndex);</span>
+<span class="nc" id="L236">			PCClass c = levels.getClassTaken(level);</span>
+<span class="nc bnc" id="L237" title="All 7 branches missed.">			return switch (columnIndex)</span>
+					{
+<span class="nc" id="L239">						case 0 -&gt; rowIndex + 1;</span>
+<span class="nc" id="L240">						case 1 -&gt; c;</span>
+<span class="nc" id="L241">						case 2 -&gt; c.getHD();</span>
+<span class="nc" id="L242">						case 3 -&gt; levels.getHPGained(level);</span>
+<span class="nc" id="L243">						case 4 -&gt; levels.getHPGained(level) - levels.getHPRolled(level);</span>
+<span class="nc" id="L244">						case 5 -&gt; levels.getHPRolled(level);</span>
+<span class="nc" id="L245">						default -&gt; null;</span>
+					};
+		}
+
+		@Override
+		public void setValueAt(Object aValue, int rowIndex, int columnIndex)
+		{
+<span class="nc" id="L252">			CharacterLevelFacade level = levels.getElementAt(rowIndex);</span>
+<span class="nc" id="L253">			levels.setHPRolled(level, (Integer) aValue);</span>
+<span class="nc" id="L254">		}</span>
+
+		@Override
+		public void hitPointsChanged(CharacterLevelEvent e)
+		{
+<span class="nc" id="L259">			fireTableRowsUpdated(e.getBaseLevelIndex(), e.getBaseLevelIndex());</span>
+<span class="nc" id="L260">		}</span>
+
+	}
+
+	private static class Renderer implements TableCellRenderer
+	{
+
+<span class="nc" id="L267">		private final JButton button = new JButton();</span>
+
+		Renderer()
+<span class="nc" id="L270">		{</span>
+<span class="nc" id="L271">			button.setMargin(new Insets(0, 0, 0, 0));</span>
+<span class="nc" id="L272">			button.setText(&quot;Reroll&quot;);</span>
+<span class="nc" id="L273">		}</span>
+
+		@Override
+		public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus,
+			int row, int column)
+		{
+<span class="nc" id="L279">			return button;</span>
+		}
+
+	}
+
+	private class Editor extends AbstractCellEditor implements TableCellEditor, ActionListener
+	{
+
+<span class="nc" id="L287">		private final JButton button = new JButton();</span>
+		private int editingRow;
+
+		Editor()
+<span class="nc" id="L291">		{</span>
+<span class="nc" id="L292">			button.setMargin(new Insets(0, 0, 0, 0));</span>
+<span class="nc" id="L293">			button.setText(&quot;Reroll&quot;);</span>
+<span class="nc" id="L294">			button.addActionListener(this);</span>
+<span class="nc" id="L295">		}</span>
+
+		@Override
+		public Object getCellEditorValue()
+		{
+<span class="nc" id="L300">			return null;</span>
+		}
+
+		@Override
+		public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected, int row,
+			int column)
+		{
+<span class="nc" id="L307">			editingRow = row;</span>
+<span class="nc" id="L308">			return button;</span>
+		}
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+<span class="nc" id="L314">			CharacterLevelFacade level = levels.getElementAt(editingRow);</span>
+<span class="nc" id="L315">			int i = Integer.parseInt(levels.getClassTaken(level).getHD());</span>
+<span class="nc" id="L316">			int rolled = RollingMethods.roll(i);</span>
+<span class="nc" id="L317">			levels.setHPRolled(level, rolled);</span>
+<span class="nc" id="L318">			cancelCellEditing();</span>
+<span class="nc" id="L319">		}</span>
+
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

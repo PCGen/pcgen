@@ -1,0 +1,662 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CharacterAbilities.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.gui2.facade</a> &gt; <span class="el_source">CharacterAbilities.java</span></div><h1>CharacterAbilities.java</h1><pre class="source lang-java linenums">/**
+ * Copyright James Dempsey, 2011
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.gui2.facade;
+
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import javax.swing.SwingUtilities;
+
+import pcgen.cdom.base.Category;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.content.CNAbility;
+import pcgen.cdom.content.CNAbilityFactory;
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.Nature;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.GrantedAbilityFacet;
+import pcgen.cdom.facet.event.DataFacetChangeEvent;
+import pcgen.cdom.facet.event.DataFacetChangeListener;
+import pcgen.cdom.helper.CNAbilitySelection;
+import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
+import pcgen.core.AbilityUtilities;
+import pcgen.core.Globals;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.RuleConstants;
+import pcgen.core.display.CharacterDisplay;
+import pcgen.core.utils.MessageType;
+import pcgen.core.utils.ShowMessageDelegate;
+import pcgen.facade.core.AbilityFacade;
+import pcgen.facade.core.DataSetFacade;
+import pcgen.facade.core.UIDelegate;
+import pcgen.facade.util.DefaultListFacade;
+import pcgen.facade.util.ListFacade;
+import pcgen.facade.util.event.ChangeEvent;
+import pcgen.facade.util.event.ChangeListener;
+import pcgen.system.LanguageBundle;
+import pcgen.util.Logging;
+import pcgen.util.enumeration.Tab;
+import pcgen.util.enumeration.View;
+
+/**
+ * The Class {@code CharacterAbilities} manages the interaction between
+ * the core and the user interface for abilities. It listens for changes in 
+ * abilities in the core and then updates the lists provided to the UI to
+ * reflect the changes. The lists automatically notify any listeners in the 
+ * UI of the changes.
+ *   
+ * 
+ * 
+ */
+public class CharacterAbilities
+{
+
+	private final PlayerCharacter theCharacter;
+	private final CharacterDisplay charDisplay;
+	private final UIDelegate delegate;
+
+	private Map&lt;AbilityCategory, DefaultListFacade&lt;AbilityFacade&gt;&gt; abilityListMap;
+	private DefaultListFacade&lt;AbilityCategory&gt; activeCategories;
+	private CharID charID;
+	private final DataSetFacade dataSetFacade;
+	private final List&lt;ChangeListener&gt; abilityCatSelectionListeners;
+	private final TodoManager todoManager;
+	private GrantedAbilityChangeHandler grantedAbilityChangeHandler;
+
+	/**
+	 * Create a new instance of CharacterAbilities for a character.
+	 * @param pc The character we are tracking abilities for.
+	 * @param delegate The user interface delegate for notifying the user.
+	 * @param dataSetFacade The datasets that the character is using.
+	 * @param todoManager The user tasks tracker.
+	 */
+	public CharacterAbilities(PlayerCharacter pc, UIDelegate delegate, DataSetFacade dataSetFacade,
+		TodoManager todoManager)
+<span class="nc" id="L97">	{</span>
+<span class="nc" id="L98">		theCharacter = pc;</span>
+<span class="nc" id="L99">		charDisplay = pc.getDisplay();</span>
+<span class="nc" id="L100">		this.delegate = delegate;</span>
+<span class="nc" id="L101">		this.dataSetFacade = dataSetFacade;</span>
+<span class="nc" id="L102">		this.todoManager = todoManager;</span>
+<span class="nc" id="L103">		abilityCatSelectionListeners = new ArrayList&lt;&gt;();</span>
+
+<span class="nc" id="L105">		initForCharacter();</span>
+<span class="nc" id="L106">	}</span>
+
+	/**
+	 * Tidy up character listeners when closing the character. 
+	 */
+	protected void closeCharacter()
+	{
+<span class="nc" id="L113">		GrantedAbilityFacet grantedAbilityFacet = FacetLibrary.getFacet(GrantedAbilityFacet.class);</span>
+<span class="nc" id="L114">		grantedAbilityFacet.removeDataFacetChangeListener(grantedAbilityChangeHandler);</span>
+<span class="nc" id="L115">	}</span>
+
+	private void initForCharacter()
+	{
+<span class="nc" id="L119">		abilityListMap = new LinkedHashMap&lt;&gt;();</span>
+<span class="nc" id="L120">		activeCategories = new DefaultListFacade&lt;&gt;();</span>
+
+<span class="nc" id="L122">		charID = theCharacter.getCharID();</span>
+<span class="nc" id="L123">		GrantedAbilityFacet grantedAbilityFacet = FacetLibrary.getFacet(GrantedAbilityFacet.class);</span>
+
+		//theCharacter.getAbilityList(cat, nature)
+<span class="nc" id="L126">		rebuildAbilityLists();</span>
+
+<span class="nc" id="L128">		grantedAbilityChangeHandler = new GrantedAbilityChangeHandler();</span>
+<span class="nc" id="L129">		grantedAbilityFacet.addDataFacetChangeListener(grantedAbilityChangeHandler);</span>
+<span class="nc" id="L130">	}</span>
+
+	/**
+	 * Rebuild the ability lists for the character to include the character's 
+	 * current abilities.
+	 */
+	synchronized void rebuildAbilityLists()
+	{
+<span class="nc" id="L138">		Map&lt;AbilityCategory, DefaultListFacade&lt;AbilityFacade&gt;&gt; workingAbilityListMap = new LinkedHashMap&lt;&gt;();</span>
+<span class="nc" id="L139">		DefaultListFacade&lt;AbilityCategory&gt; workingActiveCategories = new DefaultListFacade&lt;&gt;();</span>
+
+<span class="nc bnc" id="L141" title="All 2 branches missed.">		for (AbilityCategory category : dataSetFacade.getAbilities().getKeys())</span>
+		{
+<span class="nc bnc" id="L143" title="All 2 branches missed.">			for (CNAbility cna : theCharacter.getPoolAbilities(category))</span>
+			{
+<span class="nc" id="L145">				addCategorisedAbility(cna, workingAbilityListMap);</span>
+<span class="nc" id="L146">			}</span>
+
+			// deal with visibility
+<span class="nc" id="L149">			boolean visible = category.isVisibleTo(theCharacter, View.VISIBLE_DISPLAY);</span>
+
+<span class="nc bnc" id="L151" title="All 4 branches missed.">			if (visible &amp;&amp; !workingActiveCategories.containsElement(category))</span>
+			{
+<span class="nc" id="L153">				int index = getCatIndex(category, workingActiveCategories);</span>
+<span class="nc" id="L154">				workingActiveCategories.addElement(index, category);</span>
+			}
+<span class="nc bnc" id="L156" title="All 4 branches missed.">			if (!visible &amp;&amp; workingActiveCategories.containsElement(category))</span>
+			{
+<span class="nc" id="L158">				workingActiveCategories.removeElement(category);</span>
+				//				updateAbilityCategoryTodo(cat);
+			}
+
+<span class="nc bnc" id="L162" title="All 2 branches missed.">			if (visible)</span>
+			{
+<span class="nc" id="L164">				adviseSelectionChangeLater(category);</span>
+			}
+<span class="nc" id="L166">		}</span>
+
+		// Update map contents
+<span class="nc" id="L169">		workingAbilityListMap.forEach((category, workingListFacade) -&gt; {</span>
+<span class="nc" id="L170">			DefaultListFacade&lt;AbilityFacade&gt; masterListFacade = abilityListMap.get(category);</span>
+<span class="nc bnc" id="L171" title="All 2 branches missed.">			if (masterListFacade == null)</span>
+			{
+<span class="nc" id="L173">				abilityListMap.put(category, workingListFacade);</span>
+			}
+			else
+			{
+<span class="nc" id="L177">				masterListFacade.updateContentsNoOrder(workingListFacade.getContents());</span>
+			}
+<span class="nc" id="L179">			updateAbilityCategoryTodo(category);</span>
+<span class="nc" id="L180">		});</span>
+
+<span class="nc" id="L182">		Set&lt;AbilityCategory&gt; origCats = new HashSet&lt;&gt;(abilityListMap.keySet());</span>
+<span class="nc bnc" id="L183" title="All 2 branches missed.">		for (AbilityCategory category : origCats)</span>
+		{
+<span class="nc bnc" id="L185" title="All 2 branches missed.">			if (!workingAbilityListMap.containsKey(category))</span>
+			{
+<span class="nc bnc" id="L187" title="All 2 branches missed.">				if (workingActiveCategories.containsElement(category))</span>
+				{
+<span class="nc" id="L189">					abilityListMap.get(category).clearContents();</span>
+				}
+				else
+				{
+<span class="nc" id="L193">					abilityListMap.remove(category);</span>
+				}
+<span class="nc" id="L195">				updateAbilityCategoryTodo(category);</span>
+			}
+<span class="nc" id="L197">		}</span>
+<span class="nc" id="L198">		activeCategories.updateContents(workingActiveCategories.getContents());</span>
+<span class="nc" id="L199">	}</span>
+
+	private void updateAbilityCategoryTodo(Category&lt;Ability&gt; cat)
+	{
+<span class="nc bnc" id="L203" title="All 2 branches missed.">		if (!(cat instanceof AbilityCategory category))</span>
+		{
+<span class="nc" id="L205">			return;</span>
+		}
+
+<span class="nc" id="L208">		int numSelections = theCharacter.getAvailableAbilityPool(category).intValue();</span>
+<span class="nc bnc" id="L209" title="All 2 branches missed.">		if (category.getVisibility().isVisibleTo(View.HIDDEN_DISPLAY))</span>
+		{
+			// Hide todos for categories that should not be displayed
+<span class="nc" id="L212">			numSelections = 0;</span>
+		}
+
+<span class="nc bnc" id="L215" title="All 2 branches missed.">		if (numSelections &lt; 0)</span>
+		{
+<span class="nc" id="L217">			todoManager.addTodo(</span>
+<span class="nc" id="L218">				new TodoFacadeImpl(Tab.ABILITIES, category.getDisplayName(), &quot;in_featTodoTooMany&quot;, //$NON-NLS-1$</span>
+<span class="nc" id="L219">				category.getType(), 1));</span>
+<span class="nc" id="L220">			todoManager.removeTodo(&quot;in_featTodoRemain&quot;, category.getDisplayName()); //$NON-NLS-1$</span>
+		}
+<span class="nc bnc" id="L222" title="All 2 branches missed.">		else if (numSelections &gt; 0)</span>
+		{
+<span class="nc" id="L224">			todoManager.addTodo(</span>
+<span class="nc" id="L225">				new TodoFacadeImpl(Tab.ABILITIES, category.getDisplayName(), &quot;in_featTodoRemain&quot;, //$NON-NLS-1$</span>
+<span class="nc" id="L226">				category.getType(), 1));</span>
+<span class="nc" id="L227">			todoManager.removeTodo(&quot;in_featTodoTooMany&quot;, category.getDisplayName()); //$NON-NLS-1$</span>
+		}
+		else
+		{
+<span class="nc" id="L231">			todoManager.removeTodo(&quot;in_featTodoRemain&quot;, category.getDisplayName()); //$NON-NLS-1$</span>
+<span class="nc" id="L232">			todoManager.removeTodo(&quot;in_featTodoTooMany&quot;, category.getDisplayName()); //$NON-NLS-1$</span>
+		}
+<span class="nc" id="L234">	}</span>
+
+	/**
+	 * Determine where the ability category should be added to the active 
+	 * category list. This will keep the activate categories in the same sort 
+	 * order as the activity category list. 
+	 * @param abilityCategory The category being added 
+	 * @return The index at which to insert the category.
+	 */
+	private int getCatIndex(AbilityCategory abilityCategory, ListFacade&lt;AbilityCategory&gt; catList)
+	{
+<span class="nc" id="L245">		Set&lt;AbilityCategory&gt; allCategories = dataSetFacade.getAbilities().getKeys();</span>
+<span class="nc" id="L246">		int index = 0;</span>
+<span class="nc bnc" id="L247" title="All 2 branches missed.">		for (AbilityCategory compCat : allCategories)</span>
+		{
+<span class="nc bnc" id="L249" title="All 4 branches missed.">			if (compCat == abilityCategory || index &gt;= catList.getSize())</span>
+			{
+<span class="nc" id="L251">				break;</span>
+			}
+<span class="nc bnc" id="L253" title="All 2 branches missed.">			if (catList.getElementAt(index) == compCat)</span>
+			{
+<span class="nc" id="L255">				index++;</span>
+			}
+<span class="nc" id="L257">		}</span>
+<span class="nc" id="L258">		return index;</span>
+	}
+
+	/**
+	 * Add the ability to the categorized list held by CharacterAbilities. 
+	 * One copy will be added for each choice.
+	 * @param cna 
+	 * @param workingAbilityListMap The map to be adjusted.
+	 */
+	private void addCategorisedAbility(CNAbility cna,
+		Map&lt;AbilityCategory, DefaultListFacade&lt;AbilityFacade&gt;&gt; workingAbilityListMap)
+	{
+<span class="nc" id="L270">		Ability ability = cna.getAbility();</span>
+<span class="nc" id="L271">		List&lt;CNAbilitySelection&gt; cas = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L272">		Category&lt;Ability&gt; cat = cna.getAbilityCategory();</span>
+<span class="nc" id="L273">		Nature nature = cna.getNature();</span>
+<span class="nc bnc" id="L274" title="All 2 branches missed.">		if (ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))</span>
+		{
+<span class="nc" id="L276">			List&lt;String&gt; choices = theCharacter.getAssociationList(cna);</span>
+<span class="nc bnc" id="L277" title="All 4 branches missed.">			if (choices == null || choices.isEmpty())</span>
+			{
+<span class="nc" id="L279">				Logging.errorPrint(&quot;Ignoring Ability: &quot; + ability + &quot; (&quot; + cat + &quot; / &quot; + nature</span>
+					+ &quot;) that UI has as added to the PC, but it has no associations&quot;);
+			}
+			else
+			{
+<span class="nc bnc" id="L284" title="All 2 branches missed.">				for (String choice : choices)</span>
+				{
+<span class="nc" id="L286">					cas.add(new CNAbilitySelection(CNAbilityFactory.getCNAbility(cat, nature, ability), choice));</span>
+<span class="nc" id="L287">				}</span>
+			}
+<span class="nc" id="L289">		}</span>
+		else
+		{
+<span class="nc" id="L292">			cas.add(new CNAbilitySelection(CNAbilityFactory.getCNAbility(cat, nature, ability)));</span>
+		}
+<span class="nc bnc" id="L294" title="All 2 branches missed.">		for (CNAbilitySelection sel : cas)</span>
+		{
+<span class="nc" id="L296">			addElement(workingAbilityListMap, sel);</span>
+<span class="nc" id="L297">		}</span>
+<span class="nc" id="L298">	}</span>
+
+	/**
+	 * Process a request by the user to add an ability. The user will be informed 
+	 * if the request cannot be allowed. Updates to the displayed lists are 
+	 * handled by events (see initForCharacter).
+	 * 
+	 * @param category The category in which the ability s bing added.
+	 * @param abilityFacade The ability to be added.
+	 */
+	public void addAbility(AbilityCategory category, AbilityFacade abilityFacade)
+	{
+<span class="nc bnc" id="L310" title="All 6 branches missed.">		if (abilityFacade == null || !(abilityFacade instanceof Ability ability) || category == null)</span>
+		{
+<span class="nc" id="L312">			return;</span>
+		}
+
+<span class="nc bnc" id="L315" title="All 2 branches missed.">		if (!checkAbilityQualify(ability, category))</span>
+		{
+<span class="nc" id="L317">			return;</span>
+		}
+
+		// we can only be here if the PC can add the ability
+		try
+		{
+<span class="nc" id="L323">			theCharacter.setDirty(true);</span>
+
+<span class="nc" id="L325">			theCharacter.getSpellList();</span>
+
+<span class="nc" id="L327">			CNAbility cna = CNAbilityFactory.getCNAbility(category, Nature.NORMAL, ability);</span>
+<span class="nc" id="L328">			AbilityUtilities.driveChooseAndAdd(cna, theCharacter, true);</span>
+		}
+<span class="nc" id="L330">		catch (Exception exc)</span>
+		{
+<span class="nc" id="L332">			Logging.errorPrint(&quot;Failed to add ability due to &quot;, exc);</span>
+<span class="nc" id="L333">			ShowMessageDelegate.showMessageDialog(</span>
+<span class="nc" id="L334">				LanguageBundle.getFormattedString(&quot;in_iayAddAbility&quot;, exc.getMessage()), //$NON-NLS-1$</span>
+				Constants.APPLICATION_NAME, MessageType.ERROR);
+<span class="nc" id="L336">		}</span>
+
+		// Recalc the innate spell list
+<span class="nc" id="L339">		theCharacter.getSpellList();</span>
+
+<span class="nc" id="L341">		theCharacter.calcActiveBonuses();</span>
+
+		// update the ability info
+<span class="nc" id="L344">		rebuildAbilityLists();</span>
+<span class="nc" id="L345">	}</span>
+
+	/**
+	 * Process a request by the user to remove an ability. The user will be  
+	 * informed if the request cannot be allowed. Updates to the displayed 
+	 * lists are handled by events (see initForCharacter).
+	 * 
+	 * @param theCategory The category from which the ability is being removed.
+	 * @param abilityFacade The ability to be removed.
+	 */
+	public void removeAbility(AbilityCategory theCategory, AbilityFacade abilityFacade)
+	{
+<span class="nc bnc" id="L357" title="All 6 branches missed.">		if (abilityFacade == null || !(abilityFacade instanceof Ability anAbility) || theCategory == null)</span>
+		{
+<span class="nc" id="L359">			return;</span>
+		}
+
+		try
+		{
+<span class="nc" id="L364">			Ability pcAbility = theCharacter.getMatchingAbility(theCategory, anAbility, Nature.NORMAL);</span>
+
+<span class="nc bnc" id="L366" title="All 2 branches missed.">			if (pcAbility != null)</span>
+			{
+<span class="nc" id="L368">				CNAbility cna = CNAbilityFactory.getCNAbility(theCategory, Nature.NORMAL, anAbility);</span>
+<span class="nc" id="L369">				AbilityUtilities.driveChooseAndAdd(cna, theCharacter, false);</span>
+<span class="nc" id="L370">				theCharacter.adjustMoveRates();</span>
+			}
+		}
+<span class="nc" id="L373">		catch (Exception exc)</span>
+		{
+<span class="nc" id="L375">			Logging.errorPrintLocalised(&quot;in_iayFailedToRemoveAbility&quot;, exc); //$NON-NLS-1$</span>
+<span class="nc" id="L376">			delegate.showErrorMessage(</span>
+<span class="nc" id="L377">				Constants.APPLICATION_NAME, LanguageBundle.getString(&quot;in_iayRemoveAbility&quot;) //$NON-NLS-1$</span>
+<span class="nc" id="L378">				+ &quot;: &quot; + exc.getMessage());</span>
+<span class="nc" id="L379">			return;</span>
+<span class="nc" id="L380">		}</span>
+
+<span class="nc" id="L382">		theCharacter.calcActiveBonuses();</span>
+
+		// update the ability info
+<span class="nc" id="L385">		rebuildAbilityLists();</span>
+<span class="nc" id="L386">	}</span>
+
+	/**
+	 * Retrieve the list of abilities for this category. The list
+	 * will be updated when abilities are added and removed.
+	 *  
+	 * @param category The ability category to be retrieved.
+	 * @return The list of abilities.
+	 */
+	public ListFacade&lt;AbilityFacade&gt; getAbilities(AbilityCategory category)
+	{
+<span class="nc" id="L397">		DefaultListFacade&lt;AbilityFacade&gt; abList = abilityListMap.get(category);</span>
+<span class="nc bnc" id="L398" title="All 2 branches missed.">		if (abList == null)</span>
+		{
+<span class="nc" id="L400">			abList = new DefaultListFacade&lt;&gt;();</span>
+<span class="nc" id="L401">			abilityListMap.put(category, abList);</span>
+		}
+<span class="nc" id="L403">		return abList;</span>
+	}
+
+	/**
+	 * @return The list of active ability categories.
+	 */
+	public ListFacade&lt;AbilityCategory&gt; getActiveAbilityCategories()
+	{
+<span class="nc" id="L411">		return activeCategories;</span>
+	}
+
+	/**
+	 * Get the total number of selections for this category.
+	 * @param category The ability category to be retrieved.
+	 * @return The total number of choices.
+	 */
+	public int getTotalSelections(AbilityCategory category)
+	{
+<span class="nc bnc" id="L421" title="All 2 branches missed.">		if (category == null)</span>
+		{
+<span class="nc" id="L423">			return 0;</span>
+		}
+
+<span class="nc" id="L426">		BigDecimal pool = theCharacter.getTotalAbilityPool(category);</span>
+<span class="nc" id="L427">		return pool.intValue();</span>
+	}
+
+	/**
+	 * Get the number of selections that are remaining for this category.
+	 * @param category The ability category to be retrieved.
+	 * @return The number of choices left.
+	 */
+	public int getRemainingSelections(AbilityCategory category)
+	{
+<span class="nc bnc" id="L437" title="All 2 branches missed.">		if (category == null)</span>
+		{
+<span class="nc" id="L439">			return 0;</span>
+		}
+
+<span class="nc" id="L442">		BigDecimal pool = theCharacter.getAvailableAbilityPool(category);</span>
+<span class="nc" id="L443">		return pool.intValue();</span>
+	}
+
+	/**
+	 * Set the number of selections that are remaining for this category.
+	 * @param category The ability category to be set.
+	 * @param remaining The number of choices left.
+	 */
+	public void setRemainingSelection(AbilityCategory category, int remaining)
+	{
+<span class="nc bnc" id="L453" title="All 2 branches missed.">		if (category == null)</span>
+		{
+<span class="nc" id="L455">			return;</span>
+		}
+
+<span class="nc" id="L458">		BigDecimal pool = theCharacter.getAvailableAbilityPool(category);</span>
+
+<span class="nc" id="L460">		final BigDecimal newRemain = new BigDecimal(remaining);</span>
+<span class="nc bnc" id="L461" title="All 2 branches missed.">		if (pool.equals(newRemain))</span>
+		{
+<span class="nc" id="L463">			return;</span>
+		}
+
+<span class="nc" id="L466">		theCharacter.adjustAbilities(category, newRemain.subtract(pool));</span>
+<span class="nc" id="L467">	}</span>
+
+	/**
+	 * Check if the character has an ability.
+	 * @param category The ability category to be checked. 
+	 * @param ability The ability to be checked.
+	 * @return true if the character has the ability, false otherwise.
+	 */
+	public boolean hasAbility(AbilityCategory category, AbilityFacade ability)
+	{
+<span class="nc" id="L477">		DefaultListFacade&lt;AbilityFacade&gt; abList = abilityListMap.get(category);</span>
+<span class="nc bnc" id="L478" title="All 2 branches missed.">		if (abList == null)</span>
+		{
+<span class="nc" id="L480">			return false;</span>
+		}
+<span class="nc" id="L482">		return abList.containsElement(ability);</span>
+
+	}
+
+	/**
+	 * Register a listener to be advised of potential changes in the number of 
+	 * selections for an ability category. 
+	 * @param listener The class to be advised of a change.
+	 */
+	public void addAbilityCatSelectionListener(ChangeListener listener)
+	{
+<span class="nc" id="L493">		abilityCatSelectionListeners.add(listener);</span>
+<span class="nc" id="L494">	}</span>
+
+	/**
+	 * Deregister a listener that should no longer be advised of potential changes
+	 * in the number of selections for an ability category. 
+	 * @param listener The class to no longer be advised of a change.
+	 */
+	public void removeAbilityCatSelectionListener(ChangeListener listener)
+	{
+<span class="nc" id="L503">		abilityCatSelectionListeners.remove(listener);</span>
+<span class="nc" id="L504">	}</span>
+
+	/**
+	 * Advise any listeners that the number of selections may have changed. 
+	 * @param cat The ability category that may have changed.
+	 */
+	private void fireAbilityCatSelectionUpdated(AbilityCategory cat)
+	{
+<span class="nc" id="L512">		ChangeEvent event = null;</span>
+<span class="nc bnc" id="L513" title="All 2 branches missed.">		for (ChangeListener listener : abilityCatSelectionListeners)</span>
+		{
+<span class="nc bnc" id="L515" title="All 2 branches missed.">			if (event == null)</span>
+			{
+<span class="nc" id="L517">				event = new ChangeEvent(cat);</span>
+			}
+<span class="nc" id="L519">			listener.ItemChanged(event);</span>
+<span class="nc" id="L520">		}</span>
+<span class="nc" id="L521">	}</span>
+
+	/**
+	 * After any other processing has finished, advise any listeners that 
+	 * the number of selections may have changed. 
+	 * @param cat The ability category that may have changed.
+	 */
+	private void adviseSelectionChangeLater(final AbilityCategory cat)
+	{
+<span class="nc" id="L530">		SwingUtilities.invokeLater(() -&gt; {</span>
+<span class="nc" id="L531">            updateAbilityCategoryTodo(cat);</span>
+<span class="nc" id="L532">            fireAbilityCatSelectionUpdated(cat);</span>
+<span class="nc" id="L533">            refreshChoices(cat);</span>
+<span class="nc" id="L534">        });</span>
+<span class="nc" id="L535">	}</span>
+
+	/**
+	 * Signal that any ability that could have choices has been modified. This 
+	 * ensures that the choice display is up to date.
+	 * @param category The ability category being refreshed.
+	 */
+	protected void refreshChoices(Category&lt;Ability&gt; category)
+	{
+<span class="nc" id="L544">		DefaultListFacade&lt;AbilityFacade&gt; listFacade = abilityListMap.get(category);</span>
+<span class="nc bnc" id="L545" title="All 2 branches missed.">		if (listFacade == null)</span>
+		{
+<span class="nc" id="L547">			return;</span>
+		}
+<span class="nc bnc" id="L549" title="All 2 branches missed.">		for (AbilityFacade abilityFacade : listFacade)</span>
+		{
+<span class="nc" id="L551">			Ability ability = (Ability) abilityFacade;</span>
+<span class="nc bnc" id="L552" title="All 2 branches missed.">			if (ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))</span>
+			{
+<span class="nc" id="L554">				listFacade.modifyElement(ability);</span>
+			}
+<span class="nc" id="L556">		}</span>
+<span class="nc" id="L557">	}</span>
+
+	private boolean checkAbilityQualify(final Ability anAbility, AbilityCategory theCategory)
+	{
+<span class="nc" id="L561">		final String aKey = anAbility.getKeyName();</span>
+<span class="nc" id="L562">		boolean pcHasIt = theCharacter.hasAbilityKeyed(theCategory, aKey);</span>
+
+<span class="nc bnc" id="L564" title="All 4 branches missed.">		if (pcHasIt &amp;&amp; !anAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED))</span>
+		{
+<span class="nc" id="L566">			delegate.showErrorMessage(Constants.APPLICATION_NAME,</span>
+<span class="nc" id="L567">				LanguageBundle.getString(&quot;InfoAbility.Messages.Duplicate&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L568">			return false;</span>
+		}
+
+		//TODO Why do we regrab the context-based Ability when an Ability was passed in?
+		Ability ability =
+<span class="nc" id="L573">				Globals.getContext().getReferenceContext().getManufacturerId(theCategory).getActiveObject(aKey);</span>
+<span class="nc bnc" id="L574" title="All 4 branches missed.">		if (ability != null &amp;&amp; !ability.qualifies(theCharacter, ability)</span>
+<span class="nc bnc" id="L575" title="All 4 branches missed.">			&amp;&amp; (!Globals.checkRule(RuleConstants.FEATPRE) || !AbilityUtilities.isFeat(ability)))</span>
+		{
+<span class="nc" id="L577">			delegate.showErrorMessage(Constants.APPLICATION_NAME,</span>
+<span class="nc" id="L578">				LanguageBundle.getString(&quot;InfoAbility.Messages.NotQualified&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L579">			return false;</span>
+		}
+
+<span class="nc bnc" id="L582" title="All 2 branches missed.">		if ((ability != null))</span>
+		{
+<span class="nc" id="L584">			final BigDecimal cost = ability.getSafe(ObjectKey.SELECTION_COST);</span>
+<span class="nc bnc" id="L585" title="All 2 branches missed.">			if (cost.compareTo(theCharacter.getAvailableAbilityPool(theCategory)) &gt; 0)</span>
+			{
+<span class="nc" id="L587">				delegate.showErrorMessage(Constants.APPLICATION_NAME,</span>
+<span class="nc" id="L588">					LanguageBundle.getString(&quot;InfoAbility.Messages.NoPoints&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L589">				return false;</span>
+			}
+		}
+
+<span class="nc" id="L593">		return true;</span>
+	}
+
+	private void addElement(Map&lt;AbilityCategory, DefaultListFacade&lt;AbilityFacade&gt;&gt; workingAbilityListMap,
+		CNAbilitySelection cnas)
+	{
+<span class="nc" id="L599">		CNAbility cas = cnas.getCNAbility();</span>
+<span class="nc" id="L600">		Ability ability = cas.getAbility();</span>
+<span class="nc bnc" id="L601" title="All 2 branches missed.">		if (!ability.getSafe(ObjectKey.VISIBILITY).isVisibleTo(View.VISIBLE_DISPLAY))</span>
+		{
+			// Filter out hidden abilities
+<span class="nc" id="L604">			return;</span>
+		}
+<span class="nc" id="L606">		AbilityCategory cat = (AbilityCategory) cas.getAbilityCategory();</span>
+<span class="nc" id="L607">		DefaultListFacade&lt;AbilityFacade&gt; listFacade = workingAbilityListMap.get(cat);</span>
+<span class="nc bnc" id="L608" title="All 2 branches missed.">		if (listFacade == null)</span>
+		{
+<span class="nc" id="L610">			listFacade = new DefaultListFacade&lt;&gt;();</span>
+<span class="nc" id="L611">			workingAbilityListMap.put(cat, listFacade);</span>
+		}
+<span class="nc bnc" id="L613" title="All 2 branches missed.">		if (!listFacade.containsElement(ability))</span>
+		{
+<span class="nc" id="L615">			listFacade.addElement(ability);</span>
+		}
+<span class="nc" id="L617">	}</span>
+
+	/**
+	 * The Class {@code GrantedAbilityChangeHandler} responds to changes to
+	 * the character's list of granted abilities.
+	 */
+<span class="nc" id="L623">	private final class GrantedAbilityChangeHandler implements DataFacetChangeListener&lt;CharID, CNAbilitySelection&gt;</span>
+	{
+		@SuppressWarnings(&quot;nls&quot;)
+		@Override
+		public void dataAdded(DataFacetChangeEvent&lt;CharID, CNAbilitySelection&gt; dfce)
+		{
+<span class="nc bnc" id="L629" title="All 2 branches missed.">			if (dfce.getCharID() != charID)</span>
+			{
+				//					Logging.debugPrint(&quot;CA for &quot; + theCharacter.getName()
+				//						+ &quot;. Ignoring granted ability added for character &quot;
+				//						+ dfce.getCharID());
+<span class="nc" id="L634">				return;</span>
+			}
+<span class="nc bnc" id="L636" title="All 2 branches missed.">			if (Logging.isDebugMode())</span>
+			{
+<span class="nc" id="L638">				Logging.debugPrint(&quot;Got granted ability added of &quot; + dfce.getCDOMObject());</span>
+			}
+<span class="nc" id="L640">			rebuildAbilityLists();</span>
+<span class="nc" id="L641">		}</span>
+
+		@SuppressWarnings(&quot;nls&quot;)
+		@Override
+		public void dataRemoved(DataFacetChangeEvent&lt;CharID, CNAbilitySelection&gt; dfce)
+		{
+<span class="nc bnc" id="L647" title="All 2 branches missed.">			if (dfce.getCharID() != charID)</span>
+			{
+<span class="nc" id="L649">				Logging.debugPrint(&quot;CA for &quot; + charDisplay.getName()</span>
+<span class="nc" id="L650">					+ &quot;. Ignoring granted ability removed for character &quot; + dfce.getCharID());</span>
+<span class="nc" id="L651">				return;</span>
+			}
+<span class="nc bnc" id="L653" title="All 2 branches missed.">			if (Logging.isDebugMode())</span>
+			{
+<span class="nc" id="L655">				Logging.debugPrint(&quot;Got granted ability removed of &quot; + dfce.getCDOMObject());</span>
+			}
+<span class="nc" id="L657">			rebuildAbilityLists();</span>
+<span class="nc" id="L658">		}</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

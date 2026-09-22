@@ -1,0 +1,2679 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PCGVer2Creator.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.io</a> &gt; <span class="el_source">PCGVer2Creator.java</span></div><h1>PCGVer2Creator.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2002 (C) Thomas Behr &lt;ravenlock@gmx.de&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ *
+ *
+ */
+package pcgen.io;
+
+import java.awt.Rectangle;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.Set;
+import java.util.StringTokenizer;
+import java.util.TreeSet;
+
+import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.CDOMList;
+import pcgen.cdom.base.CDOMListObject;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.Category;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.PersistentTransitionChoice;
+import pcgen.cdom.base.SelectableSet;
+import pcgen.cdom.base.TransitionChoice;
+import pcgen.cdom.content.CNAbility;
+import pcgen.cdom.enumeration.AssociationKey;
+import pcgen.cdom.enumeration.AssociationListKey;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.Nature;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.PCStringKey;
+import pcgen.cdom.helper.CNAbilitySelection;
+import pcgen.cdom.helper.ClassSource;
+import pcgen.cdom.inst.PCClassLevel;
+import pcgen.cdom.list.ClassSpellList;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.util.CControl;
+import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
+import pcgen.core.BonusManager;
+import pcgen.core.BonusManager.TempBonusInfo;
+import pcgen.core.Campaign;
+import pcgen.core.ChronicleEntry;
+import pcgen.core.Deity;
+import pcgen.core.Description;
+import pcgen.core.Domain;
+import pcgen.core.Equipment;
+import pcgen.core.GameMode;
+import pcgen.core.Globals;
+import pcgen.core.Kit;
+import pcgen.core.Language;
+import pcgen.core.NoteItem;
+import pcgen.core.PCAlignment;
+import pcgen.core.PCClass;
+import pcgen.core.PCStat;
+import pcgen.core.PCTemplate;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.SettingsHandler;
+import pcgen.core.Skill;
+import pcgen.core.SpecialAbility;
+import pcgen.core.SpellProhibitor;
+import pcgen.core.WeaponProf;
+import pcgen.core.analysis.SpellLevel;
+import pcgen.core.bonus.BonusObj;
+import pcgen.core.character.CharacterSpell;
+import pcgen.core.character.EquipSet;
+import pcgen.core.character.Follower;
+import pcgen.core.character.SpellBook;
+import pcgen.core.character.SpellInfo;
+import pcgen.core.display.BonusDisplay;
+import pcgen.core.display.CharacterDisplay;
+import pcgen.core.pclevelinfo.PCLevelInfo;
+import pcgen.core.pclevelinfo.PCLevelInfoStat;
+import pcgen.core.spell.Spell;
+import pcgen.output.channel.ChannelUtilities;
+import pcgen.output.channel.compat.AlignmentCompat;
+import pcgen.output.channel.compat.HairColorCompat;
+import pcgen.output.channel.compat.HandedCompat;
+import pcgen.output.channel.compat.HeightCompat;
+import pcgen.system.PCGenPropBundle;
+import pcgen.util.FileHelper;
+import pcgen.util.Logging;
+import pcgen.util.StringPClassUtil;
+
+import org.apache.commons.lang3.StringUtils;
+
+/**
+ * {@code PCGVer2Creator}&lt;br&gt;
+ * Creates a line oriented format.
+ * Each line should adhere to the following grammar:&lt;br&gt;
+ *
+ * &lt;i&gt;line&lt;/i&gt; := EMPTY | &lt;i&gt;comment&lt;/i&gt; | &lt;i&gt;taglist&lt;/i&gt;
+ * &lt;i&gt;comment&lt;/i&gt; := '#' STRING
+ * &lt;i&gt;taglist&lt;/i&gt; := tag ('|' tag)*
+ * &lt;i&gt;tag&lt;/i&gt; := simpletag | nestedtag
+ * &lt;i&gt;nestedtag&lt;/i&gt; := TAGNAME ':' '[' taglist ']'
+ * &lt;i&gt;simpletag&lt;/i&gt; := TAGNAME ':' TAGVALUE
+ *
+ */
+public final class PCGVer2Creator
+{
+	/*
+	 * DO NOT CHANGE line separator.
+	 * Need to keep the Unix line separator to ensure cross-platform portability.
+	 *
+	 * author: Thomas Behr 2002-11-13
+	 */
+
+	private final PlayerCharacter thePC;
+	private final CharacterDisplay charDisplay;
+	private GameMode mode;
+	private List&lt;? extends Campaign&gt; campaigns;
+
+	/**
+	 * Constructor
+	 * @param aPC
+	 */
+	public PCGVer2Creator(final PlayerCharacter aPC, GameMode mode, List&lt;? extends Campaign&gt; campaigns)
+<span class="nc" id="L140">	{</span>
+<span class="nc" id="L141">		thePC = aPC;</span>
+<span class="nc" id="L142">		charDisplay = aPC.getDisplay();</span>
+<span class="nc" id="L143">		this.mode = mode;</span>
+<span class="nc" id="L144">		this.campaigns = campaigns;</span>
+<span class="nc" id="L145">	}</span>
+
+	/**
+	 * create PCG string for a given PlayerCharacter
+	 *
+	 * &lt;br&gt;author: Thomas Behr 19-03-02
+	 *
+	 * @return a String in PCG format, containing all information
+	 *         PCGen associates with a given PlayerCharacter
+	 */
+	public String createPCGString()
+	{
+		// Guess that this should be about 1000
+<span class="nc" id="L158">		StringBuilder buffer = new StringBuilder(1000);</span>
+
+<span class="nc" id="L160">		appendPCGVersionLine(buffer);</span>
+
+		/*
+		 * #System Information
+		 * CAMPAIGNS:&gt;:-delimited list&lt;
+		 * VERSION:x.x.x
+		 * ROLLMETHOD:xxx
+		 * PURCHASEPOINTS:Y or N|TYPE:&gt;living City, Living greyhawk, etc&lt;
+		 * UNLIMITEDPOOLCHECKED:Y or N
+		 * POOLPOINTS:&gt;numeric value 0-?&lt;
+		 * GAMEMODE:DnD
+		 * AUTOSPELLS:Y or N
+		 * AUTOCOMPANIONS:Y or N
+		 *
+		 * hmmm, better have
+		 * CAMPAIGNS:&gt;campaign_name&lt;|CAMPAIGNS:&gt;campaign_name&lt;|...
+		 */
+<span class="nc" id="L177">		appendNewline(buffer);</span>
+<span class="nc" id="L178">		appendComment(&quot;System Information&quot;, buffer); //$NON-NLS-1$</span>
+
+		//appendCampaignLineOldFormat(buffer);
+<span class="nc" id="L181">		appendCampaignLine(buffer);</span>
+<span class="nc" id="L182">		appendVersionLine(buffer);</span>
+<span class="nc" id="L183">		appendRollMethodLine(buffer);</span>
+<span class="nc" id="L184">		appendPurchasePointsLine(buffer);</span>
+<span class="nc" id="L185">		appendCharacterTypeLine(buffer);</span>
+<span class="nc" id="L186">		appendPreviewSheetLine(buffer);</span>
+
+		//appendUnlimitedPoolCheckedLine(buffer);
+<span class="nc" id="L189">		appendPoolPointsLine(buffer);</span>
+<span class="nc" id="L190">		appendGameModeLine(buffer);</span>
+<span class="nc" id="L191">		appendAutoSpellsLine(buffer);</span>
+<span class="nc" id="L192">		appendUseHigherSpellSlotsLines(buffer);</span>
+<span class="nc" id="L193">		appendLoadCompanionLine(buffer);</span>
+<span class="nc" id="L194">		appendUseTempModsLine(buffer);</span>
+<span class="nc" id="L195">		appendOutputSheetsLines(buffer);</span>
+<span class="nc" id="L196">		appendAutoSortLines(buffer);</span>
+<span class="nc" id="L197">		appendSkillFilterLine(buffer);</span>
+<span class="nc" id="L198">		appendGearCostSizeLines(buffer);</span>
+
+		/*
+		 * #Character Bio
+		 * CHARACTERNAME:Code Monkey
+		 * TABNAME:Code Monkey the Best Ever No Really!
+		 * PLAYERNAME:Jason Monkey
+		 * HEIGHT:75
+		 * WEIGHT:198
+		 * AGE:17
+		 * GENDER:text
+		 * HANDED:text
+		 * SKIN:text
+		 * EYECOLOR:text
+		 * HAIRCOLOR:text
+		 * HAIRSTYLE:text
+		 * LOCATION:text
+		 * CITY:text
+		 * PERSONALITYTRAIT1:text
+		 * PERSONALITYTRAIT2:text
+		 * SPEECHPATTERN:text
+		 * PHOBIAS:text
+		 * INTERESTS:text
+		 * CATCHPHRASE:text
+		 */
+<span class="nc" id="L223">		appendNewline(buffer);</span>
+<span class="nc" id="L224">		appendComment(&quot;Character Bio&quot;, buffer); //$NON-NLS-1$</span>
+<span class="nc" id="L225">		appendCharacterNameLine(buffer);</span>
+<span class="nc" id="L226">		appendTabNameLine(buffer);</span>
+<span class="nc" id="L227">		appendPlayerNameLine(buffer);</span>
+<span class="nc" id="L228">		appendHeightLine(buffer);</span>
+<span class="nc" id="L229">		appendWeightLine(buffer);</span>
+<span class="nc" id="L230">		appendAgeLine(buffer);</span>
+<span class="nc" id="L231">		appendGenderLine(buffer);</span>
+<span class="nc" id="L232">		appendHandedLine(buffer);</span>
+<span class="nc" id="L233">		appendSkinColorLine(buffer);</span>
+<span class="nc" id="L234">		appendEyeColorLine(buffer);</span>
+<span class="nc" id="L235">		appendHairColorLine(buffer);</span>
+<span class="nc" id="L236">		appendHairStyleLine(buffer);</span>
+<span class="nc" id="L237">		appendLocationLine(buffer);</span>
+<span class="nc" id="L238">		appendCityLine(buffer);</span>
+<span class="nc" id="L239">		appendBirthdayLine(buffer);</span>
+<span class="nc" id="L240">		appendBirthplaceLine(buffer);</span>
+<span class="nc" id="L241">		appendPersonalityTrait1Line(buffer);</span>
+<span class="nc" id="L242">		appendPersonalityTrait2Line(buffer);</span>
+<span class="nc" id="L243">		appendSpeechPatternLine(buffer);</span>
+<span class="nc" id="L244">		appendPhobiasLine(buffer);</span>
+<span class="nc" id="L245">		appendInterestsLine(buffer);</span>
+<span class="nc" id="L246">		appendCatchPhraseLine(buffer);</span>
+<span class="nc" id="L247">		appendPortraitLine(buffer);</span>
+
+		/*
+		 * #Character Attributes
+		 * STAT:STR=18
+		 * STAT:DEX=18
+		 * STAT:CON=18
+		 * STAT:INT=18
+		 * STAT:WIS=18
+		 * STAT:CHA=18
+		 * ALIGN:LG
+		 * RACE:Human
+		 *
+		 * hmmm better have
+		 * STAT:STR|SCORE:18
+		 */
+<span class="nc" id="L263">		appendNewline(buffer);</span>
+<span class="nc" id="L264">		appendComment(&quot;Character Attributes&quot;, buffer); //$NON-NLS-1$</span>
+<span class="nc" id="L265">		appendStatLines(buffer);</span>
+<span class="nc" id="L266">		appendAlignmentLine(buffer);</span>
+<span class="nc" id="L267">		appendRaceLine(buffer);</span>
+<span class="nc" id="L268">		appendFavoredClassLine(buffer);</span>
+
+		/*
+		 * #Character Class(es)
+		 * CLASS:Fighter|LEVEL=3
+		 * CLASSABILITIESLEVEL:Fighter=1(&gt;This would only display up to the level the character has already,)
+		 * CLASSABILITIESLEVEL:Fighter=2(&gt;with any special abilities not covered by other areas,)
+		 * CLASSABILITIESLEVEL:Fighter=3(&gt;such as skills, feats, etc., but would list SA's, and the like&lt;)
+		 * CLASS:Wizard|LEVEL=1
+		 * CLASSABILITIESLEVEL:Wizard=1(SA's, MEMORIZE:Y, etc)
+		 *
+		 * hmmm, better have
+		 * CLASS:Fighter|LEVEL:3|SKILLPOOL:0
+		 * CLASS:Wizard|LEVEL:1|SKILLPOOL:0|CANCASTPERDAY:1,1
+		 */
+<span class="nc" id="L283">		appendNewline(buffer);</span>
+<span class="nc" id="L284">		appendComment(&quot;Character Class(es)&quot;, buffer); //$NON-NLS-1$</span>
+<span class="nc" id="L285">		appendClassLines(buffer);</span>
+
+		/*
+		 * #Character Experience
+		 * EXPERIENCE:6000
+		 */
+<span class="nc" id="L291">		appendNewline(buffer);</span>
+<span class="nc" id="L292">		appendComment(&quot;Character Experience&quot;, buffer); //$NON-NLS-1$</span>
+<span class="nc" id="L293">		appendExperienceLine(buffer);</span>
+<span class="nc" id="L294">		appendExperienceTableLine(buffer);</span>
+
+		/*
+		 * #Character Templates
+		 * TEMPLATESAPPLIED:If any, else this would just have the comment line, and skip to the next
+		 */
+<span class="nc" id="L300">		appendNewline(buffer);</span>
+<span class="nc" id="L301">		appendComment(&quot;Character Templates&quot;, buffer); //$NON-NLS-1$</span>
+<span class="nc" id="L302">		appendTemplateLines(buffer);</span>
+
+<span class="nc" id="L304">		appendNewline(buffer);</span>
+<span class="nc" id="L305">		appendComment(&quot;Character Region&quot;, buffer); //$NON-NLS-1$</span>
+<span class="nc" id="L306">		appendRegionLine(buffer);</span>
+
+		/*
+		 * #Character Skills
+		 * CLASSBOUGHT:Fighter
+		 * SKILL:Alchemy|CROSSCLASS:Y|COST:2|RANK:7  (Should be Obvious what each of these does, I hope ;p)
+		 * SKILL:Survival|CLASS:Y|COST:1|SYNERGY:Wilderness Lore=5=2|RANK:10
+		 * CLASSBOUGHT:Wizard
+		 * SKILL:Spellcraft|CLASS:Y|COST:1|RANK7
+		 *
+		 *
+		 * hmmm, better have
+		 * SKILL:Alchemy|SYNERGY:....|OUTPUTORDER:1|CLASSBOUGHT:[CLASS:FIGHTER|RANKS:7|COST:2|CLASSSKILL:N]
+		 * SKILL:Spellcraft|SYNERGY:....|OUTPUTORDER:1|CLASSBOUGHT:[CLASS:WIZARD|RANKS:7|COST:1|CLASSSKILL:Y]
+		 */
+<span class="nc" id="L321">		appendNewline(buffer);</span>
+<span class="nc" id="L322">		appendComment(&quot;Character Skills&quot;, buffer); //$NON-NLS-1$</span>
+<span class="nc" id="L323">		appendSkillLines(buffer);</span>
+
+		/*
+		 * #Character Languages
+		 */
+<span class="nc" id="L328">		appendNewline(buffer);</span>
+<span class="nc" id="L329">		appendComment(&quot;Character Languages&quot;, buffer); //$NON-NLS-1$</span>
+<span class="nc" id="L330">		appendLanguageLine(buffer);</span>
+
+		/*
+		 * Anything that is already Pipe Delimited should be in
+		 * parenthesis to avoid confusion on PCGen's part
+		 *
+		 * #Character Feats
+		 * FEAT:Alertness|TYPE:General|(BONUS:SKILL|Listen,Spot|2)|DESC:+2 on Listen and Spot checks
+		 *
+		 * hmmm, better have colons and pipes encoded as entities
+		 * FEAT:Alertness|TYPE:General|SAVE:BONUS&amp;colon;SKILL&amp;pipe;Listen,Spot&amp;pipe;2|DESC:+2 on Listen and Spot checks
+		 */
+<span class="nc" id="L342">		appendNewline(buffer);</span>
+<span class="nc" id="L343">		appendComment(&quot;Character Feats&quot;, buffer); //$NON-NLS-1$</span>
+<span class="nc" id="L344">		appendFeatLines(buffer);</span>
+
+<span class="nc" id="L346">		appendNewline(buffer);</span>
+<span class="nc" id="L347">		appendComment(&quot;Character Abilities&quot;, buffer); //$NON-NLS-1$</span>
+<span class="nc" id="L348">		appendAbilityLines(buffer);</span>
+
+		/*
+		 * #Character Weapon proficiencies
+		 */
+<span class="nc" id="L353">		appendNewline(buffer);</span>
+<span class="nc" id="L354">		appendComment(&quot;Character Weapon proficiencies&quot;, buffer); //$NON-NLS-1$</span>
+<span class="nc" id="L355">		appendWeaponProficiencyLines(buffer);</span>
+
+		/*
+		 * This is the REALLY ugly part for all characters as it should contain ALL the information for the equipment
+		 * Money goes here as well
+		 *
+		 * #Character Equipment
+		 * EQUIPNAME:Longsword|OUTPUTORDER:2|COST:5|WT:5|QTY:1|&gt;other info&lt;
+		 * EQUIPNAME:Backpack|OUTPUTORDER:9|COST:5|WT:5
+		 * EQUIPNAME:Rope (Silk)|OUTPUTORDER:-1|COST:5|WT:5
+		 */
+<span class="nc" id="L366">		appendNewline(buffer);</span>
+<span class="nc" id="L367">		appendComment(&quot;Character Equipment&quot;, buffer); //$NON-NLS-1$</span>
+<span class="nc" id="L368">		appendMoneyLine(buffer);</span>
+<span class="nc" id="L369">		appendEquipmentLines(buffer);</span>
+<span class="nc" id="L370">		appendEquipmentSetLines(buffer);</span>
+
+		/*
+		 * Append Temporary Bonuses
+		 */
+<span class="nc" id="L375">		appendNewline(buffer);</span>
+<span class="nc" id="L376">		appendComment(&quot;Temporary Bonuses&quot;, buffer); //$NON-NLS-1$</span>
+<span class="nc" id="L377">		appendTempBonuses(buffer);</span>
+
+		/*
+		 * Append EquipSet Temp Bonuses
+		 */
+<span class="nc" id="L382">		appendNewline(buffer);</span>
+<span class="nc" id="L383">		appendComment(&quot;EquipSet Temp Bonuses&quot;, buffer); //$NON-NLS-1$</span>
+<span class="nc" id="L384">		appendEqSetBonuses(buffer);</span>
+
+/*
+ * #Character Deity/Domain
+ * DEITY:Yondalla|DEITYDOMAINS:Good,Law,Protection|ALIGNALLOW:013|DESC:Halflings, Protection, Fertility|
+ *          SYMBOL:None|DEITYFAVWEAP:Sword (Short)|DEITYALIGN:ALIGN:LG
+ * DOMAIN:GOOD|DOMAINGRANTS:&gt;list of abilities&lt;
+ * DOMAINSPELLS:GOOD(&gt;list of level by level spells)
+ *
+ * hmmm, better have
+ * DEITY:Yondalla|DEITYDOMAINS:[DOMAIN:Good|DOMAIN:Law|DOMAIN:Protection]|...
+ * DOMAINSPELLS:GOOD|SPELLLIST:(&gt;list of level by level spells)
+ */
+
+<span class="nc bnc" id="L398" title="All 2 branches missed.">		if (thePC.isFeatureEnabled(CControl.DOMAINFEATURE))</span>
+		{
+<span class="nc" id="L400">			appendNewline(buffer);</span>
+<span class="nc" id="L401">			appendComment(&quot;Character Deity/Domain&quot;, buffer); //$NON-NLS-1$</span>
+<span class="nc" id="L402">			appendDeityLine(buffer);</span>
+<span class="nc" id="L403">			appendDomainLines(buffer);</span>
+		}
+
+		/*
+		 * This one is what will make spellcasters U G L Y!!!
+		 *
+		 * #Character Spells Information
+		 * CLASS:Wizard|CANCASTPERDAY:2,4(Totals the levels all up + includes attribute bonuses)
+		 * SPELLNAME:Blah|SCHOOL:blah|SUBSCHOOL:blah|Etc
+		 *
+		 * hmmm, moved CANCASTPERDAY to standard class line
+		 */
+<span class="nc" id="L415">		appendNewline(buffer);</span>
+<span class="nc" id="L416">		appendComment(&quot;Character Spells Information&quot;, buffer); //$NON-NLS-1$</span>
+<span class="nc" id="L417">		appendSpellBookLines(buffer);</span>
+<span class="nc" id="L418">		appendSpellLines(buffer);</span>
+<span class="nc" id="L419">		appendSpellListLines(buffer);</span>
+
+		/*
+		 * #Character Description/Bio/History
+		 * CHARACTERBIO:any text that's in the BIO field
+		 * CHARACTERDESC:any text that's in the BIO field
+		 */
+<span class="nc" id="L426">		appendNewline(buffer);</span>
+<span class="nc" id="L427">		appendComment(&quot;Character Description/Bio/History&quot;, buffer); //$NON-NLS-1$</span>
+<span class="nc" id="L428">		appendCharacterBioLine(buffer);</span>
+<span class="nc" id="L429">		appendCharacterDescLine(buffer);</span>
+<span class="nc" id="L430">		appendCharacterCompLine(buffer);</span>
+<span class="nc" id="L431">		appendCharacterAssetLine(buffer);</span>
+<span class="nc" id="L432">		appendCharacterMagicLine(buffer);</span>
+<span class="nc" id="L433">		appendCharacterDmNotesLine(buffer);</span>
+
+		/*
+		 * #Kits
+		 */
+<span class="nc" id="L438">		appendNewline(buffer);</span>
+<span class="nc" id="L439">		appendComment(&quot;Kits&quot;, buffer); //$NON-NLS-1$</span>
+<span class="nc" id="L440">		appendKitLines(buffer);</span>
+
+		/*
+		 * #Character Master/Followers
+		 * MASTER:Mynex|TYPE:Follower|HITDICE:20|FILE:E$\DnD\dnd-chars\ravenlock.pcg
+		 * FOLLOWER:Raven|TYPE:Animal Companion|HITDICE:5|FILE:E$\DnD\dnd-chars\raven.pcg
+		 */
+<span class="nc" id="L447">		appendNewline(buffer);</span>
+<span class="nc" id="L448">		appendComment(&quot;Character Master/Follower&quot;, buffer); //$NON-NLS-1$</span>
+<span class="nc" id="L449">		appendFollowerLines(buffer);</span>
+
+		/*
+		 * #Character Notes Tab
+		 */
+<span class="nc" id="L454">		appendNewline(buffer);</span>
+<span class="nc" id="L455">		appendComment(&quot;Character Notes Tab&quot;, buffer); //$NON-NLS-1$</span>
+<span class="nc" id="L456">		appendNotesLines(buffer);</span>
+
+		/*
+		 * #AgeSet Kit selections
+		 */
+<span class="nc" id="L461">		appendNewline(buffer);</span>
+<span class="nc" id="L462">		appendComment(&quot;Age Set Selections&quot;, buffer); //$NON-NLS-1$</span>
+<span class="nc" id="L463">		appendAgeSetLine(buffer);</span>
+
+		/*
+		 * #Campaign History
+		 */
+<span class="nc" id="L468">		appendNewline(buffer);</span>
+<span class="nc" id="L469">		appendComment(&quot;Campaign History&quot;, buffer); //$NON-NLS-1$</span>
+<span class="nc" id="L470">		appendCampaignHistoryLines(buffer);</span>
+
+		/*
+		 * #Preview Sheet Variables
+		 */
+<span class="nc" id="L475">		appendNewline(buffer);</span>
+<span class="nc" id="L476">		appendComment(&quot;Preview Sheet Variables&quot;, buffer); //$NON-NLS-1$</span>
+<span class="nc" id="L477">		appendPreviewSheetVarLines(buffer);</span>
+
+		/*
+		 * Add one more newline at end of file
+		 */
+<span class="nc" id="L482">		appendNewline(buffer);</span>
+
+		// All done!
+<span class="nc" id="L485">		return buffer.toString();</span>
+	}
+
+	private void appendPreviewSheetVarLines(StringBuilder buffer)
+	{
+<span class="nc bnc" id="L490" title="All 2 branches missed.">		for(Map.Entry&lt;String, String&gt; var : thePC.getPreviewSheetVars().entrySet())</span>
+		{
+<span class="nc bnc" id="L492" title="All 2 branches missed.">			if(var.getValue().isEmpty())</span>
+			{
+<span class="nc" id="L494">				continue;</span>
+			}
+<span class="nc" id="L496">			buffer.append(IOConstants.TAG_PREVIEWSHEETVAR)</span>
+<span class="nc" id="L497">					.append(IOConstants.TAG_END)</span>
+<span class="nc" id="L498">					.append(var.getKey())</span>
+<span class="nc" id="L499">					.append(IOConstants.TAG_SEPARATOR)</span>
+<span class="nc" id="L500">					.append(var.getValue())</span>
+<span class="nc" id="L501">					.append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L502">		}</span>
+<span class="nc" id="L503">	}</span>
+
+	private void appendCampaignLine(StringBuilder buffer)
+	{
+<span class="nc bnc" id="L507" title="All 2 branches missed.">		if (campaigns != null)</span>
+		{
+<span class="nc" id="L509">			String del = Constants.EMPTY_STRING;</span>
+<span class="nc bnc" id="L510" title="All 2 branches missed.">			for (Campaign campaign : campaigns)</span>
+			{
+<span class="nc" id="L512">				buffer.append(del);</span>
+<span class="nc" id="L513">				buffer.append(IOConstants.TAG_CAMPAIGN).append(':');</span>
+<span class="nc" id="L514">				buffer.append(campaign.getKeyName());</span>
+<span class="nc" id="L515">				del = &quot;|&quot;; //$NON-NLS-1$</span>
+<span class="nc" id="L516">			}</span>
+<span class="nc" id="L517">			buffer.append(IOConstants.LINE_SEP);</span>
+		}
+<span class="nc" id="L519">	}</span>
+
+	private GameMode getGameMode()
+	{
+<span class="nc bnc" id="L523" title="All 2 branches missed.">		if (mode != null)</span>
+		{
+<span class="nc" id="L525">			return mode;</span>
+		}
+		else
+		{
+<span class="nc" id="L529">			return SettingsHandler.getGameAsProperty().get();</span>
+		}
+	}
+
+	private void appendGameModeLine(StringBuilder buffer)
+	{
+<span class="nc" id="L535">		buffer.append(IOConstants.TAG_GAMEMODE).append(':');</span>
+<span class="nc" id="L536">		buffer.append(getGameMode().getName());</span>
+<span class="nc" id="L537">		buffer.append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L538">	}</span>
+
+	/*
+	 * ###############################################################
+	 * private helper methods
+	 * ###############################################################
+	 */
+	private static void appendPCGVersionLine(StringBuilder buffer)
+	{
+<span class="nc" id="L547">		buffer.append(IOConstants.TAG_PCGVERSION).append(':');</span>
+<span class="nc" id="L548">		buffer.append(&quot;2.0&quot;); //$NON-NLS-1$</span>
+<span class="nc" id="L549">		buffer.append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L550">	}</span>
+
+	private void appendPurchasePointsLine(StringBuilder buffer)
+	{
+<span class="nc" id="L554">		buffer.append(IOConstants.TAG_PURCHASEPOINTS).append(':');</span>
+<span class="nc bnc" id="L555" title="All 2 branches missed.">		if (getGameMode().isPurchaseStatMode())</span>
+		{
+<span class="nc" id="L557">			buffer.append('Y');</span>
+<span class="nc" id="L558">			buffer.append('|');</span>
+<span class="nc" id="L559">			buffer.append(IOConstants.TAG_TYPE).append(':');</span>
+<span class="nc" id="L560">			buffer.append(getGameMode().getPurchaseModeMethodName());</span>
+		}
+		else
+		{
+<span class="nc" id="L564">			buffer.append('N');</span>
+		}
+<span class="nc" id="L566">		buffer.append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L567">	}</span>
+
+	private void appendRollMethodLine(StringBuilder buffer)
+	{
+<span class="nc" id="L571">		final GameMode game = getGameMode();</span>
+<span class="nc" id="L572">		buffer.append(IOConstants.TAG_ROLLMETHOD).append(':');</span>
+<span class="nc" id="L573">		buffer.append(game.getRollMethod());</span>
+<span class="nc" id="L574">		buffer.append('|');</span>
+<span class="nc" id="L575">		buffer.append(IOConstants.TAG_EXPRESSION).append(':');</span>
+<span class="nc bnc" id="L576" title="All 4 branches missed.">		switch (game.getRollMethod())</span>
+		{
+<span class="nc" id="L578">			case Constants.CHARACTER_STAT_METHOD_ALL_THE_SAME -&gt; buffer.append(game.getAllStatsValue());</span>
+<span class="nc" id="L579">			case Constants.CHARACTER_STAT_METHOD_PURCHASE -&gt; buffer.append(game.getPurchaseModeMethodName());</span>
+<span class="nc" id="L580">			case Constants.CHARACTER_STAT_METHOD_ROLLED -&gt; buffer.append(game.getRollMethodExpression());</span>
+<span class="nc" id="L581">			default -&gt; buffer.append(0);</span>
+		}
+<span class="nc" id="L583">		buffer.append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L584">	}</span>
+
+	/*
+	 * modified this function to output the version number
+	 * as displayed in pcgenprop.properties instead of a simple int.
+	 * This will record the version more accurately.
+	 */
+	private static void appendVersionLine(StringBuilder buffer)
+	{
+<span class="nc" id="L593">		buffer.append(IOConstants.TAG_VERSION).append(':');</span>
+<span class="nc" id="L594">		buffer.append(PCGenPropBundle.getVersionNumber());</span>
+<span class="nc" id="L595">		buffer.append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L596">	}</span>
+
+	private void appendAgeLine(StringBuilder buffer)
+	{
+<span class="nc" id="L600">		buffer.append(IOConstants.TAG_AGE).append(':');</span>
+<span class="nc" id="L601">		buffer.append(ChannelUtilities.readControlledChannel(thePC.getCharID(), CControl.AGEINPUT));</span>
+<span class="nc" id="L602">		buffer.append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L603">	}</span>
+
+	/*
+	 * ###############################################################
+	 * AgeSet
+	 * ###############################################################
+	 */
+	private void appendAgeSetLine(StringBuilder buffer)
+	{
+<span class="nc" id="L612">		buffer.append(IOConstants.TAG_AGESET);</span>
+
+<span class="nc bnc" id="L614" title="All 2 branches missed.">		for (int i = 0; i &lt; 10; i++)</span>
+		{
+<span class="nc" id="L616">			buffer.append(':');</span>
+
+<span class="nc bnc" id="L618" title="All 2 branches missed.">			if (thePC.hasMadeKitSelectionForAgeSet(i))</span>
+			{
+<span class="nc" id="L620">				buffer.append('1');</span>
+			}
+			else
+			{
+<span class="nc" id="L624">				buffer.append('0');</span>
+			}
+		}
+<span class="nc" id="L627">		buffer.append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L628">	}</span>
+
+	private void appendAlignmentLine(StringBuilder buffer)
+	{
+		//
+		// Only save alignment if game mode supports it
+		//
+<span class="nc" id="L635">		PCAlignment pcAlignment = AlignmentCompat.getCurrentAlignment(thePC.getCharID());</span>
+<span class="nc bnc" id="L636" title="All 4 branches missed.">		if (thePC.isFeatureEnabled(CControl.ALIGNMENTFEATURE) &amp;&amp; pcAlignment != null)</span>
+		{
+<span class="nc" id="L638">			buffer.append(IOConstants.TAG_ALIGNMENT).append(':');</span>
+<span class="nc" id="L639">			buffer.append(pcAlignment.getKeyName());</span>
+<span class="nc" id="L640">			buffer.append(IOConstants.LINE_SEP);</span>
+		}
+<span class="nc" id="L642">	}</span>
+
+	private void appendBirthdayLine(StringBuilder buffer)
+	{
+<span class="nc" id="L646">		buffer.append(IOConstants.TAG_BIRTHDAY).append(':');</span>
+<span class="nc" id="L647">		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.BIRTHDAY)));</span>
+<span class="nc" id="L648">		buffer.append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L649">	}</span>
+
+	private void appendBirthplaceLine(StringBuilder buffer)
+	{
+<span class="nc" id="L653">		buffer.append(IOConstants.TAG_BIRTHPLACE).append(':');</span>
+<span class="nc" id="L654">		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.BIRTHPLACE)));</span>
+<span class="nc" id="L655">		buffer.append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L656">	}</span>
+
+	/**
+	 * @param buffer
+	 */
+	private void appendCampaignHistoryLines(StringBuilder buffer)
+	{
+<span class="nc bnc" id="L663" title="All 2 branches missed.">		for (ChronicleEntry ce : charDisplay.getChronicleEntries())</span>
+		{
+<span class="nc" id="L665">			buffer.append(IOConstants.TAG_CHRONICLE_ENTRY).append(':');</span>
+<span class="nc bnc" id="L666" title="All 2 branches missed.">			buffer.append(ce.isOutputEntry() ? &quot;Y&quot; : &quot;N:&quot;);</span>
+<span class="nc" id="L667">			buffer.append('|');</span>
+<span class="nc" id="L668">			buffer.append(IOConstants.TAG_CAMPAIGN).append(':');</span>
+<span class="nc" id="L669">			buffer.append(EntityEncoder.encode(ce.getCampaign()));</span>
+<span class="nc" id="L670">			buffer.append('|');</span>
+<span class="nc" id="L671">			buffer.append(IOConstants.TAG_ADVENTURE).append(':');</span>
+<span class="nc" id="L672">			buffer.append(EntityEncoder.encode(ce.getAdventure()));</span>
+<span class="nc" id="L673">			buffer.append('|');</span>
+<span class="nc" id="L674">			buffer.append(IOConstants.TAG_PARTY).append(':');</span>
+<span class="nc" id="L675">			buffer.append(EntityEncoder.encode(ce.getParty()));</span>
+<span class="nc" id="L676">			buffer.append('|');</span>
+<span class="nc" id="L677">			buffer.append(IOConstants.TAG_DATE).append(':');</span>
+<span class="nc" id="L678">			buffer.append(EntityEncoder.encode(ce.getDate()));</span>
+<span class="nc" id="L679">			buffer.append('|');</span>
+<span class="nc" id="L680">			buffer.append(IOConstants.TAG_EXPERIENCE).append(':');</span>
+<span class="nc" id="L681">			buffer.append(ce.getXpField());</span>
+<span class="nc" id="L682">			buffer.append('|');</span>
+<span class="nc" id="L683">			buffer.append(IOConstants.TAG_GM).append(':');</span>
+<span class="nc" id="L684">			buffer.append(EntityEncoder.encode(ce.getGmField()));</span>
+<span class="nc" id="L685">			buffer.append('|');</span>
+<span class="nc" id="L686">			buffer.append(IOConstants.TAG_CHRONICLE).append(':');</span>
+<span class="nc" id="L687">			buffer.append(EntityEncoder.encode(ce.getChronicle()));</span>
+<span class="nc" id="L688">			buffer.append(IOConstants.LINE_SEP);</span>
+
+<span class="nc" id="L690">		}</span>
+<span class="nc" id="L691">	}</span>
+
+	private void appendCatchPhraseLine(StringBuilder buffer)
+	{
+<span class="nc" id="L695">		buffer.append(IOConstants.TAG_CATCHPHRASE).append(':');</span>
+<span class="nc" id="L696">		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.CATCHPHRASE)));</span>
+<span class="nc" id="L697">		buffer.append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L698">	}</span>
+
+	private void appendCharacterAssetLine(StringBuilder buffer)
+	{
+<span class="nc" id="L702">		buffer.append(IOConstants.TAG_CHARACTERASSET).append(':');</span>
+<span class="nc" id="L703">		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.ASSETS)));</span>
+<span class="nc" id="L704">		buffer.append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L705">	}</span>
+
+	/*
+	 * ###############################################################
+	 * Character Description/Bio/History methods
+	 * ###############################################################
+	 */
+	private void appendCharacterBioLine(StringBuilder buffer)
+	{
+<span class="nc" id="L714">		buffer.append(IOConstants.TAG_CHARACTERBIO).append(':');</span>
+<span class="nc" id="L715">		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.BIO)));</span>
+<span class="nc" id="L716">		buffer.append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L717">	}</span>
+
+	private void appendCharacterCompLine(StringBuilder buffer)
+	{
+<span class="nc" id="L721">		buffer.append(IOConstants.TAG_CHARACTERCOMP).append(':');</span>
+<span class="nc" id="L722">		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.COMPANIONS)));</span>
+<span class="nc" id="L723">		buffer.append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L724">	}</span>
+
+	private void appendCharacterDescLine(StringBuilder buffer)
+	{
+<span class="nc" id="L728">		buffer.append(IOConstants.TAG_CHARACTERDESC).append(':');</span>
+<span class="nc" id="L729">		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.DESCRIPTION)));</span>
+<span class="nc" id="L730">		buffer.append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L731">	}</span>
+
+	private void appendCharacterMagicLine(StringBuilder buffer)
+	{
+<span class="nc" id="L735">		buffer.append(IOConstants.TAG_CHARACTERMAGIC).append(':');</span>
+<span class="nc" id="L736">		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.MAGIC)));</span>
+<span class="nc" id="L737">		buffer.append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L738">	}</span>
+
+	private void appendCharacterDmNotesLine(StringBuilder buffer)
+	{
+<span class="nc" id="L742">		buffer.append(IOConstants.TAG_CHARACTERDMNOTES).append(':');</span>
+<span class="nc" id="L743">		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.GMNOTES)));</span>
+<span class="nc" id="L744">		buffer.append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L745">	}</span>
+
+	private void appendCharacterTypeLine(StringBuilder buffer)
+	{
+<span class="nc" id="L749">		buffer.append(IOConstants.TAG_CHARACTERTYPE).append(':');</span>
+<span class="nc" id="L750">		buffer.append((String) ChannelUtilities.readControlledChannel(</span>
+<span class="nc" id="L751">			charDisplay.getCharID(), CControl.CHARACTERTYPE));</span>
+<span class="nc" id="L752">		buffer.append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L753">	}</span>
+
+	private void appendPreviewSheetLine(StringBuilder buffer)
+	{
+<span class="nc" id="L757">		buffer.append(IOConstants.TAG_PREVIEWSHEET).append(':');</span>
+<span class="nc" id="L758">		buffer.append(charDisplay.getPreviewSheet());</span>
+<span class="nc" id="L759">		buffer.append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L760">	}</span>
+
+	/*
+	 * ###############################################################
+	 * Character Class(es) methods
+	 * ###############################################################
+	 */
+	private void appendClassLines(StringBuilder buffer)
+	{
+<span class="nc" id="L769">		Cache specials = new Cache();</span>
+
+<span class="nc bnc" id="L771" title="All 2 branches missed.">		for (PCClass pcClass : charDisplay.getClassSet())</span>
+		{
+<span class="nc" id="L773">			int classLevel = charDisplay.getLevel(pcClass);</span>
+
+<span class="nc" id="L775">			buffer.append(IOConstants.TAG_CLASS).append(':');</span>
+<span class="nc" id="L776">			buffer.append(EntityEncoder.encode(pcClass.getKeyName()));</span>
+
+<span class="nc" id="L778">			final String subClassKey = charDisplay.getSubClassName(pcClass);</span>
+
+<span class="nc bnc" id="L780" title="All 4 branches missed.">			if (subClassKey != null &amp;&amp; !Constants.EMPTY_STRING.equals(subClassKey))</span>
+			{
+<span class="nc" id="L782">				buffer.append('|');</span>
+<span class="nc" id="L783">				buffer.append(IOConstants.TAG_SUBCLASS).append(':');</span>
+<span class="nc" id="L784">				buffer.append(EntityEncoder.encode(subClassKey));</span>
+			}
+
+<span class="nc" id="L787">			buffer.append('|');</span>
+<span class="nc" id="L788">			buffer.append(IOConstants.TAG_LEVEL).append(':');</span>
+<span class="nc" id="L789">			buffer.append(classLevel);</span>
+<span class="nc" id="L790">			buffer.append('|');</span>
+<span class="nc" id="L791">			buffer.append(IOConstants.TAG_SKILLPOOL).append(':');</span>
+<span class="nc" id="L792">			Integer currentPool = thePC.getSkillPool(pcClass);</span>
+<span class="nc bnc" id="L793" title="All 2 branches missed.">			buffer.append(currentPool == null ? 0 : currentPool);</span>
+
+			// determine if this class can cast spells
+<span class="nc" id="L796">			boolean isCaster = false;</span>
+
+<span class="nc bnc" id="L798" title="All 2 branches missed.">			if (!thePC.getSpellSupport(pcClass).canCastSpells(thePC))</span>
+			{
+<span class="nc" id="L800">				isCaster = true;</span>
+			}
+
+<span class="nc bnc" id="L803" title="All 4 branches missed.">			boolean isPsionic = thePC.getSpellSupport(pcClass).hasKnownList() &amp;&amp; !isCaster;</span>
+
+<span class="nc bnc" id="L805" title="All 4 branches missed.">			if (isCaster || isPsionic)</span>
+			{
+<span class="nc" id="L807">				buffer.append('|');</span>
+<span class="nc" id="L808">				buffer.append(IOConstants.TAG_SPELLBASE).append(':');</span>
+<span class="nc" id="L809">				buffer.append(EntityEncoder.encode(pcClass.getSpellBaseStat()));</span>
+<span class="nc" id="L810">				buffer.append('|');</span>
+<span class="nc" id="L811">				buffer.append(IOConstants.TAG_CANCASTPERDAY).append(':');</span>
+<span class="nc" id="L812">				buffer.append(StringUtil.join(thePC.getSpellSupport(pcClass).getCastListForLevel(classLevel), &quot;,&quot;));</span>
+			}
+
+<span class="nc" id="L815">			Collection&lt;? extends SpellProhibitor&gt; prohib = charDisplay.getProhibitedSchools(pcClass);</span>
+<span class="nc bnc" id="L816" title="All 2 branches missed.">			if (prohib != null)</span>
+			{
+<span class="nc" id="L818">				Set&lt;String&gt; set = new TreeSet&lt;&gt;();</span>
+<span class="nc bnc" id="L819" title="All 2 branches missed.">				for (SpellProhibitor sp : prohib)</span>
+				{
+<span class="nc" id="L821">					set.addAll(sp.getValueList());</span>
+<span class="nc" id="L822">				}</span>
+<span class="nc bnc" id="L823" title="All 2 branches missed.">				if (!set.isEmpty())</span>
+				{
+<span class="nc" id="L825">					buffer.append('|');</span>
+<span class="nc" id="L826">					buffer.append(IOConstants.TAG_PROHIBITED).append(':');</span>
+<span class="nc" id="L827">					buffer.append(EntityEncoder.encode(StringUtil.join(set, &quot;,&quot;)));</span>
+				}
+			}
+<span class="nc" id="L830">			appendAddTokenInfo(buffer, pcClass);</span>
+
+<span class="nc" id="L832">			buffer.append(IOConstants.LINE_SEP);</span>
+
+<span class="nc" id="L834">			String spec = thePC.getAssoc(pcClass, AssociationKey.SPECIALTY);</span>
+<span class="nc bnc" id="L835" title="All 2 branches missed.">			if (spec != null)</span>
+			{
+<span class="nc" id="L837">				specials.put(pcClass.getKeyName() + IOConstants.TAG_SPECIALTY + '0', spec);</span>
+			}
+
+			String key;
+<span class="nc" id="L841">			key = pcClass.getKeyName() + IOConstants.TAG_SAVE + '0';</span>
+
+<span class="nc" id="L843">			List&lt;? extends SpecialAbility&gt; salist = charDisplay.getUserSpecialAbilityList(pcClass);</span>
+<span class="nc bnc" id="L844" title="All 4 branches missed.">			if (salist != null &amp;&amp; !salist.isEmpty())</span>
+			{
+<span class="nc" id="L846">				SpecialAbility sa = salist.get(0);</span>
+<span class="nc" id="L847">				specials.put(pcClass.getKeyName() + IOConstants.TAG_SA + 0, sa.getKeyName());</span>
+			}
+
+<span class="nc bnc" id="L850" title="All 2 branches missed.">			for (BonusObj save : thePC.getSaveableBonusList(pcClass))</span>
+			{
+<span class="nc" id="L852">				specials.put(key, &quot;BONUS|&quot; + save);</span>
+<span class="nc" id="L853">			}</span>
+<span class="nc bnc" id="L854" title="All 2 branches missed.">			for (int i = 1; i &lt;= charDisplay.getLevel(pcClass); i++)</span>
+			{
+<span class="nc" id="L856">				key = pcClass.getKeyName() + IOConstants.TAG_SAVE + (i - 1);</span>
+<span class="nc" id="L857">				PCClassLevel pcl = charDisplay.getActiveClassLevel(pcClass, i);</span>
+<span class="nc bnc" id="L858" title="All 2 branches missed.">				for (BonusObj save : thePC.getSaveableBonusList(pcl))</span>
+				{
+<span class="nc" id="L860">					specials.put(key, &quot;BONUS|&quot; + save);</span>
+<span class="nc" id="L861">				}</span>
+			}
+<span class="nc" id="L863">		}</span>
+
+		//
+		// Save level up information in the order of levelling
+		//
+<span class="nc bnc" id="L868" title="All 2 branches missed.">		for (PCLevelInfo pcl : charDisplay.getLevelInfo())</span>
+		{
+<span class="nc" id="L870">			final String classKeyName = pcl.getClassKeyName();</span>
+<span class="nc" id="L871">			int lvl = pcl.getClassLevel() - 1;</span>
+<span class="nc" id="L872">			PCClass pcClass = thePC.getClassKeyed(classKeyName);</span>
+<span class="nc" id="L873">			buffer.append(IOConstants.TAG_CLASSABILITIESLEVEL).append(':');</span>
+
+<span class="nc bnc" id="L875" title="All 2 branches missed.">			if (pcClass == null)</span>
+			{
+<span class="nc" id="L877">				pcClass = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class,</span>
+					classKeyName);
+
+<span class="nc bnc" id="L880" title="All 2 branches missed.">				if (pcClass != null)</span>
+				{
+<span class="nc" id="L882">					pcClass = thePC.getClassKeyed(pcClass.get(ObjectKey.EX_CLASS).get().getKeyName());</span>
+				}
+			}
+
+<span class="nc bnc" id="L886" title="All 2 branches missed.">			if (pcClass != null)</span>
+			{
+<span class="nc" id="L888">				buffer.append(EntityEncoder.encode(pcClass.getKeyName()));</span>
+			}
+			else
+			{
+<span class="nc" id="L892">				buffer.append(EntityEncoder.encode(&quot;???&quot;)); //$NON-NLS-1$</span>
+			}
+
+<span class="nc" id="L895">			buffer.append('=').append(lvl + 1);</span>
+
+<span class="nc bnc" id="L897" title="All 2 branches missed.">			if (pcClass != null)</span>
+			{
+<span class="nc" id="L899">				String aKey = charDisplay.getSubstitutionClassName(charDisplay.getActiveClassLevel(pcClass, lvl + 1));</span>
+<span class="nc bnc" id="L900" title="All 2 branches missed.">				if (aKey != null)</span>
+				{
+<span class="nc" id="L902">					buffer.append('|');</span>
+<span class="nc" id="L903">					buffer.append(IOConstants.TAG_SUBSTITUTIONLEVEL).append(':');</span>
+<span class="nc" id="L904">					buffer.append(aKey);</span>
+				}
+
+<span class="nc" id="L907">				buffer.append('|');</span>
+<span class="nc" id="L908">				buffer.append(IOConstants.TAG_HITPOINTS).append(':');</span>
+<span class="nc" id="L909">				PCClassLevel classLevel = charDisplay.getActiveClassLevel(pcClass, lvl);</span>
+<span class="nc" id="L910">				Integer hp = charDisplay.getHP(classLevel);</span>
+<span class="nc bnc" id="L911" title="All 2 branches missed.">				buffer.append(hp == null ? 0 : hp);</span>
+<span class="nc" id="L912">				appendSpecials(buffer, specials.get(pcClass.getKeyName() + IOConstants.TAG_SAVE + lvl),</span>
+					IOConstants.TAG_SAVES, IOConstants.TAG_SAVE, lvl);
+<span class="nc" id="L914">				appendSpecials(buffer, specials.get(pcClass.getKeyName() + IOConstants.TAG_SPECIALTY + lvl),</span>
+					IOConstants.TAG_SPECIALTIES, IOConstants.TAG_SPECIALTY, lvl);
+<span class="nc" id="L916">				appendSpecials(buffer, specials.get(pcClass.getKeyName() + IOConstants.TAG_SA + lvl),</span>
+					IOConstants.TAG_SPECIALABILITIES, IOConstants.TAG_SA, lvl);
+
+<span class="nc bnc" id="L919" title="All 2 branches missed.">				if (lvl == 0)</span>
+				{
+<span class="nc" id="L921">					appendSpecials(buffer, specials.get(pcClass.getKeyName() + IOConstants.TAG_SA + (lvl - 1)),</span>
+						IOConstants.TAG_SPECIALABILITIES, IOConstants.TAG_SA, -1);
+				}
+
+				//
+				// Remember what choices were made for each of the ADD: tags
+				//
+<span class="nc" id="L928">				appendAddTokenInfo(buffer, charDisplay.getActiveClassLevel(pcClass, lvl + 1));</span>
+			}
+
+<span class="nc" id="L931">			List&lt;PCLevelInfoStat&gt; statList = pcl.getModifiedStats(true);</span>
+
+<span class="nc bnc" id="L933" title="All 2 branches missed.">			if (statList != null)</span>
+			{
+<span class="nc bnc" id="L935" title="All 2 branches missed.">				for (PCLevelInfoStat stat : statList)</span>
+				{
+<span class="nc" id="L937">					buffer.append('|').append(IOConstants.TAG_PRESTAT).append(':').append(stat);</span>
+<span class="nc" id="L938">				}</span>
+			}
+
+<span class="nc" id="L941">			statList = pcl.getModifiedStats(false);</span>
+
+<span class="nc bnc" id="L943" title="All 2 branches missed.">			if (statList != null)</span>
+			{
+<span class="nc bnc" id="L945" title="All 2 branches missed.">				for (PCLevelInfoStat stat : statList)</span>
+				{
+<span class="nc" id="L947">					buffer.append('|').append(IOConstants.TAG_PRESTAT).append(':').append(stat);</span>
+<span class="nc" id="L948">				}</span>
+			}
+
+<span class="nc" id="L951">			int sp = pcl.getSkillPointsGained(thePC);</span>
+
+<span class="nc" id="L953">			buffer.append('|').append(IOConstants.TAG_SKILLPOINTSGAINED).append(':').append(sp);</span>
+
+<span class="nc" id="L955">			sp = pcl.getSkillPointsRemaining();</span>
+
+<span class="nc" id="L957">			buffer.append('|').append(IOConstants.TAG_SKILLPOINTSREMAINING).append(':').append(sp);</span>
+
+<span class="nc" id="L959">			buffer.append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L960">		}</span>
+<span class="nc" id="L961">	}</span>
+
+	/**
+	 * Convenience Method
+	 *
+	 * &lt;br&gt;author: Thomas Behr 19-03-02
+	 *
+	 * @param comment
+	 * @param buffer
+	 */
+	private static void appendComment(String comment, StringBuilder buffer)
+	{
+<span class="nc" id="L973">		buffer.append(createComment(comment));</span>
+<span class="nc" id="L974">	}</span>
+
+	/*
+	 * ###############################################################
+	 * Character Deity/Domain methods
+	 * ###############################################################
+	 */
+	private void appendDeityLine(StringBuilder buffer)
+	{
+<span class="nc" id="L983">		final Deity aDeity = (Deity) ChannelUtilities.readControlledChannel(</span>
+<span class="nc" id="L984">			charDisplay.getCharID(), CControl.DEITYINPUT);</span>
+<span class="nc bnc" id="L985" title="All 2 branches missed.">		if (aDeity != null)</span>
+		{
+
+<span class="nc" id="L988">			buffer.append(IOConstants.TAG_DEITY).append(':');</span>
+<span class="nc" id="L989">			buffer.append(EntityEncoder.encode(aDeity.getKeyName()));</span>
+
+			/*
+			 * currently unused information
+			 *
+			 * author: Thomas Behr 09-09-02
+			 */
+<span class="nc" id="L996">			buffer.append('|');</span>
+<span class="nc" id="L997">			buffer.append(IOConstants.TAG_DEITYDOMAINS).append(':');</span>
+<span class="nc" id="L998">			buffer.append('[');</span>
+
+<span class="nc" id="L1000">			String del = Constants.EMPTY_STRING;</span>
+
+<span class="nc bnc" id="L1002" title="All 2 branches missed.">			for (CDOMReference&lt;Domain&gt; ref : aDeity.getSafeListMods(Deity.DOMAINLIST))</span>
+			{
+<span class="nc bnc" id="L1004" title="All 2 branches missed.">				for (Domain d : ref.getContainedObjects())</span>
+				{
+<span class="nc" id="L1006">					buffer.append(del);</span>
+<span class="nc" id="L1007">					buffer.append(IOConstants.TAG_DOMAIN).append(':');</span>
+<span class="nc" id="L1008">					buffer.append(EntityEncoder.encode(d.getKeyName()));</span>
+<span class="nc" id="L1009">					del = &quot;|&quot;; //$NON-NLS-1$</span>
+<span class="nc" id="L1010">				}</span>
+<span class="nc" id="L1011">			}</span>
+
+<span class="nc" id="L1013">			buffer.append(']');</span>
+
+<span class="nc" id="L1015">			buffer.append('|');</span>
+<span class="nc" id="L1016">			buffer.append(IOConstants.TAG_ALIGNALLOW).append(':');</span>
+			//TODO Need to clean this up?
+<span class="nc bnc" id="L1018" title="All 2 branches missed.">			for (final Description desc : aDeity.getSafeListFor(ListKey.DESCRIPTION))</span>
+			{
+<span class="nc" id="L1020">				buffer.append('|');</span>
+<span class="nc" id="L1021">				buffer.append(IOConstants.TAG_DESC).append(':');</span>
+<span class="nc" id="L1022">				buffer.append(desc.getPCCText());</span>
+<span class="nc" id="L1023">			}</span>
+
+<span class="nc" id="L1025">			buffer.append('|');</span>
+<span class="nc" id="L1026">			buffer.append(IOConstants.TAG_DEITYFAVWEAP).append(':');</span>
+<span class="nc" id="L1027">			buffer.append('[');</span>
+
+<span class="nc" id="L1029">			List&lt;CDOMReference&lt;WeaponProf&gt;&gt; dwp = aDeity.getListFor(ListKey.DEITYWEAPON);</span>
+<span class="nc bnc" id="L1030" title="All 2 branches missed.">			if (dwp != null)</span>
+			{
+<span class="nc" id="L1032">				del = Constants.EMPTY_STRING;</span>
+<span class="nc bnc" id="L1033" title="All 2 branches missed.">				for (CDOMReference&lt;WeaponProf&gt; ref : dwp)</span>
+				{
+<span class="nc" id="L1035">					buffer.append(del);</span>
+<span class="nc" id="L1036">					buffer.append(IOConstants.TAG_WEAPON).append(':');</span>
+<span class="nc" id="L1037">					buffer.append(EntityEncoder.encode(ref.getLSTformat(false)));</span>
+<span class="nc" id="L1038">					del = &quot;|&quot;; //$NON-NLS-1$</span>
+<span class="nc" id="L1039">				}</span>
+			}
+
+<span class="nc" id="L1042">			buffer.append(']');</span>
+
+<span class="nc" id="L1044">			buffer.append('|');</span>
+<span class="nc" id="L1045">			buffer.append(IOConstants.TAG_DEITYALIGN).append(':');</span>
+<span class="nc" id="L1046">			CDOMSingleRef&lt;PCAlignment&gt; al = aDeity.get(ObjectKey.ALIGNMENT);</span>
+<span class="nc bnc" id="L1047" title="All 2 branches missed.">			if (al != null)</span>
+			{
+<span class="nc" id="L1049">				buffer.append(al.getLSTformat(false));</span>
+			}
+
+<span class="nc" id="L1052">			buffer.append(IOConstants.LINE_SEP);</span>
+		}
+<span class="nc" id="L1054">	}</span>
+
+	private void appendDomainLines(StringBuilder buffer)
+	{
+<span class="nc bnc" id="L1058" title="All 2 branches missed.">		for (final Domain domain : charDisplay.getDomainSet())</span>
+		{
+			// TODO is any of this commented out code any use anymore?:
+			//
+			//  			// improve here - performance and concept!!!!
+			//  			domainSpells.clear();
+			//  			for (Iterator it2 = Globals.getSpellMap().values().iterator(); it2.hasNext();)
+			//  			{
+			//  				aSpell = (Spell)it2.next();
+			//  //			levelString = aSpell.levelForClass(aDomain.getName());
+			//  				if ((levelString.length() &gt; 0) &amp;&amp;
+			//  				  (levelString.indexOf(&quot;-1&quot;) &lt; 0))
+			//  				{
+			//  					tokens = new StringTokenizer(levelString, &quot;,&quot;);
+			//  					while (tokens.hasMoreTokens())
+			//  					{
+			//  						if (tokens.nextToken().equals(aDomain.getName()))
+			//  						{
+			//  							break;
+			//  						}
+			//  					}
+			//  					domainSpells.add(((tokens.hasMoreTokens()) ? tokens.nextToken() + &quot; &quot; : &quot;&quot;) +
+			//  					  aSpell.getName());
+			//  				}
+			//  			}
+<span class="nc" id="L1083">			buffer.append(IOConstants.TAG_DOMAIN).append(':');</span>
+<span class="nc" id="L1084">			buffer.append(EntityEncoder.encode(domain.getKeyName()));</span>
+
+<span class="nc bnc" id="L1086" title="All 2 branches missed.">			for (String assoc : thePC.getAssociationList(domain))</span>
+			{
+<span class="nc" id="L1088">				buffer.append('|');</span>
+<span class="nc" id="L1089">				buffer.append(IOConstants.TAG_ASSOCIATEDDATA).append(':');</span>
+<span class="nc" id="L1090">				buffer.append(EntityEncoder.encode(assoc));</span>
+<span class="nc" id="L1091">			}</span>
+
+<span class="nc bnc" id="L1093" title="All 2 branches missed.">			for (final Description desc : domain.getSafeListFor(ListKey.DESCRIPTION))</span>
+			{
+<span class="nc" id="L1095">				buffer.append('|');</span>
+<span class="nc" id="L1096">				buffer.append(IOConstants.TAG_DOMAINGRANTS).append(':');</span>
+<span class="nc" id="L1097">				buffer.append(desc.getPCCText());</span>
+<span class="nc" id="L1098">			}</span>
+<span class="nc" id="L1099">			buffer.append('|');</span>
+<span class="nc" id="L1100">			appendSourceInTaggedFormat(buffer, getDomainSourcePcgString(domain));</span>
+
+			//			buffer.append('|');
+			//			buffer.append(TAG_DOMAINFEATS).append(':');
+			//			buffer.append(aDomain.getFeatList());
+			//			buffer.append('|');
+			//			buffer.append(TAG_DOMAINSKILLS).append(':');
+			//			buffer.append(aDomain.getSkillList());
+			//			buffer.append('|');
+			//			buffer.append(TAG_DOMAINSPECIALS).append(':');
+			//			buffer.append(aDomain.getSpecialAbility());
+			//			buffer.append('|');
+			//			buffer.append(TAG_DOMAINSPELLS).append(':');
+			//			buffer.append(aDomain.getSpellList());
+<span class="nc" id="L1114">			appendAddTokenInfo(buffer, domain);</span>
+<span class="nc" id="L1115">			buffer.append(IOConstants.LINE_SEP);</span>
+
+			/*
+			 * not working yet anyways
+			 *
+			 * author: Thomas Behr 09-09-02
+			 */
+
+			//  			buffer.append(TAG_DOMAINSPELLS).append(':');
+			//  			buffer.append(EntityEncoder.encode(aDomain.getKeyName()));
+			//  			buffer.append('|');
+			//  			buffer.append(TAG_SPELLLIST).append(':');
+			//			buffer.append('[');
+			//  			del = &quot;&quot;;
+			//  			Collections.sort(domainSpells);
+			//  			for (Iterator it2 = domainSpells.iterator(); it2.hasNext();)
+			//  			{
+			//  				buffer.append(del);
+			//  				buffer.append(TAG_SPELL).append(':');
+			//				buffer.append(EntityEncoder.encode((String)it2.next()));
+			//  				del = &quot;|&quot;;
+			//  			}
+			//			buffer.append(']');
+			//  			buffer.append(LINE_SEP);
+<span class="nc" id="L1139">		}</span>
+<span class="nc" id="L1140">	}</span>
+
+	/**
+	 * Returns the source of the domain in the format &quot;PObject|name[|level]&quot;
+	 * For example, &quot;PCClass|Cleric|1&quot;
+	 * (since the level is relevant)
+	 * For example, &quot;Feat|Awesome Divinity&quot; to attach a domain to a feat
+	 *
+	 * This method should NOT be called outside of file i/o routines
+	 * DO NOT perform comparisons on this String
+	 *
+	 * @return String the source of the domain
+	 */
+	private String getDomainSourcePcgString(Domain domain)
+	{
+<span class="nc" id="L1155">		final StringBuilder buff = new StringBuilder(30);</span>
+<span class="nc" id="L1156">		ClassSource source = thePC.getDomainSource(domain);</span>
+<span class="nc" id="L1157">		buff.append(&quot;PCClass&quot;);</span>
+<span class="nc" id="L1158">		buff.append('|');</span>
+<span class="nc" id="L1159">		buff.append(source.getPcclass().getKeyName());</span>
+
+<span class="nc bnc" id="L1161" title="All 2 branches missed.">		if (source.getLevel() &gt; 0)</span>
+		{
+<span class="nc" id="L1163">			buff.append('|');</span>
+<span class="nc" id="L1164">			buff.append(source.getLevel());</span>
+		}
+
+<span class="nc" id="L1167">		return buff.toString();</span>
+	}
+
+	/**
+	 * For each EquipSet, check for a tempBonusList and if found, save each
+	 * bonus
+	 * 
+	 * @param buffer
+	 */
+	private void appendEqSetBonuses(StringBuilder buffer)
+	{
+<span class="nc bnc" id="L1178" title="All 2 branches missed.">		for (EquipSet eSet : charDisplay.getEquipSet())</span>
+		{
+<span class="nc bnc" id="L1180" title="All 2 branches missed.">			if (eSet.useTempBonusList())</span>
+			{
+<span class="nc" id="L1182">				buffer.append(IOConstants.TAG_EQSETBONUS).append(':');</span>
+<span class="nc" id="L1183">				buffer.append(eSet.getIdPath());</span>
+
+<span class="nc" id="L1185">				List&lt;String&gt; trackList = new ArrayList&lt;&gt;();</span>
+
+<span class="nc bnc" id="L1187" title="All 2 branches missed.">				for (Map.Entry&lt;BonusObj, BonusManager.TempBonusInfo&gt; me : eSet.getTempBonusMap().entrySet())</span>
+				{
+					//BonusObj bObj = me.getKey();
+<span class="nc" id="L1190">					TempBonusInfo tbi = me.getValue();</span>
+<span class="nc" id="L1191">					Object cObj = tbi.source;</span>
+<span class="nc" id="L1192">					Object tObj = tbi.target;</span>
+<span class="nc" id="L1193">					final String aName = tempBonusName(cObj, tObj);</span>
+
+<span class="nc bnc" id="L1195" title="All 2 branches missed.">					if (trackList.contains(aName))</span>
+					{
+<span class="nc" id="L1197">						continue;</span>
+					}
+
+<span class="nc" id="L1200">					trackList.add(aName);</span>
+
+<span class="nc" id="L1202">					buffer.append('|');</span>
+<span class="nc" id="L1203">					buffer.append(IOConstants.TAG_TEMPBONUSBONUS).append(':');</span>
+<span class="nc" id="L1204">					buffer.append(EntityEncoder.encode(aName));</span>
+<span class="nc" id="L1205">				}</span>
+
+<span class="nc" id="L1207">				buffer.append(IOConstants.LINE_SEP);</span>
+			}
+<span class="nc" id="L1209">		}</span>
+<span class="nc" id="L1210">	}</span>
+
+	private void appendEquipmentLines(StringBuilder buffer)
+	{
+<span class="nc" id="L1214">		List&lt;Equipment&gt; eqsorted = thePC.getEquipmentMasterList();</span>
+<span class="nc" id="L1215">		Collections.sort(eqsorted);</span>
+<span class="nc bnc" id="L1216" title="All 2 branches missed.">		for (final Equipment eq : eqsorted)</span>
+		{
+<span class="nc" id="L1218">			buffer.append(IOConstants.TAG_EQUIPNAME).append(':');</span>
+<span class="nc" id="L1219">			buffer.append(EntityEncoder.encode(eq.getName()));</span>
+<span class="nc" id="L1220">			buffer.append('|');</span>
+<span class="nc" id="L1221">			buffer.append(IOConstants.TAG_OUTPUTORDER).append(':');</span>
+<span class="nc" id="L1222">			buffer.append(eq.getOutputIndex());</span>
+<span class="nc" id="L1223">			buffer.append('|');</span>
+<span class="nc" id="L1224">			buffer.append(IOConstants.TAG_COST).append(':');</span>
+<span class="nc" id="L1225">			buffer.append(eq.getCost(thePC));</span>
+<span class="nc" id="L1226">			buffer.append('|');</span>
+<span class="nc" id="L1227">			buffer.append(IOConstants.TAG_WT).append(':');</span>
+<span class="nc" id="L1228">			buffer.append(eq.getWeight(thePC));</span>
+<span class="nc" id="L1229">			buffer.append('|');</span>
+<span class="nc" id="L1230">			buffer.append(IOConstants.TAG_QUANTITY).append(':');</span>
+<span class="nc" id="L1231">			buffer.append(eq.qty());</span>
+
+<span class="nc" id="L1233">			final String note = eq.getNote();</span>
+<span class="nc bnc" id="L1234" title="All 2 branches missed.">			if (note != null)</span>
+			{
+<span class="nc" id="L1236">				buffer.append('|');</span>
+<span class="nc" id="L1237">				buffer.append(IOConstants.TAG_NOTE).append(':');</span>
+<span class="nc" id="L1238">				buffer.append(eq.getNote());</span>
+			}
+
+<span class="nc" id="L1241">			final String customization = eq.formatSaveLine('$', '=').trim();</span>
+<span class="nc" id="L1242">			final int delimiterIndex = customization.indexOf('$');</span>
+
+<span class="nc bnc" id="L1244" title="All 4 branches missed.">			if ((!customization.isEmpty()) &amp;&amp; (delimiterIndex &gt;= 0))</span>
+			{
+<span class="nc" id="L1246">				buffer.append('|');</span>
+<span class="nc" id="L1247">				buffer.append(IOConstants.TAG_CUSTOMIZATION).append(':');</span>
+<span class="nc" id="L1248">				buffer.append('[');</span>
+<span class="nc" id="L1249">				buffer.append(IOConstants.TAG_BASEITEM).append(':');</span>
+<span class="nc" id="L1250">				buffer.append(EntityEncoder.encode(customization.substring(0, delimiterIndex)));</span>
+<span class="nc" id="L1251">				buffer.append('|');</span>
+<span class="nc" id="L1252">				buffer.append(IOConstants.TAG_DATA).append(':');</span>
+<span class="nc" id="L1253">				buffer.append(EntityEncoder.encode(customization.substring(delimiterIndex + 1)));</span>
+<span class="nc" id="L1254">				buffer.append(']');</span>
+			}
+
+<span class="nc" id="L1257">			buffer.append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L1258">		}</span>
+<span class="nc" id="L1259">	}</span>
+
+	private void appendEquipmentSetLines(StringBuilder buffer)
+	{
+		// Output all the EquipSets
+<span class="nc" id="L1264">		final List&lt;EquipSet&gt; eqSetList = new ArrayList&lt;&gt;(charDisplay.getEquipSet());</span>
+<span class="nc" id="L1265">		Collections.sort(eqSetList);</span>
+
+<span class="nc bnc" id="L1267" title="All 2 branches missed.">		for (EquipSet eqSet : eqSetList)</span>
+		{
+<span class="nc" id="L1269">			buffer.append(IOConstants.TAG_EQUIPSET).append(':');</span>
+<span class="nc" id="L1270">			buffer.append(EntityEncoder.encode(eqSet.getName()));</span>
+<span class="nc" id="L1271">			buffer.append('|');</span>
+<span class="nc" id="L1272">			buffer.append(IOConstants.TAG_ID).append(':');</span>
+<span class="nc" id="L1273">			buffer.append(eqSet.getIdPath());</span>
+
+<span class="nc bnc" id="L1275" title="All 2 branches missed.">			if (!eqSet.getValue().isEmpty())</span>
+			{
+<span class="nc" id="L1277">				buffer.append('|');</span>
+<span class="nc" id="L1278">				buffer.append(IOConstants.TAG_VALUE).append(':');</span>
+<span class="nc" id="L1279">				buffer.append(EntityEncoder.encode(eqSet.getValue()));</span>
+<span class="nc" id="L1280">				buffer.append('|');</span>
+<span class="nc" id="L1281">				buffer.append(IOConstants.TAG_QUANTITY).append(':');</span>
+<span class="nc" id="L1282">				buffer.append(eqSet.getQty());</span>
+			}
+
+<span class="nc bnc" id="L1285" title="All 2 branches missed.">			if (!eqSet.getNote().isEmpty())</span>
+			{
+<span class="nc" id="L1287">				buffer.append('|');</span>
+<span class="nc" id="L1288">				buffer.append(IOConstants.TAG_NOTE).append(':');</span>
+<span class="nc" id="L1289">				buffer.append(eqSet.getNote());</span>
+			}
+
+<span class="nc bnc" id="L1292" title="All 2 branches missed.">			if (eqSet.getUseTempMods())</span>
+			{
+<span class="nc" id="L1294">				buffer.append('|');</span>
+<span class="nc" id="L1295">				buffer.append(IOConstants.TAG_USETEMPMODS).append(':');</span>
+<span class="nc bnc" id="L1296" title="All 2 branches missed.">				buffer.append(eqSet.getUseTempMods() ? 'Y' : 'N');</span>
+			}
+
+<span class="nc" id="L1299">			buffer.append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L1300">		}</span>
+
+		// Then output EquipSet used for &quot;working&quot; equipmentList
+<span class="nc" id="L1303">		final String calcEquipSet = thePC.getCalcEquipSetId();</span>
+<span class="nc" id="L1304">		buffer.append(IOConstants.TAG_CALCEQUIPSET).append(':');</span>
+<span class="nc" id="L1305">		buffer.append(calcEquipSet);</span>
+<span class="nc" id="L1306">		buffer.append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L1307">	}</span>
+
+	private void appendEyeColorLine(StringBuilder buffer)
+	{
+<span class="nc" id="L1311">		buffer.append(IOConstants.TAG_EYECOLOR).append(':');</span>
+<span class="nc" id="L1312">		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.EYECOLOR)));</span>
+<span class="nc" id="L1313">		buffer.append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L1314">	}</span>
+
+	/*
+	 * ###############################################################
+	 * Character Feats methods
+	 * Only need to output pool, other FEAT info is stored in the ABILITY lines.
+	 * ###############################################################
+	 */
+	private void appendFeatLines(StringBuilder buffer)
+	{
+<span class="nc" id="L1324">		buffer.append(IOConstants.TAG_FEATPOOL).append(':');</span>
+<span class="nc" id="L1325">		buffer.append(thePC.getRemainingFeatPoints(false));</span>
+<span class="nc" id="L1326">		buffer.append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L1327">	}</span>
+
+	/*
+	 * ###############################################################
+	 * Character Ability methods
+	 * ###############################################################
+	 */
+	private void appendAbilityLines(StringBuilder buffer)
+	{
+<span class="nc" id="L1336">		ArrayList&lt;AbilityCategory&gt; categories = new ArrayList&lt;&gt;(getGameMode().getAllAbilityCategories());</span>
+<span class="nc" id="L1337">		categories.add(AbilityCategory.LANGBONUS);</span>
+
+<span class="nc" id="L1339">		Collection&lt;CNAbilitySelection&gt; virtSave = thePC.getSaveAbilities();</span>
+
+<span class="nc" id="L1341">		categories.sort(Comparator.comparing(AbilityCategory::getKeyName));</span>
+
+<span class="nc bnc" id="L1343" title="All 2 branches missed.">		for (final AbilityCategory cat : categories)</span>
+		{
+<span class="nc" id="L1345">			final List&lt;CNAbility&gt; normalAbilitiesToSave = new ArrayList&lt;&gt;(thePC.getPoolAbilities(cat, Nature.NORMAL));</span>
+
+			// ABILITY:FEAT|NORMAL|Feat Key|APPLIEDTO:xxx|TYPE:xxx|SAVE:xxx|DESC:xxx
+<span class="nc" id="L1348">			Collections.sort(normalAbilitiesToSave);</span>
+<span class="nc bnc" id="L1349" title="All 2 branches missed.">			for (final CNAbility ability : normalAbilitiesToSave)</span>
+			{
+<span class="nc" id="L1351">				writeAbilityToBuffer(buffer, ability);</span>
+<span class="nc" id="L1352">			}</span>
+<span class="nc" id="L1353">			boolean hasVirt = false;</span>
+<span class="nc bnc" id="L1354" title="All 2 branches missed.">			for (final CNAbilitySelection ability : virtSave)</span>
+			{
+<span class="nc" id="L1356">				CNAbility cnAbility = ability.getCNAbility();</span>
+<span class="nc bnc" id="L1357" title="All 2 branches missed.">				if (cnAbility.getAbilityCategory().equals(cat))</span>
+				{
+					//TODO Need to write each CNAbility only once :/
+<span class="nc" id="L1360">					writeAbilityToBuffer(buffer, cnAbility);</span>
+<span class="nc" id="L1361">					hasVirt = true;</span>
+				}
+<span class="nc" id="L1363">			}</span>
+<span class="nc bnc" id="L1364" title="All 6 branches missed.">			if (!normalAbilitiesToSave.isEmpty() || hasVirt || thePC.getUserPoolBonus(cat) != 0.0)</span>
+			{
+<span class="nc" id="L1366">				buffer.append(IOConstants.TAG_USERPOOL).append(IOConstants.TAG_END);</span>
+<span class="nc" id="L1367">				buffer.append(EntityEncoder.encode(cat.getKeyName())).append(IOConstants.TAG_SEPARATOR);</span>
+<span class="nc" id="L1368">				buffer.append(IOConstants.TAG_POOLPOINTS).append(IOConstants.TAG_END);</span>
+<span class="nc" id="L1369">				buffer.append(thePC.getUserPoolBonus(cat));</span>
+<span class="nc" id="L1370">				buffer.append(IOConstants.LINE_SEP);</span>
+			}
+<span class="nc" id="L1372">		}</span>
+<span class="nc" id="L1373">	}</span>
+
+	private void writeAbilityToBuffer(StringBuilder buffer, CNAbility cna)
+	{
+<span class="nc" id="L1377">		Category&lt;Ability&gt; cat = cna.getAbilityCategory();</span>
+<span class="nc" id="L1378">		Nature nature = cna.getNature();</span>
+<span class="nc" id="L1379">		Ability ability = cna.getAbility();</span>
+<span class="nc" id="L1380">		buffer.append(IOConstants.TAG_ABILITY).append(IOConstants.TAG_END);</span>
+<span class="nc" id="L1381">		buffer.append(EntityEncoder.encode(cat.getKeyName())).append(IOConstants.TAG_SEPARATOR);</span>
+<span class="nc" id="L1382">		buffer.append(IOConstants.TAG_TYPE).append(IOConstants.TAG_END);</span>
+<span class="nc" id="L1383">		buffer.append(EntityEncoder.encode(nature.toString())).append(IOConstants.TAG_SEPARATOR);</span>
+<span class="nc" id="L1384">		buffer.append(IOConstants.TAG_CATEGORY).append(IOConstants.TAG_END);</span>
+<span class="nc" id="L1385">		buffer.append(EntityEncoder.encode(ability.getCategory())).append(IOConstants.TAG_SEPARATOR);</span>
+<span class="nc" id="L1386">		buffer.append(IOConstants.TAG_MAPKEY).append(IOConstants.TAG_END);</span>
+<span class="nc" id="L1387">		buffer.append(EntityEncoder.encode(ability.getKeyName())).append(IOConstants.TAG_SEPARATOR);</span>
+<span class="nc bnc" id="L1388" title="All 2 branches missed.">		if (ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))</span>
+		{
+<span class="nc" id="L1390">			buffer.append(IOConstants.TAG_APPLIEDTO).append(IOConstants.TAG_END);</span>
+<span class="nc" id="L1391">			List&lt;String&gt; assocList = thePC.getAssociationList(cna);</span>
+<span class="nc" id="L1392">			boolean first = true;</span>
+<span class="nc bnc" id="L1393" title="All 2 branches missed.">			for (String assoc : assocList)</span>
+			{
+<span class="nc bnc" id="L1395" title="All 2 branches missed.">				if (!first)</span>
+				{
+<span class="nc" id="L1397">					buffer.append(Constants.COMMA);</span>
+				}
+<span class="nc" id="L1399">				first = false;</span>
+<span class="nc" id="L1400">				buffer.append(EntityEncoder.encode(assoc));</span>
+<span class="nc" id="L1401">			}</span>
+<span class="nc" id="L1402">			buffer.append(IOConstants.TAG_SEPARATOR);</span>
+		}
+<span class="nc" id="L1404">		buffer.append(IOConstants.TAG_TYPE).append(IOConstants.TAG_END);</span>
+<span class="nc" id="L1405">		buffer.append(EntityEncoder.encode(ability.getType()));</span>
+
+<span class="nc bnc" id="L1407" title="All 2 branches missed.">		for (final BonusObj save : thePC.getSaveableBonusList(ability))</span>
+		{
+<span class="nc" id="L1409">			buffer.append('|');</span>
+<span class="nc" id="L1410">			buffer.append(IOConstants.TAG_SAVE).append(':');</span>
+<span class="nc" id="L1411">			buffer.append(EntityEncoder.encode(&quot;BONUS|&quot; + save));</span>
+<span class="nc" id="L1412">		}</span>
+
+<span class="nc bnc" id="L1414" title="All 2 branches missed.">		for (final Description desc : ability.getSafeListFor(ListKey.DESCRIPTION))</span>
+		{
+<span class="nc" id="L1416">			buffer.append(Constants.PIPE);</span>
+<span class="nc" id="L1417">			buffer.append(IOConstants.TAG_DESC).append(':');</span>
+<span class="nc" id="L1418">			buffer.append(EntityEncoder.encode(desc.getPCCText()));</span>
+<span class="nc" id="L1419">		}</span>
+
+<span class="nc" id="L1421">		buffer.append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L1422">	}</span>
+
+	/*
+	 * ###############################################################
+	 * Character Follower methods
+	 * ###############################################################
+	 */
+	private void appendFollowerLines(StringBuilder buffer)
+	{
+<span class="nc" id="L1431">		final Follower aMaster = charDisplay.getMaster();</span>
+
+<span class="nc bnc" id="L1433" title="All 2 branches missed.">		if (aMaster != null)</span>
+		{
+<span class="nc" id="L1435">			buffer.append(IOConstants.TAG_MASTER).append(':');</span>
+<span class="nc" id="L1436">			buffer.append(EntityEncoder.encode(aMaster.getName()));</span>
+<span class="nc" id="L1437">			buffer.append('|');</span>
+<span class="nc" id="L1438">			buffer.append(IOConstants.TAG_TYPE).append(':');</span>
+<span class="nc" id="L1439">			buffer.append(EntityEncoder.encode(aMaster.getType().getKeyName()));</span>
+<span class="nc" id="L1440">			buffer.append('|');</span>
+<span class="nc" id="L1441">			buffer.append(IOConstants.TAG_HITDICE).append(':');</span>
+<span class="nc" id="L1442">			buffer.append(aMaster.getUsedHD());</span>
+<span class="nc" id="L1443">			buffer.append('|');</span>
+<span class="nc" id="L1444">			buffer.append(IOConstants.TAG_FILE).append(':');</span>
+<span class="nc" id="L1445">			buffer.append(EntityEncoder.encode(</span>
+<span class="nc" id="L1446">				FileHelper.findRelativePath(new File(charDisplay.getFileName()), new File(aMaster.getFileName()))));</span>
+<span class="nc" id="L1447">			buffer.append('|');</span>
+<span class="nc" id="L1448">			buffer.append(IOConstants.TAG_ADJUSTMENT).append(':');</span>
+<span class="nc" id="L1449">			buffer.append(aMaster.getAdjustment());</span>
+<span class="nc" id="L1450">			buffer.append(IOConstants.LINE_SEP);</span>
+		}
+
+<span class="nc bnc" id="L1453" title="All 2 branches missed.">		if (charDisplay.hasFollowers())</span>
+		{
+<span class="nc bnc" id="L1455" title="All 2 branches missed.">			for (Follower follower : charDisplay.getFollowerList())</span>
+			{
+<span class="nc" id="L1457">				buffer.append(IOConstants.TAG_FOLLOWER).append(':');</span>
+<span class="nc" id="L1458">				buffer.append(EntityEncoder.encode(follower.getName()));</span>
+<span class="nc" id="L1459">				buffer.append('|');</span>
+<span class="nc" id="L1460">				buffer.append(IOConstants.TAG_TYPE).append(':');</span>
+<span class="nc" id="L1461">				buffer.append(EntityEncoder.encode(follower.getType().getKeyName()));</span>
+<span class="nc" id="L1462">				buffer.append('|');</span>
+<span class="nc bnc" id="L1463" title="All 2 branches missed.">				if (follower.getRace() != null)</span>
+				{
+<span class="nc" id="L1465">					buffer.append(IOConstants.TAG_RACE).append(':');</span>
+<span class="nc" id="L1466">					buffer.append(EntityEncoder.encode(follower.getRace().getKeyName().toUpperCase()));</span>
+<span class="nc" id="L1467">					buffer.append('|');</span>
+				}
+<span class="nc" id="L1469">				buffer.append(IOConstants.TAG_HITDICE).append(':');</span>
+<span class="nc" id="L1470">				buffer.append(follower.getUsedHD());</span>
+<span class="nc" id="L1471">				buffer.append('|');</span>
+<span class="nc" id="L1472">				buffer.append(IOConstants.TAG_FILE).append(':');</span>
+<span class="nc bnc" id="L1473" title="All 2 branches missed.">				if (StringUtils.isNotEmpty(follower.getFileName()))</span>
+				{
+<span class="nc" id="L1475">					buffer.append(EntityEncoder.encode(FileHelper.findRelativePath(new File(charDisplay.getFileName()),</span>
+<span class="nc" id="L1476">						new File(follower.getFileName()))));</span>
+				}
+<span class="nc" id="L1478">				buffer.append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L1479">			}</span>
+		}
+<span class="nc" id="L1481">	}</span>
+
+	private void appendGenderLine(StringBuilder buffer)
+	{
+<span class="nc" id="L1485">		buffer.append(IOConstants.TAG_GENDER).append(':');</span>
+<span class="nc" id="L1486">		buffer.append(EntityEncoder.encode(thePC.getGenderObject().name()));</span>
+<span class="nc" id="L1487">		buffer.append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L1488">	}</span>
+
+	private void appendHairColorLine(StringBuilder buffer)
+	{
+<span class="nc" id="L1492">		buffer.append(IOConstants.TAG_HAIRCOLOR).append(':');</span>
+<span class="nc" id="L1493">		buffer.append(EntityEncoder.encode(HairColorCompat.getCurrentHairColor(thePC.getCharID())));</span>
+<span class="nc" id="L1494">		buffer.append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L1495">	}</span>
+
+	private void appendHairStyleLine(StringBuilder buffer)
+	{
+<span class="nc" id="L1499">		buffer.append(IOConstants.TAG_HAIRSTYLE).append(':');</span>
+<span class="nc" id="L1500">		String hairStyle = (String) ChannelUtilities</span>
+<span class="nc" id="L1501">			.readControlledChannel(thePC.getCharID(), CControl.HAIRSTYLEINPUT);</span>
+<span class="nc" id="L1502">		buffer.append(EntityEncoder.encode(</span>
+<span class="nc" id="L1503">			Optional.ofNullable(hairStyle).orElse(Constants.EMPTY_STRING)));</span>
+<span class="nc" id="L1504">		buffer.append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L1505">	}</span>
+
+	private void appendHandedLine(StringBuilder buffer)
+	{
+<span class="nc" id="L1509">		buffer.append(IOConstants.TAG_HANDED).append(':');</span>
+<span class="nc" id="L1510">		buffer.append(EntityEncoder.encode(HandedCompat.getCurrentHandedness(thePC.getCharID()).name()));</span>
+<span class="nc" id="L1511">		buffer.append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L1512">	}</span>
+
+	private void appendInterestsLine(StringBuilder buffer)
+	{
+<span class="nc" id="L1516">		buffer.append(IOConstants.TAG_INTERESTS).append(':');</span>
+<span class="nc" id="L1517">		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.INTERESTS)));</span>
+<span class="nc" id="L1518">		buffer.append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L1519">	}</span>
+
+	/*
+	 * ###############################################################
+	 * Kit Information methods
+	 * ###############################################################
+	 */
+	/*
+	 * #Kits
+	 * KIT:KitType|Region|KitName
+	 *
+	 * TODO: Do we need to support the below?
+	 * KIT:KitName|TYPE:KitType|REGION:Region
+	 */
+	private void appendKitLines(StringBuilder buffer)
+	{
+<span class="nc bnc" id="L1535" title="All 2 branches missed.">		for (final Kit kit : charDisplay.getKitInfo())</span>
+		{
+<span class="nc" id="L1537">			buffer.append(IOConstants.TAG_KIT).append(':').append(kit.getKeyName()).append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L1538">		}</span>
+<span class="nc" id="L1539">	}</span>
+
+	/*
+	 * ###############################################################
+	 * Character Language methods
+	 * ###############################################################
+	 */
+	private void appendLanguageLine(StringBuilder buffer)
+	{
+<span class="nc" id="L1548">		String del = Constants.EMPTY_STRING;</span>
+<span class="nc" id="L1549">		TreeSet&lt;Language&gt; sortedlangs = new TreeSet(charDisplay.getLanguageSet());</span>
+
+<span class="nc bnc" id="L1551" title="All 2 branches missed.">		for (final Language lang : sortedlangs)</span>
+		{
+<span class="nc" id="L1553">			buffer.append(del);</span>
+<span class="nc" id="L1554">			buffer.append(IOConstants.TAG_LANGUAGE).append(':');</span>
+<span class="nc" id="L1555">			buffer.append(EntityEncoder.encode(lang.getKeyName()));</span>
+<span class="nc" id="L1556">			del = &quot;|&quot;; //$NON-NLS-1$</span>
+<span class="nc" id="L1557">		}</span>
+
+<span class="nc" id="L1559">		buffer.append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L1560">	}</span>
+
+	private void appendLocationLine(StringBuilder buffer)
+	{
+<span class="nc" id="L1564">		buffer.append(IOConstants.TAG_LOCATION).append(':');</span>
+<span class="nc" id="L1565">		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.LOCATION)));</span>
+<span class="nc" id="L1566">		buffer.append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L1567">	}</span>
+
+	/**
+	 * Convenience Method
+	 *
+	 * &lt;br&gt;author: Thomas Behr 19-03-02
+	 *
+	 * @param buffer
+	 */
+	private static void appendNewline(StringBuilder buffer)
+	{
+<span class="nc" id="L1578">		buffer.append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L1579">	}</span>
+
+	/*
+	 * ###############################################################
+	 * Character Notes Tab methods
+	 * ###############################################################
+	 */
+	private void appendNotesLines(StringBuilder buffer)
+	{
+<span class="nc bnc" id="L1588" title="All 2 branches missed.">		for (NoteItem ni : charDisplay.getNotesList())</span>
+		{
+<span class="nc" id="L1590">			buffer.append(IOConstants.TAG_NOTE).append(':');</span>
+<span class="nc" id="L1591">			buffer.append(EntityEncoder.encode(ni.getName()));</span>
+<span class="nc" id="L1592">			buffer.append('|');</span>
+<span class="nc" id="L1593">			buffer.append(IOConstants.TAG_ID).append(':');</span>
+<span class="nc" id="L1594">			buffer.append(ni.getId());</span>
+<span class="nc" id="L1595">			buffer.append('|');</span>
+<span class="nc" id="L1596">			buffer.append(IOConstants.TAG_PARENTID).append(':');</span>
+<span class="nc" id="L1597">			buffer.append(ni.getParentId());</span>
+<span class="nc" id="L1598">			buffer.append('|');</span>
+<span class="nc" id="L1599">			buffer.append(IOConstants.TAG_VALUE).append(':');</span>
+<span class="nc" id="L1600">			buffer.append(EntityEncoder.encode(ni.getValue()));</span>
+<span class="nc" id="L1601">			buffer.append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L1602">		}</span>
+<span class="nc" id="L1603">	}</span>
+
+	private void appendPersonalityTrait1Line(StringBuilder buffer)
+	{
+<span class="nc" id="L1607">		buffer.append(IOConstants.TAG_PERSONALITYTRAIT1).append(':');</span>
+<span class="nc" id="L1608">		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.PERSONALITY1)));</span>
+<span class="nc" id="L1609">		buffer.append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L1610">	}</span>
+
+	private void appendPersonalityTrait2Line(StringBuilder buffer)
+	{
+<span class="nc" id="L1614">		buffer.append(IOConstants.TAG_PERSONALITYTRAIT2).append(':');</span>
+<span class="nc" id="L1615">		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.PERSONALITY2)));</span>
+<span class="nc" id="L1616">		buffer.append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L1617">	}</span>
+
+	private void appendPhobiasLine(StringBuilder buffer)
+	{
+<span class="nc" id="L1621">		buffer.append(IOConstants.TAG_PHOBIAS).append(':');</span>
+<span class="nc" id="L1622">		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.PHOBIAS)));</span>
+<span class="nc" id="L1623">		buffer.append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L1624">	}</span>
+
+	//private void appendUnlimitedPoolCheckedLine(StringBuilder buffer)
+	//{
+	//buffer.append(TAG_UNLIMITEDPOOLCHECKED).append(':');
+	//buffer.append((SettingsHandler.isStatPoolUnlimited()) ? &quot;Y&quot; : &quot;N&quot;);
+	//buffer.append(LINE_SEP);
+	//}
+	private void appendPoolPointsLine(StringBuilder buffer)
+	{
+<span class="nc" id="L1634">		buffer.append(IOConstants.TAG_POOLPOINTS).append(':');</span>
+<span class="nc" id="L1635">		buffer.append(thePC.getPoolAmount());</span>
+<span class="nc" id="L1636">		buffer.append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L1637">		buffer.append(IOConstants.TAG_POOLPOINTSAVAIL).append(':');</span>
+<span class="nc" id="L1638">		buffer.append(thePC.getPointBuyPoints());</span>
+<span class="nc" id="L1639">		buffer.append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L1640">	}</span>
+
+	private void appendAutoSortLines(StringBuilder buffer)
+	{
+<span class="nc" id="L1644">		buffer.append(IOConstants.TAG_SKILLSOUTPUTORDER).append(':');</span>
+<span class="nc" id="L1645">		buffer.append(thePC.getSkillsOutputOrder().ordinal());</span>
+<span class="nc" id="L1646">		buffer.append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L1647">	}</span>
+
+	private void appendSkillFilterLine(StringBuilder buffer)
+	{
+<span class="nc" id="L1651">		buffer.append(IOConstants.TAG_SKILLFILTER).append(':');</span>
+<span class="nc" id="L1652">		buffer.append(thePC.getSkillFilter().getValue());</span>
+<span class="nc" id="L1653">		buffer.append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L1654">	}</span>
+
+	private void appendGearCostSizeLines(StringBuilder buffer)
+	{
+<span class="nc" id="L1658">		buffer.append(IOConstants.TAG_IGNORECOST).append(':');</span>
+<span class="nc bnc" id="L1659" title="All 2 branches missed.">		buffer.append(thePC.isIgnoreCost() ? 'Y' : 'N');</span>
+<span class="nc" id="L1660">		buffer.append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L1661">		buffer.append(IOConstants.TAG_ALLOWDEBT).append(':');</span>
+<span class="nc bnc" id="L1662" title="All 2 branches missed.">		buffer.append(thePC.isAllowDebt() ? 'Y' : 'N');</span>
+<span class="nc" id="L1663">		buffer.append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L1664">		buffer.append(IOConstants.TAG_AUTORESIZEGEAR).append(':');</span>
+<span class="nc bnc" id="L1665" title="All 2 branches missed.">		buffer.append(thePC.isAutoResize() ? 'Y' : 'N');</span>
+<span class="nc" id="L1666">		buffer.append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L1667">	}</span>
+
+	private void appendAutoSpellsLine(StringBuilder buffer)
+	{
+<span class="nc" id="L1671">		buffer.append(IOConstants.TAG_AUTOSPELLS).append(':');</span>
+<span class="nc bnc" id="L1672" title="All 2 branches missed.">		buffer.append(thePC.getAutoSpells() ? 'Y' : 'N');</span>
+<span class="nc" id="L1673">		buffer.append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L1674">	}</span>
+
+	/**
+	 * Append the settings related to higher level slot use for spells.
+	 * @param buffer The buffer to append to.
+	 */
+	private void appendUseHigherSpellSlotsLines(StringBuilder buffer)
+	{
+<span class="nc" id="L1682">		buffer.append(IOConstants.TAG_USEHIGHERKNOWN).append(':');</span>
+<span class="nc bnc" id="L1683" title="All 2 branches missed.">		buffer.append(thePC.getUseHigherKnownSlots() ? 'Y' : 'N');</span>
+<span class="nc" id="L1684">		buffer.append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L1685">		buffer.append(IOConstants.TAG_USEHIGHERPREPPED).append(':');</span>
+<span class="nc bnc" id="L1686" title="All 2 branches missed.">		buffer.append(thePC.getUseHigherPreppedSlots() ? 'Y' : 'N');</span>
+<span class="nc" id="L1687">		buffer.append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L1688">	}</span>
+
+	/*
+	 * ###############################################################
+	 * Character Bio methods
+	 * ###############################################################
+	 */
+	private void appendCharacterNameLine(StringBuilder buffer)
+	{
+<span class="nc" id="L1697">		buffer.append(IOConstants.TAG_CHARACTERNAME).append(':');</span>
+<span class="nc" id="L1698">		buffer.append(EntityEncoder.encode(charDisplay.getName()));</span>
+<span class="nc" id="L1699">		buffer.append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L1700">	}</span>
+
+	private void appendHeightLine(StringBuilder buffer)
+	{
+<span class="nc" id="L1704">		buffer.append(IOConstants.TAG_HEIGHT).append(':');</span>
+<span class="nc" id="L1705">		buffer.append(EntityEncoder.encode(HeightCompat.getCurrentHeight(thePC.getCharID()).toString()));</span>
+<span class="nc" id="L1706">		buffer.append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L1707">	}</span>
+
+	private void appendLoadCompanionLine(StringBuilder buffer)
+	{
+<span class="nc" id="L1711">		buffer.append(IOConstants.TAG_LOADCOMPANIONS).append(':');</span>
+<span class="nc bnc" id="L1712" title="All 2 branches missed.">		buffer.append(thePC.getLoadCompanion() ? 'Y' : 'N');</span>
+<span class="nc" id="L1713">		buffer.append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L1714">	}</span>
+
+	private void appendOutputSheetsLines(StringBuilder buffer)
+	{
+<span class="nc bnc" id="L1718" title="All 2 branches missed.">		if (SettingsHandler.getSaveOutputSheetWithPC())</span>
+		{
+<span class="nc" id="L1720">			buffer.append(IOConstants.TAG_HTMLOUTPUTSHEET).append(':');</span>
+<span class="nc" id="L1721">			buffer.append(EntityEncoder.encode(SettingsHandler.getSelectedCharacterHTMLOutputSheet(null)));</span>
+<span class="nc" id="L1722">			buffer.append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L1723">			buffer.append(IOConstants.TAG_PDFOUTPUTSHEET).append(':');</span>
+<span class="nc" id="L1724">			buffer.append(EntityEncoder.encode(SettingsHandler.getSelectedCharacterPDFOutputSheet(null)));</span>
+<span class="nc" id="L1725">			buffer.append(IOConstants.LINE_SEP);</span>
+		}
+<span class="nc" id="L1727">	}</span>
+
+	private void appendPlayerNameLine(StringBuilder buffer)
+	{
+<span class="nc" id="L1731">		buffer.append(IOConstants.TAG_PLAYERNAME).append(':');</span>
+<span class="nc" id="L1732">		buffer.append(EntityEncoder.encode(charDisplay.getPlayersName()));</span>
+<span class="nc" id="L1733">		buffer.append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L1734">	}</span>
+
+	private void appendPortraitLine(StringBuilder buffer)
+	{
+<span class="nc" id="L1738">		buffer.append(IOConstants.TAG_PORTRAIT).append(':');</span>
+<span class="nc" id="L1739">		buffer.append(EntityEncoder.encode(charDisplay.getPortraitPath()));</span>
+<span class="nc" id="L1740">		buffer.append(IOConstants.LINE_SEP);</span>
+
+<span class="nc" id="L1742">		Rectangle rect = charDisplay.getPortraitThumbnailRect();</span>
+<span class="nc bnc" id="L1743" title="All 2 branches missed.">		if (rect != null)</span>
+		{
+<span class="nc" id="L1745">			buffer.append(IOConstants.TAG_PORTRAIT_THUMBNAIL_RECT).append(':');</span>
+<span class="nc" id="L1746">			buffer.append(rect.x).append(',');</span>
+<span class="nc" id="L1747">			buffer.append(rect.y).append(',');</span>
+<span class="nc" id="L1748">			buffer.append(rect.width).append(',');</span>
+<span class="nc" id="L1749">			buffer.append(rect.height);</span>
+<span class="nc" id="L1750">			buffer.append(IOConstants.LINE_SEP);</span>
+		}
+<span class="nc" id="L1752">	}</span>
+
+	/**
+	 * @param buffer
+	 */
+	private void appendRaceLine(StringBuilder buffer)
+	{
+<span class="nc" id="L1759">		buffer.append(IOConstants.TAG_RACE).append(':');</span>
+<span class="nc" id="L1760">		buffer.append(EntityEncoder.encode(charDisplay.getRace().getKeyName()));</span>
+<span class="nc" id="L1761">		List&lt;String&gt; assocList = thePC.getAssociationList(charDisplay.getRace());</span>
+<span class="nc bnc" id="L1762" title="All 4 branches missed.">		if (assocList != null &amp;&amp; !assocList.isEmpty())</span>
+		{
+<span class="nc" id="L1764">			buffer.append(IOConstants.TAG_SEPARATOR);</span>
+<span class="nc" id="L1765">			buffer.append(IOConstants.TAG_APPLIEDTO).append(IOConstants.TAG_END);</span>
+<span class="nc" id="L1766">			boolean first = true;</span>
+<span class="nc bnc" id="L1767" title="All 2 branches missed.">			for (String assoc : assocList)</span>
+			{
+<span class="nc bnc" id="L1769" title="All 2 branches missed.">				if (!first)</span>
+				{
+<span class="nc" id="L1771">					buffer.append(Constants.COMMA);</span>
+				}
+<span class="nc" id="L1773">				first = false;</span>
+<span class="nc" id="L1774">				buffer.append(EntityEncoder.encode(assoc));</span>
+<span class="nc" id="L1775">			}</span>
+		}
+<span class="nc" id="L1777">		appendAddTokenInfo(buffer, charDisplay.getRace());</span>
+<span class="nc" id="L1778">		buffer.append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L1779">	}</span>
+
+	private void appendFavoredClassLine(StringBuilder buffer)
+	{
+<span class="nc" id="L1783">		PCClass sfc = thePC.getLegacyFavoredClass();</span>
+<span class="nc bnc" id="L1784" title="All 2 branches missed.">		if (sfc != null)</span>
+		{
+<span class="nc" id="L1786">			buffer.append(IOConstants.TAG_FAVOREDCLASS).append(':');</span>
+<span class="nc" id="L1787">			buffer.append(EntityEncoder.encode(sfc.getKeyName()));</span>
+<span class="nc" id="L1788">			buffer.append(IOConstants.LINE_SEP);</span>
+		}
+<span class="nc" id="L1790">	}</span>
+
+	private void appendCityLine(StringBuilder buffer)
+	{
+<span class="nc" id="L1794">		buffer.append(IOConstants.TAG_CITY).append(':');</span>
+<span class="nc" id="L1795">		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.CITY)));</span>
+<span class="nc" id="L1796">		buffer.append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L1797">	}</span>
+
+	private void appendSkinColorLine(StringBuilder buffer)
+	{
+<span class="nc" id="L1801">		buffer.append(IOConstants.TAG_SKINCOLOR).append(':');</span>
+<span class="nc" id="L1802">		buffer.append(EntityEncoder.encode(</span>
+<span class="nc" id="L1803">			(String) ChannelUtilities.readControlledChannel(thePC.getCharID(),</span>
+				CControl.SKINCOLORINPUT)));
+<span class="nc" id="L1805">		buffer.append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L1806">	}</span>
+
+	/*
+	 * ###############################################################
+	 * Miscellaneous methods
+	 * ###############################################################
+	 */
+	/*
+	 * currently source is either empty or
+	 * PCCLASS|classname|classlevel (means it's a chosen special ability)
+	 * PCCLASS=classname|classlevel (means it's a defined special ability)
+	 * DEITY=deityname|totallevels
+	 */
+	private static void appendSourceInTaggedFormat(StringBuilder buffer, String source)
+	{
+<span class="nc" id="L1821">		final StringTokenizer tokens = new StringTokenizer(source, &quot;|=&quot;); //$NON-NLS-1$</span>
+<span class="nc" id="L1822">		buffer.append(IOConstants.TAG_SOURCE).append(':');</span>
+<span class="nc" id="L1823">		buffer.append('[');</span>
+<span class="nc" id="L1824">		buffer.append(IOConstants.TAG_TYPE).append(':');</span>
+<span class="nc" id="L1825">		buffer.append(tokens.nextToken());</span>
+<span class="nc" id="L1826">		buffer.append('|');</span>
+<span class="nc" id="L1827">		buffer.append(IOConstants.TAG_NAME).append(':');</span>
+<span class="nc" id="L1828">		buffer.append(tokens.nextToken());</span>
+
+<span class="nc bnc" id="L1830" title="All 2 branches missed.">		if (tokens.hasMoreTokens())</span>
+		{
+<span class="nc" id="L1832">			buffer.append('|');</span>
+<span class="nc" id="L1833">			buffer.append(IOConstants.TAG_LEVEL).append(':');</span>
+<span class="nc" id="L1834">			buffer.append(tokens.nextToken());</span>
+		}
+
+<span class="nc bnc" id="L1837" title="All 2 branches missed.">		if (source.indexOf('=') &gt;= 0)</span>
+		{
+<span class="nc" id="L1839">			buffer.append('|');</span>
+<span class="nc" id="L1840">			buffer.append(IOConstants.TAG_DEFINED).append(':');</span>
+<span class="nc" id="L1841">			buffer.append('Y');</span>
+		}
+
+<span class="nc" id="L1844">		buffer.append(']');</span>
+<span class="nc" id="L1845">	}</span>
+
+	/*
+	 * currently source is either empty or
+	 * PCCLASS|classname|classlevel (means it's a chosen special ability)
+	 * PCCLASS=classname|classlevel (means it's a defined special ability)
+	 * DEITY=deityname|totallevels
+	 */
+	private static void appendSourceInTaggedFormat(StringBuilder buffer, CDOMObject source)
+	{
+<span class="nc" id="L1855">		buffer.append(IOConstants.TAG_SOURCE).append(':');</span>
+<span class="nc" id="L1856">		buffer.append('[');</span>
+<span class="nc" id="L1857">		buffer.append(IOConstants.TAG_TYPE).append(':');</span>
+
+		// I love reflection :-)
+<span class="nc" id="L1860">		final Class&lt;? extends CDOMObject&gt; srcClass = source.getClass();</span>
+<span class="nc" id="L1861">		final String pckName = srcClass.getPackage().getName();</span>
+<span class="nc" id="L1862">		final String srcName = srcClass.getName().substring(pckName.length() + 1);</span>
+
+<span class="nc" id="L1864">		buffer.append(srcName.toUpperCase());</span>
+<span class="nc" id="L1865">		buffer.append('|');</span>
+<span class="nc" id="L1866">		buffer.append(IOConstants.TAG_NAME).append(':');</span>
+<span class="nc" id="L1867">		buffer.append(source.getKeyName());</span>
+<span class="nc" id="L1868">		buffer.append(']');</span>
+<span class="nc" id="L1869">	}</span>
+
+	private static void appendSpecials(StringBuilder buffer, List&lt;String&gt; specials, String tag_group, String tag_item,
+		int lvl)
+	{
+<span class="nc bnc" id="L1874" title="All 4 branches missed.">		if ((specials != null) &amp;&amp; (!specials.isEmpty()))</span>
+		{
+<span class="nc" id="L1876">			buffer.append('|');</span>
+<span class="nc" id="L1877">			buffer.append(tag_group).append(':');</span>
+<span class="nc" id="L1878">			buffer.append('[');</span>
+
+<span class="nc" id="L1880">			String del = Constants.EMPTY_STRING;</span>
+
+<span class="nc bnc" id="L1882" title="All 2 branches missed.">			for (String special : specials)</span>
+			{
+<span class="nc" id="L1884">				buffer.append(del);</span>
+<span class="nc" id="L1885">				buffer.append(tag_item).append(':');</span>
+<span class="nc" id="L1886">				buffer.append(EntityEncoder.encode(special));</span>
+
+<span class="nc bnc" id="L1888" title="All 2 branches missed.">				if (lvl == -1)</span>
+				{
+<span class="nc" id="L1890">					buffer.append(&quot;:-1&quot;); //$NON-NLS-1$</span>
+				}
+
+<span class="nc" id="L1893">				del = &quot;|&quot;; //$NON-NLS-1$</span>
+<span class="nc" id="L1894">			}</span>
+
+<span class="nc" id="L1896">			buffer.append(']');</span>
+		}
+<span class="nc" id="L1898">	}</span>
+
+	/*
+	 * ###############################################################
+	 * Character Experience methods
+	 * ###############################################################
+	 */
+	private void appendExperienceLine(StringBuilder buffer)
+	{
+<span class="nc" id="L1907">		buffer.append(IOConstants.TAG_EXPERIENCE).append(':');</span>
+<span class="nc" id="L1908">		buffer.append(thePC.getXP());</span>
+<span class="nc" id="L1909">		buffer.append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L1910">	}</span>
+
+	/*
+	 * ###############################################################
+	 * Character XP table methods
+	 * ###############################################################
+	 */
+	private void appendExperienceTableLine(StringBuilder buffer)
+	{
+<span class="nc" id="L1919">		buffer.append(IOConstants.TAG_EXPERIENCETABLE).append(':');</span>
+<span class="nc" id="L1920">		buffer.append(charDisplay.getXPTableName());</span>
+<span class="nc" id="L1921">		buffer.append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L1922">	}</span>
+
+	/*
+	 * ###############################################################
+	 * Character Region method
+	 * ###############################################################
+	 */
+	private void appendRegionLine(StringBuilder buffer)
+	{
+<span class="nc" id="L1931">		final String r = charDisplay.getRegionString();</span>
+
+<span class="nc bnc" id="L1933" title="All 2 branches missed.">		if (r != null)</span>
+		{
+<span class="nc" id="L1935">			buffer.append(IOConstants.TAG_REGION).append(':').append(r).append(IOConstants.LINE_SEP);</span>
+		}
+<span class="nc" id="L1937">	}</span>
+
+	/*
+	 * ###############################################################
+	 * Character Skills methods
+	 * ###############################################################
+	 */
+	private void appendSkillLines(StringBuilder buffer)
+	{
+<span class="nc" id="L1946">		List&lt;Skill&gt; skillList = new ArrayList&lt;&gt;(charDisplay.getSkillSet());</span>
+<span class="nc" id="L1947">		Collections.sort(skillList);</span>
+<span class="nc bnc" id="L1948" title="All 2 branches missed.">		for (Skill skill : skillList)</span>
+		{
+<span class="nc" id="L1950">			Integer outputIndex = thePC.getSkillOrder(skill);</span>
+<span class="nc bnc" id="L1951" title="All 6 branches missed.">			if ((thePC.getRank(skill).doubleValue() &gt; 0) || (outputIndex != null &amp;&amp; outputIndex != 0))</span>
+			{
+<span class="nc" id="L1953">				buffer.append(IOConstants.TAG_SKILL).append(':');</span>
+<span class="nc" id="L1954">				buffer.append(EntityEncoder.encode(skill.getKeyName()));</span>
+
+<span class="nc" id="L1956">				buffer.append('|');</span>
+<span class="nc bnc" id="L1957" title="All 4 branches missed.">				if (outputIndex != null &amp;&amp; outputIndex != 0)</span>
+				{
+<span class="nc" id="L1959">					buffer.append(IOConstants.TAG_OUTPUTORDER).append(':');</span>
+<span class="nc" id="L1960">					buffer.append(outputIndex);</span>
+<span class="nc" id="L1961">					buffer.append('|');</span>
+				}
+
+<span class="nc bnc" id="L1964" title="All 2 branches missed.">				for (PCClass pcc : thePC.getSkillRankClasses(skill))</span>
+				{
+<span class="nc bnc" id="L1966" title="All 2 branches missed.">					if (pcc != null)</span>
+					{
+<span class="nc" id="L1968">						Double rank = thePC.getSkillRankForClass(skill, pcc);</span>
+<span class="nc" id="L1969">						buffer.append(IOConstants.TAG_CLASSBOUGHT).append(':');</span>
+<span class="nc" id="L1970">						buffer.append('[');</span>
+<span class="nc" id="L1971">						buffer.append(IOConstants.TAG_CLASS).append(':');</span>
+<span class="nc" id="L1972">						buffer.append(EntityEncoder.encode(pcc.getKeyName()));</span>
+<span class="nc" id="L1973">						buffer.append('|');</span>
+<span class="nc" id="L1974">						buffer.append(IOConstants.TAG_RANKS).append(':');</span>
+<span class="nc" id="L1975">						buffer.append(rank);</span>
+<span class="nc" id="L1976">						buffer.append('|');</span>
+<span class="nc" id="L1977">						buffer.append(IOConstants.TAG_COST).append(':');</span>
+<span class="nc" id="L1978">						buffer.append(Integer.toString(thePC.getSkillCostForClass(skill, pcc).getCost()));</span>
+<span class="nc" id="L1979">						buffer.append('|');</span>
+<span class="nc" id="L1980">						buffer.append(IOConstants.TAG_CLASSSKILL).append(':');</span>
+<span class="nc bnc" id="L1981" title="All 2 branches missed.">						buffer.append((thePC.isClassSkill(pcc, skill)) ? 'Y' : 'N');</span>
+<span class="nc" id="L1982">						buffer.append(']');</span>
+					}
+<span class="nc" id="L1984">				}</span>
+
+<span class="nc bnc" id="L1986" title="All 2 branches missed.">				for (String assoc : thePC.getAssociationList(skill))</span>
+				{
+<span class="nc" id="L1988">					buffer.append('|');</span>
+<span class="nc" id="L1989">					buffer.append(IOConstants.TAG_ASSOCIATEDDATA).append(':');</span>
+<span class="nc" id="L1990">					buffer.append(EntityEncoder.encode(assoc));</span>
+<span class="nc" id="L1991">				}</span>
+
+<span class="nc" id="L1993">				appendLevelAbilityInfo(buffer, skill);</span>
+
+<span class="nc" id="L1995">				buffer.append(IOConstants.LINE_SEP);</span>
+			}
+<span class="nc" id="L1997">		}</span>
+<span class="nc" id="L1998">	}</span>
+
+	private void appendSpeechPatternLine(StringBuilder buffer)
+	{
+<span class="nc" id="L2002">		buffer.append(IOConstants.TAG_SPEECHPATTERN).append(':');</span>
+<span class="nc" id="L2003">		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.SPEECHTENDENCY)));</span>
+<span class="nc" id="L2004">		buffer.append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L2005">	}</span>
+
+	/*
+	 * ###############################################################
+	 * Spell List Information methods
+	 * ###############################################################
+	 */
+	/*
+	 * #Spell List Information
+	 * SPELLLIST:sourceclassname|spelllistentry|spelllistentry
+	 */
+	private void appendSpellBookLines(StringBuilder buffer)
+	{
+<span class="nc bnc" id="L2018" title="All 2 branches missed.">		for (SpellBook book : charDisplay.getSpellBooks())</span>
+		{
+<span class="nc" id="L2020">			String bookName = book.getName();</span>
+<span class="nc bnc" id="L2021" title="All 4 branches missed.">			if (!bookName.equals(Globals.getDefaultSpellBook()) &amp;&amp; !bookName.equals(Constants.INNATE_SPELL_BOOK_NAME))</span>
+			{
+<span class="nc" id="L2023">				buffer.append(IOConstants.TAG_SPELLBOOK).append(':');</span>
+<span class="nc" id="L2024">				buffer.append(book.getName());</span>
+<span class="nc" id="L2025">				buffer.append('|');</span>
+<span class="nc" id="L2026">				buffer.append(IOConstants.TAG_TYPE).append(':');</span>
+<span class="nc" id="L2027">				buffer.append(book.getType());</span>
+<span class="nc bnc" id="L2028" title="All 2 branches missed.">				if (book.getName().equals(thePC.getSpellBookNameToAutoAddKnown()))</span>
+				{
+<span class="nc" id="L2030">					buffer.append('|');</span>
+<span class="nc" id="L2031">					buffer.append(IOConstants.TAG_AUTOADDKNOWN).append(':');</span>
+<span class="nc" id="L2032">					buffer.append('Y');</span>
+				}
+<span class="nc" id="L2034">				buffer.append(IOConstants.LINE_SEP);</span>
+			}
+
+<span class="nc" id="L2037">		}</span>
+<span class="nc" id="L2038">	}</span>
+
+	/*
+	 * ###############################################################
+	 * Character Spells Information methods
+	 * ###############################################################
+	 */
+	/*
+	 * #Character Spells Information
+	 * CLASS:Wizard|CANCASTPERDAY:2,4(Totals the levels all up + includes attribute bonuses)
+	 * SPELLNAME:Blah|SCHOOL:blah|SUBSCHOOL:blah|Etc
+	 *
+	 * completely changed due to new Spell API
+	 */
+	private void appendSpellLines(StringBuilder buffer)
+	{
+
+<span class="nc bnc" id="L2055" title="All 2 branches missed.">		for (PCClass pcClass : charDisplay.getClassSet())</span>
+		{
+<span class="nc" id="L2057">			Collection&lt;? extends CharacterSpell&gt; sp = charDisplay.getCharacterSpells(pcClass);</span>
+<span class="nc" id="L2058">			List&lt;CharacterSpell&gt; classSpells = new ArrayList&lt;&gt;(sp);</span>
+			// Add in the spells granted by objects
+<span class="nc" id="L2060">			thePC.addBonusKnownSpellsToList(pcClass, classSpells);</span>
+<span class="nc" id="L2061">			Collections.sort(classSpells);</span>
+
+<span class="nc bnc" id="L2063" title="All 2 branches missed.">			for (CharacterSpell cSpell : classSpells)</span>
+			{
+<span class="nc bnc" id="L2065" title="All 2 branches missed.">				for (SpellInfo spellInfo : cSpell.getInfoList())</span>
+				{
+<span class="nc" id="L2067">					CDOMObject owner = cSpell.getOwner();</span>
+<span class="nc" id="L2068">					List&lt;? extends CDOMList&lt;Spell&gt;&gt; lists = charDisplay.getSpellLists(owner);</span>
+
+<span class="nc bnc" id="L2070" title="All 2 branches missed.">					if (SpellLevel.getFirstLevelForKey(cSpell.getSpell(), lists, thePC) &lt; 0)</span>
+					{
+<span class="nc" id="L2072">						Logging.errorPrint(</span>
+<span class="nc" id="L2073">							&quot;Ignoring unqualified spell &quot; + cSpell.getSpell() + &quot; in list for class &quot; + pcClass + &quot;.&quot;);</span>
+<span class="nc" id="L2074">						continue;</span>
+					}
+<span class="nc bnc" id="L2076" title="All 2 branches missed.">					if (spellInfo.getBook().equals(Globals.getDefaultSpellBook())</span>
+<span class="nc bnc" id="L2077" title="All 2 branches missed.">						&amp;&amp; thePC.getSpellSupport(pcClass).isAutoKnownSpell(cSpell.getSpell(),</span>
+<span class="nc" id="L2078">							SpellLevel.getFirstLevelForKey(cSpell.getSpell(), lists, thePC), false, thePC)</span>
+<span class="nc bnc" id="L2079" title="All 2 branches missed.">						&amp;&amp; thePC.getAutoSpells())</span>
+					{
+<span class="nc" id="L2081">						continue;</span>
+					}
+
+<span class="nc" id="L2084">					buffer.append(IOConstants.TAG_SPELLNAME).append(':');</span>
+<span class="nc" id="L2085">					buffer.append(EntityEncoder.encode(cSpell.getSpell().getKeyName()));</span>
+<span class="nc" id="L2086">					buffer.append('|');</span>
+<span class="nc" id="L2087">					buffer.append(IOConstants.TAG_TIMES).append(':');</span>
+<span class="nc" id="L2088">					buffer.append(spellInfo.getTimes());</span>
+<span class="nc" id="L2089">					buffer.append('|');</span>
+<span class="nc" id="L2090">					buffer.append(IOConstants.TAG_CLASS).append(':');</span>
+<span class="nc" id="L2091">					buffer.append(EntityEncoder.encode(pcClass.getKeyName()));</span>
+<span class="nc" id="L2092">					buffer.append('|');</span>
+<span class="nc" id="L2093">					buffer.append(IOConstants.TAG_SPELL_BOOK).append(':');</span>
+<span class="nc" id="L2094">					buffer.append(EntityEncoder.encode(spellInfo.getBook()));</span>
+<span class="nc" id="L2095">					buffer.append('|');</span>
+<span class="nc" id="L2096">					buffer.append(IOConstants.TAG_SPELLLEVEL).append(':');</span>
+<span class="nc" id="L2097">					buffer.append(spellInfo.getActualLevel());</span>
+<span class="nc bnc" id="L2098" title="All 2 branches missed.">					if (spellInfo.getNumPages() &gt; 0)</span>
+					{
+<span class="nc" id="L2100">						buffer.append('|');</span>
+<span class="nc" id="L2101">						buffer.append(IOConstants.TAG_SPELLNUMPAGES).append(':');</span>
+<span class="nc" id="L2102">						buffer.append(spellInfo.getNumPages());</span>
+					}
+
+<span class="nc" id="L2105">					final List&lt;Ability&gt; metaFeats = spellInfo.getFeatList();</span>
+
+<span class="nc bnc" id="L2107" title="All 4 branches missed.">					if ((metaFeats != null) &amp;&amp; (!metaFeats.isEmpty()))</span>
+					{
+<span class="nc" id="L2109">						buffer.append('|');</span>
+<span class="nc" id="L2110">						buffer.append(IOConstants.TAG_FEATLIST).append(':');</span>
+<span class="nc" id="L2111">						buffer.append('[');</span>
+<span class="nc" id="L2112">						String del = Constants.EMPTY_STRING;</span>
+
+<span class="nc bnc" id="L2114" title="All 2 branches missed.">						for (Ability feat : metaFeats)</span>
+						{
+<span class="nc" id="L2116">							buffer.append(del);</span>
+<span class="nc" id="L2117">							buffer.append(IOConstants.TAG_FEAT).append(':');</span>
+<span class="nc" id="L2118">							buffer.append(EntityEncoder.encode(feat.getKeyName()));</span>
+<span class="nc" id="L2119">							del = &quot;|&quot;; //$NON-NLS-1$</span>
+<span class="nc" id="L2120">						}</span>
+
+<span class="nc" id="L2122">						buffer.append(']');</span>
+					}
+
+<span class="nc" id="L2125">					buffer.append('|');</span>
+<span class="nc" id="L2126">					appendSourceInTaggedFormat(buffer,</span>
+<span class="nc" id="L2127">						StringPClassUtil.getStringFor(owner.getClass()) + &quot;|&quot; + owner.getKeyName());</span>
+<span class="nc" id="L2128">					buffer.append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L2129">				}</span>
+<span class="nc" id="L2130">			}</span>
+<span class="nc" id="L2131">		}</span>
+<span class="nc" id="L2132">	}</span>
+
+	/*
+	 * ###############################################################
+	 * Spell List Information methods
+	 * ###############################################################
+	 */
+	/*
+	 * #Spell List Information
+	 * SPELLLIST:sourceclassname|spelllistentry|spelllistentry
+	 */
+	private void appendSpellListLines(StringBuilder buffer)
+	{
+<span class="nc bnc" id="L2145" title="All 2 branches missed.">		for (PCClass pcClass : charDisplay.getClassSet())</span>
+		{
+<span class="nc" id="L2147">			TransitionChoice&lt;CDOMListObject&lt;Spell&gt;&gt; csc = pcClass.get(ObjectKey.SPELLLIST_CHOICE);</span>
+<span class="nc bnc" id="L2148" title="All 2 branches missed.">			if (csc != null)</span>
+			{
+<span class="nc" id="L2150">				List&lt;? extends CDOMList&lt;Spell&gt;&gt; assocList = charDisplay.getSpellLists(pcClass);</span>
+<span class="nc" id="L2151">				buffer.append(IOConstants.TAG_SPELLLIST).append(':');</span>
+<span class="nc" id="L2152">				buffer.append(pcClass.getKeyName());</span>
+
+<span class="nc bnc" id="L2154" title="All 2 branches missed.">				for (CDOMList&lt;Spell&gt; spell : assocList)</span>
+				{
+<span class="nc" id="L2156">					buffer.append('|');</span>
+<span class="nc bnc" id="L2157" title="All 2 branches missed.">					if (ClassSpellList.class.equals(spell.getClass()))</span>
+					{
+<span class="nc" id="L2159">						buffer.append(&quot;CLASS&quot;);</span>
+					}
+					else
+					{
+<span class="nc" id="L2163">						buffer.append(&quot;DOMAIN&quot;);</span>
+					}
+<span class="nc" id="L2165">					buffer.append('.').append(spell.getLSTformat());</span>
+<span class="nc" id="L2166">				}</span>
+
+<span class="nc" id="L2168">				buffer.append(IOConstants.LINE_SEP);</span>
+			}
+<span class="nc" id="L2170">		}</span>
+<span class="nc" id="L2171">	}</span>
+
+	/*
+	 * ###############################################################
+	 * Character Attributes methods
+	 * ###############################################################
+	 */
+	private void appendStatLines(StringBuilder buffer)
+	{
+<span class="nc bnc" id="L2180" title="All 2 branches missed.">		for (PCStat aStat : charDisplay.getStatSet())</span>
+		{
+<span class="nc" id="L2182">			buffer.append(IOConstants.TAG_STAT).append(':');</span>
+<span class="nc" id="L2183">			buffer.append(aStat.getKeyName());</span>
+<span class="nc" id="L2184">			buffer.append('|');</span>
+<span class="nc" id="L2185">			buffer.append(IOConstants.TAG_SCORE).append(':');</span>
+<span class="nc" id="L2186">			buffer.append(charDisplay.getStat(aStat));</span>
+<span class="nc" id="L2187">			buffer.append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L2188">		}</span>
+<span class="nc" id="L2189">	}</span>
+
+	private void appendTabNameLine(StringBuilder buffer)
+	{
+<span class="nc" id="L2193">		buffer.append(IOConstants.TAG_TABNAME).append(':');</span>
+<span class="nc" id="L2194">		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.TABNAME)));</span>
+<span class="nc" id="L2195">		buffer.append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L2196">	}</span>
+
+	private void appendTempBonuses(StringBuilder buffer)
+	{
+<span class="nc" id="L2200">		final List&lt;String&gt; trackList = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L2201">		TreeSet&lt;Map.Entry&lt;BonusObj, BonusManager.TempBonusInfo&gt;&gt; sortedbonus = new TreeSet&lt;&gt;(</span>
+
+			(a, b) -&gt; {
+<span class="nc" id="L2204">				BonusObj keyA = a.getKey();</span>
+<span class="nc" id="L2205">				BonusObj keyB = b.getKey();</span>
+<span class="nc bnc" id="L2206" title="All 2 branches missed.">				if (!keyA.getBonusName().equals(keyB.getBonusName()))</span>
+				{
+<span class="nc" id="L2208">					return keyA.getBonusName().compareTo(keyB.getBonusName());</span>
+				}
+<span class="nc bnc" id="L2210" title="All 2 branches missed.">				if (!keyA.getBonusInfo().equals(keyB.getBonusInfo()))</span>
+				{
+<span class="nc" id="L2212">					return keyA.getBonusInfo().compareTo(keyB.getBonusInfo());</span>
+				}
+<span class="nc" id="L2214">				return keyA.getPCCText().compareTo(keyB.getPCCText());</span>
+			});
+<span class="nc" id="L2216">		sortedbonus.addAll(thePC.getTempBonusMap().entrySet());</span>
+
+		//for (BonusManager.TempBonusInfo tbi : thePC.getTempBonusMap().values())
+<span class="nc bnc" id="L2219" title="All 2 branches missed.">		for (Map.Entry&lt;BonusObj, BonusManager.TempBonusInfo&gt; me : sortedbonus)</span>
+		{
+<span class="nc" id="L2221">			TempBonusInfo tbi = me.getValue();</span>
+<span class="nc" id="L2222">			Object creObj = tbi.source;</span>
+<span class="nc" id="L2223">			Object tarObj = tbi.target;</span>
+<span class="nc" id="L2224">			final String outString = tempBonusName(creObj, tarObj);</span>
+<span class="nc bnc" id="L2225" title="All 2 branches missed.">			if (trackList.contains(outString))</span>
+			{
+<span class="nc" id="L2227">				continue;</span>
+			}
+<span class="nc" id="L2229">			trackList.add(outString);</span>
+<span class="nc" id="L2230">			buffer.append(outString);</span>
+
+<span class="nc" id="L2232">			String bonusName = BonusDisplay.getBonusDisplayName(tbi);</span>
+<span class="nc bnc" id="L2233" title="All 2 branches missed.">			if (thePC.getTempBonusFilters().contains(bonusName))</span>
+			{
+<span class="nc" id="L2235">				buffer.append('|');</span>
+<span class="nc" id="L2236">				buffer.append(IOConstants.TAG_TEMPBONUSACTIVE).append(&quot;:N&quot;);</span>
+			}
+
+			/*
+			 * Why do we loop through the bonuses again? It is looped through
+			 * again so that only items associated with this source (e.g.
+			 * Template and Target object) are written, but that ALL of the
+			 * items are written on one line.
+			 */
+<span class="nc bnc" id="L2245" title="All 2 branches missed.">			for (Map.Entry&lt;BonusObj, BonusManager.TempBonusInfo&gt; subme : sortedbonus)</span>
+			{
+<span class="nc" id="L2247">				BonusObj subBonus = subme.getKey();</span>
+<span class="nc" id="L2248">				TempBonusInfo subtbi = subme.getValue();</span>
+<span class="nc" id="L2249">				Object cObj = subtbi.source;</span>
+<span class="nc" id="L2250">				Object tObj = subtbi.target;</span>
+<span class="nc" id="L2251">				final String inString = tempBonusName(cObj, tObj);</span>
+<span class="nc bnc" id="L2252" title="All 2 branches missed.">				if (inString.equals(outString))</span>
+				{
+<span class="nc" id="L2254">					buffer.append('|');</span>
+<span class="nc" id="L2255">					buffer.append(IOConstants.TAG_TEMPBONUSBONUS).append(':');</span>
+<span class="nc" id="L2256">					buffer.append(EntityEncoder.encode(subBonus.getPCCText()));</span>
+				}
+<span class="nc" id="L2258">			}</span>
+
+<span class="nc" id="L2260">			buffer.append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L2261">		}</span>
+<span class="nc" id="L2262">	}</span>
+
+	/*
+	 * ###############################################################
+	 * Character Templates methods
+	 * ###############################################################
+	 */
+	private void appendTemplateLines(StringBuilder buffer)
+	{
+<span class="nc bnc" id="L2271" title="All 2 branches missed.">		for (PCTemplate template : charDisplay.getTemplateSet())</span>
+		{
+			//
+			// TEMPLATESAPPLIED:[NAME:&lt;template_name&gt;]
+			// TEMPLATESAPPLIED:[NAME:&lt;template_name&gt;|CHOSENFEAT:[KEY:&lt;key&gt;|VALUE:&lt;value&gt;]CHOSENFEAT:[KEY:&lt;key&gt;|
+			//          VALUE:&lt;value&gt;]...CHOSENFEAT:[KEY:&lt;key&gt;|VALUE:&lt;value&gt;]]
+			//
+<span class="nc" id="L2278">			buffer.append(IOConstants.TAG_TEMPLATESAPPLIED).append(':').append('[');</span>
+<span class="nc" id="L2279">			buffer.append(IOConstants.TAG_NAME).append(':').append(EntityEncoder.encode(template.getKeyName()));</span>
+
+<span class="nc" id="L2281">			final String chosenFeats = chosenFeats(template);</span>
+
+<span class="nc bnc" id="L2283" title="All 2 branches missed.">			if (!chosenFeats.isEmpty())</span>
+			{
+<span class="nc" id="L2285">				buffer.append('|').append(chosenFeats);</span>
+			}
+
+			//
+			// Save list of template names 'owned' by current template
+			//
+<span class="nc" id="L2291">			Collection&lt;PCTemplate&gt; templatesAdded = thePC.getTemplatesAdded(template);</span>
+<span class="nc bnc" id="L2292" title="All 2 branches missed.">			if (templatesAdded != null)</span>
+			{
+<span class="nc bnc" id="L2294" title="All 2 branches missed.">				for (PCTemplate ownedTemplate : templatesAdded)</span>
+				{
+<span class="nc" id="L2296">					buffer.append('|').append(IOConstants.TAG_CHOSENTEMPLATE).append(':').append('[');</span>
+<span class="nc" id="L2297">					buffer.append(IOConstants.TAG_NAME).append(':')</span>
+<span class="nc" id="L2298">						.append(EntityEncoder.encode(ownedTemplate.getKeyName()));</span>
+<span class="nc" id="L2299">					buffer.append(']');</span>
+<span class="nc" id="L2300">				}</span>
+			}
+<span class="nc" id="L2302">			List&lt;String&gt; assocList = thePC.getAssociationList(template);</span>
+<span class="nc bnc" id="L2303" title="All 4 branches missed.">			if (assocList != null &amp;&amp; !assocList.isEmpty())</span>
+			{
+<span class="nc" id="L2305">				buffer.append(IOConstants.TAG_SEPARATOR);</span>
+<span class="nc" id="L2306">				buffer.append(IOConstants.TAG_APPLIEDTO).append(IOConstants.TAG_END);</span>
+<span class="nc" id="L2307">				boolean first = true;</span>
+<span class="nc bnc" id="L2308" title="All 2 branches missed.">				for (String assoc : assocList)</span>
+				{
+<span class="nc bnc" id="L2310" title="All 2 branches missed.">					if (!first)</span>
+					{
+<span class="nc" id="L2312">						buffer.append(Constants.COMMA);</span>
+					}
+<span class="nc" id="L2314">					first = false;</span>
+<span class="nc" id="L2315">					buffer.append(EntityEncoder.encode(assoc));</span>
+<span class="nc" id="L2316">				}</span>
+			}
+
+<span class="nc" id="L2319">			buffer.append(']');</span>
+<span class="nc" id="L2320">			appendAddTokenInfo(buffer, template);</span>
+<span class="nc" id="L2321">			buffer.append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L2322">		}</span>
+<span class="nc" id="L2323">	}</span>
+
+	private void appendUseTempModsLine(StringBuilder buffer)
+	{
+<span class="nc" id="L2327">		buffer.append(IOConstants.TAG_USETEMPMODS).append(':');</span>
+<span class="nc bnc" id="L2328" title="All 2 branches missed.">		buffer.append(thePC.getUseTempMods() ? 'Y' : 'N');</span>
+<span class="nc" id="L2329">		buffer.append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L2330">	}</span>
+
+	/*
+	 * ###############################################################
+	 * Character Weapon proficiencies methods
+	 * ###############################################################
+	 */
+	private void appendWeaponProficiencyLines(StringBuilder buffer)
+	{
+<span class="nc" id="L2339">		final int size = charDisplay.getWeaponProfSet().size();</span>
+
+<span class="nc bnc" id="L2341" title="All 2 branches missed.">		if (size &gt; 0)</span>
+		{
+			/*
+			 * since aPC.getWeaponProfList() returns a TreeSet,
+			 * we have to put them into an array first.
+			 * we do not use TreeSet's toArray()-method since it
+			 * makes no guarantees on element order.
+			 *
+			 * author: Thomas Behr 08-09-02
+			 */
+<span class="nc" id="L2351">			final String[] weaponProficiencies = new String[size];</span>
+
+<span class="nc" id="L2353">			int j = 0;</span>
+
+<span class="nc bnc" id="L2355" title="All 2 branches missed.">			for (WeaponProf wp : charDisplay.getSortedWeaponProfs())</span>
+			{
+<span class="nc" id="L2357">				weaponProficiencies[j++] = wp.getKeyName();</span>
+<span class="nc" id="L2358">			}</span>
+
+			// as per Mynex's request do not write more than 10 weapons per line
+<span class="nc" id="L2361">			final int step = 10;</span>
+<span class="nc bnc" id="L2362" title="All 2 branches missed.">			final int times = (size / step) + (((size % step) &gt; 0) ? 1 : 0);</span>
+
+<span class="nc bnc" id="L2364" title="All 2 branches missed.">			for (int k = 0; k &lt; times; ++k)</span>
+			{
+<span class="nc" id="L2366">				buffer.append(IOConstants.TAG_WEAPONPROF).append(':');</span>
+<span class="nc" id="L2367">				buffer.append('[');</span>
+
+<span class="nc" id="L2369">				String del = Constants.EMPTY_STRING;</span>
+<span class="nc" id="L2370">				int stop = Math.min(size, (k * step) + 10);</span>
+
+<span class="nc bnc" id="L2372" title="All 2 branches missed.">				for (int i = k * step; i &lt; stop; ++i)</span>
+				{
+<span class="nc" id="L2374">					buffer.append(del);</span>
+<span class="nc" id="L2375">					buffer.append(IOConstants.TAG_WEAPON).append(':');</span>
+<span class="nc" id="L2376">					buffer.append(EntityEncoder.encode(weaponProficiencies[i]));</span>
+<span class="nc" id="L2377">					del = &quot;|&quot;; //$NON-NLS-1$</span>
+				}
+
+<span class="nc" id="L2380">				buffer.append(']');</span>
+<span class="nc" id="L2381">				buffer.append(IOConstants.LINE_SEP);</span>
+			}
+		}
+
+		//
+		// Save any selected racial bonus weapons
+		//
+<span class="nc" id="L2388">		appendWeaponProficiencyLines(buffer, charDisplay.getRace());</span>
+
+		//
+		// Save any selected template bonus weapons
+		//
+<span class="nc bnc" id="L2393" title="All 2 branches missed.">		for (PCTemplate pct : charDisplay.getTemplateSet())</span>
+		{
+<span class="nc" id="L2395">			appendWeaponProficiencyLines(buffer, pct);</span>
+<span class="nc" id="L2396">		}</span>
+
+		//
+		// Save any selected class bonus weapons
+		//
+<span class="nc bnc" id="L2401" title="All 2 branches missed.">		for (final PCClass pcClass : charDisplay.getClassSet())</span>
+		{
+<span class="nc" id="L2403">			appendWeaponProficiencyLines(buffer, pcClass);</span>
+<span class="nc" id="L2404">		}</span>
+<span class="nc" id="L2405">	}</span>
+
+	private void appendWeaponProficiencyLines(StringBuilder buffer, CDOMObject source)
+	{
+<span class="nc bnc" id="L2409" title="All 2 branches missed.">		if (source == null)</span>
+		{
+<span class="nc" id="L2411">			return;</span>
+		}
+<span class="nc" id="L2413">		final List&lt;? extends WeaponProf&gt; profs = thePC.getBonusWeaponProfs(source);</span>
+<span class="nc bnc" id="L2414" title="All 4 branches missed.">		if (profs == null || profs.isEmpty())</span>
+		{
+<span class="nc" id="L2416">			return;</span>
+		}
+
+		// TODO refactor this section and the code above that calls it so share this
+
+		// As per Mynex's request do not write more than 10 weapons per line
+<span class="nc" id="L2422">		final int step = 10;</span>
+<span class="nc" id="L2423">		final int times = (profs.size() / step) + 1;</span>
+
+<span class="nc bnc" id="L2425" title="All 2 branches missed.">		for (int k = 0; k &lt; times; ++k)</span>
+		{
+<span class="nc" id="L2427">			buffer.append(IOConstants.TAG_WEAPONPROF).append(':');</span>
+<span class="nc" id="L2428">			buffer.append('[');</span>
+
+<span class="nc" id="L2430">			String del = Constants.EMPTY_STRING;</span>
+<span class="nc" id="L2431">			int stop = Math.min(profs.size(), (k * step) + 10);</span>
+
+<span class="nc bnc" id="L2433" title="All 2 branches missed.">			for (int i = k * step; i &lt; stop; ++i)</span>
+			{
+<span class="nc" id="L2435">				buffer.append(del);</span>
+<span class="nc" id="L2436">				buffer.append(IOConstants.TAG_WEAPON).append(':');</span>
+<span class="nc" id="L2437">				buffer.append(EntityEncoder.encode(profs.get(i).getKeyName()));</span>
+<span class="nc" id="L2438">				del = &quot;|&quot;; //$NON-NLS-1$</span>
+			}
+
+<span class="nc" id="L2441">			buffer.append(']');</span>
+<span class="nc" id="L2442">			buffer.append('|');</span>
+<span class="nc" id="L2443">			appendSourceInTaggedFormat(buffer, source);</span>
+<span class="nc" id="L2444">			buffer.append(IOConstants.LINE_SEP);</span>
+		}
+<span class="nc" id="L2446">	}</span>
+
+	/*
+	 * ###############################################################
+	 * Character Equipment methods
+	 * ###############################################################
+	 */
+	private void appendMoneyLine(StringBuilder buffer)
+	{
+<span class="nc" id="L2455">		buffer.append(IOConstants.TAG_MONEY).append(':');</span>
+<span class="nc" id="L2456">		Number n = (Number) ChannelUtilities</span>
+<span class="nc" id="L2457">				.readControlledChannel(thePC.getCharID(), CControl.GOLDINPUT);</span>
+<span class="nc" id="L2458">		buffer.append(n.toString());</span>
+<span class="nc" id="L2459">		buffer.append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L2460">	}</span>
+
+	private void appendWeightLine(StringBuilder buffer)
+	{
+<span class="nc" id="L2464">		buffer.append(IOConstants.TAG_WEIGHT).append(':');</span>
+<span class="nc" id="L2465">		buffer.append(charDisplay.getWeight());</span>
+<span class="nc" id="L2466">		buffer.append(IOConstants.LINE_SEP);</span>
+<span class="nc" id="L2467">	}</span>
+
+	private String chosenFeats(PCTemplate pct)
+	{
+<span class="nc" id="L2471">		final StringBuilder aString = new StringBuilder(50);</span>
+<span class="nc bnc" id="L2472" title="All 2 branches missed.">		for (PCTemplate rlt : pct.getSafeListFor(ListKey.REPEATLEVEL_TEMPLATES))</span>
+		{
+<span class="nc bnc" id="L2474" title="All 2 branches missed.">			for (PCTemplate lt : rlt.getSafeListFor(ListKey.LEVEL_TEMPLATES))</span>
+			{
+<span class="nc" id="L2476">				List&lt;? extends CNAbilitySelection&gt; featList = thePC.getTemplateFeatList(lt);</span>
+<span class="nc bnc" id="L2477" title="All 2 branches missed.">				if (featList != null)</span>
+				{
+<span class="nc" id="L2479">					writeTemplateFeat(aString, lt, featList);</span>
+				}
+<span class="nc" id="L2481">			}</span>
+<span class="nc" id="L2482">		}</span>
+<span class="nc bnc" id="L2483" title="All 2 branches missed.">		for (PCTemplate lt : pct.getSafeListFor(ListKey.LEVEL_TEMPLATES))</span>
+		{
+<span class="nc" id="L2485">			List&lt;? extends CNAbilitySelection&gt; featList = thePC.getTemplateFeatList(lt);</span>
+<span class="nc bnc" id="L2486" title="All 2 branches missed.">			if (featList != null)</span>
+			{
+<span class="nc" id="L2488">				writeTemplateFeat(aString, lt, featList);</span>
+			}
+<span class="nc" id="L2490">		}</span>
+
+<span class="nc bnc" id="L2492" title="All 2 branches missed.">		for (PCTemplate lt : pct.getSafeListFor(ListKey.HD_TEMPLATES))</span>
+		{
+<span class="nc" id="L2494">			List&lt;? extends CNAbilitySelection&gt; featList = thePC.getTemplateFeatList(lt);</span>
+<span class="nc bnc" id="L2495" title="All 2 branches missed.">			if (featList != null)</span>
+			{
+<span class="nc" id="L2497">				writeTemplateFeat(aString, lt, featList);</span>
+			}
+<span class="nc" id="L2499">		}</span>
+<span class="nc" id="L2500">		return aString.toString();</span>
+	}
+
+	private void writeTemplateFeat(StringBuilder aString, PCTemplate pct, List&lt;? extends CNAbilitySelection&gt; featList)
+	{
+<span class="nc bnc" id="L2505" title="All 2 branches missed.">		for (CNAbilitySelection s : featList)</span>
+		{
+<span class="nc bnc" id="L2507" title="All 2 branches missed.">			if (aString.length() != 0)</span>
+			{
+<span class="nc" id="L2509">				aString.append('|');</span>
+			}
+
+<span class="nc" id="L2512">			String featKey = Compatibility.getKeyFor(pct);</span>
+
+<span class="nc" id="L2514">			aString.append(IOConstants.TAG_CHOSENFEAT).append(':');</span>
+<span class="nc" id="L2515">			aString.append('[');</span>
+<span class="nc" id="L2516">			aString.append(IOConstants.TAG_MAPKEY).append(':').append(EntityEncoder.encode(featKey)).append('|');</span>
+<span class="nc" id="L2517">			aString.append(IOConstants.TAG_MAPVALUE).append(':').append(EntityEncoder.encode(s.getPersistentFormat()));</span>
+<span class="nc" id="L2518">			aString.append(']');</span>
+<span class="nc" id="L2519">		}</span>
+<span class="nc" id="L2520">	}</span>
+
+	/**
+	 * Convenience Method
+	 *
+	 * &lt;br&gt;author: Thomas Behr 19-03-02
+	 *
+	 * @param s   the String which will be converted into a comment;
+	 *            i.e. '#','\r' will be removed,
+	 *                 '\t','\f' will be replaced with ' ',
+	 *            and each line will start with &quot;# &quot;
+	 * @return the newly created comment
+	 */
+	private static String createComment(String s)
+	{
+<span class="nc" id="L2535">		String work = s + IOConstants.LINE_SEP;</span>
+<span class="nc" id="L2536">		work = work.replace('\t', ' ');</span>
+<span class="nc" id="L2537">		work = work.replace('\f', ' ');</span>
+
+<span class="nc" id="L2539">		StringBuilder buffer = new StringBuilder(work.length() + 100);</span>
+<span class="nc" id="L2540">		StringTokenizer tokens = new StringTokenizer(work, &quot;#&quot;); //$NON-NLS-1$</span>
+
+<span class="nc bnc" id="L2542" title="All 2 branches missed.">		while (tokens.hasMoreTokens())</span>
+		{
+<span class="nc" id="L2544">			buffer.append(tokens.nextToken());</span>
+		}
+
+<span class="nc" id="L2547">		work = buffer.toString();</span>
+
+<span class="nc" id="L2549">		buffer.setLength(0);</span>
+
+		/*
+		 * Need to keep the Windows line separator as newline delimiter to ensure
+		 * cross-platform portability.
+		 *
+		 * author: Thomas Behr 2002-11-13
+		 */
+<span class="nc" id="L2557">		tokens = new StringTokenizer(work, &quot;\r\n&quot;); //$NON-NLS-1$</span>
+
+<span class="nc bnc" id="L2559" title="All 2 branches missed.">		while (tokens.hasMoreTokens())</span>
+		{
+<span class="nc" id="L2561">			buffer.append(&quot;# &quot;).append(tokens.nextToken()).append(IOConstants.LINE_SEP); //$NON-NLS-1$</span>
+		}
+
+<span class="nc" id="L2564">		return buffer.toString();</span>
+	}
+
+	/**
+	 * creates a unique tuple based on the creator and target getName()
+	 * @param creator
+	 * @param target
+	 * @return temp bonus name
+	 **/
+	private String tempBonusName(final Object creator, Object target)
+	{
+<span class="nc" id="L2575">		final StringBuilder cb = new StringBuilder(100);</span>
+
+<span class="nc" id="L2577">		cb.append(IOConstants.TAG_TEMPBONUS).append(':');</span>
+<span class="nc bnc" id="L2578" title="All 2 branches missed.">		if (creator instanceof final CDOMObject oCreator)</span>
+		{
+
+<span class="nc bnc" id="L2581" title="All 2 branches missed.">			if (oCreator instanceof Ability)</span>
+			{
+<span class="nc" id="L2583">				cb.append(IOConstants.TAG_FEAT).append('=');</span>
+			}
+<span class="nc bnc" id="L2585" title="All 2 branches missed.">			else if (oCreator instanceof Spell)</span>
+			{
+<span class="nc" id="L2587">				cb.append(IOConstants.TAG_SPELL).append('=');</span>
+			}
+<span class="nc bnc" id="L2589" title="All 2 branches missed.">			else if (oCreator instanceof Equipment)</span>
+			{
+<span class="nc" id="L2591">				cb.append(IOConstants.TAG_EQUIPMENT).append('=');</span>
+			}
+<span class="nc bnc" id="L2593" title="All 2 branches missed.">			else if (oCreator instanceof PCClass)</span>
+			{
+<span class="nc" id="L2595">				cb.append(IOConstants.TAG_CLASS).append('=');</span>
+			}
+<span class="nc bnc" id="L2597" title="All 2 branches missed.">			else if (oCreator instanceof PCTemplate)</span>
+			{
+<span class="nc" id="L2599">				cb.append(IOConstants.TAG_TEMPLATE).append('=');</span>
+			}
+<span class="nc bnc" id="L2601" title="All 2 branches missed.">			else if (oCreator instanceof Skill)</span>
+			{
+<span class="nc" id="L2603">				cb.append(IOConstants.TAG_SKILL).append('=');</span>
+			}
+			else
+			{
+<span class="nc" id="L2607">				cb.append(IOConstants.TAG_ERROR).append('=');</span>
+			}
+
+<span class="nc" id="L2610">			cb.append(EntityEncoder.encode(oCreator.getKeyName()));</span>
+			// Hmm, need to get the Type of oCreater also?
+			// Might be required so the PCGVer2Parser can search correct type to re-create
+		}
+		else
+		{
+<span class="nc" id="L2616">			return Constants.EMPTY_STRING;</span>
+		}
+<span class="nc" id="L2618">		cb.append('|');</span>
+<span class="nc" id="L2619">		cb.append(IOConstants.TAG_TEMPBONUSTARGET).append(':');</span>
+
+<span class="nc bnc" id="L2621" title="All 2 branches missed.">		if (target instanceof PlayerCharacter)</span>
+		{
+<span class="nc" id="L2623">			cb.append(IOConstants.TAG_PC);</span>
+		}
+<span class="nc bnc" id="L2625" title="All 2 branches missed.">		else if (target instanceof Equipment)</span>
+		{
+<span class="nc" id="L2627">			cb.append(EntityEncoder.encode(((Equipment) target).getName()));</span>
+		}
+
+<span class="nc" id="L2630">		return cb.toString();</span>
+	}
+
+	//
+	// Remember what choices were made for each of the ADD: tags
+	//
+	private void appendLevelAbilityInfo(StringBuilder buffer, CDOMObject pObj)
+	{
+<span class="nc" id="L2638">		appendAddTokenInfo(buffer, pObj);</span>
+<span class="nc" id="L2639">	}</span>
+
+	private void appendAddTokenInfo(StringBuilder buffer, CDOMObject pObj)
+	{
+<span class="nc" id="L2643">		List&lt;PersistentTransitionChoice&lt;?&gt;&gt; addList = pObj.getListFor(ListKey.ADD);</span>
+<span class="nc bnc" id="L2644" title="All 2 branches missed.">		if (addList == null)</span>
+		{
+<span class="nc" id="L2646">			return;</span>
+		}
+<span class="nc bnc" id="L2648" title="All 2 branches missed.">		for (PersistentTransitionChoice&lt;?&gt; tc : addList)</span>
+		{
+<span class="nc" id="L2650">			addChoices(buffer, tc);</span>
+<span class="nc" id="L2651">		}</span>
+<span class="nc" id="L2652">	}</span>
+
+	private &lt;T&gt; void addChoices(StringBuilder buffer, PersistentTransitionChoice&lt;T&gt; tc)
+	{
+<span class="nc" id="L2656">		List&lt;Object&gt; assocList = thePC.getAssocList(tc, AssociationListKey.ADD);</span>
+<span class="nc bnc" id="L2657" title="All 2 branches missed.">		if (assocList == null)</span>
+		{
+<span class="nc" id="L2659">			return;</span>
+		}
+		//
+		// |ADD:[PROMPT:SUBTOKEN|blah|CHOICE:choice1|CHOICE:choice2|CHOICE:choice3...]
+		//
+<span class="nc" id="L2664">		SelectableSet&lt;?&gt; choices = tc.getChoices();</span>
+<span class="nc" id="L2665">		buffer.append('|').append(IOConstants.TAG_ADDTOKEN).append(':').append('[');</span>
+<span class="nc" id="L2666">		buffer.append(EntityEncoder.encode(choices.getName())).append(':');</span>
+<span class="nc" id="L2667">		buffer.append(EntityEncoder.encode(choices.getLSTformat()));</span>
+
+<span class="nc bnc" id="L2669" title="All 2 branches missed.">		for (Object assoc : assocList)</span>
+		{
+<span class="nc" id="L2671">			buffer.append('|').append(IOConstants.TAG_CHOICE).append(':')</span>
+<span class="nc" id="L2672">				.append(EntityEncoder.encode(tc.encodeChoice(tc.castChoice(assoc))));</span>
+<span class="nc" id="L2673">		}</span>
+
+<span class="nc" id="L2675">		buffer.append(']');</span>
+<span class="nc" id="L2676">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

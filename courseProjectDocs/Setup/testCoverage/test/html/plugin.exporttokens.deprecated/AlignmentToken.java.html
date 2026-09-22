@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AlignmentToken.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.exporttokens.deprecated</a> &gt; <span class="el_source">AlignmentToken.java</span></div><h1>AlignmentToken.java</h1><pre class="source lang-java linenums">/*
+ * AlignmentToken.java
+ * Copyright 2003 (C) Devon Jones &lt;soulcatcher@evilsoft.org&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.     See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package plugin.exporttokens.deprecated;
+
+import pcgen.cdom.util.CControl;
+import pcgen.core.PCAlignment;
+import pcgen.core.PlayerCharacter;
+import pcgen.io.ExportHandler;
+import pcgen.io.exporttoken.Token;
+import pcgen.output.channel.compat.AlignmentCompat;
+
+/**
+ * Class deals with ALIGNMENT and ALIGNMENT.SHORT Token
+ */
+<span class="nc" id="L31">public class AlignmentToken extends Token</span>
+{
+	@Override
+	public String getTokenName()
+	{
+<span class="nc" id="L36">		return &quot;ALIGNMENT&quot;;</span>
+	}
+
+	@Override
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	{
+<span class="nc" id="L42">		String retString = &quot;&quot;;</span>
+
+<span class="nc bnc" id="L44" title="All 2 branches missed.">		if (&quot;ALIGNMENT&quot;.equals(tokenSource))</span>
+		{
+<span class="nc" id="L46">			retString = getAlignmentDisplay(pc);</span>
+		}
+<span class="nc bnc" id="L48" title="All 2 branches missed.">		else if (&quot;ALIGNMENT.SHORT&quot;.equals(tokenSource))</span>
+		{
+<span class="nc" id="L50">			retString = getShortToken(pc);</span>
+		}
+
+<span class="nc" id="L53">		return retString;</span>
+	}
+
+	private String getAlignmentDisplay(PlayerCharacter pc)
+	{
+<span class="nc bnc" id="L58" title="All 2 branches missed.">		if (!pc.isFeatureEnabled(CControl.ALIGNMENTFEATURE))</span>
+		{
+<span class="nc" id="L60">			return &quot;&quot;;</span>
+		}
+<span class="nc" id="L62">		final PCAlignment alignment = AlignmentCompat.getCurrentAlignment(pc.getCharID());</span>
+<span class="nc bnc" id="L63" title="All 2 branches missed.">		return alignment == null ? &quot;None&quot; : alignment.getDisplayName();</span>
+	}
+
+	/**
+	 * Get Alignment Short Token
+	 * @param pc
+	 * @return Alignment Short Token
+	 */
+	public static String getShortToken(PlayerCharacter pc)
+	{
+<span class="nc bnc" id="L73" title="All 2 branches missed.">		if (!pc.isFeatureEnabled(CControl.ALIGNMENTFEATURE))</span>
+		{
+<span class="nc" id="L75">			return &quot;&quot;;</span>
+		}
+
+<span class="nc" id="L78">		final PCAlignment alignment = AlignmentCompat.getCurrentAlignment(pc.getCharID());</span>
+<span class="nc bnc" id="L79" title="All 2 branches missed.">		return alignment == null ? &quot;None&quot; : alignment.getKeyName();</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

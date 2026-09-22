@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MonsterclassToken.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.lsttokens.race</a> &gt; <span class="el_source">MonsterclassToken.java</span></div><h1>MonsterclassToken.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) 2008 Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package plugin.lsttokens.race;
+
+import pcgen.base.text.ParsingSeparator;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.content.LevelCommandFactory;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.core.PCClass;
+import pcgen.core.Race;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.DeferredToken;
+import pcgen.rules.persistence.token.ParseResult;
+import pcgen.util.Logging;
+
+/**
+ * Class deals with MONSTERCLASS Token
+ */
+<span class="fc" id="L38">public class MonsterclassToken extends AbstractNonEmptyToken&lt;Race&gt;</span>
+		implements CDOMPrimaryToken&lt;Race&gt;, DeferredToken&lt;Race&gt;
+{
+
+<span class="fc" id="L42">	private static final Class&lt;PCClass&gt; PCCLASS_CLASS = PCClass.class;</span>
+
+	@Override
+	public String getTokenName()
+	{
+<span class="fc" id="L47">		return &quot;MONSTERCLASS&quot;;</span>
+	}
+
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context, Race race, String value)
+	{
+<span class="fc" id="L53">		ParsingSeparator sep = new ParsingSeparator(value, ':');</span>
+<span class="fc" id="L54">		sep.addGroupingPair('[', ']');</span>
+<span class="fc" id="L55">		sep.addGroupingPair('(', ')');</span>
+
+<span class="fc" id="L57">		String classString = sep.next();</span>
+<span class="fc bfc" id="L58" title="All 2 branches covered.">		if (!sep.hasNext())</span>
+		{
+<span class="fc" id="L60">			return new ParseResult.Fail(getTokenName() + &quot; must have a colon: &quot; + value);</span>
+		}
+<span class="fc" id="L62">		String numLevels = sep.next();</span>
+<span class="fc bfc" id="L63" title="All 2 branches covered.">		if (sep.hasNext())</span>
+		{
+<span class="fc" id="L65">			return new ParseResult.Fail(getTokenName() + &quot; must have only one colon: &quot; + value);</span>
+		}
+<span class="fc" id="L67">		CDOMSingleRef&lt;PCClass&gt; cl = context.getReferenceContext().getCDOMReference(PCCLASS_CLASS, classString);</span>
+		try
+		{
+<span class="fc" id="L70">			int lvls = Integer.parseInt(numLevels);</span>
+<span class="fc bfc" id="L71" title="All 2 branches covered.">			if (lvls &lt;= 0)</span>
+			{
+<span class="fc" id="L73">				return new ParseResult.Fail(</span>
+<span class="fc" id="L74">					&quot;Number of levels in &quot; + getTokenName() + &quot; must be greater than zero: &quot; + value);</span>
+			}
+<span class="fc" id="L76">			LevelCommandFactory cf = new LevelCommandFactory(cl, FormulaFactory.getFormulaFor(lvls));</span>
+<span class="fc" id="L77">			context.getObjectContext().put(race, ObjectKey.MONSTER_CLASS, cf);</span>
+<span class="fc" id="L78">			return ParseResult.SUCCESS;</span>
+		}
+<span class="fc" id="L80">		catch (NumberFormatException nfe)</span>
+		{
+<span class="fc" id="L82">			return new ParseResult.Fail(</span>
+<span class="fc" id="L83">				&quot;Number of levels in &quot; + getTokenName() + &quot; must be an integer greater than zero: &quot; + value);</span>
+		}
+	}
+
+	@Override
+	public String[] unparse(LoadContext context, Race race)
+	{
+<span class="fc" id="L90">		LevelCommandFactory lcf = context.getObjectContext().getObject(race, ObjectKey.MONSTER_CLASS);</span>
+<span class="fc bfc" id="L91" title="All 2 branches covered.">		if (lcf == null)</span>
+		{
+<span class="fc" id="L93">			return null;</span>
+		}
+<span class="fc" id="L95">		return new String[]{lcf.getLSTformat() + Constants.COLON + lcf.getLevelCount().toString()};</span>
+	}
+
+	@Override
+	public Class&lt;Race&gt; getTokenClass()
+	{
+<span class="fc" id="L101">		return Race.class;</span>
+	}
+
+	@Override
+	public Class&lt;Race&gt; getDeferredTokenClass()
+	{
+<span class="nc" id="L107">		return Race.class;</span>
+	}
+
+	@Override
+	public boolean process(LoadContext context, Race r)
+	{
+<span class="nc" id="L113">		LevelCommandFactory lcf = r.get(ObjectKey.MONSTER_CLASS);</span>
+<span class="nc bnc" id="L114" title="All 2 branches missed.">		if (lcf != null)</span>
+		{
+<span class="nc" id="L116">			String className = lcf.getLSTformat();</span>
+<span class="nc" id="L117">			PCClass pcc = context.getReferenceContext().silentlyGetConstructedCDOMObject(PCCLASS_CLASS, className);</span>
+<span class="nc bnc" id="L118" title="All 4 branches missed.">			if (pcc != null &amp;&amp; !pcc.isMonster())</span>
+			{
+<span class="nc" id="L120">				Logging.log(Logging.LST_WARNING,</span>
+					&quot;Class &quot; + className + &quot; was used in RACE MONSTERCLASS, &quot; + &quot;but it is not a Monster class&quot;);
+			}
+		}
+<span class="nc" id="L124">		return true;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

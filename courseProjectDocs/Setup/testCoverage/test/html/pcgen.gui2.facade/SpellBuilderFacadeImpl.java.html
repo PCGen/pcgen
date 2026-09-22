@@ -1,0 +1,889 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SpellBuilderFacadeImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.gui2.facade</a> &gt; <span class="el_source">SpellBuilderFacadeImpl.java</span></div><h1>SpellBuilderFacadeImpl.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2013 (C) James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.gui2.facade;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.StringTokenizer;
+
+import pcgen.base.util.HashMapToList;
+import pcgen.cdom.base.CDOMList;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.DataSetID;
+import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.Type;
+import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.MasterAvailableSpellFacet;
+import pcgen.cdom.helper.AvailableSpell;
+import pcgen.cdom.identifier.SpellSchool;
+import pcgen.cdom.list.ClassSpellList;
+import pcgen.cdom.list.DomainSpellList;
+import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
+import pcgen.core.Domain;
+import pcgen.core.Equipment;
+import pcgen.core.Globals;
+import pcgen.core.PCClass;
+import pcgen.core.PObject;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.SettingsHandler;
+import pcgen.core.spell.Spell;
+import pcgen.facade.core.AbilityFacade;
+import pcgen.facade.core.InfoFacade;
+import pcgen.facade.core.SpellBuilderFacade;
+import pcgen.facade.util.DefaultListFacade;
+import pcgen.facade.util.DefaultReferenceFacade;
+import pcgen.facade.util.ListFacade;
+import pcgen.facade.util.ReferenceFacade;
+import pcgen.util.Logging;
+
+import org.apache.commons.lang3.StringUtils;
+
+/**
+ * SpellBuilderFacadeImpl prepares the data for display in the Spell Choice 
+ * Dialog. It also manages the user's selections and updates the available 
+ * choices to match the choices already made.
+ * 
+ * 
+ */
+public class SpellBuilderFacadeImpl implements SpellBuilderFacade
+{
+	private final DefaultReferenceFacade&lt;InfoFacade&gt; pcClass;
+	private final DefaultReferenceFacade&lt;Integer&gt; spellLevel;
+	private final DefaultReferenceFacade&lt;InfoFacade&gt; spell;
+	private final DefaultReferenceFacade&lt;String&gt; variant;
+	private final DefaultReferenceFacade&lt;Integer&gt; casterLevel;
+	private final DefaultReferenceFacade&lt;String&gt; spellType;
+
+	private final DefaultListFacade&lt;InfoFacade&gt; availClasses;
+	private final DefaultListFacade&lt;Integer&gt; availSpellLevels;
+	private final DefaultListFacade&lt;InfoFacade&gt; availSpells;
+	private final DefaultListFacade&lt;String&gt; availVariants;
+	private final DefaultListFacade&lt;Integer&gt; availCasterlevels;
+	private final DefaultListFacade&lt;String&gt; availSpellTypes;
+
+	private final DefaultListFacade&lt;AbilityFacade&gt; availMetamagicFeats;
+	private final DefaultListFacade&lt;AbilityFacade&gt; selMetamagicFeats;
+
+	private List&lt;String&gt; classList;
+	private List&lt;String&gt; levelList;
+	private boolean metaAllowed;
+	private Boolean spellBooks;
+<span class="nc" id="L92">	private int minSpellLevel = 0;</span>
+<span class="nc" id="L93">	private int maxSpellLevel = 9;</span>
+<span class="nc" id="L94">	private String reqSpellType = &quot;&quot;;</span>
+<span class="nc" id="L95">	private final List&lt;String&gt; subTypeList = new ArrayList&lt;&gt;();</span>
+
+	private final PlayerCharacter character;
+	private Type requiredType;
+	private List&lt;AvailableSpell&gt; classSpells;
+	private CDOMList&lt;Spell&gt; spellList;
+	private final MasterAvailableSpellFacet masterAvailableSpellFacet;
+	private final DataSetID datasetID;
+
+	/**
+	 * Create a new instance SpellBuilderFacadeImpl to manage a particular 
+	 * spell choice.
+	 * 
+	 * @param choiceValue The string defining the choice. Should not include the EQBUILDER.SPELL| tag itself. 
+	 * @param character The character which the item will belong to.
+	 * @param equip The equipment, if any, that the spell will be associated with.
+	 */
+	public SpellBuilderFacadeImpl(String choiceValue, PlayerCharacter character, Equipment equip)
+<span class="nc" id="L113">	{</span>
+<span class="nc" id="L114">		this.character = character;</span>
+<span class="nc" id="L115">		masterAvailableSpellFacet = FacetLibrary.getFacet(MasterAvailableSpellFacet.class);</span>
+<span class="nc" id="L116">		datasetID = character.getCharID().getDatasetID();</span>
+
+<span class="nc" id="L118">		availClasses = new DefaultListFacade&lt;&gt;();</span>
+<span class="nc" id="L119">		availSpellLevels = new DefaultListFacade&lt;&gt;();</span>
+<span class="nc" id="L120">		availSpells = new DefaultListFacade&lt;&gt;();</span>
+<span class="nc" id="L121">		availVariants = new DefaultListFacade&lt;&gt;();</span>
+<span class="nc" id="L122">		availCasterlevels = new DefaultListFacade&lt;&gt;();</span>
+<span class="nc" id="L123">		availSpellTypes = new DefaultListFacade&lt;&gt;();</span>
+<span class="nc" id="L124">		availMetamagicFeats = new DefaultListFacade&lt;&gt;();</span>
+
+<span class="nc" id="L126">		pcClass = new DefaultReferenceFacade&lt;&gt;();</span>
+<span class="nc" id="L127">		spellLevel = new DefaultReferenceFacade&lt;&gt;();</span>
+<span class="nc" id="L128">		spell = new DefaultReferenceFacade&lt;&gt;();</span>
+<span class="nc" id="L129">		variant = new DefaultReferenceFacade&lt;&gt;();</span>
+<span class="nc" id="L130">		casterLevel = new DefaultReferenceFacade&lt;&gt;();</span>
+<span class="nc" id="L131">		spellType = new DefaultReferenceFacade&lt;&gt;();</span>
+<span class="nc" id="L132">		selMetamagicFeats = new DefaultListFacade&lt;&gt;();</span>
+
+<span class="nc" id="L134">		requiredType = Type.NONE;</span>
+<span class="nc bnc" id="L135" title="All 2 branches missed.">		if (equip != null)</span>
+		{
+<span class="nc" id="L137">			Type[] knownTypes = {Type.POTION, Type.SCROLL, Type.WAND, Type.RING};</span>
+<span class="nc bnc" id="L138" title="All 2 branches missed.">			for (Type itemType : knownTypes)</span>
+			{
+<span class="nc bnc" id="L140" title="All 2 branches missed.">				if (equip.isType(itemType.toString()))</span>
+				{
+<span class="nc" id="L142">					requiredType = itemType;</span>
+<span class="nc" id="L143">					break;</span>
+				}
+			}
+		}
+
+<span class="nc" id="L148">		parseChoiceValue(choiceValue);</span>
+
+<span class="nc" id="L150">		buildLists();</span>
+
+<span class="nc bnc" id="L152" title="All 2 branches missed.">		if (availClasses.getSize() &gt; 0)</span>
+		{
+<span class="nc" id="L154">			setClass(availClasses.getElementAt(0));</span>
+		}
+<span class="nc" id="L156">	}</span>
+
+	/**
+	 * Parse the choice string, if one was supplied.
+	 * @param choiceValue The value to be parsed.
+	 */
+	private void parseChoiceValue(String choiceValue)
+	{
+<span class="nc" id="L164">		classList = null;</span>
+<span class="nc" id="L165">		levelList = null;</span>
+<span class="nc" id="L166">		metaAllowed = true;</span>
+<span class="nc" id="L167">		spellBooks = null;</span>
+
+<span class="nc bnc" id="L169" title="All 2 branches missed.">		if (StringUtils.isNotEmpty(choiceValue))</span>
+		{
+<span class="nc bnc" id="L171" title="All 2 branches missed.">			if (!parseClassLevelSyntax(choiceValue))</span>
+			{
+<span class="nc" id="L173">				parseTypeSyntax(choiceValue);</span>
+			}
+		}
+
+		// Add in any relevant restrictions from preferences on crafting
+<span class="nc bnc" id="L178" title="All 2 branches missed.">		if (requiredType == Type.POTION)</span>
+		{
+<span class="nc" id="L180">			maxSpellLevel = Math.min(maxSpellLevel, SettingsHandler.maxPotionSpellLevel().get());</span>
+		}
+<span class="nc bnc" id="L182" title="All 2 branches missed.">		else if (requiredType == Type.WAND)</span>
+		{
+<span class="nc" id="L184">			maxSpellLevel = Math.min(maxSpellLevel, SettingsHandler.maxWandSpellLevel().get());</span>
+		}
+<span class="nc" id="L186">	}</span>
+
+	/**
+	 * Parse the 'hidden' syntax (CMP?) allowing class and level selection.
+	 * Format: CLASS=Wizard|CLASS=Sorcerer|Metamagic=0|LEVEL=1|LEVEL=2|SPELLBOOKS=Y
+	 * @param choiceValue The value to be parsed.
+	 * @return true if this is a class level syntax value.
+	 */
+	private boolean parseClassLevelSyntax(String choiceValue)
+	{
+		//
+		// CLASS=Wizard|CLASS=Sorcerer|Metamagic=0|LEVEL=1|LEVEL=2|SPELLBOOKS=Y
+<span class="nc" id="L198">		final StringTokenizer aTok = new StringTokenizer(choiceValue, &quot;|&quot;, false);</span>
+
+<span class="nc bnc" id="L200" title="All 2 branches missed.">		while (aTok.hasMoreTokens())</span>
+		{
+<span class="nc" id="L202">			String aString = aTok.nextToken();</span>
+
+<span class="nc bnc" id="L204" title="All 2 branches missed.">			if (aString.startsWith(&quot;CLASS=&quot;))</span>
+			{
+<span class="nc bnc" id="L206" title="All 2 branches missed.">				if (classList == null)</span>
+				{
+<span class="nc" id="L208">					classList = new ArrayList&lt;&gt;();</span>
+				}
+
+<span class="nc" id="L211">				classList.add(aString.substring(6));</span>
+			}
+<span class="nc bnc" id="L213" title="All 2 branches missed.">			else if (aString.startsWith(&quot;LEVEL=&quot;))</span>
+			{
+<span class="nc bnc" id="L215" title="All 2 branches missed.">				if (levelList == null)</span>
+				{
+<span class="nc" id="L217">					levelList = new ArrayList&lt;&gt;();</span>
+				}
+
+<span class="nc" id="L220">				levelList.add(aString.substring(6));</span>
+			}
+<span class="nc bnc" id="L222" title="All 2 branches missed.">			else if (aString.startsWith(&quot;SPELLBOOKS=&quot;))</span>
+			{
+<span class="nc bnc" id="L224" title="All 3 branches missed.">				switch (aString.charAt(11))</span>
+				{
+<span class="nc" id="L226">					case 'Y' -&gt; spellBooks = true;</span>
+<span class="nc" id="L227">					case 'N' -&gt; spellBooks = false;</span>
+<span class="nc" id="L228">					default -&gt; spellBooks = null;</span>
+				}
+			}
+<span class="nc bnc" id="L231" title="All 2 branches missed.">			else if (aString.equals(&quot;METAMAGIC=N&quot;))</span>
+			{
+<span class="nc" id="L233">				metaAllowed = false;</span>
+			}
+			else
+			{
+<span class="nc" id="L237">				return false;</span>
+			}
+<span class="nc" id="L239">		}</span>
+<span class="nc" id="L240">		return true;</span>
+	}
+
+	/**
+	 * Parse the standard syntax allowing selection on types and spell levels.
+	 * @param choiceValue The value to be parsed.
+	 */
+	private void parseTypeSyntax(String choiceValue)
+	{
+
+<span class="nc" id="L250">		StringTokenizer aTok = new StringTokenizer(choiceValue, &quot;|&quot;);</span>
+
+<span class="nc bnc" id="L252" title="All 2 branches missed.">		if (aTok.hasMoreTokens())</span>
+		{
+<span class="nc" id="L254">			reqSpellType = aTok.nextToken();</span>
+
+<span class="nc bnc" id="L256" title="All 4 branches missed.">			if (reqSpellType.equalsIgnoreCase(&quot;ANY&quot;) || reqSpellType.equalsIgnoreCase(&quot;ALL&quot;))</span>
+			{
+<span class="nc" id="L258">				reqSpellType = &quot;&quot;;</span>
+			}
+		}
+
+<span class="nc bnc" id="L262" title="All 2 branches missed.">		while (aTok.hasMoreTokens())</span>
+		{
+<span class="nc" id="L264">			String aString = aTok.nextToken();</span>
+
+			try
+			{
+<span class="nc" id="L268">				minSpellLevel = Integer.parseInt(aString);</span>
+
+<span class="nc" id="L270">				break;</span>
+			}
+<span class="nc" id="L272">			catch (NumberFormatException nfe)</span>
+			{
+<span class="nc" id="L274">				subTypeList.add(aString);</span>
+			}
+<span class="nc" id="L276">		}</span>
+
+<span class="nc bnc" id="L278" title="All 2 branches missed.">		if (aTok.hasMoreTokens())</span>
+		{
+<span class="nc" id="L280">			maxSpellLevel = Integer.parseInt(aTok.nextToken());</span>
+		}
+
+<span class="nc" id="L283">	}</span>
+
+	/**
+	 * Use the parsed rules to build up the lists that will not change, 
+	 * such as class/domain list and metamagic feats.
+	 */
+	private void buildLists()
+	{
+<span class="nc" id="L291">		List&lt;PCClass&gt; classes = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L292">		List&lt;Domain&gt; domains = new ArrayList&lt;&gt;();</span>
+
+<span class="nc bnc" id="L294" title="All 2 branches missed.">		if (classList != null)</span>
+		{
+<span class="nc bnc" id="L296" title="All 2 branches missed.">			for (String classKey : classList)</span>
+			{
+<span class="nc" id="L298">				PObject obj = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class,</span>
+					classKey);
+
+<span class="nc bnc" id="L301" title="All 2 branches missed.">				if (obj == null)</span>
+				{
+<span class="nc" id="L303">					obj = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Domain.class,</span>
+						classKey);
+<span class="nc bnc" id="L305" title="All 2 branches missed.">					if (obj != null)</span>
+					{
+<span class="nc" id="L307">						domains.add((Domain) obj);</span>
+					}
+				}
+				else
+				{
+<span class="nc" id="L312">					classes.add((PCClass) obj);</span>
+				}
+<span class="nc" id="L314">			}</span>
+		}
+		else
+		{
+<span class="nc bnc" id="L318" title="All 2 branches missed.">			for (Spell spell : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Spell.class))</span>
+			{
+<span class="nc bnc" id="L320" title="All 2 branches missed.">				if (isSpellOfSubType(spell))</span>
+				{
+<span class="nc" id="L322">					addSpellInfoToList(spell, classes, domains, reqSpellType);</span>
+				}
+<span class="nc" id="L324">			}</span>
+
+<span class="nc bnc" id="L326" title="All 2 branches missed.">			for (PCClass aClass : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(PCClass.class))</span>
+			{
+<span class="nc bnc" id="L328" title="All 2 branches missed.">				if (!aClass.getSpellType().equals(Constants.NONE))</span>
+				{
+					// Only adds if the class can cast
+<span class="nc bnc" id="L331" title="All 2 branches missed.">					if (character.getSpellSupport(aClass).canCastSpells(character))</span>
+					{
+<span class="nc" id="L333">						continue;</span>
+					}
+
+<span class="nc bnc" id="L336" title="All 4 branches missed.">					if (!(&quot;&quot;.equals(reqSpellType)) &amp;&amp; (!reqSpellType.contains(aClass.getSpellType())))</span>
+					{
+<span class="nc" id="L338">						continue;</span>
+					}
+
+<span class="nc bnc" id="L341" title="All 2 branches missed.">					if (!classes.contains(aClass))</span>
+					{
+<span class="nc" id="L343">						classes.add(aClass);</span>
+					}
+				}
+<span class="nc" id="L346">			}</span>
+		}
+
+<span class="nc bnc" id="L349" title="All 2 branches missed.">		if (spellBooks != null)</span>
+		{
+<span class="nc bnc" id="L351" title="All 2 branches missed.">			for (int i = classes.size() - 1; i &gt;= 0; --i)</span>
+			{
+<span class="nc" id="L353">				PCClass obj = classes.get(i);</span>
+
+<span class="nc bnc" id="L355" title="All 2 branches missed.">				if (!spellBooks) // can't have books</span>
+				{
+<span class="nc bnc" id="L357" title="All 2 branches missed.">					if (obj.getSafe(ObjectKey.SPELLBOOK))</span>
+					{
+<span class="nc" id="L359">						classes.remove(i);</span>
+					}
+				}
+				else
+				// must have books
+				{
+<span class="nc bnc" id="L365" title="All 2 branches missed.">					if (!obj.getSafe(ObjectKey.SPELLBOOK))</span>
+					{
+<span class="nc" id="L367">						classes.remove(i);</span>
+					}
+				}
+			}
+<span class="nc bnc" id="L371" title="All 2 branches missed.">			if (spellBooks)</span>
+			{
+<span class="nc" id="L373">				domains.clear();</span>
+			}
+		}
+
+<span class="nc" id="L377">		Globals.sortPObjectListByName(classes);</span>
+<span class="nc" id="L378">		List&lt;InfoFacade&gt; allObjects = new ArrayList&lt;&gt;(classes);</span>
+<span class="nc" id="L379">		Globals.sortPObjectListByName(domains);</span>
+<span class="nc" id="L380">		allObjects.addAll(domains);</span>
+
+<span class="nc" id="L382">		availClasses.setContents(allObjects);</span>
+
+		// Spell levels
+<span class="nc" id="L385">		List&lt;Integer&gt; spellLevelValues = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L386" title="All 4 branches missed.">		if ((levelList != null) &amp;&amp; (!levelList.isEmpty()))</span>
+		{
+<span class="nc bnc" id="L388" title="All 2 branches missed.">			for (int i = minSpellLevel; i &lt; levelList.size(); ++i)</span>
+			{
+<span class="nc" id="L390">				spellLevelValues.add(Integer.valueOf(levelList.get(i)));</span>
+			}
+		}
+		else
+		{
+<span class="nc bnc" id="L395" title="All 2 branches missed.">			for (int i = minSpellLevel; i &lt;= maxSpellLevel; i++)</span>
+			{
+<span class="nc" id="L397">				spellLevelValues.add(i);</span>
+			}
+		}
+<span class="nc" id="L400">		availSpellLevels.setContents(spellLevelValues);</span>
+
+		// Caster levels
+<span class="nc" id="L403">		updateAvailCasterLevels(1, 20);</span>
+
+		//Metamagic
+<span class="nc bnc" id="L406" title="All 2 branches missed.">		if (metaAllowed)</span>
+		{
+<span class="nc" id="L408">			List&lt;Ability&gt; metamagicFeats = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L409" title="All 2 branches missed.">			for (Ability anAbility : Globals.getContext().getReferenceContext().getManufacturerId(AbilityCategory.FEAT)</span>
+<span class="nc" id="L410">				.getAllObjects())</span>
+			{
+<span class="nc bnc" id="L412" title="All 2 branches missed.">				if (anAbility.isType(&quot;Metamagic&quot;))</span>
+				{
+<span class="nc" id="L414">					metamagicFeats.add(anAbility);</span>
+				}
+<span class="nc" id="L416">			}</span>
+<span class="nc" id="L417">			Globals.sortPObjectListByName(metamagicFeats);</span>
+<span class="nc" id="L418">			availMetamagicFeats.setContents(metamagicFeats);</span>
+		}
+<span class="nc" id="L420">	}</span>
+
+	private void addSpellInfoToList(final Spell aSpell, List&lt;PCClass&gt; classes, List&lt;Domain&gt; domains, String spellType)
+	{
+<span class="nc" id="L424">		Set&lt;String&gt; unfoundItems = new HashSet&lt;&gt;();</span>
+<span class="nc" id="L425">		final HashMapToList&lt;CDOMList&lt;Spell&gt;, Integer&gt; levelInfo = character.getSpellLevelInfo(aSpell);</span>
+
+<span class="nc bnc" id="L427" title="All 4 branches missed.">		if ((levelInfo == null) || (levelInfo.isEmpty()))</span>
+		{
+<span class="nc" id="L429">			return;</span>
+		}
+
+<span class="nc bnc" id="L432" title="All 2 branches missed.">		for (CDOMList&lt;Spell&gt; spellList : levelInfo.getKeySet())</span>
+		{
+<span class="nc bnc" id="L434" title="All 2 branches missed.">			if (spellList instanceof ClassSpellList)</span>
+			{
+<span class="nc" id="L436">				String key = spellList.getKeyName();</span>
+
+				final PCClass aClass =
+<span class="nc" id="L439">						Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class, key);</span>
+
+<span class="nc bnc" id="L441" title="All 2 branches missed.">				if (aClass != null)</span>
+				{
+<span class="nc bnc" id="L443" title="All 4 branches missed.">					if (!(&quot;&quot;.equals(spellType)) &amp;&amp; (!spellType.contains(aClass.getSpellType())))</span>
+					{
+<span class="nc" id="L445">						continue;</span>
+					}
+
+<span class="nc bnc" id="L448" title="All 2 branches missed.">					if (!classes.contains(aClass))</span>
+					{
+<span class="nc" id="L450">						classes.add(aClass);</span>
+					}
+				}
+				else
+				{
+<span class="nc" id="L455">					key = 'C' + key;</span>
+
+<span class="nc bnc" id="L457" title="All 2 branches missed.">					if (!unfoundItems.contains(key))</span>
+					{
+<span class="nc" id="L459">						unfoundItems.add(key);</span>
+<span class="nc" id="L460">						Logging.errorPrint(&quot;Class &quot; + key.substring(1) + &quot; not found. Was used in spell &quot; + aSpell);</span>
+					}
+				}
+<span class="nc" id="L463">			}</span>
+<span class="nc bnc" id="L464" title="All 2 branches missed.">			else if (spellList instanceof DomainSpellList)</span>
+			{
+<span class="nc bnc" id="L466" title="All 4 branches missed.">				if (!(&quot;&quot;.equals(spellType)) &amp;&amp; (!spellType.contains(&quot;Divine&quot;)))</span>
+				{
+<span class="nc" id="L468">					continue;</span>
+				}
+
+<span class="nc" id="L471">				String key = spellList.getKeyName();</span>
+
+				final Domain aDomain =
+<span class="nc" id="L474">						Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Domain.class, key);</span>
+
+<span class="nc bnc" id="L476" title="All 2 branches missed.">				if (aDomain != null)</span>
+				{
+<span class="nc bnc" id="L478" title="All 2 branches missed.">					if (!domains.contains(aDomain))</span>
+					{
+<span class="nc" id="L480">						domains.add(aDomain);</span>
+					}
+				}
+				else
+				{
+<span class="nc" id="L485">					key = 'D' + key;</span>
+
+<span class="nc bnc" id="L487" title="All 2 branches missed.">					if (!unfoundItems.contains(key))</span>
+					{
+<span class="nc" id="L489">						unfoundItems.add(key);</span>
+<span class="nc" id="L490">						Logging.errorPrint(&quot;Domain &quot; + key.substring(1) + &quot; not found. Was used in spell &quot; + aSpell);</span>
+					}
+				}
+<span class="nc" id="L493">			}</span>
+			else
+			{
+<span class="nc" id="L496">				Logging.errorPrint(&quot;Unknown spell source: &quot; + spellList);</span>
+			}
+<span class="nc" id="L498">		}</span>
+<span class="nc" id="L499">	}</span>
+
+	private boolean isSpellOfSubType(Spell aSpell)
+	{
+<span class="nc bnc" id="L503" title="All 2 branches missed.">		if (subTypeList.isEmpty())</span>
+		{
+<span class="nc" id="L505">			return true;</span>
+		}
+
+<span class="nc" id="L508">		boolean finalIsOfType = false;</span>
+
+<span class="nc bnc" id="L510" title="All 2 branches missed.">		for (String s : subTypeList)</span>
+		{
+<span class="nc" id="L512">			boolean isOfType = true;</span>
+<span class="nc" id="L513">			StringTokenizer aTok = new StringTokenizer(s, &quot;;,&quot;);</span>
+
+<span class="nc bnc" id="L515" title="All 2 branches missed.">			while (aTok.hasMoreTokens())</span>
+			{
+<span class="nc" id="L517">				String subType = aTok.nextToken();</span>
+
+<span class="nc bnc" id="L519" title="All 2 branches missed.">				if (subType.startsWith(&quot;SCHOOL.&quot;))</span>
+				{
+<span class="nc" id="L521">					SpellSchool ss = Globals.getContext().getReferenceContext()</span>
+<span class="nc" id="L522">						.silentlyGetConstructedCDOMObject(SpellSchool.class, subType.substring(7));</span>
+<span class="nc bnc" id="L523" title="All 4 branches missed.">					if (ss == null || !aSpell.containsInList(ListKey.SPELL_SCHOOL, ss))</span>
+					{
+<span class="nc" id="L525">						isOfType = false;</span>
+
+<span class="nc" id="L527">						break;</span>
+					}
+				}
+
+<span class="nc bnc" id="L531" title="All 2 branches missed.">				if (subType.startsWith(&quot;SUBSCHOOL.&quot;))</span>
+				{
+<span class="nc bnc" id="L533" title="All 2 branches missed.">					if (!aSpell.containsInList(ListKey.SPELL_SUBSCHOOL, subType.substring(10)))</span>
+					{
+<span class="nc" id="L535">						isOfType = false;</span>
+
+<span class="nc" id="L537">						break;</span>
+					}
+				}
+
+<span class="nc bnc" id="L541" title="All 2 branches missed.">				if (subType.startsWith(&quot;DESCRIPTOR.&quot;))</span>
+				{
+<span class="nc" id="L543">					String descriptor = subType.substring(11);</span>
+
+<span class="nc bnc" id="L545" title="All 2 branches missed.">					if (!aSpell.containsInList(ListKey.SPELL_DESCRIPTOR, descriptor))</span>
+					{
+<span class="nc" id="L547">						isOfType = false;</span>
+
+<span class="nc" id="L549">						break;</span>
+					}
+				}
+<span class="nc" id="L552">			}</span>
+
+<span class="nc bnc" id="L554" title="All 2 branches missed.">			if (isOfType)</span>
+			{
+<span class="nc" id="L556">				finalIsOfType = true;</span>
+
+<span class="nc" id="L558">				break;</span>
+			}
+<span class="nc" id="L560">		}</span>
+
+<span class="nc" id="L562">		return finalIsOfType;</span>
+	}
+
+	private void updateAvailCasterLevels(int min, int max)
+	{
+<span class="nc" id="L567">		List&lt;Integer&gt; levelsForCasting = new ArrayList&lt;&gt;(20);</span>
+<span class="nc bnc" id="L568" title="All 2 branches missed.">		for (int i = min; i &lt;= max; i++)</span>
+		{
+<span class="nc" id="L570">			levelsForCasting.add(i);</span>
+		}
+<span class="nc" id="L572">		availCasterlevels.setContents(levelsForCasting);</span>
+<span class="nc" id="L573">	}</span>
+
+	/**
+	 * Update lists that depend on the selected level of spell 
+	 * e.g. the list of spells  
+	 */
+	private void processLevelChange()
+	{
+<span class="nc" id="L581">		int baseSpellLevel = spellLevel.get();</span>
+
+		// List of available spells
+<span class="nc" id="L584">		List&lt;Spell&gt; spellsOfLevel = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L585" title="All 2 branches missed.">		for (AvailableSpell availSpell : classSpells)</span>
+		{
+<span class="nc bnc" id="L587" title="All 2 branches missed.">			if (availSpell.getLevel() == baseSpellLevel)</span>
+			{
+<span class="nc" id="L589">				spellsOfLevel.add(availSpell.getSpell());</span>
+			}
+
+<span class="nc" id="L592">		}</span>
+<span class="nc" id="L593">		Globals.sortPObjectListByName(spellsOfLevel);</span>
+<span class="nc" id="L594">		availSpells.setContents(spellsOfLevel);</span>
+<span class="nc" id="L595">		InfoFacade selSpell = spell.get();</span>
+<span class="nc bnc" id="L596" title="All 4 branches missed.">		if (selSpell == null || !spellsOfLevel.contains(selSpell))</span>
+		{
+<span class="nc" id="L598">			Spell newSpell = null;</span>
+<span class="nc bnc" id="L599" title="All 2 branches missed.">			if (!spellsOfLevel.isEmpty())</span>
+			{
+<span class="nc" id="L601">				newSpell = spellsOfLevel.get(0);</span>
+			}
+<span class="nc" id="L603">			selectSpell(newSpell);</span>
+		}
+
+		// Spell type
+<span class="nc" id="L607">		List&lt;String&gt; spellTypeList = getSpellTypeList();</span>
+<span class="nc" id="L608">		availSpellTypes.setContents(spellTypeList);</span>
+<span class="nc" id="L609">		spellType.set(spellTypeList.get(0));</span>
+<span class="nc" id="L610">	}</span>
+
+	private void selectSpell(Spell newSpell)
+	{
+<span class="nc" id="L614">		spell.set(newSpell);</span>
+
+		// Handle variants
+<span class="nc" id="L617">		List&lt;String&gt; variants = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L618" title="All 2 branches missed.">		if (newSpell != null)</span>
+		{
+<span class="nc" id="L620">			variants = newSpell.getSafeListFor(ListKey.VARIANTS);</span>
+		}
+<span class="nc" id="L622">		Collections.sort(variants);</span>
+<span class="nc" id="L623">		availVariants.setContents(variants);</span>
+<span class="nc bnc" id="L624" title="All 2 branches missed.">		if (variants.isEmpty())</span>
+		{
+<span class="nc" id="L626">			variant.set(null);</span>
+		}
+		else
+		{
+<span class="nc" id="L630">			String currVariant = variant.get();</span>
+<span class="nc bnc" id="L631" title="All 4 branches missed.">			if (currVariant != null &amp;&amp; !variants.contains(currVariant))</span>
+			{
+<span class="nc" id="L633">				variant.set(null);</span>
+			}
+		}
+
+<span class="nc" id="L637">		recalcCasterLevelDetails();</span>
+
+<span class="nc" id="L639">	}</span>
+
+	private void recalcCasterLevelDetails()
+	{
+		// Metamagic
+<span class="nc" id="L644">		int levelAdjust = 0;</span>
+<span class="nc bnc" id="L645" title="All 2 branches missed.">		for (AbilityFacade feat : selMetamagicFeats)</span>
+		{
+<span class="nc" id="L647">			levelAdjust += ((Ability) feat).getSafe(IntegerKey.ADD_SPELL_LEVEL);</span>
+<span class="nc" id="L648">		}</span>
+
+		// Limit Caster level
+<span class="nc" id="L651">		int minClassLevel = 1;</span>
+<span class="nc" id="L652">		int maxClassLevel = 20;</span>
+		PCClass aClass;
+<span class="nc" id="L654">		InfoFacade castingClass = pcClass.get();</span>
+<span class="nc bnc" id="L655" title="All 2 branches missed.">		if (castingClass instanceof PCClass)</span>
+		{
+<span class="nc" id="L657">			aClass = (PCClass) castingClass;</span>
+		}
+<span class="nc bnc" id="L659" title="All 2 branches missed.">		else if (castingClass instanceof Domain)</span>
+		{
+			// TODO We should not be hardcoding the link between cleric and domains
+<span class="nc" id="L662">			aClass = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class,</span>
+				&quot;Cleric&quot;);
+		}
+		else
+		{
+<span class="nc" id="L667">			Logging</span>
+<span class="nc" id="L668">				.errorPrint(&quot;Found Casting Class in recalc that was not a Class or Domain: &quot; + castingClass.getClass());</span>
+<span class="nc" id="L669">			return;</span>
+		}
+
+<span class="nc bnc" id="L672" title="All 2 branches missed.">		if (aClass != null)</span>
+		{
+<span class="nc" id="L674">			minClassLevel =</span>
+<span class="nc" id="L675">					character.getSpellSupport(aClass).getMinLevelForSpellLevel(spellLevel.get() + levelAdjust, true);</span>
+<span class="nc" id="L676">			minClassLevel = Math.max(1, minClassLevel);</span>
+<span class="nc bnc" id="L677" title="All 2 branches missed.">			if (aClass.hasMaxLevel())</span>
+			{
+<span class="nc" id="L679">				maxClassLevel = aClass.getSafe(IntegerKey.LEVEL_LIMIT);</span>
+			}
+		}
+
+<span class="nc" id="L683">		updateAvailCasterLevels(minClassLevel, maxClassLevel);</span>
+<span class="nc bnc" id="L684" title="All 2 branches missed.">		int currCasterLevel = casterLevel.get() == null ? 0 : casterLevel.get();</span>
+<span class="nc bnc" id="L685" title="All 2 branches missed.">		if (currCasterLevel &lt; minClassLevel)</span>
+		{
+<span class="nc" id="L687">			casterLevel.set(minClassLevel);</span>
+		}
+<span class="nc bnc" id="L689" title="All 2 branches missed.">		else if (currCasterLevel &gt; maxClassLevel)</span>
+		{
+<span class="nc" id="L691">			casterLevel.set(maxClassLevel);</span>
+		}
+<span class="nc" id="L693">	}</span>
+
+	private List&lt;String&gt; getSpellTypeList()
+	{
+<span class="nc" id="L697">		List&lt;String&gt; spellTypes = new ArrayList&lt;&gt;();</span>
+
+<span class="nc" id="L699">		InfoFacade castingClass = pcClass.get();</span>
+<span class="nc bnc" id="L700" title="All 2 branches missed.">		if (castingClass instanceof PCClass)</span>
+		{
+<span class="nc" id="L702">			spellTypes.add(((PCClass) castingClass).getSpellType());</span>
+		}
+<span class="nc bnc" id="L704" title="All 2 branches missed.">		else if (castingClass instanceof Domain)</span>
+		{
+<span class="nc" id="L706">			spellTypes.add(&quot;Divine&quot;);</span>
+		}
+		else
+		{
+<span class="nc" id="L710">			Logging.errorPrint(&quot;Found Casting Class that was not a Class or Domain: &quot; + castingClass.getClass());</span>
+		}
+
+<span class="nc" id="L713">		return spellTypes;</span>
+	}
+
+	private boolean canCreateItem(Spell aSpell)
+	{
+<span class="nc bnc" id="L718" title="All 2 branches missed.">		if (requiredType == Type.NONE)</span>
+		{
+<span class="nc" id="L720">			return true;</span>
+		}
+<span class="nc" id="L722">		return aSpell.isAllowed(requiredType);</span>
+	}
+
+	@Override
+	public void setClass(InfoFacade classFacade)
+	{
+<span class="nc" id="L728">		pcClass.set(classFacade);</span>
+
+<span class="nc bnc" id="L730" title="All 2 branches missed.">		if (classFacade instanceof Domain)</span>
+		{
+<span class="nc" id="L732">			spellList = ((Domain) classFacade).get(ObjectKey.DOMAIN_SPELLLIST);</span>
+		}
+		else
+		{
+<span class="nc" id="L736">			spellList = ((PCClass) classFacade).get(ObjectKey.CLASS_SPELLLIST);</span>
+		}
+
+<span class="nc" id="L739">		classSpells = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L740" title="All 2 branches missed.">		for (AvailableSpell availSpell : masterAvailableSpellFacet.getAllSpellsInList(spellList, datasetID))</span>
+		{
+<span class="nc bnc" id="L742" title="All 2 branches missed.">			if (canCreateItem(availSpell.getSpell()))</span>
+			{
+<span class="nc" id="L744">				classSpells.add(availSpell);</span>
+			}
+<span class="nc" id="L746">		}</span>
+
+<span class="nc bnc" id="L748" title="All 2 branches missed.">		if (spellLevel.get() == null)</span>
+		{
+<span class="nc" id="L750">			spellLevel.set(availSpellLevels.getElementAt(0));</span>
+		}
+<span class="nc" id="L752">		processLevelChange();</span>
+<span class="nc" id="L753">	}</span>
+
+	@Override
+	public ReferenceFacade&lt;InfoFacade&gt; getClassRef()
+	{
+<span class="nc" id="L758">		return pcClass;</span>
+	}
+
+	@Override
+	public ListFacade&lt;InfoFacade&gt; getClasses()
+	{
+<span class="nc" id="L764">		return availClasses;</span>
+	}
+
+	@Override
+	public void setSpellLevel(Integer newSpellLevel)
+	{
+<span class="nc" id="L770">		spellLevel.set(newSpellLevel);</span>
+<span class="nc" id="L771">		processLevelChange();</span>
+<span class="nc" id="L772">	}</span>
+
+	@Override
+	public ListFacade&lt;Integer&gt; getLevels()
+	{
+<span class="nc" id="L777">		return availSpellLevels;</span>
+	}
+
+	@Override
+	public ReferenceFacade&lt;Integer&gt; getSpellLevelRef()
+	{
+<span class="nc" id="L783">		return spellLevel;</span>
+	}
+
+	@Override
+	public void setSpell(InfoFacade spellFacade)
+	{
+<span class="nc bnc" id="L789" title="All 2 branches missed.">		if (spellFacade instanceof Spell)</span>
+		{
+<span class="nc" id="L791">			selectSpell((Spell) spellFacade);</span>
+		}
+<span class="nc" id="L793">	}</span>
+
+	@Override
+	public ReferenceFacade&lt;InfoFacade&gt; getSpellRef()
+	{
+<span class="nc" id="L798">		return spell;</span>
+	}
+
+	@Override
+	public ListFacade&lt;InfoFacade&gt; getSpells()
+	{
+<span class="nc" id="L804">		return availSpells;</span>
+	}
+
+	@Override
+	public void setVariant(String newVariant)
+	{
+<span class="nc" id="L810">		variant.set(newVariant);</span>
+<span class="nc" id="L811">	}</span>
+
+	@Override
+	public ReferenceFacade&lt;String&gt; getVariantRef()
+	{
+<span class="nc" id="L816">		return variant;</span>
+	}
+
+	@Override
+	public ListFacade&lt;String&gt; getVariants()
+	{
+<span class="nc" id="L822">		return availVariants;</span>
+	}
+
+	@Override
+	public void setCasterLevel(Integer newCasterLevel)
+	{
+<span class="nc" id="L828">		casterLevel.set(newCasterLevel);</span>
+<span class="nc" id="L829">	}</span>
+
+	@Override
+	public ReferenceFacade&lt;Integer&gt; getCasterLevelRef()
+	{
+<span class="nc" id="L834">		return casterLevel;</span>
+	}
+
+	@Override
+	public ListFacade&lt;Integer&gt; getCasterLevels()
+	{
+<span class="nc" id="L840">		return availCasterlevels;</span>
+	}
+
+	@Override
+	public void setSpellType(String newSpellType)
+	{
+<span class="nc" id="L846">		spellType.set(newSpellType);</span>
+<span class="nc" id="L847">	}</span>
+
+	@Override
+	public ReferenceFacade&lt;String&gt; getSpellTypeRef()
+	{
+<span class="nc" id="L852">		return spellType;</span>
+	}
+
+	@Override
+	public ListFacade&lt;String&gt; getSpellTypes()
+	{
+<span class="nc" id="L858">		return availSpellTypes;</span>
+	}
+
+	@Override
+	public void setSelectedMetamagicFeats(Object[] newFeats)
+	{
+<span class="nc" id="L864">		List&lt;AbilityFacade&gt; chosenFeats = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L865" title="All 2 branches missed.">		for (Object choice : newFeats)</span>
+		{
+<span class="nc bnc" id="L867" title="All 2 branches missed.">			if (choice instanceof AbilityFacade)</span>
+			{
+<span class="nc" id="L869">				chosenFeats.add((AbilityFacade) choice);</span>
+			}
+		}
+<span class="nc" id="L872">		selMetamagicFeats.setContents(chosenFeats);</span>
+<span class="nc" id="L873">		recalcCasterLevelDetails();</span>
+<span class="nc" id="L874">	}</span>
+
+	@Override
+	public ListFacade&lt;AbilityFacade&gt; getSelectedMetamagicFeats()
+	{
+<span class="nc" id="L879">		return selMetamagicFeats;</span>
+	}
+
+	@Override
+	public ListFacade&lt;AbilityFacade&gt; getAvailMetamagicFeats()
+	{
+<span class="nc" id="L885">		return availMetamagicFeats;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

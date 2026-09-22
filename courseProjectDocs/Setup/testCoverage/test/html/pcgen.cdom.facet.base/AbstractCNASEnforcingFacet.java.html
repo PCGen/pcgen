@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AbstractCNASEnforcingFacet.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.facet.base</a> &gt; <span class="el_source">AbstractCNASEnforcingFacet.java</span></div><h1>AbstractCNASEnforcingFacet.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) Thomas Parker, 2010.
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package pcgen.cdom.facet.base;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Objects;
+
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.event.DataFacetChangeEvent;
+import pcgen.cdom.facet.event.DataFacetChangeListener;
+import pcgen.cdom.helper.CNAbilitySelection;
+import pcgen.cdom.helper.CNAbilitySelectionUtilities;
+
+<span class="fc" id="L33">public class AbstractCNASEnforcingFacet extends AbstractDataFacet&lt;CharID, CNAbilitySelection&gt;</span>
+		implements DataFacetChangeListener&lt;CharID, CNAbilitySelection&gt;
+{
+	public boolean isEmpty(CharID id)
+	{
+<span class="fc" id="L38">		List&lt;List&lt;SourcedCNAS&gt;&gt; list = getList(id);</span>
+<span class="fc bfc" id="L39" title="All 4 branches covered.">		return (list == null) || list.isEmpty();</span>
+	}
+
+	public boolean add(CharID id, CNAbilitySelection cnas, Object source)
+	{
+<span class="fc" id="L44">		Objects.requireNonNull(cnas, &quot;Attempt to add null to list&quot;);</span>
+<span class="fc" id="L45">		Objects.requireNonNull(source, &quot;Attempt to add object with null source to list&quot;);</span>
+<span class="fc" id="L46">		List&lt;List&lt;SourcedCNAS&gt;&gt; list = getConstructingList(id);</span>
+<span class="fc bfc" id="L47" title="All 2 branches covered.">		for (List&lt;SourcedCNAS&gt; slist : list)</span>
+		{
+<span class="fc" id="L49">			CNAbilitySelection main = slist.get(0).cnas;</span>
+<span class="fc bfc" id="L50" title="All 2 branches covered.">			if (!CNAbilitySelectionUtilities.canCoExist(main, cnas))</span>
+			{
+<span class="fc" id="L52">				slist.add(new SourcedCNAS(cnas, source));</span>
+<span class="fc" id="L53">				return false;</span>
+			}
+<span class="fc" id="L55">		}</span>
+<span class="fc" id="L56">		List&lt;SourcedCNAS&gt; newList = new ArrayList&lt;&gt;(1);</span>
+<span class="fc" id="L57">		newList.add(new SourcedCNAS(cnas, source));</span>
+<span class="fc" id="L58">		list.add(newList);</span>
+<span class="fc" id="L59">		fireDataFacetChangeEvent(id, cnas, DataFacetChangeEvent.DATA_ADDED);</span>
+<span class="fc" id="L60">		return true;</span>
+	}
+
+	public boolean remove(CharID id, CNAbilitySelection cnas, Object source)
+	{
+<span class="fc" id="L65">		Objects.requireNonNull(cnas, &quot;Attempt to remove null from list&quot;);</span>
+<span class="fc" id="L66">		Objects.requireNonNull(source, &quot;Attempt to remove object with null source from list&quot;);</span>
+<span class="fc" id="L67">		List&lt;List&lt;SourcedCNAS&gt;&gt; list = getList(id);</span>
+<span class="pc bpc" id="L68" title="1 of 2 branches missed.">		if (list == null)</span>
+		{
+<span class="nc" id="L70">			return false;</span>
+		}
+<span class="fc bfc" id="L72" title="All 2 branches covered.">		for (Iterator&lt;List&lt;SourcedCNAS&gt;&gt; listIT = list.iterator(); listIT.hasNext();)</span>
+		{
+<span class="fc" id="L74">			List&lt;SourcedCNAS&gt; array = listIT.next();</span>
+<span class="fc" id="L75">			int length = array.size();</span>
+			//Iterate backwards, so that we remove harmless items first
+<span class="fc bfc" id="L77" title="All 2 branches covered.">			for (int j = length - 1; j &gt;= 0; j--)</span>
+			{
+<span class="fc" id="L79">				SourcedCNAS sc = array.get(j);</span>
+<span class="fc bfc" id="L80" title="All 4 branches covered.">				if (cnas.equals(sc.cnas) &amp;&amp; source.equals(sc.source))</span>
+				{
+					//fix the array here
+<span class="fc bfc" id="L83" title="All 4 branches covered.">					if ((j == 0) &amp;&amp; (length == 1))</span>
+					{
+						//There is no alternative, remove the array from the list;
+<span class="fc" id="L86">						listIT.remove();</span>
+<span class="fc" id="L87">						fireDataFacetChangeEvent(id, cnas, DataFacetChangeEvent.DATA_REMOVED);</span>
+<span class="fc" id="L88">						return true;</span>
+					}
+					else
+					{
+<span class="fc" id="L92">						array.remove(j);</span>
+<span class="fc" id="L93">						CNAbilitySelection newPrimary = array.get(0).cnas;</span>
+						//Only fire if the CNAS differs to avoid churn
+<span class="fc bfc" id="L95" title="All 4 branches covered.">						if (!cnas.equals(newPrimary) &amp;&amp; (j == 0))</span>
+						{
+<span class="fc" id="L97">							fireDataFacetChangeEvent(id, cnas, DataFacetChangeEvent.DATA_REMOVED);</span>
+<span class="fc" id="L98">							fireDataFacetChangeEvent(id, newPrimary, DataFacetChangeEvent.DATA_ADDED);</span>
+<span class="fc" id="L99">							return true;</span>
+						}
+<span class="fc" id="L101">						return false;</span>
+					}
+				}
+			}
+<span class="fc" id="L105">		}</span>
+<span class="fc" id="L106">		return false;</span>
+	}
+
+	public Collection&lt;CNAbilitySelection&gt; getSet(CharID id)
+	{
+<span class="fc" id="L111">		List&lt;List&lt;SourcedCNAS&gt;&gt; list = getList(id);</span>
+<span class="fc bfc" id="L112" title="All 2 branches covered.">		if (list == null)</span>
+		{
+<span class="fc" id="L114">			return Collections.emptyList();</span>
+		}
+<span class="fc" id="L116">		List&lt;CNAbilitySelection&gt; returnList = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L117" title="All 2 branches covered.">		for (List&lt;SourcedCNAS&gt; array : list)</span>
+		{
+<span class="fc" id="L119">			returnList.add(array.get(0).cnas);</span>
+<span class="fc" id="L120">		}</span>
+<span class="fc" id="L121">		return returnList;</span>
+	}
+
+	@SuppressWarnings(&quot;unchecked&quot;)
+	protected List&lt;List&lt;SourcedCNAS&gt;&gt; getList(CharID id)
+	{
+<span class="fc" id="L127">		return (List&lt;List&lt;SourcedCNAS&gt;&gt;) this.getCache(id);</span>
+	}
+
+	private List&lt;List&lt;SourcedCNAS&gt;&gt; getConstructingList(CharID id)
+	{
+<span class="fc" id="L132">		List&lt;List&lt;SourcedCNAS&gt;&gt; list = getList(id);</span>
+<span class="fc bfc" id="L133" title="All 2 branches covered.">		if (list == null)</span>
+		{
+<span class="fc" id="L135">			list = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L136">			setCache(id, list);</span>
+		}
+<span class="fc" id="L138">		return list;</span>
+	}
+
+	@Override
+	public void copyContents(CharID source, CharID copy)
+	{
+<span class="fc" id="L144">		List&lt;List&lt;SourcedCNAS&gt;&gt; list = getList(source);</span>
+<span class="fc bfc" id="L145" title="All 2 branches covered.">		if (list != null)</span>
+		{
+<span class="fc" id="L147">			List&lt;List&lt;SourcedCNAS&gt;&gt; constructingList = getConstructingList(copy);</span>
+<span class="fc bfc" id="L148" title="All 2 branches covered.">			for (List&lt;SourcedCNAS&gt; orig : list)</span>
+			{
+<span class="fc" id="L150">				List&lt;SourcedCNAS&gt; newCnasList = new ArrayList&lt;&gt;(orig);</span>
+<span class="fc" id="L151">				constructingList.add(newCnasList);</span>
+<span class="fc" id="L152">			}</span>
+		}
+<span class="fc" id="L154">	}</span>
+
+	public int getCount(CharID id)
+	{
+<span class="fc" id="L158">		List&lt;List&lt;SourcedCNAS&gt;&gt; list = getList(id);</span>
+<span class="fc bfc" id="L159" title="All 2 branches covered.">		return (list == null) ? 0 : list.size();</span>
+	}
+
+	@Override
+	public void dataAdded(DataFacetChangeEvent&lt;CharID, CNAbilitySelection&gt; dfce)
+	{
+<span class="fc" id="L165">		add(dfce.getCharID(), dfce.getCDOMObject(), dfce.getSource());</span>
+<span class="fc" id="L166">	}</span>
+
+	@Override
+	public void dataRemoved(DataFacetChangeEvent&lt;CharID, CNAbilitySelection&gt; dfce)
+	{
+<span class="nc" id="L171">		remove(dfce.getCharID(), dfce.getCDOMObject(), dfce.getSource());</span>
+<span class="nc" id="L172">	}</span>
+
+	protected static class SourcedCNAS
+	{
+		public final CNAbilitySelection cnas;
+		public final Object source;
+
+		public SourcedCNAS(CNAbilitySelection cnas, Object source)
+<span class="fc" id="L180">		{</span>
+<span class="fc" id="L181">			this.cnas = cnas;</span>
+<span class="fc" id="L182">			this.source = source;</span>
+<span class="fc" id="L183">		}</span>
+
+		@Override
+		public String toString()
+		{
+<span class="nc" id="L188">			return cnas + &quot; (src: &quot; + source + &quot;)&quot;;</span>
+		}
+
+		@Override
+		public int hashCode()
+		{
+<span class="nc" id="L194">			return source.hashCode() ^ cnas.hashCode();</span>
+		}
+
+		@Override
+		public boolean equals(Object o)
+		{
+<span class="nc bnc" id="L200" title="All 2 branches missed.">			if (o == this)</span>
+			{
+<span class="nc" id="L202">				return true;</span>
+			}
+<span class="nc bnc" id="L204" title="All 2 branches missed.">			if (o instanceof SourcedCNAS other)</span>
+			{
+<span class="nc bnc" id="L206" title="All 4 branches missed.">				return cnas.equals(other.cnas) &amp;&amp; source.equals(other.source);</span>
+			}
+<span class="nc" id="L208">			return false;</span>
+		}
+
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

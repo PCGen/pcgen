@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TemplateModifier.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.core.display</a> &gt; <span class="el_source">TemplateModifier.java</span></div><h1>TemplateModifier.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2008 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * Copyright 2001 (C) Bryan McRoberts &lt;merton_monk@yahoo.com&gt;
+ * 
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.core.display;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.IdentityHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import pcgen.cdom.content.DamageReduction;
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.facet.DamageReductionFacet;
+import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.model.StatFacet;
+import pcgen.cdom.util.CControl;
+import pcgen.core.PCStat;
+import pcgen.core.PCTemplate;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.analysis.BonusCalc;
+
+public final class TemplateModifier
+{
+
+<span class="nc" id="L43">	private static DamageReductionFacet drFacet = FacetLibrary.getFacet(DamageReductionFacet.class);</span>
+<span class="nc" id="L44">	private static StatFacet statFacet = FacetLibrary.getFacet(StatFacet.class);</span>
+
+	private TemplateModifier()
+	{
+	}
+
+	/**
+	 * Generate a string that represents the changes this Template will apply.
+	 * 
+	 * @param aPC
+	 *            the Pc we'd like the string generated with reference to
+	 * 
+	 * @return a string explaining the Template
+	 */
+	public static String modifierString(PCTemplate pct, PlayerCharacter aPC)
+	{
+<span class="nc" id="L60">		StringBuilder mods = new StringBuilder(50); // More likely to be</span>
+		// true than 16
+		// (the default)
+
+<span class="nc" id="L64">		CharID id = aPC.getCharID();</span>
+<span class="nc bnc" id="L65" title="All 2 branches missed.">		for (PCStat stat : statFacet.getSet(id))</span>
+		{
+<span class="nc bnc" id="L67" title="All 2 branches missed.">			if (NonAbilityDisplay.isNonAbilityForObject(stat, pct))</span>
+			{
+<span class="nc" id="L69">				mods.append(stat.getKeyName()).append(&quot;:nonability &quot;);</span>
+			}
+			else
+			{
+<span class="nc" id="L73">				int statMod = BonusCalc.getStatMod(pct, stat, aPC);</span>
+
+<span class="nc bnc" id="L75" title="All 2 branches missed.">				if (statMod != 0)</span>
+				{
+<span class="nc" id="L77">					mods.append(stat.getKeyName()).append(':').append(statMod).append(' ');</span>
+				}
+			}
+<span class="nc" id="L80">		}</span>
+
+<span class="nc" id="L82">		Map&lt;DamageReduction, Set&lt;Object&gt;&gt; drMap = new IdentityHashMap&lt;&gt;();</span>
+<span class="nc" id="L83">		CharacterDisplay display = aPC.getDisplay();</span>
+<span class="nc" id="L84">		int totalLevels = display.getTotalLevels();</span>
+<span class="nc" id="L85">		int totalHitDice = display.totalHitDice();</span>
+<span class="nc" id="L86">		List&lt;PCTemplate&gt; templList = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L87">		templList.add(pct);</span>
+<span class="nc" id="L88">		templList.addAll(pct.getConditionalTemplates(totalLevels, totalHitDice));</span>
+<span class="nc bnc" id="L89" title="All 2 branches missed.">		for (PCTemplate subt : templList)</span>
+		{
+<span class="nc" id="L91">			List&lt;DamageReduction&gt; tList = subt.getListFor(ListKey.DAMAGE_REDUCTION);</span>
+<span class="nc bnc" id="L92" title="All 2 branches missed.">			if (tList != null)</span>
+			{
+<span class="nc bnc" id="L94" title="All 2 branches missed.">				for (DamageReduction dr : tList)</span>
+				{
+<span class="nc" id="L96">					Set&lt;Object&gt; set = drMap.get(dr);</span>
+<span class="nc bnc" id="L97" title="All 2 branches missed.">					if (set == null)</span>
+					{
+<span class="nc" id="L99">						set = new HashSet&lt;&gt;();</span>
+<span class="nc" id="L100">						drMap.put(dr, set);</span>
+					}
+<span class="nc" id="L102">					set.add(pct);</span>
+<span class="nc" id="L103">				}</span>
+			}
+<span class="nc" id="L105">		}</span>
+<span class="nc bnc" id="L106" title="All 2 branches missed.">		if (!drMap.isEmpty())</span>
+		{
+<span class="nc" id="L108">			mods.append(&quot;DR:&quot;).append(drFacet.getDRString(id, drMap));</span>
+		}
+
+<span class="nc bnc" id="L111" title="All 2 branches missed.">		if (!aPC.hasControl(CControl.ACVARTOTAL))</span>
+		{
+<span class="nc" id="L113">			int nat = (int) BonusCalc.charBonusTo(pct, &quot;COMBAT&quot;, &quot;AC&quot;, aPC);</span>
+
+<span class="nc bnc" id="L115" title="All 2 branches missed.">			if (nat != 0)</span>
+			{
+<span class="nc" id="L117">				mods.append(&quot;AC BONUS:&quot;).append(nat);</span>
+			}
+		}
+
+<span class="nc" id="L121">		float cr = pct.getCR(totalLevels, totalHitDice);</span>
+<span class="nc bnc" id="L122" title="All 2 branches missed.">		if (cr != 0)</span>
+		{
+<span class="nc" id="L124">			mods.append(&quot;CR:&quot;).append(cr).append(' ');</span>
+		}
+
+<span class="nc bnc" id="L127" title="All 2 branches missed.">		if (display.getTemplateSR(pct, totalLevels, totalHitDice) != 0)</span>
+		{
+<span class="nc" id="L129">			mods.append(&quot;SR:&quot;).append(display.getTemplateSR(pct, totalLevels, totalHitDice)).append(' ');</span>
+		}
+
+		// if (!getDR(aPC.getTotalLevels(), aPC.totalHitDice()).equals(&quot;&quot;))
+		// {
+		// mods.append(&quot;DR:&quot;).append(getDR(aPC.getTotalLevels(),
+		// aPC.totalHitDice()))
+		// .append(' ');
+		// }
+
+<span class="nc" id="L139">		return mods.toString();</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

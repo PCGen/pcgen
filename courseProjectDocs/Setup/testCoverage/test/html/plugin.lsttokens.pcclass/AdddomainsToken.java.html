@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AdddomainsToken.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.lsttokens.pcclass</a> &gt; <span class="el_source">AdddomainsToken.java</span></div><h1>AdddomainsToken.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) 2008 Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package plugin.lsttokens.pcclass;
+
+import java.io.StringWriter;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Set;
+import java.util.StringTokenizer;
+import java.util.TreeSet;
+
+import pcgen.base.lang.StringUtil;
+import pcgen.base.util.MapToList;
+import pcgen.cdom.base.AssociatedPrereqObject;
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.Constants;
+import pcgen.core.Domain;
+import pcgen.core.PCClass;
+import pcgen.core.prereq.Prerequisite;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
+import pcgen.rules.context.AssociatedChanges;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.ParseResult;
+import pcgen.util.Logging;
+
+/**
+ * Class deals with ADDDOMAINS Token
+ */
+<span class="fc" id="L48">public class AdddomainsToken extends AbstractTokenWithSeparator&lt;PCClass&gt; implements CDOMPrimaryToken&lt;PCClass&gt;</span>
+{
+
+<span class="fc" id="L51">	private static final Class&lt;Domain&gt; DOMAIN_CLASS = Domain.class;</span>
+
+	@Override
+	public String getTokenName()
+	{
+<span class="fc" id="L56">		return &quot;ADDDOMAINS&quot;;</span>
+	}
+
+	@Override
+	protected char separator()
+	{
+<span class="fc" id="L62">		return '.';</span>
+	}
+
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context, PCClass pcc, String value)
+	{
+<span class="fc" id="L68">		ParseResult pr = checkForIllegalSeparator('|', value);</span>
+<span class="fc bfc" id="L69" title="All 2 branches covered.">		if (!pr.passed())</span>
+		{
+<span class="fc" id="L71">			return pr;</span>
+		}
+<span class="fc" id="L73">		StringTokenizer pipeTok = new StringTokenizer(value, Constants.PIPE);</span>
+<span class="fc" id="L74">		String first = pipeTok.nextToken();</span>
+<span class="fc" id="L75">		List&lt;AssociatedPrereqObject&gt; apoList = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L76">		StringTokenizer tok = new StringTokenizer(first, Constants.DOT);</span>
+<span class="fc bfc" id="L77" title="All 2 branches covered.">		while (tok.hasMoreTokens())</span>
+		{
+<span class="fc" id="L79">			String tokString = tok.nextToken();</span>
+<span class="fc" id="L80">			Prerequisite prereq = null; // Do not initialize, null is</span>
+			// significant!
+			String domainKey;
+
+			// Note: May contain PRExxx
+<span class="fc" id="L85">			int openBracketLoc = tokString.indexOf('[');</span>
+<span class="fc bfc" id="L86" title="All 2 branches covered.">			if (openBracketLoc == -1)</span>
+			{
+<span class="fc bfc" id="L88" title="All 2 branches covered.">				if (tokString.indexOf(']') != -1)</span>
+				{
+<span class="fc" id="L90">					return new ParseResult.Fail(</span>
+<span class="fc" id="L91">						&quot;Invalid &quot; + getTokenName() + &quot; must have '[' if it contains a PREREQ tag&quot;);</span>
+				}
+<span class="fc" id="L93">				domainKey = tokString;</span>
+			}
+			else
+			{
+<span class="fc bfc" id="L97" title="All 2 branches covered.">				if (tokString.indexOf(']') != tokString.length() - 1)</span>
+				{
+<span class="fc" id="L99">					return new ParseResult.Fail(</span>
+<span class="fc" id="L100">						&quot;Invalid &quot; + getTokenName() + &quot; must end with ']' if it contains a PREREQ tag&quot;);</span>
+				}
+<span class="fc" id="L102">				domainKey = tokString.substring(0, openBracketLoc);</span>
+<span class="fc" id="L103">				String prereqString = tokString.substring(openBracketLoc + 1, tokString.length() - 1);</span>
+<span class="fc bfc" id="L104" title="All 2 branches covered.">				if (prereqString.isEmpty())</span>
+				{
+<span class="fc" id="L106">					return new ParseResult.Fail(getTokenName() + &quot; cannot have empty prerequisite : &quot; + value);</span>
+				}
+<span class="fc" id="L108">				prereq = getPrerequisite(prereqString);</span>
+<span class="pc bpc" id="L109" title="1 of 2 branches missed.">				if (prereq == null)</span>
+				{
+<span class="fc" id="L111">					return new ParseResult.Fail(getTokenName() + &quot; had invalid prerequisite : &quot; + prereqString);</span>
+				}
+<span class="nc" id="L113">				Logging.deprecationPrint(getTokenName() + &quot; using PRExxx in brackets is deprecated: &quot; + value</span>
+<span class="nc" id="L114">					+ &quot; ... Please use a trailing pipe: &quot; + getTokenName() + &quot;:x|PRExxx&quot;, context);</span>
+			}
+<span class="fc" id="L116">			AssociatedPrereqObject apo = context.getListContext().addToList(getTokenName(), pcc,</span>
+<span class="fc" id="L117">				PCClass.ALLOWED_DOMAINS, context.getReferenceContext().getCDOMReference(DOMAIN_CLASS, domainKey));</span>
+<span class="fc" id="L118">			apoList.add(apo);</span>
+<span class="pc bpc" id="L119" title="1 of 2 branches missed.">			if (prereq != null)</span>
+			{
+<span class="nc" id="L121">				apo.addPrerequisite(prereq);</span>
+			}
+<span class="fc" id="L123">		}</span>
+		String tokString;
+		while (true)
+		{
+<span class="fc bfc" id="L127" title="All 2 branches covered.">			if (!pipeTok.hasMoreTokens())</span>
+			{
+				// No prereqs, no more items, so we're done
+<span class="fc" id="L130">				return ParseResult.SUCCESS;</span>
+			}
+<span class="fc" id="L132">			tokString = pipeTok.nextToken();</span>
+<span class="fc bfc" id="L133" title="All 2 branches covered.">			if (looksLikeAPrerequisite(tokString))</span>
+			{
+<span class="fc" id="L135">				break;</span>
+			}
+<span class="fc" id="L137">			AssociatedPrereqObject apo = context.getListContext().addToList(getTokenName(), pcc,</span>
+<span class="fc" id="L138">				PCClass.ALLOWED_DOMAINS, context.getReferenceContext().getCDOMReference(DOMAIN_CLASS, tokString));</span>
+<span class="fc" id="L139">			apoList.add(apo);</span>
+<span class="fc" id="L140">		}</span>
+		while (true)
+		{
+<span class="fc" id="L143">			Prerequisite prereq = getPrerequisite(tokString);</span>
+<span class="pc bpc" id="L144" title="1 of 2 branches missed.">			if (prereq == null)</span>
+			{
+<span class="nc" id="L146">				return new ParseResult.Fail(getTokenName() + &quot; had invalid prerequisite : &quot; + tokString);</span>
+			}
+<span class="fc bfc" id="L148" title="All 2 branches covered.">			for (AssociatedPrereqObject apo : apoList)</span>
+			{
+<span class="fc" id="L150">				apo.addPrerequisite(prereq);</span>
+<span class="fc" id="L151">			}</span>
+<span class="fc bfc" id="L152" title="All 2 branches covered.">			if (!pipeTok.hasMoreTokens())</span>
+			{
+				// We're done
+<span class="fc" id="L155">				break;</span>
+			}
+<span class="fc" id="L157">			tokString = pipeTok.nextToken();</span>
+<span class="fc" id="L158">		}</span>
+<span class="fc" id="L159">		return ParseResult.SUCCESS;</span>
+	}
+
+	@Override
+	public String[] unparse(LoadContext context, PCClass pcc)
+	{
+<span class="fc" id="L165">		AssociatedChanges&lt;CDOMReference&lt;Domain&gt;&gt; changes =</span>
+<span class="fc" id="L166">				context.getListContext().getChangesInList(getTokenName(), pcc, PCClass.ALLOWED_DOMAINS);</span>
+<span class="fc" id="L167">		Collection&lt;CDOMReference&lt;Domain&gt;&gt; removedItems = changes.getRemoved();</span>
+<span class="pc bpc" id="L168" title="3 of 6 branches missed.">		if (removedItems != null &amp;&amp; !removedItems.isEmpty() || changes.includesGlobalClear())</span>
+		{
+<span class="nc" id="L170">			context.addWriteMessage(getTokenName() + &quot; does not support .CLEAR&quot;);</span>
+<span class="nc" id="L171">			return null;</span>
+		}
+<span class="fc" id="L173">		MapToList&lt;CDOMReference&lt;Domain&gt;, AssociatedPrereqObject&gt; mtl = changes.getAddedAssociations();</span>
+<span class="pc bpc" id="L174" title="1 of 4 branches missed.">		if (mtl == null || mtl.isEmpty())</span>
+		{
+<span class="fc" id="L176">			return null;</span>
+		}
+<span class="fc" id="L178">		PrerequisiteWriter prereqWriter = new PrerequisiteWriter();</span>
+<span class="fc" id="L179">		Set&lt;String&gt; set = new TreeSet&lt;&gt;();</span>
+<span class="fc" id="L180">		Set&lt;String&gt; noPrereqSet = new TreeSet&lt;&gt;();</span>
+<span class="fc bfc" id="L181" title="All 2 branches covered.">		for (CDOMReference&lt;Domain&gt; domain : mtl.getKeySet())</span>
+		{
+<span class="fc bfc" id="L183" title="All 2 branches covered.">			for (AssociatedPrereqObject assoc : mtl.getListFor(domain))</span>
+			{
+<span class="fc" id="L185">				StringBuilder sb = new StringBuilder(domain.getLSTformat(false));</span>
+<span class="fc" id="L186">				List&lt;Prerequisite&gt; prereqs = assoc.getPrerequisiteList();</span>
+<span class="pc bpc" id="L187" title="1 of 4 branches missed.">				if (prereqs == null || prereqs.isEmpty())</span>
+				{
+<span class="fc" id="L189">					noPrereqSet.add(sb.toString());</span>
+<span class="fc" id="L190">					continue;</span>
+				}
+<span class="fc bfc" id="L192" title="All 2 branches covered.">				for (Prerequisite prereq : prereqs)</span>
+				{
+<span class="fc" id="L194">					sb.append(Constants.PIPE);</span>
+<span class="fc" id="L195">					StringWriter swriter = new StringWriter();</span>
+					try
+					{
+<span class="fc" id="L198">						prereqWriter.write(swriter, prereq);</span>
+					}
+<span class="nc" id="L200">					catch (PersistenceLayerException e)</span>
+					{
+<span class="nc" id="L202">						context.addWriteMessage(&quot;Error writing Prerequisite: &quot; + e);</span>
+<span class="nc" id="L203">						return null;</span>
+<span class="fc" id="L204">					}</span>
+<span class="fc" id="L205">					sb.append(swriter.toString());</span>
+<span class="fc" id="L206">				}</span>
+<span class="fc" id="L207">				set.add(sb.toString());</span>
+<span class="fc" id="L208">			}</span>
+<span class="fc" id="L209">		}</span>
+<span class="fc bfc" id="L210" title="All 2 branches covered.">		if (!noPrereqSet.isEmpty())</span>
+		{
+<span class="fc" id="L212">			set.add(StringUtil.join(noPrereqSet, Constants.PIPE));</span>
+		}
+<span class="fc" id="L214">		return set.toArray(new String[0]);</span>
+	}
+
+	@Override
+	public Class&lt;PCClass&gt; getTokenClass()
+	{
+<span class="fc" id="L220">		return PCClass.class;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

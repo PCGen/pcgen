@@ -1,0 +1,548 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CampaignHistoryInfoPane.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.gui2.tabs.bio</a> &gt; <span class="el_source">CampaignHistoryInfoPane.java</span></div><h1>CampaignHistoryInfoPane.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2011 Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ * 
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ * 
+ */
+package pcgen.gui2.tabs.bio;
+
+import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.awt.Rectangle;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.text.NumberFormat;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.swing.BorderFactory;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JFormattedTextField;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.ScrollPaneConstants;
+import javax.swing.Scrollable;
+import javax.swing.SwingUtilities;
+
+import pcgen.cdom.base.Constants;
+import pcgen.core.ChronicleEntry;
+import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.core.DescriptionFacade;
+import pcgen.gui2.tabs.CharacterInfoTab;
+import pcgen.gui2.tabs.TabTitle;
+import pcgen.gui2.tabs.models.TextFieldListener;
+import pcgen.gui2.tools.Icons;
+
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.math.NumberUtils;
+
+/**
+ * The CampaignHistoryInfoPane displays a set of chronicles that the user can fill in for his
+ * character.
+ */
+public class CampaignHistoryInfoPane extends JPanel implements CharacterInfoTab
+{
+
+	private static final String ADD_COMMAND = &quot;ADD&quot;;
+	private static final String ALL_COMMAND = &quot;ALL&quot;;
+	private static final String NONE_COMMAND = &quot;NONE&quot;;
+<span class="nc" id="L70">	private final TabTitle title = new TabTitle(&quot;Campaign History&quot;, null);</span>
+	private final JPanel chroniclesPane;
+	private final JButton addButton;
+	private final JButton allButton;
+	private final JButton noneButton;
+
+	public CampaignHistoryInfoPane()
+<span class="nc" id="L77">	{</span>
+<span class="nc" id="L78">		this.addButton = new JButton();</span>
+<span class="nc" id="L79">		this.allButton = new JButton();</span>
+<span class="nc" id="L80">		this.noneButton = new JButton();</span>
+<span class="nc" id="L81">		this.chroniclesPane = new ChroniclesPane();</span>
+<span class="nc" id="L82">		initComponents();</span>
+<span class="nc" id="L83">	}</span>
+
+	private void initComponents()
+	{
+<span class="nc" id="L87">		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));</span>
+
+<span class="nc" id="L89">		addButton.setText(&quot;Add Next Chronicle&quot;);</span>
+<span class="nc" id="L90">		addButton.setActionCommand(ADD_COMMAND);</span>
+<span class="nc" id="L91">		allButton.setText(&quot;All&quot;);</span>
+<span class="nc" id="L92">		allButton.setActionCommand(ALL_COMMAND);</span>
+<span class="nc" id="L93">		noneButton.setText(&quot;None&quot;);</span>
+<span class="nc" id="L94">		noneButton.setActionCommand(NONE_COMMAND);</span>
+
+<span class="nc" id="L96">		Box hbox = Box.createHorizontalBox();</span>
+<span class="nc" id="L97">		hbox.add(Box.createRigidArea(new Dimension(5, 0)));</span>
+<span class="nc" id="L98">		hbox.add(new JLabel(&quot;Check an item to include on your Character Sheet&quot;));</span>
+<span class="nc" id="L99">		hbox.add(Box.createRigidArea(new Dimension(5, 0)));</span>
+<span class="nc" id="L100">		hbox.add(allButton);</span>
+<span class="nc" id="L101">		hbox.add(Box.createRigidArea(new Dimension(3, 0)));</span>
+<span class="nc" id="L102">		hbox.add(noneButton);</span>
+<span class="nc" id="L103">		hbox.add(Box.createHorizontalGlue());</span>
+
+<span class="nc" id="L105">		add(Box.createVerticalStrut(5));</span>
+<span class="nc" id="L106">		add(hbox);</span>
+<span class="nc" id="L107">		add(Box.createVerticalStrut(10));</span>
+<span class="nc" id="L108">		JScrollPane pane = new JScrollPane(chroniclesPane)</span>
+<span class="nc" id="L109">		{</span>
+
+			@Override
+			public Dimension getMaximumSize()
+			{
+<span class="nc" id="L114">				Dimension size = getPreferredSize();</span>
+<span class="nc" id="L115">				size.width = Integer.MAX_VALUE;</span>
+<span class="nc" id="L116">				return size;</span>
+			}
+
+			@Override
+			public boolean isValidateRoot()
+			{
+<span class="nc" id="L122">				return false;</span>
+			}
+
+		};
+<span class="nc" id="L126">		pane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);</span>
+<span class="nc" id="L127">		pane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);</span>
+<span class="nc" id="L128">		add(pane);</span>
+<span class="nc" id="L129">		add(Box.createVerticalStrut(10));</span>
+<span class="nc" id="L130">		addButton.setAlignmentX(0.5f);</span>
+<span class="nc" id="L131">		add(addButton);</span>
+<span class="nc" id="L132">		add(Box.createVerticalStrut(5));</span>
+<span class="nc" id="L133">		add(Box.createVerticalGlue());</span>
+<span class="nc" id="L134">	}</span>
+
+	@Override
+	public ModelMap createModels(CharacterFacade character)
+	{
+<span class="nc" id="L139">		ModelMap models = new ModelMap();</span>
+<span class="nc" id="L140">		models.put(ChronicleHandler.class, new ChronicleHandler(character));</span>
+<span class="nc" id="L141">		return models;</span>
+	}
+
+	@Override
+	public void restoreModels(ModelMap models)
+	{
+<span class="nc" id="L147">		models.get(ChronicleHandler.class).install();</span>
+<span class="nc" id="L148">	}</span>
+
+	@Override
+	public void storeModels(ModelMap models)
+	{
+<span class="nc" id="L153">		models.get(ChronicleHandler.class).uninstall();</span>
+<span class="nc" id="L154">	}</span>
+
+	@Override
+	public TabTitle getTabTitle()
+	{
+<span class="nc" id="L159">		return title;</span>
+	}
+
+	/**
+	 * A ChronicleHandler manages the set of chronicles for a character and handles the
+	 * addButton, allButton, and noneButton button presses.
+	 */
+	private class ChronicleHandler implements ActionListener
+	{
+
+		private final List&lt;ChroniclePane&gt; chronicles;
+		private final DescriptionFacade descFacade;
+
+		ChronicleHandler(CharacterFacade character)
+<span class="nc" id="L173">		{</span>
+<span class="nc" id="L174">			descFacade = character.getDescriptionFacade();</span>
+<span class="nc" id="L175">			chronicles = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L176" title="All 2 branches missed.">			for (ChronicleEntry entry : descFacade.getChronicleEntries())</span>
+			{
+<span class="nc" id="L178">				chronicles.add(new ChroniclePane(this, entry));</span>
+<span class="nc" id="L179">			}</span>
+<span class="nc" id="L180">		}</span>
+
+		/**
+		 * Creates a new chronicle entry for the character.
+		 */
+		private ChroniclePane createNewChronicleEntry()
+		{
+<span class="nc" id="L187">			ChronicleEntry entry = descFacade.createChronicleEntry();</span>
+<span class="nc" id="L188">            return new ChroniclePane(this, entry);</span>
+		}
+
+		/**
+		 * Installs this ChronicleHandler by attaching itself to the buttons and changes
+		 * the components of the chroniclesPane to the ones contained in this handler.
+		 */
+		void install()
+		{
+<span class="nc" id="L197">			addButton.addActionListener(this);</span>
+<span class="nc" id="L198">			allButton.addActionListener(this);</span>
+<span class="nc" id="L199">			noneButton.addActionListener(this);</span>
+
+<span class="nc" id="L201">			chroniclesPane.removeAll();</span>
+<span class="nc bnc" id="L202" title="All 2 branches missed.">			for (ChroniclePane chroniclePane : chronicles)</span>
+			{
+				//since these components are not part of the UI tree make sure that they
+				//use the current LAF
+<span class="nc" id="L206">				SwingUtilities.updateComponentTreeUI(chroniclePane);</span>
+<span class="nc" id="L207">				chroniclesPane.add(chroniclePane);</span>
+<span class="nc" id="L208">			}</span>
+<span class="nc" id="L209">			updateChroniclesPane();</span>
+<span class="nc" id="L210">		}</span>
+
+		/**
+		 * Uninstalls this ChronicleHandler by removing its listeners from the buttons.
+		 */
+		void uninstall()
+		{
+<span class="nc" id="L217">			addButton.removeActionListener(this);</span>
+<span class="nc" id="L218">			allButton.removeActionListener(this);</span>
+<span class="nc" id="L219">			noneButton.removeActionListener(this);</span>
+<span class="nc" id="L220">		}</span>
+
+		private void updateChroniclesPane()
+		{
+<span class="nc bnc" id="L224" title="All 2 branches missed.">			boolean notempty = !chronicles.isEmpty();</span>
+<span class="nc" id="L225">			allButton.setEnabled(notempty);</span>
+<span class="nc" id="L226">			noneButton.setEnabled(notempty);</span>
+<span class="nc" id="L227">			chroniclesPane.revalidate();</span>
+<span class="nc" id="L228">		}</span>
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+<span class="nc bnc" id="L233" title="All 2 branches missed.">			if (ADD_COMMAND.equals(e.getActionCommand()))</span>
+			{
+<span class="nc" id="L235">				ChroniclePane pane = createNewChronicleEntry();</span>
+<span class="nc" id="L236">				chronicles.add(pane);</span>
+<span class="nc" id="L237">				chroniclesPane.add(pane);</span>
+<span class="nc" id="L238">				updateChroniclesPane();</span>
+<span class="nc" id="L239">			}</span>
+<span class="nc bnc" id="L240" title="All 2 branches missed.">			else if (ALL_COMMAND.equals(e.getActionCommand()))</span>
+			{
+<span class="nc bnc" id="L242" title="All 2 branches missed.">				for (ChroniclePane chroniclePane : chronicles)</span>
+				{
+<span class="nc" id="L244">					chroniclePane.setSelected(true);</span>
+<span class="nc" id="L245">				}</span>
+			}
+<span class="nc bnc" id="L247" title="All 2 branches missed.">			else if (NONE_COMMAND.equals(e.getActionCommand()))</span>
+			{
+<span class="nc bnc" id="L249" title="All 2 branches missed.">				for (ChroniclePane chroniclePane : chronicles)</span>
+				{
+<span class="nc" id="L251">					chroniclePane.setSelected(false);</span>
+<span class="nc" id="L252">				}</span>
+			}
+<span class="nc" id="L254">		}</span>
+
+		/**
+		 * Deletes a chronicle from this character and updates the display
+		 */
+		void deleteChroniclePane(ChroniclePane pane, ChronicleEntry entry)
+		{
+<span class="nc" id="L261">			descFacade.removeChronicleEntry(entry);</span>
+<span class="nc" id="L262">			chroniclesPane.remove(pane);</span>
+<span class="nc" id="L263">			chronicles.remove(pane);</span>
+<span class="nc" id="L264">			updateChroniclesPane();</span>
+<span class="nc" id="L265">		}</span>
+
+	}
+
+	/**
+	 * The ChroniclePane is a JPanel which displays and handles a single chronicle entry.
+	 */
+	private static class ChroniclePane extends JPanel implements ActionListener
+	{
+
+<span class="nc" id="L275">		private final JCheckBox checkBox = new JCheckBox();</span>
+<span class="nc" id="L276">		private final JButton deleteButton = new JButton();</span>
+<span class="nc" id="L277">		private final JTextField campaignField = new JTextField();</span>
+<span class="nc" id="L278">		private final JTextField adventureField = new JTextField();</span>
+<span class="nc" id="L279">		private final JTextField partyField = new JTextField();</span>
+<span class="nc" id="L280">		private final JTextField dateField = new JTextField();</span>
+<span class="nc" id="L281">		private final JFormattedTextField xpField = new JFormattedTextField(NumberFormat.getIntegerInstance());</span>
+<span class="nc" id="L282">		private final JTextField gmField = new JTextField();</span>
+<span class="nc" id="L283">		private final JTextArea textArea = new JTextArea()</span>
+<span class="nc" id="L284">		{</span>
+			@Override
+			public Dimension getMinimumSize()
+			{
+<span class="nc" id="L288">				Dimension minSize = super.getMinimumSize();</span>
+<span class="nc" id="L289">				Dimension prefSize = getPreferredSize();</span>
+<span class="nc" id="L290">				minSize.height = prefSize.height;</span>
+<span class="nc" id="L291">				return minSize;</span>
+			}
+
+		};
+		private ChronicleHandler handler;
+		private ChronicleEntry entry;
+
+		/**
+		 * Creates a bare ChroniclePane that initializes the layout of its components. This is meant
+		 * only for components that want to know the size of a ChroniclePane without fully
+		 * initializing it.
+		 */
+		ChroniclePane()
+		{
+<span class="nc" id="L305">			super(new GridBagLayout());</span>
+<span class="nc" id="L306">			setBorder(BorderFactory.createEmptyBorder(2, 0, 5, 5));</span>
+<span class="nc" id="L307">			initComponents();</span>
+<span class="nc" id="L308">		}</span>
+
+		ChroniclePane(ChronicleHandler handler, final ChronicleEntry entry)
+		{
+<span class="nc" id="L312">			this();</span>
+<span class="nc" id="L313">			this.handler = handler;</span>
+<span class="nc" id="L314">			this.entry = entry;</span>
+<span class="nc" id="L315">			populateComponents();</span>
+<span class="nc" id="L316">			textArea.setLineWrap(true);</span>
+<span class="nc" id="L317">			textArea.setWrapStyleWord(true);</span>
+<span class="nc" id="L318">			textArea.setRows(5);</span>
+
+<span class="nc" id="L320">			partyField.setColumns(10);</span>
+<span class="nc" id="L321">			dateField.setColumns(6);</span>
+<span class="nc" id="L322">			xpField.setColumns(6);</span>
+<span class="nc" id="L323">			gmField.setColumns(10);</span>
+
+<span class="nc" id="L325">			deleteButton.setMinimumSize(new Dimension(20, 20));</span>
+<span class="nc" id="L326">			deleteButton.setPreferredSize(new Dimension(20, 20));</span>
+<span class="nc" id="L327">			deleteButton.setFocusable(false);</span>
+<span class="nc" id="L328">			deleteButton.setMargin(new Insets(0, 0, 0, 0));</span>
+<span class="nc" id="L329">			deleteButton.setIcon(Icons.CloseX9.getImageIcon());</span>
+<span class="nc" id="L330">			deleteButton.addActionListener(this);</span>
+<span class="nc" id="L331">		}</span>
+
+		void setSelected(boolean select)
+		{
+<span class="nc" id="L335">			checkBox.setSelected(select);</span>
+<span class="nc" id="L336">			entry.setOutputEntry(select);</span>
+<span class="nc" id="L337">		}</span>
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+<span class="nc bnc" id="L342" title="All 2 branches missed.">			if (fieldsNotBlank())</span>
+			{
+<span class="nc" id="L344">				int ret = JOptionPane.showConfirmDialog(this,</span>
+					&quot;&lt;html&gt;This chronicle has been written in.&quot; + &quot;&lt;br&gt;Are you sure you want to delete it?&lt;/html&gt;&quot;,
+					Constants.APPLICATION_NAME, JOptionPane.YES_NO_OPTION);
+<span class="nc bnc" id="L347" title="All 2 branches missed.">				if (ret != JOptionPane.YES_OPTION)</span>
+				{//The user has not agreed so exit out
+<span class="nc" id="L349">					return;</span>
+				}
+			}
+<span class="nc" id="L352">			handler.deleteChroniclePane(this, entry);</span>
+<span class="nc" id="L353">		}</span>
+
+		/**
+		 * Checks all the fields to see if the user has entered any information into this
+		 * chronicle entry.
+		 * @return true if the fields are empty, false otherwise
+		 */
+		private boolean fieldsNotBlank()
+		{
+<span class="nc bnc" id="L362" title="All 4 branches missed.">			return StringUtils.isNotBlank(campaignField.getText()) || StringUtils.isNotBlank(adventureField.getText())</span>
+<span class="nc bnc" id="L363" title="All 4 branches missed.">				|| StringUtils.isNotBlank(partyField.getText()) || StringUtils.isNotBlank(dateField.getText())</span>
+<span class="nc bnc" id="L364" title="All 4 branches missed.">				|| !NumberUtils.INTEGER_ZERO.equals(xpField.getValue()) || StringUtils.isNotBlank(gmField.getText())</span>
+<span class="nc bnc" id="L365" title="All 2 branches missed.">				|| StringUtils.isNotBlank(textArea.getText());</span>
+		}
+
+		private void initComponents()
+		{
+<span class="nc" id="L370">			GridBagConstraints gbc = new GridBagConstraints();</span>
+<span class="nc" id="L371">			gbc.insets = new Insets(0, 4, 0, 0);</span>
+<span class="nc" id="L372">			gbc.gridheight = 1;</span>
+<span class="nc" id="L373">			gbc.anchor = GridBagConstraints.BASELINE;</span>
+<span class="nc" id="L374">			add(checkBox, gbc);</span>
+
+<span class="nc" id="L376">			gbc.anchor = GridBagConstraints.EAST;</span>
+<span class="nc" id="L377">			gbc.insets = new Insets(0, 10, 0, 0);</span>
+
+<span class="nc" id="L379">			GridBagConstraints gbc2 = new GridBagConstraints();</span>
+<span class="nc" id="L380">			gbc2.fill = GridBagConstraints.HORIZONTAL;</span>
+<span class="nc" id="L381">			gbc2.gridwidth = 3;</span>
+<span class="nc" id="L382">			gbc2.insets = new Insets(1, 4, 1, 0);</span>
+
+<span class="nc" id="L384">			add(new JLabel(&quot;Campaign:&quot;), gbc);</span>
+<span class="nc" id="L385">			add(campaignField, gbc2);</span>
+<span class="nc" id="L386">			add(new JLabel(&quot;Adventure:&quot;), gbc);</span>
+<span class="nc" id="L387">			gbc2.gridwidth = GridBagConstraints.REMAINDER;</span>
+<span class="nc" id="L388">			add(adventureField, gbc2);</span>
+
+<span class="nc" id="L390">			add(new JLabel(), gbc);</span>
+<span class="nc" id="L391">			add(new JLabel(&quot;Party Name:&quot;), gbc);</span>
+<span class="nc" id="L392">			gbc2.gridwidth = 1;</span>
+<span class="nc" id="L393">			gbc2.weightx = 0.35;</span>
+<span class="nc" id="L394">			add(partyField, gbc2);</span>
+<span class="nc" id="L395">			add(new JLabel(&quot;Date:&quot;), gbc);</span>
+<span class="nc" id="L396">			gbc2.weightx = 0.15;</span>
+<span class="nc" id="L397">			add(dateField, gbc2);</span>
+<span class="nc" id="L398">			add(new JLabel(&quot;XP Gained:&quot;), gbc);</span>
+<span class="nc" id="L399">			gbc2.weightx = 0.05;</span>
+<span class="nc" id="L400">			add(xpField, gbc2);</span>
+<span class="nc" id="L401">			add(new JLabel(&quot;GM:&quot;), gbc);</span>
+
+<span class="nc" id="L403">			gbc2.gridwidth = GridBagConstraints.REMAINDER;</span>
+<span class="nc" id="L404">			gbc2.weightx = 0.45;</span>
+<span class="nc" id="L405">			add(gmField, gbc2);</span>
+
+<span class="nc" id="L407">			gbc.fill = GridBagConstraints.VERTICAL;</span>
+<span class="nc" id="L408">			gbc.insets = new Insets(0, 0, 2, 0);</span>
+<span class="nc" id="L409">			add(deleteButton, gbc);</span>
+
+<span class="nc" id="L411">			gbc.gridwidth = GridBagConstraints.REMAINDER;</span>
+<span class="nc" id="L412">			gbc.fill = GridBagConstraints.BOTH;</span>
+<span class="nc" id="L413">			gbc.insets = new Insets(0, 10, 0, 0);</span>
+<span class="nc" id="L414">			add(textArea, gbc);</span>
+<span class="nc" id="L415">		}</span>
+
+		/**
+		 * Place the values from the entry into the fields.
+		 */
+		private void populateComponents()
+		{
+<span class="nc" id="L422">			checkBox.setSelected(entry.isOutputEntry());</span>
+<span class="nc" id="L423">			campaignField.setText(entry.getCampaign());</span>
+<span class="nc" id="L424">			adventureField.setText(entry.getAdventure());</span>
+<span class="nc" id="L425">			partyField.setText(entry.getParty());</span>
+<span class="nc" id="L426">			dateField.setText(entry.getDate());</span>
+<span class="nc" id="L427">			xpField.setValue(entry.getXpField());</span>
+<span class="nc" id="L428">			gmField.setText(entry.getGmField());</span>
+<span class="nc" id="L429">			textArea.setText(entry.getChronicle());</span>
+
+			// Listeners to write any entered values back to the character
+<span class="nc" id="L432">			ActionListener actionListener = actionEvent -&gt; entry.setOutputEntry(checkBox.getModel().isSelected());</span>
+<span class="nc" id="L433">			checkBox.addActionListener(actionListener);</span>
+<span class="nc" id="L434">			campaignField.getDocument().addDocumentListener(new TextFieldListener(campaignField)</span>
+<span class="nc" id="L435">			{</span>
+
+				@Override
+				protected void textChanged(String text)
+				{
+<span class="nc" id="L440">					entry.setCampaign(text);</span>
+<span class="nc" id="L441">				}</span>
+
+			});
+<span class="nc" id="L444">			adventureField.getDocument().addDocumentListener(new TextFieldListener(adventureField)</span>
+<span class="nc" id="L445">			{</span>
+
+				@Override
+				protected void textChanged(String text)
+				{
+<span class="nc" id="L450">					entry.setAdventure(text);</span>
+<span class="nc" id="L451">				}</span>
+
+			});
+<span class="nc" id="L454">			partyField.getDocument().addDocumentListener(new TextFieldListener(partyField)</span>
+<span class="nc" id="L455">			{</span>
+
+				@Override
+				protected void textChanged(String text)
+				{
+<span class="nc" id="L460">					entry.setParty(text);</span>
+<span class="nc" id="L461">				}</span>
+
+			});
+<span class="nc" id="L464">			dateField.getDocument().addDocumentListener(new TextFieldListener(dateField)</span>
+<span class="nc" id="L465">			{</span>
+
+				@Override
+				protected void textChanged(String text)
+				{
+<span class="nc" id="L470">					entry.setDate(text);</span>
+<span class="nc" id="L471">				}</span>
+
+			});
+<span class="nc" id="L474">			xpField.addPropertyChangeListener(&quot;value&quot;, evt -&gt; entry.setXpField(((Number) xpField.getValue()).intValue()));</span>
+<span class="nc" id="L475">			gmField.getDocument().addDocumentListener(new TextFieldListener(gmField)</span>
+<span class="nc" id="L476">			{</span>
+
+				@Override
+				protected void textChanged(String text)
+				{
+<span class="nc" id="L481">					entry.setGmField(text);</span>
+<span class="nc" id="L482">				}</span>
+
+			});
+<span class="nc" id="L485">			textArea.getDocument().addDocumentListener(new TextFieldListener(textArea)</span>
+<span class="nc" id="L486">			{</span>
+
+				@Override
+				protected void textChanged(String text)
+				{
+<span class="nc" id="L491">					entry.setChronicle(text);</span>
+<span class="nc" id="L492">				}</span>
+
+			});
+<span class="nc" id="L495">		}</span>
+
+	}
+
+	/**
+	 * The ChroniclesPane is just a JPanel that implements Scrollable. This controls the ammount
+	 * that this component is scrolled within its parent JScrollPane. By default we set this scroll
+	 * distance to a single ChroniclePane's height such that one tick of the mouse scroll will
+	 * scroll a single chronicle entry.
+	 */
+	private static class ChroniclesPane extends JPanel implements Scrollable
+	{
+
+<span class="nc" id="L508">		private final ChroniclePane dummyPane = new ChroniclePane();</span>
+
+		ChroniclesPane()
+<span class="nc" id="L511">		{</span>
+<span class="nc" id="L512">			setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));</span>
+<span class="nc" id="L513">		}</span>
+
+		@Override
+		public Dimension getPreferredScrollableViewportSize()
+		{
+<span class="nc" id="L518">			return getPreferredSize();</span>
+		}
+
+		@Override
+		public int getScrollableUnitIncrement(Rectangle visibleRect, int orientation, int direction)
+		{
+<span class="nc" id="L524">			return 100;</span>
+		}
+
+		@Override
+		public int getScrollableBlockIncrement(Rectangle visibleRect, int orientation, int direction)
+		{
+<span class="nc" id="L530">			return dummyPane.getPreferredSize().height + 10;</span>
+		}
+
+		@Override
+		public boolean getScrollableTracksViewportWidth()
+		{
+<span class="nc" id="L536">			return true;</span>
+		}
+
+		@Override
+		public boolean getScrollableTracksViewportHeight()
+		{
+<span class="nc" id="L542">			return false;</span>
+		}
+
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

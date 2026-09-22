@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>VariableFacet.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.facet.analysis</a> &gt; <span class="el_source">VariableFacet.java</span></div><h1>VariableFacet.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) Thomas Parker, 2009.
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package pcgen.cdom.facet.analysis;
+
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.IdentityHashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+
+import pcgen.cdom.formula.Formula;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.VariableKey;
+import pcgen.cdom.facet.CDOMObjectConsolidationFacet;
+import pcgen.cdom.facet.FormulaResolvingFacet;
+import pcgen.cdom.facet.base.AbstractStorageFacet;
+import pcgen.cdom.facet.event.DataFacetChangeEvent;
+import pcgen.cdom.facet.event.DataFacetChangeListener;
+
+/**
+ * VariableFacet is a Facet that tracks the Variables that are contained in a
+ * Player Character.
+ * 
+ */
+<span class="fc" id="L42">public class VariableFacet extends AbstractStorageFacet&lt;CharID&gt; implements DataFacetChangeListener&lt;CharID, CDOMObject&gt;</span>
+{
+	private FormulaResolvingFacet formulaResolvingFacet;
+
+	private CDOMObjectConsolidationFacet consolidationFacet;
+
+	/**
+	 * Adds variables and their Formulas when a variable is granted by a
+	 * CDOMObject which is added to a Player Character.
+	 * 
+	 * Triggered when one of the Facets to which VariableFacet listens fires a
+	 * DataFacetChangeEvent to indicate a CDOMObject was added to a Player
+	 * Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 */
+	@Override
+	public void dataAdded(DataFacetChangeEvent&lt;CharID, CDOMObject&gt; dfce)
+	{
+<span class="fc" id="L63">		CDOMObject cdo = dfce.getCDOMObject();</span>
+<span class="fc" id="L64">		Set&lt;VariableKey&gt; keys = cdo.getVariableKeys();</span>
+<span class="fc" id="L65">		CharID id = dfce.getCharID();</span>
+<span class="fc bfc" id="L66" title="All 2 branches covered.">		for (VariableKey vk : keys)</span>
+		{
+<span class="fc" id="L68">			add(id, vk, cdo.get(vk), cdo);</span>
+<span class="fc" id="L69">		}</span>
+<span class="fc" id="L70">	}</span>
+
+	/**
+	 * Removes variables and their Formulas when a variable is granted by a
+	 * CDOMObject which is removed from a Player Character.
+	 * 
+	 * Triggered when one of the Facets to which VariableFacet listens fires a
+	 * DataFacetChangeEvent to indicate a CDOMObject was removed from a Player
+	 * Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 */
+	@Override
+	public void dataRemoved(DataFacetChangeEvent&lt;CharID, CDOMObject&gt; dfce)
+	{
+<span class="fc" id="L87">		removeAll(dfce.getCharID(), dfce.getCDOMObject());</span>
+<span class="fc" id="L88">	}</span>
+
+	private void add(CharID id, VariableKey vk, Formula formula, CDOMObject cdo)
+	{
+<span class="fc" id="L92">		Map&lt;VariableKey, Map&lt;Formula, Set&lt;CDOMObject&gt;&gt;&gt; map = getConstructingCachedMap(id);</span>
+<span class="fc" id="L93">        Map&lt;Formula, Set&lt;CDOMObject&gt;&gt; subMap = map.computeIfAbsent(vk, k -&gt; new HashMap&lt;&gt;());</span>
+<span class="fc" id="L94">        Set&lt;CDOMObject&gt; sources = subMap.get(formula);</span>
+<span class="pc bpc" id="L95" title="1 of 2 branches missed.">		if (sources == null)</span>
+		{
+<span class="fc" id="L97">			sources = Collections.newSetFromMap(new IdentityHashMap&lt;&gt;());</span>
+<span class="fc" id="L98">			subMap.put(formula, sources);</span>
+		}
+<span class="fc" id="L100">		sources.add(cdo);</span>
+<span class="fc" id="L101">	}</span>
+
+	/**
+	 * Returns the type-safe Map for this VariableFacet and the given CharID.
+	 * May return null if no information has been set in this VariableFacet for
+	 * the given CharID.
+	 * 
+	 * Note that this method SHOULD NOT be public. The Map is owned by
+	 * VariableFacet, and since it can be modified, a reference to that object
+	 * should not be exposed to any object other than VariableFacet.
+	 * 
+	 * @param id
+	 *            The CharID for which the Map should be returned
+	 * @return The Set for the Player Character represented by the given CharID;
+	 *         null if no information has been set in this VariableFacet for the
+	 *         Player Character
+	 */
+	@SuppressWarnings(&quot;unchecked&quot;)
+	private Map&lt;VariableKey, Map&lt;Formula, Set&lt;CDOMObject&gt;&gt;&gt; getCachedMap(CharID id)
+	{
+<span class="fc" id="L121">		return (Map&lt;VariableKey, Map&lt;Formula, Set&lt;CDOMObject&gt;&gt;&gt;) getCache(id);</span>
+	}
+
+	/**
+	 * Returns a type-safe Map for this VariableFacet and the given CharID. Will
+	 * return a new, empty Map if no information has been set in this
+	 * VariableFacet for the given CharID. Will not return null.
+	 * 
+	 * Note that this method SHOULD NOT be public. The Map object is owned by
+	 * VariableFacet, and since it can be modified, a reference to that object
+	 * should not be exposed to any object other than VariableFacet.
+	 * 
+	 * @param id
+	 *            The CharID for which the Map should be returned
+	 * @return The Map for the Player Character represented by the given CharID
+	 */
+	private Map&lt;VariableKey, Map&lt;Formula, Set&lt;CDOMObject&gt;&gt;&gt; getConstructingCachedMap(CharID id)
+	{
+<span class="fc" id="L139">		Map&lt;VariableKey, Map&lt;Formula, Set&lt;CDOMObject&gt;&gt;&gt; componentMap = getCachedMap(id);</span>
+<span class="fc bfc" id="L140" title="All 2 branches covered.">		if (componentMap == null)</span>
+		{
+<span class="fc" id="L142">			componentMap = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L143">			setCache(id, componentMap);</span>
+		}
+<span class="fc" id="L145">		return componentMap;</span>
+	}
+
+	/**
+	 * Removes all information for the given source from this VariableFacet for
+	 * the PlayerCharacter represented by the given CharID.
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which items
+	 *            from the given source will be removed
+	 * @param source
+	 *            The source for the variables to be removed from the list of
+	 *            variables stored for the Player Character identified by the
+	 *            given CharID
+	 */
+	public void removeAll(CharID id, Object source)
+	{
+<span class="fc" id="L162">		Map&lt;VariableKey, Map&lt;Formula, Set&lt;CDOMObject&gt;&gt;&gt; vkMap = getCachedMap(id);</span>
+<span class="fc bfc" id="L163" title="All 2 branches covered.">		if (vkMap != null)</span>
+		{
+<span class="fc bfc" id="L165" title="All 2 branches covered.">			for (Iterator&lt;Map&lt;Formula, Set&lt;CDOMObject&gt;&gt;&gt; mit = vkMap.values().iterator(); mit.hasNext();)</span>
+			{
+<span class="fc" id="L167">				Map&lt;Formula, Set&lt;CDOMObject&gt;&gt; fMap = mit.next();</span>
+<span class="pc bpc" id="L168" title="1 of 4 branches missed.">				fMap.values().removeIf(set -&gt; set.remove(source) &amp;&amp; set.isEmpty());</span>
+<span class="fc bfc" id="L169" title="All 2 branches covered.">				if (fMap.isEmpty())</span>
+				{
+<span class="fc" id="L171">					mit.remove();</span>
+				}
+<span class="fc" id="L173">			}</span>
+		}
+<span class="fc" id="L175">	}</span>
+
+	/**
+	 * Returns the numeric variable value for the given VariableKey on the
+	 * Player Character identified by the given CharID. If a variable has more
+	 * than one value, the given isMax argument is used to determine if this
+	 * method returns the maximum (true) or minimum (false) of the calculated
+	 * values.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character for which the
+	 *            numeric variable value is to be returned
+	 * @param key
+	 *            The VariableKey identifying the variable which the value
+	 *            is to be returned
+	 * @param isMax
+	 *            Used to determine if this method returns the maximum (true) or
+	 *            minimum (false) of the calculated values when the Player
+	 *            Character contains more than one value for the given
+	 *            VariableKey
+	 * @return The numeric variable value for the given VariableKey on the
+	 *         Player Character identified by the given CharID
+	 */
+	public Double getVariableValue(CharID id, VariableKey key, boolean isMax)
+	{
+<span class="nc" id="L200">		Map&lt;VariableKey, Map&lt;Formula, Set&lt;CDOMObject&gt;&gt;&gt; vkMap = getCachedMap(id);</span>
+<span class="nc bnc" id="L201" title="All 2 branches missed.">		if (vkMap == null)</span>
+		{
+<span class="nc" id="L203">			return null;</span>
+		}
+<span class="nc" id="L205">		Map&lt;Formula, Set&lt;CDOMObject&gt;&gt; fMap = vkMap.get(key);</span>
+<span class="nc bnc" id="L206" title="All 2 branches missed.">		if (fMap == null)</span>
+		{
+<span class="nc" id="L208">			return null;</span>
+		}
+<span class="nc" id="L210">		Double returnValue = null;</span>
+<span class="nc bnc" id="L211" title="All 2 branches missed.">		for (Map.Entry&lt;Formula, Set&lt;CDOMObject&gt;&gt; me : fMap.entrySet())</span>
+		{
+<span class="nc" id="L213">			Formula f = me.getKey();</span>
+<span class="nc" id="L214">			Set&lt;CDOMObject&gt; sources = me.getValue();</span>
+<span class="nc bnc" id="L215" title="All 2 branches missed.">			for (CDOMObject source : sources)</span>
+			{
+<span class="nc" id="L217">				double newVal = formulaResolvingFacet.resolve(id, f, source.getQualifiedKey()).doubleValue();</span>
+<span class="nc bnc" id="L218" title="All 2 branches missed.">				if (returnValue == null)</span>
+				{
+<span class="nc" id="L220">					returnValue = newVal;</span>
+				}
+<span class="nc bnc" id="L222" title="All 4 branches missed.">				else if ((returnValue &gt; newVal) ^ isMax)</span>
+				{
+<span class="nc" id="L224">					returnValue = newVal;</span>
+				}
+<span class="nc" id="L226">			}</span>
+<span class="nc" id="L227">		}</span>
+<span class="nc" id="L228">		return returnValue;</span>
+	}
+
+	/**
+	 * Returns true if this VariableFacet contains the given VariableKey in the
+	 * list of variables for the Player Character represented by the given
+	 * CharID.
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character used for testing
+	 * @param vk
+	 *            The VariableKey to test if this VariableFacet contains that
+	 *            VariableKey for the Player Character represented by the given
+	 *            CharID
+	 * @return true if this VariableFacet contains the given VariableKey for the
+	 *         Player Character represented by the given CharID; false otherwise
+	 */
+	public boolean contains(CharID id, VariableKey vk)
+	{
+<span class="fc" id="L247">		Map&lt;VariableKey, Map&lt;Formula, Set&lt;CDOMObject&gt;&gt;&gt; vkMap = getCachedMap(id);</span>
+<span class="fc bfc" id="L248" title="All 4 branches covered.">		return (vkMap != null) &amp;&amp; vkMap.containsKey(vk);</span>
+	}
+
+	public int getVariableCount(CharID id)
+	{
+<span class="nc" id="L253">		Map&lt;VariableKey, Map&lt;Formula, Set&lt;CDOMObject&gt;&gt;&gt; vkMap = getCachedMap(id);</span>
+<span class="nc bnc" id="L254" title="All 2 branches missed.">		return (vkMap == null) ? 0 : vkMap.size();</span>
+	}
+
+	public void setFormulaResolvingFacet(FormulaResolvingFacet formulaResolvingFacet)
+	{
+<span class="fc" id="L259">		this.formulaResolvingFacet = formulaResolvingFacet;</span>
+<span class="fc" id="L260">	}</span>
+
+	public void setConsolidationFacet(CDOMObjectConsolidationFacet consolidationFacet)
+	{
+<span class="fc" id="L264">		this.consolidationFacet = consolidationFacet;</span>
+<span class="fc" id="L265">	}</span>
+
+	/**
+	 * Initializes the connections for VariableFacet to other facets.
+	 * 
+	 * This method is automatically called by the Spring framework during
+	 * initialization of the VariableFacet.
+	 */
+	public void init()
+	{
+<span class="fc" id="L275">		consolidationFacet.addDataFacetChangeListener(this);</span>
+<span class="fc" id="L276">	}</span>
+
+	/**
+	 * Copies the contents of the VariableFacet from one Player Character to
+	 * another Player Character, based on the given CharIDs representing those
+	 * Player Characters.
+	 * 
+	 * This is a method in VariableFacet in order to avoid exposing the mutable
+	 * Map object to other classes. This should not be inlined, as the Map is
+	 * internal information to VariableFacet and should not be exposed to other
+	 * classes.
+	 * 
+	 * Note also the copy is a one-time event and no references are maintained
+	 * between the Player Characters represented by the given CharIDs (meaning
+	 * once this copy takes place, any change to the VariableFacet of one Player
+	 * Character will only impact the Player Character where the VariableFacet
+	 * was changed).
+	 * 
+	 * @param source
+	 *            The CharID representing the Player Character from which the
+	 *            information should be copied
+	 * @param copy
+	 *            The CharID representing the Player Character to which the
+	 *            information should be copied
+	 */
+	@Override
+	public void copyContents(CharID source, CharID copy)
+	{
+<span class="nc" id="L304">		Map&lt;VariableKey, Map&lt;Formula, Set&lt;CDOMObject&gt;&gt;&gt; cm = getCachedMap(source);</span>
+<span class="nc bnc" id="L305" title="All 2 branches missed.">		if (cm != null)</span>
+		{
+<span class="nc bnc" id="L307" title="All 2 branches missed.">			for (Map.Entry&lt;VariableKey, Map&lt;Formula, Set&lt;CDOMObject&gt;&gt;&gt; me : cm.entrySet())</span>
+			{
+<span class="nc" id="L309">				VariableKey variableKey = me.getKey();</span>
+<span class="nc" id="L310">				me.getValue()</span>
+<span class="nc" id="L311">						.forEach((f, value) -&gt; value.forEach(cdo -&gt; add(copy, variableKey, f, cdo)));</span>
+<span class="nc" id="L312">			}</span>
+		}
+<span class="nc" id="L314">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ClassSkillChoiceActor.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.helper</a> &gt; <span class="el_source">ClassSkillChoiceActor.java</span></div><h1>ClassSkillChoiceActor.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) 2008 Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package pcgen.cdom.helper;
+
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.PersistentChoiceActor;
+import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.SkillCost;
+import pcgen.cdom.inst.PCClassLevel;
+import pcgen.core.PCClass;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.Skill;
+import pcgen.core.SubClass;
+import pcgen.core.analysis.SkillRankControl;
+import pcgen.core.pclevelinfo.PCLevelInfo;
+import pcgen.rules.context.LoadContext;
+import pcgen.util.Logging;
+
+import org.apache.commons.lang3.StringUtils;
+
+/**
+ * A ClassSkillChoiceActor is a PersistentChoiceActor that can apply skill
+ * selections that are related to a specific PCClass (this adds the selected
+ * skill(s) as Class Skills) and which may apply a number of ranks to the
+ * selected skill.
+ */
+public class ClassSkillChoiceActor implements PersistentChoiceActor&lt;Skill&gt;
+{
+
+	/**
+	 * The PCClass to which skill selections will be applied as a class skill
+	 */
+	private final PCClass source;
+
+	/**
+	 * The number of ranks that this ClassSkillChoiceActor should apply to the
+	 * selected skills. May be null if this ClassSkillChoiceActor should not
+	 * apply any ranks to the selected skills.
+	 */
+	private final Integer applyRank;
+
+	/**
+	 * Constructs a new ClassSkillChoiceActor which will apply skill selections
+	 * to the given class, and automatically apply the given ranks to selected
+	 * skills.
+	 * 
+	 * @param pcc
+	 *            The PCClass to which skill selections will be applied as a
+	 *            class skill
+	 * @param autoRank
+	 *            The number of ranks that this ClassSkillChoiceActor should
+	 *            apply to selected skills.
+	 */
+	public ClassSkillChoiceActor(PCClass pcc, Integer autoRank)
+<span class="fc" id="L71">	{</span>
+<span class="fc" id="L72">		applyRank = autoRank;</span>
+<span class="fc" id="L73">		source = pcc;</span>
+<span class="fc" id="L74">	}</span>
+
+	/**
+	 * Applies the given Skill choice to the given PlayerCharacter. The given
+	 * Skill is added as a class skill for the PCClass provided during
+	 * construction of this ClassSkillChoiceActor. If the number of ranks
+	 * provided during construction of this ClassSkillChoiceActor was not null
+	 * or zero, then ranks are also applied to the given skill.
+	 * 
+	 * @param owner
+	 *            The owning object for this choice.
+	 * @param choice
+	 *            The Skill which should be added as a Class Skill for the
+	 *            PCClass provided during construction of this
+	 *            ClassSkillChoiceActor
+	 * @param pc
+	 *            The PlayerCharacter to which the changes driven by this
+	 *            ClassSkillChoiceActor should be applied.
+	 */
+	@Override
+	public void applyChoice(CDOMObject owner, Skill choice, PlayerCharacter pc)
+	{
+<span class="nc" id="L96">		PCClass pcc = getSourceClass(pc);</span>
+<span class="nc bnc" id="L97" title="All 2 branches missed.">		if (pcc == null)</span>
+		{
+<span class="nc" id="L99">			Logging.errorPrint(&quot;Unable to find the pc's class &quot; + source + &quot; to apply skill choices to.&quot;);</span>
+<span class="nc" id="L100">			return;</span>
+		}
+<span class="nc" id="L102">		pc.addLocalCost(pcc, choice, SkillCost.CLASS, owner);</span>
+<span class="nc bnc" id="L103" title="All 2 branches missed.">		if (applyRank != null)</span>
+		{
+<span class="nc bnc" id="L105" title="All 2 branches missed.">			if (owner instanceof PCClassLevel classLevel)</span>
+			{
+				// Ensure that the skill points for this level are already calculated.
+<span class="nc" id="L108">				PCClass pcClass = (PCClass) classLevel.getSafe(ObjectKey.PARENT);</span>
+
+<span class="nc" id="L110">				int levelIndex = 1;</span>
+<span class="nc bnc" id="L111" title="All 2 branches missed.">				for (PCLevelInfo lvlInfo : pc.getLevelInfo())</span>
+				{
+<span class="nc bnc" id="L113" title="All 2 branches missed.">					if (lvlInfo.getClassKeyName().equals(pcClass.getKeyName())</span>
+<span class="nc bnc" id="L114" title="All 2 branches missed.">						&amp;&amp; lvlInfo.getClassLevel() == classLevel.getSafe(IntegerKey.LEVEL))</span>
+					{
+<span class="nc" id="L116">						pc.checkSkillModChangeForLevel(pcClass, lvlInfo, classLevel, levelIndex);</span>
+<span class="nc" id="L117">						break;</span>
+					}
+<span class="nc" id="L119">				}</span>
+			}
+<span class="nc" id="L121">			String result = SkillRankControl.modRanks(applyRank, pcc, false, pc, choice);</span>
+<span class="nc bnc" id="L122" title="All 2 branches missed.">			if (StringUtils.isNotEmpty(result))</span>
+			{
+<span class="nc" id="L124">				Logging.errorPrint(&quot;Unable to apply {0} ranks of {1}. Error: {2}&quot;, applyRank, choice, result);</span>
+			}
+		}
+<span class="nc" id="L127">	}</span>
+
+	/**
+	 * Returns true if the given Skill should be allowed as a selection when
+	 * determining which Skills can be added as a Class Skill to the PCClass in
+	 * this ClassSkillChoiceActor for the given PlayerCharacter. Generally, this
+	 * is used to filter out Skills that are already class skills for the
+	 * PCClass in this ClassSkillChoiceActor.
+	 * 
+	 * @param choice
+	 *            The Skill to be tested to see if selection of the Skill should
+	 *            be allowed for this ClassSkillChoiceActor.
+	 * @param pc
+	 *            The PlayerCharacter to which the changes driven by this
+	 *            ClassSkillChoiceActor will be applied.
+	 * @param allowStack
+	 *            True if stacking is allowed (ignored by ClassSkillChoiceActor)
+	 * 
+	 * @return true if the given Skill should be allowed as a selection.
+	 */
+	@Override
+	public boolean allow(Skill choice, PlayerCharacter pc, boolean allowStack)
+	{
+<span class="nc bnc" id="L150" title="All 2 branches missed.">		return !pc.isClassSkill(source, choice);</span>
+	}
+
+	/**
+	 * Decodes the given String into a Skill. The String format to be passed
+	 * into this method is defined solely by the return result of the
+	 * encodeChoice method. There is no guarantee that the encoding is human
+	 * readable, simply that the encoding is uniquely identifying such that this
+	 * method is capable of decoding the String into the Skill.
+	 * @param persistentFormat
+	 *            The String which should be decoded to provide a Skill.
+	 * 
+	 * @return A Skill that was encoded in the given String.
+	 */
+	@Override
+	public Skill decodeChoice(LoadContext context, String persistentFormat)
+	{
+<span class="fc" id="L167">		return context.getReferenceContext().silentlyGetConstructedCDOMObject(Skill.class, persistentFormat);</span>
+	}
+
+	/**
+	 * Encodes the given Skill into a String sufficient to uniquely identify the
+	 * Skill. This may not sufficiently encode to be stored into a file or
+	 * format which restricts certain characters (such as URLs), it simply
+	 * encodes into an identifying String. There is no guarantee that this
+	 * encoding is human readable, simply that the encoding is uniquely
+	 * identifying such that the decodeChoice method of ClassSkillChoiceActor is
+	 * capable of decoding the String into the Skill.
+	 * 
+	 * @param choice
+	 *            The Skill which should be encoded into a String sufficient to
+	 *            identify the Skill.
+	 * 
+	 * @return A String sufficient to uniquely identify the Skill.
+	 */
+	@Override
+	public String encodeChoice(Skill choice)
+	{
+<span class="fc" id="L188">		return choice.getKeyName();</span>
+	}
+
+	/**
+	 * Restores a choice to a PlayerCharacter. This method re-applies a Skill
+	 * when a PlayerCharacter is restored from a persistent state (the
+	 * applyChoice method of ClassSkillChoiceActor having been used to first
+	 * apply the choice to a PlayerCharacter).
+	 * 
+	 * @param pc
+	 *            The PlayerCharacter to which the Skill should be restored.
+	 * @param owner
+	 *            The owning object of the Skill being restored.
+	 * @param choice
+	 *            The Skill being restored to the given PlayerCharacter.
+	 */
+	@Override
+	public void restoreChoice(PlayerCharacter pc, CDOMObject owner, Skill choice)
+	{
+<span class="nc" id="L207">		PCClass pcc = getSourceClass(pc);</span>
+<span class="nc bnc" id="L208" title="All 2 branches missed.">		if (pcc == null)</span>
+		{
+<span class="nc" id="L210">			Logging.errorPrint(&quot;Unable to find the pc's class &quot; + source + &quot; to restore skill choices to.&quot;);</span>
+<span class="nc" id="L211">			return;</span>
+		}
+<span class="nc" id="L213">		pc.addLocalCost(pcc, choice, SkillCost.CLASS, owner);</span>
+<span class="nc" id="L214">	}</span>
+
+	/**
+	 * Identify the character's instance of the class being linked to the skill. 
+	 * @param pc The character
+	 * @return The character's class.
+	 */
+	private PCClass getSourceClass(PlayerCharacter pc)
+	{
+		PCClass pcc;
+<span class="nc bnc" id="L224" title="All 2 branches missed.">		if (source instanceof SubClass)</span>
+		{
+<span class="nc" id="L226">			pcc = pc.getClassKeyed(((SubClass) source).getCDOMCategory().getKeyName());</span>
+		}
+		else
+		{
+<span class="nc" id="L230">			pcc = pc.getClassKeyed(source.getKeyName());</span>
+		}
+<span class="nc" id="L232">		return pcc;</span>
+	}
+
+	/**
+	 * Returns the number of ranks that this ClassSkillChoiceActor should apply
+	 * to the selected skills. May be null if this ClassSkillChoiceActor should
+	 * not apply any ranks to the selected skills.
+	 * 
+	 * @return The number of ranks that this ClassSkillChoiceActor should apply
+	 *         to the selected skills.
+	 */
+	public Integer getApplyRank()
+	{
+<span class="fc" id="L245">		return applyRank;</span>
+	}
+
+	/**
+	 * Removes a Skill choice from a PlayerCharacter.
+	 * 
+	 * @param pc
+	 *            The PlayerCharacter from which the Skill should be removed.
+	 * @param owner
+	 *            The owning object of the Skill being removed.
+	 * @param choice
+	 *            The Skill being removed from the given PlayerCharacter.
+	 */
+	@Override
+	public void removeChoice(PlayerCharacter pc, CDOMObject owner, Skill choice)
+	{
+<span class="nc" id="L261">		PCClass pcc = pc.getClassKeyed(source.getKeyName());</span>
+<span class="nc bnc" id="L262" title="All 2 branches missed.">		if (applyRank != null)</span>
+		{
+<span class="nc" id="L264">			SkillRankControl.modRanks(-applyRank, pcc, false, pc, choice);</span>
+		}
+<span class="nc" id="L266">		pc.removeLocalCost(pcc, choice, SkillCost.CLASS, owner);</span>
+<span class="nc" id="L267">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

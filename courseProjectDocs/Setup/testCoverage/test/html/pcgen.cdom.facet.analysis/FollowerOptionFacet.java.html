@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FollowerOptionFacet.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.facet.analysis</a> &gt; <span class="el_source">FollowerOptionFacet.java</span></div><h1>FollowerOptionFacet.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) Thomas Parker, 2010.
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package pcgen.cdom.facet.analysis;
+
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.IdentityHashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Set;
+import java.util.TreeMap;
+
+import pcgen.base.util.CaseInsensitiveMap;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.facet.CDOMObjectConsolidationFacet;
+import pcgen.cdom.facet.base.AbstractStorageFacet;
+import pcgen.cdom.facet.event.DataFacetChangeEvent;
+import pcgen.cdom.facet.event.DataFacetChangeListener;
+import pcgen.core.FollowerOption;
+
+/**
+ * FollowerOptionFacet is a Facet that tracks the FollowerOptions that have been
+ * granted to a Player Character.
+ * 
+ */
+<span class="fc" id="L46">public class FollowerOptionFacet extends AbstractStorageFacet&lt;CharID&gt;</span>
+		implements DataFacetChangeListener&lt;CharID, CDOMObject&gt;
+{
+	private CDOMObjectConsolidationFacet consolidationFacet;
+
+	/**
+	 * Adds the FollowerOption objects granted by CDOMObjects added to the
+	 * Player Character to this FollowerLimitFacet.
+	 * 
+	 * Triggered when one of the Facets to which FollowerOptionFacet listens
+	 * fires a DataFacetChangeEvent to indicate a FollowerOption was added to a
+	 * Player Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 */
+	@Override
+	public void dataAdded(DataFacetChangeEvent&lt;CharID, CDOMObject&gt; dfce)
+	{
+<span class="fc" id="L66">		CDOMObject cdo = dfce.getCDOMObject();</span>
+<span class="fc" id="L67">		List&lt;FollowerOption&gt; lists = cdo.getListFor(ListKey.COMPANIONLIST);</span>
+<span class="pc bpc" id="L68" title="1 of 2 branches missed.">		if (lists != null)</span>
+		{
+<span class="nc" id="L70">			addAll(dfce.getCharID(), lists, cdo);</span>
+		}
+<span class="fc" id="L72">	}</span>
+
+	/**
+	 * Removes the FollowerOption objects granted by CDOMObjects removed from
+	 * the Player Character from this FollowerLimitFacet.
+	 * 
+	 * Triggered when one of the Facets to which FollowerOptionFacet listens
+	 * fires a DataFacetChangeEvent to indicate a FollowerOption was removed
+	 * from a Player Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 */
+	@Override
+	public void dataRemoved(DataFacetChangeEvent&lt;CharID, CDOMObject&gt; dfce)
+	{
+<span class="fc" id="L89">		removeAll(dfce.getCharID(), dfce.getCDOMObject());</span>
+<span class="fc" id="L90">	}</span>
+
+	private void addAll(CharID id, List&lt;FollowerOption&gt; list, CDOMObject cdo)
+	{
+<span class="nc bnc" id="L94" title="All 2 branches missed.">		for (FollowerOption fo : list)</span>
+		{
+<span class="nc" id="L96">			add(id, fo, cdo);</span>
+<span class="nc" id="L97">		}</span>
+<span class="nc" id="L98">	}</span>
+
+	private void add(CharID id, FollowerOption fo, CDOMObject cdo)
+	{
+<span class="nc" id="L102">		Objects.requireNonNull(fo, &quot;Object to add may not be null&quot;);</span>
+<span class="nc" id="L103">		String name = fo.getListRef().getName();</span>
+<span class="nc" id="L104">		Map&lt;FollowerOption, Set&lt;CDOMObject&gt;&gt; foMap = getConstructingCachedMap(id, name);</span>
+<span class="nc" id="L105">		Set&lt;CDOMObject&gt; set = foMap.get(fo);</span>
+<span class="nc bnc" id="L106" title="All 2 branches missed.">		if (set == null)</span>
+		{
+<span class="nc" id="L108">			set = Collections.newSetFromMap(new IdentityHashMap&lt;&gt;());</span>
+<span class="nc" id="L109">			foMap.put(fo, set);</span>
+		}
+<span class="nc" id="L111">		set.add(cdo);</span>
+<span class="nc" id="L112">	}</span>
+
+	private void removeAll(CharID id, CDOMObject source)
+	{
+<span class="fc" id="L116">		CaseInsensitiveMap&lt;Map&lt;FollowerOption, Set&lt;CDOMObject&gt;&gt;&gt; componentMap = getCachedMap(id);</span>
+<span class="pc bpc" id="L117" title="1 of 2 branches missed.">		if (componentMap != null)</span>
+		{
+<span class="nc bnc" id="L119" title="All 2 branches missed.">			for (Iterator&lt;Map&lt;FollowerOption, Set&lt;CDOMObject&gt;&gt;&gt; it = componentMap.values().iterator(); it.hasNext();)</span>
+			{
+<span class="nc" id="L121">				Map&lt;FollowerOption, Set&lt;CDOMObject&gt;&gt; foMap = it.next();</span>
+<span class="nc bnc" id="L122" title="All 4 branches missed.">				foMap.values().removeIf(set -&gt; set.remove(source) &amp;&amp; set.isEmpty());</span>
+<span class="nc bnc" id="L123" title="All 2 branches missed.">				if (foMap.isEmpty())</span>
+				{
+<span class="nc" id="L125">					it.remove();</span>
+				}
+<span class="nc" id="L127">			}</span>
+		}
+<span class="fc" id="L129">	}</span>
+
+	/**
+	 * Returns the type-safe Map for this FollowerOptionFacet and the given
+	 * CharID. May return null if no information has been set in this
+	 * FollowerOptionFacet for the given CharID.
+	 * 
+	 * Note that this method SHOULD NOT be public. The Map is owned by
+	 * FollowerOptionFacet, and since it can be modified, a reference to that
+	 * object should not be exposed to any object other than
+	 * FollowerOptionFacet.
+	 * 
+	 * @param id
+	 *            The CharID for which the Set should be returned
+	 * @return The Set for the Player Character represented by the given CharID;
+	 *         null if no information has been set in this FollowerOptionFacet
+	 *         for the Player Character
+	 */
+	@SuppressWarnings(&quot;unchecked&quot;)
+	private CaseInsensitiveMap&lt;Map&lt;FollowerOption, Set&lt;CDOMObject&gt;&gt;&gt; getCachedMap(CharID id)
+	{
+<span class="fc" id="L150">		return (CaseInsensitiveMap&lt;Map&lt;FollowerOption, Set&lt;CDOMObject&gt;&gt;&gt;) getCache(id);</span>
+	}
+
+	/**
+	 * Returns a type-safe Map for this FollowerOptionFacet and the given
+	 * CharID. Will return a new, empty Map if no information has been set in
+	 * this FollowerOptionFacet for the given CharID. Will not return null.
+	 * 
+	 * Note that this method SHOULD NOT be public. The Map object is owned by
+	 * FollowerOptionFacet, and since it can be modified, a reference to that
+	 * object should not be exposed to any object other than
+	 * FollowerOptionFacet.
+	 * 
+	 * @param id
+	 *            The CharID for which the Map should be returned
+	 * @return The Map for the Player Character represented by the given CharID
+	 */
+	private Map&lt;FollowerOption, Set&lt;CDOMObject&gt;&gt; getConstructingCachedMap(CharID id, String name)
+	{
+<span class="nc" id="L169">		CaseInsensitiveMap&lt;Map&lt;FollowerOption, Set&lt;CDOMObject&gt;&gt;&gt; componentMap = getCachedMap(id);</span>
+<span class="nc bnc" id="L170" title="All 2 branches missed.">		if (componentMap == null)</span>
+		{
+<span class="nc" id="L172">			componentMap = new CaseInsensitiveMap&lt;&gt;();</span>
+<span class="nc" id="L173">			setCache(id, componentMap);</span>
+		}
+<span class="nc" id="L175">		Map&lt;FollowerOption, Set&lt;CDOMObject&gt;&gt; foMap = componentMap.get(name);</span>
+<span class="nc bnc" id="L176" title="All 2 branches missed.">		if (foMap == null)</span>
+		{
+<span class="nc" id="L178">			foMap = new IdentityHashMap&lt;&gt;();</span>
+<span class="nc" id="L179">			componentMap.put(name, foMap);</span>
+		}
+<span class="nc" id="L181">		return foMap;</span>
+	}
+
+	/**
+	 * Returns a non-null copy of the available FollowerOptions of a given type
+	 * for the Player Character represented by the given CharID. This method
+	 * returns an empty Map if no objects are in this FollowerOptionFacet for
+	 * the Player Character identified by the given CharID.
+	 * 
+	 * This method is value-semantic in that ownership of the returned Map is
+	 * transferred to the class calling this method. Modification of the
+	 * returned Map will not modify this FollowerOptionFacet and modification of
+	 * this FollowerOptionFacet will not modify the returned Map. Modifications
+	 * to the returned Set will also not modify any future or previous objects
+	 * returned by this (or other) methods on FollowerOptionFacet. If you wish
+	 * to modify the information stored in this FollowerOptionFacet, you must
+	 * use the add*() and remove*() methods of FollowerOptionFacet.
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which the
+	 *            items in this FollowerOptionFacet should be returned
+	 * @param type
+	 *            The type of FollowerOption that should be returned
+	 * @param comp
+	 *            An optional Comparator to be used to sort the FollowerOption
+	 *            objects in the returned Map. null is a legal value, and will
+	 *            result in the FollowerOptions being sorted by their type
+	 * @return A non-null copy of the Map of FollowerOptions in this
+	 *         FollowerOptionFacet for the Player Character represented by the
+	 *         given CharID
+	 */
+	public Map&lt;FollowerOption, CDOMObject&gt; getAvailableFollowers(CharID id, String type,
+		Comparator&lt;FollowerOption&gt; comp)
+	{
+<span class="nc" id="L215">		CaseInsensitiveMap&lt;Map&lt;FollowerOption, Set&lt;CDOMObject&gt;&gt;&gt; componentMap = getCachedMap(id);</span>
+<span class="nc bnc" id="L216" title="All 2 branches missed.">		if (componentMap == null)</span>
+		{
+<span class="nc" id="L218">			return Collections.emptyMap();</span>
+		}
+<span class="nc" id="L220">		Map&lt;FollowerOption, Set&lt;CDOMObject&gt;&gt; foMap = componentMap.get(type);</span>
+<span class="nc bnc" id="L221" title="All 2 branches missed.">		if (foMap == null)</span>
+		{
+<span class="nc" id="L223">			return Collections.emptyMap();</span>
+		}
+<span class="nc" id="L225">		Map&lt;FollowerOption, CDOMObject&gt; ret = new TreeMap&lt;&gt;(comp);</span>
+<span class="nc bnc" id="L226" title="All 2 branches missed.">		for (Map.Entry&lt;FollowerOption, Set&lt;CDOMObject&gt;&gt; me : foMap.entrySet())</span>
+		{
+<span class="nc" id="L228">			FollowerOption fo = me.getKey();</span>
+<span class="nc" id="L229">			Set&lt;CDOMObject&gt; target = me.getValue();</span>
+<span class="nc" id="L230">			Collection&lt;FollowerOption&gt; expanded = fo.getExpandedOptions();</span>
+<span class="nc bnc" id="L231" title="All 2 branches missed.">			for (CDOMObject source : target)</span>
+			{
+<span class="nc bnc" id="L233" title="All 2 branches missed.">				for (FollowerOption efo : expanded)</span>
+				{
+					/*
+					 * TODO This is a bug, and will overwrite the first source
+					 * :(
+					 */
+<span class="nc" id="L239">					ret.put(efo, source);</span>
+<span class="nc" id="L240">				}</span>
+<span class="nc" id="L241">			}</span>
+<span class="nc" id="L242">		}</span>
+<span class="nc" id="L243">		return ret;</span>
+	}
+
+	public void setConsolidationFacet(CDOMObjectConsolidationFacet consolidationFacet)
+	{
+<span class="fc" id="L248">		this.consolidationFacet = consolidationFacet;</span>
+<span class="fc" id="L249">	}</span>
+
+	/**
+	 * Initializes the connections for FollowerOptionFacet to other facets.
+	 * 
+	 * This method is automatically called by the Spring framework during
+	 * initialization of the FollowerOptionFacet.
+	 */
+	public void init()
+	{
+<span class="fc" id="L259">		consolidationFacet.addDataFacetChangeListener(this);</span>
+<span class="fc" id="L260">	}</span>
+
+	/**
+	 * Copies the contents of the FollowerOptionFacet from one Player Character
+	 * to another Player Character, based on the given CharIDs representing
+	 * those Player Characters.
+	 * 
+	 * This is a method in FollowerOptionFacet in order to avoid exposing the
+	 * mutable Map object to other classes. This should not be inlined, as the
+	 * Map is internal information to FollowerOptionFacet and should not be
+	 * exposed to other classes.
+	 * 
+	 * Note also the copy is a one-time event and no references are maintained
+	 * between the Player Characters represented by the given CharIDs (meaning
+	 * once this copy takes place, any change to the FollowerOptionFacet of one
+	 * Player Character will only impact the Player Character where the
+	 * FollowerOptionFacet was changed).
+	 * 
+	 * @param source
+	 *            The CharID representing the Player Character from which the
+	 *            information should be copied
+	 * @param copy
+	 *            The CharID representing the Player Character to which the
+	 *            information should be copied
+	 */
+	@Override
+	public void copyContents(CharID source, CharID copy)
+	{
+<span class="nc" id="L288">		CaseInsensitiveMap&lt;Map&lt;FollowerOption, Set&lt;CDOMObject&gt;&gt;&gt; map = getCachedMap(source);</span>
+<span class="nc bnc" id="L289" title="All 2 branches missed.">		if (map != null)</span>
+		{
+<span class="nc bnc" id="L291" title="All 2 branches missed.">			for (Map&lt;FollowerOption, Set&lt;CDOMObject&gt;&gt; fm : map.values())</span>
+			{
+<span class="nc bnc" id="L293" title="All 2 branches missed.">				for (Map.Entry&lt;FollowerOption, Set&lt;CDOMObject&gt;&gt; fme : fm.entrySet())</span>
+				{
+<span class="nc" id="L295">					FollowerOption fl = fme.getKey();</span>
+<span class="nc bnc" id="L296" title="All 2 branches missed.">					for (CDOMObject cdo : fme.getValue())</span>
+					{
+<span class="nc" id="L298">						add(copy, fl, cdo);</span>
+<span class="nc" id="L299">					}</span>
+<span class="nc" id="L300">				}</span>
+<span class="nc" id="L301">			}</span>
+		}
+<span class="nc" id="L303">	}</span>
+
+	public int getCount(CharID id)
+	{
+<span class="nc" id="L307">		CaseInsensitiveMap&lt;Map&lt;FollowerOption, Set&lt;CDOMObject&gt;&gt;&gt; map = getCachedMap(id);</span>
+<span class="nc" id="L308">		int count = 0;</span>
+<span class="nc bnc" id="L309" title="All 2 branches missed.">		if (map != null)</span>
+		{
+<span class="nc bnc" id="L311" title="All 2 branches missed.">			for (Map&lt;FollowerOption, Set&lt;CDOMObject&gt;&gt; fm : map.values())</span>
+			{
+<span class="nc" id="L313">				count += fm.size();</span>
+<span class="nc" id="L314">			}</span>
+		}
+<span class="nc" id="L316">		return count;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

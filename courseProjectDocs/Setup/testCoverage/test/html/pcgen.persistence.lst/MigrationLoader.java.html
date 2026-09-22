@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MigrationLoader.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.persistence.lst</a> &gt; <span class="el_source">MigrationLoader.java</span></div><h1>MigrationLoader.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2013 (C) James Dempsey &lt;jdempsey@users.equipforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ */
+
+package pcgen.persistence.lst;
+
+import java.net.URI;
+import java.util.Map;
+import java.util.StringTokenizer;
+
+import pcgen.base.lang.UnreachableError;
+import pcgen.core.SystemCollections;
+import pcgen.core.system.MigrationRule;
+import pcgen.core.system.MigrationRule.ObjectType;
+import pcgen.core.utils.CoreUtility;
+import pcgen.persistence.SystemLoader;
+import pcgen.rules.context.LoadContext;
+import pcgen.util.Logging;
+
+import org.apache.commons.lang3.StringUtils;
+
+/**
+ * MigrationLoader is a LstFileLoader that processes the migration.lst file
+ * 
+ * 
+ */
+<span class="nc" id="L42">public class MigrationLoader extends LstLineFileLoader</span>
+{
+<span class="nc" id="L44">	private String invalidKeyPattern = &quot;.*[,|\\||\\\\|:|;|%|\\*|=|\\[|\\]].*&quot;;</span>
+<span class="nc" id="L45">	private String invalidSourceKeyPattern = &quot;.*[\\||\\\\|;|%|\\*|=|\\[|\\]].*&quot;;</span>
+
+	@Override
+	public void parseLine(LoadContext context, String lstLine, URI sourceURI)
+	{
+
+<span class="nc" id="L51">		final StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);</span>
+
+<span class="nc" id="L53">		String firstToken = colToken.nextToken().trim();</span>
+<span class="nc" id="L54">		final MigrationRule migrationRule = parseFirstToken(firstToken, lstLine, sourceURI);</span>
+<span class="nc bnc" id="L55" title="All 2 branches missed.">		if (migrationRule == null)</span>
+		{
+<span class="nc" id="L57">			return;</span>
+		}
+
+<span class="nc" id="L60">		Map&lt;String, LstToken&gt; tokenMap = TokenStore.inst().getTokenMap(MigrationLstToken.class);</span>
+<span class="nc bnc" id="L61" title="All 2 branches missed.">		while (colToken.hasMoreTokens())</span>
+		{
+<span class="nc" id="L63">			final String colString = colToken.nextToken().trim();</span>
+
+<span class="nc" id="L65">			final int idxColon = colString.indexOf(':');</span>
+<span class="nc" id="L66">			String key = &quot;&quot;;</span>
+			try
+			{
+<span class="nc" id="L69">				key = colString.substring(0, idxColon);</span>
+			}
+<span class="nc" id="L71">			catch (StringIndexOutOfBoundsException e)</span>
+			{
+				// TODO Handle Exception
+<span class="nc" id="L74">			}</span>
+<span class="nc" id="L75">			MigrationLstToken token = (MigrationLstToken) tokenMap.get(key);</span>
+
+<span class="nc bnc" id="L77" title="All 2 branches missed.">			if (token != null)</span>
+			{
+<span class="nc" id="L79">				final String value = colString.substring(idxColon + 1);</span>
+<span class="nc" id="L80">				LstUtils.deprecationCheck(token, migrationRule.getOldKey(), sourceURI, value);</span>
+<span class="nc bnc" id="L81" title="All 2 branches missed.">				if (!token.parse(migrationRule, value, getGameMode()))</span>
+				{
+<span class="nc" id="L83">					Logging.errorPrint(&quot;Error parsing migration rule &quot; + migrationRule.getOldKey() + ':' + sourceURI</span>
+						+ ':' + colString + &quot;\&quot;&quot;);
+<span class="nc" id="L85">					return;</span>
+				}
+<span class="nc" id="L87">			}</span>
+			else
+			{
+<span class="nc" id="L90">				Logging.errorPrint(</span>
+<span class="nc" id="L91">					&quot;Unknown token &quot; + key + &quot; in migration rule '&quot; + lstLine + &quot;' in &quot; + sourceURI.toString());</span>
+<span class="nc" id="L92">				return;</span>
+			}
+<span class="nc" id="L94">		}</span>
+
+		// Check for mandatory tokens and interrelationship rules
+<span class="nc" id="L97">		boolean errorFound = false;</span>
+<span class="nc bnc" id="L98" title="All 2 branches missed.">		if (migrationRule.getMaxVer() == null)</span>
+		{
+<span class="nc" id="L100">			Logging.errorPrint(</span>
+<span class="nc" id="L101">				&quot;Missing required token MAXVER in migration rule '&quot; + lstLine + &quot;' in &quot; + sourceURI.toString());</span>
+<span class="nc" id="L102">			errorFound = true;</span>
+		}
+<span class="nc bnc" id="L104" title="All 2 branches missed.">		if (migrationRule.getNewKey() == null)</span>
+		{
+<span class="nc" id="L106">			Logging.errorPrint(</span>
+<span class="nc" id="L107">				&quot;Missing required token NEWKEY in migration rule '&quot; + lstLine + &quot;' in &quot; + sourceURI.toString());</span>
+<span class="nc" id="L108">			errorFound = true;</span>
+		}
+<span class="nc bnc" id="L110" title="All 4 branches missed.">		if (migrationRule.getMinVer() == null &amp;&amp; migrationRule.getMinDevVer() != null)</span>
+		{
+<span class="nc" id="L112">			Logging.errorPrint(&quot;MINVER is required when MINDEVVER is used. Migration rule was '&quot; + lstLine + &quot;' in &quot;</span>
+<span class="nc" id="L113">				+ sourceURI.toString());</span>
+<span class="nc" id="L114">			errorFound = true;</span>
+		}
+<span class="nc bnc" id="L116" title="All 4 branches missed.">		if (migrationRule.getMaxVer() != null &amp;&amp; migrationRule.getMaxDevVer() != null</span>
+<span class="nc bnc" id="L117" title="All 2 branches missed.">			&amp;&amp; CoreUtility.compareVersions(migrationRule.getMaxVer(), migrationRule.getMaxDevVer()) &gt;= 0)</span>
+		{
+<span class="nc" id="L119">			Logging.errorPrint(</span>
+<span class="nc" id="L120">				&quot;MAXVER must be before MAXDEVVER. Migration rule was '&quot; + lstLine + &quot;' in &quot; + sourceURI.toString());</span>
+<span class="nc" id="L121">			errorFound = true;</span>
+		}
+<span class="nc bnc" id="L123" title="All 4 branches missed.">		if (migrationRule.getMinVer() != null &amp;&amp; migrationRule.getMinDevVer() != null</span>
+<span class="nc bnc" id="L124" title="All 2 branches missed.">			&amp;&amp; CoreUtility.compareVersions(migrationRule.getMinVer(), migrationRule.getMinDevVer()) &gt;= 0)</span>
+		{
+<span class="nc" id="L126">			Logging.errorPrint(</span>
+<span class="nc" id="L127">				&quot;MINVER must be before MINDEVVER. Migration rule was '&quot; + lstLine + &quot;' in &quot; + sourceURI.toString());</span>
+<span class="nc" id="L128">			errorFound = true;</span>
+		}
+<span class="nc bnc" id="L130" title="All 2 branches missed.">		if (errorFound)</span>
+		{
+			// Abandon this rule.
+<span class="nc" id="L133">			return;</span>
+		}
+
+<span class="nc" id="L136">		SystemCollections.addToMigrationRulesList(migrationRule, gameMode);</span>
+<span class="nc" id="L137">	}</span>
+
+	/**
+	 * Parse the leading token and value to produce a starting MigrationRule object.
+	 * 
+	 * @param firstToken The first token and value.
+	 * @param lstLine The full line it came form, for error reporting purposes only.
+	 * @param sourceURI The source path, for error reporting purposes only.
+	 * @return A new MigrationRule, or null if the token could nto be parsed.
+	 */
+	MigrationRule parseFirstToken(String firstToken, String lstLine, URI sourceURI)
+	{
+<span class="nc" id="L149">		final int idxColon = firstToken.indexOf(':');</span>
+<span class="nc bnc" id="L150" title="All 4 branches missed.">		if (idxColon &lt;= 0 || idxColon == firstToken.length() - 1)</span>
+		{
+			// Missing colon or missing key or value
+<span class="nc" id="L153">			Logging.errorPrint(&quot;Illegal migration rule '&quot; + lstLine + &quot;' in &quot; + sourceURI.toString());</span>
+<span class="nc" id="L154">			return null;</span>
+		}
+
+		String objTypeKey;
+		try
+		{
+<span class="nc" id="L160">			objTypeKey = firstToken.substring(0, idxColon);</span>
+		}
+<span class="nc" id="L162">		catch (StringIndexOutOfBoundsException e)</span>
+		{
+<span class="nc" id="L164">			throw new UnreachableError(e);</span>
+<span class="nc" id="L165">		}</span>
+
+		MigrationRule.ObjectType objType;
+		try
+		{
+<span class="nc" id="L170">			objType = ObjectType.valueOf(objTypeKey);</span>
+		}
+<span class="nc" id="L172">		catch (IllegalArgumentException e)</span>
+		{
+<span class="nc" id="L174">			Logging.errorPrint(&quot;Unknown object type for migration rule '&quot; + lstLine + &quot;' in &quot; + sourceURI.toString());</span>
+<span class="nc" id="L175">			return null;</span>
+<span class="nc" id="L176">		}</span>
+
+		String key;
+		try
+		{
+<span class="nc" id="L181">			key = firstToken.substring(idxColon + 1);</span>
+		}
+<span class="nc" id="L183">		catch (StringIndexOutOfBoundsException e)</span>
+		{
+<span class="nc" id="L185">			throw new UnreachableError(e);</span>
+<span class="nc" id="L186">		}</span>
+
+		MigrationRule rule;
+<span class="nc bnc" id="L189" title="All 2 branches missed.">		if (objType.isCategorized())</span>
+		{
+<span class="nc bnc" id="L191" title="All 2 branches missed.">			if (key.endsWith(&quot;|&quot;))</span>
+			{
+				// Extra |
+<span class="nc" id="L194">				Logging.errorPrint(&quot;Invalid category|key of '&quot; + firstToken + &quot;' of migration rule '&quot; + lstLine</span>
+<span class="nc" id="L195">					+ &quot;' in &quot; + sourceURI.toString());</span>
+<span class="nc" id="L196">				return null;</span>
+			}
+<span class="nc" id="L198">			String[] keyParts = key.split(&quot;\\|&quot;);</span>
+<span class="nc bnc" id="L199" title="All 2 branches missed.">			if (keyParts.length &lt; 2)</span>
+			{
+				// No | so missing a category
+<span class="nc" id="L202">				Logging.errorPrint(&quot;Missing category in '&quot; + firstToken + &quot;' of migration rule '&quot; + lstLine + &quot;' in &quot;</span>
+<span class="nc" id="L203">					+ sourceURI.toString());</span>
+<span class="nc" id="L204">				return null;</span>
+			}
+<span class="nc bnc" id="L206" title="All 2 branches missed.">			if (keyParts.length &gt; 2)</span>
+			{
+				// Extra |
+<span class="nc" id="L209">				Logging.errorPrint(&quot;Invalid category|key of '&quot; + firstToken + &quot;' of migration rule '&quot; + lstLine</span>
+<span class="nc" id="L210">					+ &quot;' in &quot; + sourceURI.toString());</span>
+<span class="nc" id="L211">				return null;</span>
+			}
+<span class="nc bnc" id="L213" title="All 4 branches missed.">			if (StringUtils.isBlank(keyParts[0]) || keyParts[0].matches(invalidKeyPattern))</span>
+			{
+<span class="nc" id="L215">				Logging.errorPrint(&quot;Invalid category of '&quot; + keyParts[0] + &quot;' of migration rule '&quot; + lstLine + &quot;' in &quot;</span>
+<span class="nc" id="L216">					+ sourceURI.toString());</span>
+<span class="nc" id="L217">				return null;</span>
+			}
+<span class="nc bnc" id="L219" title="All 4 branches missed.">			if (StringUtils.isBlank(keyParts[1]) || keyParts[1].matches(invalidKeyPattern))</span>
+			{
+<span class="nc" id="L221">				Logging.errorPrint(&quot;Invalid key of '&quot; + keyParts[1] + &quot;' of migration rule '&quot; + lstLine + &quot;' in &quot;</span>
+<span class="nc" id="L222">					+ sourceURI.toString());</span>
+<span class="nc" id="L223">				return null;</span>
+			}
+
+<span class="nc" id="L226">			rule = new MigrationRule(objType, keyParts[0], keyParts[1]);</span>
+<span class="nc" id="L227">		}</span>
+		else
+		{
+<span class="nc bnc" id="L230" title="All 2 branches missed.">			String invalidKeyPat = objType == ObjectType.SOURCE ? invalidSourceKeyPattern : invalidKeyPattern;</span>
+<span class="nc bnc" id="L231" title="All 4 branches missed.">			if (StringUtils.isBlank(key) || key.matches(invalidKeyPat))</span>
+			{
+<span class="nc" id="L233">				Logging.errorPrint(</span>
+<span class="nc" id="L234">					&quot;Invalid key of '&quot; + key + &quot;' of migration rule '&quot; + lstLine + &quot;' in &quot; + sourceURI.toString());</span>
+<span class="nc" id="L235">				return null;</span>
+			}
+<span class="nc" id="L237">			rule = new MigrationRule(objType, key);</span>
+		}
+
+<span class="nc" id="L240">		return rule;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

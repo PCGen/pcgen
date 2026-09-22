@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>IsdefaultsizeToken.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.lsttokens.sizeadjustment</a> &gt; <span class="el_source">IsdefaultsizeToken.java</span></div><h1>IsdefaultsizeToken.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2009 (C) Thomas Parker &lt;thpr@users.sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package plugin.lsttokens.sizeadjustment;
+
+import java.util.Collection;
+
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.core.SizeAdjustment;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractYesNoToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.PostValidationToken;
+import pcgen.util.Logging;
+
+/**
+ * Class deals with ISDEFAULTSIZE Token
+ */
+<span class="fc" id="L33">public class IsdefaultsizeToken extends AbstractYesNoToken&lt;SizeAdjustment&gt;</span>
+		implements CDOMPrimaryToken&lt;SizeAdjustment&gt;, PostValidationToken&lt;SizeAdjustment&gt;
+{
+
+	@Override
+	public String getTokenName()
+	{
+<span class="fc" id="L40">		return &quot;ISDEFAULTSIZE&quot;;</span>
+	}
+
+	@Override
+	protected ObjectKey&lt;Boolean&gt; getObjectKey()
+	{
+<span class="fc" id="L46">		return ObjectKey.IS_DEFAULT_SIZE;</span>
+	}
+
+	@Override
+	public Class&lt;SizeAdjustment&gt; getTokenClass()
+	{
+<span class="fc" id="L52">		return SizeAdjustment.class;</span>
+	}
+
+	@Override
+	public boolean process(LoadContext context, Collection&lt;? extends SizeAdjustment&gt; obj)
+	{
+<span class="fc" id="L58">		boolean returnValue = true;</span>
+<span class="fc" id="L59">		SizeAdjustment found = null;</span>
+<span class="fc bfc" id="L60" title="All 2 branches covered.">		for (SizeAdjustment s : context.getReferenceContext().getConstructedCDOMObjects(SizeAdjustment.class))</span>
+		{
+<span class="fc bfc" id="L62" title="All 2 branches covered.">			if (s.getSafe(ObjectKey.IS_DEFAULT_SIZE))</span>
+			{
+<span class="pc bpc" id="L64" title="1 of 2 branches missed.">				if (found != null)</span>
+				{
+<span class="nc" id="L66">					Logging.errorPrint(&quot;Found more than one size claiming to be default: &quot; + found.getKeyName()</span>
+<span class="nc" id="L67">						+ &quot; and &quot; + s.getKeyName());</span>
+<span class="nc" id="L68">					returnValue = false;</span>
+				}
+<span class="fc" id="L70">				found = s;</span>
+			}
+<span class="fc" id="L72">		}</span>
+<span class="pc bpc" id="L73" title="1 of 2 branches missed.">		if (found == null)</span>
+		{
+<span class="nc" id="L75">			Logging.errorPrint(&quot;Did not find a default size&quot;);</span>
+<span class="nc" id="L76">			returnValue = false;</span>
+		}
+<span class="fc" id="L78">		return returnValue;</span>
+	}
+
+	@Override
+	public Class&lt;SizeAdjustment&gt; getValidationTokenClass()
+	{
+<span class="fc" id="L84">		return SizeAdjustment.class;</span>
+	}
+
+	@Override
+	public int getPriority()
+	{
+<span class="fc" id="L90">		return 0;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

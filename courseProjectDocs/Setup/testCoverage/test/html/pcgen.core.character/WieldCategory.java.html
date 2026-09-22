@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>WieldCategory.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.core.character</a> &gt; <span class="el_source">WieldCategory.java</span></div><h1>WieldCategory.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) 2010 Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.core.character;
+
+import java.net.URI;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import pcgen.cdom.base.Loadable;
+import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.core.Equipment;
+import pcgen.core.Globals;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.QualifiedObject;
+import pcgen.core.SizeAdjustment;
+import pcgen.core.prereq.PrereqHandler;
+import pcgen.rules.context.AbstractReferenceContext;
+import pcgen.util.Logging;
+
+<span class="fc" id="L40">public final class WieldCategory implements Loadable</span>
+{
+	private URI sourceURI;
+	private String categoryName;
+	private int handsRequired;
+	private boolean isFinessable;
+	private int sizeDifference;
+<span class="fc" id="L47">	private final Map&lt;Integer, CDOMSingleRef&lt;WieldCategory&gt;&gt; wcSteps = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L48">	private final List&lt;QualifiedObject&lt;CDOMSingleRef&lt;WieldCategory&gt;&gt;&gt; categorySwitches = new ArrayList&lt;&gt;();</span>
+
+	@Override
+	public URI getSourceURI()
+	{
+<span class="nc" id="L53">		return sourceURI;</span>
+	}
+
+	@Override
+	public void setSourceURI(URI source)
+	{
+<span class="nc" id="L59">		sourceURI = source;</span>
+<span class="nc" id="L60">	}</span>
+
+	@Override
+	public String getKeyName()
+	{
+<span class="fc" id="L65">		return getDisplayName();</span>
+	}
+
+	@Override
+	public String getDisplayName()
+	{
+<span class="fc" id="L71">		return categoryName;</span>
+	}
+
+	@Override
+	public void setName(String name)
+	{
+<span class="fc" id="L77">		categoryName = name;</span>
+<span class="fc" id="L78">	}</span>
+
+	@Override
+	public boolean isInternal()
+	{
+<span class="fc" id="L83">		return false;</span>
+	}
+
+	@Override
+	public boolean isType(String type)
+	{
+<span class="nc" id="L89">		return false;</span>
+	}
+
+	public int getHandsRequired()
+	{
+<span class="nc" id="L94">		return handsRequired;</span>
+	}
+
+	public void setHandsRequired(int hands)
+	{
+<span class="fc" id="L99">		handsRequired = hands;</span>
+<span class="fc" id="L100">	}</span>
+
+	public void setFinessable(boolean finessable)
+	{
+<span class="fc" id="L104">		isFinessable = finessable;</span>
+<span class="fc" id="L105">	}</span>
+
+	public boolean isFinessable()
+	{
+<span class="nc" id="L109">		return isFinessable;</span>
+	}
+
+	public void setSizeDifference(int difference)
+	{
+<span class="nc" id="L114">		sizeDifference = difference;</span>
+<span class="nc" id="L115">	}</span>
+
+	public void setWieldCategoryStep(int location, CDOMSingleRef&lt;WieldCategory&gt; stepCat)
+	{
+<span class="fc" id="L119">		CDOMSingleRef&lt;WieldCategory&gt; previous = wcSteps.put(location, stepCat);</span>
+<span class="pc bpc" id="L120" title="1 of 2 branches missed.">		if (previous != null)</span>
+		{
+			// overwrite warning?
+<span class="nc" id="L123">			Logging.log(Logging.WARNING, &quot;There was a previous wield category, TODO complete dealing with this use case - overwrite?&quot;);</span>
+		}
+<span class="fc" id="L125">	}</span>
+
+	public WieldCategory getWieldCategoryStep(int steps)
+	{
+<span class="nc bnc" id="L129" title="All 2 branches missed.">		assert steps != 0;</span>
+<span class="nc" id="L130">		CDOMSingleRef&lt;WieldCategory&gt; wcRef = wcSteps.get(steps);</span>
+<span class="nc bnc" id="L131" title="All 2 branches missed.">		return wcRef == null ? null : wcRef.get();</span>
+	}
+
+	public void addCategorySwitch(QualifiedObject&lt;CDOMSingleRef&lt;WieldCategory&gt;&gt; qo)
+	{
+<span class="fc" id="L136">		categorySwitches.add(qo);</span>
+<span class="fc" id="L137">	}</span>
+
+	public int getObjectSizeInt(Equipment eq)
+	{
+<span class="nc" id="L141">		return eq.sizeInt() + sizeDifference;</span>
+	}
+
+	/**
+	 * Get the WieldCategory adjusted for the size difference between the weapon
+	 * and the PC. This uses the 3.5 equipment sizes.
+	 * 
+	 * @param pc
+	 *            Player character to get the weild category for.
+	 * @param eq
+	 *            Equipment to get the weild category for.
+	 * @return The ajusted WieldCategory
+	 */
+	public WieldCategory adjustForSize(final PlayerCharacter pc, final Equipment eq)
+	{
+<span class="nc bnc" id="L156" title="All 6 branches missed.">		if (pc == null || eq == null || eq.get(ObjectKey.WIELD) == null)</span>
+		{
+<span class="nc" id="L158">			return this;</span>
+		}
+
+		// Check if we have a bonus that changes the weapons effective size
+		// for wield purposes.
+<span class="nc" id="L163">		SizeAdjustment oldEqSa = eq.getSizeAdjustment();</span>
+<span class="nc bnc" id="L164" title="All 2 branches missed.">		if (pc.sizeInt() != eq.sizeInt())</span>
+		{
+<span class="nc" id="L166">			int aBump = 0;</span>
+<span class="nc" id="L167">			aBump += (int) pc.getTotalBonusTo(&quot;WIELDCATEGORY&quot;, eq.getWieldName());</span>
+<span class="nc" id="L168">			aBump += (int) pc.getTotalBonusTo(&quot;WIELDCATEGORY&quot;, &quot;ALL&quot;);</span>
+
+			// loops for each equipment type
+<span class="nc" id="L171">			int modWield = 0;</span>
+<span class="nc bnc" id="L172" title="All 2 branches missed.">			for (String eqType : eq.typeList())</span>
+			{
+
+				// get the type bonus (ex TYPE.MARTIAL)
+<span class="nc" id="L176">				final int i = (int) pc.getTotalBonusTo(&quot;WEAPONPROF=TYPE.&quot; + eqType</span>
+						// get the type bonus (ex TYPE.MARTIAL)
+						, &quot;WIELDCATEGORY&quot;);
+
+				// get the highest bonus
+<span class="nc bnc" id="L181" title="All 2 branches missed.">				if (i &lt; modWield)</span>
+				{
+<span class="nc" id="L183">					modWield = i;</span>
+				}
+<span class="nc" id="L185">			}</span>
+<span class="nc" id="L186">			aBump += modWield;</span>
+
+<span class="nc bnc" id="L188" title="All 2 branches missed.">			if (aBump != 0)</span>
+			{
+<span class="nc" id="L190">				final int newSizeInt = eq.sizeInt() + aBump;</span>
+<span class="nc" id="L191">				AbstractReferenceContext ref = Globals.getContext().getReferenceContext();</span>
+<span class="nc" id="L192">				SizeAdjustment sadj = ref.getSortedList(SizeAdjustment.class, IntegerKey.SIZEORDER).get(newSizeInt);</span>
+<span class="nc" id="L193">				eq.put(ObjectKey.SIZE, CDOMDirectSingleRef.getRef(sadj));</span>
+			}
+		}
+<span class="nc" id="L196">		WieldCategory pcWCat = getSwitch(pc, eq);</span>
+<span class="nc" id="L197">		eq.put(ObjectKey.SIZE, CDOMDirectSingleRef.getRef(oldEqSa));</span>
+<span class="nc" id="L198">		return pcWCat;</span>
+	}
+
+	private WieldCategory getSwitch(PlayerCharacter pc, Equipment eq)
+	{
+<span class="nc" id="L203">		WieldCategory pcWCat = this;</span>
+		// TODO what if more than one matches??
+<span class="nc bnc" id="L205" title="All 2 branches missed.">		for (QualifiedObject&lt;CDOMSingleRef&lt;WieldCategory&gt;&gt; qo : categorySwitches)</span>
+		{
+<span class="nc bnc" id="L207" title="All 2 branches missed.">			if (PrereqHandler.passesAll(qo, eq, pc))</span>
+			{
+<span class="nc" id="L209">				pcWCat = qo.getRawObject().get();</span>
+			}
+<span class="nc" id="L211">		}</span>
+<span class="nc" id="L212">		return pcWCat;</span>
+	}
+
+	@Override
+	public int hashCode()
+	{
+<span class="nc" id="L218">		return categoryName.hashCode();</span>
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+<span class="pc bpc" id="L224" title="1 of 2 branches missed.">		if (o instanceof WieldCategory other)</span>
+		{
+			/*
+			 * Lightweight check due to ReferenceManufacturer enforcement
+			 */
+<span class="fc" id="L229">			return categoryName.equals(other.categoryName);</span>
+		}
+<span class="nc" id="L231">		return false;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AbilityToken.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.lsttokens.add</a> &gt; <span class="el_source">AbilityToken.java</span></div><h1>AbilityToken.java</h1><pre class="source lang-java linenums">/*
+ * AbilityToken.java
+ * Copyright 2007 (C) James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.       See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package plugin.lsttokens.add;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+import pcgen.cdom.formula.Formula;
+import pcgen.base.text.ParsingSeparator;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.ChoiceSet.AbilityChoiceSet;
+import pcgen.cdom.base.ConcretePersistentTransitionChoice;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.base.PersistentChoiceActor;
+import pcgen.cdom.base.PersistentTransitionChoice;
+import pcgen.cdom.base.SelectableSet;
+import pcgen.cdom.base.TransitionChoice;
+import pcgen.cdom.base.UserSelection;
+import pcgen.cdom.choiceset.AbilityRefChoiceSet;
+import pcgen.cdom.content.CNAbility;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.Nature;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.helper.CNAbilitySelection;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.reference.ReferenceManufacturer;
+import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
+import pcgen.core.AbilityUtilities;
+import pcgen.core.PlayerCharacter;
+import pcgen.rules.context.Changes;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.TokenUtilities;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.ParseResult;
+import pcgen.util.enumeration.Visibility;
+
+/**
+ * {@code AbilityToken} parses ADD:ABILITY entries.
+ *
+ * &lt;p&gt;
+ * &lt;b&gt;Tag Name&lt;/b&gt;: {@code ADD:ABILITY}|w|x|y|z,z&lt;br&gt;
+ * &lt;b&gt;Variables Used (w)&lt;/b&gt;: Count (Optional Number, Variable or Formula -
+ * Number of choices granted).&lt;br&gt;
+ * &lt;b&gt;Variables Used (x)&lt;/b&gt;: Ability Category (The Ability Category this
+ * ability will be added to).&lt;br&gt;
+ * &lt;b&gt;Variables Used (y)&lt;/b&gt;: Ability Nature (The nature of the added ability:
+ * &lt;tt&gt;NORMAL&lt;/tt&gt; or &lt;tt&gt;VIRTUAL&lt;/tt&gt;)&lt;br&gt;
+ * &lt;b&gt;Variables Used (z)&lt;/b&gt;: Ability Key or TYPE(The Ability to add. Can have
+ * choices specified in &amp;quot;()&amp;quot;)&lt;br&gt;
+ * &lt;p&gt;
+ * &lt;b&gt;What it does:&lt;/b&gt;&lt;br&gt;
+ * &lt;ul&gt;
+ * &lt;li&gt;Adds an Ability to a character, providing choices if these are required.&lt;/li&gt;
+ * &lt;li&gt;The Ability is added to the Ability Category specified.&lt;/li&gt;
+ * &lt;li&gt;Choices can be specified by including them in parenthesis after the
+ * ability key name (whitespace is ignored).&lt;/li&gt;
+ * &lt;/ul&gt;
+ * (Sun, 20 May 2007) $
+ */
+<span class="fc" id="L81">public class AbilityToken extends AbstractNonEmptyToken&lt;CDOMObject&gt;</span>
+		implements CDOMSecondaryToken&lt;CDOMObject&gt;, PersistentChoiceActor&lt;CNAbilitySelection&gt;
+{
+
+<span class="fc" id="L85">	private static final Class&lt;CNAbilitySelection&gt; CAT_ABILITY_SELECTION_CLASS = CNAbilitySelection.class;</span>
+<span class="fc" id="L86">	private static final Class&lt;Ability&gt; ABILITY_CLASS = Ability.class;</span>
+<span class="fc" id="L87">	private static final Class&lt;AbilityCategory&gt; ABILITY_CATEGORY_CLASS = AbilityCategory.class;</span>
+
+	@Override
+	public String getParentToken()
+	{
+<span class="fc" id="L92">		return &quot;ADD&quot;;</span>
+	}
+
+	private String getFullName()
+	{
+<span class="fc" id="L97">		return getParentToken() + Constants.COLON + getTokenName();</span>
+	}
+
+	@Override
+	public String getTokenName()
+	{
+<span class="fc" id="L103">		return &quot;ABILITY&quot;;</span>
+	}
+
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context, CDOMObject obj, String value)
+	{
+<span class="fc" id="L109">		ParsingSeparator sep = new ParsingSeparator(value, '|');</span>
+<span class="fc" id="L110">		sep.addGroupingPair('[', ']');</span>
+<span class="fc" id="L111">		sep.addGroupingPair('(', ')');</span>
+
+<span class="fc" id="L113">		String first = sep.next();</span>
+<span class="fc bfc" id="L114" title="All 2 branches covered.">		if (!sep.hasNext())</span>
+		{
+<span class="fc" id="L116">			return new ParseResult.Fail(&quot;Syntax of ADD:&quot; + getTokenName() + &quot; requires 3 to 4 |: &quot; + value);</span>
+		}
+<span class="fc" id="L118">		String second = sep.next();</span>
+<span class="fc bfc" id="L119" title="All 2 branches covered.">		if (!sep.hasNext())</span>
+		{
+<span class="fc" id="L121">			return new ParseResult.Fail(</span>
+<span class="fc" id="L122">				&quot;Syntax of ADD:&quot; + getTokenName() + &quot; requires a minimum of three | : &quot; + value);</span>
+		}
+<span class="fc" id="L124">		String third = sep.next();</span>
+		Formula count;
+<span class="fc bfc" id="L126" title="All 2 branches covered.">		if (sep.hasNext())</span>
+		{
+<span class="fc" id="L128">			count = FormulaFactory.getFormulaFor(first);</span>
+<span class="pc bpc" id="L129" title="1 of 2 branches missed.">			if (!count.isValid())</span>
+			{
+<span class="nc" id="L131">				return new ParseResult.Fail(&quot;Count in &quot; + getTokenName() + &quot; was not valid: &quot; + count.toString());</span>
+			}
+<span class="fc bfc" id="L133" title="All 4 branches covered.">			if (count.isStatic() &amp;&amp; (count.resolveStatic().doubleValue() &lt;= 0))</span>
+			{
+<span class="fc" id="L135">				return new ParseResult.Fail(&quot;Count in &quot; + getFullName() + &quot; must be &gt; 0&quot;);</span>
+			}
+<span class="fc" id="L137">			first = second;</span>
+<span class="fc" id="L138">			second = third;</span>
+<span class="fc" id="L139">			third = sep.next();</span>
+		}
+		else
+		{
+<span class="fc" id="L143">			count = FormulaFactory.ONE;</span>
+		}
+<span class="pc bpc" id="L145" title="1 of 2 branches missed.">		if (sep.hasNext())</span>
+		{
+<span class="nc" id="L147">			return new ParseResult.Fail(</span>
+<span class="nc" id="L148">				&quot;Syntax of ADD:&quot; + getTokenName() + &quot; has max of four | when a count is not present: &quot; + value);</span>
+		}
+
+<span class="fc" id="L151">		CDOMSingleRef&lt;AbilityCategory&gt; acRef =</span>
+<span class="fc" id="L152">				context.getReferenceContext().getCDOMReference(ABILITY_CATEGORY_CLASS, first);</span>
+
+<span class="fc" id="L154">		Nature nature = Nature.valueOf(second);</span>
+<span class="fc bfc" id="L155" title="All 2 branches covered.">        if (Nature.ANY.equals(nature))</span>
+		{
+<span class="fc" id="L157">			return new ParseResult.Fail(</span>
+<span class="fc" id="L158">				getTokenName() + &quot; refers to ANY Ability Nature, cannot be used in &quot; + getTokenName() + &quot;: &quot; + value);</span>
+		}
+<span class="fc bfc" id="L160" title="All 2 branches covered.">		if (Nature.AUTOMATIC.equals(nature))</span>
+		{
+<span class="fc" id="L162">			return new ParseResult.Fail(getTokenName() + &quot; refers to AUTOMATIC Ability Nature, cannot be used in &quot;</span>
+<span class="fc" id="L163">				+ getTokenName() + &quot;: &quot; + value);</span>
+		}
+
+<span class="fc" id="L166">		ParseResult pr = checkSeparatorsAndNonEmpty(',', third);</span>
+<span class="fc bfc" id="L167" title="All 2 branches covered.">		if (!pr.passed())</span>
+		{
+<span class="fc" id="L169">			return pr;</span>
+		}
+
+<span class="fc" id="L172">		List&lt;CDOMReference&lt;Ability&gt;&gt; refs = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L173">		ParsingSeparator tok = new ParsingSeparator(third, ',');</span>
+<span class="fc" id="L174">		tok.addGroupingPair('[', ']');</span>
+<span class="fc" id="L175">		tok.addGroupingPair('(', ')');</span>
+<span class="fc" id="L176">		boolean allowStack = false;</span>
+<span class="fc" id="L177">		int dupChoices = 0;</span>
+
+<span class="fc" id="L179">		ReferenceManufacturer&lt;Ability&gt; rm =</span>
+<span class="fc" id="L180">				context.getReferenceContext().getManufacturerByFormatName(&quot;ABILITY=&quot; + first, ABILITY_CLASS);</span>
+<span class="fc bfc" id="L181" title="All 2 branches covered.">		if (rm == null)</span>
+		{
+<span class="fc" id="L183">			return new ParseResult.Fail(&quot;Could not get Reference Manufacturer for Category: &quot; + first);</span>
+		}
+
+<span class="fc bfc" id="L186" title="All 2 branches covered.">		while (tok.hasNext())</span>
+		{
+			CDOMReference&lt;Ability&gt; ab;
+<span class="fc" id="L189">			String token = tok.next();</span>
+<span class="fc bfc" id="L190" title="All 2 branches covered.">			if (&quot;STACKS&quot;.equals(token))</span>
+			{
+<span class="fc bfc" id="L192" title="All 2 branches covered.">				if (allowStack)</span>
+				{
+<span class="fc" id="L194">					return new ParseResult.Fail(</span>
+<span class="fc" id="L195">						getFullName() + &quot; found second stacking specification in value: &quot; + value);</span>
+				}
+<span class="fc" id="L197">				allowStack = true;</span>
+<span class="fc" id="L198">				continue;</span>
+			}
+<span class="fc bfc" id="L200" title="All 2 branches covered.">			else if (token.startsWith(&quot;STACKS=&quot;))</span>
+			{
+<span class="fc bfc" id="L202" title="All 2 branches covered.">				if (allowStack)</span>
+				{
+<span class="fc" id="L204">					return new ParseResult.Fail(</span>
+<span class="fc" id="L205">						getFullName() + &quot; found second stacking specification in value: &quot; + value);</span>
+				}
+<span class="fc" id="L207">				allowStack = true;</span>
+				try
+				{
+<span class="fc" id="L210">					dupChoices = Integer.parseInt(token.substring(7));</span>
+				}
+<span class="fc" id="L212">				catch (NumberFormatException nfe)</span>
+				{
+<span class="fc" id="L214">					return new ParseResult.Fail(&quot;Invalid Stack number in &quot; + getFullName() + &quot;: &quot; + value);</span>
+<span class="fc" id="L215">				}</span>
+<span class="fc bfc" id="L216" title="All 2 branches covered.">				if (dupChoices &lt;= 0)</span>
+				{
+<span class="fc" id="L218">					return new ParseResult.Fail(</span>
+<span class="fc" id="L219">						&quot;Invalid (less than 1) Stack number in &quot; + getFullName() + &quot;: &quot; + value);</span>
+				}
+				continue;
+			}
+			else
+			{
+<span class="fc bfc" id="L225" title="All 2 branches covered.">				if (Constants.LST_ALL.equals(token))</span>
+				{
+<span class="fc" id="L227">					ab = rm.getAllReference();</span>
+				}
+				else
+				{
+<span class="fc" id="L231">					ab = TokenUtilities.getTypeOrPrimitive(rm, token);</span>
+				}
+			}
+<span class="fc bfc" id="L234" title="All 2 branches covered.">			if (ab == null)</span>
+			{
+<span class="fc" id="L236">				return new ParseResult.Fail(&quot;  Error was encountered while parsing &quot; + getTokenName() + &quot;: &quot; + value</span>
+					+ &quot; had an invalid reference: &quot; + token);
+			}
+<span class="fc" id="L239">			refs.add(ab);</span>
+<span class="fc" id="L240">		}</span>
+
+<span class="fc bfc" id="L242" title="All 2 branches covered.">		if (refs.isEmpty())</span>
+		{
+<span class="fc" id="L244">			return new ParseResult.Fail(&quot;Non-sensical &quot; + getFullName() + &quot;: Contains no ability reference: &quot; + value);</span>
+		}
+
+<span class="fc" id="L247">		AbilityRefChoiceSet rcs = new AbilityRefChoiceSet(acRef, refs, nature);</span>
+<span class="fc bfc" id="L248" title="All 2 branches covered.">		if (!rcs.getGroupingState().isValid())</span>
+		{
+<span class="fc" id="L250">			return new ParseResult.Fail(</span>
+<span class="fc" id="L251">				&quot;Non-sensical &quot; + getFullName() + &quot;: Contains ANY and a specific reference: &quot; + value);</span>
+		}
+<span class="fc" id="L253">		AbilityChoiceSet cs = new AbilityChoiceSet(getTokenName(), rcs);</span>
+<span class="fc" id="L254">		StringBuilder title = new StringBuilder(50);</span>
+<span class="fc bfc" id="L255" title="All 2 branches covered.">		if (!Nature.NORMAL.equals(nature))</span>
+		{
+<span class="fc" id="L257">			title.append(nature.toString());</span>
+<span class="fc" id="L258">			title.append(' ');</span>
+		}
+<span class="fc" id="L260">		title.append(first);</span>
+<span class="fc" id="L261">		title.append(&quot; Choice&quot;);</span>
+<span class="fc" id="L262">		cs.setTitle(title.toString());</span>
+<span class="fc" id="L263">		PersistentTransitionChoice&lt;CNAbilitySelection&gt; tc = new ConcretePersistentTransitionChoice&lt;&gt;(cs, count);</span>
+<span class="fc" id="L264">		context.getObjectContext().addToList(obj, ListKey.ADD, tc);</span>
+<span class="fc" id="L265">		tc.allowStack(allowStack);</span>
+<span class="fc bfc" id="L266" title="All 2 branches covered.">		if (dupChoices != 0)</span>
+		{
+<span class="fc" id="L268">			tc.setStackLimit(dupChoices);</span>
+		}
+<span class="fc" id="L270">		tc.setChoiceActor(this);</span>
+<span class="fc" id="L271">		return ParseResult.SUCCESS;</span>
+	}
+
+	@Override
+	public String[] unparse(LoadContext context, CDOMObject obj)
+	{
+<span class="fc" id="L277">		Changes&lt;PersistentTransitionChoice&lt;?&gt;&gt; grantChanges =</span>
+<span class="fc" id="L278">				context.getObjectContext().getListChanges(obj, ListKey.ADD);</span>
+<span class="fc" id="L279">		Collection&lt;PersistentTransitionChoice&lt;?&gt;&gt; addedItems = grantChanges.getAdded();</span>
+<span class="pc bpc" id="L280" title="1 of 4 branches missed.">		if ((addedItems == null) || addedItems.isEmpty())</span>
+		{
+			// Zero indicates no Token
+<span class="fc" id="L283">			return null;</span>
+		}
+<span class="fc" id="L285">		List&lt;String&gt; addStrings = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L286" title="All 2 branches covered.">		for (TransitionChoice&lt;?&gt; container : addedItems)</span>
+		{
+<span class="fc" id="L288">			SelectableSet&lt;?&gt; cs = container.getChoices();</span>
+<span class="pc bpc" id="L289" title="2 of 4 branches missed.">			if (getTokenName().equals(cs.getName()) &amp;&amp; CAT_ABILITY_SELECTION_CLASS.equals(cs.getChoiceClass()))</span>
+			{
+<span class="fc" id="L291">				AbilityChoiceSet ascs = (AbilityChoiceSet) cs;</span>
+<span class="fc" id="L292">				Formula f = container.getCount();</span>
+<span class="pc bpc" id="L293" title="1 of 2 branches missed.">				if (f == null)</span>
+				{
+<span class="nc" id="L295">					context.addWriteMessage(&quot;Unable to find &quot; + getFullName() + &quot; Count&quot;);</span>
+<span class="nc" id="L296">					return null;</span>
+				}
+<span class="fc bfc" id="L298" title="All 4 branches covered.">				if (f.isStatic() &amp;&amp; (f.resolveStatic().doubleValue() &lt;= 0))</span>
+				{
+<span class="fc" id="L300">					context.addWriteMessage(&quot;Count in &quot; + getFullName() + &quot; must be &gt; 0&quot;);</span>
+<span class="fc" id="L301">					return null;</span>
+				}
+<span class="fc bfc" id="L303" title="All 2 branches covered.">				if (!cs.getGroupingState().isValid())</span>
+				{
+<span class="fc" id="L305">					context.addWriteMessage(&quot;Non-sensical &quot; + getFullName()</span>
+<span class="fc" id="L306">						+ &quot;: Contains ANY and a specific reference: &quot; + cs.getLSTformat());</span>
+<span class="fc" id="L307">					return null;</span>
+				}
+<span class="fc" id="L309">				StringBuilder sb = new StringBuilder();</span>
+<span class="fc bfc" id="L310" title="All 2 branches covered.">				if (!FormulaFactory.ONE.equals(f))</span>
+				{
+<span class="fc" id="L312">					sb.append(f).append(Constants.PIPE);</span>
+				}
+<span class="fc" id="L314">				sb.append(ascs.getCategory().getLSTformat(false));</span>
+<span class="fc" id="L315">				sb.append(Constants.PIPE);</span>
+<span class="fc" id="L316">				sb.append(ascs.getNature());</span>
+<span class="fc" id="L317">				sb.append(Constants.PIPE);</span>
+<span class="fc bfc" id="L318" title="All 2 branches covered.">				if (container.allowsStacking())</span>
+				{
+<span class="fc" id="L320">					sb.append(&quot;STACKS&quot;);</span>
+<span class="fc" id="L321">					Integer stackLimit = container.getStackLimit();</span>
+<span class="fc bfc" id="L322" title="All 2 branches covered.">					if (stackLimit != null)</span>
+					{
+<span class="pc bpc" id="L324" title="1 of 2 branches missed.">						if (stackLimit &lt;= 0)</span>
+						{
+<span class="nc" id="L326">							context.addWriteMessage(&quot;Stack Limit in &quot; + getFullName() + &quot; must be &gt; 0&quot;);</span>
+<span class="nc" id="L327">							return null;</span>
+						}
+<span class="fc" id="L329">						sb.append(Constants.EQUALS);</span>
+<span class="fc" id="L330">						sb.append(stackLimit.intValue());</span>
+					}
+<span class="fc" id="L332">					sb.append(Constants.COMMA);</span>
+				}
+<span class="fc" id="L334">				sb.append(cs.getLSTformat());</span>
+<span class="fc" id="L335">				addStrings.add(sb.toString());</span>
+			}
+<span class="fc" id="L337">		}</span>
+<span class="fc" id="L338">		return addStrings.toArray(new String[0]);</span>
+	}
+
+	@Override
+	public Class&lt;CDOMObject&gt; getTokenClass()
+	{
+<span class="fc" id="L344">		return CDOMObject.class;</span>
+	}
+
+	@Override
+	public void applyChoice(CDOMObject owner, CNAbilitySelection choice, PlayerCharacter pc)
+	{
+<span class="nc" id="L350">		CNAbility cna = choice.getCNAbility();</span>
+<span class="nc" id="L351">		Ability ab = cna.getAbility();</span>
+<span class="nc" id="L352">		AbilityCategory cat = (AbilityCategory) cna.getAbilityCategory();</span>
+<span class="nc" id="L353">		boolean isVirtual = Nature.VIRTUAL.equals(cna.getNature());</span>
+<span class="nc bnc" id="L354" title="All 2 branches missed.">		if (isVirtual)</span>
+		{
+<span class="nc" id="L356">			pc.addSavedAbility(choice, UserSelection.getInstance(), UserSelection.getInstance());</span>
+		}
+		else
+		{
+<span class="nc" id="L360">			pc.addAbility(choice, UserSelection.getInstance(), UserSelection.getInstance());</span>
+<span class="nc" id="L361">			pc.adjustAbilities(cat, ab.getSafe(ObjectKey.SELECTION_COST));</span>
+		}
+<span class="nc" id="L363">	}</span>
+
+	@Override
+	public boolean allow(CNAbilitySelection choice, PlayerCharacter pc, boolean allowStack)
+	{
+<span class="fc" id="L368">		CNAbility cna = choice.getCNAbility();</span>
+<span class="fc" id="L369">		Ability ability = cna.getAbility();</span>
+<span class="pc bpc" id="L370" title="1 of 2 branches missed.">		if (!ability.getSafe(ObjectKey.VISIBILITY).equals(Visibility.DEFAULT))</span>
+		{
+<span class="nc" id="L372">			return false;</span>
+		}
+<span class="fc" id="L374">		boolean isVirtual = Nature.VIRTUAL.equals(cna.getNature());</span>
+<span class="pc bpc" id="L375" title="1 of 4 branches missed.">		if (!isVirtual &amp;&amp; !ability.qualifies(pc, ability))</span>
+		{
+<span class="nc" id="L377">			return false;</span>
+		}
+<span class="fc" id="L379">		String selection = choice.getSelection();</span>
+		// Avoid any already selected
+<span class="fc bfc" id="L381" title="All 2 branches covered.">		return !AbilityUtilities.alreadySelected(pc, ability, selection, allowStack);</span>
+	}
+
+	@Override
+	public CNAbilitySelection decodeChoice(LoadContext context, String s)
+	{
+<span class="fc" id="L387">		return CNAbilitySelection.getAbilitySelectionFromPersistentFormat(context, s);</span>
+	}
+
+	@Override
+	public String encodeChoice(CNAbilitySelection choice)
+	{
+<span class="fc" id="L393">		return choice.getPersistentFormat();</span>
+	}
+
+	@Override
+	public void restoreChoice(PlayerCharacter pc, CDOMObject owner, CNAbilitySelection choice)
+	{
+<span class="nc" id="L399">	}</span>
+
+	@Override
+	public void removeChoice(PlayerCharacter pc, CDOMObject owner, CNAbilitySelection choice)
+	{
+<span class="nc" id="L404">		CNAbility cna = choice.getCNAbility();</span>
+<span class="nc" id="L405">		Ability ab = cna.getAbility();</span>
+<span class="nc" id="L406">		AbilityCategory cat = (AbilityCategory) cna.getAbilityCategory();</span>
+<span class="nc bnc" id="L407" title="All 2 branches missed.">		if (cna.getNature().equals(Nature.NORMAL))</span>
+		{
+<span class="nc" id="L409">			pc.adjustAbilities(cat, ab.getSafe(ObjectKey.SELECTION_COST).negate());</span>
+<span class="nc" id="L410">			pc.removeAbility(choice, UserSelection.getInstance(), UserSelection.getInstance());</span>
+		}
+		else
+		{
+<span class="nc" id="L414">			pc.removeSavedAbility(choice, UserSelection.getInstance(), UserSelection.getInstance());</span>
+		}
+<span class="nc" id="L416">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

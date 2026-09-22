@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>LoadContextFacet.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.facet</a> &gt; <span class="el_source">LoadContextFacet.java</span></div><h1>LoadContextFacet.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) Thomas Parker, 2018.
+ * 
+ * This program is free software; you can redistribute it and/or modify it under the terms
+ * of the GNU Lesser General Public License as published by the Free Software Foundation;
+ * either version 2.1 of the License, or (at your option) any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT ANY
+ * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+ * PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License along with
+ * this library; if not, write to the Free Software Foundation, Inc., 51 Franklin Street,
+ * Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package pcgen.cdom.facet;
+
+import java.lang.ref.WeakReference;
+import java.util.Objects;
+
+import pcgen.cdom.base.DataSetInitializedFacet;
+import pcgen.cdom.enumeration.DataSetID;
+import pcgen.cdom.facet.base.AbstractItemFacet;
+import pcgen.output.factory.GlobalVarModelFactory;
+import pcgen.output.publish.OutputDB;
+import pcgen.rules.context.LoadContext;
+
+/**
+ * This stores the LoadContext for each Data Load (DataSetID).
+ */
+<span class="fc" id="L31">public class LoadContextFacet extends AbstractItemFacet&lt;DataSetID, WeakReference&lt;LoadContext&gt;&gt;</span>
+		implements DataSetInitializedFacet
+{
+
+	private DataSetInitializationFacet datasetInitializationFacet;
+
+	@Override
+	public synchronized void initialize(LoadContext context)
+	{
+<span class="fc" id="L40">		set(context.getDataSetID(), new WeakReference&lt;&gt;(context));</span>
+<span class="fc" id="L41">	}</span>
+
+	/**
+	 * Returns the LoadContext for the given DataSetID, centralising the
+	 * WeakReference unwrap that is otherwise repeated at every call site.
+	 *
+	 * &lt;p&gt;The LoadContext is registered during data load (see
+	 * {@link #initialize(LoadContext)}) and the post-init invariant of this
+	 * facet is that it is always present, so a missing value indicates a
+	 * programming error rather than a recoverable condition.&lt;/p&gt;
+	 */
+	public LoadContext getLoadContext(DataSetID dsID)
+	{
+<span class="fc" id="L54">		WeakReference&lt;LoadContext&gt; ref = Objects.requireNonNull(get(dsID),</span>
+<span class="nc" id="L55">			() -&gt; &quot;No LoadContext registered for DataSetID &quot; + dsID);</span>
+<span class="fc" id="L56">		return Objects.requireNonNull(ref.get(),</span>
+<span class="nc" id="L57">			() -&gt; &quot;LoadContext for DataSetID &quot; + dsID + &quot; has been garbage-collected&quot;);</span>
+	}
+
+	/**
+	 * Initialize (register this facet as a DataSet initialized facet)
+	 */
+	public void init()
+	{
+<span class="fc" id="L65">		datasetInitializationFacet.addDataSetInitializedFacet(this);</span>
+<span class="fc" id="L66">		OutputDB.registerModelFactory(&quot;val&quot;, new GlobalVarModelFactory());</span>
+<span class="fc" id="L67">	}</span>
+
+	public void setDataSetInitializationFacet(DataSetInitializationFacet datasetInitializationFacet)
+	{
+<span class="fc" id="L71">		this.datasetInitializationFacet = datasetInitializationFacet;</span>
+<span class="fc" id="L72">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

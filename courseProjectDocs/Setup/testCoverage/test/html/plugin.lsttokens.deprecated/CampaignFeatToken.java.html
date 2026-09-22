@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CampaignFeatToken.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.lsttokens.deprecated</a> &gt; <span class="el_source">CampaignFeatToken.java</span></div><h1>CampaignFeatToken.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2008 (C) Thomas Parker &lt;thpr@users.sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package plugin.lsttokens.deprecated;
+
+import java.util.Collection;
+import java.util.Set;
+import java.util.TreeSet;
+
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.core.Campaign;
+import pcgen.persistence.lst.CampaignSourceEntry;
+import pcgen.rules.context.Changes;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.ParseResult;
+import pcgen.util.Logging;
+
+/**
+ * Class deals with FEAT Token
+ */
+<span class="nc" id="L37">public class CampaignFeatToken extends AbstractTokenWithSeparator&lt;Campaign&gt; implements CDOMPrimaryToken&lt;Campaign&gt;</span>
+{
+
+	@Override
+	public String getTokenName()
+	{
+<span class="nc" id="L43">		return &quot;FEAT&quot;;</span>
+	}
+
+	@Override
+	protected char separator()
+	{
+<span class="nc" id="L49">		return '|';</span>
+	}
+
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context, Campaign campaign, String value)
+	{
+<span class="nc" id="L55">		Logging</span>
+<span class="nc" id="L56">			.deprecationPrint(&quot;FEAT has been deprecated, use ABILITY: &quot; + &quot;and put CATEGORY: entries in the LST file&quot;);</span>
+<span class="nc" id="L57">		CampaignSourceEntry cse = context.getCampaignSourceEntry(campaign, value);</span>
+<span class="nc bnc" id="L58" title="All 2 branches missed.">		if (cse == null)</span>
+		{
+			//Error
+<span class="nc" id="L61">			return ParseResult.INTERNAL_ERROR;</span>
+		}
+<span class="nc" id="L63">		context.getObjectContext().addToList(campaign, ListKey.FILE_FEAT, cse);</span>
+<span class="nc" id="L64">		return ParseResult.SUCCESS;</span>
+	}
+
+	@Override
+	public String[] unparse(LoadContext context, Campaign campaign)
+	{
+<span class="nc" id="L70">		Changes&lt;CampaignSourceEntry&gt; cseChanges =</span>
+<span class="nc" id="L71">				context.getObjectContext().getListChanges(campaign, ListKey.FILE_FEAT);</span>
+<span class="nc" id="L72">		Collection&lt;CampaignSourceEntry&gt; added = cseChanges.getAdded();</span>
+<span class="nc bnc" id="L73" title="All 2 branches missed.">		if (added == null)</span>
+		{
+			//empty indicates no token
+<span class="nc" id="L76">			return null;</span>
+		}
+<span class="nc" id="L78">		Set&lt;String&gt; set = new TreeSet&lt;&gt;();</span>
+<span class="nc bnc" id="L79" title="All 2 branches missed.">		for (CampaignSourceEntry cse : added)</span>
+		{
+<span class="nc" id="L81">			set.add(cse.getLSTformat());</span>
+<span class="nc" id="L82">		}</span>
+<span class="nc" id="L83">		return set.toArray(new String[0]);</span>
+	}
+
+	@Override
+	public Class&lt;Campaign&gt; getTokenClass()
+	{
+<span class="nc" id="L89">		return Campaign.class;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

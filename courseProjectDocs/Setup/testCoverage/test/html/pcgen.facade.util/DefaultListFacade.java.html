@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DefaultListFacade.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.facade.util</a> &gt; <span class="el_source">DefaultListFacade.java</span></div><h1>DefaultListFacade.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2010 Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ * 
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ * 
+ */
+package pcgen.facade.util;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
+
+public class DefaultListFacade&lt;E&gt; extends AbstractListFacade&lt;E&gt;
+		implements WriteableListFacade&lt;E&gt;
+{
+
+	private final ArrayList&lt;E&gt; elementList;
+
+	public DefaultListFacade()
+<span class="nc" id="L34">	{</span>
+<span class="nc" id="L35">		elementList = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L36">	}</span>
+
+	public DefaultListFacade(Collection&lt;? extends E&gt; elements)
+<span class="nc" id="L39">	{</span>
+<span class="nc" id="L40">		elementList = new ArrayList&lt;&gt;(elements);</span>
+<span class="nc" id="L41">	}</span>
+
+	@Override
+	public Iterator&lt;E&gt; iterator()
+	{
+<span class="nc" id="L46">		return new Iterator&lt;&gt;()</span>
+<span class="nc" id="L47">		{</span>
+
+<span class="nc" id="L49">			private final ListIterator&lt;E&gt; iterator = elementList.listIterator();</span>
+			private int index;
+
+			@Override
+			public boolean hasNext()
+			{
+<span class="nc" id="L55">				return iterator.hasNext();</span>
+			}
+
+			@Override
+			public E next()
+			{
+<span class="nc" id="L61">				index = iterator.nextIndex();</span>
+<span class="nc" id="L62">				return iterator.next();</span>
+			}
+
+			@Override
+			public void remove()
+			{
+<span class="nc" id="L68">				E element = getElementAt(index);</span>
+<span class="nc" id="L69">				iterator.remove();</span>
+<span class="nc" id="L70">				fireElementRemoved(this, element, index);</span>
+<span class="nc" id="L71">			}</span>
+
+		};
+	}
+
+	@Override
+	public E getElementAt(int index)
+	{
+<span class="nc" id="L79">		return elementList.get(index);</span>
+	}
+
+	@Override
+	public int getSize()
+	{
+<span class="nc" id="L85">		return elementList.size();</span>
+	}
+
+	@Override
+	public boolean containsElement(E element)
+	{
+<span class="nc" id="L91">		return elementList.contains(element);</span>
+	}
+
+	public int getIndexOfElement(E element)
+	{
+<span class="nc" id="L96">		return elementList.indexOf(element);</span>
+	}
+
+	@Override
+	public void addElement(E element)
+	{
+<span class="nc" id="L102">		addElement(elementList.size(), element);</span>
+<span class="nc" id="L103">	}</span>
+
+	@Override
+	public void addElement(int index, E element)
+	{
+<span class="nc" id="L108">		elementList.add(index, element);</span>
+<span class="nc" id="L109">		fireElementAdded(this, element, index);</span>
+<span class="nc" id="L110">	}</span>
+
+	@Override
+	public boolean removeElement(E element)
+	{
+<span class="nc" id="L115">		int index = elementList.indexOf(element);</span>
+<span class="nc bnc" id="L116" title="All 2 branches missed.">		if (elementList.remove(element))</span>
+		{
+<span class="nc" id="L118">			fireElementRemoved(this, element, index);</span>
+<span class="nc" id="L119">			return true;</span>
+		}
+<span class="nc" id="L121">		return false;</span>
+	}
+
+	@Override
+	public void removeElement(int index)
+	{
+<span class="nc" id="L127">		fireElementRemoved(this, elementList.remove(index), index);</span>
+<span class="nc" id="L128">	}</span>
+
+	/**
+	 * Signal that an element in the list has been modified in some way that
+	 * subscribers to the list need to know about. This will advise all 
+	 * capable subscribers to the list of the change. 
+	 * @param element The element that has been modified.
+	 */
+	public void modifyElement(E element)
+	{
+<span class="nc" id="L138">		int index = getIndexOfElement(element);</span>
+<span class="nc bnc" id="L139" title="All 2 branches missed.">		if (index &gt;= 0)</span>
+		{
+<span class="nc" id="L141">			fireElementModified(this, element, index);</span>
+		}
+<span class="nc" id="L143">	}</span>
+
+	public void setContents(Collection&lt;? extends E&gt; elements)
+	{
+<span class="nc" id="L147">		elementList.clear();</span>
+<span class="nc" id="L148">		elementList.addAll(elements);</span>
+<span class="nc" id="L149">		fireElementsChanged(this);</span>
+<span class="nc" id="L150">	}</span>
+
+	public void clearContents()
+	{
+<span class="nc bnc" id="L154" title="All 2 branches missed.">		if (!isEmpty())</span>
+		{
+<span class="nc" id="L156">			elementList.clear();</span>
+<span class="nc" id="L157">			fireElementsChanged(this);</span>
+		}
+<span class="nc" id="L159">	}</span>
+
+	/**
+	 * Makes the contents of this list match the provided list. This is done by making 
+	 * individual add and remove of the elements of this list to make it match. The 
+	 * lists must sorted in the same order for this method to be efficient. A fall back 
+	 * to setContents is made if the current list is empty or there are large size 
+	 * differences.   
+	 * @param newElements The new contents of the list.
+	 */
+	public void updateContents(List&lt;? extends E&gt; newElements)
+	{
+<span class="nc" id="L171">		final int maxUpdateSize = 20;</span>
+<span class="nc bnc" id="L172" title="All 6 branches missed.">		if (isEmpty() || newElements.isEmpty() || Math.abs(getSize() - newElements.size()) &gt; maxUpdateSize)</span>
+		{
+<span class="nc" id="L174">			setContents(newElements);</span>
+<span class="nc" id="L175">			return;</span>
+		}
+
+		// Scan for items that need to be removed
+<span class="nc" id="L179">		int currPos = 0;</span>
+<span class="nc bnc" id="L180" title="All 2 branches missed.">		for (Iterator&lt;E&gt; iterator = elementList.iterator(); iterator.hasNext();)</span>
+		{
+<span class="nc" id="L182">			E e = iterator.next();</span>
+<span class="nc" id="L183">			int index = currPos;</span>
+<span class="nc" id="L184">			boolean found = false;</span>
+<span class="nc bnc" id="L185" title="All 2 branches missed.">			while (index &lt; newElements.size())</span>
+			{
+<span class="nc bnc" id="L187" title="All 2 branches missed.">				if (e.equals(newElements.get(index)))</span>
+				{
+<span class="nc" id="L189">					currPos = index + 1;</span>
+<span class="nc" id="L190">					found = true;</span>
+<span class="nc" id="L191">					break;</span>
+				}
+<span class="nc" id="L193">				index++;</span>
+			}
+<span class="nc bnc" id="L195" title="All 2 branches missed.">			if (!found)</span>
+			{
+<span class="nc" id="L197">				int loc = elementList.indexOf(e);</span>
+<span class="nc" id="L198">				iterator.remove();</span>
+<span class="nc" id="L199">				fireElementRemoved(this, e, loc);</span>
+			}
+<span class="nc" id="L201">		}</span>
+<span class="nc" id="L202">		currPos = 0;</span>
+<span class="nc bnc" id="L203" title="All 2 branches missed.">		for (E e : newElements)</span>
+		{
+<span class="nc bnc" id="L205" title="All 4 branches missed.">			if (elementList.size() &lt;= currPos || !e.equals(elementList.get(currPos)))</span>
+			{
+<span class="nc" id="L207">				addElement(currPos, e);</span>
+			}
+<span class="nc" id="L209">			currPos++;</span>
+<span class="nc" id="L210">		}</span>
+<span class="nc" id="L211">	}</span>
+
+	/**
+	 * Makes the contents of this list match the provided list apart from element 
+	 * ordering. This is done by making individual add and remove of the 
+	 * elements of this list to make it match. The lists need not be sorted in 
+	 * the same order for this method to be efficient. A fall back to setContents 
+	 * is made if the current list is empty or there are large size differences.   
+	 * @param newElements The new contents of the list.
+	 */
+	public void updateContentsNoOrder(List&lt;? extends E&gt; newElements)
+	{
+<span class="nc" id="L223">		final int maxUpdateSize = 20;</span>
+<span class="nc bnc" id="L224" title="All 6 branches missed.">		if (isEmpty() || newElements.isEmpty() || Math.abs(getSize() - newElements.size()) &gt; maxUpdateSize)</span>
+		{
+<span class="nc" id="L226">			setContents(newElements);</span>
+<span class="nc" id="L227">			return;</span>
+		}
+
+<span class="nc bnc" id="L230" title="All 2 branches missed.">		for (E elem : newElements)</span>
+		{
+<span class="nc bnc" id="L232" title="All 2 branches missed.">			if (!containsElement(elem))</span>
+			{
+<span class="nc" id="L234">				addElement(elem);</span>
+			}
+<span class="nc" id="L236">		}</span>
+
+<span class="nc bnc" id="L238" title="All 2 branches missed.">		for (Iterator&lt;E&gt; iterator = elementList.iterator(); iterator.hasNext();)</span>
+		{
+<span class="nc" id="L240">			E e = iterator.next();</span>
+<span class="nc bnc" id="L241" title="All 2 branches missed.">			if (!newElements.contains(e))</span>
+			{
+<span class="nc" id="L243">				int index = elementList.indexOf(e);</span>
+<span class="nc" id="L244">				iterator.remove();</span>
+<span class="nc" id="L245">				fireElementRemoved(this, e, index);</span>
+			}
+<span class="nc" id="L247">		}</span>
+<span class="nc" id="L248">	}</span>
+
+	/**
+	 * @return A copy of the contents of the list.
+	 */
+	public List&lt;E&gt; getContents()
+	{
+<span class="nc" id="L255">		return new ArrayList&lt;&gt;(elementList);</span>
+	}
+
+	@Override
+	public String toString()
+	{
+<span class="nc" id="L261">		return String.valueOf(elementList);</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

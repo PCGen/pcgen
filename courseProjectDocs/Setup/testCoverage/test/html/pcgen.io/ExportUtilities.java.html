@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ExportUtilities.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.io</a> &gt; <span class="el_source">ExportUtilities.java</span></div><h1>ExportUtilities.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2013 (C) James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ *
+ */
+package pcgen.io;
+
+import java.io.File;
+import java.io.FilenameFilter;
+import java.io.IOException;
+import java.net.URI;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
+
+import freemarker.template.Configuration;
+import pcgen.cdom.base.Constants;
+import pcgen.core.SettingsHandler;
+import pcgen.facade.core.CharacterFacade;
+import pcgen.gui2.UIPropertyContext;
+import pcgen.system.ConfigurationSettings;
+import pcgen.util.Logging;
+
+import freemarker.template.DefaultObjectWrapperBuilder;
+import freemarker.template.ObjectWrapper;
+import freemarker.template.Version;
+import javafx.stage.FileChooser;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.SystemUtils;
+
+/**
+ * ExportUtilities is a collection of useful tools for exporting characters.
+ *
+ */
+public final class ExportUtilities
+{
+	public static final String PDF_EXPORT_DIR_PROP = &quot;pdfExportDir&quot;;
+	public static final String HTML_EXPORT_DIR_PROP = &quot;htmlExportDir&quot;;
+
+	/**
+	 * This class should not be constructed.
+	 */
+	private ExportUtilities()
+	{
+	}
+
+	/**
+	 * Retrieve the extension that should be used for the output file. This is base don the template name.
+	 * @param templateFilename The filename of the export template.
+	 * @param isPdf Is this an export to a PDF file?
+	 * @return The output filename extension.
+	 */
+	public static String getOutputExtension(String templateFilename, boolean isPdf)
+	{
+<span class="fc bfc" id="L74" title="All 2 branches covered.">		if (isPdf)</span>
+		{
+<span class="fc" id="L76">			return &quot;pdf&quot;;</span>
+		}
+
+<span class="fc bfc" id="L79" title="All 2 branches covered.">		if (templateFilename.endsWith(&quot;.ftl&quot;))</span>
+		{
+<span class="fc" id="L81">			templateFilename = templateFilename.substring(0, templateFilename.length() - 4);</span>
+		}
+<span class="fc" id="L83">		String extension = StringUtils.substringAfterLast(templateFilename, &quot;.&quot;);</span>
+<span class="fc bfc" id="L84" title="All 2 branches covered.">		if (StringUtils.isEmpty(extension))</span>
+		{
+<span class="fc" id="L86">			extension = StringUtils.substringAfterLast(templateFilename, &quot;-&quot;);</span>
+		}
+
+<span class="fc" id="L89">		return extension;</span>
+	}
+
+	/**
+	 * Identify if this template will result in a pdf file.
+	 * @param templateFile The output template.
+	 * @return true if this is a pdf template.
+	 */
+	public static boolean isPdfTemplate(File templateFile)
+	{
+<span class="fc" id="L99">		return isPdfTemplate(templateFile.getName());</span>
+	}
+
+	/**
+	 * Identify if this template will result in a pdf file.
+	 * @param templateFilename The name of the output template.
+	 * @return true if this is a pdf template.
+	 */
+	public static boolean isPdfTemplate(String templateFilename)
+	{
+<span class="fc" id="L109">		String extension = getOutputExtension(templateFilename, false);</span>
+<span class="fc bfc" id="L110" title="All 4 branches covered.">		return (extension.equalsIgnoreCase(&quot;pdf&quot;) || extension.equalsIgnoreCase(&quot;fo&quot;)</span>
+<span class="fc bfc" id="L111" title="All 4 branches covered.">			|| extension.equalsIgnoreCase(&quot;xslt&quot;) || extension.equalsIgnoreCase(&quot;xsl&quot;));</span>
+	}
+
+	/**
+	 * Returns an ObjectWrapper out of the latest version of Freemarker for pcgen
+	 */
+	public static ObjectWrapper getObjectWrapper()
+	{
+<span class="fc" id="L119">		DefaultObjectWrapperBuilder defaultObjectWrapperBuilder = new DefaultObjectWrapperBuilder(</span>
+<span class="fc" id="L120">				new Version(Configuration.getVersion().toString()));</span>
+<span class="fc" id="L121">		return defaultObjectWrapperBuilder.build();</span>
+	}
+
+	public static File templateToAbsoluteTemplate(String sheetFilterPath, URI relativeURI)
+	{
+		File osDir;
+<span class="nc" id="L127">		String outputSheetDirectory = SettingsHandler.getGameAsProperty().get().getOutputSheetDirectory();</span>
+<span class="nc bnc" id="L128" title="All 2 branches missed.">		if (outputSheetDirectory == null)</span>
+		{
+<span class="nc" id="L130">			osDir = new File(ConfigurationSettings.getOutputSheetsDir());</span>
+		}
+		else
+		{
+<span class="nc" id="L134">			osDir = new File(ConfigurationSettings.getOutputSheetsDir(), outputSheetDirectory);</span>
+		}
+<span class="nc" id="L136">		URI osPath = new File(osDir, sheetFilterPath).toURI();</span>
+<span class="nc" id="L137">		return new File(osPath.resolve(relativeURI));</span>
+	}
+
+	public static URI[] getValidFiles(Collection&lt;File&gt; myAllTemplates, SheetFilter sheetFilter, boolean doPartyExport)
+	{
+		String outputSheetsDir;
+<span class="nc" id="L143">		String outputSheetDirectory = SettingsHandler.getGameAsProperty().get().getOutputSheetDirectory();</span>
+<span class="nc bnc" id="L144" title="All 2 branches missed.">		if (outputSheetDirectory == null)</span>
+		{
+<span class="nc" id="L146">			outputSheetsDir = ConfigurationSettings.getOutputSheetsDir() + '/' + sheetFilter.getPath();</span>
+		}
+		else
+		{
+<span class="nc" id="L150">			outputSheetsDir = ConfigurationSettings.getOutputSheetsDir() + '/' + outputSheetDirectory + '/'</span>
+<span class="nc" id="L151">					+ sheetFilter.getPath();</span>
+		}
+
+<span class="nc bnc" id="L154" title="All 2 branches missed.">		String prefix = doPartyExport ? Constants.PARTY_TEMPLATE_PREFIX : Constants.CHARACTER_TEMPLATE_PREFIX;</span>
+<span class="nc bnc" id="L155" title="All 2 branches missed.">		Predicate&lt;File&gt; filter = f -&gt; f.getName().startsWith(prefix)</span>
+<span class="nc bnc" id="L156" title="All 2 branches missed.">				&amp;&amp; sheetFilter.accept(f.getParentFile(), f.getName());</span>
+
+<span class="nc" id="L158">		List&lt;File&gt; files = myAllTemplates.stream()</span>
+<span class="nc" id="L159">		                                 .filter(filter)</span>
+<span class="nc" id="L160">		                                 .sorted()</span>
+<span class="nc" id="L161">		                                 .collect(Collectors.toList());</span>
+<span class="nc" id="L162">		URI osPath = new File(outputSheetsDir).toURI();</span>
+<span class="nc" id="L163">		URI[] uriList = new URI[files.size()];</span>
+<span class="nc" id="L164">		Arrays.setAll(uriList, i -&gt; osPath.relativize(files.get(i).toURI()));</span>
+<span class="nc" id="L165">		return uriList;</span>
+	}
+
+	public static List&lt;File&gt; getAllTemplates()
+	{
+		try
+		{
+			File dir;
+<span class="nc" id="L173">			String outputSheetDirectory = SettingsHandler.getGameAsProperty().get().getOutputSheetDirectory();</span>
+<span class="nc bnc" id="L174" title="All 2 branches missed.">			if (outputSheetDirectory == null)</span>
+			{
+<span class="nc" id="L176">				Logging.errorPrint(&quot;OUTPUTSHEET|DIRECTORY not defined for game mode &quot; + SettingsHandler.getGameAsProperty().get());</span>
+<span class="nc" id="L177">				dir = new File(ConfigurationSettings.getOutputSheetsDir());</span>
+			}
+			else
+			{
+<span class="nc" id="L181">				dir = new File(ConfigurationSettings.getOutputSheetsDir(), outputSheetDirectory);</span>
+<span class="nc bnc" id="L182" title="All 2 branches missed.">				if (!dir.isDirectory())</span>
+				{
+<span class="nc" id="L184">					Logging.errorPrint(</span>
+<span class="nc" id="L185">							&quot;Unable to find game mode outputsheets at &quot; + dir.getCanonicalPath() + &quot;. Trying base.&quot;);</span>
+<span class="nc" id="L186">					dir = new File(ConfigurationSettings.getOutputSheetsDir());</span>
+				}
+			}
+<span class="nc bnc" id="L189" title="All 2 branches missed.">			if (!dir.isDirectory())</span>
+			{
+<span class="nc" id="L191">				Logging.errorPrint(&quot;Unable to find outputsheets folder at &quot; + dir.getCanonicalPath() + '.');</span>
+<span class="nc" id="L192">				return Collections.emptyList();</span>
+			}
+<span class="nc" id="L194">			return Files.walk(dir.toPath())</span>
+<span class="nc bnc" id="L195" title="All 2 branches missed.">			            .filter(f -&gt; !f.endsWith(&quot;.fo&quot;))</span>
+<span class="nc" id="L196">			            .map(Path::toFile)</span>
+<span class="nc" id="L197">			            .collect(Collectors.toList());</span>
+		}
+<span class="nc" id="L199">		catch (IOException e)</span>
+		{
+<span class="nc" id="L201">			Logging.errorPrint(&quot;failed to find templates&quot;, e);</span>
+<span class="nc" id="L202">			return Collections.emptyList();</span>
+		}
+	}
+
+	public static FileChooser.ExtensionFilter getExtensionFilter(boolean pdf, String extension)
+	{
+<span class="nc bnc" id="L208" title="All 2 branches missed.">		if (pdf)</span>
+		{
+<span class="nc" id="L210">			return new FileChooser.ExtensionFilter(&quot;PDF Documents&quot;, &quot;*.pdf&quot;);</span>
+		}
+<span class="nc bnc" id="L212" title="All 4 branches missed.">		else if (&quot;htm&quot;.equalsIgnoreCase(extension) || &quot;html&quot;.equalsIgnoreCase(extension))</span>
+		{
+<span class="nc" id="L214">			return new FileChooser.ExtensionFilter(&quot;HTML Documents&quot;, &quot;*.html&quot;, &quot;*.htm&quot;);</span>
+		}
+<span class="nc bnc" id="L216" title="All 2 branches missed.">		else if (&quot;xml&quot;.equalsIgnoreCase(extension))</span>
+		{
+<span class="nc" id="L218">			return new FileChooser.ExtensionFilter(&quot;XML Documents&quot;, &quot;*.xml&quot;);</span>
+		}
+		else
+		{
+<span class="nc" id="L222">			String desc = extension + &quot; Files (*.&quot; + extension + ')';</span>
+<span class="nc" id="L223">			return new FileChooser.ExtensionFilter(desc, &quot;*.&quot; + extension);</span>
+		}
+	}
+
+	public static URI getDefaultSheet(SheetFilter sheetFilter, CharacterFacade character)
+	{
+		String outputSheetsDir;
+<span class="nc" id="L230">		String outputSheetDirectory = SettingsHandler.getGameAsProperty().get().getOutputSheetDirectory();</span>
+<span class="nc bnc" id="L231" title="All 2 branches missed.">		if (outputSheetDirectory == null)</span>
+		{
+<span class="nc" id="L233">			outputSheetsDir = ConfigurationSettings.getOutputSheetsDir() + '/' + sheetFilter.getPath();</span>
+		}
+		else
+		{
+<span class="nc" id="L237">			outputSheetsDir = ConfigurationSettings.getOutputSheetsDir() + '/' + outputSheetDirectory + '/'</span>
+<span class="nc" id="L238">					+ sheetFilter.getPath();</span>
+		}
+<span class="nc bnc" id="L240" title="All 2 branches missed.">		String defaultOutputSheet = character.getDefaultOutputSheet(sheetFilter == SheetFilter.PDF);</span>
+<span class="nc bnc" id="L241" title="All 2 branches missed.">		if (StringUtils.isEmpty(defaultOutputSheet))</span>
+		{
+<span class="nc" id="L243">			defaultOutputSheet = outputSheetsDir + '/'</span>
+<span class="nc" id="L244">					+ SettingsHandler.getGameAsProperty().get().getOutputSheetDefault(sheetFilter.getTag());</span>
+		}
+<span class="nc" id="L246">		URI osPath = new File(outputSheetsDir).toURI();</span>
+<span class="nc" id="L247">		return osPath.relativize(new File(defaultOutputSheet).toURI());</span>
+	}
+
+	public static File getExportDialogBaseDir(boolean pdf)
+	{
+<span class="nc" id="L252">		UIPropertyContext context = UIPropertyContext.createContext(&quot;ExportDialog&quot;);</span>
+
+		String path;
+<span class="nc bnc" id="L255" title="All 2 branches missed.">		if (pdf)</span>
+		{
+<span class="nc" id="L257">			path = context.getProperty(PDF_EXPORT_DIR_PROP);</span>
+		}
+		else
+		{
+<span class="nc" id="L261">			path = context.getProperty(HTML_EXPORT_DIR_PROP);</span>
+		}
+<span class="nc bnc" id="L263" title="All 2 branches missed.">		if (path != null)</span>
+		{
+<span class="nc" id="L265">			File baseDir = new File(path);</span>
+<span class="nc bnc" id="L266" title="All 2 branches missed.">			if (!baseDir.isDirectory())</span>
+			{
+<span class="nc" id="L268">				return SystemUtils.getUserHome();</span>
+			}
+<span class="nc" id="L270">			return baseDir;</span>
+		}
+<span class="nc" id="L272">		return SystemUtils.getUserHome();</span>
+	}
+
+<span class="nc" id="L275">	public enum SheetFilter implements FilenameFilter</span>
+	{
+
+<span class="nc" id="L278">		HTMLXML(&quot;htmlxml&quot;, &quot;Standard&quot;, &quot;HTM&quot;),</span>
+<span class="nc" id="L279">		PDF(&quot;pdf&quot;, &quot;PDF&quot;, &quot;PDF&quot;),</span>
+<span class="nc" id="L280">		TEXT(&quot;text&quot;, &quot;Text&quot;, &quot;TXT&quot;);</span>
+		private final String dirFilter;
+		private final String description;
+		private final String tag;
+
+		private SheetFilter(String dirFilter, String description, String tag)
+<span class="nc" id="L286">		{</span>
+<span class="nc" id="L287">			this.dirFilter = dirFilter;</span>
+<span class="nc" id="L288">			this.description = description;</span>
+<span class="nc" id="L289">			this.tag = tag;</span>
+<span class="nc" id="L290">		}</span>
+
+		public String getPath()
+		{
+<span class="nc" id="L294">			return dirFilter;</span>
+		}
+
+		@Override
+		public String toString()
+		{
+<span class="nc" id="L300">			return description;</span>
+		}
+
+		public String getTag()
+		{
+<span class="nc" id="L305">			return tag;</span>
+		}
+
+		@Override
+		public boolean accept(File dir, String name)
+		{
+<span class="nc bnc" id="L311" title="All 4 branches missed.">			return dir.getName().equalsIgnoreCase(dirFilter) &amp;&amp; !name.endsWith(&quot;~&quot;);</span>
+		}
+
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

@@ -1,0 +1,529 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AbstractListFacet.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.facet.base</a> &gt; <span class="el_source">AbstractListFacet.java</span></div><h1>AbstractListFacet.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) Thomas Parker, 2009.
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package pcgen.cdom.facet.base;
+
+import java.util.Collection;
+import java.util.Collections;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Objects;
+
+import pcgen.cdom.base.PCGenIdentifier;
+import pcgen.cdom.facet.event.DataFacetChangeEvent;
+
+/**
+ * A AbstractListFacet is a DataFacet that contains information about Objects
+ * that are contained in a Player Character when a Player Character may have
+ * more than one of that type of Object (e.g. Language, PCTemplate). This is not
+ * used for Objects where the Player Character only possesses one of that type
+ * of object (e.g. Race, Deity)
+ *
+ * This class is also used when the source of the Objects in a Player Character
+ * do not need to be tracked. If the source needs to be tracked, then
+ * AbstractSourcedListFacet should be used.
+ *
+ * null is not a valid object to be stored.
+ *
+ * @param &lt;IDT&gt;
+ *            The Type of identifier used in this AbstractListFacet
+ * @param &lt;T&gt;
+ *            The Type of object stored in this AbstractListFacet
+ */
+<span class="fc" id="L47">public abstract class AbstractListFacet&lt;IDT extends PCGenIdentifier, T&gt; extends AbstractDataFacet&lt;IDT, T&gt;</span>
+{
+	/**
+	 * Add the given object to the list of objects stored in this
+	 * AbstractListFacet for the Player Character represented by the given
+	 * PCGenIdentifier
+	 *
+	 * @param id
+	 *            The PCGenIdentifier representing the Player Character for
+	 *            which the given item should be added
+	 * @param obj
+	 *            The object to be added to the list of objects stored in this
+	 *            AbstractListFacet for the Player Character represented by the
+	 *            given PCGenIdentifier
+	 * @return true if the object was added; false otherwise
+	 */
+	public boolean add(IDT id, T obj)
+	{
+<span class="fc" id="L65">		Objects.requireNonNull(obj, &quot;Object to add may not be null&quot;);</span>
+
+<span class="fc bfc" id="L67" title="All 2 branches covered.">		if (getConstructingCachedSet(id).add(obj))</span>
+		{
+<span class="fc" id="L69">			fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_ADDED);</span>
+<span class="fc" id="L70">			return true;</span>
+		}
+		else
+		{
+<span class="fc" id="L74">			return false;</span>
+		}
+	}
+
+	/**
+	 * Adds all of the objects in the given Collection to the list of objects
+	 * stored in this AbstractListFacet for the Player Character represented by
+	 * the given PCGenIdentifier
+	 *
+	 * @param id
+	 *            The PCGenIdentifier representing the Player Character for
+	 *            which the given items should be added
+	 * @param c
+	 *            The Collection of objects to be added to the list of objects
+	 *            stored in this AbstractListFacet for the Player Character
+	 *            represented by the given PCGenIdentifier
+	 * @throws NullPointerException
+	 *             if the given Collection is null
+	 */
+	public void addAll(IDT id, Collection&lt;T&gt; c)
+	{
+<span class="fc bfc" id="L95" title="All 2 branches covered.">		if (c.isEmpty())</span>
+		{
+<span class="fc" id="L97">			return;</span>
+		}
+<span class="fc" id="L99">		Collection&lt;T&gt; set = getConstructingCachedSet(id);</span>
+<span class="fc bfc" id="L100" title="All 2 branches covered.">		for (T obj : c)</span>
+		{
+<span class="fc" id="L102">			Objects.requireNonNull(obj, &quot;Object to add may not be null&quot;);</span>
+<span class="fc bfc" id="L103" title="All 2 branches covered.">			if (set.add(obj))</span>
+			{
+<span class="fc" id="L105">				fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_ADDED);</span>
+			}
+<span class="fc" id="L107">		}</span>
+<span class="fc" id="L108">	}</span>
+
+	/**
+	 * Removes the given object from the list of objects stored in this
+	 * AbstractListFacet for the Player Character represented by the given
+	 * PCGenIdentifier
+	 *
+	 * @param id
+	 *            The PCGenIdentifier representing the Player Character from
+	 *            which the given item should be removed
+	 * @param obj
+	 *            The object to be removed from the list of objects stored in
+	 *            this AbstractListFacet for the Player Character represented by
+	 *            the given PCGenIdentifier
+	 * @return true if an element was removed as a result of this call; false
+	 *         otherwise
+	 */
+	public boolean remove(IDT id, T obj)
+	{
+<span class="fc" id="L127">		Objects.requireNonNull(obj, &quot;Object to add may not be null&quot;);</span>
+<span class="fc" id="L128">		Collection&lt;T&gt; componentSet = getCachedSet(id);</span>
+<span class="fc bfc" id="L129" title="All 2 branches covered.">		if (componentSet != null)</span>
+		{
+<span class="fc bfc" id="L131" title="All 2 branches covered.">			if (componentSet.remove(obj))</span>
+			{
+<span class="fc" id="L133">				fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_REMOVED);</span>
+<span class="fc bfc" id="L134" title="All 2 branches covered.">				if (componentSet.isEmpty())</span>
+				{
+<span class="fc" id="L136">					removeCache(id);</span>
+				}
+
+<span class="fc" id="L139">				return true;</span>
+			}
+		}
+
+<span class="fc" id="L143">		return false;</span>
+	}
+
+	/**
+	 * Removes all of the objects in the given Collection from the list of
+	 * objects stored in this AbstractListFacet for the Player Character
+	 * represented by the given PCGenIdentifier
+	 *
+	 * @param id
+	 *            The PCGenIdentifier representing the Player Character from
+	 *            which the given items should be removed
+	 * @param c
+	 *            The Collection of objects to be removed from the list of
+	 *            objects stored in this AbstractListFacet for the Player
+	 *            Character represented by the given PCGenIdentifier
+	 * @throws NullPointerException
+	 *             if the given Collection is null
+	 */
+	public void removeAll(IDT id, Collection&lt;T&gt; c)
+	{
+<span class="fc" id="L163">		Collection&lt;T&gt; componentSet = getCachedSet(id);</span>
+<span class="fc bfc" id="L164" title="All 2 branches covered.">		if (componentSet != null)</span>
+		{
+<span class="fc bfc" id="L166" title="All 2 branches covered.">			for (T obj : c)</span>
+			{
+<span class="fc" id="L168">				Objects.requireNonNull(obj, &quot;Object to add may not be null&quot;);</span>
+<span class="fc bfc" id="L169" title="All 2 branches covered.">				if (componentSet.remove(obj))</span>
+				{
+<span class="fc" id="L171">					fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_REMOVED);</span>
+				}
+<span class="fc" id="L173">			}</span>
+		}
+<span class="fc" id="L175">	}</span>
+
+	/**
+	 * Removes all objects from the list of objects stored in this
+	 * AbstractListFacet for the Player Character represented by the given
+	 * PCGenIdentifier
+	 *
+	 * This method is value-semantic in that ownership of the returned
+	 * Collection is transferred to the class calling this method. Since this is
+	 * a remove all function, modification of the returned Collection will not
+	 * modify this AbstractListFacet and modification of this AbstractListFacet
+	 * will not modify the returned Collection. Modifications to the returned
+	 * Collection will also not modify any future or previous objects returned
+	 * by this (or other) methods on AbstractListFacet. If you wish to modify
+	 * the information stored in this AbstractListFacet, you must use the add*()
+	 * and remove*() methods of AbstractListFacet.
+	 *
+	 * @param id
+	 *            The PCGenIdentifier representing the Player Character from
+	 *            which all items should be removed
+	 * @return A non-null Set of objects removed from the list of objects stored
+	 *         in this AbstractListFacet for the Player Character represented by
+	 *         the given PCGenIdentifier
+	 */
+	public Collection&lt;T&gt; removeAll(IDT id)
+	{
+		@SuppressWarnings(&quot;unchecked&quot;)
+<span class="fc" id="L202">		Collection&lt;T&gt; componentSet = (Collection&lt;T&gt;) removeCache(id);</span>
+<span class="fc bfc" id="L203" title="All 2 branches covered.">		if (componentSet == null)</span>
+		{
+<span class="fc" id="L205">			return Collections.emptySet();</span>
+		}
+<span class="fc bfc" id="L207" title="All 2 branches covered.">		for (T obj : componentSet)</span>
+		{
+<span class="fc" id="L209">			fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_REMOVED);</span>
+<span class="fc" id="L210">		}</span>
+<span class="fc" id="L211">		return componentSet;</span>
+	}
+
+	/**
+	 * Returns a non-null copy of the Set of objects in this AbstractListFacet
+	 * for the Player Character represented by the given PCGenIdentifier. This
+	 * method returns an empty Set if no objects are in this AbstractListFacet
+	 * for the Player Character identified by the given PCGenIdentifier.
+	 *
+	 * This method is value-semantic in that ownership of the returned List is
+	 * transferred to the class calling this method. Modification of the
+	 * returned List will not modify this AbstractListFacet and modification of
+	 * this AbstractListFacet will not modify the returned List. Modifications
+	 * to the returned List will also not modify any future or previous objects
+	 * returned by this (or other) methods on AbstractListFacet. If you wish to
+	 * modify the information stored in this AbstractListFacet, you must use the
+	 * add*() and remove*() methods of AbstractListFacet.
+	 *
+	 * @param id
+	 *            The PCGenIdentifier representing the Player Character for
+	 *            which a copy of the items in this AbstractListFacet should be
+	 *            returned.
+	 * @return A non-null Collection of objects in this AbstractListFacet for
+	 *         the Player Character represented by the given PCGenIdentifier
+	 */
+	public Collection&lt;T&gt; getSet(IDT id)
+	{
+<span class="fc" id="L238">		Collection&lt;T&gt; componentSet = getCachedSet(id);</span>
+<span class="fc bfc" id="L239" title="All 2 branches covered.">		if (componentSet == null)</span>
+		{
+<span class="fc" id="L241">			return Collections.emptySet();</span>
+		}
+<span class="fc" id="L243">		return List.copyOf(componentSet);</span>
+	}
+
+	/**
+	 * Returns the count of items in this AbstractListFacet for the Player
+	 * Character represented by the given PCGenIdentifier
+	 *
+	 * @param id
+	 *            The PCGenIdentifier representing the Player Character for
+	 *            which the count of items should be returned
+	 * @return The count of items in this AbstractListFacet for the Player
+	 *         Character represented by the given PCGenIdentifier
+	 */
+	public int getCount(IDT id)
+	{
+<span class="fc" id="L258">		Collection&lt;T&gt; componentSet = getCachedSet(id);</span>
+<span class="fc bfc" id="L259" title="All 2 branches covered.">		if (componentSet == null)</span>
+		{
+<span class="fc" id="L261">			return 0;</span>
+		}
+<span class="fc" id="L263">		return componentSet.size();</span>
+	}
+
+	/**
+	 * Returns true if this AbstractListFacet does not contain any items for the
+	 * Player Character represented by the given PCGenIdentifier
+	 *
+	 * @param id
+	 *            The PCGenIdentifier representing the PlayerCharacter to test
+	 *            if any items are contained by this AbstractListFacet
+	 * @return true if this AbstractListFacet does not contain any items for the
+	 *         Player Character represented by the given PCGenIdentifier; false
+	 *         otherwise (if it does contain items for the Player Character)
+	 */
+	public boolean isEmpty(IDT id)
+	{
+<span class="fc" id="L279">		Collection&lt;T&gt; componentSet = getCachedSet(id);</span>
+<span class="pc bpc" id="L280" title="1 of 4 branches missed.">		return (componentSet == null) || componentSet.isEmpty();</span>
+	}
+
+	/**
+	 * Returns true if this AbstractListFacet contains the given value in the
+	 * list of items for the Player Character represented by the given
+	 * PCGenIdentifier.
+	 *
+	 * @param id
+	 *            The PCGenIdentifier representing the Player Character used for
+	 *            testing
+	 * @param obj
+	 *            The object to test if this AbstractListFacet contains that
+	 *            item for the Player Character represented by the given
+	 *            PCGenIdentifier
+	 * @return true if this AbstractListFacet contains the given value for the
+	 *         Player Character represented by the given PCGenIdentifier; false
+	 *         otherwise
+	 */
+	public boolean contains(IDT id, T obj)
+	{
+		/*
+		 * TODO obj == null? - log an error?
+		 */
+<span class="fc" id="L304">		Collection&lt;T&gt; componentSet = getCachedSet(id);</span>
+<span class="pc bpc" id="L305" title="1 of 4 branches missed.">		return (componentSet != null) &amp;&amp; componentSet.contains(obj);</span>
+	}
+
+	/**
+	 * Returns the type-safe Set for this AbstractListFacet and the given
+	 * PCGenIdentifier. May return null if no information has been set in this
+	 * AbstractListFacet for the given PCGenIdentifier.
+	 *
+	 * Note that this method SHOULD NOT be public. The Set is owned by
+	 * AbstractListFacet, and since it can be modified, a reference to that
+	 * object should not be exposed to any object other than AbstractListFacet.
+	 *
+	 * @param id
+	 *            The PCGenIdentifier for which the Set should be returned
+	 * @return The Set for the Player Character represented by the given
+	 *         PCGenIdentifier; null if no information has been set in this
+	 *         AbstractListFacet for the Player Character.
+	 */
+	@SuppressWarnings(&quot;unchecked&quot;)
+	protected Collection&lt;T&gt; getCachedSet(IDT id)
+	{
+<span class="fc" id="L326">		return (Collection&lt;T&gt;) getCache(id);</span>
+	}
+
+	/**
+	 * Returns a type-safe Set for this AbstractListFacet and the given
+	 * PCGenIdentifier. Will return a new, empty Set if no information has been
+	 * set in this AbstractListFacet for the given PCGenIdentifier. Will not
+	 * return null.
+	 *
+	 * Note that this method SHOULD NOT be public. The Set object is owned by
+	 * AbstractListFacet, and since it can be modified, a reference to that
+	 * object should not be exposed to any object other than AbstractListFacet.
+	 *
+	 * @param id
+	 *            The PCGenIdentifier for which the Set should be returned
+	 * @return The Set for the Player Character represented by the given
+	 *         PCGenIdentifier.
+	 */
+	private Collection&lt;T&gt; getConstructingCachedSet(IDT id)
+	{
+<span class="fc" id="L346">		Collection&lt;T&gt; componentSet = getCachedSet(id);</span>
+<span class="fc bfc" id="L347" title="All 2 branches covered.">		if (componentSet == null)</span>
+		{
+<span class="fc" id="L349">			componentSet = getComponentSet();</span>
+<span class="fc" id="L350">			setCache(id, componentSet);</span>
+		}
+<span class="fc" id="L352">		return componentSet;</span>
+	}
+
+	/**
+	 * Returns a new (empty) Collection for this AbstractListFacet. Can be
+	 * overridden by classes that extend AbstractListFacet if a Collection other
+	 * than an IdentityHashSet is desired for storing the information in the
+	 * AbstractListFacet.
+	 *
+	 * Note that this method SHOULD NOT be public. The Collection object is
+	 * owned by AbstractListFacet, and since it can be modified, a reference to
+	 * that object should not be exposed to any object other than
+	 * AbstractListFacet.
+	 *
+	 * Note that this method should always be the only method used to construct
+	 * a Collection for this AbstractListFacet. It is actually preferred to use
+	 * getConstructingCacheSet(PCGenIdentifier) in order to implicitly call this
+	 * method.
+	 *
+	 * @return A new (empty) Collection for use in this AbstractListFacet.
+	 */
+	protected Collection&lt;T&gt; getComponentSet()
+	{
+<span class="fc" id="L375">		return new LinkedHashSet&lt;&gt;();</span>
+	}
+
+	/**
+	 * Copies the contents of the AbstractListFacet from one Player Character to
+	 * another Player Character, based on the given PCGenIdentifiers
+	 * representing those Player Characters.
+	 *
+	 * This is a method in AbstractListFacet in order to avoid exposing the
+	 * mutable Collection object to other classes. This should not be inlined,
+	 * as the Collection is internal information to AbstractListFacet and should
+	 * not be exposed to other classes.
+	 *
+	 * Note also the copy is a one-time event and no references are maintained
+	 * between the Player Characters represented by the given PCGenIdentifiers
+	 * (meaning once this copy takes place, any change to the AbstractListFacet
+	 * of one Player Character will only impact the Player Character where the
+	 * AbstractListFacet was changed).
+	 *
+	 * @param source
+	 *            The PCGenIdentifier representing the Player Character from
+	 *            which the information should be copied
+	 * @param copy
+	 *            The PCGenIdentifier representing the Player Character to which
+	 *            the information should be copied
+	 */
+	@Override
+	public void copyContents(IDT source, IDT copy)
+	{
+<span class="fc" id="L404">		Collection&lt;T&gt; componentSet = getCachedSet(source);</span>
+<span class="fc bfc" id="L405" title="All 2 branches covered.">		if (componentSet != null)</span>
+		{
+<span class="fc" id="L407">			getConstructingCachedSet(copy).addAll(getCopyForNewOwner(componentSet));</span>
+		}
+<span class="fc" id="L409">	}</span>
+
+	/**
+	 * Create a new copy of this list facet's data. This defaults to a return of
+	 * the same set, but subclasses may need to do deep cloning of their objects
+	 * as part of the copy. Note: The returned collection is directly saved,
+	 * only its contents.
+	 *
+	 * @param componentSet
+	 *            The collection of data held by the facet for a character.
+	 * @return The data ready to be saved to a new collection for a new
+	 *         character.
+	 */
+	protected Collection&lt;T&gt; getCopyForNewOwner(Collection&lt;T&gt; componentSet)
+	{
+<span class="fc" id="L424">		return componentSet;</span>
+	}
+
+	/**
+	 * Replaces an item in this AbstractListFacet with another object.
+	 *
+	 * NOTE: Use of this method is HIGHLY DISCOURAGED. Please consider another
+	 * way of achieving the same results as this method. In other words, this
+	 * method was required in order to maintain compatibility with the code in
+	 * PCGen that tends to copy &amp;amp; clone things, but in the future, we are
+	 * attempting to move away from that structure, so use of this method (which
+	 * implies order dependency) is discouraged.
+	 *
+	 * This method is equivalent of a replaceAll in a String. In other words, if
+	 * the underlying Collection stored in this AbstractListFacet is a List (not
+	 * the Set used by default), then this method will replace ALL instances of
+	 * an old object in the List, not just the first instance.
+	 *
+	 * @param id
+	 *            The PCGenIdentifier representing the Player Character from
+	 *            which data will be replaced
+	 * @param old
+	 *            The old object to be replaced in the Collection for the Player
+	 *            Character represented by the given PCGenIdentifier
+	 * @param replacement
+	 *            The replacement object to replace the given source object in
+	 *            the Collection for the Player Character represented by the
+	 *            given PCGenIdentifier
+	 * @return true if the given old object was found in the Collection for the
+	 *         Player Character represented by the given PCGenIdentifier (and
+	 *         thus true if a replacement was successfully made); false
+	 *         otherwise
+	 */
+	public boolean replace(IDT id, T old, T replacement)
+	{
+<span class="nc" id="L459">		Collection&lt;T&gt; componentSet = getCachedSet(id);</span>
+<span class="nc bnc" id="L460" title="All 4 branches missed.">		if ((componentSet == null) || !componentSet.contains(old))</span>
+		{
+<span class="nc" id="L462">			return false;</span>
+		}
+<span class="nc" id="L464">		Collection&lt;T&gt; replaceSet = getComponentSet();</span>
+<span class="nc bnc" id="L465" title="All 2 branches missed.">		for (T obj : componentSet)</span>
+		{
+<span class="nc bnc" id="L467" title="All 2 branches missed.">			if (obj == old)</span>
+			{
+<span class="nc" id="L469">				replaceSet.add(replacement);</span>
+			}
+			else
+			{
+<span class="nc" id="L473">				replaceSet.add(obj);</span>
+			}
+<span class="nc" id="L475">		}</span>
+<span class="nc" id="L476">		setCache(id, componentSet);</span>
+<span class="nc" id="L477">		fireDataFacetChangeEvent(id, old, DataFacetChangeEvent.DATA_REMOVED);</span>
+<span class="nc" id="L478">		fireDataFacetChangeEvent(id, replacement, DataFacetChangeEvent.DATA_ADDED);</span>
+<span class="nc" id="L479">		return true;</span>
+	}
+
+	/**
+	 * This method will add the given added object within the underlying
+	 * Collection of this AbstractListFacet directly after the given trigger
+	 * object.
+	 *
+	 * If the underlying Collection for this AbstractListFacet is not an ordered
+	 * Collection (e.g. HashSet), then this method is a MUCH slower way of
+	 * calling add(PCGenIdentifier, T).
+	 *
+	 * NOTE: Use of this method is HIGHLY DISCOURAGED. Please consider another
+	 * way of achieving the same results as this method. In other words, this
+	 * method was required in order to maintain compatibility with the code in
+	 * PCGen that tends to copy &amp;amp; clone things, but in the future, we are
+	 * attempting to move away from that structure, so use of this method (which
+	 * implies order dependency) is discouraged.
+	 *
+	 * @param id
+	 *            The PCGenIdentifier representing the Player Character from
+	 *            which data will be replaced
+	 * @param trigger
+	 *            The trigger object to be used as the identifier to indicate
+	 *            which object precedes the location where the given added
+	 *            object is to be placed in the Collection for the Player
+	 *            Character represented by the given PCGenIdentifier
+	 * @param added
+	 *            The object to be added to the Collection for the Player
+	 *            Character represented by the given PCGenIdentifier
+	 */
+	public void addAfter(IDT id, T trigger, T added)
+	{
+<span class="nc" id="L512">		Collection&lt;T&gt; componentSet = getCachedSet(id);</span>
+<span class="nc bnc" id="L513" title="All 4 branches missed.">		if ((componentSet != null) &amp;&amp; componentSet.contains(trigger))</span>
+		{
+<span class="nc" id="L515">			Collection&lt;T&gt; replaceSet = getComponentSet();</span>
+<span class="nc bnc" id="L516" title="All 2 branches missed.">			for (T obj : componentSet)</span>
+			{
+<span class="nc" id="L518">				replaceSet.add(obj);</span>
+<span class="nc bnc" id="L519" title="All 2 branches missed.">				if (obj == trigger)</span>
+				{
+<span class="nc" id="L521">					replaceSet.add(added);</span>
+				}
+<span class="nc" id="L523">			}</span>
+<span class="nc" id="L524">			setCache(id, componentSet);</span>
+<span class="nc" id="L525">			fireDataFacetChangeEvent(id, added, DataFacetChangeEvent.DATA_ADDED);</span>
+		}
+<span class="nc" id="L527">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

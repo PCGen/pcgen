@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AbstractMapFacade.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.facade.util</a> &gt; <span class="el_source">AbstractMapFacade.java</span></div><h1>AbstractMapFacade.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2012 (C) Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.facade.util;
+
+import javax.swing.event.EventListenerList;
+
+import pcgen.facade.util.event.MapEvent;
+import pcgen.facade.util.event.MapListener;
+
+<span class="nc" id="L25">public abstract class AbstractMapFacade&lt;K, V&gt; implements MapFacade&lt;K, V&gt;</span>
+{
+
+<span class="nc" id="L28">	private final EventListenerList listenerList = new EventListenerList();</span>
+
+	@Override
+	public void addMapListener(MapListener&lt;? super K, ? super V&gt; listener)
+	{
+<span class="nc" id="L33">		listenerList.add(MapListener.class, listener);</span>
+<span class="nc" id="L34">	}</span>
+
+	@Override
+	public void removeMapListener(MapListener&lt;? super K, ? super V&gt; listener)
+	{
+<span class="nc" id="L39">		listenerList.remove(MapListener.class, listener);</span>
+<span class="nc" id="L40">	}</span>
+
+	@Override
+	public int getSize()
+	{
+<span class="nc" id="L45">		return getKeys().size();</span>
+	}
+
+	@Override
+	public boolean containsKey(K key)
+	{
+<span class="nc" id="L51">		return getKeys().contains(key);</span>
+	}
+
+	@Override
+	public boolean isEmpty()
+	{
+<span class="nc" id="L57">		return getKeys().isEmpty();</span>
+	}
+
+	/**
+	 * {@code AbstractMapFacade} subclasses must call this method
+	 * &lt;b&gt;after&lt;/b&gt; a new key-value pair is added to the model.
+	 *
+	 * @param source the
+	 * {@code MapFacade} that changed, typically &quot;this&quot;
+	 * @param key the new key
+	 * @param value the value associated with the new key
+	 */
+	protected void fireKeyAdded(Object source, K key, V value)
+	{
+<span class="nc" id="L71">		Object[] listeners = listenerList.getListenerList();</span>
+<span class="nc" id="L72">		MapEvent&lt;K, V&gt; e = null;</span>
+<span class="nc bnc" id="L73" title="All 2 branches missed.">		for (int i = listeners.length - 2; i &gt;= 0; i -= 2)</span>
+		{
+<span class="nc bnc" id="L75" title="All 2 branches missed.">			if (listeners[i] == MapListener.class)</span>
+			{
+<span class="nc bnc" id="L77" title="All 2 branches missed.">				if (e == null)</span>
+				{
+<span class="nc" id="L79">					e = new MapEvent&lt;&gt;(source, MapEvent.KEY_ADDED, key, null, value);</span>
+				}
+<span class="nc" id="L81">				((MapListener) listeners[i + 1]).keyAdded(e);</span>
+			}
+		}
+<span class="nc" id="L84">	}</span>
+
+	/**
+	 * {@code AbstractMapFacade} subclasses must call this method
+	 * &lt;b&gt;after&lt;/b&gt; a key-value pair is removed from the model.
+	 *
+	 * @param source the
+	 * {@code MapFacade} that changed, typically &quot;this&quot;
+	 * @param key the removed key
+	 * @param value the value associated with the key
+	 */
+	protected void fireKeyRemoved(Object source, K key, V value)
+	{
+<span class="nc" id="L97">		Object[] listeners = listenerList.getListenerList();</span>
+<span class="nc" id="L98">		MapEvent&lt;K, V&gt; e = null;</span>
+<span class="nc bnc" id="L99" title="All 2 branches missed.">		for (int i = listeners.length - 2; i &gt;= 0; i -= 2)</span>
+		{
+<span class="nc bnc" id="L101" title="All 2 branches missed.">			if (listeners[i] == MapListener.class)</span>
+			{
+<span class="nc bnc" id="L103" title="All 2 branches missed.">				if (e == null)</span>
+				{
+<span class="nc" id="L105">					e = new MapEvent&lt;&gt;(source, MapEvent.KEY_REMOVED, key, value, null);</span>
+				}
+<span class="nc" id="L107">				((MapListener) listeners[i + 1]).keyRemoved(e);</span>
+			}
+		}
+<span class="nc" id="L110">	}</span>
+
+	/**
+	 * {@code AbstractMapFacade} subclasses must call this method
+	 * &lt;b&gt;after&lt;/b&gt; a key has been modified.
+	 *
+	 * @param source the
+	 * {@code MapFacade} that changed, typically &quot;this&quot;
+	 * @param key the removed key
+	 * @param value the value associated with the key
+	 */
+	protected void fireKeyModified(Object source, K key, V value)
+	{
+<span class="nc" id="L123">		Object[] listeners = listenerList.getListenerList();</span>
+<span class="nc" id="L124">		MapEvent&lt;K, V&gt; e = null;</span>
+<span class="nc bnc" id="L125" title="All 2 branches missed.">		for (int i = listeners.length - 2; i &gt;= 0; i -= 2)</span>
+		{
+<span class="nc bnc" id="L127" title="All 2 branches missed.">			if (listeners[i] == MapListener.class)</span>
+			{
+<span class="nc bnc" id="L129" title="All 2 branches missed.">				if (e == null)</span>
+				{
+<span class="nc" id="L131">					e = new MapEvent&lt;&gt;(source, MapEvent.KEY_MODIFIED, key, value, value);</span>
+				}
+<span class="nc" id="L133">				((MapListener) listeners[i + 1]).keyModified(e);</span>
+			}
+		}
+<span class="nc" id="L136">	}</span>
+
+	/**
+	 * {@code AbstractMapFacade} subclasses must call this method
+	 * &lt;b&gt;after&lt;/b&gt; a key is assigned a new value.
+	 *
+	 * @param source the
+	 * {@code MapFacade} that changed, typically &quot;this&quot;
+	 * @param key the removed key
+	 * @param oldValue the old value associated with the key
+	 * @param newValue the new value associated with the key
+	 */
+	protected void fireValueChanged(Object source, K key, V oldValue, V newValue)
+	{
+<span class="nc" id="L150">		Object[] listeners = listenerList.getListenerList();</span>
+<span class="nc" id="L151">		MapEvent&lt;K, V&gt; e = null;</span>
+<span class="nc bnc" id="L152" title="All 2 branches missed.">		for (int i = listeners.length - 2; i &gt;= 0; i -= 2)</span>
+		{
+<span class="nc bnc" id="L154" title="All 2 branches missed.">			if (listeners[i] == MapListener.class)</span>
+			{
+<span class="nc bnc" id="L156" title="All 2 branches missed.">				if (e == null)</span>
+				{
+<span class="nc" id="L158">					e = new MapEvent&lt;&gt;(source, MapEvent.VALUE_CHANGED, key, oldValue, newValue);</span>
+				}
+<span class="nc" id="L160">				((MapListener) listeners[i + 1]).valueChanged(e);</span>
+			}
+		}
+<span class="nc" id="L163">	}</span>
+
+	/**
+	 * {@code AbstractMapFacade} subclasses must call this method
+	 * &lt;b&gt;after&lt;/b&gt; a value has been modified.
+	 *
+	 * @param source the
+	 * {@code MapFacade} that changed, typically &quot;this&quot;
+	 * @param key the removed key
+	 * @param value the value associated with the key
+	 */
+	protected void fireValueModified(Object source, K key, V value)
+	{
+<span class="nc" id="L176">		Object[] listeners = listenerList.getListenerList();</span>
+<span class="nc" id="L177">		MapEvent&lt;K, V&gt; e = null;</span>
+<span class="nc bnc" id="L178" title="All 2 branches missed.">		for (int i = listeners.length - 2; i &gt;= 0; i -= 2)</span>
+		{
+<span class="nc bnc" id="L180" title="All 2 branches missed.">			if (listeners[i] == MapListener.class)</span>
+			{
+<span class="nc bnc" id="L182" title="All 2 branches missed.">				if (e == null)</span>
+				{
+<span class="nc" id="L184">					e = new MapEvent&lt;&gt;(source, MapEvent.VALUE_MODIFIED, key, value, value);</span>
+				}
+<span class="nc" id="L186">				((MapListener) listeners[i + 1]).valueModified(e);</span>
+			}
+		}
+<span class="nc" id="L189">	}</span>
+
+	/**
+	 * {@code AbstractMapFacade} subclasses must call this method
+	 * &lt;b&gt;after&lt;/b&gt; the contents of the map have greatly changed.
+	 *
+	 * @param source the
+	 * {@code MapFacade} that changed, typically &quot;this&quot;
+	 */
+	protected void fireKeysChanged(Object source)
+	{
+<span class="nc" id="L200">		Object[] listeners = listenerList.getListenerList();</span>
+<span class="nc" id="L201">		MapEvent&lt;K, V&gt; e = null;</span>
+<span class="nc bnc" id="L202" title="All 2 branches missed.">		for (int i = listeners.length - 2; i &gt;= 0; i -= 2)</span>
+		{
+<span class="nc bnc" id="L204" title="All 2 branches missed.">			if (listeners[i] == MapListener.class)</span>
+			{
+<span class="nc bnc" id="L206" title="All 2 branches missed.">				if (e == null)</span>
+				{
+<span class="nc" id="L208">					e = new MapEvent&lt;&gt;(source);</span>
+				}
+<span class="nc" id="L210">				((MapListener) listeners[i + 1]).keysChanged(e);</span>
+			}
+		}
+<span class="nc" id="L213">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

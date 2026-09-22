@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RandomNameDialog.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.gui3.namegen</a> &gt; <span class="el_source">RandomNameDialog.java</span></div><h1>RandomNameDialog.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2026 Vest &lt;Vest@users.noreply.github.com&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ */
+package pcgen.gui3.namegen;
+
+import java.awt.Dialog;
+import java.awt.Dimension;
+import java.awt.EventQueue;
+import java.awt.Window;
+import java.io.IOException;
+import java.net.URL;
+import java.util.Objects;
+import java.util.concurrent.CountDownLatch;
+
+import javax.swing.JDialog;
+import javax.swing.SwingUtilities;
+
+import pcgen.gui3.GraphicsStartupError;
+import pcgen.gui3.GuiAssertions;
+import pcgen.system.LanguageBundle;
+import pcgen.util.Logging;
+
+import javafx.application.Platform;
+import javafx.embed.swing.JFXPanel;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+
+/**
+ * Modal random-name dialog. Presented to Swing callers as a synchronous
+ * call: construct, {@link #showAndBlock()}, then read back
+ * {@link #getChosenName()} / {@link #getGender()}.
+ *
+ * &lt;p&gt;Hosts the FXML scene inside a Swing {@link JDialog} via
+ * {@link JFXPanel}. The Swing dialog gives us proper owner/modality
+ * semantics against the rest of the Swing UI; the FX side keeps the
+ * existing FXML, controller, and scene graph untouched.
+ */
+<span class="nc" id="L48">public final class RandomNameDialog</span>
+{
+	private static final String FXML_RESOURCE = &quot;RandomNamePanel.fxml&quot;;
+
+	private final Window owner;
+	private final String initialGender;
+	private RandomNamePanelController controller;
+
+	public RandomNameDialog(Window owner, String initialGender)
+<span class="nc" id="L57">	{</span>
+<span class="nc" id="L58">		this.owner = owner;</span>
+<span class="nc" id="L59">		this.initialGender = initialGender;</span>
+<span class="nc" id="L60">	}</span>
+
+	public RandomNameDialog(String initialGender)
+	{
+<span class="nc" id="L64">		this(null, initialGender);</span>
+<span class="nc" id="L65">	}</span>
+
+	/**
+	 * Show the dialog and block until the user closes it. Must be called
+	 * from a non-FX thread; the call hops to the EDT if needed because
+	 * Swing modal dialogs require it.
+	 */
+	public void showAndBlock()
+	{
+<span class="nc" id="L74">		GuiAssertions.assertIsNotJavaFXThread();</span>
+<span class="nc bnc" id="L75" title="All 2 branches missed.">		if (!EventQueue.isDispatchThread())</span>
+		{
+			try
+			{
+<span class="nc" id="L79">				EventQueue.invokeAndWait(this::showAndBlock);</span>
+			}
+<span class="nc" id="L81">			catch (InterruptedException _)</span>
+			{
+<span class="nc" id="L83">				Thread.currentThread().interrupt();</span>
+			}
+<span class="nc" id="L85">			catch (java.lang.reflect.InvocationTargetException e)</span>
+			{
+<span class="nc" id="L87">				Logging.errorPrint(&quot;failed to show random-name dialog&quot;, e);</span>
+<span class="nc" id="L88">			}</span>
+<span class="nc" id="L89">			return;</span>
+		}
+
+<span class="nc" id="L92">		JDialog dialog = new JDialog(owner, LanguageBundle.getString(&quot;in_rndNameTitle&quot;),</span>
+				Dialog.ModalityType.APPLICATION_MODAL);
+		JFXPanel fxPanel;
+		try
+		{
+			// First JavaFX bootstrap for the --name-generator CLI path. Guard it to intercept a message
+			// and display it in the log.
+<span class="nc" id="L99">			fxPanel = new JFXPanel();</span>
+		}
+<span class="nc" id="L101">		catch (RuntimeException | LinkageError toolkitFailure)</span>
+		{
+<span class="nc" id="L103">			GraphicsStartupError.reportAndExit(toolkitFailure);</span>
+<span class="nc" id="L104">			return; // unreachable, because reportAndExit exits</span>
+<span class="nc" id="L105">		}</span>
+<span class="nc" id="L106">		dialog.setContentPane(fxPanel);</span>
+
+<span class="nc" id="L108">		CountDownLatch sceneReady = new CountDownLatch(1);</span>
+<span class="nc" id="L109">		Platform.runLater(() -&gt; {</span>
+			try
+			{
+<span class="nc" id="L112">				FXMLLoader loader = new FXMLLoader();</span>
+<span class="nc" id="L113">				URL location = RandomNameDialog.class.getResource(FXML_RESOURCE);</span>
+<span class="nc" id="L114">				Objects.requireNonNull(location, FXML_RESOURCE);</span>
+<span class="nc" id="L115">				loader.setLocation(location);</span>
+<span class="nc" id="L116">				loader.setResources(LanguageBundle.getBundle());</span>
+<span class="nc" id="L117">				Scene scene = loader.load();</span>
+<span class="nc" id="L118">				controller = loader.getController();</span>
+<span class="nc bnc" id="L119" title="All 2 branches missed.">				assert controller != null;</span>
+<span class="nc bnc" id="L120" title="All 4 branches missed.">				if (initialGender != null &amp;&amp; !initialGender.isEmpty())</span>
+				{
+<span class="nc" id="L122">					controller.setInitialGender(initialGender);</span>
+				}
+<span class="nc" id="L124">				controller.setCloseAction(() -&gt; SwingUtilities.invokeLater(dialog::dispose));</span>
+<span class="nc" id="L125">				fxPanel.setScene(scene);</span>
+				// Read the FXML's preferred size from the scene root and
+				// pin both the JFXPanel's preferred size and the dialog's
+				// minimum size to it. Without this, JFXPanel reports a
+				// preferred size of 0 and pack() collapses the dialog.
+<span class="nc" id="L130">				javafx.scene.Parent root = scene.getRoot();</span>
+<span class="nc" id="L131">				root.applyCss();</span>
+<span class="nc" id="L132">				root.layout();</span>
+<span class="nc" id="L133">				int prefW = (int) Math.ceil(root.prefWidth(-1));</span>
+<span class="nc" id="L134">				int prefH = (int) Math.ceil(root.prefHeight(prefW));</span>
+<span class="nc" id="L135">				SwingUtilities.invokeLater(() -&gt; {</span>
+<span class="nc" id="L136">					Dimension pref = new Dimension(prefW, prefH);</span>
+<span class="nc" id="L137">					fxPanel.setPreferredSize(pref);</span>
+<span class="nc" id="L138">					dialog.pack();</span>
+<span class="nc" id="L139">					Dimension packed = dialog.getSize();</span>
+					// Lock the height (user can't change it), let the
+					// width float above the design width.
+<span class="nc" id="L142">					dialog.setMinimumSize(new Dimension(packed.width, packed.height));</span>
+<span class="nc" id="L143">					dialog.setMaximumSize(new Dimension(Integer.MAX_VALUE, packed.height));</span>
+<span class="nc" id="L144">					dialog.setResizable(true);</span>
+<span class="nc" id="L145">					dialog.setLocationRelativeTo(owner);</span>
+<span class="nc" id="L146">				});</span>
+			}
+<span class="nc" id="L148">			catch (IOException e)</span>
+			{
+<span class="nc" id="L150">				Logging.errorPrint(&quot;failed to load random-name dialog FXML&quot;, e);</span>
+			}
+			finally
+			{
+<span class="nc" id="L154">				sceneReady.countDown();</span>
+			}
+<span class="nc" id="L156">		});</span>
+		try
+		{
+<span class="nc" id="L159">			sceneReady.await();</span>
+		}
+<span class="nc" id="L161">		catch (InterruptedException _)</span>
+		{
+<span class="nc" id="L163">			Thread.currentThread().interrupt();</span>
+<span class="nc" id="L164">			return;</span>
+<span class="nc" id="L165">		}</span>
+
+<span class="nc" id="L167">		dialog.setVisible(true);</span>
+<span class="nc" id="L168">	}</span>
+
+	public String getChosenName()
+	{
+<span class="nc bnc" id="L172" title="All 2 branches missed.">		return controller == null ? &quot;&quot; : controller.getChosenName();</span>
+	}
+
+	public String getGender()
+	{
+<span class="nc bnc" id="L177" title="All 2 branches missed.">		return controller == null ? &quot;&quot; : controller.getGender();</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FileHelper.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.util</a> &gt; <span class="el_source">FileHelper.java</span></div><h1>FileHelper.java</h1><pre class="source lang-java linenums">/**
+ * Copyright 2003 (C) John Watson &lt;john@sleazyweasel.com&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ */
+package pcgen.util;
+
+import java.io.File;
+import java.io.IOException;
+
+/**
+ * Assorted path and filename methods.
+ *
+ **/
+public final class FileHelper
+{
+	/** Private constructor to disable instantiation. */
+	private FileHelper()
+	{
+	}
+
+	/**
+	 * Find the relative path between two files.
+	 * @param base The base file.
+	 * @param relative The file to be made relative. 
+	 * @return relative path 
+	 */
+	public static String findRelativePath(File base, File relative)
+	{
+		File testFile;
+		File relativeCanon;
+		try
+		{
+<span class="fc" id="L47">			testFile = base.getCanonicalFile();</span>
+<span class="fc" id="L48">			relativeCanon = relative.getCanonicalFile();</span>
+		}
+<span class="nc" id="L50">		catch (IOException e)</span>
+		{
+			// The file can't be worked with so return it as is.
+<span class="nc" id="L53">			return relative.getAbsolutePath();</span>
+<span class="fc" id="L54">		}</span>
+<span class="pc bpc" id="L55" title="1 of 2 branches missed.">		if (!testFile.isDirectory())</span>
+		{
+<span class="fc" id="L57">			testFile = testFile.getParentFile();</span>
+		}
+
+		// Cope with files on different drives in Windows.
+<span class="pc bpc" id="L61" title="1 of 2 branches missed.">		if (!testFile.toPath().getRoot().equals(relativeCanon.toPath().getRoot()))</span>
+		{
+<span class="nc" id="L63">			return relativeCanon.getAbsolutePath();</span>
+		}
+
+<span class="fc" id="L66">		String relativePath = stripOffRoot(relativeCanon);</span>
+
+<span class="fc" id="L68">		StringBuilder dots = new StringBuilder();</span>
+
+		do
+		{
+<span class="pc bpc" id="L72" title="1 of 2 branches missed.">			if (testFile.getParentFile() == null)</span>
+			{
+				//we're at the root...
+<span class="nc" id="L75">				return dots.append(relativePath).toString();</span>
+			}
+
+<span class="fc" id="L78">			String testPath = stripOffRoot(testFile);</span>
+
+<span class="pc bpc" id="L80" title="1 of 2 branches missed.">			if (relativePath.indexOf(testPath) == 0)</span>
+			{
+<span class="pc bpc" id="L82" title="1 of 2 branches missed.">				if (testPath.length() &gt;= relativePath.length())</span>
+				{
+<span class="nc" id="L84">					Logging.log(Logging.WARNING,</span>
+						&quot;Unable to get path for &quot; + relative + &quot; relative to &quot; + base + &quot;. Using absolute path.&quot;);
+<span class="nc" id="L86">					return relative.getAbsolutePath();</span>
+				}
+<span class="fc" id="L88">				String pieceToKeep = relativePath.substring(testPath.length() + 1);</span>
+
+<span class="fc" id="L90">				return dots.append(pieceToKeep).toString();</span>
+			}
+<span class="nc" id="L92">			dots.append(&quot;..&quot;).append(File.separator);</span>
+
+<span class="nc" id="L94">			testFile = testFile.getParentFile();</span>
+		}
+<span class="nc bnc" id="L96" title="All 2 branches missed.">		while (testFile != null);</span>
+
+<span class="nc" id="L98">		return dots + relativePath;</span>
+	}
+
+	private static String stripOffRoot(File relative)
+	{
+<span class="fc" id="L103">		String root = relative.toPath().getRoot().toString();</span>
+
+<span class="fc" id="L105">		return relative.getAbsolutePath().substring(root.length());</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

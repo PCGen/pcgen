@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ContentDefinition.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.content</a> &gt; <span class="el_source">ContentDefinition.java</span></div><h1>ContentDefinition.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2014-15 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.cdom.content;
+
+import java.util.Objects;
+
+import pcgen.base.util.FormatManager;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Loadable;
+import pcgen.cdom.enumeration.DataSetID;
+import pcgen.rules.context.LoadContext;
+import pcgen.util.Logging;
+import pcgen.util.enumeration.View;
+import pcgen.util.enumeration.Visibility;
+
+/**
+ * A ContentDefinition manages dynamic content for PCGen
+ * 
+ * @param &lt;T&gt;
+ *            The type of object on which this ContentDefinition is legal to use
+ *            (in LST files)
+ * @param &lt;F&gt;
+ *            The type of object used as content in the items managed by this
+ *            ContentDefinition
+ */
+<span class="fc" id="L41">public abstract class ContentDefinition&lt;T extends CDOMObject, F&gt; extends UserContent</span>
+{
+
+	/**
+	 * The display name of this ContentDefinition, which matches the keyword
+	 * used in an LST file
+	 */
+	private String displayName;
+
+	/**
+	 * The usable location for this ContentDefinition
+	 */
+	private Class&lt;T&gt; usableLocation; //e.g. Deity.class
+
+	/**
+	 * The FormatManager which manages the underlying objects used as content in
+	 * the items managed by this ContentDefinition
+	 */
+	private FormatManager&lt;F&gt; formatManager; //e.g. for STRING or ALIGNMENT
+
+	/**
+	 * Sets the visibility for this ContentDefinition.
+	 * 
+	 * The value if this is &quot;null&quot; should be interpreted as &quot;HIDDEN&quot;, but is
+	 * necessary to have as a separate value for establishing whether it was set
+	 * by data.
+	 */
+	private Visibility visibility;
+
+	/**
+	 * Sets whether this ContentDefinition is selectable in a CHOOSE or other
+	 * item that allows selection via primitives
+	 * 
+	 * The value if this is &quot;null&quot; should be interpreted as &quot;false&quot;, but is
+	 * necessary to have as a separate value for establishing whether it was set
+	 * by data.
+	 */
+	private Boolean selectable;
+
+	/**
+	 * Sets whether this ContentDefinition is required for the objects as
+	 * defined by the usableLocation.
+	 * 
+	 * The value if this is &quot;null&quot; should be interpreted as &quot;false&quot;, but is
+	 * necessary to have as a separate value for establishing whether it was set
+	 * by data.
+	 */
+	private Boolean required;
+
+	/**
+	 * Sets the Display name for this ContentDefinition
+	 * 
+	 * @param name
+	 *            The DisplayName for this UserContent
+	 * @throws IllegalArgumentException
+	 *             if the given name is null
+	 */
+	public void setDisplayName(String name)
+	{
+<span class="pc bpc" id="L100" title="1 of 2 branches missed.">		if (name==null)</span>
+		{
+<span class="nc" id="L102">			Logging.errorPrint(&quot;display name should not be null!&quot;);</span>
+<span class="nc" id="L103">			return;</span>
+		}
+<span class="fc" id="L105">		displayName = name;</span>
+<span class="fc" id="L106">	}</span>
+
+	@Override
+	public String getDisplayName()
+	{
+<span class="fc" id="L111">		return displayName;</span>
+	}
+
+	/**
+	 * Sets the &quot;usable location&quot; (related to what LST files this
+	 * ContentDefinition will be usable within)
+	 * 
+	 * @param cl
+	 *            The Class indicating the &quot;usable location&quot; of this
+	 *            ContentDefinition
+	 */
+	@SuppressWarnings(&quot;unchecked&quot;)
+	public void setUsableLocation(Class&lt;? extends Loadable&gt; cl)
+	{
+<span class="fc" id="L125">		this.usableLocation = (Class&lt;T&gt;) Objects.requireNonNull(cl);</span>
+<span class="fc" id="L126">	}</span>
+
+	/**
+	 * Returns the &quot;usable location&quot; of this ContentDefinition (related to what
+	 * LST files this ContentDefinition will be usable within)
+	 * 
+	 * @return The &quot;usable location&quot; of this ContentDefinition
+	 */
+	public Class&lt;T&gt; getUsableLocation()
+	{
+<span class="fc" id="L136">		return usableLocation;</span>
+	}
+
+	/**
+	 * Sets the FormatManager for this ContentDefinition. This is used to
+	 * convert to/from the String format used to serialize content for LST
+	 * files.
+	 * 
+	 * @param fmtManager
+	 *            The non-null FormatManager for this ContentDefinition
+	 * @return The previous FormatManager for this ContentDefinition.
+	 * @throws IllegalArgumentException
+	 *             if the given FormatManager is null
+	 */
+	public FormatManager&lt;?&gt; setFormatManager(FormatManager&lt;F&gt; fmtManager)
+	{
+<span class="fc" id="L152">		Objects.requireNonNull(fmtManager, &quot;Format Manager cannot be null&quot;);</span>
+<span class="fc" id="L153">		FormatManager&lt;?&gt; returnValue = formatManager;</span>
+<span class="fc" id="L154">		this.formatManager = fmtManager;</span>
+<span class="fc" id="L155">		return returnValue;</span>
+	}
+
+	/**
+	 * Returns the FormatManager for this ContentDefinition. This is used to
+	 * convert to/from the String format used to serialize content for LST
+	 * files.
+	 * 
+	 * @return The FormatManager for this ContentDefinition
+	 */
+	public FormatManager&lt;F&gt; getFormatManager()
+	{
+<span class="fc" id="L167">		return formatManager;</span>
+	}
+
+	/**
+	 * Sets the visibility for this ContentDefinition. The default visibility is
+	 * HIDDEN.
+	 * 
+	 * @param vis
+	 *            The visibility for this ContentDefinition
+	 */
+	public void setVisibility(Visibility vis)
+	{
+<span class="fc" id="L179">		visibility = vis;</span>
+<span class="fc" id="L180">	}</span>
+
+	/**
+	 * Returns any specifically defined visibility for this ContentDefinition.
+	 * 
+	 * Note: This may be null, if the default visibility for ContentDefinition
+	 * (HIDDEN) is used and hasn't been explicitly set by the setVisibility
+	 * method.
+	 * 
+	 * @return Any specifically defined visibility for this ContentDefinition
+	 */
+	public Visibility getVisibility()
+	{
+<span class="fc" id="L193">		return visibility;</span>
+	}
+
+	/**
+	 * Sets whether this ContentDefintion is Selectable.
+	 * 
+	 * @param set
+	 *            A boolean value indicating whether this ContentDefinition is
+	 *            selectable
+	 */
+	public void setSelectable(boolean set)
+	{
+<span class="fc" id="L205">		selectable = set;</span>
+<span class="fc" id="L206">	}</span>
+
+	/**
+	 * Returns any specifically defined Selectable setting for this
+	 * ContentDefinition.
+	 * 
+	 * Note: This may be null, if the default Selectable setting for
+	 * ContentDefinition is used and hasn't been explicitly set by the
+	 * setSelectable method.
+	 * 
+	 * @return Any specifically defined Selectable setting for this
+	 *         ContentDefinition
+	 */
+	public Boolean getSelectable()
+	{
+<span class="fc" id="L221">		return selectable;</span>
+	}
+
+	/**
+	 * Sets whether this ContentDefintion is Required.
+	 * 
+	 * Note: If the &quot;Usable Location&quot; of this ContentDefinition is &quot;GLOBAL&quot;
+	 * (meaning CDOMObject.class), then this method will throw an
+	 * UnsupportedOperationException
+	 * 
+	 * @param set
+	 *            A boolean value indicating whether this ContentDefinition is
+	 *            Required
+	 * @throws UnsupportedOperationException
+	 *             if the set parameter is true and the &quot;Usable Location&quot; of
+	 *             this ContentDefinition is CDOMObject.class
+	 */
+	public void setRequired(boolean set)
+	{
+<span class="pc bpc" id="L240" title="1 of 4 branches missed.">		if (set &amp;&amp; CDOMObject.class.equals(usableLocation))</span>
+		{
+<span class="nc" id="L242">			throw new UnsupportedOperationException(&quot;Global ContentDefinition cannot be required&quot;);</span>
+		}
+<span class="fc" id="L244">		required = set;</span>
+<span class="fc" id="L245">	}</span>
+
+	/**
+	 * Returns any specifically defined Required setting for this
+	 * ContentDefinition.
+	 * 
+	 * Note: This may be null, if the default Required setting for
+	 * ContentDefinition is used and hasn't been explicitly set by the
+	 * setRequired method.
+	 * 
+	 * @return Any specifically defined Required setting for this
+	 *         ContentDefinition
+	 */
+	public Boolean getRequired()
+	{
+<span class="fc" id="L260">		return required;</span>
+	}
+
+	/**
+	 * Activates this ContentDefinition by performing the necessary steps to
+	 * link it to other subsystems.
+	 * 
+	 * @param context
+	 *            The LoadContext to initialize with tokens, if required
+	 */
+	public void activate(LoadContext context)
+	{
+<span class="fc" id="L272">		activateKey();</span>
+<span class="fc bfc" id="L273" title="All 2 branches covered.">		Visibility vis = (visibility == null) ? Visibility.HIDDEN : visibility;</span>
+<span class="pc bpc" id="L274" title="1 of 2 branches missed.">		if (vis.isVisibleTo(View.VISIBLE_EXPORT))</span>
+		{
+<span class="nc" id="L276">			activateOutput(context.getDataSetID());</span>
+		}
+<span class="fc" id="L278">		activateTokens(context);</span>
+<span class="fc" id="L279">	}</span>
+
+	/**
+	 * Activates any key owned by this ContentDefinition. This is intended only for
+	 * internal use by ContentDefinition, as a portion of the activate() method.
+	 * 
+	 * This should not be called from an external source
+	 */
+	protected abstract void activateKey();
+
+	/**
+	 * Activates this ContentDefinition for output. This is intended only for
+	 * internal use by ContentDefinition, as a portion of the activate() method.
+	 * 
+	 * This should not be called from an external source
+	 * 
+	 * @param dsID
+	 *            The DataSetID for which the output should be activated
+	 */
+	protected abstract void activateOutput(DataSetID dsID);
+
+	/**
+	 * Activates the tokens supporting this ContentDefinition. This is intended
+	 * only for internal use by ContentDefinition, as a portion of the
+	 * activate() method.
+	 * 
+	 * This should not be called from an external source
+	 */
+	protected abstract void activateTokens(LoadContext context);
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

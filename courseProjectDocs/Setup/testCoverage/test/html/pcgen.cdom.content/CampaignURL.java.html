@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CampaignURL.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.content</a> &gt; <span class="el_source">CampaignURL.java</span></div><h1>CampaignURL.java</h1><pre class="source lang-java linenums">/*
+ * CampaignURL.java
+ * Copyright 2008 (C) James Dempsey
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+
+package pcgen.cdom.content;
+
+import java.net.URI;
+
+/**
+ * {@code CampaignURL} encapsulates a typed and labelled URL for a
+ * campaign.
+ * 
+ * (Tue, 23 Dec 2008) $
+ * 
+ */
+public class CampaignURL implements Comparable&lt;CampaignURL&gt;
+{
+	/** An enum for the various types of Campaign URLs. */
+<span class="nc" id="L34">	public enum URLKind</span>
+	{
+		/** Link is to a web site */
+<span class="nc" id="L37">		WEBSITE,</span>
+		/** Link is to a survey */
+<span class="nc" id="L39">		SURVEY,</span>
+		/** Link is to an eCommerce site to purchase the source */
+<span class="nc" id="L41">		PURCHASE</span>
+	}
+
+	/** The kind of url */
+	private final URLKind urlKind;
+	/** The name of the url (only for ecommerce sites) */
+	private final String urlName;
+	/** The URI itself */
+	private final URI uri;
+	/** The displayed description of the url */
+	private final String urlDesc;
+
+	/**
+	 * Instantiates a new campaign url.
+	 * 
+	 * @param kind
+	 *            the kind of url
+	 * @param name
+	 *            the name of the url (only for ecommerce sites)
+	 * @param uri
+	 *            The URI itself.
+	 * @param description
+	 *            the displayed description of the url
+	 */
+	public CampaignURL(URLKind kind, String name, URI uri, String description)
+<span class="nc" id="L66">	{</span>
+<span class="nc" id="L67">		this.urlKind = kind;</span>
+<span class="nc" id="L68">		this.urlName = name;</span>
+<span class="nc" id="L69">		this.uri = uri;</span>
+<span class="nc" id="L70">		this.urlDesc = description;</span>
+<span class="nc" id="L71">	}</span>
+
+	/**
+	 * @return the urlKind
+	 */
+	public URLKind getUrlKind()
+	{
+<span class="nc" id="L78">		return urlKind;</span>
+	}
+
+	/**
+	 * @return the urlName
+	 */
+	public String getUrlName()
+	{
+<span class="nc" id="L86">		return urlName;</span>
+	}
+
+	/**
+	 * @return the url
+	 */
+	public URI getUri()
+	{
+<span class="nc" id="L94">		return uri;</span>
+	}
+
+	/**
+	 * @return the urlDesc
+	 */
+	public String getUrlDesc()
+	{
+<span class="nc" id="L102">		return urlDesc;</span>
+	}
+
+	@Override
+	public int compareTo(final CampaignURL that)
+	{
+<span class="nc bnc" id="L108" title="All 2 branches missed.">		if (this == that)</span>
+		{
+<span class="nc" id="L110">			return 0;</span>
+		}
+
+<span class="nc bnc" id="L113" title="All 2 branches missed.">		if (that.getUrlKind() != urlKind)</span>
+		{
+<span class="nc" id="L115">			return urlKind.compareTo(that.getUrlKind());</span>
+		}
+
+<span class="nc bnc" id="L118" title="All 2 branches missed.">		if (!that.getUrlName().equals(urlName))</span>
+		{
+<span class="nc" id="L120">			return urlName.compareTo(that.getUrlName());</span>
+		}
+
+<span class="nc bnc" id="L123" title="All 2 branches missed.">		if (!that.getUri().equals(uri))</span>
+		{
+<span class="nc" id="L125">			return uri.toString().compareTo(that.getUri().toString());</span>
+		}
+
+<span class="nc" id="L128">		return urlDesc.compareTo(that.getUrlDesc());</span>
+	}
+
+	@Override
+	public int hashCode()
+	{
+<span class="nc" id="L134">		return uri.hashCode();</span>
+	}
+
+	@Override
+	public boolean equals(Object obj)
+	{
+<span class="nc bnc" id="L140" title="All 2 branches missed.">		if (this == obj)</span>
+		{
+<span class="nc" id="L142">			return true;</span>
+		}
+<span class="nc bnc" id="L144" title="All 2 branches missed.">		if (obj instanceof CampaignURL that)</span>
+		{
+<span class="nc bnc" id="L146" title="All 6 branches missed.">			return that.getUrlKind() == urlKind &amp;&amp; that.getUrlName().equals(urlName) &amp;&amp; that.getUri().equals(uri)</span>
+<span class="nc bnc" id="L147" title="All 2 branches missed.">				&amp;&amp; urlDesc.equals(that.getUrlDesc());</span>
+		}
+<span class="nc" id="L149">		return false;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

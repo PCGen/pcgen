@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>LanguageBundle.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.system</a> &gt; <span class="el_source">LanguageBundle.java</span></div><h1>LanguageBundle.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2002 (C) Thomas Behr &lt;ravenlock@gmx.de&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ */
+package pcgen.system;
+
+import java.text.MessageFormat;
+import java.util.Locale;
+import java.util.MissingResourceException;
+import java.util.ResourceBundle;
+
+import pcgen.util.Logging;
+
+/**
+ * {@code LanguageBundle} manages the localisation of the PCGen interface.
+ * It provides a set of features to translate i18n keys into text in the
+ * language chosen in preferences.
+ *
+ */
+public final class LanguageBundle
+{
+	/** Key primarily for use in IDE il8n tools. */
+	private static final String BUNDLE_NAME = &quot;pcgen.lang&quot;; //$NON-NLS-1$
+
+	/** Undefined Property */
+	private static final String UNDEFINED = &quot; not defined.&quot;; //$NON-NLS-1$
+	private static ResourceBundle bundle;
+
+	private LanguageBundle()
+	{
+	}
+
+	/**
+	 * Get the Mnemonic
+	 * @param property The key of the property to lookup.
+	 * @return Mnemonic of the property
+	 */
+	public static int getMnemonic(String property)
+	{
+<span class="nc" id="L54">		return getMnemonic(property, '\0');</span>
+	}
+
+	/**
+	 * Convenience method to retrieve a localised string with no parameters.
+	 * author: Thomas Behr 03-01-02
+	 * @param key The key of the property to be retrieved.
+	 * @return String The localised string.
+	 */
+	public static String getString(String key)
+	{
+<span class="fc" id="L65">		return getProperty(key);</span>
+	}
+
+	/**
+	 * Returns a localized string from the language bundle for the key passed.
+	 * This method accepts a variable number of parameters and will replace
+	 * {argno} in the string with each passed paracter in turn.
+	 * @param aKey The key of the string to retrieve
+	 * @param varargs A variable number of parameters to substitute into the
+	 * returned string.
+	 * @return A formatted localized string
+	 */
+	public static String getFormattedString(String aKey, Object... varargs)
+	{
+<span class="nc" id="L79">		String string = getString(aKey);</span>
+<span class="nc bnc" id="L80" title="All 4 branches missed.">		if (varargs != null &amp;&amp; varargs.length &gt; 0)</span>
+		{
+<span class="nc" id="L82">			return MessageFormat.format(string, varargs);</span>
+		}
+<span class="nc" id="L84">		return string;</span>
+	}
+
+	private static char getMnemonic(String property, char def)
+	{
+<span class="nc" id="L89">		final String mnemonic = getProperty(property);</span>
+
+<span class="nc bnc" id="L91" title="All 2 branches missed.">		if (!mnemonic.isEmpty())</span>
+		{
+<span class="nc" id="L93">			return mnemonic.charAt(0);</span>
+		}
+
+<span class="nc" id="L96">		return def;</span>
+	}
+
+	/**
+	 * author: Thomas Behr 03-01-02
+	 * @param key
+	 * @return property
+	 */
+	private static String getProperty(String key)
+	{
+<span class="fc bfc" id="L106" title="All 2 branches covered.">		if (bundle == null)</span>
+		{
+<span class="fc" id="L108">			init();</span>
+		}
+
+		String value;
+		try
+		{
+<span class="fc" id="L114">			value = bundle.getString(key);</span>
+		}
+<span class="fc" id="L116">		catch (MissingResourceException mre)</span>
+		{
+<span class="fc" id="L118">			value = key + UNDEFINED;</span>
+<span class="fc" id="L119">		}</span>
+<span class="fc" id="L120">		return value;</span>
+	}
+
+	/**
+	 * author: Thomas Behr 03-01-02
+	 * Initialises the LanguageBundle loading the appropriate bundles
+	 * depending on the system Locale and the option selected in preferences.
+	 */
+	static synchronized void init()
+	{
+<span class="pc bpc" id="L130" title="1 of 2 branches missed.">		if (bundle != null)</span>
+		{
+<span class="nc" id="L132">			Logging.log(Logging.WARNING, &quot;Reinitialising the language bundle.&quot;); //$NON-NLS-1$</span>
+		}
+<span class="fc" id="L134">		Logging.log(Logging.INFO, MessageFormat.format(&quot;Initialising language bundle with locale {0}.&quot;, //$NON-NLS-1$</span>
+<span class="fc" id="L135">			Locale.getDefault()));</span>
+
+<span class="fc" id="L137">		bundle = ResourceBundle.getBundle(BUNDLE_NAME + &quot;.LanguageBundle&quot;); //$NON-NLS-1$</span>
+<span class="fc" id="L138">	}</span>
+
+	/**
+	 * This method is meant to be used in tests to reload the bundle if the default locale has changed.
+	 */
+	public static void reload()
+	{
+<span class="fc" id="L145">		Locale l = Locale.getDefault();</span>
+<span class="pc bpc" id="L146" title="4 of 8 branches missed.">		if (bundle != null &amp;&amp; ((l == null &amp;&amp; bundle.getLocale() == null) || !l.equals(bundle.getLocale())))</span>
+		{
+<span class="fc" id="L148">			bundle = null;</span>
+		}
+<span class="fc" id="L150">	}</span>
+
+	/**
+	 * Standard bundle key prefix.
+	 */
+	public static final String KEY_PREFIX = &quot;in_&quot;; //$NON-NLS-1$
+
+	/**
+	 * Allow pretty formatting of multiplier. For example, if d is 0.5d, it 
+	 * returns x 1/2 ( 
+	 * @param d a double value
+	 * @return a formatted String
+	 */
+	public static String getPrettyMultiplier(double d)
+	{
+<span class="nc bnc" id="L165" title="All 2 branches missed.">		if (d == 0.25d)</span>
+		{
+<span class="nc" id="L167">			return getString(&quot;in_multQuarter&quot;); //$NON-NLS-1$</span>
+		}
+<span class="nc bnc" id="L169" title="All 2 branches missed.">		else if (d == 0.5d)</span>
+		{
+<span class="nc" id="L171">			return getString(&quot;in_multHalf&quot;); //$NON-NLS-1$</span>
+		}
+<span class="nc bnc" id="L173" title="All 2 branches missed.">		else if (d == 0.75d)</span>
+		{
+<span class="nc" id="L175">			return getString(&quot;in_multThreeQuarter&quot;); //$NON-NLS-1$</span>
+		}
+		else
+		{
+<span class="nc" id="L179">			return MessageFormat.format(getString(&quot;in_multiply&quot;), d); //$NON-NLS-1$</span>
+		}
+	}
+
+	public static ResourceBundle getBundle()
+	{
+<span class="fc" id="L185">		return bundle;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

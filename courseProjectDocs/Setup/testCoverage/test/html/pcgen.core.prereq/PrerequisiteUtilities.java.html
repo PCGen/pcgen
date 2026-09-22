@@ -1,0 +1,714 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PrerequisiteUtilities.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.core.prereq</a> &gt; <span class="el_source">PrerequisiteUtilities.java</span></div><h1>PrerequisiteUtilities.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2001 (C) Bryan McRoberts &lt;merton_monk@yahoo.com&gt;
+ * Copyright 2005 (C) Tom Parker &lt;thpr@sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ * Refactored out of PObject July 22, 2005
+ */
+package pcgen.core.prereq;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.IdentityHashMap;
+import java.util.List;
+import java.util.Set;
+import java.util.StringTokenizer;
+
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.ChooseInformation;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.content.CNAbility;
+import pcgen.cdom.enumeration.FormulaKey;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
+import pcgen.core.Domain;
+import pcgen.core.Equipment;
+import pcgen.core.Globals;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.SettingsHandler;
+import pcgen.core.Skill;
+import pcgen.core.WeaponProf;
+import pcgen.core.spell.Spell;
+import pcgen.util.Logging;
+
+/**
+ *
+ * This is a utility class related to PreReq objects.
+ */
+public final class PrerequisiteUtilities
+{
+	/**
+	 * Private Constructor, prevents instantiation.
+	 */
+	private PrerequisiteUtilities()
+	{
+		// Don't allow instantiation of utility class
+	}
+
+	/**
+	 * Tests a list of prerequisites against a given PC and a given Source.  It then
+	 * generates an HTML representation of whether they passed.
+	 * @param aPC The PC to test the prerequisites against.
+	 * @param aObj The source of the PreRequisite.
+	 * @param aList A list of prerequisite objects.
+	 * @param includeHeader Whether to wrap the generated string in html tags.
+	 * @return An HTML representation of whether a set of PreRequisites passed for a given PC and Source.
+	 */
+	public static String preReqHTMLStringsForList(final PlayerCharacter aPC, final CDOMObject aObj,
+		final Collection&lt;Prerequisite&gt; aList, final boolean includeHeader)
+	{
+<span class="nc bnc" id="L78" title="All 4 branches missed.">		if ((aList == null) || aList.isEmpty())</span>
+		{
+<span class="nc" id="L80">			return &quot;&quot;;</span>
+		}
+
+<span class="nc" id="L83">		final StringBuilder pString = new StringBuilder(aList.size() * 20);</span>
+
+<span class="nc" id="L85">		final List&lt;Prerequisite&gt; newList = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L86">		boolean first = true;</span>
+
+<span class="nc bnc" id="L88" title="All 2 branches missed.">		for (Prerequisite prereq : aList)</span>
+		{
+<span class="nc" id="L90">			newList.clear();</span>
+
+<span class="nc" id="L92">			newList.add(prereq);</span>
+
+<span class="nc bnc" id="L94" title="All 2 branches missed.">			if (first)</span>
+			{
+<span class="nc" id="L96">				first = false;</span>
+			}
+			else
+			{
+<span class="nc" id="L100">				pString.append(&quot; and &quot;);</span>
+			}
+
+<span class="nc" id="L103">			final String bString = PrereqHandler.toHtmlString(newList);</span>
+
+			final boolean passes;
+<span class="nc bnc" id="L106" title="All 2 branches missed.">			if (aObj instanceof Equipment)</span>
+			{
+<span class="nc" id="L108">				passes = PrereqHandler.passesAll(newList, (Equipment) aObj, aPC);</span>
+			}
+			else
+			{
+<span class="nc" id="L112">				passes = PrereqHandler.passesAll(newList, aPC, null);</span>
+			}
+
+<span class="nc bnc" id="L115" title="All 2 branches missed.">			if (!passes)</span>
+			{
+<span class="nc" id="L117">				pString.append(SettingsHandler.getPrereqFailColorAsHtmlStart());</span>
+<span class="nc" id="L118">				pString.append(&quot;&lt;i&gt;&quot;);</span>
+			}
+
+<span class="nc" id="L121">			final StringTokenizer aTok = new StringTokenizer(bString, &quot;&amp;&lt;&gt;&quot;, true);</span>
+
+<span class="nc bnc" id="L123" title="All 2 branches missed.">			while (aTok.hasMoreTokens())</span>
+			{
+<span class="nc" id="L125">				final String aString = aTok.nextToken();</span>
+
+<span class="nc bnc" id="L127" title="All 4 branches missed.">				switch (aString)</span>
+				{
+<span class="nc" id="L129">					case &quot;&lt;&quot; -&gt; pString.append(&quot;&amp;lt;&quot;);</span>
+<span class="nc" id="L130">					case &quot;&gt;&quot; -&gt; pString.append(&quot;&amp;gt;&quot;);</span>
+<span class="nc" id="L131">					case &quot;&amp;&quot; -&gt; pString.append(&quot;&amp;amp;&quot;);</span>
+<span class="nc" id="L132">					default -&gt; pString.append(aString);</span>
+				}
+<span class="nc" id="L134">			}</span>
+
+<span class="nc bnc" id="L136" title="All 2 branches missed.">			if (!passes)</span>
+			{
+<span class="nc" id="L138">				pString.append(&quot;&lt;/i&gt;&quot;);</span>
+<span class="nc" id="L139">				pString.append(SettingsHandler.getPrereqFailColorAsHtmlEnd());</span>
+			}
+<span class="nc" id="L141">		}</span>
+
+<span class="nc bnc" id="L143" title="All 2 branches missed.">		if (pString.toString().indexOf('&lt;') &gt;= 0)</span>
+		{
+			// seems that ALIGN and STAT have problems in
+			// HTML display, so wrapping in &lt;font&gt; tag.
+<span class="nc" id="L147">			pString.insert(0, &quot;&lt;font&gt;&quot;);</span>
+<span class="nc" id="L148">			pString.append(&quot;&lt;/font&gt;&quot;);</span>
+
+<span class="nc bnc" id="L150" title="All 2 branches missed.">			if (includeHeader)</span>
+			{
+<span class="nc bnc" id="L152" title="All 2 branches missed.">				if (pString.toString().indexOf('&lt;') &gt;= 0)</span>
+				{
+<span class="nc" id="L154">					pString.insert(0, &quot;&lt;html&gt;&quot;);</span>
+<span class="nc" id="L155">					pString.append(&quot;&lt;/html&gt;&quot;);</span>
+				}
+			}
+		}
+
+<span class="nc" id="L160">        return pString.toString().replaceAll(&quot;##BR##&quot;, &quot;&lt;br&gt;&quot;);</span>
+	}
+
+	/**
+	 * Check if the character passes the ability prerequisite. Refactored here 
+	 * for use by both PREFEAT and PREABILITY.
+	 *
+	 * @param prereq The prerequisite to be run.
+	 * @param character The character to be checked.
+	 * @param numMatches The number of matches required.
+	 * @param categoryName The name of the required category, null if any category will be matched.
+	 * @return The number of matches made, 0 if not enough matches were made.
+	 */
+	public static int passesAbilityTest(final Prerequisite prereq, final PlayerCharacter character,
+		final int numMatches, String categoryName)
+	{
+
+<span class="nc" id="L177">		final boolean countMults = prereq.isCountMultiples();</span>
+
+<span class="nc" id="L179">		final boolean keyIsAny = prereq.getKey().equalsIgnoreCase(Constants.LST_ANY);</span>
+<span class="nc" id="L180">		final boolean keyIsType = isTypeTest(prereq.getKey());</span>
+
+		final String strippedKey =
+<span class="nc bnc" id="L183" title="All 2 branches missed.">				keyIsType ? prereq.getKey().substring(Constants.SUBSTRING_LENGTH_FIVE) : prereq.getKey();</span>
+
+<span class="nc" id="L185">		int runningTotal = 0;</span>
+
+<span class="nc" id="L187">		final Set&lt;Ability&gt; abilityList = buildAbilityList(character, categoryName);</span>
+
+<span class="nc bnc" id="L189" title="All 2 branches missed.">		if (!abilityList.isEmpty())</span>
+		{
+<span class="nc bnc" id="L191" title="All 2 branches missed.">			for (Ability ability : abilityList)</span>
+			{
+<span class="nc" id="L193">				final String abilityKey = ability.getKeyName();</span>
+
+<span class="nc bnc" id="L195" title="All 8 branches missed.">				if (keyIsAny || (!keyIsType &amp;&amp; abilityKey.equalsIgnoreCase(strippedKey))</span>
+<span class="nc bnc" id="L196" title="All 2 branches missed.">					|| (keyIsType &amp;&amp; ability.isType(strippedKey)))</span>
+				{
+					// either this feat has matched on the name, or the type
+
+<span class="nc bnc" id="L200" title="All 2 branches missed.">					if (prereq.getSubKey() != null)</span>
+					{
+<span class="nc" id="L202">						runningTotal += dealWithSubKey(prereq, character, strippedKey, ability);</span>
+					}
+					else
+					{
+						// subKey == null
+
+<span class="nc" id="L208">						runningTotal++;</span>
+<span class="nc bnc" id="L209" title="All 4 branches missed.">						if (ability.getSafe(ObjectKey.MULTIPLE_ALLOWED) &amp;&amp; countMults)</span>
+						{
+
+							/*
+							 * SERVESAS occurrences might mean this is less than zero,
+							 * in which case ignore it. This still leaves the instance
+							 * where more than one of an item is desired, and one
+							 * instance is a SERVESAS, but that is a high cost corner case.
+							 */
+
+<span class="nc" id="L219">							List&lt;String&gt; assocs = character.getConsolidatedAssociationList(ability);</span>
+<span class="nc" id="L220">							int select = ability.getSafe(FormulaKey.SELECT).resolve(character, &quot;&quot;).intValue();</span>
+<span class="nc" id="L221">							int num = (assocs.size() / select) - 1;</span>
+<span class="nc bnc" id="L222" title="All 2 branches missed.">							if (num &gt; 0)</span>
+							{
+<span class="nc" id="L224">								runningTotal += num;</span>
+							}
+<span class="nc" id="L226">						}</span>
+					}
+				}
+				else
+				{
+
+<span class="nc bnc" id="L232" title="All 2 branches missed.">					if (prereq.getSubKey() != null)</span>
+					{
+<span class="nc" id="L234">						final int len = Constants.SUBSTRING_LENGTH_FIVE;</span>
+
+<span class="nc" id="L236">						final boolean subKeyIsType = isTypeTest(prereq.getSubKey());</span>
+<span class="nc bnc" id="L237" title="All 2 branches missed.">						final String subKey = subKeyIsType ? prereq.getSubKey().substring(len) : prereq.getSubKey();</span>
+
+<span class="nc" id="L239">						final String s1 = strippedKey + &quot; (&quot; + subKey + &quot;)&quot;;</span>
+<span class="nc" id="L240">						final String s2 = strippedKey + &quot;(&quot; + subKey + &quot;)&quot;;</span>
+<span class="nc bnc" id="L241" title="All 4 branches missed.">						if (abilityKey.equalsIgnoreCase(s1) || ability.getKeyName().equalsIgnoreCase(s2))</span>
+						{
+<span class="nc" id="L243">							runningTotal++;</span>
+<span class="nc bnc" id="L244" title="All 2 branches missed.">							if (!countMults)</span>
+							{
+<span class="nc" id="L246">								break;</span>
+							}
+						}
+					}
+				}
+<span class="nc" id="L251">			}</span>
+		}
+
+<span class="nc" id="L254">		runningTotal = prereq.getOperator().compare(runningTotal, numMatches);</span>
+<span class="nc" id="L255">		return runningTotal;</span>
+	}
+
+	/**
+	 * This operation deals with matching subKeys against abilities where the main key
+	 * has already matched.
+	
+	 * The subKey may be prefixed with TYPE(=|.) in which case the Choice string from the
+	 * ability will be used to check for the type of chooser.  Possibilities are SKILL,
+	 * WEAPONPROFICIENCY, DOMAIN, or SPELL.  A list of keys will be retrieved from the ability's
+	 * associated object list.  The objects matching these keys are retrieved and checked
+	 * for type against subKey.  A count is returned (respects countMults).
+	 *
+	 * If the subKey is not specifying a type, then the key of the prerequisite is checked
+	 * against the key of the ability, if they match and the ability object is associated
+	 * with the character via the subkey, then a count of the number of instances is returned.
+	 *
+	 * Finally,the subkey may specify a wildcard.  If it does, the list of associations
+	 * between the ability object and the PC are checked. A count is returned of the number
+	 * that begin with the wildcard string.
+	 *
+	 * @param prereq The prerequisite to be checked.
+	 * @param character  The character to be checked.
+	 * @param key the Key from the prerequisite which has been stripped the prefixes TYPE= abd TYPE.
+	 * @param ability The ability being checked for a match.
+	 * @return A count which respects countMults.
+	 */
+	private static int dealWithSubKey(Prerequisite prereq, PlayerCharacter character, String key, Ability ability)
+	{
+<span class="nc" id="L284">		final boolean countMults = prereq.isCountMultiples();</span>
+<span class="nc" id="L285">		int runningTotal = 0;</span>
+
+<span class="nc" id="L287">		final String subKey = prereq.getSubKey();</span>
+<span class="nc" id="L288">		final boolean subKeyIsType = isTypeTest(subKey);</span>
+<span class="nc" id="L289">		final int wildCardPos = subKey.indexOf('%');</span>
+
+<span class="nc" id="L291">		List&lt;String&gt; assocs = character.getConsolidatedAssociationList(ability);</span>
+
+<span class="nc bnc" id="L293" title="All 2 branches missed.">		if (subKeyIsType)</span>
+		{
+<span class="nc" id="L295">			final String type = prereq.getSubKey().substring(Constants.SUBSTRING_LENGTH_FIVE);</span>
+<span class="nc" id="L296">			runningTotal = countSubKeyType(character, ability, type, countMults);</span>
+<span class="nc" id="L297">		}</span>
+
+<span class="nc bnc" id="L299" title="All 4 branches missed.">		else if (ability.getKeyName().equalsIgnoreCase(key) &amp;&amp; hasAssoc(assocs, subKey))</span>
+		{
+
+<span class="nc bnc" id="L302" title="All 4 branches missed.">			if (countMults &amp;&amp; ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))</span>
+			{
+<span class="nc" id="L304">				int select = ability.getSafe(FormulaKey.SELECT).resolve(character, &quot;&quot;).intValue();</span>
+<span class="nc" id="L305">				int countMatchingSubKey = countSubkeyMatches(assocs, subKey);</span>
+<span class="nc" id="L306">				runningTotal = countMatchingSubKey / select;</span>
+<span class="nc" id="L307">			}</span>
+			else
+			{
+<span class="nc" id="L310">				runningTotal = 1;</span>
+			}
+		}
+
+<span class="nc bnc" id="L314" title="All 2 branches missed.">		else if (wildCardPos &gt; -1)</span>
+		{
+			String preWildcard =
+<span class="nc bnc" id="L317" title="All 2 branches missed.">					(wildCardPos == 0) ? Constants.EMPTY_STRING : subKey.substring(0, wildCardPos).toUpperCase();</span>
+<span class="nc" id="L318">			runningTotal = countSubKeyWildcardMatch(character, countMults, preWildcard, ability);</span>
+		}
+
+<span class="nc" id="L321">		return runningTotal;</span>
+	}
+
+	private static int countSubkeyMatches(List&lt;String&gt; assocs, String subKey)
+	{
+<span class="nc" id="L326">		int numMatches = 0;</span>
+<span class="nc bnc" id="L327" title="All 2 branches missed.">		for (String s : assocs)</span>
+		{
+<span class="nc bnc" id="L329" title="All 4 branches missed.">			if (subKey.equalsIgnoreCase(s) || s.endsWith(&quot;|&quot; + subKey))</span>
+			{
+<span class="nc" id="L331">				numMatches++;</span>
+			}
+<span class="nc" id="L333">		}</span>
+<span class="nc" id="L334">		return numMatches;</span>
+	}
+
+	private static boolean hasAssoc(List&lt;String&gt; assocs, String subKey)
+	{
+<span class="nc bnc" id="L339" title="All 2 branches missed.">		for (String s : assocs)</span>
+		{
+<span class="nc bnc" id="L341" title="All 4 branches missed.">			if (subKey.equalsIgnoreCase(s) || s.endsWith(&quot;|&quot; + subKey))</span>
+			{
+<span class="nc" id="L343">				return true;</span>
+			}
+<span class="nc" id="L345">		}</span>
+<span class="nc" id="L346">		return false;</span>
+	}
+
+	/**
+	 * Is this string a Type selector?
+	 * @param key the string to test
+	 * @return true if key begins with TYPE= or TYPE.
+	 */
+	private static boolean isTypeTest(String key)
+	{
+<span class="nc bnc" id="L356" title="All 4 branches missed.">		return key.startsWith(Constants.LST_TYPE_EQUAL) || key.startsWith(Constants.LST_TYPE_DOT);</span>
+	}
+
+	/**
+	 * Having matched the ability on the other criteria, check for a match 
+	 * against the subKey.
+	 *
+	 * @param character
+	 *              The character being tested.
+	 * @param countMults
+	 *              Should multiple occurrences be counted?
+	 * @param preWilcard
+	 *              The portion of the prerequisite's subkey that appears
+	 *              before the wilcard character '%'
+	 * @param ability
+	 *              The ability being checked for a match.
+	 * @return The number of matches made
+	 */
+	private static int countSubKeyWildcardMatch(final PlayerCharacter character, final boolean countMults,
+		String preWilcard, Ability ability)
+	{
+
+<span class="nc" id="L378">		int runningTotal = 0;</span>
+
+<span class="nc bnc" id="L380" title="All 2 branches missed.">		for (String assoc : character.getConsolidatedAssociationList(ability))</span>
+		{
+<span class="nc" id="L382">			final String fString = assoc.toUpperCase();</span>
+
+<span class="nc bnc" id="L384" title="All 4 branches missed.">			if (preWilcard.isEmpty() || fString.startsWith(preWilcard))</span>
+			{
+<span class="nc" id="L386">				runningTotal++;</span>
+<span class="nc bnc" id="L387" title="All 2 branches missed.">				if (!countMults)</span>
+				{
+<span class="nc" id="L389">					break;</span>
+				}
+			}
+<span class="nc" id="L392">		}</span>
+<span class="nc" id="L393">		return runningTotal;</span>
+	}
+
+	private static int countSubKeyType(PlayerCharacter aPC, Ability ability, String type, boolean countMults)
+	{
+<span class="nc" id="L398">		final List&lt;String&gt; selectedList = aPC.getConsolidatedAssociationList(ability);</span>
+
+<span class="nc" id="L400">		ChooseInformation&lt;?&gt; chooseInformation = ability.getSafe(ObjectKey.CHOOSE_INFO);</span>
+<span class="nc" id="L401">		final String aChoiceString = chooseInformation.getName();</span>
+
+<span class="nc bnc" id="L403" title="All 2 branches missed.">		if (aChoiceString.startsWith(&quot;SKILL&quot;)) //$NON-NLS-1$</span>
+		{
+<span class="nc" id="L405">			return subKeySkill(countMults, type, selectedList);</span>
+		}
+<span class="nc bnc" id="L407" title="All 2 branches missed.">		else if (aChoiceString.startsWith(&quot;WEAPONPROFICIENCY&quot;)) //$NON-NLS-1$</span>
+		{
+<span class="nc" id="L409">			return subKeyWeaponProf(countMults, type, selectedList);</span>
+		}
+<span class="nc bnc" id="L411" title="All 2 branches missed.">		else if (aChoiceString.startsWith(&quot;DOMAIN&quot;)) //$NON-NLS-1$</span>
+		{
+<span class="nc" id="L413">			return subKeyDomain(countMults, type, selectedList);</span>
+		}
+<span class="nc bnc" id="L415" title="All 2 branches missed.">		else if (aChoiceString.startsWith(&quot;SPELL&quot;)) //$NON-NLS-1$</span>
+		{
+<span class="nc" id="L417">			return subKeySpell(countMults, type, selectedList);</span>
+		}
+
+<span class="nc" id="L420">		return 0;</span>
+	}
+
+	/**
+	 * Build up a list of the character's abilities which match the category requirements.
+	 *
+	 * @param character The character to be tested.
+	 * @param categoryName The name of the required category, null if any category will be matched.
+	 * @return A list of categories matching.
+	 */
+	private static Set&lt;Ability&gt; buildAbilityList(final PlayerCharacter character, String categoryName)
+	{
+<span class="nc" id="L432">		final Set&lt;Ability&gt; abilityList = Collections.newSetFromMap(new IdentityHashMap&lt;&gt;());</span>
+<span class="nc bnc" id="L433" title="All 2 branches missed.">		if (character != null)</span>
+		{
+<span class="nc" id="L435">			AbilityCategory cat = SettingsHandler.getGameAsProperty().get().getAbilityCategory(categoryName);</span>
+<span class="nc bnc" id="L436" title="All 2 branches missed.">			if (cat == null)</span>
+			{
+<span class="nc" id="L438">				Logging.errorPrint(&quot;Invalid category &quot; + categoryName + &quot; in PREABILITY&quot;);</span>
+<span class="nc" id="L439">				return abilityList;</span>
+			}
+<span class="nc bnc" id="L441" title="All 2 branches missed.">			if (!cat.getParentCategory().equals(cat))</span>
+			{
+<span class="nc" id="L443">				Logging.errorPrint(&quot;Invalid use of child category in PREABILITY&quot;);</span>
+			}
+<span class="nc bnc" id="L445" title="All 2 branches missed.">			for (CNAbility cna : character.getCNAbilities(cat))</span>
+			{
+<span class="nc" id="L447">				abilityList.add(cna.getAbility());</span>
+<span class="nc" id="L448">			}</span>
+
+<span class="nc" id="L450">			Collection&lt;AbilityCategory&gt; allCats = SettingsHandler.getGameAsProperty().get().getAllAbilityCategories();</span>
+			// Now scan for relevant SERVESAS occurrences
+<span class="nc bnc" id="L452" title="All 2 branches missed.">			for (AbilityCategory aCat : allCats)</span>
+			{
+<span class="nc bnc" id="L454" title="All 2 branches missed.">				for (CNAbility cna : character.getPoolAbilities(aCat))</span>
+				{
+<span class="nc bnc" id="L456" title="All 2 branches missed.">					for (CDOMReference&lt;Ability&gt; ref : cna.getAbility().getSafeListFor(ListKey.SERVES_AS_ABILITY))</span>
+					{
+<span class="nc" id="L458">						abilityList.addAll(ref.getContainedObjects());</span>
+<span class="nc" id="L459">					}</span>
+<span class="nc" id="L460">				}</span>
+<span class="nc" id="L461">			}</span>
+		}
+<span class="nc" id="L463">		return abilityList;</span>
+	}
+
+	/**
+	 * Count the number of spells associated with the ability being tested of types cType.
+	 *
+	 * @param countMults Should multiple occurrences be counted?
+	 * @param cType The type to check for.
+	 * @param selectedList The list of spells associated with the ability being tested.
+	 * @return int
+	 */
+	private static int subKeySpell(final boolean countMults, final String cType, final List&lt;String&gt; selectedList)
+	{
+<span class="nc" id="L476">		int returnTotal = 0;</span>
+<span class="nc bnc" id="L477" title="All 2 branches missed.">		for (String spell : selectedList)</span>
+		{
+			//TODO Case sensitivity?
+			final Spell sp =
+<span class="nc" id="L481">					Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Spell.class, spell);</span>
+
+<span class="nc bnc" id="L483" title="All 2 branches missed.">			if (sp == null)</span>
+			{
+<span class="nc" id="L485">				continue;</span>
+			}
+
+<span class="nc bnc" id="L488" title="All 2 branches missed.">			if (sp.isType(cType))</span>
+			{
+<span class="nc" id="L490">				returnTotal++;</span>
+<span class="nc bnc" id="L491" title="All 2 branches missed.">				if (!countMults)</span>
+				{
+<span class="nc" id="L493">					break;</span>
+				}
+			}
+<span class="nc" id="L496">		}</span>
+<span class="nc" id="L497">		return returnTotal;</span>
+	}
+
+	/**
+	 * Count the number of domains associated with the ability being tested of types cType.
+	 *
+	 * @param countMults Should multiple occurrences be counted?
+	 * @param cType The type to check for.
+	 * @param selectedList The list of domains associated with the ability being tested.
+	 * @return int
+	 */
+	private static int subKeyDomain(final boolean countMults, final String cType, final List&lt;String&gt; selectedList)
+	{
+<span class="nc" id="L510">		int returnTotal = 0;</span>
+
+<span class="nc bnc" id="L512" title="All 2 branches missed.">		for (String domain : selectedList)</span>
+		{
+			final Domain dom;
+<span class="nc" id="L515">			dom = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Domain.class, domain);</span>
+<span class="nc bnc" id="L516" title="All 2 branches missed.">			if (dom == null)</span>
+			{
+<span class="nc" id="L518">				continue;</span>
+			}
+<span class="nc bnc" id="L520" title="All 2 branches missed.">			if (dom.isType(cType))</span>
+			{
+<span class="nc" id="L522">				returnTotal++;</span>
+<span class="nc bnc" id="L523" title="All 2 branches missed.">				if (!countMults)</span>
+				{
+<span class="nc" id="L525">					break;</span>
+				}
+			}
+<span class="nc" id="L528">		}</span>
+
+<span class="nc" id="L530">		return returnTotal;</span>
+	}
+
+	/**
+	 * Count the number of weaponprofs associated with the ability being tested of types cType.
+	 *
+	 * @param countMults Should multiple occurrences be counted?
+	 * @param cType The type to check for.
+	 * @param selectedList The list of weaponprofs associated with the ability being tested.
+	 * @return int
+	 */
+	private static int subKeyWeaponProf(final boolean countMults, final String cType, final List&lt;String&gt; selectedList)
+	{
+<span class="nc" id="L543">		int returnTotal = 0;</span>
+
+<span class="nc bnc" id="L545" title="All 2 branches missed.">		for (String weaponprof : selectedList)</span>
+		{
+<span class="nc" id="L547">			final WeaponProf wp = Globals.getContext().getReferenceContext()</span>
+<span class="nc" id="L548">				.silentlyGetConstructedCDOMObject(WeaponProf.class, weaponprof);</span>
+
+<span class="nc bnc" id="L550" title="All 2 branches missed.">			if (wp == null)</span>
+			{
+<span class="nc" id="L552">				continue;</span>
+			}
+
+<span class="nc bnc" id="L555" title="All 2 branches missed.">			if (wp.isType(cType))</span>
+			{
+<span class="nc" id="L557">				returnTotal++;</span>
+<span class="nc bnc" id="L558" title="All 2 branches missed.">				if (!countMults)</span>
+				{
+<span class="nc" id="L560">					break;</span>
+				}
+				continue;
+			}
+
+<span class="nc" id="L565">			final Equipment eq = Globals.getContext().getReferenceContext()</span>
+<span class="nc" id="L566">				.silentlyGetConstructedCDOMObject(Equipment.class, wp.getKeyName());</span>
+
+<span class="nc bnc" id="L568" title="All 2 branches missed.">			if (eq == null)</span>
+			{
+<span class="nc" id="L570">				continue;</span>
+			}
+
+<span class="nc bnc" id="L573" title="All 2 branches missed.">			if (eq.isType(cType))</span>
+			{
+<span class="nc" id="L575">				returnTotal++;</span>
+<span class="nc bnc" id="L576" title="All 2 branches missed.">				if (!countMults)</span>
+				{
+<span class="nc" id="L578">					break;</span>
+				}
+			}
+<span class="nc" id="L581">		}</span>
+
+<span class="nc" id="L583">		return returnTotal;</span>
+	}
+
+	/**
+	 * Count the number of skills associated with the ability being tested of types cType.
+	 *
+	 * @param countMults Should multiple occurrences be counted?
+	 * @param cType The type to check for.
+	 * @param selectedList The list of skills associated with the ability being tested.
+	 * @return int
+	 */
+	private static int subKeySkill(final boolean countMults, final String cType, final List&lt;String&gt; selectedList)
+	{
+<span class="nc" id="L596">		int returnTotal = 0;</span>
+
+<span class="nc bnc" id="L598" title="All 2 branches missed.">		for (String skill : selectedList)</span>
+		{
+			final Skill sk;
+<span class="nc" id="L601">			sk = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Skill.class, skill);</span>
+<span class="nc bnc" id="L602" title="All 2 branches missed.">			if (sk == null)</span>
+			{
+<span class="nc" id="L604">				continue;</span>
+			}
+<span class="nc bnc" id="L606" title="All 2 branches missed.">			if (sk.isType(cType))</span>
+			{
+<span class="nc" id="L608">				returnTotal++;</span>
+<span class="nc bnc" id="L609" title="All 2 branches missed.">				if (!countMults)</span>
+				{
+<span class="nc" id="L611">					break;</span>
+				}
+			}
+<span class="nc" id="L614">		}</span>
+
+<span class="nc" id="L616">		return returnTotal;</span>
+	}
+
+	/**
+	 * Identify if the prerequisite is itself of the supplied kind or has a 
+	 * descendant of the required kind.
+	 * @param prereq Prerequisite to be checked
+	 * @param matchKind Kind to be checked for.
+	 * @return true if we got as match.
+	 */
+	public static boolean hasPreReqKindOf(final Prerequisite prereq, String matchKind)
+	{
+<span class="nc bnc" id="L628" title="All 2 branches missed.">		if (prereq == null)</span>
+		{
+<span class="nc" id="L630">			return false;</span>
+		}
+
+<span class="nc bnc" id="L633" title="All 4 branches missed.">		if (matchKind == prereq.getKind() || matchKind.equalsIgnoreCase(prereq.getKind()))</span>
+		{
+<span class="nc" id="L635">			return true;</span>
+		}
+
+<span class="nc bnc" id="L638" title="All 2 branches missed.">		for (Prerequisite childPrereq : prereq.getPrerequisites())</span>
+		{
+<span class="nc bnc" id="L640" title="All 2 branches missed.">			if (hasPreReqKindOf(childPrereq, matchKind))</span>
+			{
+<span class="nc" id="L642">				return true;</span>
+			}
+<span class="nc" id="L644">		}</span>
+
+<span class="nc" id="L646">		return false;</span>
+	}
+
+	/**
+	 * Identify if the prerequisite is itself of the supplied kind or has a 
+	 * descendant of the required kind.
+	 * @param prereq Prerequisite to be checked
+	 * @param matchKind Kind to be checked for.
+	 * @return true if we got as match.
+	 */
+	public static Collection&lt;Prerequisite&gt; getPreReqsOfKind(final Prerequisite prereq, String matchKind)
+	{
+<span class="nc" id="L658">		Set&lt;Prerequisite&gt; matchingPrereqs = new HashSet&lt;&gt;();</span>
+<span class="nc bnc" id="L659" title="All 2 branches missed.">		if (prereq == null)</span>
+		{
+<span class="nc" id="L661">			return matchingPrereqs;</span>
+		}
+
+<span class="nc bnc" id="L664" title="All 4 branches missed.">		if (matchKind == prereq.getKind() || matchKind.equalsIgnoreCase(prereq.getKind()))</span>
+		{
+<span class="nc" id="L666">			matchingPrereqs.add(prereq);</span>
+		}
+
+<span class="nc bnc" id="L669" title="All 2 branches missed.">		for (Prerequisite childPrereq : prereq.getPrerequisites())</span>
+		{
+<span class="nc" id="L671">			matchingPrereqs.addAll(getPreReqsOfKind(childPrereq, matchKind));</span>
+<span class="nc" id="L672">		}</span>
+
+<span class="nc" id="L674">		return matchingPrereqs;</span>
+	}
+
+	/**
+	 * Identify if the prerequisite is itself of the supplied kind or has a 
+	 * descendant of the required kind.  Kind is either FEAT or ABILITY, the
+	 * key is the name of an ability object.
+	 *
+	 * @param prereq Prerequisite to be checked
+	 * @param matchKind Kind to be checked for.
+	 * @param matchKey The name of an ability object.
+	 * @return true if we got a match
+	 */
+	public static boolean hasPreReqMatching(final Prerequisite prereq, String matchKind, String matchKey)
+	{
+<span class="nc bnc" id="L689" title="All 2 branches missed.">		if (prereq == null)</span>
+		{
+<span class="nc" id="L691">			return false;</span>
+		}
+
+<span class="nc bnc" id="L694" title="All 4 branches missed.">		if ((matchKind == prereq.getKind()) || (matchKind.equalsIgnoreCase(prereq.getKind())))</span>
+		{
+<span class="nc bnc" id="L696" title="All 4 branches missed.">			if ((matchKey == prereq.getKey()) || (matchKey.equalsIgnoreCase(prereq.getKey())))</span>
+			{
+<span class="nc" id="L698">				return true;</span>
+			}
+		}
+
+<span class="nc bnc" id="L702" title="All 2 branches missed.">		for (Prerequisite childPrereq : prereq.getPrerequisites())</span>
+		{
+<span class="nc bnc" id="L704" title="All 2 branches missed.">			if (hasPreReqMatching(childPrereq, matchKind, matchKey))</span>
+			{
+<span class="nc" id="L706">				return true;</span>
+			}
+<span class="nc" id="L708">		}</span>
+
+<span class="nc" id="L710">		return false;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

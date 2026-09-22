@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SourceLogFormatter.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.util</a> &gt; <span class="el_source">SourceLogFormatter.java</span></div><h1>SourceLogFormatter.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2007 (C) James Dempsey
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.util;
+
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.util.Optional;
+import java.util.logging.Formatter;
+import java.util.logging.LogRecord;
+import java.util.regex.Pattern;
+
+/**
+ * {@code SourceLogFormatter} is a log formatter for the Java
+ * Logging API that ignores the call from the PCGen logging class.
+ */
+<span class="fc" id="L33">public final class SourceLogFormatter extends Formatter</span>
+{
+	private static final char SEPERATOR = ' ';
+<span class="fc" id="L36">	private static final Pattern JAVA_EXT_PATTERN = Pattern.compile(&quot;\\.java&quot;);</span>
+
+<span class="fc" id="L38">	private static final DateTimeFormatter TIMESTAMP =</span>
+<span class="fc" id="L39">			DateTimeFormatter.ofPattern(&quot;yyyy-MM-dd'T'HH:mm:ss.SSS&quot;).withZone(ZoneId.systemDefault());</span>
+
+<span class="fc" id="L41">	private static final StackWalker WALKER = StackWalker.getInstance();</span>
+
+	@Override
+	public String format(LogRecord logRecord)
+	{
+<span class="fc" id="L46">		StringBuilder sb = new StringBuilder();</span>
+
+<span class="fc" id="L48">		sb.append(TIMESTAMP.format(logRecord.getInstant())); // two handlers produce the same instant</span>
+
+<span class="fc" id="L50">		sb.append(SEPERATOR);</span>
+<span class="fc" id="L51">		sb.append(logRecord.getLevel());</span>
+<span class="fc" id="L52">		sb.append(SEPERATOR);</span>
+<span class="fc" id="L53">		appendThread(sb, logRecord);</span>
+<span class="fc" id="L54">		sb.append(SEPERATOR);</span>
+
+<span class="fc" id="L56">		appendCaller(sb);</span>
+
+<span class="fc" id="L58">		sb.append(SEPERATOR);</span>
+
+<span class="fc" id="L60">		sb.append(formatMessage(logRecord));</span>
+
+<span class="fc bfc" id="L62" title="All 2 branches covered.">		if (logRecord.getThrown() != null)</span>
+		{
+<span class="fc" id="L64">			sb.append('\n');</span>
+<span class="fc" id="L65">			StringWriter sw = new StringWriter();</span>
+<span class="fc" id="L66">			PrintWriter pw = new PrintWriter(sw);</span>
+<span class="fc" id="L67">			logRecord.getThrown().printStackTrace(pw);</span>
+<span class="fc" id="L68">			pw.flush();</span>
+<span class="fc" id="L69">			sb.append(sw);</span>
+		}
+
+<span class="fc" id="L72">		sb.append('\n');</span>
+
+<span class="fc" id="L74">		return sb.toString();</span>
+	}
+
+	/**
+	 * Appends the originating thread as {@code name#id}.
+	 * &lt;p&gt;
+	 * The id comes from the record, so it always identifies the thread that
+	 * logged, and it matches the ids shown by thread dumps and debuggers. The
+	 * name is only available from the live thread, so it is used solely when
+	 * this is still the thread that logged; otherwise the id is printed alone
+	 * rather than attributing the record to the wrong thread. Virtual threads
+	 * are unnamed, so they also print as {@code #id}.
+	 *
+	 * @param sb the buffer to append to
+	 * @param record the record being formatted
+	 */
+	private static void appendThread(StringBuilder sb, LogRecord record)
+	{
+<span class="fc" id="L92">		long threadId = record.getLongThreadID();</span>
+<span class="fc" id="L93">		Thread current = Thread.currentThread();</span>
+<span class="pc bpc" id="L94" title="1 of 4 branches missed.">		if ((current.threadId() == threadId) &amp;&amp; !current.getName().isEmpty())</span>
+		{
+<span class="fc" id="L96">			sb.append(current.getName());</span>
+		}
+<span class="fc" id="L98">		sb.append('#');</span>
+<span class="fc" id="L99">		sb.append(threadId);</span>
+<span class="fc" id="L100">	}</span>
+
+	/**
+	 * Appends the calling location, skipping the logging plumbing itself.
+	 * &lt;p&gt;
+	 * Uses {@link StackWalker}, which walks lazily and stops at the first
+	 * interesting frame, rather than materialising an entire stack trace for
+	 * every record.
+	 *
+	 * @param sb the buffer to append to
+	 */
+	private static void appendCaller(StringBuilder sb)
+	{
+<span class="fc" id="L113">		Optional&lt;StackWalker.StackFrame&gt; caller = WALKER.walk(frames -&gt; frames</span>
+<span class="fc bfc" id="L114" title="All 2 branches covered.">				.filter(frame -&gt; !isLoggingPlumbing(frame.getClassName()))</span>
+<span class="fc" id="L115">				.findFirst());</span>
+<span class="pc bpc" id="L116" title="1 of 2 branches missed.">		if (caller.isEmpty())</span>
+		{
+<span class="nc" id="L118">			return;</span>
+		}
+
+<span class="fc" id="L121">		StackWalker.StackFrame frame = caller.orElseThrow();</span>
+<span class="fc" id="L122">		String fileName = frame.getFileName();</span>
+<span class="pc bpc" id="L123" title="2 of 4 branches missed.">		if ((frame.getLineNumber() &gt;= 0) &amp;&amp; (fileName != null))</span>
+		{
+<span class="fc" id="L125">			sb.append(JAVA_EXT_PATTERN.matcher(fileName).replaceFirst(&quot;&quot;));</span>
+<span class="fc" id="L126">			sb.append(':');</span>
+<span class="fc" id="L127">			sb.append(frame.getLineNumber());</span>
+		}
+		else
+		{
+<span class="nc" id="L131">			sb.append(frame.getClassName());</span>
+<span class="nc" id="L132">			sb.append(' ');</span>
+<span class="nc" id="L133">			sb.append(frame.getMethodName());</span>
+		}
+<span class="fc" id="L135">	}</span>
+
+	private static boolean isLoggingPlumbing(String className)
+	{
+<span class="fc bfc" id="L139" title="All 2 branches covered.">		return className.startsWith(&quot;pcgen.util.Logging&quot;)</span>
+<span class="fc bfc" id="L140" title="All 2 branches covered.">			|| className.startsWith(&quot;java.util.logging&quot;)</span>
+<span class="fc bfc" id="L141" title="All 2 branches covered.">			|| className.startsWith(&quot;pcgen.system.LoggingRecorder&quot;)</span>
+<span class="fc bfc" id="L142" title="All 2 branches covered.">			|| className.equals(SourceLogFormatter.class.getName());</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

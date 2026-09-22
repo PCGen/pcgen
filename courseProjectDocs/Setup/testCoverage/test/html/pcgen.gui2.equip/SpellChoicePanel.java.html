@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SpellChoicePanel.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.gui2.equip</a> &gt; <span class="el_source">SpellChoicePanel.java</span></div><h1>SpellChoicePanel.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2013 (C) James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.gui2.equip;
+
+import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.util.List;
+
+import javax.swing.BorderFactory;
+import javax.swing.JComboBox;
+import javax.swing.JComponent;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.ListSelectionModel;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+
+import pcgen.facade.core.AbilityFacade;
+import pcgen.facade.core.InfoFacade;
+import pcgen.facade.core.SpellBuilderFacade;
+import pcgen.facade.util.event.ListEvent;
+import pcgen.gui2.tabs.models.CharacterComboBoxModel;
+import pcgen.gui2.util.FacadeListModel;
+import pcgen.system.LanguageBundle;
+
+/**
+ * SpellChoicePanel provides the user interface for the user to select a spell.
+ * 
+ */
+@SuppressWarnings(&quot;serial&quot;)
+public class SpellChoicePanel extends JPanel
+{
+	private final JComboBox&lt;InfoFacade&gt; classComboBox;
+	private final JComboBox&lt;Integer&gt; spellLevelComboBox;
+	private final JComboBox spellComboBox;
+	private final JComboBox&lt;String&gt; variantComboBox;
+	private final JComboBox&lt;Integer&gt; casterLevelComboBox;
+	private final JComboBox&lt;String&gt; spellTypeComboBox;
+	private final JList&lt;AbilityFacade&gt; metamagicList;
+
+	private CharacterComboBoxModel&lt;InfoFacade&gt; classModel;
+	private CharacterComboBoxModel&lt;Integer&gt; spellLevelModel;
+	private CharacterComboBoxModel&lt;InfoFacade&gt; spellModel;
+	private CharacterComboBoxModel&lt;String&gt; variantModel;
+	private CharacterComboBoxModel&lt;Integer&gt; casterLevelModel;
+	private CharacterComboBoxModel&lt;String&gt; spellTypeModel;
+	private final SpellBuilderFacade spellBuilderFacade;
+	private MetamagicFeatListModel metamgicModel;
+
+	/**
+	 * Create a new spell choice panel instance.
+	 * @param spellBuilderFacade The facade that manages the selection.
+	 */
+	public SpellChoicePanel(SpellBuilderFacade spellBuilderFacade)
+<span class="nc" id="L74">	{</span>
+<span class="nc" id="L75">		this.spellBuilderFacade = spellBuilderFacade;</span>
+
+<span class="nc" id="L77">		this.classComboBox = new JComboBox&lt;&gt;();</span>
+<span class="nc" id="L78">		this.spellLevelComboBox = new JComboBox&lt;&gt;();</span>
+<span class="nc" id="L79">		this.spellComboBox = new JComboBox&lt;&gt;();</span>
+<span class="nc" id="L80">		this.variantComboBox = new JComboBox&lt;&gt;();</span>
+<span class="nc" id="L81">		this.casterLevelComboBox = new JComboBox&lt;&gt;();</span>
+<span class="nc" id="L82">		this.spellTypeComboBox = new JComboBox&lt;&gt;();</span>
+<span class="nc" id="L83">		this.metamagicList = new JList&lt;&gt;();</span>
+
+<span class="nc" id="L85">		initModels();</span>
+<span class="nc" id="L86">		initComponents();</span>
+<span class="nc" id="L87">	}</span>
+
+	/**
+	 * Create the various box models which will drive the choices. 
+	 */
+	private void initModels()
+	{
+<span class="nc" id="L94">		classModel = new CharacterComboBoxModel&lt;&gt;()</span>
+<span class="nc" id="L95">		{</span>
+			@Override
+			public void setSelectedItem(Object anItem)
+			{
+<span class="nc" id="L99">				spellBuilderFacade.setClass((InfoFacade) anItem);</span>
+<span class="nc" id="L100">			}</span>
+		};
+<span class="nc" id="L102">		classModel.setListFacade(spellBuilderFacade.getClasses());</span>
+<span class="nc" id="L103">		classModel.setReference(spellBuilderFacade.getClassRef());</span>
+<span class="nc" id="L104">		classComboBox.setModel(classModel);</span>
+
+<span class="nc" id="L106">		spellLevelModel = new CharacterComboBoxModel&lt;&gt;()</span>
+<span class="nc" id="L107">		{</span>
+			@Override
+			public void setSelectedItem(Object anItem)
+			{
+<span class="nc" id="L111">				spellBuilderFacade.setSpellLevel((Integer) anItem);</span>
+<span class="nc" id="L112">			}</span>
+		};
+<span class="nc" id="L114">		spellLevelModel.setListFacade(spellBuilderFacade.getLevels());</span>
+<span class="nc" id="L115">		spellLevelModel.setReference(spellBuilderFacade.getSpellLevelRef());</span>
+<span class="nc" id="L116">		spellLevelComboBox.setModel(spellLevelModel);</span>
+
+<span class="nc" id="L118">		spellModel = new CharacterComboBoxModel&lt;&gt;()</span>
+<span class="nc" id="L119">		{</span>
+			@Override
+			public void setSelectedItem(Object anItem)
+			{
+<span class="nc" id="L123">				spellBuilderFacade.setSpell((InfoFacade) anItem);</span>
+<span class="nc" id="L124">			}</span>
+		};
+<span class="nc" id="L126">		spellModel.setListFacade(spellBuilderFacade.getSpells());</span>
+<span class="nc" id="L127">		spellModel.setReference(spellBuilderFacade.getSpellRef());</span>
+<span class="nc" id="L128">		spellComboBox.setModel(spellModel);</span>
+
+<span class="nc" id="L130">		variantModel = new DisablingCharacterComboBoxModel(variantComboBox)</span>
+<span class="nc" id="L131">		{</span>
+
+			@Override
+			public void setSelectedItem(Object anItem)
+			{
+<span class="nc" id="L136">				spellBuilderFacade.setVariant((String) anItem);</span>
+<span class="nc" id="L137">			}</span>
+		};
+<span class="nc" id="L139">		variantModel.setListFacade(spellBuilderFacade.getVariants());</span>
+<span class="nc" id="L140">		variantModel.setReference(spellBuilderFacade.getVariantRef());</span>
+<span class="nc" id="L141">		variantComboBox.setModel(variantModel);</span>
+
+<span class="nc" id="L143">		casterLevelModel = new CharacterComboBoxModel&lt;&gt;()</span>
+<span class="nc" id="L144">		{</span>
+			@Override
+			public void setSelectedItem(Object anItem)
+			{
+<span class="nc" id="L148">				spellBuilderFacade.setCasterLevel((Integer) anItem);</span>
+<span class="nc" id="L149">			}</span>
+		};
+<span class="nc" id="L151">		casterLevelModel.setListFacade(spellBuilderFacade.getCasterLevels());</span>
+<span class="nc" id="L152">		casterLevelModel.setReference(spellBuilderFacade.getCasterLevelRef());</span>
+<span class="nc" id="L153">		casterLevelComboBox.setModel(casterLevelModel);</span>
+
+<span class="nc" id="L155">		spellTypeModel = new CharacterComboBoxModel&lt;&gt;()</span>
+<span class="nc" id="L156">		{</span>
+			@Override
+			public void setSelectedItem(Object anItem)
+			{
+<span class="nc" id="L160">				spellBuilderFacade.setSpellType((String) anItem);</span>
+<span class="nc" id="L161">			}</span>
+		};
+<span class="nc" id="L163">		spellTypeModel.setListFacade(spellBuilderFacade.getSpellTypes());</span>
+<span class="nc" id="L164">		spellTypeModel.setReference(spellBuilderFacade.getSpellTypeRef());</span>
+<span class="nc" id="L165">		spellTypeComboBox.setModel(spellTypeModel);</span>
+
+<span class="nc" id="L167">		metamgicModel = new MetamagicFeatListModel();</span>
+<span class="nc" id="L168">		metamgicModel.setListFacade(spellBuilderFacade.getAvailMetamagicFeats());</span>
+<span class="nc" id="L169">		metamagicList.setModel(metamgicModel);</span>
+<span class="nc" id="L170">		metamagicList.addListSelectionListener(metamgicModel);</span>
+<span class="nc" id="L171">	}</span>
+
+	/**
+	 * Initialise the on screen components.
+	 */
+	private void initComponents()
+	{
+<span class="nc" id="L178">		setLayout(new GridBagLayout());</span>
+
+<span class="nc" id="L180">		addGridBagLayer(this, &quot;in_sumClass&quot;, classComboBox); //$NON-NLS-1$</span>
+<span class="nc" id="L181">		addGridBagLayer(this, &quot;in_csdSpLvl&quot;, spellLevelComboBox); //$NON-NLS-1$</span>
+<span class="nc" id="L182">		spellComboBox.setPrototypeDisplayValue(&quot;PrototypeDisplayValueForAVeryLongSpellName&quot;); //$NON-NLS-1$</span>
+<span class="nc" id="L183">		addGridBagLayer(this, &quot;in_spellName&quot;, spellComboBox); //$NON-NLS-1$</span>
+<span class="nc" id="L184">		addGridBagLayer(this, &quot;in_csdVariant&quot;, variantComboBox); //$NON-NLS-1$</span>
+<span class="nc bnc" id="L185" title="All 2 branches missed.">		if (metamgicModel.getSize() &gt; 0)</span>
+		{
+<span class="nc" id="L187">			metamagicList.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);</span>
+<span class="nc" id="L188">			metamagicList.setVisibleRowCount(4);</span>
+<span class="nc" id="L189">			JScrollPane listScroller = new JScrollPane(metamagicList);</span>
+<span class="nc" id="L190">			listScroller.setPreferredSize(new Dimension(250, 80));</span>
+<span class="nc" id="L191">			addGridBagLayer(this, &quot;in_metaFeat&quot;, listScroller); //$NON-NLS-1$</span>
+		}
+<span class="nc" id="L193">		addGridBagLayer(this, &quot;in_casterLvl&quot;, casterLevelComboBox); //$NON-NLS-1$</span>
+<span class="nc" id="L194">		addGridBagLayer(this, &quot;in_csdSpellType&quot;, spellTypeComboBox); //$NON-NLS-1$</span>
+
+<span class="nc" id="L196">		setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10));</span>
+<span class="nc" id="L197">	}</span>
+
+	private void addGridBagLayer(JPanel panel, String text, JComponent comp)
+	{
+<span class="nc" id="L201">		Insets insets = new Insets(0, 0, 3, 2);</span>
+<span class="nc" id="L202">		GridBagConstraints gbc = new GridBagConstraints();</span>
+<span class="nc" id="L203">		JLabel label = new JLabel(LanguageBundle.getString(text));</span>
+<span class="nc" id="L204">		gbc.anchor = java.awt.GridBagConstraints.WEST;</span>
+<span class="nc" id="L205">		gbc.gridwidth = 2;</span>
+<span class="nc" id="L206">		panel.add(label, gbc);</span>
+
+<span class="nc" id="L208">		gbc.gridwidth = GridBagConstraints.REMAINDER;</span>
+<span class="nc" id="L209">		gbc.fill = GridBagConstraints.BOTH;</span>
+<span class="nc" id="L210">		gbc.insets = insets;</span>
+<span class="nc" id="L211">		panel.add(comp, gbc);</span>
+<span class="nc" id="L212">	}</span>
+
+	/**
+	 * DisablingCharacterComboBoxModel is a model that disables its combo box
+	 * when there are no possible selections.
+	 */
+	private abstract static class DisablingCharacterComboBoxModel extends CharacterComboBoxModel&lt;String&gt;
+	{
+
+		private final JComboBox&lt;String&gt; box;
+
+		DisablingCharacterComboBoxModel(JComboBox&lt;String&gt; box)
+<span class="nc" id="L224">		{</span>
+<span class="nc" id="L225">			this.box = box;</span>
+<span class="nc" id="L226">		}</span>
+
+		@Override
+		public void elementsChanged(ListEvent&lt;String&gt; e)
+		{
+<span class="nc" id="L231">			super.elementsChanged(e);</span>
+<span class="nc bnc" id="L232" title="All 2 branches missed.">			box.setEnabled(getSize() &gt; 0);</span>
+<span class="nc" id="L233">		}</span>
+
+	}
+
+	/**
+	 * MetamagicFeatListModel holds the data for a list of metamagic feats and 
+	 * commits the choices mode into the facade. 
+	 */
+<span class="nc" id="L241">	private class MetamagicFeatListModel extends FacadeListModel&lt;AbilityFacade&gt; implements ListSelectionListener</span>
+	{
+
+		@Override
+		public void valueChanged(ListSelectionEvent e)
+		{
+<span class="nc bnc" id="L247" title="All 2 branches missed.">			if (e.getValueIsAdjusting())</span>
+			{
+<span class="nc" id="L249">				return;</span>
+			}
+
+<span class="nc" id="L252">			List&lt;AbilityFacade&gt; selectedValues = metamagicList.getSelectedValuesList();</span>
+<span class="nc" id="L253">			spellBuilderFacade.setSelectedMetamagicFeats(selectedValues.toArray());</span>
+<span class="nc" id="L254">		}</span>
+
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

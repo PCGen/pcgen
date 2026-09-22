@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PreArmorTypeTester.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.pretokens.test</a> &gt; <span class="el_source">PreArmorTypeTester.java</span></div><h1>PreArmorTypeTester.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2001 (C) Bryan McRoberts &lt;merton_monk@yahoo.com&gt;
+ * Copyright 2003 (C) Chris Ward &lt;frugal@purplewombat.co.uk&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.	   See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package plugin.pretokens.test;
+
+import java.util.StringTokenizer;
+
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Constants;
+import pcgen.core.Equipment;
+import pcgen.core.display.CharacterDisplay;
+import pcgen.core.prereq.AbstractDisplayPrereqTest;
+import pcgen.core.prereq.Prerequisite;
+
+/**
+ * Prerequisite test the type of a piece of armour.
+ */
+<span class="nc" id="L33">public class PreArmorTypeTester extends AbstractDisplayPrereqTest</span>
+{
+
+	// TODO All the equipment related PRE tag code should be refactored into a
+	// common base class.
+	@Override
+	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
+	{
+<span class="nc" id="L41">		int runningTotal = 0;</span>
+
+<span class="nc bnc" id="L43" title="All 2 branches missed.">		if (display.hasEquipment())</span>
+		{
+<span class="nc" id="L45">			final String desiredType = prereq.getKey();</span>
+<span class="nc bnc" id="L46" title="All 2 branches missed.">			for (Equipment eq : display.getEquippedEquipmentSet())</span>
+			{
+<span class="nc bnc" id="L48" title="All 2 branches missed.">				if (!eq.isArmor())</span>
+				{
+<span class="nc" id="L50">					continue;</span>
+				}
+
+				// Match against a TYPE of armour
+<span class="nc bnc" id="L54" title="All 4 branches missed.">				if (desiredType.startsWith(Constants.LST_TYPE_EQUAL) || desiredType.startsWith(Constants.LST_TYPE_DOT))</span>
+				{
+
+<span class="nc" id="L57">					String stripped = desiredType.substring(Constants.SUBSTRING_LENGTH_FIVE);</span>
+<span class="nc" id="L58">					StringTokenizer tok = new StringTokenizer(stripped.toUpperCase(), &quot;.&quot;);</span>
+
+<span class="nc" id="L60">					boolean match = false;</span>
+<span class="nc bnc" id="L61" title="All 2 branches missed.">					if (tok.hasMoreTokens())</span>
+					{
+<span class="nc" id="L63">						match = true;</span>
+					}
+					//
+					// Must match all listed types to qualify
+					//
+<span class="nc bnc" id="L68" title="All 2 branches missed.">					while (tok.hasMoreTokens())</span>
+					{
+<span class="nc" id="L70">						final String type = tok.nextToken();</span>
+<span class="nc bnc" id="L71" title="All 2 branches missed.">						if (!eq.isType(type))</span>
+						{
+<span class="nc" id="L73">							match = false;</span>
+<span class="nc" id="L74">							break;</span>
+						}
+<span class="nc" id="L76">					}</span>
+<span class="nc bnc" id="L77" title="All 2 branches missed.">					if (match)</span>
+					{
+<span class="nc" id="L79">						runningTotal++;</span>
+<span class="nc" id="L80">						break;</span>
+					}
+<span class="nc" id="L82">				}</span>
+				else
+				{ //not a TYPE string
+<span class="nc" id="L85">					final String eqName = eq.getName().toUpperCase();</span>
+<span class="nc" id="L86">					final int percentPos = desiredType.indexOf('%');</span>
+<span class="nc bnc" id="L87" title="All 2 branches missed.">					if (percentPos &gt;= 0)</span>
+					{
+						//handle wildcards (always assume they
+						// end the line)
+<span class="nc" id="L91">						final String substring = desiredType.substring(0, percentPos).toUpperCase();</span>
+<span class="nc bnc" id="L92" title="All 2 branches missed.">						if (eqName.startsWith(substring))</span>
+						{
+<span class="nc" id="L94">							runningTotal++;</span>
+<span class="nc" id="L95">							break;</span>
+						}
+<span class="nc" id="L97">					}</span>
+<span class="nc bnc" id="L98" title="All 2 branches missed.">					else if (desiredType.contains(&quot;LIST&quot;)) //$NON-NLS-1$</span>
+					{
+<span class="nc bnc" id="L100" title="All 2 branches missed.">						if (display.isProficientWithArmor(eq))</span>
+						{
+<span class="nc" id="L102">							runningTotal++;</span>
+<span class="nc" id="L103">							break;</span>
+						}
+					}
+<span class="nc bnc" id="L106" title="All 2 branches missed.">					else if (eqName.equals(desiredType)) //just a straight String compare</span>
+					{
+<span class="nc" id="L108">						runningTotal++;</span>
+<span class="nc" id="L109">						break;</span>
+					}
+				}
+<span class="nc" id="L112">			}</span>
+		}
+<span class="nc" id="L114">		return countedTotal(prereq, runningTotal);</span>
+	}
+
+	/**
+	 * Get the type of prerequisite handled by this token.
+	 * @return the type of prerequisite handled by this token.
+	 */
+	@Override
+	public String kindHandled()
+	{
+<span class="nc" id="L124">		return &quot;ARMORTYPE&quot;; //$NON-NLS-1$</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

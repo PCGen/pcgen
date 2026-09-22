@@ -1,0 +1,2737 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>WeaponToken.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.io.exporttoken</a> &gt; <span class="el_source">WeaponToken.java</span></div><h1>WeaponToken.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2003 (C) Devon Jones &lt;soulcatcher@evilsoft.org&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.     See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ *
+ *
+ */
+package pcgen.io.exporttoken;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.StringTokenizer;
+import java.util.TreeSet;
+import java.util.stream.Collectors;
+
+import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.EquipmentLocation;
+import pcgen.cdom.enumeration.FactKey;
+import pcgen.cdom.enumeration.FormulaKey;
+import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.MapKey;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.Type;
+import pcgen.cdom.inst.EquipmentHead;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.util.CControl;
+import pcgen.cdom.util.ControlUtilities;
+import pcgen.core.Equipment;
+import pcgen.core.GameMode;
+import pcgen.core.Globals;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.RuleConstants;
+import pcgen.core.SettingsHandler;
+import pcgen.core.SizeAdjustment;
+import pcgen.core.WeaponProf;
+import pcgen.core.analysis.BonusCalc;
+import pcgen.core.analysis.OutputNameFormatting;
+import pcgen.core.analysis.SizeUtilities;
+import pcgen.core.display.CharacterDisplay;
+import pcgen.core.display.UnarmedDamageDisplay;
+import pcgen.io.ExportHandler;
+import pcgen.system.LanguageBundle;
+import pcgen.util.Delta;
+import pcgen.util.Logging;
+import pcgen.util.enumeration.AttackType;
+
+/**
+ * Deal with the WEAPON Token
+ */
+<span class="nc" id="L67">public class WeaponToken extends Token</span>
+{
+	/** Token Name */
+	public static final String TOKENNAME = &quot;WEAPON&quot;;
+	/** PC Bonus = 0 */
+	private static final int WPTYPEBONUS_PC = 0;
+	/** Equipment Bonus = 1 */
+	private static final int WPTYPEBONUS_EQ = 1;
+	/** Feat Bonus = 2 */
+	private static final int WPTYPEBONUS_FEAT = 2;
+	/** Template Bonus = 3 */
+	private static final int WPTYPEBONUS_TEMPLATE = 3;
+	/** Damage Mode normal = 0 */
+	private static final int DAMAGEMODE_NORMAL = 0;
+	/** Damage Mode basic = 1 */
+	private static final int DAMAGEMODE_BASIC = 1;
+	/** Damage Mode offhand = 2 */
+	private static final int DAMAGEMODE_OFFHAND = 2;
+	/** Damage Mode twohands = 3 */
+	private static final int DAMAGEMODE_TWOHANDS = 3;
+	/** Damage Mode double = 4 */
+	private static final int DAMAGEMODE_DOUBLE = 4;
+
+	// This defines if I should return the values
+	// based on weapon's location or not.
+	// 1,2,3 and 4 overrides the actual location
+	// of the weapon and calculates all data
+	// with that setting
+	/** total hit = 0 */
+	private static final int HITMODE_TOTALHIT = 0;
+	/** One weapon = 1 */
+	private static final int HITMODE_BASEHIT = 1;
+	/** Two weapons, this is primary, off-hand heavy = 2 */
+	private static final int HITMODE_TWPHITH = 2;
+	/** Two weapons, this is primary, off-hand light = 3 */
+	private static final int HITMODE_TWPHITL = 3;
+	/** Two weapons, this is off-hand (heavy) = 4 */
+	private static final int HITMODE_TWOHIT = 4;
+	/** Two weapons, this is off-hand (heavy) = 4 */
+	private static final int HITMODE_TWFOHH = 4;
+	/** Two weapons, this is off-hand (light) = 5 */
+	private static final int HITMODE_TWFOHL = 5;
+	/** One weapon, off-hand = 6 */
+	private static final int HITMODE_OHHIT = 6;
+	/** One weapon, both-hands = 7 */
+	private static final int HITMODE_THHIT = 7;
+
+	@Override
+	public String getTokenName()
+	{
+<span class="nc" id="L117">		return TOKENNAME;</span>
+	}
+
+	@Override
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	{
+<span class="nc" id="L123">		StringTokenizer aTok = new StringTokenizer(tokenSource, &quot;.&quot;, false);</span>
+		//Weapon Token
+<span class="nc" id="L125">		aTok.nextToken();</span>
+
+<span class="nc" id="L127">		int merge = Constants.MERGE_ALL;</span>
+		int weapon;
+		Equipment eq;
+
+		// First check to see if there is a MERGE token
+<span class="nc" id="L132">		String token = aTok.nextToken();</span>
+<span class="nc bnc" id="L133" title="All 4 branches missed.">		switch (token)</span>
+		{
+			case &quot;MERGENONE&quot; -&gt; {
+<span class="nc" id="L136">				merge = Constants.MERGE_NONE;</span>
+<span class="nc" id="L137">				token = aTok.nextToken();</span>
+<span class="nc" id="L138">			}</span>
+			case &quot;MERGELOC&quot; -&gt; {
+<span class="nc" id="L140">				merge = Constants.MERGE_LOCATION;</span>
+<span class="nc" id="L141">				token = aTok.nextToken();</span>
+<span class="nc" id="L142">			}</span>
+			case &quot;MERGEALL&quot; -&gt; {
+<span class="nc" id="L144">				merge = Constants.MERGE_ALL;</span>
+<span class="nc" id="L145">				token = aTok.nextToken();</span>
+			}
+		}
+
+<span class="nc" id="L149">		List&lt;Equipment&gt; weaponList = pc.getExpandedWeapons(merge);</span>
+
+<span class="nc bnc" id="L151" title="All 6 branches missed.">		switch (token)</span>
+		{
+<span class="nc" id="L153">			case &quot;ALL&quot; -&gt; token = aTok.nextToken();</span>
+			case &quot;EQUIPPED&quot; -&gt; {
+				// remove all weapons which are not equipped from list
+<span class="nc bnc" id="L156" title="All 2 branches missed.">				weaponList.removeIf(equipment -&gt; !equipment.isEquipped());</span>
+<span class="nc" id="L157">				token = aTok.nextToken();</span>
+<span class="nc" id="L158">			}</span>
+			case &quot;NOT_EQUIPPED&quot; -&gt; {
+				// remove all weapons which are equipped from list
+<span class="nc" id="L161">				weaponList.removeIf(Equipment::isEquipped);</span>
+<span class="nc" id="L162">				token = aTok.nextToken();</span>
+<span class="nc" id="L163">			}</span>
+			case &quot;CARRIED&quot; -&gt; {
+				// remove all weapons which are not carried from list
+<span class="nc bnc" id="L166" title="All 2 branches missed.">				weaponList.removeIf(equipment -&gt; equipment.numberCarried().intValue() == 0);</span>
+<span class="nc" id="L167">				token = aTok.nextToken();</span>
+<span class="nc" id="L168">			}</span>
+			case &quot;NOT_CARRIED&quot; -&gt; {
+				// remove all weapons which are carried from list
+<span class="nc bnc" id="L171" title="All 2 branches missed.">				weaponList.removeIf(equipment -&gt; equipment.numberCarried().intValue() &gt; 0);</span>
+<span class="nc" id="L172">				token = aTok.nextToken();</span>
+			}
+		}
+
+<span class="nc" id="L176">		weapon = getIntToken(token, 0);</span>
+<span class="nc bnc" id="L177" title="All 2 branches missed.">		if (weapon &lt; weaponList.size())</span>
+		{
+<span class="nc" id="L179">			eq = weaponList.get(weapon);</span>
+<span class="nc bnc" id="L180" title="All 6 branches missed.">			if (weapon == weaponList.size() - 1 &amp;&amp; eh != null &amp;&amp; eh.getExistsOnly())</span>
+			{
+<span class="nc" id="L182">				eh.setNoMoreItems(true);</span>
+			}
+<span class="nc" id="L184">			return getWeaponToken(pc, eq, aTok, tokenSource);</span>
+		}
+<span class="nc bnc" id="L186" title="All 4 branches missed.">		else if (eh != null &amp;&amp; eh.getExistsOnly())</span>
+		{
+<span class="nc" id="L188">			eh.setNoMoreItems(true);</span>
+<span class="nc bnc" id="L189" title="All 2 branches missed.">			if (eh.getCheckBefore())</span>
+			{
+<span class="nc" id="L191">				eh.setCanWrite(false);</span>
+			}
+		}
+<span class="nc" id="L194">		return &quot;&quot;;</span>
+	}
+
+	/**
+	 * Get the Weapon Token output
+	 *
+	 * @param pc The character being exported
+	 * @param eq The weapon being exported
+	 * @param aTok The exporttoken split by . and up to the weapon property
+	 * @param tokenSource The original source of the export token (for error reporting.)
+	 * @return The output for the token for the weapon and character.
+	 */
+	protected String getWeaponToken(PlayerCharacter pc, Equipment eq, StringTokenizer aTok, String tokenSource)
+	{
+<span class="nc" id="L208">		String token = &quot;&quot;;</span>
+<span class="nc bnc" id="L209" title="All 2 branches missed.">		if (aTok.hasMoreTokens())</span>
+		{
+<span class="nc" id="L211">			token = aTok.nextToken();</span>
+		}
+
+<span class="nc" id="L214">		int range = -1;</span>
+<span class="nc" id="L215">		int content = -1;</span>
+<span class="nc" id="L216">		int ammo = -1;</span>
+
+<span class="nc bnc" id="L218" title="All 2 branches missed.">		if (token.equals(&quot;RANGELIST&quot;))</span>
+		{
+<span class="nc" id="L220">			range = getIntToken(aTok, -1);</span>
+
+<span class="nc bnc" id="L222" title="All 2 branches missed.">			if (aTok.hasMoreTokens())</span>
+			{
+<span class="nc" id="L224">				token = aTok.nextToken();</span>
+			}
+			else
+			{
+<span class="nc" id="L228">				token = &quot;RANGELIST&quot;;</span>
+			}
+		}
+
+<span class="nc bnc" id="L232" title="All 2 branches missed.">		if (token.equals(&quot;CONTENTS&quot;))</span>
+		{
+<span class="nc bnc" id="L234" title="All 2 branches missed.">			if (aTok.hasMoreTokens())</span>
+			{
+<span class="nc" id="L236">				content = getIntToken(aTok, -1);</span>
+
+<span class="nc bnc" id="L238" title="All 2 branches missed.">				if (aTok.hasMoreTokens())</span>
+				{
+<span class="nc" id="L240">					token = aTok.nextToken();</span>
+				}
+				else
+				{
+<span class="nc" id="L244">					token = &quot;CONTENTS&quot;;</span>
+				}
+			}
+			else
+			{
+<span class="nc" id="L249">				token = &quot;CONTENTSCOUNT&quot;;</span>
+			}
+		}
+
+<span class="nc bnc" id="L253" title="All 2 branches missed.">		if (token.equals(&quot;AMMUNITION&quot;))</span>
+		{
+<span class="nc bnc" id="L255" title="All 2 branches missed.">			if (aTok.hasMoreTokens())</span>
+			{
+<span class="nc" id="L257">				ammo = getIntToken(aTok, -1);</span>
+
+<span class="nc bnc" id="L259" title="All 2 branches missed.">				if (aTok.hasMoreTokens())</span>
+				{
+<span class="nc" id="L261">					token = aTok.nextToken();</span>
+				}
+				else
+				{
+<span class="nc" id="L265">					token = &quot;AMMUNITION&quot;;</span>
+				}
+			}
+			else
+			{
+<span class="nc" id="L270">				token = &quot;AMMUNITIONCOUNT&quot;;</span>
+			}
+		}
+
+<span class="nc bnc" id="L274" title="All 52 branches missed.">		switch (token)</span>
+		{
+			case &quot;NAME&quot;:
+<span class="nc" id="L277">				boolean star = true;</span>
+<span class="nc bnc" id="L278" title="All 2 branches missed.">				if (aTok.hasMoreTokens())</span>
+				{
+<span class="nc bnc" id="L280" title="All 2 branches missed.">					if (&quot;NOSTAR&quot;.equals(aTok.nextToken()))</span>
+					{
+<span class="nc" id="L282">						star = false;</span>
+					}
+				}
+<span class="nc" id="L285">				return getNameToken(eq, pc, star);</span>
+			case &quot;OUTPUTNAME&quot;:
+<span class="nc" id="L287">				return getOutputNameToken(eq, pc);</span>
+			case &quot;LONGNAME&quot;:
+<span class="nc" id="L289">				return getLongNameToken(eq);</span>
+			case &quot;ATTACKS&quot;:
+<span class="nc" id="L291">				return String.valueOf(getAttacksToken(pc, eq));</span>
+			case &quot;AMMUNITIONCOUNT&quot;:
+<span class="nc" id="L293">				return String.valueOf(getAmmunitionCountToken(pc, eq));</span>
+			case &quot;AMMUNITION&quot;:
+<span class="nc" id="L295">				return getAmmunitionToken(pc, eq, ammo);</span>
+			case &quot;CONTENTSCOUNT&quot;:
+<span class="nc" id="L297">				return String.valueOf(getContentsCountToken(eq));</span>
+			case &quot;CONTENTS&quot;:
+<span class="nc" id="L299">				return getContentsToken(eq, content);</span>
+			case &quot;NUMATTACKS&quot;:
+<span class="nc" id="L301">				return String.valueOf(getNumAttacksToken(pc, eq));</span>
+			case &quot;HEFT&quot;:
+<span class="nc" id="L303">				return getHeft(pc, eq);</span>
+			case &quot;ISTYPE&quot;:
+<span class="nc bnc" id="L305" title="All 2 branches missed.">				if (aTok.hasMoreTokens())</span>
+				{
+<span class="nc" id="L307">					return getIsTypeToken(eq, aTok.nextToken());</span>
+				}
+<span class="nc" id="L309">				return &quot;&quot;;</span>
+			case &quot;CRIT&quot;:
+<span class="nc" id="L311">				return getCritToken(pc, eq);</span>
+			case &quot;MULT&quot;:
+<span class="nc" id="L313">				return getMultToken(pc, eq);</span>
+			case &quot;RANGELIST&quot;:
+<span class="nc" id="L315">				return getRangeListToken(eq, range, pc);</span>
+			case &quot;RANGE&quot;:
+<span class="nc" id="L317">				boolean units = true;</span>
+<span class="nc bnc" id="L318" title="All 2 branches missed.">				if (aTok.hasMoreTokens())</span>
+				{
+<span class="nc bnc" id="L320" title="All 2 branches missed.">					if (&quot;NOUNITS&quot;.equals(aTok.nextToken()))</span>
+
+					{
+<span class="nc" id="L323">						units = false;</span>
+					}
+				}
+<span class="nc" id="L326">				return getRangeToken(eq, pc, units);</span>
+			case &quot;SIZEMOD&quot;:
+<span class="nc" id="L328">				return Delta.toString(getSizeModToken(pc));</span>
+			case &quot;TYPE&quot;:
+<span class="nc" id="L330">				return getTypeToken(eq);</span>
+			case &quot;HIT&quot;:
+			case &quot;TOTALHIT&quot;:
+			{
+<span class="nc" id="L334">				int attack = getIntToken(aTok, -1);</span>
+<span class="nc" id="L335">				return getTotalHitToken(pc, eq, range, content, ammo, attack);</span>
+			}
+			case &quot;BASEHIT&quot;:
+			{
+<span class="nc" id="L339">				int attack = getIntToken(aTok, -1);</span>
+<span class="nc" id="L340">				return getBaseHitToken(pc, eq, range, content, ammo, attack);</span>
+			}
+			case &quot;TWPHITH&quot;:
+			{
+<span class="nc" id="L344">				int attack = getIntToken(aTok, -1);</span>
+<span class="nc" id="L345">				return getTwpHitHToken(pc, eq, range, content, ammo, attack);</span>
+			}
+			case &quot;TWPHITL&quot;:
+			{
+<span class="nc" id="L349">				int attack = getIntToken(aTok, -1);</span>
+<span class="nc" id="L350">				return getTwpHitLToken(pc, eq, range, content, ammo, attack);</span>
+			}
+			case &quot;TWOHIT&quot;:
+			{
+<span class="nc" id="L354">				int attack = getIntToken(aTok, -1);</span>
+<span class="nc" id="L355">				return getTwoHitToken(pc, eq, range, content, ammo, attack);</span>
+			}
+			case &quot;OHHIT&quot;:
+			{
+<span class="nc" id="L359">				int attack = getIntToken(aTok, -1);</span>
+<span class="nc" id="L360">				return getOHHitToken(pc, eq, range, content, ammo, attack);</span>
+			}
+			case &quot;THHIT&quot;:
+			{
+<span class="nc" id="L364">				int attack = getIntToken(aTok, -1);</span>
+<span class="nc" id="L365">				return getTHHitToken(pc, eq, range, content, ammo, attack);</span>
+			}
+			case &quot;CATEGORY&quot;:
+<span class="nc" id="L368">				return getCategoryToken(eq);</span>
+			case &quot;HAND&quot;:
+<span class="nc" id="L370">				return getHandToken(eq);</span>
+			case &quot;MAGICDAMAGE&quot;:
+<span class="nc" id="L372">				return Delta.toString(getMagicDamageToken(pc, eq));</span>
+			case &quot;MAGICHIT&quot;:
+<span class="nc" id="L374">				return Delta.toString(getMagicHitToken(pc, eq));</span>
+			case &quot;MISC&quot;:
+<span class="nc" id="L376">				return Delta.toString(getMiscToken(pc, eq));</span>
+			case &quot;FEATDAMAGE&quot;:
+<span class="nc" id="L378">				return Delta.toString(getFeatDamageToken(pc, eq));</span>
+			case &quot;FEATHIT&quot;:
+<span class="nc" id="L380">				return Delta.toString(getFeatHitToken(pc, eq));</span>
+			case &quot;TEMPLATEDAMAGE&quot;:
+<span class="nc" id="L382">				return Delta.toString(getTemplateDamageToken(pc, eq));</span>
+			case &quot;TEMPLATEHIT&quot;:
+<span class="nc" id="L384">				return Delta.toString(getTemplateHitToken(pc, eq));</span>
+			case &quot;DAMAGE&quot;:
+<span class="nc" id="L386">				return getDamageToken(pc, eq, range, content, ammo, false, false);</span>
+			case &quot;BASEDAMAGE&quot;:
+<span class="nc" id="L388">				return getDamageToken(pc, eq, range, content, ammo, false, true);</span>
+			case &quot;BASICDAMAGE&quot;:
+<span class="nc" id="L390">				return getBasicDamageToken(pc, eq, range, content, ammo, false);</span>
+			case &quot;THDAMAGE&quot;:
+<span class="nc" id="L392">				return getTHDamageToken(pc, eq, range, content, ammo, false);</span>
+			case &quot;OHDAMAGE&quot;:
+<span class="nc" id="L394">				return getOHDamageToken(pc, eq, range, content, ammo, false);</span>
+			case &quot;DAMAGEBONUS&quot;:
+			case &quot;BONUSDAMAGE&quot;:
+<span class="nc" id="L397">				return getDamageToken(pc, eq, range, content, ammo, true, false);</span>
+			case &quot;BASEDAMAGEBONUS&quot;:
+<span class="nc" id="L399">				return getDamageToken(pc, eq, range, content, ammo, true, true);</span>
+			case &quot;THDAMAGEBONUS&quot;:
+<span class="nc" id="L401">				return getTHDamageToken(pc, eq, range, content, ammo, true);</span>
+			case &quot;OHDAMAGEBONUS&quot;:
+<span class="nc" id="L403">				return getOHDamageToken(pc, eq, range, content, ammo, true);</span>
+			case &quot;SIZE&quot;:
+<span class="nc" id="L405">				return getSizeToken(eq);</span>
+			case &quot;SPROP&quot;:
+<span class="nc" id="L407">				return getSpropToken(pc, eq, content, ammo);</span>
+			case &quot;REACH&quot;:
+<span class="nc" id="L409">				return getReachToken(pc, eq);</span>
+			case &quot;REACHUNIT&quot;:
+<span class="nc" id="L411">				return Globals.getGameModeUnitSet().getDistanceUnit();</span>
+			case &quot;WT&quot;:
+<span class="nc" id="L413">				return getWTToken(pc, eq);</span>
+			case &quot;RATEOFFIRE&quot;:
+<span class="nc" id="L415">				FactKey&lt;String&gt; fk = FactKey.valueOf(&quot;RateOfFire&quot;);</span>
+<span class="nc" id="L416">				String str = eq.getResolved(fk);</span>
+<span class="nc bnc" id="L417" title="All 2 branches missed.">				return (str == null) ? &quot;&quot; : str;</span>
+			case &quot;ISLIGHT&quot;:
+<span class="nc" id="L419">				return getIsLightToken(pc, eq);</span>
+			case &quot;QUALITY&quot;:
+<span class="nc" id="L421">				Map&lt;String, String&gt; qualityMap = eq.getMapFor(MapKey.QUALITY);</span>
+<span class="nc bnc" id="L422" title="All 2 branches missed.">				if (qualityMap != null)</span>
+				{
+<span class="nc bnc" id="L424" title="All 2 branches missed.">					if (aTok.hasMoreTokens())</span>
+					{
+<span class="nc" id="L426">						String next = aTok.nextToken();</span>
+						try
+						{
+<span class="nc" id="L429">							int idx = Integer.parseInt(next);</span>
+<span class="nc bnc" id="L430" title="All 2 branches missed.">							for (String value : qualityMap.values())</span>
+							{
+<span class="nc" id="L432">								idx--;</span>
+<span class="nc bnc" id="L433" title="All 2 branches missed.">								if (idx == 0)</span>
+								{
+<span class="nc" id="L435">									return value;</span>
+								}
+<span class="nc" id="L437">							}</span>
+<span class="nc" id="L438">						} catch (NumberFormatException e)</span>
+						{
+<span class="nc" id="L440">							String value = qualityMap.get(next);</span>
+<span class="nc bnc" id="L441" title="All 2 branches missed.">							if (value != null)</span>
+							{
+<span class="nc" id="L443">								return value;</span>
+							}
+<span class="nc" id="L445">						}</span>
+<span class="nc" id="L446">						return &quot;&quot;;</span>
+					}
+<span class="nc" id="L448">					Set&lt;String&gt; qualities = new TreeSet&lt;&gt;();</span>
+<span class="nc bnc" id="L449" title="All 2 branches missed.">					for (Map.Entry&lt;String, String&gt; me : qualityMap.entrySet())</span>
+					{
+<span class="nc" id="L451">						qualities</span>
+<span class="nc" id="L452">								.add(me.getKey() + &quot;: &quot; + me.getValue());</span>
+<span class="nc" id="L453">					}</span>
+<span class="nc" id="L454">					return StringUtil.join(qualities, &quot;, &quot;);</span>
+				}
+<span class="nc" id="L456">				return &quot;&quot;;</span>
+			case &quot;CHARGES&quot;:
+<span class="nc" id="L458">				String retString = &quot;&quot;;</span>
+<span class="nc" id="L459">				int charges = eq.getRemainingCharges();</span>
+<span class="nc bnc" id="L460" title="All 2 branches missed.">				if (charges &gt;= 0)</span>
+				{
+<span class="nc" id="L462">					retString = String.valueOf(charges);</span>
+				}
+<span class="nc" id="L464">				return retString;</span>
+
+		}
+<span class="nc" id="L467">		Logging.errorPrint(&quot;Invalid WEAPON token: &quot; + tokenSource, new Throwable());</span>
+<span class="nc" id="L468">		return &quot;&quot;;</span>
+	}
+
+	/**
+	 * Get the is light sub token
+	 * @param pc
+	 * @param eq
+	 * @return is light sub token
+	 */
+	private static String getIsLightToken(PlayerCharacter pc, Equipment eq)
+	{
+<span class="nc bnc" id="L479" title="All 2 branches missed.">		return eq.isWeaponLightForPC(pc) ? &quot;TRUE&quot; : &quot;FALSE&quot;;</span>
+	}
+
+	/**
+	 * Get the name sub token
+	 * @param eq
+	 * @param pc
+	 * @param star
+	 * @return name sub token
+	 */
+	private static String getNameToken(Equipment eq, PlayerCharacter pc, boolean star)
+	{
+<span class="nc" id="L491">		StringBuilder sb = new StringBuilder();</span>
+<span class="nc bnc" id="L492" title="All 4 branches missed.">		if (eq.isEquipped() &amp;&amp; star)</span>
+		{
+<span class="nc" id="L494">			sb.append('*');</span>
+		}
+<span class="nc" id="L496">		sb.append(OutputNameFormatting.parseOutputName(eq, pc));</span>
+<span class="nc" id="L497">		sb.append(eq.getAppliedName());</span>
+
+<span class="nc" id="L499">		return sb.toString();</span>
+	}
+
+	/**
+	 * Get output name token
+	 * @param eq
+	 * @param pc
+	 * @return out put name token
+	 */
+	private static String getOutputNameToken(Equipment eq, PlayerCharacter pc)
+	{
+<span class="nc" id="L510">		StringBuilder sb = new StringBuilder();</span>
+<span class="nc bnc" id="L511" title="All 2 branches missed.">		if (eq.isEquipped())</span>
+		{
+<span class="nc" id="L513">			sb.append('*');</span>
+		}
+<span class="nc" id="L515">		sb.append(OutputNameFormatting.parseOutputName(eq, pc));</span>
+<span class="nc" id="L516">		sb.append(eq.getAppliedName());</span>
+
+<span class="nc" id="L518">		return sb.toString();</span>
+	}
+
+	/**
+	 * Get the long name sub token
+	 * @param eq
+	 * @return long name sub token
+	 */
+	private static String getLongNameToken(Equipment eq)
+	{
+<span class="nc" id="L528">		StringBuilder sb = new StringBuilder();</span>
+<span class="nc bnc" id="L529" title="All 2 branches missed.">		if (eq.isEquipped())</span>
+		{
+<span class="nc" id="L531">			sb.append('*');</span>
+		}
+<span class="nc" id="L533">		sb.append(eq.longName());</span>
+<span class="nc" id="L534">		sb.append(eq.getAppliedName());</span>
+
+<span class="nc" id="L536">		return sb.toString();</span>
+	}
+
+	/**
+	 * Get Attacks sub token
+	 * @param pc
+	 * @param eq
+	 * @return Attacks sub token
+	 */
+	private static int getAttacksToken(PlayerCharacter pc, Equipment eq)
+	{
+<span class="nc" id="L547">		return (int) eq.bonusTo(pc, &quot;WEAPON&quot;, &quot;ATTACKS&quot;, true);</span>
+	}
+
+	/**
+	 * Get ammunition count sub token
+	 * @param pc
+	 * @param eq
+	 * @return ammunition count sub token
+	 */
+	private static int getAmmunitionCountToken(PlayerCharacter pc, Equipment eq)
+	{
+<span class="nc" id="L558">		int ammoCount = 0;</span>
+<span class="nc" id="L559">		String containerCapacity = eq.getContainerCapacityString().toUpperCase();</span>
+
+<span class="nc bnc" id="L561" title="All 2 branches missed.">		for (Equipment equip : pc.getEquipmentListInOutputOrder())</span>
+		{
+<span class="nc bnc" id="L563" title="All 2 branches missed.">			for (String type : equip.typeList())</span>
+			{
+<span class="nc bnc" id="L565" title="All 2 branches missed.">				if (containerCapacity.contains(type))</span>
+				{
+<span class="nc" id="L567">					++ammoCount;</span>
+<span class="nc" id="L568">					break;</span>
+				}
+<span class="nc" id="L570">			}</span>
+<span class="nc" id="L571">		}</span>
+
+<span class="nc" id="L573">		return ammoCount;</span>
+	}
+
+	/**
+	 * Get the ammunition token
+	 * @param pc
+	 * @param eq
+	 * @param ammo
+	 * @return the ammunition token
+	 */
+	private static String getAmmunitionToken(PlayerCharacter pc, Equipment eq, int ammo)
+	{
+<span class="nc" id="L585">		Equipment ammoUser = getAmmoUser(pc, eq, ammo);</span>
+
+<span class="nc bnc" id="L587" title="All 2 branches missed.">		if (ammoUser != null)</span>
+		{
+<span class="nc" id="L589">			return ammoUser.getName();</span>
+		}
+<span class="nc" id="L591">		return &quot;&quot;;</span>
+	}
+
+	/**
+	 * Get the contents count sub token
+	 * @param eq
+	 * @return contents count sub token
+	 */
+	private static int getContentsCountToken(Equipment eq)
+	{
+<span class="nc" id="L601">		return eq.getContainedEquipmentCount();</span>
+	}
+
+	/**
+	 * Get Contents token
+	 * @param eq
+	 * @param content
+	 * @return Get Contents token
+	 */
+	private static String getContentsToken(Equipment eq, int content)
+	{
+<span class="nc bnc" id="L612" title="All 2 branches missed.">		if (content &gt; -1)</span>
+		{
+<span class="nc bnc" id="L614" title="All 2 branches missed.">			if (content &lt; eq.getContainedEquipmentCount())</span>
+			{
+<span class="nc" id="L616">				return eq.getContainedEquipment(content).getName();</span>
+			}
+		}
+<span class="nc" id="L619">		return &quot;&quot;;</span>
+	}
+
+	/**
+	 * Get the Heft token
+	 * @param pc
+	 * @param eq
+	 * @return heft token
+	 */
+	private static String getHeft(PlayerCharacter pc, Equipment eq)
+	{
+		String retString;
+<span class="nc bnc" id="L631" title="All 2 branches missed.">		if (pc.sizeInt() &gt; eq.sizeInt())</span>
+		{
+<span class="nc" id="L633">			retString = &quot;LIGHT&quot;;</span>
+		}
+<span class="nc bnc" id="L635" title="All 2 branches missed.">		else if (pc.sizeInt() == eq.sizeInt())</span>
+		{
+<span class="nc" id="L637">			retString = &quot;MEDIUM&quot;;</span>
+		}
+		else
+		{
+<span class="nc" id="L641">			retString = &quot;HEAVY&quot;;</span>
+		}
+<span class="nc" id="L643">		return retString;</span>
+	}
+
+	/**
+	 * Get the is type token
+	 * @param eq
+	 * @param type
+	 * @return is type token
+	 */
+	private static String getIsTypeToken(Equipment eq, String type)
+	{
+<span class="nc bnc" id="L654" title="All 2 branches missed.">		return isTypeToken(eq, type) ? &quot;TRUE&quot; : &quot;FALSE&quot;;</span>
+	}
+
+	/**
+	 * Get the istype token
+	 * @param eq
+	 * @param type
+	 * @return is type token
+	 */
+	private static boolean isTypeToken(Equipment eq, String type)
+	{
+<span class="nc" id="L665">		return eq.isType(type);</span>
+	}
+
+	/**
+	 * Get the MULT token
+	 * @param pc
+	 * @param eq
+	 * @return MULT token
+	 */
+	private static String getMultToken(PlayerCharacter pc, Equipment eq)
+	{
+<span class="nc" id="L676">		String critMultVar = ControlUtilities.getControlToken(Globals.getContext(), CControl.CRITMULT);</span>
+<span class="nc bnc" id="L677" title="All 2 branches missed.">		if (critMultVar != null)</span>
+		{
+<span class="nc" id="L679">			return WeaponToken.getNewCritMultString(pc, eq, critMultVar);</span>
+		}
+<span class="nc" id="L681">		String profName = getProfName(eq);</span>
+<span class="nc" id="L682">		StringBuilder sb = new StringBuilder();</span>
+<span class="nc bnc" id="L683" title="All 4 branches missed.">		boolean isDouble = (eq.isDouble() &amp;&amp; (eq.getLocation() == EquipmentLocation.EQUIPPED_TWO_HANDS));</span>
+<span class="nc" id="L684">		int mult = (int) pc.getTotalBonusTo(&quot;WEAPONPROF=&quot; + profName, &quot;CRITMULTADD&quot;)</span>
+<span class="nc" id="L685">			+ getWeaponProfTypeBonuses(pc, eq, &quot;CRITMULTADD&quot;, WPTYPEBONUS_PC);</span>
+
+<span class="nc" id="L687">		int critMult = eq.getCritMultiplier();</span>
+<span class="nc bnc" id="L688" title="All 2 branches missed.">		if (critMult &lt;= 0)</span>
+		{
+<span class="nc" id="L690">			sb.append(mult);</span>
+		}
+		else
+		{
+<span class="nc" id="L694">			sb.append(critMult + mult);</span>
+		}
+
+<span class="nc" id="L697">		int altCrit = eq.getAltCritMultiplier();</span>
+
+<span class="nc bnc" id="L699" title="All 4 branches missed.">		if (isDouble &amp;&amp; (altCrit &gt; 0))</span>
+		{
+<span class="nc" id="L701">			sb.append('/').append(altCrit + mult);</span>
+		}
+<span class="nc" id="L703">		return sb.toString();</span>
+	}
+
+	public static String getNewCritMultString(PlayerCharacter pc, Equipment eq, String critMultVar)
+	{
+<span class="nc" id="L708">		CharID id = pc.getCharID();</span>
+<span class="nc" id="L709">		Object critMult1 = eq.getEquipmentHead(1).getLocalVariable(id, critMultVar);</span>
+<span class="nc" id="L710">		Object critMult2 = eq.getEquipmentHead(2).getLocalVariable(id, critMultVar);</span>
+<span class="nc bnc" id="L711" title="All 2 branches missed.">		if (critMult1.equals(critMult2))</span>
+		{
+<span class="nc" id="L713">			return critMult1.toString();</span>
+		}
+<span class="nc" id="L715">		return String.valueOf(critMult1)</span>
+				+ '/'
+				+ critMult2;
+	}
+
+	/**
+	 * Retrieve the proficiency name for the provided item of equipment. That is
+	 * the name of the weapon proficiency that is required to correctly use the
+	 * item.
+	 * @param eq The equipment item.
+	 * @return The name of the proficiency, or empty string if no proficiency is defined.
+	 */
+	private static String getProfName(Equipment eq)
+	{
+<span class="nc" id="L729">		CDOMSingleRef&lt;WeaponProf&gt; ref = eq.get(ObjectKey.WEAPON_PROF);</span>
+		String profName;
+<span class="nc bnc" id="L731" title="All 2 branches missed.">		if (ref == null)</span>
+		{
+<span class="nc" id="L733">			profName = &quot;&quot;;</span>
+		}
+		else
+		{
+<span class="nc" id="L737">			profName = ref.get().getKeyName();</span>
+		}
+<span class="nc" id="L739">		return profName;</span>
+	}
+
+	/**
+	 * Get the range list token
+	 * @param eq
+	 * @param range
+	 * @param aPC
+	 * @return range list token
+	 */
+	private static String getRangeListToken(Equipment eq, int range, PlayerCharacter aPC)
+	{
+<span class="nc" id="L751">		List&lt;String&gt; rangeList = getRangeList(eq, true, aPC);</span>
+
+<span class="nc bnc" id="L753" title="All 2 branches missed.">		if (range &lt; rangeList.size())</span>
+		{
+<span class="nc" id="L755">			return Globals.getGameModeUnitSet().displayDistanceInUnitSet(Integer.parseInt(rangeList.get(range)))</span>
+<span class="nc" id="L756">				+ Globals.getGameModeUnitSet().getDistanceUnit();</span>
+		}
+<span class="nc" id="L758">		return &quot;&quot;;</span>
+	}
+
+	/**
+	 * Get the range token
+	 * @param eq
+	 * @param pc
+	 * @param units
+	 * @return range token
+	 */
+	private static String getRangeToken(Equipment eq, PlayerCharacter pc, boolean units)
+	{
+<span class="nc" id="L770">		StringBuilder sb = new StringBuilder();</span>
+<span class="nc" id="L771">		sb.append(Globals.getGameModeUnitSet().displayDistanceInUnitSet(EqToken.getRange(pc, eq)));</span>
+
+<span class="nc bnc" id="L773" title="All 2 branches missed.">		if (units)</span>
+		{
+<span class="nc" id="L775">			sb.append(Globals.getGameModeUnitSet().getDistanceUnit());</span>
+		}
+<span class="nc" id="L777">		return sb.toString();</span>
+	}
+
+	/**
+	 * Get the size mod token
+	 * @param pc
+	 * @return the size mod token
+	 */
+	private static int getSizeModToken(PlayerCharacter pc)
+	{
+<span class="nc" id="L787">		return (int) pc.getSizeAdjustmentBonusTo(&quot;TOHIT&quot;, &quot;TOHIT&quot;);</span>
+	}
+
+	/**
+	 * Get the category token
+	 * @param eq
+	 * @return category token
+	 */
+	private static String getCategoryToken(Equipment eq)
+	{
+<span class="nc" id="L797">		StringBuilder sb = new StringBuilder();</span>
+<span class="nc" id="L798">		sb.append(weaponCategories(eq));</span>
+<span class="nc" id="L799">		sb.append('-');</span>
+
+<span class="nc bnc" id="L801" title="All 2 branches missed.">		if (eq.isNatural())</span>
+		{
+<span class="nc" id="L803">			sb.append(&quot;Natural&quot;);</span>
+		}
+
+		// If we're going to add another type then seperate with a ','
+		// and set non standard to false
+<span class="nc bnc" id="L808" title="All 2 branches missed.">		if (appendSeperator(eq))</span>
+		{
+<span class="nc" id="L810">			sb.append(',');</span>
+		}
+
+		// Check if Both or Melee or Ranged
+<span class="nc bnc" id="L814" title="All 2 branches missed.">		if (eq.isType(&quot;Both&quot;))</span>
+		{
+<span class="nc bnc" id="L816" title="All 2 branches missed.">			if (eq.isMelee())</span>
+			{
+<span class="nc" id="L818">				sb.append(&quot;Both (Melee)&quot;);</span>
+			}
+<span class="nc bnc" id="L820" title="All 2 branches missed.">			else if (eq.isRanged())</span>
+			{
+<span class="nc" id="L822">				sb.append(&quot;Both (Ranged)&quot;);</span>
+			}
+		}
+<span class="nc bnc" id="L825" title="All 2 branches missed.">		else if (eq.isMelee())</span>
+		{
+<span class="nc" id="L827">			sb.append(&quot;Melee&quot;);</span>
+		}
+<span class="nc bnc" id="L829" title="All 2 branches missed.">		else if (eq.isRanged())</span>
+		{
+<span class="nc" id="L831">			sb.append(&quot;Ranged&quot;);</span>
+		}
+
+<span class="nc bnc" id="L834" title="All 2 branches missed.">		if (isNonStandard(eq))</span>
+		{
+<span class="nc" id="L836">			sb.append(&quot;Non-Standard&quot;);</span>
+		}
+<span class="nc" id="L838">		return sb.toString();</span>
+	}
+
+	/**
+	 * Get the type token
+	 * @param eq
+	 * @return type token
+	 */
+	private static String getTypeToken(Equipment eq)
+	{
+<span class="nc" id="L848">		String types = weaponTypes(eq, true);</span>
+
+<span class="nc bnc" id="L850" title="All 2 branches missed.">		if (eq.isDouble())</span>
+		{
+<span class="nc" id="L852">			types += ('/' + weaponTypes(eq, false));</span>
+		}
+
+<span class="nc" id="L855">		return types;</span>
+	}
+
+	/**
+	 * Get hand token
+	 * @param eq
+	 * @return hand token
+	 */
+	private static String getHandToken(Equipment eq)
+	{
+<span class="nc" id="L865">		String location = eq.getLocation().getString();</span>
+<span class="nc" id="L866">		return location.replaceAll(&quot;.*\\(&quot;, &quot;&quot;).replaceAll(&quot;\\(.*&quot;, &quot;&quot;).replaceAll(&quot;\\).*&quot;, &quot;&quot;);</span>
+	}
+
+	/**
+	 * Get Magic damage token
+	 * @param pc
+	 * @param eq
+	 * @return Magic damage token
+	 */
+	private static int getMagicDamageToken(PlayerCharacter pc, Equipment eq)
+	{
+<span class="nc" id="L877">		String profName = getProfName(eq);</span>
+<span class="nc" id="L878">		return eq.getBonusToDamage(pc, true) + (int) BonusCalc.charBonusTo(eq, &quot;WEAPONPROF=&quot; + profName, &quot;DAMAGE&quot;, pc)</span>
+<span class="nc" id="L879">			+ getWeaponProfTypeBonuses(pc, eq, &quot;DAMAGE&quot;, WPTYPEBONUS_EQ);</span>
+	}
+
+	/**
+	 * Get the magic to hit token
+	 * @param pc
+	 * @param eq
+	 * @return magic to hit token
+	 */
+	private static int getMagicHitToken(PlayerCharacter pc, Equipment eq)
+	{
+<span class="nc" id="L890">		String profName = getProfName(eq);</span>
+<span class="nc" id="L891">		return eq.getBonusToHit(pc, true) + (int) BonusCalc.charBonusTo(eq, &quot;WEAPONPROF=&quot; + profName, &quot;TOHIT&quot;, pc)</span>
+<span class="nc" id="L892">			+ getWeaponProfTypeBonuses(pc, eq, &quot;TOHIT&quot;, WPTYPEBONUS_EQ);</span>
+	}
+
+	/**
+	 * Get the misc token
+	 * @param pc
+	 * @param eq
+	 * @return misc token
+	 */
+	private static int getMiscToken(PlayerCharacter pc, Equipment eq)
+	{
+<span class="nc" id="L903">		String profName = getProfName(eq);</span>
+<span class="nc" id="L904">		return ((int) pc.getTotalBonusTo(&quot;WEAPONPROF=&quot; + profName, &quot;TOHIT&quot;)</span>
+<span class="nc" id="L905">			+ getWeaponProfTypeBonuses(pc, eq, &quot;TOHIT&quot;, WPTYPEBONUS_PC))</span>
+<span class="nc" id="L906">			- (int) pc.getDisplay().getStatBonusTo(&quot;TOHIT&quot;, &quot;TYPE.MELEE&quot;)</span>
+<span class="nc" id="L907">			- (int) pc.getSizeAdjustmentBonusTo(&quot;TOHIT&quot;, &quot;TOHIT&quot;);</span>
+	}
+
+	/**
+	 * Get the feat damage token
+	 * @param pc
+	 * @param eq
+	 * @return feat damage token
+	 */
+	private static int getFeatDamageToken(PlayerCharacter pc, Equipment eq)
+	{
+<span class="nc" id="L918">		String profName = getProfName(eq);</span>
+<span class="nc" id="L919">		return (int) pc.getFeatBonusTo(&quot;WEAPON&quot;, &quot;DAMAGE&quot;) - (int) pc.getFeatBonusTo(&quot;WEAPON&quot;, &quot;DAMAGE-SHORTRANGE&quot;)</span>
+<span class="nc" id="L920">			+ (int) pc.getFeatBonusTo(&quot;WEAPONPROF=&quot; + profName, &quot;DAMAGE&quot;)</span>
+<span class="nc" id="L921">			+ getWeaponProfTypeBonuses(pc, eq, &quot;DAMAGE&quot;, WPTYPEBONUS_FEAT);</span>
+	}
+
+	/**
+	 * Get feat to hit token
+	 * @param pc
+	 * @param eq
+	 * @return Get feat to hit token
+	 */
+	private static int getFeatHitToken(PlayerCharacter pc, Equipment eq)
+	{
+<span class="nc" id="L932">		String profName = getProfName(eq);</span>
+<span class="nc" id="L933">		return (int) pc.getFeatBonusTo(&quot;WEAPON&quot;, &quot;TOHIT&quot;) + (int) pc.getFeatBonusTo(&quot;WEAPONPROF=&quot; + profName, &quot;TOHIT&quot;)</span>
+<span class="nc" id="L934">			+ getWeaponProfTypeBonuses(pc, eq, &quot;TOHIT&quot;, WPTYPEBONUS_FEAT);</span>
+	}
+
+	/**
+	 * Get the template damage token
+	 * @param pc
+	 * @param eq
+	 * @return template damage token
+	 */
+	private static int getTemplateDamageToken(PlayerCharacter pc, Equipment eq)
+	{
+<span class="nc" id="L945">		String profName = getProfName(eq);</span>
+<span class="nc" id="L946">		return (int) pc.getTemplateBonusTo(&quot;WEAPON&quot;, &quot;DAMAGE&quot;)</span>
+<span class="nc" id="L947">			+ (int) pc.getTemplateBonusTo(&quot;WEAPONPROF=&quot; + profName, &quot;DAMAGE&quot;)</span>
+<span class="nc" id="L948">			+ getWeaponProfTypeBonuses(pc, eq, &quot;DAMAGE&quot;, WPTYPEBONUS_TEMPLATE);</span>
+	}
+
+	/**
+	 * Get the template to hit token
+	 * @param pc
+	 * @param eq
+	 * @return to hit token
+	 */
+	private static int getTemplateHitToken(PlayerCharacter pc, Equipment eq)
+	{
+<span class="nc" id="L959">		String profName = getProfName(eq);</span>
+<span class="nc" id="L960">		return (int) pc.getTemplateBonusTo(&quot;WEAPON&quot;, &quot;TOHIT&quot;)</span>
+<span class="nc" id="L961">			+ (int) pc.getTemplateBonusTo(&quot;WEAPONPROF=&quot; + profName, &quot;TOHIT&quot;)</span>
+<span class="nc" id="L962">			+ getWeaponProfTypeBonuses(pc, eq, &quot;TOHIT&quot;, WPTYPEBONUS_TEMPLATE);</span>
+	}
+
+	/**
+	 * Get the size token
+	 * @param eq
+	 * @return size token
+	 */
+	private static String getSizeToken(Equipment eq)
+	{
+<span class="nc" id="L972">		return eq.getSize();</span>
+	}
+
+	/**
+	 * Get SPROP token
+	 * @param pc
+	 * @param eq
+	 * @param content
+	 * @param ammo
+	 * @return SPROP token
+	 */
+	private static String getSpropToken(PlayerCharacter pc, Equipment eq, int content, int ammo)
+	{
+<span class="nc" id="L985">		String sprop = eq.getSpecialProperties(pc);</span>
+
+		//Ammunition &amp; Contents Modifier
+<span class="nc bnc" id="L988" title="All 2 branches missed.">		if (content &gt; -1)</span>
+		{
+<span class="nc" id="L990">			sprop = Constants.EMPTY_STRING;</span>
+
+<span class="nc bnc" id="L992" title="All 2 branches missed.">			if ((content &lt; eq.getContainedEquipmentCount())</span>
+<span class="nc bnc" id="L993" title="All 2 branches missed.">				&amp;&amp; !Constants.EMPTY_STRING.equals(eq.getContainedEquipment(content).getSpecialProperties(pc)))</span>
+			{
+<span class="nc" id="L995">				sprop = eq.getContainedEquipment(content).getSpecialProperties(pc);</span>
+			}
+		}
+
+<span class="nc" id="L999">		int ammoCount = 0;</span>
+<span class="nc" id="L1000">		Equipment anEquip = null;</span>
+<span class="nc bnc" id="L1001" title="All 2 branches missed.">		if (ammo &gt; -1)</span>
+		{
+<span class="nc" id="L1003">			final String containerCapacity = eq.getContainerCapacityString();</span>
+
+<span class="nc bnc" id="L1005" title="All 2 branches missed.">			for (Equipment equip : pc.getEquipmentListInOutputOrder())</span>
+			{
+<span class="nc" id="L1007">				sprop = Constants.EMPTY_STRING;</span>
+
+<span class="nc bnc" id="L1009" title="All 2 branches missed.">				for (String type : equip.typeList())</span>
+				{
+<span class="nc bnc" id="L1011" title="All 2 branches missed.">					if (containerCapacity.contains(type))</span>
+					{
+<span class="nc" id="L1013">						++ammoCount;</span>
+<span class="nc" id="L1014">						anEquip = equip;</span>
+
+<span class="nc" id="L1016">						break;</span>
+					}
+<span class="nc" id="L1018">				}</span>
+
+<span class="nc bnc" id="L1020" title="All 2 branches missed.">				if (ammoCount == (ammo + 1))</span>
+				{
+<span class="nc" id="L1022">					break;</span>
+				}
+<span class="nc" id="L1024">			}</span>
+		}
+
+<span class="nc bnc" id="L1027" title="All 6 branches missed.">		if ((anEquip != null) &amp;&amp; (ammoCount &gt; 0) &amp;&amp; !Constants.EMPTY_STRING.equals(anEquip.getSpecialProperties(pc)))</span>
+		{
+<span class="nc" id="L1029">			sprop = anEquip.getSpecialProperties(pc);</span>
+		}
+
+<span class="nc bnc" id="L1032" title="All 2 branches missed.">		if (sprop.startsWith(&quot;, &quot;))</span>
+		{
+<span class="nc" id="L1034">			sprop = sprop.substring(2);</span>
+		}
+
+<span class="nc" id="L1037">		return sprop;</span>
+	}
+
+	/**
+	 * Get reach token
+	 * Formula is as follows:
+	 * 		REACH:(RACEREACH+(max(0,EQUIPREACH-5)))*EQUIPREACHMULT
+	 * @param pc	the player
+	 * @param eq	the equipment
+	 * @return reach token
+	 */
+	private static String getReachToken(PlayerCharacter pc, Equipment eq)
+	{
+<span class="nc" id="L1050">		String eqReach = pc.getControl(&quot;EQREACH&quot;);</span>
+		int sum;
+<span class="nc bnc" id="L1052" title="All 2 branches missed.">		if (eqReach == null)</span>
+		{
+<span class="nc" id="L1054">			int dist = eq.getVariableValue(SettingsHandler.getGameAsProperty().get().getWeaponReachFormula(), &quot;&quot;, pc).intValue();</span>
+<span class="nc" id="L1055">			String profName = getProfName(eq);</span>
+<span class="nc" id="L1056">			int iAdd = (int) pc.getTotalBonusTo(&quot;WEAPONPROF=&quot; + profName, &quot;REACH&quot;)</span>
+<span class="nc" id="L1057">				+ getWeaponProfTypeBonuses(pc, eq, &quot;REACH&quot;, WPTYPEBONUS_PC);</span>
+<span class="nc" id="L1058">			sum = dist + iAdd;</span>
+<span class="nc" id="L1059">		}</span>
+		else
+		{
+<span class="nc" id="L1062">			sum = ((Number) eq.getLocalVariable(pc.getCharID(), eqReach)).intValue();</span>
+		}
+<span class="nc" id="L1064">		return Globals.getGameModeUnitSet().displayDistanceInUnitSet(sum);</span>
+	}
+
+	/**
+	 * Get weight in set token
+	 * @param pc
+	 * @param eq
+	 * @return  weight in set token
+	 */
+	private static String getWTToken(PlayerCharacter pc, Equipment eq)
+	{
+<span class="nc" id="L1075">		return Globals.getGameModeUnitSet().displayWeightInUnitSet(eq.getWeight(pc).doubleValue());</span>
+	}
+
+	/**
+	 * Get the number of attacks token
+	 * @param pc
+	 * @param eq
+	 * @return number of attacks token
+	 */
+	private static int getNumAttacksToken(PlayerCharacter pc, Equipment eq)
+	{
+<span class="nc" id="L1086">		String melee = getMeleeAttackString(pc);</span>
+<span class="nc" id="L1087">		String unarmed = getUnarmedAttackString(pc);</span>
+<span class="nc" id="L1088">		String ranged = getRangedAttackString(pc);</span>
+<span class="nc" id="L1089">		String weaponString = melee;</span>
+
+<span class="nc bnc" id="L1091" title="All 2 branches missed.">		if (eq.isRanged())</span>
+		{
+<span class="nc" id="L1093">			weaponString = ranged;</span>
+		}
+
+<span class="nc bnc" id="L1096" title="All 2 branches missed.">		if (eq.isMonk())</span>
+		{
+<span class="nc bnc" id="L1098" title="All 2 branches missed.">			if (unarmed.length() &gt; melee.length())</span>
+			{
+<span class="nc" id="L1100">				weaponString = unarmed;</span>
+			}
+<span class="nc bnc" id="L1102" title="All 4 branches missed.">			else if ((unarmed.length() == melee.length()) &amp;&amp; !melee.equals(unarmed))</span>
+			{
+<span class="nc" id="L1104">				StringTokenizer mTok = new StringTokenizer(melee, &quot;+/&quot;, false);</span>
+<span class="nc" id="L1105">				StringTokenizer uTok = new StringTokenizer(unarmed, &quot;+/&quot;, false);</span>
+<span class="nc" id="L1106">				String msString = mTok.nextToken();</span>
+<span class="nc" id="L1107">				String usString = uTok.nextToken();</span>
+
+<span class="nc bnc" id="L1109" title="All 2 branches missed.">				if (Integer.parseInt(usString) &gt;= Integer.parseInt(msString))</span>
+				{
+<span class="nc" id="L1111">					weaponString = unarmed;</span>
+				}
+			}
+		}
+
+<span class="nc bnc" id="L1116" title="All 2 branches missed.">		if (weaponString.contains(&quot;/&quot;))</span>
+		{
+<span class="nc" id="L1118">			int i = weaponString.indexOf(&quot;/&quot;);</span>
+<span class="nc" id="L1119">			boolean progress = eq.getSafe(ObjectKey.ATTACKS_PROGRESS);</span>
+<span class="nc" id="L1120">			int bonusProgress = (int) eq.bonusTo(pc, &quot;WEAPON&quot;, &quot;ATTACKSPROGRESS&quot;, true);</span>
+<span class="nc bnc" id="L1121" title="All 2 branches missed.">			if (bonusProgress != 0)</span>
+			{
+<span class="nc bnc" id="L1123" title="All 2 branches missed.">				progress = bonusProgress &gt; 0;</span>
+			}
+<span class="nc bnc" id="L1125" title="All 2 branches missed.">			if (!progress) // a natural weapon or other weapon with attack progression turned off</span>
+			{
+<span class="nc" id="L1127">				weaponString = weaponString.substring(0, i);</span>
+			}
+
+		}
+<span class="nc" id="L1131">		StringTokenizer bTok = new StringTokenizer(weaponString, &quot;/&quot;);</span>
+<span class="nc" id="L1132">		int extra_attacks = (int) eq.bonusTo(pc, &quot;WEAPON&quot;, &quot;ATTACKS&quot;, true);</span>
+<span class="nc" id="L1133">		return (bTok.countTokens() + extra_attacks);</span>
+	}
+
+	/**
+	 * Get critical token
+	 * @param pc
+	 * @param eq
+	 * @return critical token
+	 */
+	private static String getCritToken(PlayerCharacter pc, Equipment eq)
+	{
+<span class="nc" id="L1144">		StringBuilder sb = new StringBuilder();</span>
+<span class="nc" id="L1145">		String critRangeVar = ControlUtilities.getControlToken(Globals.getContext(), CControl.CRITRANGE);</span>
+<span class="nc bnc" id="L1146" title="All 2 branches missed.">		if (critRangeVar != null)</span>
+		{
+<span class="nc" id="L1148">			EquipmentHead head = eq.getEquipmentHead(1);</span>
+<span class="nc" id="L1149">			return getCritRangeHead(pc, head, critRangeVar).toString();</span>
+		}
+
+<span class="nc bnc" id="L1152" title="All 4 branches missed.">		boolean isDouble = (eq.isDouble() &amp;&amp; (eq.getLocation() == EquipmentLocation.EQUIPPED_TWO_HANDS));</span>
+<span class="nc" id="L1153">		int rawCritRange = eq.getRawCritRange(true);</span>
+
+		// see if the weapon has any crit range
+<span class="nc bnc" id="L1156" title="All 2 branches missed.">		if (rawCritRange == 0)</span>
+		{
+			// no crit range!
+<span class="nc" id="L1159">			return &quot;none&quot;;</span>
+		}
+
+<span class="nc" id="L1162">		String profName = getProfName(eq);</span>
+<span class="nc" id="L1163">		int dbl = (int) pc.getTotalBonusTo(&quot;WEAPONPROF=&quot; + profName, &quot;CRITRANGEDOUBLE&quot;)</span>
+<span class="nc" id="L1164">			+ getWeaponProfTypeBonuses(pc, eq, &quot;CRITRANGEDOUBLE&quot;, WPTYPEBONUS_PC);</span>
+<span class="nc" id="L1165">		int iAdd = (int) pc.getTotalBonusTo(&quot;WEAPONPROF=&quot; + profName, &quot;CRITRANGEADD&quot;)</span>
+<span class="nc" id="L1166">			+ getWeaponProfTypeBonuses(pc, eq, &quot;CRITRANGEADD&quot;, WPTYPEBONUS_PC);</span>
+<span class="nc" id="L1167">		int eqDbl = dbl + (int) eq.bonusTo(pc, &quot;EQMWEAPON&quot;, &quot;CRITRANGEDOUBLE&quot;, true);</span>
+<span class="nc" id="L1168">		int critrange = eq.getRawCritRange(true) * (eqDbl + 1);</span>
+<span class="nc" id="L1169">		critrange = 21 - (critrange + iAdd + (int) eq.bonusTo(pc, &quot;EQMWEAPON&quot;, &quot;CRITRANGEADD&quot;, true));</span>
+<span class="nc" id="L1170">		sb.append(String.valueOf(critrange));</span>
+<span class="nc bnc" id="L1171" title="All 2 branches missed.">		if (critrange &lt; 20)</span>
+		{
+<span class="nc" id="L1173">			sb.append(&quot;-20&quot;);</span>
+		}
+
+<span class="nc bnc" id="L1176" title="All 4 branches missed.">		if (isDouble &amp;&amp; (EqToken.getOldBonusedCritRange(pc, eq, false) &gt; 0))</span>
+		{
+<span class="nc" id="L1178">			eqDbl = dbl + (int) eq.bonusTo(pc, &quot;EQMWEAPON&quot;, &quot;CRITRANGEDOUBLE&quot;, false);</span>
+
+<span class="nc" id="L1180">			int altCritRange = eq.getRawCritRange(false) * (eqDbl + 1);</span>
+<span class="nc" id="L1181">			altCritRange = 21 - (altCritRange + iAdd + (int) eq.bonusTo(pc, &quot;EQMWEAPON&quot;, &quot;CRITRANGEADD&quot;, false));</span>
+
+<span class="nc bnc" id="L1183" title="All 2 branches missed.">			if (altCritRange != critrange)</span>
+			{
+<span class="nc" id="L1185">				sb.append(&quot;/&quot;).append(altCritRange);</span>
+
+<span class="nc bnc" id="L1187" title="All 2 branches missed.">				if (altCritRange &lt; 20)</span>
+				{
+<span class="nc" id="L1189">					sb.append(&quot;-20&quot;);</span>
+				}
+			}
+		}
+<span class="nc" id="L1193">		return sb.toString();</span>
+	}
+
+	/**
+	 * Get damage token
+	 * @param pc
+	 * @param eq
+	 * @param range
+	 * @param content
+	 * @param ammo
+	 * @param bonusOnly
+	 * @param base
+	 * @return damage token
+	 */
+	private static String getDamageToken(PlayerCharacter pc, Equipment eq, int range, int content, int ammo,
+	                                     boolean bonusOnly, boolean base)
+	{
+<span class="nc bnc" id="L1210" title="All 4 branches missed.">		boolean isDouble = (eq.isDouble() &amp;&amp; (eq.getLocation() == EquipmentLocation.EQUIPPED_TWO_HANDS));</span>
+<span class="nc bnc" id="L1211" title="All 4 branches missed.">		boolean isDoubleSplit = (eq.isType(&quot;Head1&quot;) || eq.isType(&quot;Head2&quot;));</span>
+		int damageMode;
+<span class="nc" id="L1213">		int hands = 1;</span>
+
+<span class="nc bnc" id="L1215" title="All 4 branches missed.">		if (eq.isNatural() &amp;&amp; (eq.getLocation() == EquipmentLocation.EQUIPPED_SECONDARY))</span>
+		{
+<span class="nc" id="L1217">			damageMode = DAMAGEMODE_OFFHAND;</span>
+<span class="nc" id="L1218">			hands = 0;</span>
+		}
+<span class="nc bnc" id="L1220" title="All 2 branches missed.">		else if (eq.isUnarmed())</span>
+		{
+<span class="nc" id="L1222">			damageMode = DAMAGEMODE_BASIC;</span>
+		}
+<span class="nc bnc" id="L1224" title="All 4 branches missed.">		else if (isDouble &amp;&amp; !isDoubleSplit)</span>
+		{
+<span class="nc" id="L1226">			damageMode = DAMAGEMODE_DOUBLE;</span>
+<span class="nc" id="L1227">			hands = 1;</span>
+		}
+<span class="nc bnc" id="L1229" title="All 4 branches missed.">		else if ((isDoubleSplit) &amp;&amp; (eq.isWeaponTwoHanded(pc)))</span>
+		{
+<span class="nc" id="L1231">			damageMode = DAMAGEMODE_TWOHANDS;</span>
+<span class="nc" id="L1232">			hands = 2;</span>
+		}
+<span class="nc bnc" id="L1234" title="All 2 branches missed.">		else if (pc.getDisplay().isSecondaryWeapon(eq))</span>
+		{
+<span class="nc" id="L1236">			damageMode = DAMAGEMODE_OFFHAND;</span>
+<span class="nc" id="L1237">			hands = 0;</span>
+		}
+<span class="nc bnc" id="L1239" title="All 2 branches missed.">		else if (pc.getDisplay().isPrimaryWeapon(eq))</span>
+		{
+<span class="nc bnc" id="L1241" title="All 2 branches missed.">			if (eq.getLocation() == EquipmentLocation.EQUIPPED_BOTH)</span>
+			{
+<span class="nc" id="L1243">				damageMode = DAMAGEMODE_TWOHANDS;</span>
+<span class="nc" id="L1244">				hands = 2;</span>
+			}
+			else
+			{
+<span class="nc" id="L1248">				damageMode = DAMAGEMODE_BASIC;</span>
+			}
+		}
+		else
+		{
+			// Not wielded, probably just carried
+<span class="nc bnc" id="L1254" title="All 2 branches missed.">			if (eq.isWeaponTwoHanded(pc))</span>
+			{
+<span class="nc" id="L1256">				damageMode = DAMAGEMODE_TWOHANDS;</span>
+<span class="nc" id="L1257">				hands = 2;</span>
+			}
+			else
+			{
+<span class="nc" id="L1261">				damageMode = DAMAGEMODE_BASIC;</span>
+			}
+		}
+<span class="nc" id="L1264">		return getDamage(pc, eq, range, content, ammo, bonusOnly, hands, damageMode, base);</span>
+	}
+
+	/**
+	 * Get basic damage token
+	 * @param pc
+	 * @param eq
+	 * @param range
+	 * @param content
+	 * @param ammo
+	 * @param bonusOnly
+	 * @return basic damage token
+	 */
+	private static String getBasicDamageToken(PlayerCharacter pc, Equipment eq, int range, int content, int ammo,
+	                                          boolean bonusOnly)
+	{
+<span class="nc" id="L1280">		int hands = 1;</span>
+<span class="nc" id="L1281">		return getDamage(pc, eq, range, content, ammo, bonusOnly, hands, DAMAGEMODE_BASIC, false);</span>
+	}
+
+	/**
+	 * Get two handed damage token
+	 * @param pc
+	 * @param eq
+	 * @param range
+	 * @param content
+	 * @param ammo
+	 * @param bonusOnly
+	 * @return two handed damage token
+	 */
+	private static String getTHDamageToken(PlayerCharacter pc, Equipment eq, int range, int content, int ammo,
+	                                       boolean bonusOnly)
+	{
+<span class="nc" id="L1297">		int hands = 2;</span>
+<span class="nc" id="L1298">		return getDamage(pc, eq, range, content, ammo, bonusOnly, hands, DAMAGEMODE_TWOHANDS, false);</span>
+	}
+
+	/**
+	 * Get Off hand damage token
+	 * @param pc
+	 * @param eq
+	 * @param range
+	 * @param content
+	 * @param ammo
+	 * @param bonusOnly
+	 * @return Off hand damage token
+	 */
+	private static String getOHDamageToken(PlayerCharacter pc, Equipment eq, int range, int content, int ammo,
+	                                       boolean bonusOnly)
+	{
+<span class="nc" id="L1314">		int hands = 0;</span>
+<span class="nc" id="L1315">		return getDamage(pc, eq, range, content, ammo, bonusOnly, hands, DAMAGEMODE_OFFHAND, false);</span>
+	}
+
+	/**
+	 * Get total hit token
+	 * @param pc
+	 * @param eq
+	 * @param range
+	 * @param content
+	 * @param ammo
+	 * @param attackNum
+	 * @return total hit token
+	 */
+	private static String getTotalHitToken(PlayerCharacter pc, Equipment eq, int range, int content, int ammo,
+	                                       int attackNum)
+	{
+<span class="nc" id="L1331">		CharacterDisplay display = pc.getDisplay();</span>
+<span class="nc bnc" id="L1332" title="All 4 branches missed.">		boolean isDouble = (eq.isDouble() &amp;&amp; (eq.getLocation() == EquipmentLocation.EQUIPPED_TWO_HANDS));</span>
+<span class="nc bnc" id="L1333" title="All 4 branches missed.">		boolean isDoubleSplit = (eq.isType(&quot;Head1&quot;) || eq.isType(&quot;Head2&quot;));</span>
+		int hitMode;
+
+		// First do unarmed.
+<span class="nc bnc" id="L1337" title="All 2 branches missed.">		if (eq.isUnarmed())</span>
+		{
+<span class="nc" id="L1339">			hitMode = HITMODE_BASEHIT;</span>
+		}
+		// next do Double weapons
+<span class="nc bnc" id="L1342" title="All 4 branches missed.">		else if (isDouble &amp;&amp; !isDoubleSplit)</span>
+		{
+<span class="nc" id="L1344">			hitMode = HITMODE_TWOHIT;</span>
+		}
+<span class="nc bnc" id="L1346" title="All 4 branches missed.">		else if (!isDouble &amp;&amp; isDoubleSplit)</span>
+		{
+<span class="nc" id="L1348">			hitMode = HITMODE_THHIT;</span>
+		}
+		// eq is Primary
+<span class="nc bnc" id="L1351" title="All 4 branches missed.">		else if (display.isPrimaryWeapon(eq) &amp;&amp; display.hasSecondaryWeapons())</span>
+		{
+<span class="nc" id="L1353">			Equipment sEq = display.getSecondaryWeapons().iterator().next();</span>
+
+<span class="nc bnc" id="L1355" title="All 2 branches missed.">			if (sEq == null)</span>
+			{
+				// Hmm, weird
+				// default to off-hand light
+<span class="nc" id="L1359">				hitMode = HITMODE_TWPHITL;</span>
+			}
+<span class="nc bnc" id="L1361" title="All 2 branches missed.">			else if (sEq.isWeaponLightForPC(pc))</span>
+			{
+				// offhand light
+<span class="nc" id="L1364">				hitMode = HITMODE_TWPHITL;</span>
+			}
+			else
+			{
+				// offhand heavy
+<span class="nc" id="L1369">				hitMode = HITMODE_TWPHITH;</span>
+			}
+<span class="nc" id="L1371">		}</span>
+		// eq is Secondary
+<span class="nc bnc" id="L1373" title="All 4 branches missed.">		else if (display.isSecondaryWeapon(eq) &amp;&amp; display.hasPrimaryWeapons())</span>
+		{
+<span class="nc bnc" id="L1375" title="All 2 branches missed.">			if (eq.isWeaponLightForPC(pc))</span>
+			{
+				// offhand light
+<span class="nc" id="L1378">				hitMode = HITMODE_TWFOHL;</span>
+			}
+			else
+			{
+				// offhand heavy
+<span class="nc" id="L1383">				hitMode = HITMODE_TWFOHH;</span>
+			}
+		}
+		// Just a single off-hand weapon
+<span class="nc bnc" id="L1387" title="All 4 branches missed.">		else if (display.isSecondaryWeapon(eq) &amp;&amp; !display.hasPrimaryWeapons())</span>
+		{
+<span class="nc" id="L1389">			hitMode = HITMODE_OHHIT;</span>
+		}
+		// Just a single primary weapon
+<span class="nc bnc" id="L1392" title="All 4 branches missed.">		else if (display.isPrimaryWeapon(eq) &amp;&amp; !display.hasSecondaryWeapons())</span>
+		{
+<span class="nc bnc" id="L1394" title="All 2 branches missed.">			if (eq.getLocation() == EquipmentLocation.EQUIPPED_BOTH)</span>
+			{
+				// both hands
+<span class="nc" id="L1397">				hitMode = HITMODE_THHIT;</span>
+			}
+			else
+			{
+				// single hand
+<span class="nc" id="L1402">				hitMode = HITMODE_BASEHIT;</span>
+			}
+		}
+		else
+		{
+			// Not double or single
+			// Not primary or Secondary
+			// probably just carried
+<span class="nc bnc" id="L1410" title="All 2 branches missed.">			if (eq.isWeaponTwoHanded(pc))</span>
+			{
+				// Two Handed weapon
+<span class="nc" id="L1413">				hitMode = HITMODE_THHIT;</span>
+			}
+			else
+			{
+				// one handed weapon
+<span class="nc" id="L1418">				hitMode = HITMODE_BASEHIT;</span>
+			}
+		}
+
+<span class="nc" id="L1422">		return getToHit(pc, eq, range, content, ammo, hitMode, attackNum);</span>
+	}
+
+	/**
+	 * Get base hit token
+	 * @param pc
+	 * @param eq
+	 * @param range
+	 * @param content
+	 * @param ammo
+	 * @param attackNum
+	 * @return base hit token
+	 */
+	private static String getBaseHitToken(PlayerCharacter pc, Equipment eq, int range, int content, int ammo,
+	                                      int attackNum)
+	{
+<span class="nc" id="L1438">		return getToHit(pc, eq, range, content, ammo, HITMODE_BASEHIT, attackNum);</span>
+	}
+
+	/**
+	 * Get two weapon heavy off hand token
+	 * @param pc
+	 * @param eq
+	 * @param range
+	 * @param content
+	 * @param ammo
+	 * @param attackNum
+	 * @return two weapon heavy off hand token
+	 */
+	private static String getTwpHitHToken(PlayerCharacter pc, Equipment eq, int range, int content, int ammo,
+	                                      int attackNum)
+	{
+<span class="nc" id="L1454">		return getToHit(pc, eq, range, content, ammo, HITMODE_TWPHITH, attackNum);</span>
+	}
+
+	/**
+	 * Get two weapon light off hand token
+	 * @param pc
+	 * @param eq
+	 * @param range
+	 * @param content
+	 * @param ammo
+	 * @param attackNum
+	 * @return two weapon light off hand token
+	 */
+	private static String getTwpHitLToken(PlayerCharacter pc, Equipment eq, int range, int content, int ammo,
+	                                      int attackNum)
+	{
+<span class="nc" id="L1470">		return getToHit(pc, eq, range, content, ammo, HITMODE_TWPHITL, attackNum);</span>
+	}
+
+	/**
+	 * Get two hit token
+	 * @param pc
+	 * @param eq
+	 * @param range
+	 * @param content
+	 * @param ammo
+	 * @param attackNum
+	 * @return two hit token
+	 */
+	private static String getTwoHitToken(PlayerCharacter pc, Equipment eq, int range, int content, int ammo,
+	                                     int attackNum)
+	{
+<span class="nc" id="L1486">		return getToHit(pc, eq, range, content, ammo, HITMODE_TWOHIT, attackNum);</span>
+	}
+
+	/**
+	 * Get Off Hand Hit Token
+	 * @param pc
+	 * @param eq
+	 * @param range
+	 * @param content
+	 * @param ammo
+	 * @param attackNum
+	 * @return Off Hand Hit Toke
+	 */
+	private static String getOHHitToken(PlayerCharacter pc, Equipment eq, int range, int content, int ammo,
+	                                    int attackNum)
+	{
+<span class="nc" id="L1502">		return getToHit(pc, eq, range, content, ammo, HITMODE_OHHIT, attackNum);</span>
+	}
+
+	/**
+	 * Get the TH Hit Token
+	 * @param pc
+	 * @param eq
+	 * @param range
+	 * @param content
+	 * @param ammo
+	 * @param attackNum
+	 * @return the TH Hit Token
+	 */
+	private static String getTHHitToken(PlayerCharacter pc, Equipment eq, int range, int content, int ammo,
+	                                    int attackNum)
+	{
+<span class="nc" id="L1518">		return getToHit(pc, eq, range, content, ammo, HITMODE_THHIT, attackNum);</span>
+	}
+
+	private static String getToHit(PlayerCharacter pc, Equipment eq, int range, int content, int ammo, int hitMode,
+		int attackNum)
+	{
+<span class="nc bnc" id="L1524" title="All 4 branches missed.">		boolean isDouble = (eq.isDouble() &amp;&amp; (eq.getLocation() == EquipmentLocation.EQUIPPED_TWO_HANDS));</span>
+<span class="nc bnc" id="L1525" title="All 4 branches missed.">		boolean isDoubleSplit = (eq.isType(&quot;Head1&quot;) || eq.isType(&quot;Head2&quot;));</span>
+
+		// If it's a two handed weapon, but is not
+		// wielded as two handed, just punt now!
+<span class="nc bnc" id="L1529" title="All 4 branches missed.">		if (eq.isMelee() &amp;&amp; (eq.isWeaponTwoHanded(pc)))</span>
+		{
+<span class="nc bnc" id="L1531" title="All 14 branches missed.">			if ((!isDouble &amp;&amp; !isDoubleSplit &amp;&amp; (hitMode != HITMODE_THHIT)) || (isDoubleSplit</span>
+				&amp;&amp; (hitMode == HITMODE_BASEHIT || hitMode == HITMODE_OHHIT || hitMode == HITMODE_TWPHITH)))
+			{
+<span class="nc" id="L1534">				return LanguageBundle.getString(&quot;SettingsHandler.not.applicable&quot;);</span>
+			}
+		}
+
+<span class="nc bnc" id="L1538" title="All 6 branches missed.">		if (eq.isMelee() &amp;&amp; eq.isWeaponOutsizedForPC(pc) &amp;&amp; !eq.isNatural())</span>
+		{
+<span class="nc" id="L1540">			return LanguageBundle.getString(&quot;SettingsHandler.not.applicable&quot;);</span>
+		}
+
+<span class="nc" id="L1543">		int weaponBaseBonus = (int) eq.bonusTo(pc, &quot;WEAPON&quot;, &quot;WEAPONBAB&quot;, true);</span>
+<span class="nc" id="L1544">		CDOMSingleRef&lt;WeaponProf&gt; ref = eq.get(ObjectKey.WEAPON_PROF);</span>
+		WeaponProf prof;
+		String profKey;
+<span class="nc bnc" id="L1547" title="All 2 branches missed.">		if (ref == null)</span>
+		{
+<span class="nc" id="L1549">			profKey = &quot;&quot;;</span>
+<span class="nc" id="L1550">			prof = null;</span>
+		}
+		else
+		{
+<span class="nc" id="L1554">			prof = ref.get();</span>
+<span class="nc" id="L1555">			profKey = prof.getKeyName();</span>
+		}
+
+<span class="nc" id="L1558">		weaponBaseBonus += (int) pc.getTotalBonusTo(&quot;WEAPONPROF=&quot; + profKey, &quot;WEAPONBAB&quot;);</span>
+<span class="nc" id="L1559">		weaponBaseBonus += getWeaponProfTypeBonuses(pc, eq, &quot;WEAPONBAB&quot;, WPTYPEBONUS_PC);</span>
+
+		// The Melee, Ranged and Unarmed attack sequence
+<span class="nc" id="L1562">		String melee = getMeleeAttackString(pc, 0, weaponBaseBonus);</span>
+<span class="nc" id="L1563">		String ranged = getRangedAttackString(pc, 0, weaponBaseBonus);</span>
+<span class="nc" id="L1564">		String unarmed = getUnarmedAttackString(pc, 0, weaponBaseBonus);</span>
+
+		// Must leave this for 3.0 compatibility
+		// 3.0 Monk uses special attack progression
+<span class="nc bnc" id="L1568" title="All 2 branches missed.">		if (eq.isMonk())</span>
+		{
+<span class="nc bnc" id="L1570" title="All 2 branches missed.">			if (unarmed.length() &gt; melee.length())</span>
+			{
+<span class="nc" id="L1572">				melee = unarmed;</span>
+			}
+<span class="nc bnc" id="L1574" title="All 4 branches missed.">			else if ((unarmed.length() == melee.length()) &amp;&amp; !melee.equals(unarmed))</span>
+			{
+<span class="nc" id="L1576">				StringTokenizer mTok = new StringTokenizer(melee, &quot;+/&quot;, false);</span>
+<span class="nc" id="L1577">				StringTokenizer m1Tok = new StringTokenizer(melee, &quot;+/&quot;, false);</span>
+<span class="nc" id="L1578">				String msString = mTok.nextToken();</span>
+<span class="nc" id="L1579">				String m1sString = m1Tok.nextToken();</span>
+
+<span class="nc bnc" id="L1581" title="All 2 branches missed.">				if (Integer.parseInt(m1sString) &gt;= Integer.parseInt(msString))</span>
+				{
+<span class="nc" id="L1583">					melee = unarmed;</span>
+				}
+			}
+		}
+
+		//
+		// Now do all the calculations
+		//
+<span class="nc" id="L1591">		int baseBonus = 0;</span>
+
+<span class="nc" id="L1593">		int secondaryBonus = 0;</span>
+<span class="nc" id="L1594">		int primaryBonus = 0;</span>
+
+		// Natural weapons are different
+<span class="nc bnc" id="L1597" title="All 2 branches missed.">		if (eq.isNatural())</span>
+		{
+<span class="nc bnc" id="L1599" title="All 2 branches missed.">			if (eq.getLocation() == EquipmentLocation.EQUIPPED_PRIMARY)</span>
+			{
+				/* Primary Natural Weapons have no bonus or penalty
+				 * associated with secondary weapons/attacks */
+<span class="nc" id="L1603">				baseBonus = 0;</span>
+			}
+<span class="nc bnc" id="L1605" title="All 2 branches missed.">			else if (eq.getLocation() == EquipmentLocation.EQUIPPED_SECONDARY)</span>
+			{
+				/* all secondary natural weapons attack at -5 */
+<span class="nc" id="L1608">				baseBonus = -5;</span>
+
+				/* Unless the creature has bonuses to improve
+				 * secondary attacks, such as MultiAttack */
+<span class="nc" id="L1612">				baseBonus += pc.getTotalBonusTo(&quot;COMBAT&quot;, &quot;TOHIT-SECONDARY&quot;);</span>
+			}
+		}
+		else
+		{
+<span class="nc bnc" id="L1617" title="All 8 branches missed.">			if ((hitMode == HITMODE_TOTALHIT &amp;&amp; eq.isRanged()) || hitMode == HITMODE_BASEHIT</span>
+				|| hitMode == HITMODE_THHIT)
+			{
+<span class="nc" id="L1620">				baseBonus = 0;</span>
+			}
+<span class="nc bnc" id="L1622" title="All 4 branches missed.">			else if (hitMode == HITMODE_TWPHITH || hitMode == HITMODE_TWPHITL)</span>
+			{
+				// TWF Primary hand
+<span class="nc" id="L1625">				baseBonus = -6;</span>
+			}
+<span class="nc bnc" id="L1627" title="All 2 branches missed.">			else if (hitMode == HITMODE_OHHIT)</span>
+			{
+<span class="nc" id="L1629">				baseBonus = -4;</span>
+			}
+			else
+			{
+				// TWF off-hand
+<span class="nc" id="L1634">				baseBonus = -10;</span>
+			}
+
+			// TWF with off hand light gets a bonus
+<span class="nc bnc" id="L1638" title="All 4 branches missed.">			if ((hitMode == HITMODE_TWPHITL) || (hitMode == HITMODE_TWFOHL))</span>
+			{
+<span class="nc" id="L1640">				baseBonus += pc.getOffHandLightBonus();</span>
+			}
+
+<span class="nc bnc" id="L1643" title="All 8 branches missed.">			if ((hitMode == HITMODE_TWOHIT) &amp;&amp; (isDouble || isDoubleSplit || eq.isWeaponLightForPC(pc)))</span>
+			{
+<span class="nc" id="L1645">				baseBonus += pc.getOffHandLightBonus();</span>
+			}
+
+<span class="nc bnc" id="L1648" title="All 6 branches missed.">			if (hitMode == HITMODE_TWOHIT || hitMode == HITMODE_OHHIT || hitMode == HITMODE_TWFOHL)</span>
+			{
+<span class="nc" id="L1650">				secondaryBonus = (int) pc.getTotalBonusTo(&quot;COMBAT&quot;, &quot;TOHIT-SECONDARY&quot;);</span>
+
+<span class="nc bnc" id="L1652" title="All 2 branches missed.">				if (eq.isRanged())</span>
+				{
+<span class="nc" id="L1654">					secondaryBonus -= (int) pc.getBonusDueToType(&quot;COMBAT&quot;, &quot;TOHIT-SECONDARY&quot;, &quot;NOTRANGED&quot;);</span>
+				}
+
+<span class="nc bnc" id="L1657" title="All 2 branches missed.">				if (hitMode == HITMODE_OHHIT)</span>
+				{
+					// If only using one weapon, Two-weapon Fighting Bonus does not apply
+					// If you have TWF, you have both TOHIT-P and TOHIT-S, so remove TOHIT-P
+					// TODO: Rework on this code and/or on the lst, because it &quot;sounds&quot; wrong
+					// Felipe Diniz - 12/Feb/2003
+<span class="nc" id="L1663">					secondaryBonus -= (int) pc.getTotalBonusTo(&quot;COMBAT&quot;, &quot;TOHIT-PRIMARY&quot;);</span>
+				}
+			}
+
+<span class="nc bnc" id="L1667" title="All 4 branches missed.">			if (((hitMode == HITMODE_TWPHITH) || (hitMode == HITMODE_TWPHITL)))</span>
+			{
+<span class="nc" id="L1669">				primaryBonus = (int) pc.getTotalBonusTo(&quot;COMBAT&quot;, &quot;TOHIT-PRIMARY&quot;);</span>
+
+<span class="nc bnc" id="L1671" title="All 2 branches missed.">				if (eq.isRanged())</span>
+				{
+<span class="nc" id="L1673">					primaryBonus -= (int) pc.getBonusDueToType(&quot;COMBAT&quot;, &quot;TOHIT-PRIMARY&quot;, &quot;NOTRANGED&quot;);</span>
+				}
+			}
+		}
+
+		/* If the character normally can't wield this weapon 1-handed,
+		 but for some reason they can (e.g. Monkey Grip) then check
+		 for TOHIT modifiers */
+
+<span class="nc bnc" id="L1682" title="All 2 branches missed.">		if (eq.getLocation() == EquipmentLocation.EQUIPPED_PRIMARY</span>
+<span class="nc bnc" id="L1683" title="All 2 branches missed.">			|| eq.getLocation() == EquipmentLocation.EQUIPPED_SECONDARY</span>
+<span class="nc bnc" id="L1684" title="All 2 branches missed.">			|| eq.getLocation() == EquipmentLocation.EQUIPPED_TWO_HANDS)</span>
+		{
+			// TODO Fix this
+			//			if (eq.isWeaponOneHanded(pc, wp, false) != eq.isWeaponOneHanded(pc, wp, true))
+			//			{
+			//				baseBonus += (int) pc.getTotalBonusTo(&quot;WEAPONPROF=&quot; + profName, &quot;TOHITOVERSIZE&quot;);
+			//				baseBonus += getWeaponProfTypeBonuses(pc, eq, &quot;TOHITOVERSIZE&quot;, WPTYPEBONUS_PC);
+			//			}
+<span class="nc" id="L1692">			Logging.debugPrint(&quot;TODO - Fix If the character normally can't wield this weapon 1-handed, but for some reason they can (e.g. Monkey Grip) then check for TOHIT modifiers.&quot;);</span>
+		}
+
+<span class="nc bnc" id="L1695" title="All 4 branches missed.">		if (hitMode == HITMODE_TWPHITH || hitMode == HITMODE_TWPHITL)</span>
+		{
+<span class="nc" id="L1697">			baseBonus += primaryBonus;</span>
+		}
+
+<span class="nc bnc" id="L1700" title="All 6 branches missed.">		if (hitMode == HITMODE_TWOHIT || hitMode == HITMODE_OHHIT || hitMode == HITMODE_TWFOHL)</span>
+		{
+<span class="nc" id="L1702">			baseBonus += secondaryBonus;</span>
+		}
+
+		/* An equipped buckler gives an additional -1 penalty to weapons used
+		 off hand or a weapon used two handed. */
+		/********************************************
+		 * This is now all done via
+		 * BONUS:COMBAT|TOHIT|-1|PREMULT:1,[PREEQUIPBOTH:1,TYPE=Melee],[PREEQUIPSECONDARY:1,TYPE=Melee] on the item(s)
+		 * Byngl - Nov 20, 2005
+		 if (eq.isMelee() &amp;&amp;
+		 (hitMode == HITMODE_THHIT  ||
+		 hitMode == HITMODE_TWOHIT ||
+		 hitMode == HITMODE_OHHIT))
+		 {
+		 for (Iterator e = pc.getEquipmentOfType(&quot;buckler&quot;, 1).iterator(); e.hasNext();)
+		 {
+		 baseBonus--;
+		 break;
+		 }
+		 }
+		 */
+		// Get BONUS:COMBAT|TOHIT.abc|x
+		// Where abc: Ranged, Melee, Slashing, etc
+<span class="nc bnc" id="L1725" title="All 2 branches missed.">		for (String type : eq.typeList())</span>
+		{
+			// Finesseable is a special case that
+			// is Handled elsewhere
+<span class="nc bnc" id="L1729" title="All 2 branches missed.">			if (type.equalsIgnoreCase(&quot;Finesseable&quot;))</span>
+			{
+<span class="nc" id="L1731">				continue;</span>
+			}
+			//Prevents weapon from getting both melee &amp; ranged bonuses
+<span class="nc bnc" id="L1734" title="All 8 branches missed.">			if ((range &gt; -1 &amp;&amp; type.equalsIgnoreCase(&quot;MELEE&quot;)) || (range == -1 &amp;&amp; eq.isMelee()</span>
+<span class="nc bnc" id="L1735" title="All 4 branches missed.">				&amp;&amp; (type.equalsIgnoreCase(&quot;THROWN&quot;) || type.equalsIgnoreCase(&quot;RANGED&quot;))))</span>
+			{
+<span class="nc" id="L1737">				continue;</span>
+			}
+
+<span class="nc" id="L1740">			baseBonus += (int) pc.getTotalBonusTo(&quot;TOHIT&quot;, &quot;TYPE.&quot; + type);</span>
+<span class="nc" id="L1741">			baseBonus += (int) pc.getTotalBonusTo(&quot;COMBAT&quot;, &quot;TOHIT.&quot; + type);</span>
+<span class="nc" id="L1742">		}</span>
+
+<span class="nc bnc" id="L1744" title="All 6 branches missed.">		if (range == -1 &amp;&amp; eq.isMelee() &amp;&amp; eq.isFinessable(pc))</span>
+		{
+<span class="nc" id="L1746">			baseBonus += (int) pc.getTotalBonusTo(&quot;COMBAT&quot;, &quot;TOHIT.Finesseable&quot;);</span>
+		}
+
+		// 3.0 Syntax
+		// This fixes Weapon Finesse for thrown weapons
+		// BONUS:WEAPONPROF=abc|TOHIT|DEX|TYPE.NotRanged
+		//
+		// Dagger yields following:
+		// WEAPONPROF=abc.TOHIT:NOTRANGED
+		//
+<span class="nc bnc" id="L1756" title="All 4 branches missed.">		if ((ref != null) &amp;&amp; eq.isRanged())</span>
+		{
+<span class="nc" id="L1758">			baseBonus -= (int) pc.getBonusDueToType(&quot;WEAPONPROF=&quot; + profKey, &quot;TOHIT&quot;, &quot;NOTRANGED&quot;);</span>
+<span class="nc" id="L1759">			baseBonus -= getWeaponProfTypeBonuses(pc, eq, &quot;TOHIT.NOTRANGED&quot;, WPTYPEBONUS_PC);</span>
+		}
+
+<span class="nc" id="L1762">		CharacterDisplay display = pc.getDisplay();</span>
+<span class="nc bnc" id="L1763" title="All 6 branches missed.">		if (!eq.isNatural() &amp;&amp; ((ref == null) || !display.hasWeaponProf(prof)))</span>
+		{
+<span class="nc" id="L1765">			baseBonus += display.getNonProficiencyPenalty();</span>
+		}
+
+<span class="nc" id="L1768">		baseBonus += (int) pc.getTotalBonusTo(&quot;WEAPONPROF=&quot; + profKey, &quot;TOHIT&quot;);</span>
+<span class="nc" id="L1769">		baseBonus += getWeaponProfTypeBonuses(pc, eq, &quot;TOHIT&quot;, WPTYPEBONUS_PC);</span>
+
+<span class="nc bnc" id="L1771" title="All 2 branches missed.">		if (range &gt; -1)</span>
+		{
+<span class="nc" id="L1773">			int rangeSize = getRangeList(eq, true, pc).size();</span>
+<span class="nc" id="L1774">			int shortRange = SettingsHandler.getGameAsProperty().get().getShortRangeDistance();</span>
+
+			/* range here is an index that represents a number of range
+			 * increments, the actual distance is held in this range */
+
+<span class="nc bnc" id="L1779" title="All 2 branches missed.">			if (range &lt; rangeSize)</span>
+			{
+<span class="nc" id="L1781">				int thisRange = Integer.parseInt(getRangeList(eq, true, pc).get(range));</span>
+
+				// at short range, add SHORTRANGE bonus
+<span class="nc bnc" id="L1784" title="All 2 branches missed.">				if (thisRange &lt;= shortRange)</span>
+				{
+<span class="nc" id="L1786">					baseBonus += (int) pc.getTotalBonusTo(&quot;COMBAT&quot;, &quot;TOHIT-SHORTRANGE&quot;);</span>
+<span class="nc" id="L1787">					baseBonus += (int) pc.getTotalBonusTo(&quot;TOHIT&quot;, &quot;SHORTRANGE&quot;);</span>
+<span class="nc" id="L1788">					baseBonus += (int) pc.getTotalBonusTo(&quot;WEAPONPROF=&quot; + profKey, &quot;TOHIT-SHORTRANGE&quot;);</span>
+<span class="nc" id="L1789">					baseBonus += getWeaponProfTypeBonuses(pc, eq, &quot;TOHIT-SHORTRANGE&quot;, WPTYPEBONUS_PC);</span>
+<span class="nc" id="L1790">					baseBonus += (int) eq.bonusTo(pc, &quot;WEAPON&quot;, &quot;TOHIT-SHORTRANGE&quot;, true);</span>
+				}
+				// Long Range To-Hit Modifier
+<span class="nc" id="L1793">				int defaultRange = Integer.parseInt(EqToken.getRange(pc, eq).toString());</span>
+<span class="nc" id="L1794">				int rangePenalty = SettingsHandler.getGameAsProperty().get().getRangePenalty();</span>
+<span class="nc" id="L1795">				rangePenalty += pc.getTotalBonusTo(&quot;COMBAT&quot;, &quot;RANGEPENALTY&quot;);</span>
+
+<span class="nc" id="L1797">				baseBonus += rangePenalty * (int) Math.max(Math.ceil(((float) thisRange / defaultRange)) - 1, 0);</span>
+			}
+		}
+
+		//Ammunition &amp; Contents Modifier
+<span class="nc" id="L1802">		Equipment containedEq = null;</span>
+<span class="nc bnc" id="L1803" title="All 2 branches missed.">		if (content &gt; -1)</span>
+		{
+<span class="nc bnc" id="L1805" title="All 2 branches missed.">			if (content &lt; eq.getContainedEquipmentCount())</span>
+			{
+<span class="nc" id="L1807">				containedEq = eq.getContainedEquipment(content);</span>
+<span class="nc" id="L1808">				baseBonus += containedEq.getBonusToHit(pc, true);</span>
+			}
+		}
+
+<span class="nc" id="L1812">		Equipment ammoUser = getAmmoUser(pc, eq, ammo);</span>
+<span class="nc bnc" id="L1813" title="All 2 branches missed.">		if (ammoUser != null)</span>
+		{
+<span class="nc" id="L1815">			baseBonus += ammoUser.getBonusToHit(pc, true);</span>
+		}
+
+		// do NOT include the size bonus/penalty since
+		// it is call in pc.getTotalBonusTo()
+		// include players TOHIT bonuses
+<span class="nc" id="L1821">		baseBonus += (int) pc.getTotalBonusTo(&quot;TOHIT&quot;, &quot;TOHIT&quot;);</span>
+<span class="nc" id="L1822">		baseBonus += (int) pc.getTotalBonusTo(&quot;COMBAT&quot;, &quot;TOHIT&quot;);</span>
+
+		// subtract Armor and Shield non-proficiency
+<span class="nc" id="L1825">		baseBonus += modFromArmorOnWeaponRolls(pc);</span>
+
+		// include bonuses from Item itself
+<span class="nc" id="L1828">		baseBonus += eq.getBonusToHit(pc, true);</span>
+		// If not using ammo stacking, correct for stacked enhancement bonus
+<span class="nc bnc" id="L1830" title="All 2 branches missed.">		if (!Globals.checkRule(RuleConstants.AMMOSTACKSWITHWEAPON))</span>
+		{
+<span class="nc" id="L1832">			baseBonus += calcAmmoEqCorrection(&quot;WEAPON.TOHIT.ENHANCEMENT&quot;, eq, containedEq, ammoUser);</span>
+		}
+
+		// BONUS:COMBAT|ATTACKS|#
+		// represent extra attacks at BaB
+		// such as from a weapon of 'Speed'
+<span class="nc" id="L1838">		int extra_attacks = (int) eq.bonusTo(pc, &quot;WEAPON&quot;, &quot;ATTACKS&quot;, true);</span>
+
+		// or possibly the &quot;Haste&quot; spell cast on PC
+<span class="nc" id="L1841">		extra_attacks += (int) pc.getTotalBonusTo(&quot;COMBAT&quot;, &quot;ATTACKS&quot;);</span>
+
+		String babProgression;
+
+		/* The range == -1 here deals with the case where the weapon is both
+		 ranged and melee (e.g. a dagger).  The range == -1 indicates that
+		 we want the melee progression */
+
+<span class="nc bnc" id="L1849" title="All 4 branches missed.">		if (eq.isMelee() &amp;&amp; range == -1)</span>
+		{
+<span class="nc" id="L1851">			babProgression = melee;</span>
+		}
+<span class="nc bnc" id="L1853" title="All 2 branches missed.">		else if (eq.isRanged())</span>
+		{
+<span class="nc" id="L1855">			babProgression = ranged;</span>
+		}
+		else
+		{
+			/* A weapon must either be ranged or melee.  If it's not, trap
+			 it here */
+<span class="nc" id="L1861">			return &quot;???&quot;;</span>
+		}
+
+<span class="nc" id="L1864">		StringTokenizer bTok = new StringTokenizer(babProgression, &quot;/+&quot;);</span>
+<span class="nc" id="L1865">		String attack = Delta.toString(Integer.parseInt(bTok.nextToken()));</span>
+<span class="nc" id="L1866">		StringBuilder newAttack = new StringBuilder();</span>
+
+<span class="nc bnc" id="L1868" title="All 2 branches missed.">		for (int i = extra_attacks; i &gt; 0; i--)</span>
+		{
+<span class="nc" id="L1870">			newAttack.append(attack).append('/');</span>
+		}
+
+<span class="nc" id="L1873">		boolean progress = eq.getSafe(ObjectKey.ATTACKS_PROGRESS);</span>
+<span class="nc" id="L1874">		int bonusProgress = (int) eq.bonusTo(pc, &quot;WEAPON&quot;, &quot;ATTACKSPROGRESS&quot;, true);</span>
+<span class="nc bnc" id="L1875" title="All 2 branches missed.">		if (bonusProgress != 0)</span>
+		{
+<span class="nc bnc" id="L1877" title="All 2 branches missed.">			progress = bonusProgress &gt; 0;</span>
+		}
+<span class="nc bnc" id="L1879" title="All 2 branches missed.">		if (progress)</span>
+		{
+
+			/* For normal weapons, we need to append the original
+			 * attack progression which was derived from the BAB to
+			 * the end of the extra attacks */
+
+<span class="nc" id="L1886">			newAttack.append(babProgression);</span>
+		}
+		else
+		{
+
+			/* This is for Natural weapons and any other weapon
+			 * which has its attack progression turned off.  The
+			 * attack progression should consist of the full number
+			 * of attacks at the maximum tohit i.e. without
+			 * appending the attacks from the normal attack
+			 * progression */
+
+<span class="nc" id="L1898">			newAttack.append(attack);</span>
+		}
+
+<span class="nc" id="L1901">		StringTokenizer aTok = new StringTokenizer(newAttack.toString(), &quot;/+&quot;);</span>
+
+		// When attackNum is &gt; 0, the code is looking for a single attack
+		// from the sequence.  This section of code down to
+		// if (buildNewAttackSequence) builds a new aTok which contains
+		// only the single attack we're looking for.
+
+<span class="nc" id="L1908">		int selectAttack = attackNum;</span>
+<span class="nc" id="L1909">		String singleAttack = &quot;&quot;;</span>
+<span class="nc" id="L1910">		boolean buildNewAttackSequence = false;</span>
+
+<span class="nc bnc" id="L1912" title="All 4 branches missed.">		while (aTok.hasMoreTokens() &amp;&amp; (selectAttack &gt;= 0))</span>
+		{
+<span class="nc" id="L1914">			singleAttack = aTok.nextToken();</span>
+<span class="nc" id="L1915">			selectAttack--;</span>
+<span class="nc" id="L1916">			buildNewAttackSequence = true;</span>
+		}
+
+<span class="nc bnc" id="L1919" title="All 2 branches missed.">		if (buildNewAttackSequence)</span>
+		{
+<span class="nc" id="L1921">			aTok = new StringTokenizer(singleAttack, &quot;/+&quot;);</span>
+		}
+
+<span class="nc" id="L1924">		int secondariesToadd = 1 + (int) pc.getTotalBonusTo(&quot;COMBAT&quot;, &quot;ATTACKS-SECONDARY&quot;);</span>
+
+		/*
+		 * The data team wishes to keep the old syntax for secondary attacks.
+		 * The docs have been updated to reflect this.  The new syntax (with
+		 * the hyphen, see above) is not used in the repository.  This comment
+		 * is here so that the old syntax will not be deprecated or removed in
+		 * the future.
+		 */
+<span class="nc" id="L1933">		secondariesToadd += (int) pc.getTotalBonusTo(&quot;COMBAT&quot;, &quot;SECONDARYATTACKS&quot;);</span>
+
+<span class="nc bnc" id="L1935" title="All 4 branches missed.">		if (!display.hasPrimaryWeapons() &amp;&amp; (hitMode == HITMODE_TOTALHIT))</span>
+		{
+<span class="nc" id="L1937">			secondariesToadd = 100;</span>
+		}
+
+		// Whether to construct a string for secondary attacks.  This is only
+		// needed for double weapons because single weapons in the off hand
+		// are processed on their own as secondary weapons.  Additionally, We
+		// should only construct a secondary attack string if we are not
+		// looking for a single attack from the sequence (attackNum &lt; 0)
+<span class="nc bnc" id="L1945" title="All 6 branches missed.">		boolean doDouble = isDouble &amp;&amp; (eq.getLocation() == EquipmentLocation.EQUIPPED_TWO_HANDS) &amp;&amp; attackNum &lt; 0;</span>
+
+		// If the weapon is being considered as a secondary weapon, then we
+		// shouldn't add the full attack progression as a secondary weapon only
+		// gets one attack (plus any added by feats, etc. see extra attacks
+		// above) i.e. we may need to break out of the loop while aTok has more
+		// tokens
+<span class="nc bnc" id="L1952" title="All 6 branches missed.">		boolean considerEarlyExit = !isDouble &amp;&amp; (hitMode == HITMODE_TWOHIT || display.isSecondaryWeapon(eq));</span>
+
+		int toHit;
+<span class="nc" id="L1955">		int secondariesAdded = 0;</span>
+
+<span class="nc" id="L1957">		StringBuilder primaryAttack = new StringBuilder(20);</span>
+<span class="nc" id="L1958">		StringBuilder secondaryAttack = new StringBuilder(20);</span>
+<span class="nc" id="L1959">		StringBuilder totalAttack = new StringBuilder();</span>
+
+<span class="nc bnc" id="L1961" title="All 2 branches missed.">		while (aTok.hasMoreTokens())</span>
+		{
+<span class="nc bnc" id="L1963" title="All 2 branches missed.">			if (primaryAttack.length() &gt; 0)</span>
+			{
+<span class="nc" id="L1965">				primaryAttack.append('/');</span>
+			}
+
+<span class="nc" id="L1968">			toHit = Integer.parseInt(aTok.nextToken()) + baseBonus;</span>
+
+<span class="nc" id="L1970">			primaryAttack.append(Delta.toString(toHit));</span>
+
+<span class="nc bnc" id="L1972" title="All 4 branches missed.">			if (doDouble &amp;&amp; secondariesAdded &lt; secondariesToadd)</span>
+			{
+<span class="nc bnc" id="L1974" title="All 2 branches missed.">				if (secondaryAttack.length() &gt; 0)</span>
+				{
+<span class="nc" id="L1976">					secondaryAttack.append('/');</span>
+				}
+<span class="nc" id="L1978">				secondaryAttack.append(Delta.toString(toHit));</span>
+			}
+
+			// Just in case we are looping forever
+<span class="nc bnc" id="L1982" title="All 2 branches missed.">			if (++secondariesAdded &gt; 100)</span>
+			{
+<span class="nc" id="L1984">				break;</span>
+			}
+
+<span class="nc bnc" id="L1987" title="All 4 branches missed.">			if (considerEarlyExit &amp;&amp; secondariesAdded &gt;= secondariesToadd)</span>
+			{
+<span class="nc" id="L1989">				break;</span>
+			}
+		}
+
+<span class="nc" id="L1993">		totalAttack.append(primaryAttack);</span>
+
+<span class="nc bnc" id="L1995" title="All 6 branches missed.">		if (secondaryAttack.length() != 0 &amp;&amp; (hitMode == HITMODE_TOTALHIT || hitMode == HITMODE_TWOHIT))</span>
+		{
+<span class="nc" id="L1997">			totalAttack.append(&quot;;&quot;).append(secondaryAttack);</span>
+		}
+
+<span class="nc" id="L2000">		return totalAttack.toString();</span>
+	}
+
+	private static int modFromArmorOnWeaponRolls(PlayerCharacter pc)
+	{
+<span class="nc" id="L2005">		int bonus = 0;</span>
+
+		/*
+		 * Equipped some armor that we're not proficient in? acCheck penalty to
+		 * attack rolls
+		 */
+<span class="nc bnc" id="L2011" title="All 2 branches missed.">		for (Equipment eq : pc.getEquipmentOfType(&quot;Armor&quot;, 1))</span>
+		{
+<span class="nc bnc" id="L2013" title="All 4 branches missed.">			if ((eq != null) &amp;&amp; (!pc.isProficientWith(eq)))</span>
+			{
+<span class="nc" id="L2015">				bonus += EqToken.getAcCheckTokenInt(pc, eq);</span>
+			}
+<span class="nc" id="L2017">		}</span>
+
+		/*
+		 * Equipped a shield that we're not proficient in? acCheck penalty to
+		 * attack rolls
+		 */
+<span class="nc bnc" id="L2023" title="All 2 branches missed.">		for (Equipment eq : pc.getEquipmentOfType(&quot;Shield&quot;, 1))</span>
+		{
+<span class="nc bnc" id="L2025" title="All 4 branches missed.">			if ((eq != null) &amp;&amp; (!pc.isProficientWith(eq)))</span>
+			{
+<span class="nc" id="L2027">				bonus += EqToken.getAcCheckTokenInt(pc, eq);</span>
+			}
+<span class="nc" id="L2029">		}</span>
+
+<span class="nc" id="L2031">		return bonus;</span>
+	}
+
+	/**
+	 * Calculate the correction required to cancel out all enhancement bonuses
+	 * other than the highest one. This is because in some game modes, the
+	 * enhancement bonuses for ammo does not stack with that of the weapon.
+	 * Normally the key would be WEAPON.TOHIT.ENHANCEMENT or
+	 * WEAPON.DAMAGE.ENHANCEMENT
+	 *
+	 * @param aKey The bonus to get the correction for.
+	 * @param weapon The weapon that is holding the ammo or contents.
+	 * @param contents The contents fo the weapon
+	 * @param ammo The ammo being used in the weapon.
+	 * @return The correction from the total enhancement bonus to the highest one.
+	 */
+	private static int calcAmmoEqCorrection(String aKey, Equipment weapon, Equipment contents, Equipment ammo)
+	{
+<span class="nc" id="L2049">		float maxEnhancement = 0;</span>
+		float totalEnhancement;
+		float bonusVal;
+		String bonus;
+
+<span class="nc bnc" id="L2054" title="All 2 branches missed.">		if (weapon == null)</span>
+		{
+<span class="nc" id="L2056">			return 0;</span>
+		}
+
+<span class="nc" id="L2059">		bonus = weapon.getBonusMap().get(aKey);</span>
+<span class="nc bnc" id="L2060" title="All 2 branches missed.">		if (bonus != null)</span>
+		{
+<span class="nc" id="L2062">			maxEnhancement = Float.parseFloat(bonus);</span>
+		}
+<span class="nc" id="L2064">		totalEnhancement = maxEnhancement;</span>
+
+<span class="nc bnc" id="L2066" title="All 2 branches missed.">		if (contents != null)</span>
+		{
+<span class="nc" id="L2068">			bonus = contents.getBonusMap().get(aKey);</span>
+<span class="nc bnc" id="L2069" title="All 2 branches missed.">			if (bonus != null)</span>
+			{
+<span class="nc" id="L2071">				bonusVal = Float.parseFloat(bonus);</span>
+<span class="nc" id="L2072">				totalEnhancement += bonusVal;</span>
+<span class="nc bnc" id="L2073" title="All 2 branches missed.">				if (bonusVal &gt; maxEnhancement)</span>
+				{
+<span class="nc" id="L2075">					maxEnhancement = bonusVal;</span>
+				}
+			}
+		}
+
+<span class="nc bnc" id="L2080" title="All 2 branches missed.">		if (ammo != null)</span>
+		{
+<span class="nc" id="L2082">			bonus = ammo.getBonusMap().get(aKey);</span>
+<span class="nc bnc" id="L2083" title="All 2 branches missed.">			if (bonus != null)</span>
+			{
+<span class="nc" id="L2085">				bonusVal = Float.parseFloat(bonus);</span>
+<span class="nc" id="L2086">				totalEnhancement += bonusVal;</span>
+<span class="nc bnc" id="L2087" title="All 2 branches missed.">				if (bonusVal &gt; maxEnhancement)</span>
+				{
+<span class="nc" id="L2089">					maxEnhancement = bonusVal;</span>
+				}
+			}
+		}
+
+<span class="nc" id="L2094">		return (int) (maxEnhancement - totalEnhancement);</span>
+	}
+
+	private static String getDamage(PlayerCharacter pc, Equipment eq, int range, int content, int ammo,
+		boolean bonusOnly, int hands, int damageMode, boolean base)
+	{
+<span class="nc bnc" id="L2100" title="All 4 branches missed.">		boolean isDouble = (eq.isDouble() &amp;&amp; (eq.getLocation() == EquipmentLocation.EQUIPPED_TWO_HANDS));</span>
+<span class="nc bnc" id="L2101" title="All 4 branches missed.">		boolean isDoubleSplit = (eq.isType(&quot;Head1&quot;) || eq.isType(&quot;Head2&quot;));</span>
+
+<span class="nc bnc" id="L2103" title="All 4 branches missed.">		if (eq.isMelee() &amp;&amp; (eq.isWeaponTwoHanded(pc)))</span>
+		{
+<span class="nc bnc" id="L2105" title="All 10 branches missed.">			if (!isDouble &amp;&amp; !isDoubleSplit &amp;&amp; (damageMode != DAMAGEMODE_NORMAL) &amp;&amp; (damageMode != DAMAGEMODE_TWOHANDS)</span>
+				&amp;&amp; (damageMode != DAMAGEMODE_DOUBLE))
+			{
+<span class="nc" id="L2108">				return LanguageBundle.getString(&quot;SettingsHandler.not.applicable&quot;);</span>
+			}
+		}
+
+<span class="nc bnc" id="L2112" title="All 6 branches missed.">		if (eq.isMelee() &amp;&amp; eq.isWeaponOutsizedForPC(pc) &amp;&amp; !eq.isNatural())</span>
+		{
+<span class="nc" id="L2114">			return LanguageBundle.getString(&quot;SettingsHandler.not.applicable&quot;);</span>
+		}
+
+<span class="nc bnc" id="L2117" title="All 4 branches missed.">		if (eq.isWeaponLightForPC(pc) &amp;&amp; (hands == 2))</span>
+		{
+			// if wielding a 'Light' weapon two handed
+			// treat as if wielding 1 handed for damage bonus
+<span class="nc" id="L2121">			hands = 1;</span>
+		}
+
+<span class="nc" id="L2124">		String profName = getProfName(eq);</span>
+
+<span class="nc" id="L2126">		String damString = getEqDamage(pc, eq);</span>
+<span class="nc" id="L2127">		int meleeDamageStatBonus = (int) pc.getDisplay().getStatBonusTo(&quot;COMBAT&quot;, &quot;DAMAGE.MELEE&quot;);</span>
+		// TODO: remove this old syntax
+<span class="nc" id="L2129">		meleeDamageStatBonus += (int) pc.getDisplay().getStatBonusTo(&quot;DAMAGE&quot;, &quot;TYPE.MELEE&quot;);</span>
+<span class="nc" id="L2130">		meleeDamageStatBonus += (int) pc.getTotalBonusTo(&quot;WEAPONPROF=&quot; + profName, &quot;STATDAMAGE&quot;);</span>
+<span class="nc" id="L2131">		double meleeDamageMult = pc.getTotalBonusTo(&quot;COMBAT&quot;, &quot;DAMAGEMULT:&quot; + hands);</span>
+<span class="nc" id="L2132">		meleeDamageMult += pc.getTotalBonusTo(&quot;WEAPONPROF=&quot; + profName, &quot;DAMAGEMULT:&quot; + hands);</span>
+<span class="nc" id="L2133">		meleeDamageMult += BonusCalc.charBonusTo(eq, &quot;WEAPON&quot;, &quot;DAMAGEMULT:&quot; + hands, pc);</span>
+
+<span class="nc" id="L2135">		int bonus = 0;</span>
+<span class="nc" id="L2136">		int weaponProfBonus = 0;</span>
+<span class="nc" id="L2137">		int eqbonus = 0;</span>
+<span class="nc" id="L2138">		int totalBonus = 0;</span>
+
+<span class="nc" id="L2140">		damString = getMonkUnarmed(pc, eq, damString);</span>
+
+<span class="nc bnc" id="L2142" title="All 2 branches missed.">		if (!base)</span>
+		{
+			int index;
+<span class="nc bnc" id="L2145" title="All 2 branches missed.">			for (index = 0; index &lt; damString.length(); ++index)</span>
+			{
+<span class="nc bnc" id="L2147" title="All 4 branches missed.">				if ((damString.charAt(index) == '+') || (damString.charAt(index) == '-'))</span>
+				{
+<span class="nc" id="L2149">					totalBonus = Delta.decode(damString.substring(index));</span>
+<span class="nc" id="L2150">					break;</span>
+				}
+			}
+
+<span class="nc" id="L2154">			eqbonus = getEqBonus(pc, eq, content, ammo);</span>
+<span class="nc" id="L2155">			bonus = getGeneralBonus(pc, eq, range, meleeDamageStatBonus, meleeDamageMult);</span>
+<span class="nc" id="L2156">			weaponProfBonus = getWeaponProfBonus(pc, eq, range);</span>
+
+<span class="nc" id="L2158">			totalBonus += (bonus + weaponProfBonus + eqbonus);</span>
+<span class="nc" id="L2159">			damString = damString.substring(0, index);</span>
+		}
+
+<span class="nc" id="L2162">		StringBuilder sb = new StringBuilder();</span>
+<span class="nc bnc" id="L2163" title="All 2 branches missed.">		if (!&quot;0d0&quot;.equalsIgnoreCase(damString))</span>
+		{
+<span class="nc bnc" id="L2165" title="All 2 branches missed.">			if (!bonusOnly)</span>
+			{
+<span class="nc" id="L2167">				sb.append(damString);</span>
+			}
+
+<span class="nc bnc" id="L2170" title="All 4 branches missed.">			if ((totalBonus != 0) || bonusOnly)</span>
+			{
+<span class="nc" id="L2172">				sb.append(Delta.toString(totalBonus));</span>
+			}
+		}
+		else
+		{
+<span class="nc" id="L2177">			sb.append('0');</span>
+		}
+
+		// Handle Double weapons
+<span class="nc bnc" id="L2181" title="All 4 branches missed.">		if ((damageMode == DAMAGEMODE_DOUBLE) &amp;&amp; (eq.getLocation() == EquipmentLocation.EQUIPPED_TWO_HANDS))</span>
+		{
+			// This is the 'Off-Hand' portion of the double weapon
+<span class="nc" id="L2184">			hands = 0;</span>
+<span class="nc" id="L2185">			meleeDamageMult = pc.getTotalBonusTo(&quot;COMBAT&quot;, &quot;DAMAGEMULT:&quot; + hands);</span>
+<span class="nc" id="L2186">			meleeDamageMult += pc.getTotalBonusTo(&quot;WEAPONPROF=&quot; + profName, &quot;DAMAGEMULT:&quot; + hands);</span>
+<span class="nc" id="L2187">			meleeDamageMult += BonusCalc.charBonusTo(eq, &quot;WEAPON&quot;, &quot;DAMAGEMULT:&quot; + hands, pc);</span>
+<span class="nc" id="L2188">			totalBonus -= eqbonus;</span>
+			/*
+			 * eq.getBonusToDamage(false) returns the eq bonus for
+			 * the secondary head
+			 */
+<span class="nc" id="L2193">			eqbonus = eq.getBonusToDamage(pc, false);</span>
+<span class="nc bnc" id="L2194" title="All 2 branches missed.">			if (!eq.getAltDamage(pc).isEmpty())</span>
+			{
+<span class="nc" id="L2196">				totalBonus = 0;</span>
+<span class="nc" id="L2197">				damString = eq.getAltDamage(pc);</span>
+<span class="nc bnc" id="L2198" title="All 2 branches missed.">				if (damString.lastIndexOf('-') &gt;= 0)</span>
+				{
+<span class="nc" id="L2200">					totalBonus = Integer.parseInt(damString.substring(damString.lastIndexOf('-')));</span>
+<span class="nc" id="L2201">					damString = damString.substring(0, damString.lastIndexOf('-'));</span>
+				}
+<span class="nc bnc" id="L2203" title="All 2 branches missed.">				else if (damString.lastIndexOf('+') &gt;= 0)</span>
+				{
+<span class="nc" id="L2205">					totalBonus = Integer.parseInt(damString.substring(damString.lastIndexOf('+') + 1));</span>
+<span class="nc" id="L2206">					damString = damString.substring(0, damString.lastIndexOf('+'));</span>
+				}
+			}
+			else
+			{
+<span class="nc" id="L2211">				weaponProfBonus = 0;</span>
+<span class="nc" id="L2212">				bonus = 0;</span>
+			}
+
+<span class="nc bnc" id="L2215" title="All 2 branches missed.">			if (meleeDamageStatBonus &gt; 0)</span>
+			{
+				// getTotalBonusTo() includes the Stat Bonuses
+				// so have to remove them before we can compute
+				// the hands multiplier
+<span class="nc" id="L2220">				bonus -= meleeDamageStatBonus;</span>
+
+				// Off-hand, OneHanded and TwoHanded wield
+				// have a Stat Bonus damage multiplier
+<span class="nc" id="L2224">				bonus += (meleeDamageMult * meleeDamageStatBonus);</span>
+			}
+
+<span class="nc" id="L2227">			totalBonus += bonus + weaponProfBonus + eqbonus;</span>
+
+<span class="nc" id="L2229">			sb.append('/');</span>
+<span class="nc bnc" id="L2230" title="All 2 branches missed.">			if (!&quot;0d0&quot;.equalsIgnoreCase(damString))</span>
+			{
+<span class="nc bnc" id="L2232" title="All 2 branches missed.">				if (!bonusOnly)</span>
+				{
+<span class="nc" id="L2234">					sb.append(damString);</span>
+				}
+<span class="nc bnc" id="L2236" title="All 4 branches missed.">				if (totalBonus != 0 || bonusOnly)</span>
+				{
+<span class="nc" id="L2238">					sb.append(Delta.toString(totalBonus));</span>
+				}
+			}
+			else
+			{
+<span class="nc" id="L2243">				sb.append('0');</span>
+			}
+		}
+<span class="nc" id="L2246">		return sb.toString();</span>
+	}
+
+	private static int getGeneralBonus(PlayerCharacter pc, Equipment eq, int range, int meleeDamageStatBonus,
+		double meleeDamageMult)
+	{
+<span class="nc" id="L2252">		int bonus = 0;</span>
+<span class="nc bnc" id="L2253" title="All 2 branches missed.">		for (String type : eq.typeList())</span>
+		{
+			//Makes sure that thrown weapons only get the right bonus at the right time
+<span class="nc bnc" id="L2256" title="All 6 branches missed.">			if ((range &gt; -1 &amp;&amp; type.equalsIgnoreCase(&quot;MELEE&quot;))</span>
+<span class="nc bnc" id="L2257" title="All 4 branches missed.">				|| (range == -1 &amp;&amp; (type.equalsIgnoreCase(&quot;THROWN&quot;) || type.equalsIgnoreCase(&quot;RANGED&quot;))))</span>
+			{
+<span class="nc" id="L2259">				continue;</span>
+			}
+<span class="nc" id="L2261">			bonus += (int) pc.getTotalBonusTo(&quot;COMBAT&quot;, &quot;DAMAGE.&quot; + type);</span>
+			// TODO: remove this old syntax
+<span class="nc" id="L2263">			bonus += (int) pc.getTotalBonusTo(&quot;DAMAGE&quot;, &quot;TYPE.&quot; + type);</span>
+<span class="nc" id="L2264">		}</span>
+<span class="nc" id="L2265">		bonus += (int) pc.getTotalBonusTo(&quot;WEAPONPROF=&quot; + getProfName(eq), &quot;STATDAMAGE&quot;);</span>
+<span class="nc bnc" id="L2266" title="All 4 branches missed.">		if (eq.isFinessable(pc) &amp;&amp; !eq.isType(&quot;Finesseable&quot;))</span>
+		{
+<span class="nc" id="L2268">			bonus += (int) pc.getTotalBonusTo(&quot;COMBAT&quot;, &quot;DAMAGE.Finesseable&quot;);</span>
+		}
+<span class="nc bnc" id="L2270" title="All 4 branches missed.">		if (eq.isMelee() &amp;&amp; (meleeDamageStatBonus &gt; 0))</span>
+		{
+			// getTotalBonusTo() includes the Stat Bonuses
+			// so have to remove them before we can compute
+			// the hands multiplier
+<span class="nc" id="L2275">			bonus -= meleeDamageStatBonus;</span>
+
+			// Off-hand, OneHanded and TwoHanded wield
+			// have a Stat Bonus damage multiplier
+<span class="nc" id="L2279">			bonus += (meleeDamageMult * meleeDamageStatBonus);</span>
+		}
+<span class="nc bnc" id="L2281" title="All 2 branches missed.">		else if (eq.isThrown())</span>
+		{
+			// Thrown weapons just get stat bonus
+			// and its already been added in the
+			// getTotalBonusTo(TYPE) above
+<span class="nc" id="L2286">			Logging.debugPrint(&quot;// Thrown weapons just get stat bonus and its already been added in the getTotalBonusTo(TYPE) above&quot;);</span>
+		}
+		// If at short range, add SHORTRANGE bonus
+<span class="nc bnc" id="L2289" title="All 2 branches missed.">		if (range &gt; -1)</span>
+		{
+<span class="nc" id="L2291">			int rangeSize = getRangeList(eq, true, pc).size();</span>
+
+<span class="nc bnc" id="L2293" title="All 2 branches missed.">			if ((range &lt; rangeSize) &amp;&amp; (Integer.parseInt(getRangeList(eq, true, pc).get(range)) &lt;= SettingsHandler</span>
+<span class="nc bnc" id="L2294" title="All 2 branches missed.">				.getGameAsProperty().get().getShortRangeDistance()))</span>
+			{
+<span class="nc" id="L2296">				bonus += (int) eq.bonusTo(pc, &quot;WEAPON&quot;, &quot;DAMAGE-SHORTRANGE&quot;, true);</span>
+<span class="nc" id="L2297">				bonus += (int) pc.getTotalBonusTo(&quot;DAMAGE&quot;, &quot;SHORTRANGE&quot;);</span>
+<span class="nc" id="L2298">				bonus += (int) pc.getTotalBonusTo(&quot;COMBAT&quot;, &quot;DAMAGE-SHORTRANGE&quot;);</span>
+			}
+		}
+<span class="nc" id="L2301">		return bonus;</span>
+	}
+
+	private static int getWeaponProfBonus(PlayerCharacter pc, Equipment eq, int range)
+	{
+<span class="nc" id="L2306">		String profKey = getProfName(eq);</span>
+<span class="nc" id="L2307">		int weaponProfBonus = (int) pc.getTotalBonusTo(&quot;WEAPONPROF=&quot; + profKey, &quot;DAMAGE&quot;)</span>
+<span class="nc" id="L2308">			+ getWeaponProfTypeBonuses(pc, eq, &quot;DAMAGE&quot;, WPTYPEBONUS_PC);</span>
+
+<span class="nc bnc" id="L2310" title="All 2 branches missed.">		if (eq.isRanged())</span>
+		{
+<span class="nc" id="L2312">			weaponProfBonus -= ((int) pc.getBonusDueToType(&quot;WEAPONPROF=&quot; + profKey.toUpperCase(), &quot;DAMAGE&quot;, &quot;NOTRANGED&quot;)</span>
+<span class="nc" id="L2313">				+ getWeaponProfTypeBonuses(pc, eq, &quot;DAMAGE.NOTRANGED&quot;, WPTYPEBONUS_PC));</span>
+		}
+
+		// If at short range, add SHORTRANGE bonus
+<span class="nc bnc" id="L2317" title="All 2 branches missed.">		if (range &gt; -1)</span>
+		{
+<span class="nc" id="L2319">			int rangeSize = getRangeList(eq, true, pc).size();</span>
+
+<span class="nc bnc" id="L2321" title="All 2 branches missed.">			if ((range &lt; rangeSize) &amp;&amp; (Integer.parseInt(getRangeList(eq, true, pc).get(range)) &lt;= SettingsHandler</span>
+<span class="nc bnc" id="L2322" title="All 2 branches missed.">				.getGameAsProperty().get().getShortRangeDistance()))</span>
+			{
+<span class="nc" id="L2324">				weaponProfBonus += ((int) pc.getTotalBonusTo(&quot;WEAPONPROF=&quot; + profKey, &quot;DAMAGE-SHORTRANGE&quot;)</span>
+<span class="nc" id="L2325">					+ getWeaponProfTypeBonuses(pc, eq, &quot;DAMAGE-SHORTRANGE&quot;, WPTYPEBONUS_PC));</span>
+			}
+		}
+
+<span class="nc" id="L2329">		return weaponProfBonus;</span>
+	}
+
+	private static int getEqBonus(PlayerCharacter pc, Equipment eq, int content, int ammo)
+	{
+<span class="nc" id="L2334">		int eqbonus = eq.getBonusToDamage(pc, true);</span>
+
+		//Ammunition &amp; Contents Modifier
+<span class="nc" id="L2337">		Equipment containedEq = null;</span>
+<span class="nc bnc" id="L2338" title="All 2 branches missed.">		if (content &gt; -1)</span>
+		{
+<span class="nc bnc" id="L2340" title="All 2 branches missed.">			if (content &lt; eq.getContainedEquipmentCount())</span>
+			{
+<span class="nc" id="L2342">				containedEq = eq.getContainedEquipment(content);</span>
+<span class="nc" id="L2343">				eqbonus += containedEq.getBonusToDamage(pc, true);</span>
+			}
+		}
+
+<span class="nc" id="L2347">		Equipment ammoUser = getAmmoUser(pc, eq, ammo);</span>
+
+<span class="nc bnc" id="L2349" title="All 2 branches missed.">		if (ammoUser != null)</span>
+		{
+<span class="nc" id="L2351">			eqbonus += ammoUser.getBonusToDamage(pc, true);</span>
+		}
+
+		// If not using ammo stacking, correct for stacked enhancement bonus
+<span class="nc bnc" id="L2355" title="All 2 branches missed.">		if (!Globals.checkRule(RuleConstants.AMMOSTACKSWITHWEAPON))</span>
+		{
+<span class="nc" id="L2357">			eqbonus += calcAmmoEqCorrection(&quot;WEAPON.DAMAGE.ENHANCEMENT&quot;, eq, containedEq, ammoUser);</span>
+		}
+
+<span class="nc" id="L2360">		return eqbonus;</span>
+	}
+
+	private static String getMonkUnarmed(PlayerCharacter pc, Equipment eq, String damString)
+	{
+<span class="nc bnc" id="L2365" title="All 4 branches missed.">		if (eq.isMonk() &amp;&amp; eq.isUnarmed())</span>
+		{
+<span class="nc" id="L2367">			int eqSize = pc.getDisplay().getRace().getSafe(FormulaKey.SIZE).resolve(pc, &quot;&quot;).intValue();</span>
+<span class="nc" id="L2368">			int iMod = pc.sizeInt();</span>
+
+			/* This modifies damage (by size) from the default when the race is
+			 * not the default size and the character is the default size for
+			 * their race */
+<span class="nc bnc" id="L2373" title="All 2 branches missed.">			boolean applySize = (eqSize == iMod);</span>
+<span class="nc" id="L2374">			String uDamString = UnarmedDamageDisplay.getUnarmedDamageString(pc, false, applySize);</span>
+
+<span class="nc" id="L2376">			StringTokenizer bTok = new StringTokenizer(damString, &quot; d+-&quot;, false);</span>
+<span class="nc" id="L2377">			bTok.nextToken();</span>
+<span class="nc" id="L2378">			String b1String = bTok.nextToken();</span>
+
+<span class="nc" id="L2380">			StringTokenizer cTok = new StringTokenizer(uDamString, &quot; d+-&quot;, false);</span>
+<span class="nc" id="L2381">			cTok.nextToken();</span>
+<span class="nc" id="L2382">			String c1String = cTok.nextToken();</span>
+
+<span class="nc bnc" id="L2384" title="All 2 branches missed.">			if (Integer.parseInt(b1String) &lt; Integer.parseInt(c1String))</span>
+			{
+<span class="nc" id="L2386">				damString = uDamString;</span>
+			}
+
+			/*
+			 * This modifies damage by size when the character is a different size
+			 * than the race.  It also modifies it by applying any Bonuses to damage
+			 * size.
+			 */
+
+<span class="nc" id="L2395">			iMod += (int) pc.getTotalBonusTo(&quot;WEAPONPROF=Unarmed Strike&quot;, &quot;DAMAGESIZE&quot;);</span>
+<span class="nc" id="L2396">			iMod += (int) pc.getTotalBonusTo(&quot;COMBAT&quot;, &quot;DAMAGESIZE&quot;);</span>
+
+			/* If not applying the race size modifier, then damString will
+			 * represent the damage as if this Character were the default
+			 * size.  Set eqSize to adjust from damage for the default size,
+			 * not the race's actual size.
+			 */
+<span class="nc bnc" id="L2403" title="All 2 branches missed.">			if (!applySize)</span>
+			{
+<span class="nc" id="L2405">				final SizeAdjustment defAdj = SizeUtilities.getDefaultSizeAdjustment();</span>
+<span class="nc bnc" id="L2406" title="All 2 branches missed.">				if (defAdj != null)</span>
+				{
+<span class="nc" id="L2408">					eqSize = defAdj.get(IntegerKey.SIZEORDER);</span>
+				}
+			}
+
+<span class="nc" id="L2412">			damString = Globals.adjustDamage(damString, iMod - eqSize);</span>
+		}
+<span class="nc" id="L2414">		return damString;</span>
+	}
+
+	private static String getEqDamage(PlayerCharacter pc, Equipment eq)
+	{
+<span class="nc" id="L2419">		String retString = eq.getDamage(pc);</span>
+
+<span class="nc bnc" id="L2421" title="All 2 branches missed.">		if (pc == null)</span>
+		{
+<span class="nc" id="L2423">			return retString;</span>
+		}
+
+<span class="nc" id="L2426">		String profKey = getProfName(eq);</span>
+<span class="nc bnc" id="L2427" title="All 2 branches missed.">		if (eq.isNatural())</span>
+		{
+<span class="nc" id="L2429">			int eqSize = pc.racialSizeInt();</span>
+<span class="nc" id="L2430">			int iMod = pc.sizeInt();</span>
+<span class="nc" id="L2431">			iMod += (int) pc.getTotalBonusTo(&quot;WEAPONPROF=&quot; + profKey, &quot;DAMAGESIZE&quot;);</span>
+<span class="nc" id="L2432">			iMod += (int) pc.getTotalBonusTo(&quot;COMBAT&quot;, &quot;DAMAGESIZE&quot;);</span>
+<span class="nc" id="L2433">			retString = Globals.adjustDamage(retString, iMod - eqSize);</span>
+<span class="nc" id="L2434">		}</span>
+		else
+		{
+<span class="nc" id="L2437">			int eqSize = eq.sizeInt();</span>
+<span class="nc" id="L2438">			int iMod = eqSize;</span>
+<span class="nc" id="L2439">			iMod += (int) pc.getTotalBonusTo(&quot;WEAPONPROF=&quot; + profKey, &quot;DAMAGESIZE&quot;);</span>
+<span class="nc" id="L2440">			iMod += (int) pc.getTotalBonusTo(&quot;COMBAT&quot;, &quot;DAMAGESIZE&quot;);</span>
+<span class="nc" id="L2441">			retString = Globals.adjustDamage(retString, iMod - eqSize);</span>
+		}
+
+<span class="nc" id="L2444">		return retString;</span>
+	}
+
+	private static Equipment getAmmoUser(PlayerCharacter pc, Equipment eq, int ammo)
+	{
+<span class="nc" id="L2449">		int ammoCount = 0;</span>
+
+<span class="nc bnc" id="L2451" title="All 2 branches missed.">		if (ammo &lt; 0)</span>
+		{
+<span class="nc" id="L2453">			return null;</span>
+		}
+<span class="nc" id="L2455">		String containerCapacity = eq.getContainerCapacityString();</span>
+
+<span class="nc bnc" id="L2457" title="All 2 branches missed.">		for (Equipment equip : pc.getEquipmentListInOutputOrder())</span>
+		{
+<span class="nc bnc" id="L2459" title="All 2 branches missed.">			for (String type : equip.typeList())</span>
+			{
+<span class="nc bnc" id="L2461" title="All 2 branches missed.">				if (containerCapacity.contains(type))</span>
+				{
+<span class="nc" id="L2463">					++ammoCount;</span>
+
+<span class="nc" id="L2465">					break;</span>
+				}
+<span class="nc" id="L2467">			}</span>
+<span class="nc bnc" id="L2468" title="All 2 branches missed.">			if (ammoCount == (ammo + 1))</span>
+			{
+<span class="nc" id="L2470">				return equip;</span>
+			}
+<span class="nc" id="L2472">		}</span>
+<span class="nc" id="L2473">		return null;</span>
+	}
+
+	private static int getWeaponProfTypeBonuses(PlayerCharacter pc, Equipment eq, String bonusType, int index)
+	{
+<span class="nc" id="L2478">		int bonus = 0;</span>
+<span class="nc bnc" id="L2479" title="All 4 branches missed.">		boolean hasBoth = (eq.isRanged() &amp;&amp; eq.isMelee());</span>
+<span class="nc" id="L2480">		CDOMSingleRef&lt;WeaponProf&gt; ref = eq.get(ObjectKey.WEAPON_PROF);</span>
+<span class="nc bnc" id="L2481" title="All 2 branches missed.">		if (ref == null)</span>
+		{
+<span class="nc" id="L2483">			return 0;</span>
+		}
+<span class="nc" id="L2485">		WeaponProf wp = ref.get();</span>
+
+<span class="nc" id="L2487">		StringTokenizer aTok = new StringTokenizer(wp.getType(), &quot;.&quot;);</span>
+
+<span class="nc bnc" id="L2489" title="All 2 branches missed.">		while (aTok.hasMoreTokens())</span>
+		{
+<span class="nc" id="L2491">			String tString = aTok.nextToken();</span>
+
+<span class="nc bnc" id="L2493" title="All 4 branches missed.">			if (!hasBoth || !&quot;RANGED&quot;.equalsIgnoreCase(tString))</span>
+			{
+<span class="nc bnc" id="L2495" title="All 5 branches missed.">				switch (index)</span>
+				{
+<span class="nc" id="L2497">					case WPTYPEBONUS_PC -&gt; bonus += (int) pc.getTotalBonusTo(&quot;WEAPONPROF=TYPE.&quot; + tString, bonusType);</span>
+<span class="nc" id="L2498">					case WPTYPEBONUS_EQ -&gt; bonus +=</span>
+<span class="nc" id="L2499">							(int) BonusCalc.charBonusTo(eq, &quot;WEAPONPROF=TYPE.&quot; + tString, bonusType, pc);</span>
+<span class="nc" id="L2500">					case WPTYPEBONUS_FEAT -&gt; bonus += (int) pc.getFeatBonusTo(&quot;WEAPONPROF=TYPE.&quot; + tString, bonusType);</span>
+<span class="nc" id="L2501">					case WPTYPEBONUS_TEMPLATE -&gt; bonus +=</span>
+<span class="nc" id="L2502">							(int) pc.getTemplateBonusTo(&quot;WEAPONPROF=TYPE.&quot; + tString, bonusType);</span>
+<span class="nc" id="L2503">					default -&gt; Logging.errorPrint(</span>
+							&quot;In getWeaponProfTypeBonuses there is an unhandled case in a switch (the value is &quot; + index
+									+ '.');
+				}
+			}
+<span class="nc" id="L2508">		}</span>
+
+<span class="nc" id="L2510">		return bonus;</span>
+	}
+
+	private static String weaponCategories(Equipment eq)
+	{
+<span class="nc" id="L2515">		StringBuilder wc = new StringBuilder(10);</span>
+<span class="nc" id="L2516">		List&lt;Type&gt; categories = SettingsHandler.getGameAsProperty().get().getWeaponCategories();</span>
+
+<span class="nc bnc" id="L2518" title="All 2 branches missed.">		for (Type type : categories)</span>
+		{
+<span class="nc bnc" id="L2520" title="All 2 branches missed.">			if (eq.isType(type, true))</span>
+			{
+<span class="nc bnc" id="L2522" title="All 2 branches missed.">				if (wc.length() != 0)</span>
+				{
+<span class="nc" id="L2524">					wc.append('/');</span>
+				}
+
+<span class="nc" id="L2527">				wc.append(type);</span>
+			}
+<span class="nc" id="L2529">		}</span>
+
+<span class="nc bnc" id="L2531" title="All 2 branches missed.">		if (wc.length() == 0)</span>
+		{
+<span class="nc" id="L2533">			wc.append(&quot;Non-Standard&quot;);</span>
+		}
+
+<span class="nc" id="L2536">		return wc.toString();</span>
+	}
+
+	private static String weaponTypes(Equipment eq, boolean primary)
+	{
+<span class="nc" id="L2541">		GameMode game = SettingsHandler.getGameAsProperty().get();</span>
+<span class="nc" id="L2542">		TreeSet&lt;String&gt; set = game.getWeaponTypes().stream()</span>
+<span class="nc" id="L2543">			.filter(type -&gt; eq.isType(type, primary))</span>
+<span class="nc" id="L2544">			.map(game::getWeaponTypeAbbrev)</span>
+<span class="nc" id="L2545">			.collect(Collectors.toCollection(TreeSet::new));</span>
+<span class="nc" id="L2546">		return StringUtil.join(set, &quot;&quot;);</span>
+	}
+
+	/**
+	 * Get the ranged attack string for this {@code pc}
+	 *
+	 * @param pc The character that this ranged attack string is for
+	 * @return   The ranged attack string affected only by BAB
+	 */
+	private static String getRangedAttackString(PlayerCharacter pc)
+	{
+<span class="nc" id="L2557">		return pc.getAttackString(AttackType.RANGED, 0, 0);</span>
+	}
+
+	/**
+	 * Get the ranged attack string for this {@code pc}.  Use
+	 * {@code bonus} to affect the size of attacks e.g.  +9/+4 with
+	 * bonus 2 becomes +11/+6.  Use {@code BABbonus} to affect the
+	 * size and number of attacks e.g.  +9/+4 with BABBonus 2 becomes
+	 * +11/+6/+1.
+	 *
+	 * @param pc    The character that this ranged attack string is for
+	 * @param bonus An increase to be applied to each number in the attack
+	 *              string.
+	 * @param BABBonus A bonus Which also affects the number of attacks in
+	 *              the returned attackString.
+	 * @return      The ranged attack string with number and size of attacks
+	 *              affected by BAB and bonus
+	 */
+	private static String getRangedAttackString(PlayerCharacter pc, int bonus, int BABBonus)
+	{
+<span class="nc" id="L2577">		return pc.getAttackString(AttackType.RANGED, bonus, BABBonus);</span>
+	}
+
+	/**
+	 * Get the melee attack string for this {@code pc}
+	 *
+	 * @param pc The character that this melee attack string is for
+	 * @return   The melee attack string affected only by BAB
+	 */
+	private static String getMeleeAttackString(PlayerCharacter pc)
+	{
+<span class="nc" id="L2588">		return pc.getAttackString(AttackType.MELEE, 0, 0);</span>
+	}
+
+	/**
+	 * Get the melee attack string for this {@code pc}.  Use
+	 * {@code bonus} to affect the size of attacks e.g.  +9/+4 with
+	 * bonus 2 becomes +11/+6.  Use {@code BABbonus} to affect the
+	 * size and number of attacks e.g.  +9/+4 with BABBonus 2 becomes
+	 * +11/+6/+1.
+	 *
+	 * @param pc    The character that this melee attack string is for
+	 * @param bonus An increase to be applied to each number in the attack
+	 *              string.
+	 * @param BABBonus A bonus Which also affects the number of attacks in
+	 *              the returned attackString.
+	 * @return      The melee attack string with number and size of attacks
+	 *              affected by BAB and bonus
+	 */
+	private static String getMeleeAttackString(PlayerCharacter pc, int bonus, int BABBonus)
+	{
+<span class="nc" id="L2608">		return pc.getAttackString(AttackType.MELEE, bonus, BABBonus);</span>
+	}
+
+	/**
+	 * Get the unarmed attack string for this {@code pc}
+	 *
+	 * @param pc The character that this unarmed attack string is for
+	 * @return   The unarmed attack string affected only by BAB
+	 */
+	private static String getUnarmedAttackString(PlayerCharacter pc)
+	{
+<span class="nc" id="L2619">		return pc.getAttackString(AttackType.UNARMED, 0, 0);</span>
+	}
+
+	/**
+	 * Get the unarmed attack string for this {@code pc}.  Use
+	 * {@code bonus} to affect the size of attacks e.g.  +9/+4 with
+	 * bonus 2 becomes +11/+6.  Use {@code BABbonus} to affect the
+	 * size and number of attacks e.g.  +9/+4 with BABBonus 2 becomes
+	 * +11/+6/+1.
+	 *
+	 * @param pc    The character that this unarmed attack string is for
+	 * @param bonus An increase to be applied to each number in the attack
+	 *              string.
+	 * @param BABBonus A bonus Which also affects the number of attacks in
+	 *              the returned attackString.
+	 * @return      The unarmed attack string with number and size of attacks
+	 *              affected by BAB and bonus
+	 */
+	private static String getUnarmedAttackString(PlayerCharacter pc, int bonus, int BABBonus)
+	{
+<span class="nc" id="L2639">		return pc.getAttackString(AttackType.UNARMED, bonus, BABBonus);</span>
+	}
+
+	/**
+	 * If the equipment has a type beyond natural then we need a
+	 * seperator
+	 * @param eq
+	 * @return true if we need a sepearator
+	 */
+	private static boolean appendSeperator(Equipment eq)
+	{
+<span class="nc bnc" id="L2650" title="All 8 branches missed.">		return eq.isType(&quot;Natural&quot;) &amp;&amp; (eq.isType(&quot;Both&quot;) || eq.isType(&quot;Melee&quot;) || eq.isType(&quot;Ranged&quot;));</span>
+	}
+
+	/**
+	 * If none of the four types are true then it's non standard
+	 * @param eq
+	 * @return true if non standard
+	 */
+	private static boolean isNonStandard(Equipment eq)
+	{
+<span class="nc bnc" id="L2660" title="All 8 branches missed.">		return !(eq.isType(&quot;Natural&quot;) || eq.isType(&quot;Both&quot;) || eq.isType(&quot;Melee&quot;) || eq.isType(&quot;Ranged&quot;));</span>
+	}
+
+	/**
+	 * Gets the range list of the Equipment object, adding the 30' range, if not present and required
+	 *
+	 * @param addShortRange boolean
+	 * @param aPC
+	 * @return The range list
+	 */
+	private static List&lt;String&gt; getRangeList(Equipment eq, boolean addShortRange, final PlayerCharacter aPC)
+	{
+<span class="nc" id="L2672">		final List&lt;String&gt; aList = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L2673">		final int baseRange = EqToken.getRange(aPC, eq);</span>
+<span class="nc" id="L2674">		int aRange = baseRange;</span>
+<span class="nc" id="L2675">		int maxIncrements = 0;</span>
+
+<span class="nc bnc" id="L2677" title="All 2 branches missed.">		if (eq.isRanged())</span>
+		{
+<span class="nc bnc" id="L2679" title="All 2 branches missed.">			if (eq.isThrown())</span>
+			{
+<span class="nc" id="L2681">				maxIncrements = 5;</span>
+			}
+			else
+			{
+<span class="nc" id="L2685">				maxIncrements = 10;</span>
+			}
+		}
+
+<span class="nc bnc" id="L2689" title="All 2 branches missed.">		for (int numIncrements = 0; numIncrements &lt; maxIncrements; ++numIncrements)</span>
+		{
+<span class="nc bnc" id="L2691" title="All 2 branches missed.">			if (aRange == SettingsHandler.getGameAsProperty().get().getShortRangeDistance())</span>
+			{
+<span class="nc" id="L2693">				addShortRange = false;</span>
+			}
+
+<span class="nc bnc" id="L2696" title="All 4 branches missed.">			if ((aRange &gt; SettingsHandler.getGameAsProperty().get().getShortRangeDistance()) &amp;&amp; addShortRange)</span>
+			{
+<span class="nc" id="L2698">				aList.add(Integer.toString(SettingsHandler.getGameAsProperty().get().getShortRangeDistance()));</span>
+<span class="nc" id="L2699">				addShortRange = false;</span>
+			}
+
+<span class="nc" id="L2702">			aList.add(Integer.toString(aRange));</span>
+<span class="nc" id="L2703">			aRange += baseRange;</span>
+		}
+
+<span class="nc" id="L2706">		return aList;</span>
+	}
+
+	public static String getNewCritRangeString(PlayerCharacter pc, Equipment eq, String critRangeVar)
+	{
+<span class="nc" id="L2711">		StringBuilder sb = new StringBuilder();</span>
+<span class="nc" id="L2712">		boolean needSlash = false;</span>
+<span class="nc bnc" id="L2713" title="All 2 branches missed.">		for (EquipmentHead head : eq.getEquipmentHeads())</span>
+		{
+<span class="nc bnc" id="L2715" title="All 2 branches missed.">			if (needSlash)</span>
+			{
+<span class="nc" id="L2717">				sb.append('/');</span>
+			}
+<span class="nc" id="L2719">			sb.append(getCritRangeHead(pc, head, critRangeVar));</span>
+<span class="nc" id="L2720">			needSlash = true;</span>
+<span class="nc" id="L2721">		}</span>
+<span class="nc" id="L2722">		return sb.toString();</span>
+	}
+
+	static StringBuilder getCritRangeHead(PlayerCharacter pc, EquipmentHead head, String critRangeVar)
+	{
+<span class="nc" id="L2727">		StringBuilder sb = new StringBuilder();</span>
+<span class="nc" id="L2728">		Integer range = (Integer) head.getLocalVariable(pc.getCharID(), critRangeVar);</span>
+<span class="nc" id="L2729">		sb.append(range);</span>
+<span class="nc bnc" id="L2730" title="All 2 branches missed.">		if (range &lt; 20)</span>
+		{
+<span class="nc" id="L2732">			sb.append(&quot;-20&quot;);</span>
+		}
+<span class="nc" id="L2734">		return sb;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

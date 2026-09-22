@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MovementToken.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.io.exporttoken</a> &gt; <span class="el_source">MovementToken.java</span></div><h1>MovementToken.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2003 (C) Devon Jones &lt;soulcatcher@evilsoft.org&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.     See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ *
+ *
+ */
+package pcgen.io.exporttoken;
+
+import java.util.StringTokenizer;
+
+import pcgen.base.util.NamedValue;
+import pcgen.cdom.enumeration.MovementType;
+import pcgen.core.Globals;
+import pcgen.core.display.CharacterDisplay;
+import pcgen.io.ExportHandler;
+
+//MOVEMENT
+//MOVEMENT.movetype
+<span class="nc" id="L33">public class MovementToken extends AbstractExportToken</span>
+{
+	@Override
+	public String getTokenName()
+	{
+<span class="nc" id="L38">		return &quot;MOVEMENT&quot;;</span>
+	}
+
+	//TODO: Move the |MOVEMENT| results into MoveToken, and then Eliminate MovementToken
+	//      Also add .moveType to movement as a switchout replacement for .x
+	@Override
+	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
+	{
+		String retString;
+<span class="nc" id="L47">		StringTokenizer aTok = new StringTokenizer(tokenSource, &quot;.&quot;);</span>
+<span class="nc" id="L48">		aTok.nextToken();</span>
+
+<span class="nc bnc" id="L50" title="All 2 branches missed.">		if (aTok.hasMoreTokens())</span>
+		{
+<span class="nc" id="L52">			String moveType = aTok.nextToken();</span>
+<span class="nc" id="L53">			retString = getMoveTypeToken(display, MovementType.getConstant(moveType));</span>
+<span class="nc" id="L54">		}</span>
+		else
+		{
+<span class="nc" id="L57">			retString = getMovementToken(display);</span>
+		}
+
+<span class="nc" id="L60">		return retString;</span>
+	}
+
+	public static String getMoveTypeToken(CharacterDisplay display, MovementType moveType)
+	{
+<span class="nc" id="L65">		String retString = &quot;&quot;;</span>
+
+<span class="nc bnc" id="L67" title="All 2 branches missed.">		if (display.hasMovement(moveType))</span>
+		{
+<span class="nc" id="L69">			retString = getRateToken(display.getMovementOfType(moveType));</span>
+		}
+
+<span class="nc" id="L72">		return retString;</span>
+	}
+
+	public static String getMovementToken(CharacterDisplay display)
+	{
+<span class="nc" id="L77">		StringBuilder retString = new StringBuilder();</span>
+<span class="nc" id="L78">		boolean firstLine = true;</span>
+
+<span class="nc bnc" id="L80" title="All 2 branches missed.">		for (NamedValue move : display.getMovementValues())</span>
+		{
+<span class="nc bnc" id="L82" title="All 2 branches missed.">			if (!firstLine)</span>
+			{
+<span class="nc" id="L84">				retString.append(&quot;, &quot;);</span>
+			}
+<span class="nc" id="L86">			firstLine = false;</span>
+<span class="nc" id="L87">			retString.append(move.getName()).append(&quot; &quot;);</span>
+<span class="nc" id="L88">			retString.append(getRateToken(move.getWeight()));</span>
+<span class="nc" id="L89">		}</span>
+
+<span class="nc" id="L91">		return retString.toString();</span>
+	}
+
+	public static String getRateToken(double movement)
+	{
+<span class="nc" id="L96">		return Globals.getGameModeUnitSet().displayDistanceInUnitSet(movement)</span>
+<span class="nc" id="L97">			+ Globals.getGameModeUnitSet().getDistanceUnit();</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

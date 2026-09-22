@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CalculationModifier.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.calculation</a> &gt; <span class="el_source">CalculationModifier.java</span></div><h1>CalculationModifier.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2014-18 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.cdom.calculation;
+
+import java.util.Objects;
+
+import pcgen.base.formula.base.DependencyManager;
+import pcgen.base.formula.base.EvaluationManager;
+import pcgen.base.formula.base.FormulaSemantics;
+import pcgen.base.formula.exception.SemanticsException;
+import pcgen.base.util.FormatManager;
+
+/**
+ * A CalculationModifier is a Modifier that is a wrapper around a NEPCalculation. A
+ * CalculationModifier also contains the user priority of the Modifier.
+ * 
+ * @see pcgen.base.calculation.NEPCalculation
+ * 
+ * @param &lt;T&gt;
+ *            The format that this CalculationModifier acts upon
+ */
+public final class CalculationModifier&lt;T&gt; extends AbstractPCGenModifier&lt;T&gt;
+{
+
+	/**
+	 * The NEPCalculation to be performed by this CalculationModifier.
+	 */
+	private final NEPCalculation&lt;T&gt; toDo;
+
+	private final FormatManager&lt;T&gt; formatManager;
+
+	/**
+	 * Constructs a new CalculationModifier from the given NEPCalculation.
+	 * 
+	 * The intent is that a solver would process the Modifier with the lowest
+	 * user priority first.
+	 * 
+	 * @param calc
+	 *            The NEPCalculation to be performed by this CalculationModifier when it
+	 *            is processed
+	 * @throws IllegalArgumentException
+	 *             if the given NEPCalculation is null
+	 */
+	public CalculationModifier(NEPCalculation&lt;T&gt; calc, FormatManager&lt;T&gt; fmtManager)
+<span class="fc" id="L60">	{</span>
+<span class="fc" id="L61">		Objects.requireNonNull(calc, &quot;Calculation cannot be null&quot;);</span>
+<span class="fc" id="L62">		Objects.requireNonNull(fmtManager, &quot;FormatManager cannot be null&quot;);</span>
+<span class="fc" id="L63">		toDo = calc;</span>
+<span class="fc" id="L64">		formatManager = fmtManager;</span>
+<span class="fc" id="L65">	}</span>
+
+	@Override
+	public long getPriority()
+	{
+<span class="fc" id="L70">		return ((long) getUserPriority() &lt;&lt; 32) + toDo.getInherentPriority();</span>
+	}
+
+	@Override
+	public T process(EvaluationManager manager)
+	{
+<span class="fc" id="L76">		return toDo.process(manager);</span>
+	}
+
+	@Override
+	public void getDependencies(DependencyManager manager)
+	{
+<span class="fc" id="L82">		toDo.getDependencies(manager);</span>
+<span class="fc" id="L83">	}</span>
+
+	@Override
+	public String getInstructions()
+	{
+<span class="fc" id="L88">		return toDo.getInstructions();</span>
+	}
+
+	@Override
+	public FormatManager&lt;T&gt; getVariableFormat()
+	{
+<span class="fc" id="L94">		return formatManager;</span>
+	}
+
+	@Override
+	public String getIdentification()
+	{
+<span class="fc" id="L100">		return toDo.getIdentification();</span>
+	}
+
+	@Override
+	public int hashCode()
+	{
+<span class="nc" id="L106">		return getUserPriority() ^ toDo.hashCode();</span>
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+<span class="nc bnc" id="L112" title="All 2 branches missed.">		if (o instanceof CalculationModifier&lt;?&gt; other)</span>
+		{
+<span class="nc bnc" id="L114" title="All 4 branches missed.">			return (other.getUserPriority() == getUserPriority()) &amp;&amp; other.toDo.equals(toDo);</span>
+		}
+<span class="nc" id="L116">		return false;</span>
+	}
+
+	/**
+	 * Returns true if the given FormatManager is equal to the FormatManager for this
+	 * CalculationModifier.
+	 * 
+	 * @param fm
+	 *            The FormatManager to check if it is equal to the FormatManager for this
+	 *            CalculationModifier
+	 * @return true if the given FormatManager is equal to the FormatManager for this
+	 *         CalculationModifier; false otherwise
+	 */
+	public boolean isCompatible(FormatManager&lt;?&gt; fm)
+	{
+<span class="nc" id="L131">		return formatManager.equals(fm);</span>
+	}
+	
+	@Override
+	public String toString()
+	{
+<span class="nc" id="L137">		return getClass().getSimpleName() + &quot;: &quot; + toDo + &quot; [&quot;</span>
+<span class="nc" id="L138">			+ formatManager.getIdentifierType() + &quot;]&quot;;</span>
+	}
+
+	@Override
+	public void isValid(FormulaSemantics semantics) throws SemanticsException
+	{
+<span class="fc" id="L144">		toDo.isValid(semantics);</span>
+<span class="fc" id="L145">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

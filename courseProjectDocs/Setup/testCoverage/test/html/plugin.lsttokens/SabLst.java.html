@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SabLst.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.lsttokens</a> &gt; <span class="el_source">SabLst.java</span></div><h1>SabLst.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2008 (C) Thomas Parker &lt;thpr@users.sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package plugin.lsttokens;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.StringTokenizer;
+
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.Ungranted;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.core.SpecialAbility;
+import pcgen.core.prereq.Prerequisite;
+import pcgen.rules.context.Changes;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.ParseResult;
+
+<span class="fc" id="L37">public class SabLst extends AbstractTokenWithSeparator&lt;CDOMObject&gt; implements CDOMPrimaryToken&lt;CDOMObject&gt;</span>
+{
+
+	@Override
+	public String getTokenName()
+	{
+<span class="fc" id="L43">		return &quot;SAB&quot;;</span>
+	}
+
+	@Override
+	protected char separator()
+	{
+<span class="fc" id="L49">		return '|';</span>
+	}
+
+	/**
+	 * This method sets the special abilities granted by this [object]. For
+	 * efficiency, avoid calling this method except from I/O routines.
+	 *
+	 * @param context 
+	 * @param obj
+	 *            the CDOMbject that is to receive the new SpecialAbility
+	 * @param aString
+	 *            String of special abilities delimited by pipes
+	 */
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String aString)
+	{
+<span class="pc bpc" id="L65" title="1 of 2 branches missed.">		if (obj instanceof Ungranted)</span>
+		{
+<span class="nc" id="L67">			return new ParseResult.Fail(</span>
+<span class="nc" id="L68">				&quot;Cannot use &quot; + getTokenName() + &quot; on an Ungranted object type: &quot; + obj.getClass().getSimpleName());</span>
+		}
+<span class="fc" id="L70">		StringTokenizer tok = new StringTokenizer(aString, Constants.PIPE);</span>
+
+<span class="fc" id="L72">		String firstToken = tok.nextToken();</span>
+<span class="fc bfc" id="L73" title="All 2 branches covered.">		if (looksLikeAPrerequisite(firstToken))</span>
+		{
+<span class="fc" id="L75">			return new ParseResult.Fail(&quot;Cannot have only PRExxx subtoken in &quot; + getTokenName());</span>
+		}
+
+<span class="fc" id="L78">		boolean foundClear = false;</span>
+
+<span class="fc bfc" id="L80" title="All 2 branches covered.">		if (Constants.LST_DOT_CLEAR.equals(firstToken))</span>
+		{
+<span class="fc" id="L82">			context.getObjectContext().removeList(obj, ListKey.SAB);</span>
+<span class="pc bpc" id="L83" title="1 of 2 branches missed.">			if (!tok.hasMoreTokens())</span>
+			{
+<span class="nc" id="L85">				return ParseResult.SUCCESS;</span>
+			}
+<span class="fc" id="L87">			firstToken = tok.nextToken();</span>
+<span class="fc" id="L88">			foundClear = true;</span>
+		}
+
+<span class="fc bfc" id="L91" title="All 2 branches covered.">		if (looksLikeAPrerequisite(firstToken))</span>
+		{
+<span class="fc" id="L93">			return new ParseResult.Fail(&quot;Cannot use PREREQs when using .CLEAR in &quot; + getTokenName());</span>
+		}
+
+<span class="pc bpc" id="L96" title="1 of 2 branches missed.">		if (Constants.LST_DOT_CLEAR.equals(firstToken))</span>
+		{
+<span class="nc" id="L98">			return new ParseResult.Fail(&quot;SA tag confused by redundant '.CLEAR'&quot; + aString);</span>
+		}
+
+<span class="fc" id="L101">		SpecialAbility sa = new SpecialAbility(firstToken.intern());</span>
+
+<span class="fc bfc" id="L103" title="All 2 branches covered.">		if (!tok.hasMoreTokens())</span>
+		{
+<span class="fc" id="L105">			sa.setName(firstToken.intern());</span>
+<span class="fc" id="L106">			context.getObjectContext().addToList(obj, ListKey.SAB, sa);</span>
+<span class="fc" id="L107">			return ParseResult.SUCCESS;</span>
+		}
+
+<span class="fc" id="L110">		StringBuilder saName = new StringBuilder(aString.length());</span>
+<span class="fc" id="L111">		saName.append(firstToken);</span>
+
+<span class="fc" id="L113">		String token = tok.nextToken();</span>
+		while (true)
+		{
+<span class="fc bfc" id="L116" title="All 2 branches covered.">			if (Constants.LST_DOT_CLEAR.equals(token))</span>
+			{
+<span class="fc" id="L118">				return new ParseResult.Fail(&quot;SA tag confused by '.CLEAR' as a &quot; + &quot;middle token: &quot; + aString);</span>
+			}
+<span class="fc bfc" id="L120" title="All 2 branches covered.">			else if (looksLikeAPrerequisite(token))</span>
+			{
+<span class="fc" id="L122">				break;</span>
+			}
+			else
+			{
+<span class="fc" id="L126">				saName.append(Constants.PIPE).append(token);</span>
+				// sa.addVariable(FormulaFactory.getFormulaFor(token));
+			}
+
+<span class="fc bfc" id="L130" title="All 2 branches covered.">			if (!tok.hasMoreTokens())</span>
+			{
+				// No prereqs, so we're done
+				// CONSIDER This is a HACK and not the long term strategy of SA:
+<span class="fc" id="L134">				sa.setName(saName.toString());</span>
+<span class="fc" id="L135">				context.getObjectContext().addToList(obj, ListKey.SAB, sa);</span>
+<span class="fc" id="L136">				return ParseResult.SUCCESS;</span>
+			}
+<span class="fc" id="L138">			token = tok.nextToken();</span>
+		}
+		// CONSIDER This is a HACK and not the long term strategy of SA:
+<span class="fc" id="L141">		sa.setName(saName.toString());</span>
+
+<span class="fc bfc" id="L143" title="All 2 branches covered.">		if (foundClear)</span>
+		{
+<span class="fc" id="L145">			return new ParseResult.Fail(</span>
+<span class="fc" id="L146">				&quot;Cannot use PREREQs when using .CLEAR and a Special Ability in &quot; + getTokenName());</span>
+		}
+
+		while (true)
+		{
+<span class="fc" id="L151">			Prerequisite prereq = getPrerequisite(token);</span>
+<span class="fc bfc" id="L152" title="All 2 branches covered.">			if (prereq == null)</span>
+			{
+<span class="fc" id="L154">				return new ParseResult.Fail(</span>
+<span class="fc" id="L155">					&quot;   (Did you put Abilities after the &quot; + &quot;PRExxx tags in &quot; + getTokenName() + &quot;:?)&quot;);</span>
+			}
+<span class="fc" id="L157">			sa.addPrerequisite(prereq);</span>
+<span class="fc bfc" id="L158" title="All 2 branches covered.">			if (!tok.hasMoreTokens())</span>
+			{
+<span class="fc" id="L160">				break;</span>
+			}
+<span class="fc" id="L162">			token = tok.nextToken();</span>
+<span class="fc" id="L163">		}</span>
+<span class="fc" id="L164">		context.getObjectContext().addToList(obj, ListKey.SAB, sa);</span>
+<span class="fc" id="L165">		return ParseResult.SUCCESS;</span>
+	}
+
+	@Override
+	public String[] unparse(LoadContext context, CDOMObject obj)
+	{
+<span class="fc" id="L171">		Changes&lt;SpecialAbility&gt; changes = context.getObjectContext().getListChanges(obj, ListKey.SAB);</span>
+<span class="fc" id="L172">		Collection&lt;SpecialAbility&gt; added = changes.getAdded();</span>
+<span class="fc" id="L173">		List&lt;String&gt; list = new ArrayList&lt;&gt;();</span>
+<span class="pc bpc" id="L174" title="1 of 2 branches missed.">		if (changes.includesGlobalClear())</span>
+		{
+<span class="nc" id="L176">			list.add(Constants.LST_DOT_CLEAR);</span>
+		}
+<span class="pc bpc" id="L178" title="1 of 4 branches missed.">		else if (added == null || added.isEmpty())</span>
+		{
+			// Zero indicates no Token (and no global clear, so nothing to do)
+<span class="fc" id="L181">			return null;</span>
+		}
+<span class="pc bpc" id="L183" title="1 of 2 branches missed.">		if (added != null)</span>
+		{
+<span class="fc bfc" id="L185" title="All 2 branches covered.">			for (SpecialAbility ab : added)</span>
+			{
+<span class="fc" id="L187">				StringBuilder sb = new StringBuilder();</span>
+<span class="fc" id="L188">				sb.append(ab.getKeyName());</span>
+<span class="fc bfc" id="L189" title="All 2 branches covered.">				if (ab.hasPrerequisites())</span>
+				{
+<span class="fc" id="L191">					sb.append(Constants.PIPE);</span>
+<span class="fc" id="L192">					sb.append(getPrerequisiteString(context, ab.getPrerequisiteList()));</span>
+				}
+<span class="fc" id="L194">				list.add(sb.toString());</span>
+<span class="fc" id="L195">			}</span>
+		}
+<span class="fc" id="L197">		return list.toArray(new String[0]);</span>
+	}
+
+	@Override
+	public Class&lt;CDOMObject&gt; getTokenClass()
+	{
+<span class="fc" id="L203">		return CDOMObject.class;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

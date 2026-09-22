@@ -1,0 +1,644 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SystemCollections.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.core</a> &gt; <span class="el_source">SystemCollections.java</span></div><h1>SystemCollections.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2001 (C) Bryan McRoberts &lt;merton_monk@yahoo.com&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.core;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import pcgen.core.character.EquipSlot;
+import pcgen.core.system.MigrationRule;
+
+/**
+ * Contains lists of stuff loaded from system-wide lst files.
+ **/
+public final class SystemCollections
+{
+	/** The following are loaded from system files.
+	 * &lt;ul&gt;
+	 * &lt;li&gt;birthplaceList&lt;/li&gt;
+	 * &lt;li&gt;bonusStackList&lt;/li&gt;
+	 * &lt;li&gt;cityList&lt;/li&gt;
+	 * &lt;li&gt;gameModeList&lt;/li&gt;
+	 * &lt;li&gt;gameModeDisplayList&lt;/li&gt;
+	 * &lt;li&gt;hairStyleList&lt;/li&gt;
+	 * &lt;li&gt;helpContextFileList&lt;/li&gt;
+	 * &lt;li&gt;interestsList&lt;/li&gt;
+	 * &lt;li&gt;locationList&lt;/li&gt;
+	 * &lt;li&gt;paperInfoList&lt;/li&gt;
+	 * &lt;li&gt;phobiaList&lt;/li&gt;
+	 * &lt;li&gt;phraseList&lt;/li&gt;
+	 * &lt;li&gt;equipSlotMap&lt;/li&gt;
+	 * &lt;li&gt;specialsList&lt;/li&gt;
+	 * &lt;li&gt;speechList&lt;/li&gt;
+	 * &lt;li&gt;traitList&lt;/li&gt;
+	 * &lt;li&gt;paperInfoList&lt;/li&gt;
+	 * &lt;/ul&gt;
+	 */
+<span class="fc" id="L57">	private static final Map&lt;String, List&lt;String&gt;&gt; BIRTHPLACE_MAP = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L58">	private static final Map&lt;String, List&lt;String&gt;&gt; CITY_MAP = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L59">	private static final List&lt;GameMode&gt; GAME_MODE_LIST = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L60">	private static final List&lt;GameModeDisplay&gt; GAME_MODE_DISPLAY_LIST = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L61">	private static final Map&lt;String, List&lt;String&gt;&gt; HAIR_STYLE_MAP = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L62">	private static final Map&lt;String, List&lt;String&gt;&gt; INTERESTS_MAP = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L63">	private static final Map&lt;String, List&lt;String&gt;&gt; LOCATION_MAP = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L64">	private static final Map&lt;String, List&lt;String&gt;&gt; PHOBIA_MAP = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L65">	private static final Map&lt;String, Set&lt;String&gt;&gt; PHRASE_MAP = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L66">	private static final Map&lt;String, List&lt;String&gt;&gt; SPEECH_MAP = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L67">	private static final Map&lt;String, Set&lt;String&gt;&gt; TRAIT_MAP = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L68">	private static final Map&lt;String, List&lt;String&gt;&gt; BODY_STRUCTURE_MAP = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L69">	private static final Map&lt;String, List&lt;EquipSlot&gt;&gt; EQUIP_SLOT_MAP = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L70">	private static final Map&lt;String, List&lt;MigrationRule&gt;&gt; MIGRATION_RULE_MAP = new HashMap&lt;&gt;();</span>
+
+	/**
+	 * Make sure it doesn't get instantiated.
+	 */
+	private SystemCollections()
+	{
+		// Empty Constructor
+	}
+
+	/**
+	 * Return a game mode matching the name.
+	 * @param aString
+	 * @return GameMode
+	 */
+	public static GameMode getGameModeNamed(final String aString)
+	{
+<span class="fc" id="L87">		return GAME_MODE_LIST.stream()</span>
+<span class="pc" id="L88">				.filter(gameMode -&gt; gameMode.getName().equalsIgnoreCase(aString))</span>
+<span class="fc" id="L89">				.findFirst()</span>
+<span class="fc" id="L90">				.orElse(null);</span>
+	}
+
+	/**
+	 * Return a game mode matching the display name.
+	 * @param aString
+	 * @return GameMode
+	 */
+	public static GameMode getGameModeWithDisplayName(final String aString)
+	{
+<span class="nc bnc" id="L100" title="All 2 branches missed.">		for (GameMode gameMode : GAME_MODE_LIST)</span>
+		{
+<span class="nc bnc" id="L102" title="All 2 branches missed.">			if (gameMode.getDisplayName().equalsIgnoreCase(aString))</span>
+			{
+<span class="nc" id="L104">				return gameMode;</span>
+			}
+<span class="nc" id="L106">		}</span>
+
+<span class="nc" id="L108">		return null;</span>
+	}
+
+	/**
+	 * Returns an &lt;b&gt;unmodifiable&lt;/b&gt; birtplace list.
+	 * @return an &lt;b&gt;unmodifiable&lt;/b&gt; birtplace list.
+	 */
+	public static List&lt;String&gt; getUnmodifiableBirthplaceList()
+	{
+<span class="nc" id="L117">		List&lt;String&gt; birthplaceList = BIRTHPLACE_MAP.get(SettingsHandler.getGameAsProperty().get().getName());</span>
+<span class="nc bnc" id="L118" title="All 2 branches missed.">		if (birthplaceList == null)</span>
+		{
+<span class="nc" id="L120">			birthplaceList = BIRTHPLACE_MAP.get(&quot;*&quot;);</span>
+		}
+<span class="nc bnc" id="L122" title="All 2 branches missed.">		if (birthplaceList == null)</span>
+		{
+<span class="nc" id="L124">			birthplaceList = Collections.emptyList();</span>
+		}
+<span class="nc" id="L126">		return Collections.unmodifiableList(birthplaceList);</span>
+	}
+
+	/**
+	 * Return an &lt;b&gt;unmodifiable&lt;/b&gt; version of the city list.
+	 * @return an &lt;b&gt;unmodifiable&lt;/b&gt; version of the city list.
+	 */
+	public static List&lt;String&gt; getUnmodifiableCityList()
+	{
+<span class="nc" id="L135">		List&lt;String&gt; cityList = CITY_MAP.get(SettingsHandler.getGameAsProperty().get().getName());</span>
+<span class="nc bnc" id="L136" title="All 2 branches missed.">		if (cityList == null)</span>
+		{
+<span class="nc" id="L138">			cityList = CITY_MAP.get(&quot;*&quot;);</span>
+		}
+<span class="nc bnc" id="L140" title="All 2 branches missed.">		if (cityList == null)</span>
+		{
+<span class="nc" id="L142">			cityList = Collections.emptyList();</span>
+		}
+<span class="nc" id="L144">		return Collections.unmodifiableList(cityList);</span>
+	}
+
+	/**
+	 * Return an &lt;b&gt;unmodifiable&lt;/b&gt; version of the equipment slots list.
+	 * @return an &lt;b&gt;unmodifiable&lt;/b&gt; version of the equipment slots list.
+	 */
+	public static List&lt;EquipSlot&gt; getUnmodifiableEquipSlotList()
+	{
+		// Try getting an equipslotlist for the currently selected gamemode
+<span class="nc" id="L154">		List&lt;EquipSlot&gt; equipSlotList = EQUIP_SLOT_MAP.get(SettingsHandler.getGameAsProperty().get().getName());</span>
+<span class="nc bnc" id="L155" title="All 2 branches missed.">		if (equipSlotList == null)</span>
+		{
+			// if that list doesn't exist, try the default equipslotmap
+<span class="nc" id="L158">			equipSlotList = EQUIP_SLOT_MAP.get(&quot;*&quot;);</span>
+		}
+<span class="nc bnc" id="L160" title="All 2 branches missed.">		if (equipSlotList == null)</span>
+		{
+			// if that's also empty, return an empty list
+<span class="nc" id="L163">			equipSlotList = Collections.emptyList();</span>
+		}
+<span class="nc" id="L165">		return Collections.unmodifiableList(equipSlotList);</span>
+	}
+
+	/**
+	 * Return an &lt;b&gt;unmodifiable&lt;/b&gt; version of the body structure list for the
+	 * current gamemode.
+	 * @return an &lt;b&gt;unmodifiable&lt;/b&gt; version of the body structure list.
+	 */
+	public static List&lt;String&gt; getUnmodifiableBodyStructureList()
+	{
+		// Try getting a body structure for the currently selected gamemode
+<span class="nc" id="L176">		List&lt;String&gt; bodyStructures = BODY_STRUCTURE_MAP.get(SettingsHandler.getGameAsProperty().get().getName());</span>
+<span class="nc bnc" id="L177" title="All 2 branches missed.">		if (bodyStructures == null)</span>
+		{
+			// if that list doesn't exist, try the default body structure list
+<span class="nc" id="L180">			bodyStructures = BODY_STRUCTURE_MAP.get(&quot;*&quot;);</span>
+		}
+<span class="nc bnc" id="L182" title="All 2 branches missed.">		if (bodyStructures == null)</span>
+		{
+			// if that's also empty, return an empty list
+<span class="nc" id="L185">			bodyStructures = Collections.emptyList();</span>
+		}
+<span class="nc" id="L187">		return Collections.unmodifiableList(bodyStructures);</span>
+	}
+
+	/**
+	 * Return an &lt;b&gt;unmodifiable&lt;/b&gt; version of the migration rules list.
+	 * @return an &lt;b&gt;unmodifiable&lt;/b&gt; version of the migration rules list.
+	 */
+	public static List&lt;MigrationRule&gt; getUnmodifiableMigrationRuleList(String gameModeName)
+	{
+		// Try getting an migrationRuleList for the currently selected gamemode
+<span class="nc" id="L197">		List&lt;MigrationRule&gt; migrationRuleList = MIGRATION_RULE_MAP.get(gameModeName);</span>
+<span class="nc bnc" id="L198" title="All 2 branches missed.">		if (migrationRuleList == null)</span>
+		{
+			// if that list doesn't exist, try the default migrationRuleList
+<span class="nc" id="L201">			migrationRuleList = MIGRATION_RULE_MAP.get(&quot;*&quot;);</span>
+		}
+<span class="nc bnc" id="L203" title="All 2 branches missed.">		if (migrationRuleList == null)</span>
+		{
+			// if that's also empty, return an empty list
+<span class="nc" id="L206">			migrationRuleList = Collections.emptyList();</span>
+		}
+<span class="nc" id="L208">		return Collections.unmodifiableList(migrationRuleList);</span>
+	}
+
+	/**
+	 * Return an &lt;b&gt;unmodifiable&lt;/b&gt; version of the game mode list.
+	 * @return an &lt;b&gt;unmodifiable&lt;/b&gt; version of the game mode list.
+	 */
+	public static List&lt;GameMode&gt; getUnmodifiableGameModeList()
+	{
+<span class="nc" id="L217">		return Collections.unmodifiableList(GAME_MODE_LIST);</span>
+	}
+
+	/**
+	 * Return an &lt;b&gt;unmodifiable&lt;/b&gt; version of the game mode display list.
+	 * @return an &lt;b&gt;unmodifiable&lt;/b&gt; version of the game mode display list.
+	 */
+	public static List&lt;GameModeDisplay&gt; getUnmodifiableGameModeDisplayList()
+	{
+<span class="nc" id="L226">		return Collections.unmodifiableList(GAME_MODE_DISPLAY_LIST);</span>
+	}
+
+	/**
+	 * Return an &lt;b&gt;unmodifiable&lt;/b&gt; version of the hairstyle list.
+	 * @return an &lt;b&gt;unmodifiable&lt;/b&gt; version of the hairstyle list.
+	 */
+	public static List&lt;String&gt; getUnmodifiableHairStyleList()
+	{
+<span class="nc" id="L235">		List&lt;String&gt; hairStyleList = HAIR_STYLE_MAP.get(SettingsHandler.getGameAsProperty().get().getName());</span>
+<span class="nc bnc" id="L236" title="All 2 branches missed.">		if (hairStyleList == null)</span>
+		{
+<span class="nc" id="L238">			hairStyleList = HAIR_STYLE_MAP.get(&quot;*&quot;);</span>
+		}
+<span class="nc bnc" id="L240" title="All 2 branches missed.">		if (hairStyleList == null)</span>
+		{
+<span class="nc" id="L242">			hairStyleList = Collections.emptyList();</span>
+		}
+<span class="nc" id="L244">		return Collections.unmodifiableList(hairStyleList);</span>
+	}
+
+	/**
+	 * Return an &lt;b&gt;unmodifiable&lt;/b&gt; version of the interests list.
+	 * @return an &lt;b&gt;unmodifiable&lt;/b&gt; version of the interests list.
+	 */
+	public static List&lt;String&gt; getUnmodifiableInterestsList()
+	{
+<span class="nc" id="L253">		List&lt;String&gt; interestsList = INTERESTS_MAP.get(SettingsHandler.getGameAsProperty().get().getName());</span>
+<span class="nc bnc" id="L254" title="All 2 branches missed.">		if (interestsList == null)</span>
+		{
+<span class="nc" id="L256">			interestsList = INTERESTS_MAP.get(&quot;*&quot;);</span>
+		}
+<span class="nc bnc" id="L258" title="All 2 branches missed.">		if (interestsList == null)</span>
+		{
+<span class="nc" id="L260">			interestsList = Collections.emptyList();</span>
+		}
+<span class="nc" id="L262">		return Collections.unmodifiableList(interestsList);</span>
+	}
+
+	/**
+	 * Return an &lt;b&gt;unmodifiable&lt;/b&gt; version of the location list.
+	 * @return an &lt;b&gt;unmodifiable&lt;/b&gt; version of the location list.
+	 */
+	public static List&lt;String&gt; getUnmodifiableLocationList()
+	{
+<span class="nc" id="L271">		List&lt;String&gt; locationList = LOCATION_MAP.get(SettingsHandler.getGameAsProperty().get().getName());</span>
+<span class="nc bnc" id="L272" title="All 2 branches missed.">		if (locationList == null)</span>
+		{
+<span class="nc" id="L274">			locationList = LOCATION_MAP.get(&quot;*&quot;);</span>
+		}
+<span class="nc bnc" id="L276" title="All 2 branches missed.">		if (locationList == null)</span>
+		{
+<span class="nc" id="L278">			locationList = Collections.emptyList();</span>
+		}
+<span class="nc" id="L280">		return Collections.unmodifiableList(locationList);</span>
+	}
+
+	/**
+	 * Return an &lt;b&gt;unmodifiable&lt;/b&gt; version of the phobia list.
+	 * @return an &lt;b&gt;unmodifiable&lt;/b&gt; version of the phobia list.
+	 */
+	public static List&lt;String&gt; getUnmodifiablePhobiaList()
+	{
+<span class="nc" id="L289">		List&lt;String&gt; phobiaList = PHOBIA_MAP.get(SettingsHandler.getGameAsProperty().get().getName());</span>
+<span class="nc bnc" id="L290" title="All 2 branches missed.">		if (phobiaList == null)</span>
+		{
+<span class="nc" id="L292">			phobiaList = PHOBIA_MAP.get(&quot;*&quot;);</span>
+		}
+<span class="nc bnc" id="L294" title="All 2 branches missed.">		if (phobiaList == null)</span>
+		{
+<span class="nc" id="L296">			phobiaList = Collections.emptyList();</span>
+		}
+<span class="nc" id="L298">		return Collections.unmodifiableList(phobiaList);</span>
+	}
+
+	/**
+	 * Return an &lt;b&gt;unmodifiable&lt;/b&gt; version of the phrase list.
+	 * @return an &lt;b&gt;unmodifiable&lt;/b&gt; version of the phrase list.
+	 */
+	public static List&lt;String&gt; getUnmodifiablePhraseList()
+	{
+<span class="nc" id="L307">		Set&lt;String&gt; phraseSet = PHRASE_MAP.get(SettingsHandler.getGameAsProperty().get().getName());</span>
+<span class="nc bnc" id="L308" title="All 2 branches missed.">		if (phraseSet == null)</span>
+		{
+<span class="nc" id="L310">			phraseSet = PHRASE_MAP.get(&quot;*&quot;);</span>
+		}
+<span class="nc bnc" id="L312" title="All 2 branches missed.">		if (phraseSet == null)</span>
+		{
+<span class="nc" id="L314">			return Collections.emptyList();</span>
+		}
+<span class="nc" id="L316">		return new ArrayList&lt;&gt;(phraseSet);</span>
+	}
+
+	/**
+	 * Return an &lt;b&gt;unmodifiable&lt;/b&gt; version of the speech list.
+	 * @return  an &lt;b&gt;unmodifiable&lt;/b&gt; version of the speech list.
+	 */
+	public static List&lt;String&gt; getUnmodifiableSpeechList()
+	{
+<span class="nc" id="L325">		List&lt;String&gt; speechList = SPEECH_MAP.get(SettingsHandler.getGameAsProperty().get().getName());</span>
+<span class="nc bnc" id="L326" title="All 2 branches missed.">		if (speechList == null)</span>
+		{
+<span class="nc" id="L328">			speechList = SPEECH_MAP.get(&quot;*&quot;);</span>
+		}
+<span class="nc bnc" id="L330" title="All 2 branches missed.">		if (speechList == null)</span>
+		{
+<span class="nc" id="L332">			speechList = Collections.emptyList();</span>
+		}
+<span class="nc" id="L334">		return Collections.unmodifiableList(speechList);</span>
+	}
+
+	/**
+	 * Return an &lt;b&gt;unmodifiable&lt;/b&gt; version of the trait list.
+	 * @return an &lt;b&gt;unmodifiable&lt;/b&gt; version of the trait list.
+	 */
+	public static List&lt;String&gt; getUnmodifiableTraitList()
+	{
+<span class="nc" id="L343">		Set&lt;String&gt; traitList = TRAIT_MAP.get(SettingsHandler.getGameAsProperty().get().getName());</span>
+<span class="nc bnc" id="L344" title="All 2 branches missed.">		if (traitList == null)</span>
+		{
+<span class="nc" id="L346">			traitList = TRAIT_MAP.get(&quot;*&quot;);</span>
+		}
+<span class="nc bnc" id="L348" title="All 2 branches missed.">		if (traitList == null)</span>
+		{
+<span class="nc" id="L350">			return Collections.emptyList();</span>
+		}
+<span class="nc" id="L352">		return new ArrayList&lt;&gt;(traitList);</span>
+	}
+
+	//BirthplaceList
+
+	/**
+	 * Add a birthplace name to the birthplace list.
+	 * @param birthplace
+	 * @param gameMode
+	 */
+	public static void addToBirthplaceList(final String birthplace, final String gameMode)
+	{
+<span class="nc" id="L364">		List&lt;String&gt; birthplaceList = BIRTHPLACE_MAP.get(gameMode);</span>
+<span class="nc bnc" id="L365" title="All 2 branches missed.">		if (birthplaceList == null)</span>
+		{
+<span class="nc" id="L367">			birthplaceList = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L368">			BIRTHPLACE_MAP.put(gameMode, birthplaceList);</span>
+		}
+<span class="nc bnc" id="L370" title="All 2 branches missed.">		if (!birthplaceList.contains(birthplace))</span>
+		{
+<span class="nc" id="L372">			birthplaceList.add(birthplace);</span>
+		}
+<span class="nc" id="L374">	}</span>
+
+	//CITYLIST
+
+	/**
+	 * Add to the city list.
+	 * @param city
+	 * @param gameMode
+	 */
+	public static void addToCityList(final String city, final String gameMode)
+	{
+<span class="nc" id="L385">		List&lt;String&gt; cityList = CITY_MAP.get(gameMode);</span>
+<span class="nc bnc" id="L386" title="All 2 branches missed.">		if (cityList == null)</span>
+		{
+<span class="nc" id="L388">			cityList = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L389">			CITY_MAP.put(gameMode, cityList);</span>
+		}
+<span class="nc bnc" id="L391" title="All 2 branches missed.">		if (!cityList.contains(city))</span>
+		{
+<span class="nc" id="L393">			cityList.add(city);</span>
+		}
+<span class="nc" id="L395">	}</span>
+
+	//EQUIPSLOTLIST
+
+	/**
+	 * Add the equipment slot to the equipment slot list.
+	 * @param equipmentSlot
+	 * @param gameMode = key in the equipSlotMap to which to add the equipmentSlot
+	 */
+	public static void addToEquipSlotsList(final EquipSlot equipmentSlot, final String gameMode)
+	{
+<span class="nc" id="L406">		List&lt;EquipSlot&gt; equipSlotList = EQUIP_SLOT_MAP.get(gameMode);</span>
+<span class="nc bnc" id="L407" title="All 2 branches missed.">		if (equipSlotList == null)</span>
+		{
+<span class="nc" id="L409">			equipSlotList = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L410">			EQUIP_SLOT_MAP.put(gameMode, equipSlotList);</span>
+		}
+<span class="nc bnc" id="L412" title="All 2 branches missed.">		if (!equipSlotList.contains(equipmentSlot))</span>
+		{
+<span class="nc" id="L414">			equipSlotList.add(equipmentSlot);</span>
+		}
+<span class="nc" id="L416">	}</span>
+
+	/**
+	 * Add the body structure to the body structure list.
+	 * @param bodyStructure
+	 * @param gameMode = key in the equipSlotMap to which to add the equipmentSlot
+	 */
+	public static void addToBodyStructureList(final String bodyStructure, final String gameMode)
+	{
+<span class="nc" id="L425">		List&lt;String&gt; bodyStructureList = BODY_STRUCTURE_MAP.get(gameMode);</span>
+<span class="nc bnc" id="L426" title="All 2 branches missed.">		if (bodyStructureList == null)</span>
+		{
+<span class="nc" id="L428">			bodyStructureList = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L429">			BODY_STRUCTURE_MAP.put(gameMode, bodyStructureList);</span>
+		}
+<span class="nc bnc" id="L431" title="All 2 branches missed.">		if (!bodyStructureList.contains(bodyStructure))</span>
+		{
+<span class="nc" id="L433">			bodyStructureList.add(bodyStructure);</span>
+		}
+<span class="nc" id="L435">	}</span>
+
+	/**
+	 * Add the migration rule to the game mode's migration rule list.
+	 * @param migrationRule The migration rule to be added.
+	 * @param gameMode = key in the migrationRuleMap to which to add the migrationRule
+	 */
+	public static void addToMigrationRulesList(final MigrationRule migrationRule, final String gameMode)
+	{
+<span class="nc" id="L444">		List&lt;MigrationRule&gt; migrationRuleList = MIGRATION_RULE_MAP.get(gameMode);</span>
+<span class="nc bnc" id="L445" title="All 2 branches missed.">		if (migrationRuleList == null)</span>
+		{
+<span class="nc" id="L447">			migrationRuleList = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L448">			MIGRATION_RULE_MAP.put(gameMode, migrationRuleList);</span>
+		}
+<span class="nc bnc" id="L450" title="All 2 branches missed.">		if (!migrationRuleList.contains(migrationRule))</span>
+		{
+<span class="nc" id="L452">			migrationRuleList.add(migrationRule);</span>
+		}
+<span class="nc" id="L454">	}</span>
+
+	//GAMEMODELIST
+
+	/**
+	 * Add the game mode to the list.
+	 * @param mode
+	 */
+	public static void addToGameModeList(final GameMode mode)
+	{
+<span class="nc" id="L464">		GAME_MODE_LIST.add(mode);</span>
+<span class="nc" id="L465">		GAME_MODE_DISPLAY_LIST.add(new GameModeDisplay(mode));</span>
+<span class="nc" id="L466">	}</span>
+
+	//HAIRSTYLELIST
+
+	/**
+	 * Add the hairstyle to the list.
+	 * @param hairStyle
+	 * @param gameMode
+	 */
+	public static void addToHairStyleList(final String hairStyle, final String gameMode)
+	{
+<span class="nc" id="L477">		List&lt;String&gt; hairStyleList = HAIR_STYLE_MAP.get(gameMode);</span>
+<span class="nc bnc" id="L478" title="All 2 branches missed.">		if (hairStyleList == null)</span>
+		{
+<span class="nc" id="L480">			hairStyleList = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L481">			HAIR_STYLE_MAP.put(gameMode, hairStyleList);</span>
+		}
+<span class="nc bnc" id="L483" title="All 2 branches missed.">		if (!hairStyleList.contains(hairStyle))</span>
+		{
+<span class="nc" id="L485">			hairStyleList.add(hairStyle);</span>
+		}
+<span class="nc" id="L487">		hairStyleList.add(hairStyle);</span>
+<span class="nc" id="L488">	}</span>
+
+	//INTERESTLIST
+
+	/**
+	 * Add to the interests list.
+	 * @param interest
+	 * @param gameMode
+	 */
+	public static void addToInterestsList(final String interest, final String gameMode)
+	{
+<span class="nc" id="L499">		List&lt;String&gt; interestsList = INTERESTS_MAP.get(gameMode);</span>
+<span class="nc bnc" id="L500" title="All 2 branches missed.">		if (interestsList == null)</span>
+		{
+<span class="nc" id="L502">			interestsList = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L503">			INTERESTS_MAP.put(gameMode, interestsList);</span>
+		}
+<span class="nc bnc" id="L505" title="All 2 branches missed.">		if (!interestsList.contains(interest))</span>
+		{
+<span class="nc" id="L507">			interestsList.add(interest);</span>
+		}
+<span class="nc" id="L509">	}</span>
+
+	//LOCATIONLIST
+
+	/**
+	 * Add to the location list.
+	 * @param location
+	 * @param gameMode
+	 */
+	public static void addToLocationList(final String location, final String gameMode)
+	{
+<span class="nc" id="L520">		List&lt;String&gt; locationList = LOCATION_MAP.get(gameMode);</span>
+<span class="nc bnc" id="L521" title="All 2 branches missed.">		if (locationList == null)</span>
+		{
+<span class="nc" id="L523">			locationList = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L524">			LOCATION_MAP.put(gameMode, locationList);</span>
+		}
+<span class="nc bnc" id="L526" title="All 2 branches missed.">		if (!locationList.contains(location))</span>
+		{
+<span class="nc" id="L528">			locationList.add(location);</span>
+		}
+<span class="nc" id="L530">	}</span>
+
+	//PHOBIALIST
+
+	/**
+	 * Add the phobia to the phobia list.
+	 * @param phobia
+	 * @param gameMode
+	 */
+	public static void addToPhobiaList(final String phobia, final String gameMode)
+	{
+<span class="nc" id="L541">		List&lt;String&gt; phobiaList = PHOBIA_MAP.get(gameMode);</span>
+<span class="nc bnc" id="L542" title="All 2 branches missed.">		if (phobiaList == null)</span>
+		{
+<span class="nc" id="L544">			phobiaList = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L545">			PHOBIA_MAP.put(gameMode, phobiaList);</span>
+		}
+<span class="nc bnc" id="L547" title="All 2 branches missed.">		if (!phobiaList.contains(phobia))</span>
+		{
+<span class="nc" id="L549">			phobiaList.add(phobia);</span>
+		}
+<span class="nc" id="L551">	}</span>
+
+	//PHRASELIST
+
+	/**
+	 * Add the phrase to the phrase list.
+	 * @param phrase
+	 * @param gameMode
+	 */
+	public static void addToPhraseList(final String phrase, final String gameMode)
+	{
+<span class="nc" id="L562">		Set&lt;String&gt; phraseList = PHRASE_MAP.get(gameMode);</span>
+<span class="nc bnc" id="L563" title="All 2 branches missed.">		if (phraseList == null)</span>
+		{
+<span class="nc" id="L565">			phraseList = new HashSet&lt;&gt;();</span>
+<span class="nc" id="L566">			PHRASE_MAP.put(gameMode, phraseList);</span>
+		}
+<span class="nc" id="L568">		phraseList.add(phrase);</span>
+<span class="nc" id="L569">	}</span>
+
+	//SPEECHLIST
+
+	/**
+	 * Add to the speech list.
+	 * @param speech
+	 * @param gameMode
+	 */
+	public static void addToSpeechList(final String speech, final String gameMode)
+	{
+<span class="nc" id="L580">		List&lt;String&gt; speechList = SPEECH_MAP.get(gameMode);</span>
+<span class="nc bnc" id="L581" title="All 2 branches missed.">		if (speechList == null)</span>
+		{
+<span class="nc" id="L583">			speechList = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L584">			SPEECH_MAP.put(gameMode, speechList);</span>
+		}
+<span class="nc bnc" id="L586" title="All 2 branches missed.">		if (!speechList.contains(speech))</span>
+		{
+<span class="nc" id="L588">			speechList.add(speech);</span>
+		}
+<span class="nc" id="L590">	}</span>
+
+	//TRAITLIST
+
+	/**
+	 * Add the trait to the trait list.
+	 * @param trait
+	 * @param gameMode
+	 */
+	public static void addToTraitList(final String trait, final String gameMode)
+	{
+<span class="nc" id="L601">		Set&lt;String&gt; traitList = TRAIT_MAP.get(gameMode);</span>
+<span class="nc bnc" id="L602" title="All 2 branches missed.">		if (traitList == null)</span>
+		{
+<span class="nc" id="L604">			traitList = new HashSet&lt;&gt;();</span>
+<span class="nc" id="L605">			TRAIT_MAP.put(gameMode, traitList);</span>
+		}
+<span class="nc" id="L607">		traitList.add(trait);</span>
+<span class="nc" id="L608">	}</span>
+
+	/**
+	 * Empty the equipment slots list.
+	 */
+	public static void clearEquipSlotsMap()
+	{
+<span class="nc" id="L615">		EQUIP_SLOT_MAP.clear();</span>
+<span class="nc" id="L616">	}</span>
+
+	/**
+	 * Empty the migration rules list.
+	 */
+	public static void clearMigrationRuleMap()
+	{
+<span class="nc" id="L623">		MIGRATION_RULE_MAP.clear();</span>
+<span class="nc" id="L624">	}</span>
+
+	/**
+	 * Empty the game mode list.
+	 */
+	public static void clearGameModeList()
+	{
+<span class="nc" id="L631">		GAME_MODE_LIST.clear();</span>
+<span class="nc" id="L632">		GAME_MODE_DISPLAY_LIST.clear();</span>
+<span class="nc" id="L633">	}</span>
+
+	/**
+	 * Sort the game mode list.
+	 */
+	public static void sortGameModeList()
+	{
+<span class="nc" id="L640">		Collections.sort(GAME_MODE_LIST);</span>
+<span class="nc" id="L641">		Collections.sort(GAME_MODE_DISPLAY_LIST);</span>
+<span class="nc" id="L642">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

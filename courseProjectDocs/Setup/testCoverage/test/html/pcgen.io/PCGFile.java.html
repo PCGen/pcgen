@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PCGFile.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.io</a> &gt; <span class="el_source">PCGFile.java</span></div><h1>PCGFile.java</h1><pre class="source lang-java linenums">/*
+ * Missing License Header, Copyright 2016 (C) Andrew Maitland &lt;amaitland@users.sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ */
+
+package pcgen.io;
+
+import java.io.File;
+import java.net.URI;
+
+import pcgen.cdom.base.Constants;
+
+/**
+ * Common I/O methods specific to files.
+ */
+public final class PCGFile
+{
+	/** prevent instantiation of this utility class. */
+	private PCGFile()
+	{
+	}
+
+	/**
+	 * Checks if the given {@code file} is a PCGen character file based on the
+	 * file extension.
+	 *
+	 * @param file the file to test
+	 * @return {{@code true}} if the file exists and is a PCGen character file
+	 *
+	 * @see Constants#EXTENSION_CHARACTER_FILE
+	 */
+	public static boolean isPCGenCharacterFile(final File file)
+	{
+		// A directory strangely named &quot;fred.pcg&quot; is not a character file.
+<span class="nc bnc" id="L49" title="All 2 branches missed.">		if (!file.isFile())</span>
+		{
+<span class="nc" id="L51">			return false;</span>
+		}
+
+<span class="nc" id="L54">		return getWindowsSafeFilename(file).endsWith(Constants.EXTENSION_CHARACTER_FILE);</span>
+	}
+
+	/**
+	 * Checks if the given {@code file} is a PCGen party file based on the file
+	 * extension.
+	 *
+	 * @param file the file to test
+	 * @return {{@code true}} if the file exists and is a PCGen party file
+	 *
+	 * @see Constants#EXTENSION_PARTY_FILE
+	 */
+	public static boolean isPCGenPartyFile(final File file)
+	{
+		// A directory strangely named &quot;fred.pcp&quot; is not a party file.
+<span class="nc bnc" id="L69" title="All 2 branches missed.">		if (!file.isFile())</span>
+		{
+<span class="nc" id="L71">			return false;</span>
+		}
+
+<span class="nc" id="L74">		return getWindowsSafeFilename(file).endsWith(Constants.EXTENSION_PARTY_FILE);</span>
+	}
+
+	/**
+	 * Checks if the given {@code file} is a PCGen campaign file based on the
+	 * file extension.
+	 *
+	 * @param file the file to test
+	 * @return {{@code true}} if a PCGen campaign file
+	 *
+	 * @see Constants#EXTENSION_CAMPAIGN_FILE
+	 */
+	private static boolean isPCGenCampaignFile(final File file)
+	{
+		// A directory strangely named &quot;fred.pcc&quot; is not a campaign file.
+<span class="nc bnc" id="L89" title="All 2 branches missed.">		if (!file.isFile())</span>
+		{
+<span class="nc" id="L91">			return false;</span>
+		}
+
+<span class="nc" id="L94">		return getWindowsSafeFilename(file).endsWith(Constants.EXTENSION_CAMPAIGN_FILE);</span>
+	}
+
+	/**
+	 * Checks if the given {@code uri} is a PCGen campaign file based on the
+	 * file extension.
+	 *
+	 * @param uri the uri to test
+	 * @return {{@code true}} if a PCGen campaign file
+	 *
+	 * @see Constants#EXTENSION_CAMPAIGN_FILE
+	 */
+	public static boolean isPCGenCampaignFile(final URI uri)
+	{
+<span class="nc bnc" id="L108" title="All 2 branches missed.">		if (&quot;file&quot;.equals(uri.getScheme()))</span>
+		{
+<span class="nc" id="L110">			return isPCGenCampaignFile(new File(uri));</span>
+		}
+
+<span class="nc bnc" id="L113" title="All 4 branches missed.">		return uri.getPath() != null &amp;&amp; uri.getPath().toLowerCase().endsWith(Constants.EXTENSION_CAMPAIGN_FILE);</span>
+	}
+
+	/**
+	 * Checks if the given {@code file} is a PCGen list file based on the file
+	 * extension.
+	 *
+	 * @param file the file to test
+	 * @return {{@code true}} if a PCGen list file
+	 *
+	 * @see Constants#EXTENSION_LIST_FILE
+	 */
+	public static boolean isPCGenListFile(final File file)
+	{
+		// A directory strangely named &quot;fred.lst&quot; is not a list file.
+<span class="nc bnc" id="L128" title="All 2 branches missed.">		if (!file.isFile())</span>
+		{
+<span class="nc" id="L130">			return false;</span>
+		}
+
+<span class="nc" id="L133">		return getWindowsSafeFilename(file).endsWith(Constants.EXTENSION_LIST_FILE);</span>
+	}
+
+	/**
+	 * Checks if the given {@code file} is a PCGen character or party file based
+	 * on the file extension.
+	 *
+	 * @param file the file to test
+	 *
+	 * @return {{@code true}} if a PCGen character or party file
+	 *
+	 * @see Constants#EXTENSION_CHARACTER_FILE
+	 * @see Constants#EXTENSION_PARTY_FILE
+	 */
+	public static boolean isPCGenCharacterOrPartyFile(final File file)
+	{
+		// A directory strangely named &quot;fred.pcg&quot; is not a character file.
+<span class="nc bnc" id="L150" title="All 2 branches missed.">		if (file.isDirectory())</span>
+		{
+<span class="nc" id="L152">			return false;</span>
+		}
+
+<span class="nc" id="L155">		final String name = getWindowsSafeFilename(file);</span>
+
+<span class="nc bnc" id="L157" title="All 4 branches missed.">		return name.endsWith(Constants.EXTENSION_CHARACTER_FILE) || name.endsWith(Constants.EXTENSION_PARTY_FILE);</span>
+	}
+
+	/**
+	 * It may turn out to be the case that this should be optimized further to
+	 * pull out the extension, but there doesn't seem to be such high use of
+	 * filename checking to warrant further tinkering.
+	 * 
+	 * @param file The filename to sanitise.
+	 * @return windows safe file name
+	 */
+	private static String getWindowsSafeFilename(final File file)
+	{
+<span class="nc" id="L170">		return file.getName().toLowerCase();</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

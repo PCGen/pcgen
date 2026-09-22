@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CountCommand.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.jepcommands</a> &gt; <span class="el_source">CountCommand.java</span></div><h1>CountCommand.java</h1><pre class="source lang-java linenums">/*
+ * CountCommand.java
+ * Copyright 2006 (C) James Dempsey
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+
+package plugin.jepcommands;
+
+import java.util.Stack;
+
+import pcgen.core.PlayerCharacter;
+import pcgen.util.AbstractCountCommand;
+import pcgen.util.JepCountType;
+import pcgen.util.Logging;
+
+import org.nfunk.jep.ParseException;
+
+/**
+ * {@code CountCommand} deals with the count() JEP command. The first parameter will
+ * be the type of object being counted and further parameters will specify the criteria.
+ * 26 Oct 2007) $
+ */
+public class CountCommand extends AbstractCountCommand
+{
+
+	/**
+	 * Constructor.
+	 */
+	public CountCommand()
+<span class="nc" id="L43">	{</span>
+<span class="nc" id="L44">		numberOfParameters = -1;</span>
+<span class="nc" id="L45">	}</span>
+
+	/**
+	 * Gets the name of the function handled by this class.
+	 * @return The name of the function.
+	 */
+	@Override
+	public String getFunctionName()
+	{
+<span class="nc" id="L54">		return &quot;COUNT&quot;;</span>
+	}
+
+	/**
+	 * Runs count on the inStack. The parameter is popped off the {@code inStack},
+	 * and the variable's value is pushed back to the top of {@code inStack}.
+	 *
+	 * @param inStack The jep stack that the count command will process
+	 *
+	 * @throws ParseException
+	 */
+	@Override
+	@SuppressWarnings(&quot;unchecked&quot;)
+	//Uses JEP, which doesn't use generics
+	public void run(final Stack inStack) throws ParseException
+	{
+		// Grab the character under scrutiny
+<span class="nc" id="L71">		final PlayerCharacter pc = getPC();</span>
+
+<span class="nc bnc" id="L73" title="All 2 branches missed.">		if (pc == null)</span>
+		{
+<span class="nc" id="L75">			throw new ParseException(&quot;Invalid parent (no PC): &quot; + parent.getClass().getName());</span>
+		}
+
+		// check the stack
+<span class="nc" id="L79">		checkStack(inStack);</span>
+
+<span class="nc bnc" id="L81" title="All 2 branches missed.">		if (1 &lt;= curNumberOfParameters)</span>
+		{
+			// move all but the first parameter from the stack into and array of Objects
+<span class="nc" id="L84">			final Object[] params = paramStackToArray(inStack, curNumberOfParameters - 1);</span>
+
+			// retrieve the first Object, this should be a String which will map directly to
+			// a JepCountEnum, this specifies the type of count to perform
+<span class="nc" id="L88">			final Object toCount = inStack.pop();</span>
+
+<span class="nc bnc" id="L90" title="All 2 branches missed.">			if (toCount instanceof String)</span>
+			{
+<span class="nc" id="L92">				final JepCountType countEnum = JepCountType.valueOf((String) toCount);</span>
+<span class="nc bnc" id="L93" title="All 2 branches missed.">				if (countEnum == null)</span>
+				{
+<span class="nc" id="L95">					Logging.errorPrint(&quot;Unable to find count type: &quot; + toCount);</span>
+				}
+
+				// Count the requested object type.
+<span class="nc" id="L99">				final Double result = (Double) countEnum.count(pc, params);</span>
+
+<span class="nc" id="L101">				inStack.push(result);</span>
+<span class="nc" id="L102">			}</span>
+			else
+			{
+<span class="nc" id="L105">				throw new ParseException(&quot;Invalid parameter type&quot;);</span>
+			}
+<span class="nc" id="L107">		}</span>
+		else
+		{
+<span class="nc" id="L110">			throw new ParseException(&quot;missing parameter, nothing to count&quot;);</span>
+		}
+<span class="nc" id="L112">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

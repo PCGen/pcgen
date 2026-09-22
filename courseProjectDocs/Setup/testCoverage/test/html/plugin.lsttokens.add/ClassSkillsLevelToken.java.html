@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ClassSkillsLevelToken.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.lsttokens.add</a> &gt; <span class="el_source">ClassSkillsLevelToken.java</span></div><h1>ClassSkillsLevelToken.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2007 (C) Thomas Parker &lt;thpr@users.sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package plugin.lsttokens.add;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.StringTokenizer;
+
+import pcgen.cdom.formula.Formula;
+import pcgen.base.text.ParsingSeparator;
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.ChoiceSet;
+import pcgen.cdom.base.ConcretePersistentTransitionChoice;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.base.PersistentTransitionChoice;
+import pcgen.cdom.base.SelectableSet;
+import pcgen.cdom.base.TransitionChoice;
+import pcgen.cdom.choiceset.ReferenceChoiceSet;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.helper.ClassSkillChoiceActor;
+import pcgen.cdom.inst.PCClassLevel;
+import pcgen.cdom.reference.CDOMGroupRef;
+import pcgen.cdom.reference.ObjectMatchingReference;
+import pcgen.core.PCClass;
+import pcgen.core.Skill;
+import pcgen.rules.context.Changes;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.TokenUtilities;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.ParseResult;
+
+<span class="fc" id="L51">public class ClassSkillsLevelToken extends AbstractNonEmptyToken&lt;PCClassLevel&gt;</span>
+		implements CDOMSecondaryToken&lt;PCClassLevel&gt;
+{
+	@Override
+	public String getTokenName()
+	{
+<span class="fc" id="L57">		return &quot;CLASSSKILLS&quot;;</span>
+	}
+
+<span class="fc" id="L60">	private static final Class&lt;Skill&gt; SKILL_CLASS = Skill.class;</span>
+
+	@Override
+	public String getParentToken()
+	{
+<span class="fc" id="L65">		return &quot;ADD&quot;;</span>
+	}
+
+	private String getFullName()
+	{
+<span class="fc" id="L70">		return getParentToken() + Constants.COLON + getTokenName();</span>
+	}
+
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context, PCClassLevel obj, String value)
+	{
+<span class="fc" id="L76">		ParsingSeparator sep = new ParsingSeparator(value, '|');</span>
+<span class="fc" id="L77">		sep.addGroupingPair('[', ']');</span>
+<span class="fc" id="L78">		sep.addGroupingPair('(', ')');</span>
+
+<span class="fc" id="L80">		String activeValue = sep.next();</span>
+		Formula count;
+<span class="fc bfc" id="L82" title="All 2 branches covered.">		if (!sep.hasNext())</span>
+		{
+<span class="fc" id="L84">			count = FormulaFactory.ONE;</span>
+		}
+		else
+		{
+<span class="fc" id="L88">			count = FormulaFactory.getFormulaFor(activeValue);</span>
+<span class="pc bpc" id="L89" title="1 of 2 branches missed.">			if (!count.isValid())</span>
+			{
+<span class="nc" id="L91">				return new ParseResult.Fail(&quot;Count in &quot; + getTokenName() + &quot; was not valid: &quot; + count.toString());</span>
+			}
+<span class="fc bfc" id="L93" title="All 4 branches covered.">			if (count.isStatic() &amp;&amp; count.resolveStatic().doubleValue() &lt;= 0)</span>
+			{
+<span class="fc" id="L95">				return new ParseResult.Fail(&quot;Count in &quot; + getFullName() + &quot; must be &gt; 0&quot;);</span>
+			}
+<span class="fc" id="L97">			activeValue = sep.next();</span>
+		}
+<span class="fc bfc" id="L99" title="All 2 branches covered.">		if (sep.hasNext())</span>
+		{
+<span class="fc" id="L101">			return new ParseResult.Fail(getFullName() + &quot; had too many pipe separated items: &quot; + value);</span>
+		}
+<span class="fc" id="L103">		ParseResult pr = checkSeparatorsAndNonEmpty(',', activeValue);</span>
+<span class="fc bfc" id="L104" title="All 2 branches covered.">		if (!pr.passed())</span>
+		{
+<span class="fc" id="L106">			return pr;</span>
+		}
+
+<span class="fc" id="L109">		List&lt;CDOMReference&lt;Skill&gt;&gt; refs = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L110">		StringTokenizer tok = new StringTokenizer(activeValue, Constants.COMMA);</span>
+<span class="fc" id="L111">		CDOMGroupRef&lt;Skill&gt; allRef = context.getReferenceContext().getCDOMAllReference(SKILL_CLASS);</span>
+<span class="fc" id="L112">		Integer autoRank = null;</span>
+<span class="fc bfc" id="L113" title="All 2 branches covered.">		while (tok.hasMoreTokens())</span>
+		{
+<span class="fc" id="L115">			String tokText = tok.nextToken();</span>
+<span class="pc bpc" id="L116" title="1 of 4 branches missed.">			if (Constants.LST_ALL.equals(tokText) || Constants.LST_ANY.equals(tokText))</span>
+			{
+<span class="fc" id="L118">				refs.add(allRef);</span>
+			}
+			else
+			{
+<span class="fc bfc" id="L122" title="All 2 branches covered.">				if (Constants.LST_UNTRAINED.equals(tokText))</span>
+				{
+<span class="fc" id="L124">					ObjectMatchingReference&lt;Skill, Boolean&gt; omr =</span>
+							new ObjectMatchingReference&lt;&gt;(tokText, allRef, ObjectKey.USE_UNTRAINED, Boolean.TRUE);
+<span class="fc" id="L126">					omr.returnIncludesNulls(true);</span>
+<span class="fc" id="L127">					refs.add(omr);</span>
+<span class="fc" id="L128">				}</span>
+<span class="fc bfc" id="L129" title="All 2 branches covered.">				else if (Constants.LST_TRAINED.equals(tokText))</span>
+				{
+<span class="fc" id="L131">					refs.add(new ObjectMatchingReference&lt;&gt;(tokText, allRef, ObjectKey.USE_UNTRAINED, Boolean.FALSE));</span>
+				}
+<span class="fc bfc" id="L133" title="All 2 branches covered.">				else if (Constants.LST_EXCLUSIVE.equals(tokText))</span>
+				{
+<span class="fc" id="L135">					refs.add(new ObjectMatchingReference&lt;&gt;(tokText, allRef, ObjectKey.EXCLUSIVE, Boolean.TRUE));</span>
+				}
+<span class="pc bpc" id="L137" title="1 of 4 branches missed.">				else if (Constants.LST_NONEXCLUSIVE.equals(tokText) || Constants.LST_CROSS_CLASS.equals(tokText))</span>
+				{
+<span class="fc" id="L139">					ObjectMatchingReference&lt;Skill, Boolean&gt; omr =</span>
+							new ObjectMatchingReference&lt;&gt;(tokText, allRef, ObjectKey.EXCLUSIVE, Boolean.FALSE);
+<span class="fc" id="L141">					omr.returnIncludesNulls(true);</span>
+<span class="fc" id="L142">					refs.add(omr);</span>
+<span class="fc" id="L143">				}</span>
+<span class="fc bfc" id="L144" title="All 2 branches covered.">				else if (tokText.startsWith(&quot;AUTORANK=&quot;))</span>
+				{
+<span class="fc bfc" id="L146" title="All 2 branches covered.">					if (autoRank != null)</span>
+					{
+<span class="fc" id="L148">						return new ParseResult.Fail(</span>
+<span class="fc" id="L149">							&quot;Cannot have two &quot; + &quot;AUTORANK= items in &quot; + getFullName() + &quot;: &quot; + value);</span>
+					}
+<span class="fc" id="L151">					String rankString = tokText.substring(9);</span>
+					try
+					{
+<span class="fc" id="L154">						autoRank = Integer.decode(rankString);</span>
+<span class="fc bfc" id="L155" title="All 2 branches covered.">						if (autoRank &lt;= 0)</span>
+						{
+<span class="fc" id="L157">							return new ParseResult.Fail(</span>
+								&quot;Expected AUTORANK= to be&quot; + &quot; greater than zero, found: &quot; + autoRank);
+						}
+					}
+<span class="fc" id="L161">					catch (NumberFormatException e)</span>
+					{
+<span class="fc" id="L163">						return new ParseResult.Fail(</span>
+							&quot;Expected AUTORANK= to have&quot; + &quot; an integer value, found: &quot; + rankString);
+<span class="fc" id="L165">					}</span>
+<span class="fc" id="L166">				}</span>
+				else
+				{
+<span class="fc" id="L169">					CDOMReference&lt;Skill&gt; skref = TokenUtilities.getTypeOrPrimitive(context, SKILL_CLASS, tokText);</span>
+<span class="fc bfc" id="L170" title="All 2 branches covered.">					if (skref == null)</span>
+					{
+<span class="fc" id="L172">						return new ParseResult.Fail(&quot;  Error was encountered while parsing &quot; + getFullName() + &quot;: &quot;</span>
+							+ value + &quot; had an invalid reference: &quot; + tokText);
+					}
+<span class="fc" id="L175">					refs.add(skref);</span>
+				}
+			}
+<span class="fc" id="L178">		}</span>
+
+<span class="fc bfc" id="L180" title="All 2 branches covered.">		if (refs.isEmpty())</span>
+		{
+<span class="fc" id="L182">			return new ParseResult.Fail(&quot;Non-sensical &quot; + getFullName() + &quot;: Contains no skill reference: &quot; + value);</span>
+		}
+
+<span class="fc" id="L185">		ReferenceChoiceSet&lt;Skill&gt; rcs = new ReferenceChoiceSet&lt;&gt;(refs);</span>
+<span class="fc bfc" id="L186" title="All 2 branches covered.">		if (!rcs.getGroupingState().isValid())</span>
+		{
+<span class="fc" id="L188">			return new ParseResult.Fail(</span>
+<span class="fc" id="L189">				&quot;Non-sensical &quot; + getFullName() + &quot;: Contains ANY and a specific reference: &quot; + value);</span>
+		}
+<span class="fc" id="L191">		ChoiceSet&lt;Skill&gt; cs = new ChoiceSet&lt;&gt;(getTokenName(), rcs, true);</span>
+<span class="fc" id="L192">		PersistentTransitionChoice&lt;Skill&gt; tc = new ConcretePersistentTransitionChoice&lt;&gt;(cs, count);</span>
+		// TODO This is a hack, to get this to work pre-CDOM
+<span class="fc" id="L194">		PCClass parent = (PCClass) obj.get(ObjectKey.TOKEN_PARENT);</span>
+<span class="fc" id="L195">		ClassSkillChoiceActor actor = new ClassSkillChoiceActor(parent, autoRank);</span>
+<span class="fc" id="L196">		tc.setChoiceActor(actor);</span>
+<span class="fc" id="L197">		context.getObjectContext().addToList(obj, ListKey.ADD, tc);</span>
+<span class="fc" id="L198">		return ParseResult.SUCCESS;</span>
+	}
+
+	@Override
+	public String[] unparse(LoadContext context, PCClassLevel obj)
+	{
+<span class="fc" id="L204">		Changes&lt;PersistentTransitionChoice&lt;?&gt;&gt; grantChanges =</span>
+<span class="fc" id="L205">				context.getObjectContext().getListChanges(obj, ListKey.ADD);</span>
+<span class="fc" id="L206">		Collection&lt;PersistentTransitionChoice&lt;?&gt;&gt; addedItems = grantChanges.getAdded();</span>
+<span class="pc bpc" id="L207" title="1 of 4 branches missed.">		if (addedItems == null || addedItems.isEmpty())</span>
+		{
+			// Zero indicates no Token
+<span class="fc" id="L210">			return null;</span>
+		}
+<span class="fc" id="L212">		List&lt;String&gt; addStrings = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L213" title="All 2 branches covered.">		for (TransitionChoice&lt;?&gt; container : addedItems)</span>
+		{
+<span class="fc" id="L215">			SelectableSet&lt;?&gt; cs = container.getChoices();</span>
+<span class="pc bpc" id="L216" title="2 of 4 branches missed.">			if (getTokenName().equals(cs.getName()) &amp;&amp; SKILL_CLASS.equals(cs.getChoiceClass()))</span>
+			{
+<span class="fc" id="L218">				Formula f = container.getCount();</span>
+<span class="pc bpc" id="L219" title="1 of 2 branches missed.">				if (f == null)</span>
+				{
+<span class="nc" id="L221">					context.addWriteMessage(&quot;Unable to find &quot; + getFullName() + &quot; Count&quot;);</span>
+<span class="nc" id="L222">					return null;</span>
+				}
+<span class="fc bfc" id="L224" title="All 4 branches covered.">				if (f.isStatic() &amp;&amp; f.resolveStatic().doubleValue() &lt;= 0)</span>
+				{
+<span class="fc" id="L226">					context.addWriteMessage(&quot;Count in &quot; + getFullName() + &quot; must be &gt; 0&quot;);</span>
+<span class="fc" id="L227">					return null;</span>
+				}
+<span class="fc bfc" id="L229" title="All 2 branches covered.">				if (!cs.getGroupingState().isValid())</span>
+				{
+<span class="fc" id="L231">					context.addWriteMessage(&quot;Non-sensical &quot; + getFullName()</span>
+<span class="fc" id="L232">						+ &quot;: Contains ANY and a specific reference: &quot; + cs.getLSTformat());</span>
+<span class="fc" id="L233">					return null;</span>
+				}
+<span class="fc" id="L235">				StringBuilder sb = new StringBuilder();</span>
+<span class="fc bfc" id="L236" title="All 2 branches covered.">				if (!FormulaFactory.ONE.equals(f))</span>
+				{
+<span class="fc" id="L238">					sb.append(f).append(Constants.PIPE);</span>
+				}
+<span class="fc" id="L240">				sb.append(cs.getLSTformat());</span>
+<span class="fc" id="L241">				ClassSkillChoiceActor actor = (ClassSkillChoiceActor) container.getChoiceActor();</span>
+<span class="fc" id="L242">				Integer rank = actor.getApplyRank();</span>
+<span class="fc bfc" id="L243" title="All 2 branches covered.">				if (rank != null)</span>
+				{
+<span class="fc" id="L245">					sb.append(Constants.COMMA).append(&quot;AUTORANK=&quot;).append(rank);</span>
+				}
+<span class="fc" id="L247">				addStrings.add(sb.toString());</span>
+			}
+<span class="fc" id="L249">		}</span>
+<span class="fc" id="L250">		return addStrings.toArray(new String[0]);</span>
+	}
+
+	@Override
+	public Class&lt;PCClassLevel&gt; getTokenClass()
+	{
+<span class="fc" id="L256">		return PCClassLevel.class;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PreWeaponProfParser.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.pretokens.parser</a> &gt; <span class="el_source">PreWeaponProfParser.java</span></div><h1>PreWeaponProfParser.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2003 (C) Chris Ward &lt;frugal@purplewombat.co.uk&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.       See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package plugin.pretokens.parser;
+
+import pcgen.core.prereq.Prerequisite;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.prereq.AbstractPrerequisiteListParser;
+
+/**
+ * A prerequisite parser class that handles the parsing of pre weaponprof tokens.
+ */
+<span class="fc" id="L27">public class PreWeaponProfParser extends AbstractPrerequisiteListParser</span>
+{
+	/**
+	 * Get the type of prerequisite handled by this token.
+	 * @return the type of prerequisite handled by this token.
+	 */
+	@Override
+	public String[] kindsHandled()
+	{
+<span class="fc" id="L36">		return new String[]{&quot;WEAPONPROF&quot;};</span>
+	}
+
+	/**
+	 * This operation performs the actual parsing.
+	 * @param kind the kind of the prerequisite (less the &quot;PRE&quot; prefix)
+	 * @param formula The body of the prerequisite;
+	 * @param invertResult If the prerequisite should invert the result
+	 * before it is returned
+	 * @param overrideQualify
+	 *           if set true, this prerequisite will be enforced in spite
+	 *           of any &quot;QUALIFY&quot; tag that may be present.
+	 *
+	 * @return a object for testing the prerequisite
+	 * @throws PersistenceLayerException
+	 */
+	@Override
+	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+		throws PersistenceLayerException
+	{
+<span class="fc" id="L56">		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);</span>
+
+<span class="fc" id="L58">		doTypeInvertFixUp(prereq);</span>
+
+<span class="fc" id="L60">		return prereq;</span>
+	}
+
+	private static void doTypeInvertFixUp(Prerequisite prereq)
+	{
+<span class="fc bfc" id="L65" title="All 2 branches covered.">		if (&quot;weaponprof&quot;.equalsIgnoreCase(prereq.getKind()))</span>
+		{
+<span class="fc bfc" id="L67" title="All 2 branches covered.">			if (prereq.getKey().startsWith(&quot;TYPE&quot;))</span>
+			{
+<span class="fc" id="L69">				prereq.setCountMultiples(true);</span>
+			}
+<span class="fc bfc" id="L71" title="All 2 branches covered.">			else if (prereq.getKey().startsWith(&quot;[&quot;))</span>
+			{
+<span class="fc" id="L73">				final int length = prereq.getKey().length() - 1;</span>
+<span class="fc" id="L74">				final int rBracket = prereq.getKey().lastIndexOf(']');</span>
+<span class="fc" id="L75">				final int endIndex = Math.max(length, rBracket);</span>
+
+<span class="fc" id="L77">				final String key = prereq.getKey().substring(1, endIndex);</span>
+
+<span class="fc" id="L79">				prereq.setKey(key);</span>
+<span class="fc" id="L80">				prereq.setOperator(prereq.getOperator().invert());</span>
+			}
+		}
+
+		/*
+		 * In case of PREMULT (e.g 'PREWEAPONPROF:1,TYPE.Martial,Chain (Spiked)',
+		 * need to check all sub-prereqs
+		 */
+<span class="fc bfc" id="L88" title="All 2 branches covered.">		for (Prerequisite subReq : prereq.getPrerequisites())</span>
+		{
+<span class="fc" id="L90">			doTypeInvertFixUp(subReq);</span>
+<span class="fc" id="L91">		}</span>
+<span class="fc" id="L92">	}</span>
+
+	@Override
+	protected boolean allowsNegate()
+	{
+<span class="fc" id="L97">		return true;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

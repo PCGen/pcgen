@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GetOtherFunction.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.function</a> &gt; <span class="el_source">GetOtherFunction.java</span></div><h1>GetOtherFunction.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2016 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or modify it under the terms
+ * of the GNU Lesser General Public License as published by the Free Software Foundation;
+ * either version 2.1 of the License, or (at your option) any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT ANY
+ * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+ * PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License along with
+ * this library; if not, write to the Free Software Foundation, Inc., 59 Temple Place,
+ * Suite 330, Boston, MA 02111-1307 USA
+ */
+package plugin.function;
+
+import java.util.Arrays;
+import java.util.Optional;
+
+import pcgen.base.formula.base.DependencyManager;
+import pcgen.base.formula.base.DynamicDependency;
+import pcgen.base.formula.base.EvaluationManager;
+import pcgen.base.formula.base.FormulaFunction;
+import pcgen.base.formula.base.FormulaSemantics;
+import pcgen.base.formula.base.ScopeImplementer;
+import pcgen.base.formula.base.ScopeInstance;
+import pcgen.base.formula.base.ScopeInstanceFactory;
+import pcgen.base.formula.base.TrainingStrategy;
+import pcgen.base.formula.base.VarIDResolver;
+import pcgen.base.formula.base.VarScoped;
+import pcgen.base.formula.base.VariableLibrary;
+import pcgen.base.formula.exception.SemanticsFailureException;
+import pcgen.base.formula.parse.ASTQuotString;
+import pcgen.base.formula.parse.Node;
+import pcgen.base.formula.visitor.DependencyVisitor;
+import pcgen.base.formula.visitor.EvaluateVisitor;
+import pcgen.base.formula.visitor.SemanticsVisitor;
+import pcgen.base.formula.visitor.StaticVisitor;
+import pcgen.base.util.FormatManager;
+import pcgen.cdom.formula.ManagerKey;
+import pcgen.cdom.formula.scope.PCGenScope;
+import pcgen.rules.context.LoadContext;
+
+/**
+ * Processes the getOther(...) function.
+ * 
+ * This function is capable of &quot;jumping&quot; to another scope and getting a variable from that
+ * scope. In general, this is useful to grab local variables from another object.
+ */
+<span class="fc" id="L51">public class GetOtherFunction implements FormulaFunction</span>
+{
+
+	@Override
+	public String getFunctionName()
+	{
+<span class="fc" id="L57">		return &quot;getOther&quot;;</span>
+	}
+
+	@Override
+	public Boolean isStatic(StaticVisitor visitor, Node[] args)
+	{
+		//3-args, but we know first one is static (scope name)
+<span class="pc bpc" id="L64" title="1 of 4 branches missed.">		return (Boolean) args[1].jjtAccept(visitor, null) &amp;&amp; (Boolean) args[2].jjtAccept(visitor, null);</span>
+	}
+
+	@Override
+	public FormatManager&lt;?&gt; allowArgs(SemanticsVisitor visitor, Node[] args, FormulaSemantics semantics)
+	{
+<span class="fc" id="L70">		int argCount = args.length;</span>
+<span class="fc bfc" id="L71" title="All 2 branches covered.">		if (argCount != 3)</span>
+		{
+<span class="fc" id="L73">			throw new SemanticsFailureException(&quot;Function &quot; + getFunctionName()</span>
+<span class="fc" id="L74">				+ &quot; received incorrect # of arguments, expected: 3 got &quot; + args.length + ' ' + Arrays.asList(args));</span>
+		}
+
+<span class="fc" id="L77">		Node scopeNode = args[0];</span>
+<span class="fc bfc" id="L78" title="All 2 branches covered.">		if (!(scopeNode instanceof ASTQuotString qs))</span>
+		{
+<span class="fc" id="L80">			throw new SemanticsFailureException(</span>
+				&quot;Parse Error: Invalid Scope Node: &quot;
+<span class="fc" id="L82">					+ scopeNode.getClass().getName()</span>
+					+ &quot; found in location requiring a&quot;
+					+ &quot; Static String (first arg cannot be evaluated)&quot;);
+		}
+<span class="fc" id="L86">		String legalScopeName = qs.getText();</span>
+<span class="fc" id="L87">		ScopeImplementer scopeImplementer = semantics.get(FormulaSemantics.SCOPELIB);</span>
+<span class="fc" id="L88">		PCGenScope legalScope = (PCGenScope) scopeImplementer.getImplementedScope(legalScopeName);</span>
+<span class="pc bpc" id="L89" title="1 of 2 branches missed.">		if (legalScope == null)</span>
+		{
+<span class="nc" id="L91">			throw new SemanticsFailureException(</span>
+				&quot;Parse Error: Invalid Scope Name: &quot; + legalScopeName + &quot; was not a defined scope&quot;);
+		}
+<span class="fc" id="L94">		LoadContext context = semantics.get(ManagerKey.CONTEXT);</span>
+<span class="fc" id="L95">		Optional&lt;FormatManager&lt;?&gt;&gt; formatManager = legalScope.getFormatManager(context);</span>
+<span class="pc bpc" id="L96" title="1 of 2 branches missed.">		if (formatManager.isEmpty())</span>
+		{
+<span class="nc" id="L98">			throw new SemanticsFailureException(</span>
+				&quot;Parse Error: Invalid Scope Name: &quot; + legalScopeName
+					+ &quot; found in location requiring a deterministic scope&quot;);
+		}
+<span class="fc" id="L102">		FormatManager&lt;?&gt; objectFormat = (FormatManager&lt;?&gt;) args[1].jjtAccept(visitor,</span>
+<span class="fc" id="L103">			semantics.getWith(FormulaSemantics.ASSERTED, formatManager));</span>
+<span class="fc bfc" id="L104" title="All 2 branches covered.">		if (!formatManager.get().equals(objectFormat))</span>
+		{
+<span class="fc" id="L106">			throw new SemanticsFailureException(</span>
+				&quot;Parse Error: Invalid Object Format: &quot;
+<span class="fc" id="L108">					+ objectFormat.getIdentifierType()</span>
+					+ &quot; found in a getOther call that asserted &quot;
+<span class="fc" id="L110">					+ formatManager.get().getIdentifierType());</span>
+		}
+<span class="pc bpc" id="L112" title="1 of 2 branches missed.">		if (VarScoped.class.isAssignableFrom(objectFormat.getManagedClass()))</span>
+		{
+<span class="fc" id="L114">			return (FormatManager&lt;?&gt;) args[2].jjtAccept(visitor,</span>
+<span class="fc" id="L115">				semantics.getWith(FormulaSemantics.SCOPE, legalScope));</span>
+		}
+		else
+		{
+<span class="nc" id="L119">			throw new SemanticsFailureException(</span>
+				&quot;Parse Error: Invalid Object Format: &quot; + objectFormat
+					+ &quot; is not capable of holding variables&quot;);
+		}
+	}
+
+	@Override
+	public Object evaluate(EvaluateVisitor visitor, Node[] args, EvaluationManager manager)
+	{
+<span class="fc" id="L128">		String legalScopeName = ((ASTQuotString) args[0]).getText();</span>
+<span class="fc" id="L129">		ScopeImplementer scopeImplementer = manager.get(EvaluationManager.SCOPELIB);</span>
+<span class="fc" id="L130">		PCGenScope legalScope = (PCGenScope) scopeImplementer.getImplementedScope(legalScopeName);</span>
+<span class="fc" id="L131">		LoadContext context = manager.get(ManagerKey.CONTEXT);</span>
+<span class="fc" id="L132">		VarScoped vs = (VarScoped) args[1].jjtAccept(visitor,</span>
+<span class="fc" id="L133">			manager.getWith(EvaluationManager.ASSERTED, legalScope.getFormatManager(context)));</span>
+<span class="fc" id="L134">		ScopeInstanceFactory siFactory = manager.get(EvaluationManager.SIFACTORY);</span>
+<span class="fc" id="L135">		ScopeInstance scopeInst = siFactory.get(legalScopeName, vs);</span>
+		//Rest of Equation
+<span class="fc" id="L137">		return args[2].jjtAccept(visitor, manager.getWith(EvaluationManager.INSTANCE, scopeInst));</span>
+	}
+
+	@Override
+	public Optional&lt;FormatManager&lt;?&gt;&gt; getDependencies(DependencyVisitor visitor, DependencyManager fdm, Node[] args)
+	{
+<span class="nc" id="L143">		String legalScopeName = ((ASTQuotString) args[0]).getText();</span>
+<span class="nc" id="L144">		TrainingStrategy ts = new TrainingStrategy();</span>
+<span class="nc" id="L145">		ScopeImplementer scopeImplementer = fdm.get(DependencyManager.SCOPELIB);</span>
+<span class="nc" id="L146">		PCGenScope legalScope = (PCGenScope) scopeImplementer.getImplementedScope(legalScopeName);</span>
+<span class="nc" id="L147">		LoadContext context = fdm.get(ManagerKey.CONTEXT);</span>
+<span class="nc" id="L148">		args[1].jjtAccept(visitor, fdm.getWith(DependencyManager.VARSTRATEGY, Optional.of(ts))</span>
+<span class="nc" id="L149">			.getWith(DependencyManager.ASSERTED, legalScope.getFormatManager(context)));</span>
+<span class="nc" id="L150">		ScopeInstanceFactory siFactory = fdm.get(DependencyManager.SIFACTORY);</span>
+<span class="nc" id="L151">		VariableLibrary varLib = fdm.get(DependencyManager.VARLIB);</span>
+<span class="nc" id="L152">		VarIDResolver varResolver = (scopeName, sourceObject, varName) -&gt;</span>
+<span class="nc" id="L153">			varLib.getVariableID(siFactory.get(scopeName, sourceObject), varName);</span>
+<span class="nc" id="L154">		DynamicDependency dd = new DynamicDependency(varResolver, ts.getControlVar(), legalScope.getName());</span>
+<span class="nc" id="L155">		DependencyManager dynamic = fdm.getWith(DependencyManager.VARSTRATEGY, Optional.of(dd));</span>
+<span class="nc" id="L156">		dynamic = dynamic.getWith(DependencyManager.SCOPE, Optional.of(legalScope));</span>
+		//Rest of Equation
+<span class="nc" id="L158">		FormatManager&lt;?&gt; returnFormat = (FormatManager&lt;?&gt;) args[2].jjtAccept(visitor, dynamic);</span>
+<span class="nc" id="L159">		fdm.get(DependencyManager.DYNAMIC).addDependency(dd);</span>
+<span class="nc" id="L160">		return Optional.of(returnFormat);</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

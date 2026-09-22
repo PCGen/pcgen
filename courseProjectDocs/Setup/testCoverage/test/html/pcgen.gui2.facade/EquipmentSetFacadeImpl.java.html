@@ -1,0 +1,1674 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>EquipmentSetFacadeImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.gui2.facade</a> &gt; <span class="el_source">EquipmentSetFacadeImpl.java</span></div><h1>EquipmentSetFacadeImpl.java</h1><pre class="source lang-java linenums">/*
+ * Copyright James Dempsey, 2010
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.gui2.facade;
+
+import java.io.Serializable;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.analysis.HandsFacet;
+import pcgen.cdom.util.CControl;
+import pcgen.core.BodyStructure;
+import pcgen.core.Equipment;
+import pcgen.core.Globals;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.SystemCollections;
+import pcgen.core.character.EquipSet;
+import pcgen.core.character.EquipSlot;
+import pcgen.core.display.CharacterDisplay;
+import pcgen.facade.core.DataSetFacade;
+import pcgen.facade.core.EquipmentFacade;
+import pcgen.facade.core.EquipmentListFacade;
+import pcgen.facade.core.EquipmentListFacade.EquipmentListEvent;
+import pcgen.facade.core.EquipmentListFacade.EquipmentListListener;
+import pcgen.facade.core.EquipmentSetFacade;
+import pcgen.facade.core.UIDelegate;
+import pcgen.facade.util.DefaultListFacade;
+import pcgen.facade.util.DefaultReferenceFacade;
+import pcgen.facade.util.ListFacade;
+import pcgen.facade.util.ReferenceFacade;
+import pcgen.facade.util.event.ListEvent;
+import pcgen.facade.util.event.ListListener;
+import pcgen.system.LanguageBundle;
+import pcgen.util.Logging;
+import pcgen.util.enumeration.Tab;
+
+/**
+ * The Class {@code EquipmentSetFacadeImpl} is an implementation of
+ * the EquipmentSetFacade interface for the new user interface. It handles 
+ * the interaction with the UI and the character with respect a grouping 
+ * of the character's gear. This covers what is carried, what is not and 
+ * where each item is located. As a result it also manages what items are 
+ * deemed active.
+ */
+public class EquipmentSetFacadeImpl implements EquipmentSetFacade, EquipmentListListener, ListListener&lt;EquipmentFacade&gt;
+{
+	private final PlayerCharacter theCharacter;
+	private final CharacterDisplay charDisplay;
+	private EquipSet eqSet;
+	private final UIDelegate delegate;
+	private final TodoManager todoManager;
+	private final DataSetFacade dataSet;
+	private final EquipmentListFacadeImpl purchasedList;
+
+<span class="nc" id="L82">	private final Collection&lt;EquipmentTreeListener&gt; listeners = new ArrayList&lt;&gt;();</span>
+	private DefaultReferenceFacade&lt;String&gt; name;
+	private EquipmentListFacadeImpl equippedItemsList;
+<span class="nc" id="L85">	private double totalWeight = 0;</span>
+	/** List of phantom nodes which are currently both empty and not able to contain equipment */
+	private Set&lt;EquipNode&gt; hiddenPhantomNodes;
+	private final CharacterFacadeImpl characterFacadeImpl;
+
+	/**
+	 * Create a new Equipment Set Facade implementation for an existing 
+	 * equipset.
+	 * 
+	 * @param delegate The user interface delegate for notifying the user. 
+	 * @param pc The character the set belongs to.
+	 * @param eqSet The set.
+	 * @param dataSet The datasets that the character is using.
+	 * @param purchasedList The list of the charcter's purchased equipment.
+	 * @param todoManager The user tasks tracker.
+	 * @param characterFacadeImpl The UI facade for the character.
+	 */
+	public EquipmentSetFacadeImpl(UIDelegate delegate, PlayerCharacter pc, EquipSet eqSet, DataSetFacade dataSet,
+		EquipmentListFacadeImpl purchasedList, TodoManager todoManager, CharacterFacadeImpl characterFacadeImpl)
+<span class="nc" id="L104">	{</span>
+<span class="nc" id="L105">		this.delegate = delegate;</span>
+<span class="nc" id="L106">		this.theCharacter = pc;</span>
+<span class="nc" id="L107">		this.todoManager = todoManager;</span>
+<span class="nc" id="L108">		this.characterFacadeImpl = characterFacadeImpl;</span>
+<span class="nc" id="L109">		this.charDisplay = pc.getDisplay();</span>
+<span class="nc" id="L110">		this.dataSet = dataSet;</span>
+<span class="nc" id="L111">		this.purchasedList = purchasedList;</span>
+<span class="nc" id="L112">		initForEquipSet(eqSet);</span>
+
+<span class="nc" id="L114">		purchasedList.addEquipmentListListener(this);</span>
+<span class="nc" id="L115">		purchasedList.addListListener(this);</span>
+<span class="nc" id="L116">	}</span>
+
+	private void initForEquipSet(EquipSet equipSet)
+	{
+<span class="nc" id="L120">		this.eqSet = equipSet;</span>
+<span class="nc" id="L121">		name = new DefaultReferenceFacade&lt;&gt;(equipSet.getName());</span>
+<span class="nc" id="L122">		equippedItemsList = new EquipmentListFacadeImpl();</span>
+<span class="nc" id="L123">		setNaturalWeaponNodes(new HashMap&lt;&gt;());</span>
+<span class="nc" id="L124">		hiddenPhantomNodes = new HashSet&lt;&gt;();</span>
+
+<span class="nc" id="L126">		buildNodeList();</span>
+
+<span class="nc" id="L128">		List&lt;EquipSet&gt; equipList = new ArrayList&lt;&gt;(charDisplay.getEquipSet());</span>
+<span class="nc" id="L129">		Collections.sort(equipList);</span>
+<span class="nc" id="L130">		createNaturalWeaponSlots();</span>
+<span class="nc" id="L131">		updateNaturalWeaponSlots();</span>
+<span class="nc" id="L132">		updatePhantomSlots();</span>
+<span class="nc" id="L133">		addChildrenToPath(equipSet.getIdPath(), equipList, null);</span>
+<span class="nc" id="L134">	}</span>
+
+	private void buildNodeList()
+	{
+<span class="nc" id="L138">		setNodeList(new DefaultListFacade&lt;&gt;());</span>
+<span class="nc" id="L139">		setEquipSlotNodeMap(new LinkedHashMap&lt;&gt;());</span>
+<span class="nc" id="L140">		int index = 0;</span>
+<span class="nc bnc" id="L141" title="All 2 branches missed.">		for (BodyStructure bodyStruct : dataSet.getEquipmentLocations())</span>
+		{
+<span class="nc" id="L143">			String structString = bodyStruct.toString();</span>
+<span class="nc" id="L144">			EquipNode node = new EquipNode(bodyStruct, index++);</span>
+<span class="nc" id="L145">			getNodeList().addElement(node);</span>
+
+			// Add locations for this body structure
+<span class="nc bnc" id="L148" title="All 2 branches missed.">			for (EquipSlot slot : SystemCollections.getUnmodifiableEquipSlotList())</span>
+			{
+<span class="nc" id="L150">				String bodyStructureName = slot.getBodyStructureName();</span>
+<span class="nc" id="L151">				final String hands = &quot;HANDS&quot;;</span>
+<span class="nc bnc" id="L152" title="All 4 branches missed.">				if (&quot;Ring&quot;.equalsIgnoreCase(slot.getSlotName()) || &quot;Fingers&quot;.equalsIgnoreCase(slot.getSlotName()))</span>
+				{
+<span class="nc" id="L154">					bodyStructureName = hands;</span>
+				}
+<span class="nc bnc" id="L156" title="All 2 branches missed.">				if (bodyStructureName.equalsIgnoreCase(structString))</span>
+				{
+<span class="nc bnc" id="L158" title="All 2 branches missed.">					if (slot.canContainType(&quot;WEAPON&quot;))</span>
+					{
+						// Add phantom nodes for the various weapon slots
+<span class="nc bnc" id="L161" title="All 2 branches missed.">						if (getPCHands() &gt; 0)</span>
+						{
+<span class="nc" id="L163">							addEquipNodeForEquipSlot(node,</span>
+<span class="nc" id="L164">								createWeaponEquipSlot(slot, Constants.EQUIP_LOCATION_PRIMARY), true);</span>
+						}
+<span class="nc bnc" id="L166" title="All 2 branches missed.">						for (int i = 1; i &lt; getPCHands(); ++i)</span>
+						{
+<span class="nc bnc" id="L168" title="All 2 branches missed.">							if (i &gt; 1)</span>
+							{
+<span class="nc" id="L170">								addEquipNodeForEquipSlot(node,</span>
+<span class="nc" id="L171">									createWeaponEquipSlot(slot, Constants.EQUIP_LOCATION_SECONDARY + &quot; &quot; + i), true);</span>
+							}
+							else
+							{
+<span class="nc" id="L175">								addEquipNodeForEquipSlot(node,</span>
+<span class="nc" id="L176">									createWeaponEquipSlot(slot, Constants.EQUIP_LOCATION_SECONDARY), true);</span>
+							}
+						}
+
+<span class="nc" id="L180">						addEquipNodeForEquipSlot(node, createWeaponEquipSlot(slot, Constants.EQUIP_LOCATION_DOUBLE),</span>
+							true);
+<span class="nc" id="L182">						addEquipNodeForEquipSlot(node, createWeaponEquipSlot(slot, Constants.EQUIP_LOCATION_BOTH),</span>
+							true);
+<span class="nc" id="L184">						addEquipNodeForEquipSlot(node, createWeaponEquipSlot(slot, Constants.EQUIP_LOCATION_UNARMED),</span>
+							true);
+					}
+					else
+					{
+<span class="nc" id="L189">						addEquipNodeForEquipSlot(node, slot, false);</span>
+					}
+				}
+<span class="nc" id="L192">			}</span>
+<span class="nc" id="L193">		}</span>
+<span class="nc" id="L194">	}</span>
+
+	private int getPCHands()
+	{
+<span class="nc" id="L198">		String solverValue = theCharacter.getControl(CControl.CREATUREHANDS);</span>
+<span class="nc bnc" id="L199" title="All 2 branches missed.">		if (solverValue == null)</span>
+		{
+<span class="nc" id="L201">			return FacetLibrary.getFacet(HandsFacet.class).getHands(theCharacter.getCharID());</span>
+		}
+		else
+		{
+<span class="nc" id="L205">			Object val = theCharacter.getGlobal(solverValue);</span>
+<span class="nc" id="L206">			return ((Number) val).intValue();</span>
+		}
+	}
+
+	private EquipSlot createWeaponEquipSlot(EquipSlot slot, String slotName)
+	{
+<span class="nc" id="L212">		EquipSlot wpnSlot = slot.clone();</span>
+<span class="nc" id="L213">		wpnSlot.setSlotName(slotName);</span>
+<span class="nc" id="L214">		return wpnSlot;</span>
+	}
+
+	/**
+	 * Create a new EquipNode for the slot and add it the node list.  
+	 * @param bodyStructNode The parent body structure node
+	 * @param slot The equipment slot
+	 * @param singleOnly Can the slot only ever have a single entry. e.g. weapon slots
+	 */
+	private void addEquipNodeForEquipSlot(EquipNode bodyStructNode, EquipSlot slot, boolean singleOnly)
+	{
+<span class="nc" id="L225">		EquipNode slotNode = new EquipNode(bodyStructNode, slot, singleOnly);</span>
+<span class="nc" id="L226">		getNodeList().addElement(slotNode);</span>
+<span class="nc" id="L227">		getEquipSlotNodeMap().put(slot, slotNode);</span>
+<span class="nc" id="L228">	}</span>
+
+	/**
+	 * Recursive method to build up a tree of EquipNodes. It finds from the 
+	 * equipment list those children of the item specified by the idPath and
+	 * adds them to the paths list. It will then do the same for each child 
+	 * that was found. If the parent is null then all direct children will be 
+	 * attached to the relevant body structure nodes. 
+	 *  
+	 * @param idPath The equipset id of the parent record.
+	 * @param equipList The list of equipsets to be added.
+	 * @param parent The parent node 
+	 */
+	private void addChildrenToPath(String idPath, List&lt;EquipSet&gt; equipList, EquipNode parent)
+	{
+<span class="nc" id="L243">		List&lt;EquipNode&gt; children = new ArrayList&lt;&gt;();</span>
+
+		// process all EquipNode Items
+<span class="nc bnc" id="L246" title="All 2 branches missed.">		for (int iSet = 0; iSet &lt; equipList.size(); ++iSet)</span>
+		{
+<span class="nc" id="L248">			EquipSet es = equipList.get(iSet);</span>
+
+<span class="nc bnc" id="L250" title="All 2 branches missed.">			if (es.getParentIdPath().equals(idPath))</span>
+			{
+<span class="nc" id="L252">				EquipSlot slot = Globals.getEquipSlotByName(es.getName());</span>
+<span class="nc" id="L253">				EquipNode slotNode = getEquipSlotNodeMap().get(slot);</span>
+<span class="nc" id="L254">				EquipNode parentNode = parent;</span>
+<span class="nc bnc" id="L255" title="All 2 branches missed.">				if (parentNode == null)</span>
+				{
+<span class="nc bnc" id="L257" title="All 2 branches missed.">					if (slotNode != null)</span>
+					{
+<span class="nc" id="L259">						parentNode = slotNode.getParent();</span>
+					}
+					else
+					{
+<span class="nc bnc" id="L263" title="All 2 branches missed.">						for (EquipNode scanNode : getNodeList())</span>
+						{
+<span class="nc bnc" id="L265" title="All 2 branches missed.">							if ((scanNode.getNodeType() == EquipNode.NodeType.BODY_SLOT)</span>
+<span class="nc bnc" id="L266" title="All 2 branches missed.">								&amp;&amp; scanNode.toString().equals(es.getName()))</span>
+							{
+<span class="nc" id="L268">								parentNode = scanNode;</span>
+<span class="nc" id="L269">								break;</span>
+							}
+<span class="nc bnc" id="L271" title="All 2 branches missed.">							if ((scanNode.getNodeType() == EquipNode.NodeType.PHANTOM_SLOT)</span>
+<span class="nc bnc" id="L272" title="All 2 branches missed.">								&amp;&amp; scanNode.toString().equals(es.getName()))</span>
+							{
+<span class="nc" id="L274">								parentNode = scanNode.getParent();</span>
+<span class="nc" id="L275">								slotNode = scanNode;</span>
+<span class="nc" id="L276">								slot = scanNode.getSlot();</span>
+<span class="nc" id="L277">								break;</span>
+							}
+<span class="nc" id="L279">						}</span>
+					}
+				}
+
+<span class="nc bnc" id="L283" title="All 2 branches missed.">				if (parentNode != null)</span>
+				{
+<span class="nc" id="L285">					EquipNode node = new EquipNode(parentNode, slot, es.getItem(), es.getIdPath());</span>
+<span class="nc" id="L286">					getNodeList().addElement(node);</span>
+<span class="nc bnc" id="L287" title="All 4 branches missed.">					if ((slotNode != null) &amp;&amp; (slotNode.getNodeType() == EquipNode.NodeType.PHANTOM_SLOT)</span>
+<span class="nc bnc" id="L288" title="All 2 branches missed.">						&amp;&amp; (getNumFreeSlots(slotNode) &lt;= 0))</span>
+					{
+<span class="nc" id="L290">						getNodeList().removeElement(slotNode);</span>
+<span class="nc bnc" id="L291" title="All 2 branches missed.">						for (EquipNode inompatNode : getIncompatibleWeaponSlots(slotNode))</span>
+						{
+<span class="nc" id="L293">							getNodeList().removeElement(inompatNode);</span>
+<span class="nc" id="L294">						}</span>
+					}
+
+<span class="nc" id="L297">					updateTotalQuantity(es.getItem(), es.getItem().getQty().intValue());</span>
+
+					// add to list for recursive calls
+<span class="nc" id="L300">					children.add(node);</span>
+<span class="nc" id="L301">				}</span>
+				else
+				{
+<span class="nc" id="L304">					Logging.errorPrint(&quot;Could not find parent for &quot; + es.getName() + &quot; for item &quot; + es.getItem()</span>
+<span class="nc" id="L305">						+ &quot; at path &quot; + es.getIdPath());</span>
+				}
+
+				// and remove from tempSetList so
+				// it won't get processed again
+<span class="nc" id="L310">				equipList.remove(es);</span>
+<span class="nc" id="L311">				--iSet;</span>
+			}
+		}
+
+		// Now process the children
+<span class="nc bnc" id="L316" title="All 2 branches missed.">		for (final EquipNode EquipNode : children)</span>
+		{
+<span class="nc" id="L318">			addChildrenToPath(EquipNode.getIdPath(), equipList, EquipNode);</span>
+<span class="nc" id="L319">		}</span>
+<span class="nc" id="L320">	}</span>
+
+	/**
+	 * Make this equipment set the active one.
+	 */
+	void activateEquipSet()
+	{
+<span class="nc" id="L327">		theCharacter.setCalcEquipSetId(eqSet.getIdPath());</span>
+<span class="nc" id="L328">		theCharacter.setCalcEquipmentList();</span>
+<span class="nc" id="L329">		updateOutputOrder();</span>
+<span class="nc" id="L330">		theCharacter.setUseTempMods(eqSet.getUseTempMods());</span>
+<span class="nc" id="L331">		theCharacter.calcActiveBonuses();</span>
+<span class="nc" id="L332">		theCharacter.setDirty(true);</span>
+<span class="nc" id="L333">	}</span>
+
+	/**
+	 * Add the weight for the item to the total for the set.
+	 *
+	 * @param equip The equipment item being added
+	 * @param quantity The number being added (or negative if being removed)
+	 * @param root The BodyStructure in which the item is being placed or removed
+	 */
+	private void updateTotalWeight(Equipment equip, float quantity, BodyStructure root)
+	{
+<span class="nc bnc" id="L344" title="All 2 branches missed.">		if (!Constants.EQUIP_LOCATION_NOTCARRIED.equals(root.toString()))</span>
+		{
+<span class="nc" id="L346">			equip.setNumberCarried(equip.getCarried() + quantity);</span>
+<span class="nc bnc" id="L347" title="All 2 branches missed.">			if (!Constants.EQUIP_LOCATION_CARRIED.equals(root.toString()))</span>
+			{
+<span class="nc" id="L349">				equip.setNumberEquipped((int) (equip.getNumberEquipped() + quantity));</span>
+			}
+		}
+
+<span class="nc" id="L353">		theCharacter.setCalcEquipmentList();</span>
+<span class="nc bnc" id="L354" title="All 2 branches missed.">		if (!Constants.EQUIP_LOCATION_NOTCARRIED.equals(root.toString()))</span>
+		{
+<span class="nc" id="L356">			totalWeight = charDisplay.totalWeight();</span>
+		}
+<span class="nc" id="L358">	}</span>
+
+	/**
+	 * returns new id_Path with the last id one higher than the current
+	 * highest id for EquipSets with the same ParentIdPath.
+	 * TODO: This needs to be moved to the core.
+	 * @param display The display interface for the character owning the equipset.
+	 * @param parentSet The parent of the equipset that is being created, null if it a root set.
+	 * @return new id path
+	 **/
+	static String getNewIdPath(CharacterDisplay display, EquipSet parentSet)
+	{
+<span class="nc" id="L370">		String pid = &quot;0&quot;;</span>
+<span class="nc" id="L371">		int newID = 0;</span>
+
+<span class="nc bnc" id="L373" title="All 2 branches missed.">		if (parentSet != null)</span>
+		{
+<span class="nc" id="L375">			pid = parentSet.getIdPath();</span>
+		}
+
+<span class="nc bnc" id="L378" title="All 2 branches missed.">		for (EquipSet es : display.getEquipSet())</span>
+		{
+<span class="nc bnc" id="L380" title="All 4 branches missed.">			if (es.getParentIdPath().equals(pid) &amp;&amp; (es.getId() &gt; newID))</span>
+			{
+<span class="nc" id="L382">				newID = es.getId();</span>
+			}
+<span class="nc" id="L384">		}</span>
+
+<span class="nc" id="L386">		++newID;</span>
+
+<span class="nc bnc" id="L388" title="All 2 branches missed.">		NumberFormat format = (parentSet != null) ? new DecimalFormat(&quot;00&quot;) : new DecimalFormat(&quot;0&quot;);</span>
+<span class="nc" id="L389">		return pid + '.' + format.format(newID);</span>
+	}
+
+	/**
+	 * Shift the equipment sets down to make room for an item to be inserted.
+	 * @param parentSet The equipment set the item is being inserted into.
+	 * @param startingNode The first equipment node to be moved down.
+	 * @param origPathToNode A map of the equipment nodes to their original paths.
+	 * @param origPathToEquipSet A map of the equipment sets to their original paths.
+	 * @return The path which has been available.
+	 */
+	private String shiftEquipSetsDown(EquipSet parentSet, EquipNode startingNode,
+		Map&lt;String, EquipNode&gt; origPathToNode, Map&lt;String, EquipSet&gt; origPathToEquipSet)
+	{
+<span class="nc" id="L403">		String pid = &quot;0&quot;;</span>
+<span class="nc bnc" id="L404" title="All 2 branches missed.">		NumberFormat format = (parentSet != null) ? new DecimalFormat(&quot;00&quot;) : new DecimalFormat(&quot;0&quot;);</span>
+
+<span class="nc bnc" id="L406" title="All 2 branches missed.">		if (parentSet != null)</span>
+		{
+<span class="nc" id="L408">			pid = parentSet.getIdPath();</span>
+		}
+		//Logging.errorPrint(&quot;Moving children of &quot; + parentSet + &quot; down, starting with &quot; + startingNode + &quot; .&quot;);
+
+<span class="nc" id="L412">		String startingPath = startingNode.idPath;</span>
+<span class="nc" id="L413">		int startingId = EquipSet.getIdFromPath(startingPath);</span>
+<span class="nc bnc" id="L414" title="All 2 branches missed.">		for (Map.Entry&lt;String, EquipNode&gt; entry : origPathToNode.entrySet())</span>
+		{
+<span class="nc" id="L416">			String origPath = entry.getKey();</span>
+<span class="nc" id="L417">			EquipNode node = entry.getValue();</span>
+<span class="nc" id="L418">			EquipSet es = origPathToEquipSet.get(origPath);</span>
+
+<span class="nc" id="L420">			int esId = es.getId();</span>
+<span class="nc bnc" id="L421" title="All 2 branches missed.">			if (es.getParentIdPath().equals(pid))</span>
+			{
+<span class="nc bnc" id="L423" title="All 2 branches missed.">				if (esId &gt;= startingId)</span>
+				{
+<span class="nc" id="L425">					esId++;</span>
+				}
+<span class="nc" id="L427">				String newPath = pid + '.' + format.format(esId);</span>
+<span class="nc" id="L428">				es.setIdPath(newPath);</span>
+<span class="nc" id="L429">				updateContainerPath(origPath, newPath, origPathToNode, origPathToEquipSet);</span>
+<span class="nc" id="L430">				node.setIdPath(newPath);</span>
+<span class="nc" id="L431">				getNodeList().modifyElement(node);</span>
+			}
+<span class="nc" id="L433">		}</span>
+
+<span class="nc" id="L435">		return pid + '.' + format.format(startingId);</span>
+	}
+
+	/**
+	 * Update the path of any items contained within an equipment item being moved.
+	 *
+	 * @param parentOrigPath The original path of the container.
+	 * @param parentNewPath The new path of the container.
+	 * @param origPathToNode The map of the equipment nodes by path.
+	 * @param origPathToEquipSet The map of the equipment sets by path.
+	 */
+	private void updateContainerPath(String parentOrigPath, String parentNewPath,
+		Map&lt;String, EquipNode&gt; origPathToNode, Map&lt;String, EquipSet&gt; origPathToEquipSet)
+	{
+<span class="nc bnc" id="L449" title="All 2 branches missed.">		for (final Map.Entry&lt;String, EquipSet&gt; entry : origPathToEquipSet.entrySet())</span>
+		{
+<span class="nc" id="L451">			String origItemPath = entry.getKey();</span>
+<span class="nc" id="L452">			EquipSet itemEs = entry.getValue();</span>
+
+<span class="nc bnc" id="L454" title="All 4 branches missed.">			if (origItemPath.startsWith(parentOrigPath) &amp;&amp; !origItemPath.equals(parentOrigPath))</span>
+			{
+<span class="nc" id="L456">				String newItemPath = origItemPath.replace(parentOrigPath, parentNewPath);</span>
+<span class="nc" id="L457">				itemEs.setIdPath(newItemPath);</span>
+<span class="nc" id="L458">				EquipNode node = origPathToNode.get(origItemPath);</span>
+<span class="nc bnc" id="L459" title="All 2 branches missed.">				if (node != null)</span>
+				{
+<span class="nc" id="L461">					node.setIdPath(newItemPath);</span>
+<span class="nc" id="L462">					getNodeList().modifyElement(node);</span>
+				}
+			}
+<span class="nc" id="L465">		}</span>
+<span class="nc" id="L466">	}</span>
+
+	/**
+	 * Create a map of the character's equipment nodes keyed on their current
+	 * id paths.
+	 * @return A map of id paths and the matching equipment nodes.
+	 */
+	private Map&lt;String, EquipNode&gt; buildPathNodeMap()
+	{
+<span class="nc" id="L475">		Map&lt;String, EquipNode&gt; pathMap = new HashMap&lt;&gt;();</span>
+<span class="nc bnc" id="L476" title="All 2 branches missed.">		for (EquipNode node : getNodeList())</span>
+		{
+<span class="nc bnc" id="L478" title="All 2 branches missed.">			if (node.getIdPath() != null)</span>
+			{
+<span class="nc" id="L480">				pathMap.put(node.idPath, node);</span>
+			}
+<span class="nc" id="L482">		}</span>
+<span class="nc" id="L483">		return pathMap;</span>
+	}
+
+	/**
+	 * Create a map of the character's equipment sets keyed on their current
+	 * id paths.
+	 * @return A map of id paths and the matching equipment sets.
+	 */
+	private Map&lt;String, EquipSet&gt; buildPathEquipSetMap()
+	{
+<span class="nc" id="L493">		Map&lt;String, EquipSet&gt; esMap = new HashMap&lt;&gt;();</span>
+<span class="nc bnc" id="L494" title="All 2 branches missed.">		for (EquipSet es : charDisplay.getEquipSet())</span>
+		{
+<span class="nc" id="L496">			esMap.put(es.getIdPath(), es);</span>
+<span class="nc" id="L497">		}</span>
+<span class="nc" id="L498">		return esMap;</span>
+	}
+
+	@Override
+	public EquipmentFacade addEquipment(EquipNode node, EquipmentFacade equipment, int quantity)
+	{
+<span class="nc" id="L504">		return addEquipment(node, equipment, quantity, null);</span>
+	}
+
+	@Override
+	public EquipmentFacade addEquipment(EquipNode node, EquipmentFacade equipment, int quantity, EquipNode beforeNode)
+	{
+<span class="nc bnc" id="L510" title="All 2 branches missed.">		if (!(equipment instanceof Equipment item))</span>
+		{
+<span class="nc" id="L512">			return null;</span>
+		}
+
+		// Validate the item can go into the location.
+<span class="nc bnc" id="L516" title="All 2 branches missed.">		if (!canEquip(node, equipment))</span>
+		{
+<span class="nc" id="L518">			delegate.showErrorMessage(Constants.APPLICATION_NAME, LanguageBundle</span>
+<span class="nc" id="L519">				.getFormattedString(&quot;in_equipCannotEquipToLocation&quot;, item.toString(), node.toString()));</span>
+<span class="nc" id="L520">			return null;</span>
+		}
+
+		EquipNode parent;
+		EquipSet parentEs;
+		EquipSlot equipSlot;
+		String locName;
+<span class="nc bnc" id="L527" title="All 4 branches missed.">		switch (node.getNodeType())</span>
+		{
+			case BODY_SLOT:
+<span class="nc" id="L530">				parent = node;</span>
+<span class="nc" id="L531">				parentEs = eqSet;</span>
+<span class="nc" id="L532">				equipSlot = null;</span>
+<span class="nc" id="L533">				locName = parent.toString();</span>
+<span class="nc" id="L534">				break;</span>
+
+			case PHANTOM_SLOT:
+<span class="nc" id="L537">				parent = node.getParent();</span>
+<span class="nc" id="L538">				parentEs = eqSet;</span>
+<span class="nc" id="L539">				equipSlot = node.getSlot();</span>
+<span class="nc" id="L540">				locName = equipSlot.toString();</span>
+<span class="nc" id="L541">				break;</span>
+
+			case EQUIPMENT:
+<span class="nc" id="L544">				parent = node;</span>
+<span class="nc" id="L545">				parentEs = charDisplay.getEquipSetByIdPath(parent.getIdPath());</span>
+<span class="nc" id="L546">				equipSlot = node.getSlot();</span>
+<span class="nc" id="L547">				locName = parent.toString();</span>
+<span class="nc" id="L548">				break;</span>
+
+			default:
+				// Should never occur
+<span class="nc" id="L552">				return null;</span>
+		}
+
+		// Check for adding more instances to an existing item, but don't merge containers
+<span class="nc bnc" id="L556" title="All 2 branches missed.">		if (!item.isContainer())</span>
+		{
+<span class="nc bnc" id="L558" title="All 2 branches missed.">			for (EquipNode existing : getNodeList())</span>
+			{
+<span class="nc bnc" id="L560" title="All 4 branches missed.">				if (parent.equals(existing.getParent()) &amp;&amp; (existing.getNodeType() == EquipNode.NodeType.EQUIPMENT))</span>
+				{
+<span class="nc bnc" id="L562" title="All 4 branches missed.">					if ((equipSlot != null) &amp;&amp; !equipSlot.equals(existing.getSlot()))</span>
+					{
+<span class="nc" id="L564">						continue;</span>
+					}
+
+<span class="nc" id="L567">					Equipment existingItem = (Equipment) existing.getEquipment();</span>
+<span class="nc bnc" id="L568" title="All 2 branches missed.">					if (existingItem.equals(item))</span>
+					{
+<span class="nc" id="L570">						int totalQuantity = (int) (existingItem.getQty() + quantity);</span>
+<span class="nc" id="L571">						existingItem.setQty(totalQuantity);</span>
+<span class="nc" id="L572">						EquipSet es = charDisplay.getEquipSetByIdPath(existing.getIdPath());</span>
+<span class="nc" id="L573">						es.setQty(es.getQty() + quantity);</span>
+<span class="nc" id="L574">						updateTotalWeight(existingItem, quantity, parent.getBodyStructure());</span>
+<span class="nc" id="L575">						fireQuantityChanged(existing);</span>
+<span class="nc" id="L576">						updateTotalQuantity(existingItem, quantity);</span>
+<span class="nc" id="L577">						updateNaturalWeaponSlots();</span>
+<span class="nc" id="L578">						updatePhantomSlots();</span>
+<span class="nc" id="L579">						return existingItem;</span>
+					}
+				}
+<span class="nc" id="L582">			}</span>
+		}
+
+		// Create equip set for the item
+		String id;
+<span class="nc bnc" id="L587" title="All 2 branches missed.">		if (beforeNode != null)</span>
+		{
+<span class="nc" id="L589">			id = shiftEquipSetsDown(parentEs, beforeNode, buildPathNodeMap(), buildPathEquipSetMap());</span>
+		}
+		else
+		{
+<span class="nc" id="L593">			id = EquipmentSetFacadeImpl.getNewIdPath(charDisplay, parentEs);</span>
+		}
+<span class="nc" id="L595">		Equipment newItem = item.clone();</span>
+<span class="nc" id="L596">		EquipSet newSet = new EquipSet(id, locName, newItem.getName(), newItem);</span>
+<span class="nc" id="L597">		newItem.setQty(quantity);</span>
+<span class="nc" id="L598">		newSet.setQty((float) quantity);</span>
+<span class="nc" id="L599">		theCharacter.addEquipSet(newSet);</span>
+<span class="nc" id="L600">		Equipment eqTarget = parentEs.getItem();</span>
+<span class="nc bnc" id="L601" title="All 4 branches missed.">		if ((eqTarget != null) &amp;&amp; eqTarget.isContainer())</span>
+		{
+<span class="nc" id="L603">			eqTarget.insertChild(theCharacter, newItem);</span>
+<span class="nc" id="L604">			newItem.setParent(eqTarget);</span>
+		}
+
+		// Create EquipNode for the item
+<span class="nc" id="L608">		EquipNode itemNode = new EquipNode(parent, equipSlot, newItem, id);</span>
+<span class="nc" id="L609">		getNodeList().addElement(itemNode);</span>
+<span class="nc bnc" id="L610" title="All 4 branches missed.">		if ((node.getNodeType() == EquipNode.NodeType.PHANTOM_SLOT) &amp;&amp; (getNumFreeSlots(node) &lt;= 0))</span>
+		{
+<span class="nc" id="L612">			getNodeList().removeElement(node);</span>
+<span class="nc bnc" id="L613" title="All 2 branches missed.">			for (EquipNode inompatNode : getIncompatibleWeaponSlots(node))</span>
+			{
+<span class="nc" id="L615">				getNodeList().removeElement(inompatNode);</span>
+<span class="nc" id="L616">			}</span>
+		}
+
+<span class="nc" id="L619">		updateTotalWeight(newItem, quantity, parent.getBodyStructure());</span>
+<span class="nc" id="L620">		updateTotalQuantity(newItem, quantity);</span>
+<span class="nc" id="L621">		updateNaturalWeaponSlots();</span>
+<span class="nc" id="L622">		updateOutputOrder();</span>
+<span class="nc" id="L623">		theCharacter.calcActiveBonuses();</span>
+<span class="nc" id="L624">		updatePhantomSlots();</span>
+<span class="nc" id="L625">		characterFacadeImpl.postEquippingUpdates();</span>
+
+<span class="nc" id="L627">		return newItem;</span>
+	}
+
+	@Override
+	public boolean moveEquipment(EquipNode node, int numRowsToMove)
+	{
+		// Confirm our assumptions
+<span class="nc bnc" id="L634" title="All 2 branches missed.">		if ((node.getBodyStructure() == null)</span>
+<span class="nc bnc" id="L635" title="All 4 branches missed.">			|| (node.getNodeType() != EquipNode.NodeType.EQUIPMENT) || (node.getParent() == null))</span>
+		{
+<span class="nc" id="L637">			return false;</span>
+		}
+<span class="nc bnc" id="L639" title="All 2 branches missed.">		if (numRowsToMove == 0)</span>
+		{
+<span class="nc" id="L641">			return true;</span>
+		}
+<span class="nc" id="L643">		BodyStructure bodyStruct = node.getBodyStructure();</span>
+<span class="nc bnc" id="L644" title="All 2 branches missed.">		if (!bodyStruct.isHoldsAnyType())</span>
+		{
+<span class="nc" id="L646">			return false;</span>
+		}
+
+<span class="nc" id="L649">		List&lt;EquipNode&gt; orderedEquipNodes = new ArrayList&lt;&gt;(getNodeList().getContents());</span>
+<span class="nc" id="L650">		Collections.sort(orderedEquipNodes);</span>
+
+		// Get current location
+<span class="nc" id="L653">		int currLoc = orderedEquipNodes.indexOf(node);</span>
+<span class="nc bnc" id="L654" title="All 2 branches missed.">		if (currLoc &lt; 0)</span>
+		{
+<span class="nc" id="L656">			return false;</span>
+		}
+
+		// Calculate new location
+		EquipNode beforeNode;
+<span class="nc" id="L661">		boolean addAsLastChildOfParent = false;</span>
+<span class="nc bnc" id="L662" title="All 2 branches missed.">		if (numRowsToMove &lt; 0)</span>
+		{
+<span class="nc" id="L664">			beforeNode = scanBackForNewLoc(node, orderedEquipNodes, numRowsToMove * -1, currLoc);</span>
+		}
+		else
+		{
+<span class="nc" id="L668">			beforeNode = scanForwardForNewLoc(node, orderedEquipNodes, numRowsToMove, currLoc);</span>
+<span class="nc bnc" id="L669" title="All 2 branches missed.">			addAsLastChildOfParent = beforeNode == null;</span>
+		}
+
+		// Move the equipment item
+<span class="nc" id="L673">		Map&lt;String, EquipNode&gt; origPathToNode = buildPathNodeMap();</span>
+<span class="nc" id="L674">		Map&lt;String, EquipSet&gt; origPathToEquipSet = buildPathEquipSetMap();</span>
+<span class="nc" id="L675">		getNodeList().removeElement(node);</span>
+<span class="nc" id="L676">		String origIdPath = node.getIdPath();</span>
+<span class="nc" id="L677">		EquipSet parentEs = charDisplay.getEquipSetByIdPath(EquipSet.getParentPath(origIdPath));</span>
+<span class="nc" id="L678">		EquipSet nodeEs = charDisplay.getEquipSetByIdPath(origIdPath);</span>
+		String newIdPath;
+<span class="nc bnc" id="L680" title="All 2 branches missed.">		if (addAsLastChildOfParent)</span>
+		{
+<span class="nc" id="L682">			newIdPath = EquipmentSetFacadeImpl.getNewIdPath(charDisplay, parentEs);</span>
+		}
+		else
+		{
+<span class="nc" id="L686">			newIdPath = shiftEquipSetsDown(parentEs, beforeNode, origPathToNode, origPathToEquipSet);</span>
+		}
+<span class="nc" id="L688">		nodeEs.setIdPath(newIdPath);</span>
+<span class="nc" id="L689">		node.setIdPath(newIdPath);</span>
+<span class="nc" id="L690">		getNodeList().addElement(node);</span>
+
+		// Update children of the item
+<span class="nc" id="L693">		updateContainerPath(origIdPath, newIdPath, origPathToNode, origPathToEquipSet);</span>
+
+<span class="nc" id="L695">		return true;</span>
+	}
+
+	@Override
+	public boolean sortEquipment(EquipNode parentNode)
+	{
+		// Confirm our assumptions
+<span class="nc bnc" id="L702" title="All 2 branches missed.">		if ((parentNode.getBodyStructure() == null)</span>
+<span class="nc bnc" id="L703" title="All 4 branches missed.">			|| ((parentNode.getNodeType() != EquipNode.NodeType.EQUIPMENT) &amp;&amp; (parentNode.getNodeType() != EquipNode.NodeType.BODY_SLOT)))</span>
+		{
+<span class="nc" id="L705">			return false;</span>
+		}
+<span class="nc" id="L707">		BodyStructure bodyStruct = parentNode.getBodyStructure();</span>
+<span class="nc bnc" id="L708" title="All 2 branches missed.">		if (!bodyStruct.isHoldsAnyType())</span>
+		{
+<span class="nc" id="L710">			return false;</span>
+		}
+
+<span class="nc" id="L713">		String pid = parentNode.idPath;</span>
+<span class="nc bnc" id="L714" title="All 2 branches missed.">		boolean isBodyStructure = parentNode.getBodyStructure() != null;</span>
+<span class="nc" id="L715">		List&lt;EquipNode&gt; childList = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L716">		Map&lt;String, EquipNode&gt; origPathToNode = buildPathNodeMap();</span>
+<span class="nc" id="L717">		Map&lt;String, EquipSet&gt; origPathToEquipSet = buildPathEquipSetMap();</span>
+<span class="nc bnc" id="L718" title="All 2 branches missed.">		for (Map.Entry&lt;String, EquipNode&gt; entry : origPathToNode.entrySet())</span>
+		{
+<span class="nc" id="L720">			final String origPath = entry.getKey();</span>
+<span class="nc" id="L721">			final EquipNode node = entry.getValue();</span>
+<span class="nc" id="L722">			EquipSet es = origPathToEquipSet.get(origPath);</span>
+
+<span class="nc bnc" id="L724" title="All 2 branches missed.">			if (node.parent == parentNode)</span>
+			{
+<span class="nc" id="L726">				childList.add(node);</span>
+<span class="nc bnc" id="L727" title="All 2 branches missed.">				if (pid == null)</span>
+				{
+<span class="nc" id="L729">					pid = es.getParentIdPath();</span>
+				}
+			}
+<span class="nc" id="L732">		}</span>
+
+		// Sort child list
+<span class="nc" id="L735">		childList.sort(new EquipNameComparator());</span>
+
+		// Renumber paths
+		// need to start from a unique id if only sorting some nodes at a level
+<span class="nc bnc" id="L739" title="All 2 branches missed.">		int id = isBodyStructure ? theCharacter.getNewChildId(pid) : 1;</span>
+<span class="nc" id="L740">		NumberFormat format = new DecimalFormat(&quot;00&quot;);</span>
+<span class="nc bnc" id="L741" title="All 2 branches missed.">		for (EquipNode childNode : childList)</span>
+		{
+<span class="nc" id="L743">			String origPath = childNode.idPath;</span>
+<span class="nc" id="L744">			String newPath = pid + '.' + format.format(id);</span>
+<span class="nc" id="L745">			getNodeList().removeElement(childNode);</span>
+<span class="nc" id="L746">			EquipSet es = origPathToEquipSet.get(origPath);</span>
+<span class="nc" id="L747">			es.setIdPath(newPath);</span>
+<span class="nc" id="L748">			updateContainerPath(origPath, newPath, origPathToNode, origPathToEquipSet);</span>
+<span class="nc" id="L749">			childNode.setIdPath(newPath);</span>
+<span class="nc" id="L750">			getNodeList().addElement(childNode);</span>
+<span class="nc" id="L751">			id++;</span>
+<span class="nc" id="L752">		}</span>
+<span class="nc" id="L753">		return true;</span>
+	}
+
+	/**
+	 * Scan back in the node list to find the row that is a certain number of
+	 * steps above the starting row. This will skip past the contents of any
+	 * containers which do not contain the start row.
+	 *
+	 * @param equipNode The node being moved.
+	 * @param orderedEquipNodes The sorted list of all equipment nodes for this equipment set.
+	 * @param numRowsToMove The positive number of rows to move back
+	 * @param startRow The row at which the node is currently located.
+	 * @return The node currently at the new lcoation.
+	 */
+	private EquipNode scanBackForNewLoc(EquipNode equipNode, List&lt;EquipNode&gt; orderedEquipNodes,
+		int numRowsToMove, int startRow)
+	{
+<span class="nc" id="L770">		int currIndex = startRow;</span>
+<span class="nc" id="L771">		int numRowsMoved = 0;</span>
+<span class="nc" id="L772">		String lastIdPath = equipNode.getIdPath();</span>
+<span class="nc" id="L773">		EquipNode lastRowNode = equipNode;</span>
+<span class="nc bnc" id="L774" title="All 4 branches missed.">		while ((currIndex &gt; 0) &amp;&amp; (numRowsMoved &lt; numRowsToMove))</span>
+		{
+<span class="nc" id="L776">			currIndex--;</span>
+<span class="nc" id="L777">			int lastDepth = EquipSet.getPathDepth(lastIdPath);</span>
+<span class="nc" id="L778">			EquipNode currRowNode = orderedEquipNodes.get(currIndex);</span>
+<span class="nc bnc" id="L779" title="All 2 branches missed.">			int currRowDepth = (currRowNode.getIdPath() == null) ? 0 : EquipSet.getPathDepth(currRowNode.getIdPath());</span>
+
+<span class="nc bnc" id="L781" title="All 2 branches missed.">			if (lastDepth &lt; currRowDepth)</span>
+			{
+<span class="nc" id="L783">				Logging.log(Logging.DEBUG, &quot;Ignore this child of a higher container&quot;);</span>
+			}
+<span class="nc bnc" id="L785" title="All 2 branches missed.">			else if ((equipNode.getBodyStructure() != currRowNode.getBodyStructure())</span>
+<span class="nc bnc" id="L786" title="All 2 branches missed.">				|| (equipNode.getParent() != currRowNode.getParent()))</span>
+			{
+				// We've gone too far (outside the target body structure or
+				// past where the item can be equipped), so return the last item
+				// we could equip to
+<span class="nc" id="L791">				return lastRowNode;</span>
+			}
+			else
+			{
+				// Valid target - parent or sibling of prev row
+<span class="nc" id="L796">				numRowsMoved++;</span>
+<span class="nc" id="L797">				lastIdPath = currRowNode.getIdPath();</span>
+<span class="nc" id="L798">				lastRowNode = currRowNode;</span>
+			}
+<span class="nc" id="L800">		}</span>
+<span class="nc" id="L801">		return lastRowNode;</span>
+	}
+
+	/**
+	 * Scan forward in the node list to find the row that is a certain number of
+	 * steps below the starting row. This will skip past the contents of any
+	 * containers which do not contain the start row.
+	 *
+	 * @param equipNode The node being moved.
+	 * @param orderedEquipNodes The sorted list of all equipment nodes for this equipment set.
+	 * @param numRowsToMove The positive number of rows to move forward
+	 * @param startRow The row at which the node is currently located.
+	 * @return The node currently at the new lcoation.
+	 */
+	private EquipNode scanForwardForNewLoc(EquipNode equipNode, List&lt;EquipNode&gt; orderedEquipNodes,
+		int numRowsToMove, int startRow)
+	{
+<span class="nc" id="L818">		int currIndex = startRow;</span>
+<span class="nc" id="L819">		int numRowsMoved = 0;</span>
+<span class="nc" id="L820">		String lastIdPath = equipNode.getIdPath();</span>
+<span class="nc" id="L821">		EquipNode lastRowNode = equipNode;</span>
+<span class="nc bnc" id="L822" title="All 4 branches missed.">		while ((currIndex &lt; orderedEquipNodes.size()) &amp;&amp; (numRowsMoved &lt;= numRowsToMove))</span>
+		{
+<span class="nc" id="L824">			currIndex++;</span>
+<span class="nc bnc" id="L825" title="All 2 branches missed.">			if (currIndex == orderedEquipNodes.size())</span>
+			{
+<span class="nc" id="L827">				return null;</span>
+			}
+<span class="nc" id="L829">			int lastDepth = EquipSet.getPathDepth(lastIdPath);</span>
+<span class="nc" id="L830">			EquipNode currRowNode = orderedEquipNodes.get(currIndex);</span>
+<span class="nc bnc" id="L831" title="All 2 branches missed.">			if (currRowNode.getIdPath() == null)</span>
+			{
+<span class="nc" id="L833">				return null;</span>
+			}
+<span class="nc" id="L835">			int currRowDepth = EquipSet.getPathDepth(currRowNode.getIdPath());</span>
+
+<span class="nc bnc" id="L837" title="All 2 branches missed.">			if (lastDepth &lt; currRowDepth)</span>
+			{
+<span class="nc" id="L839">				Logging.log(Logging.DEBUG, &quot;Ignore this child of a higher container&quot;);</span>
+			}
+<span class="nc bnc" id="L841" title="All 2 branches missed.">			else if ((equipNode.getBodyStructure() != currRowNode.getBodyStructure())</span>
+<span class="nc bnc" id="L842" title="All 2 branches missed.">				|| (equipNode.getParent() != currRowNode.getParent()))</span>
+			{
+				// We've gone too far (outside the target body structure or
+				// past where the item can be equipped), so return the last item
+				// we could equip to
+<span class="nc" id="L847">				return null;</span>
+			}
+			else
+			{
+				// Valid target - sibling of prev row or sibling of prev row's parent.
+<span class="nc" id="L852">				numRowsMoved++;</span>
+<span class="nc" id="L853">				lastIdPath = currRowNode.getIdPath();</span>
+<span class="nc" id="L854">				lastRowNode = currRowNode;</span>
+			}
+<span class="nc" id="L856">		}</span>
+<span class="nc" id="L857">		return lastRowNode;</span>
+	}
+
+	/**
+	 * Reorder the equipment for output to cater for any changes in the
+	 * equipment list. Note this assumes this equipment set is the active one
+	 * as it updates the character's master equipment list.
+	 */
+	private void updateOutputOrder()
+	{
+<span class="nc" id="L867">		List&lt;EquipNode&gt; orderedEquipNodes = new ArrayList&lt;&gt;(getNodeList().getContents());</span>
+<span class="nc" id="L868">		Collections.sort(orderedEquipNodes);</span>
+<span class="nc" id="L869">		List&lt;Equipment&gt; processed = new ArrayList&lt;&gt;(orderedEquipNodes.size());</span>
+
+<span class="nc" id="L871">		int outputIndex = 1;</span>
+<span class="nc bnc" id="L872" title="All 2 branches missed.">		for (EquipNode equipNode : orderedEquipNodes)</span>
+		{
+<span class="nc bnc" id="L874" title="All 2 branches missed.">			if (equipNode.getEquipment() != null)</span>
+			{
+<span class="nc" id="L876">				Equipment equip = theCharacter.getEquipmentNamed(equipNode.getEquipment().toString());</span>
+				// If an item is split in multiple places, don't overwrite its order
+<span class="nc bnc" id="L878" title="All 4 branches missed.">				if ((equip != null) &amp;&amp; !processed.contains(equip))</span>
+				{
+<span class="nc" id="L880">					equip.setOutputIndex(outputIndex++);</span>
+<span class="nc" id="L881">					processed.add(equip);</span>
+				}
+			}
+<span class="nc" id="L884">		}</span>
+
+<span class="nc" id="L886">	}</span>
+
+	@Override
+	public EquipmentFacade removeEquipment(EquipNode node, int quantity)
+	{
+<span class="nc bnc" id="L891" title="All 2 branches missed.">		if (node.getNodeType() != EquipNode.NodeType.EQUIPMENT)</span>
+		{
+<span class="nc" id="L893">			return null;</span>
+		}
+
+<span class="nc" id="L896">		EquipNode parentNode = node.getParent();</span>
+<span class="nc" id="L897">		EquipSet eSet = charDisplay.getEquipSetByIdPath(node.getIdPath());</span>
+<span class="nc bnc" id="L898" title="All 2 branches missed.">		if (eSet == null)</span>
+		{
+<span class="nc" id="L900">			Logging.errorPrint(&quot;No equipset found for node &quot; + node + &quot; path &quot; + node.getIdPath());</span>
+<span class="nc" id="L901">			return null;</span>
+		}
+<span class="nc" id="L903">		int newQty = (int) (eSet.getQty() - quantity);</span>
+
+<span class="nc" id="L905">		Equipment eqI = eSet.getItem();</span>
+
+<span class="nc bnc" id="L907" title="All 2 branches missed.">		if (newQty &lt;= 0)</span>
+		{
+			// If it was a container, remove all children
+<span class="nc" id="L910">			removeChildren(node);</span>
+
+			// remove Equipment (via EquipSet) from the PC
+<span class="nc" id="L913">			theCharacter.delEquipSet(eSet);</span>
+<span class="nc" id="L914">			getNodeList().removeElement(node);</span>
+
+			// if it was inside a container, make sure to update
+			// the container Equipment Object
+<span class="nc bnc" id="L918" title="All 2 branches missed.">			if (parentNode.getNodeType() == EquipNode.NodeType.EQUIPMENT)</span>
+			{
+<span class="nc" id="L920">				Equipment eqP = eqI.getParent();</span>
+
+<span class="nc bnc" id="L922" title="All 2 branches missed.">				if (eqP != null)</span>
+				{
+<span class="nc" id="L924">					eqP.removeChild(theCharacter, eqI);</span>
+				}
+<span class="nc" id="L926">			}</span>
+<span class="nc bnc" id="L927" title="All 2 branches missed.">			else if (node.getSlot() != null)</span>
+			{
+<span class="nc" id="L929">				final EquipNode restoredNode = getEquipSlotNodeMap().get(node.getSlot());</span>
+<span class="nc bnc" id="L930" title="All 4 branches missed.">				if ((restoredNode != null) &amp;&amp; !getNodeList().containsElement(restoredNode))</span>
+				{
+<span class="nc" id="L932">					getNodeList().addElement(0, restoredNode);</span>
+<span class="nc" id="L933">					addCompatWeaponSlots(restoredNode);</span>
+				}
+<span class="nc" id="L935">			}</span>
+		}
+		else
+		{
+<span class="nc" id="L939">			eSet.setQty((float) newQty);</span>
+<span class="nc" id="L940">			fireQuantityChanged(node);</span>
+		}
+<span class="nc" id="L942">		updateTotalWeight(eqI, quantity * -1, node.getBodyStructure());</span>
+<span class="nc" id="L943">		updateTotalQuantity(eqI, quantity * -1);</span>
+<span class="nc" id="L944">		updateNaturalWeaponSlots();</span>
+<span class="nc" id="L945">		theCharacter.calcActiveBonuses();</span>
+<span class="nc" id="L946">		updatePhantomSlots();</span>
+
+<span class="nc" id="L948">		return eqI;</span>
+	}
+
+	/**
+	 * Remove all equipment items held within a supplied container
+	 * @param parentNode The container node to be emptied
+	 */
+	private void removeChildren(EquipNode parentNode)
+	{
+<span class="nc bnc" id="L957" title="All 2 branches missed.">		if (parentNode.getNodeType() != EquipNode.NodeType.EQUIPMENT)</span>
+		{
+<span class="nc" id="L959">			return;</span>
+		}
+
+<span class="nc" id="L962">		List&lt;EquipNode&gt; equipToBeRemoved = new ArrayList&lt;&gt;(getNodeList().getSize());</span>
+<span class="nc bnc" id="L963" title="All 2 branches missed.">		for (EquipNode node : getNodeList())</span>
+		{
+			// Only select top level equipment, anything in a container will be removed along with the container.
+<span class="nc bnc" id="L966" title="All 4 branches missed.">			if ((node.getNodeType() == EquipNode.NodeType.EQUIPMENT) &amp;&amp; (node.getParent() == parentNode))</span>
+			{
+<span class="nc" id="L968">				equipToBeRemoved.add(node);</span>
+			}
+<span class="nc" id="L970">		}</span>
+
+<span class="nc bnc" id="L972" title="All 2 branches missed.">		for (EquipNode node : equipToBeRemoved)</span>
+		{
+<span class="nc" id="L974">			removeEquipment(node, getQuantity(node));</span>
+<span class="nc" id="L975">		}</span>
+<span class="nc" id="L976">	}</span>
+
+	/**
+	 * Calculate a list of weapon slots that are not compatible with the
+	 * supplied slot. These can then be removed from the list to be displayed
+	 * when the slot is filled and added back in when the slot is empty.
+	 *
+	 * @param targetNode The node to be check.
+	 * @return The list of incompatible nodes, empty if the target is not a weapon slot.
+	 */
+	private List&lt;EquipNode&gt; getIncompatibleWeaponSlots(EquipNode targetNode)
+	{
+<span class="nc" id="L988">		List&lt;EquipNode&gt; wpnList = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L989" title="All 2 branches missed.">		if (targetNode.getNodeType() != EquipNode.NodeType.PHANTOM_SLOT)</span>
+		{
+<span class="nc" id="L991">			return wpnList;</span>
+		}
+
+<span class="nc" id="L994">		String[] incompatLocNames = {};</span>
+<span class="nc" id="L995">		final String slotName = targetNode.getSlot().toString();</span>
+<span class="nc bnc" id="L996" title="All 2 branches missed.">		if (Constants.EQUIP_LOCATION_PRIMARY.equals(slotName))</span>
+		{
+<span class="nc" id="L998">			incompatLocNames = new String[]{Constants.EQUIP_LOCATION_BOTH, Constants.EQUIP_LOCATION_DOUBLE};</span>
+		}
+<span class="nc bnc" id="L1000" title="All 2 branches missed.">		else if (Constants.EQUIP_LOCATION_SECONDARY.equals(slotName))</span>
+		{
+<span class="nc" id="L1002">			incompatLocNames = new String[]{Constants.EQUIP_LOCATION_BOTH, Constants.EQUIP_LOCATION_DOUBLE,</span>
+				Constants.EQUIP_LOCATION_SHIELD};
+		}
+<span class="nc bnc" id="L1005" title="All 2 branches missed.">		else if (Constants.EQUIP_LOCATION_SHIELD.equals(slotName))</span>
+		{
+<span class="nc" id="L1007">			incompatLocNames = new String[]{Constants.EQUIP_LOCATION_BOTH, Constants.EQUIP_LOCATION_DOUBLE,</span>
+				Constants.EQUIP_LOCATION_SECONDARY};
+		}
+<span class="nc bnc" id="L1010" title="All 2 branches missed.">		else if (Constants.EQUIP_LOCATION_BOTH.equals(slotName))</span>
+		{
+<span class="nc" id="L1012">			incompatLocNames = new String[]{Constants.EQUIP_LOCATION_PRIMARY, Constants.EQUIP_LOCATION_DOUBLE,</span>
+				Constants.EQUIP_LOCATION_SECONDARY, Constants.EQUIP_LOCATION_SHIELD};
+		}
+<span class="nc bnc" id="L1015" title="All 2 branches missed.">		else if (Constants.EQUIP_LOCATION_DOUBLE.equals(slotName))</span>
+		{
+<span class="nc" id="L1017">			incompatLocNames = new String[]{Constants.EQUIP_LOCATION_PRIMARY, Constants.EQUIP_LOCATION_BOTH,</span>
+				Constants.EQUIP_LOCATION_SECONDARY, Constants.EQUIP_LOCATION_SHIELD};
+		}
+		//TODO: Extra secondary locations for more than 2 arms
+
+<span class="nc" id="L1022">		List&lt;String&gt; namesList = Arrays.asList(incompatLocNames);</span>
+<span class="nc bnc" id="L1023" title="All 2 branches missed.">		for (EquipSlot slot : getEquipSlotNodeMap().keySet())</span>
+		{
+<span class="nc bnc" id="L1025" title="All 2 branches missed.">			if (namesList.contains(slot.toString()))</span>
+			{
+<span class="nc" id="L1027">				wpnList.add(getEquipSlotNodeMap().get(slot));</span>
+			}
+<span class="nc" id="L1029">		}</span>
+<span class="nc" id="L1030">		return wpnList;</span>
+	}
+
+	/**
+	 * Add back to the list any weapon slots that are now valid again. Called
+	 * after a weapon is removed from a character and the weapon;s node has
+	 * been added back to the node list.
+	 *
+	 * @param restoredNode The weapon equip node being restored.
+	 */
+	private void addCompatWeaponSlots(final EquipNode restoredNode)
+	{
+<span class="nc" id="L1042">		List&lt;EquipNode&gt; weaponSlots = getIncompatibleWeaponSlots(restoredNode);</span>
+<span class="nc" id="L1043">		Set&lt;EquipNode&gt; incompatNodes = new HashSet&lt;&gt;();</span>
+<span class="nc bnc" id="L1044" title="All 2 branches missed.">		for (EquipNode equipNode : getNodeList())</span>
+		{
+<span class="nc bnc" id="L1046" title="All 4 branches missed.">			if ((equipNode.getNodeType() == EquipNode.NodeType.EQUIPMENT) &amp;&amp; affectsWeaponSlots(equipNode))</span>
+			{
+<span class="nc" id="L1048">				EquipSlot slot = equipNode.getSlot();</span>
+<span class="nc bnc" id="L1049" title="All 4 branches missed.">				if ((slot != null) &amp;&amp; (getEquipSlotNodeMap().get(slot) != null))</span>
+				{
+<span class="nc" id="L1051">					incompatNodes.addAll(getIncompatibleWeaponSlots(getEquipSlotNodeMap().get(slot)));</span>
+				}
+			}
+<span class="nc" id="L1054">		}</span>
+<span class="nc" id="L1055">		weaponSlots.removeAll(incompatNodes);</span>
+<span class="nc bnc" id="L1056" title="All 2 branches missed.">		for (EquipNode node : weaponSlots)</span>
+		{
+<span class="nc" id="L1058">			getNodeList().addElement(0, node);</span>
+<span class="nc" id="L1059">		}</span>
+<span class="nc" id="L1060">	}</span>
+
+	private boolean affectsWeaponSlots(EquipNode equipNode)
+	{
+<span class="nc" id="L1064">		List&lt;String&gt; typeList = Arrays.asList(equipNode.getEquipment().getTypes());</span>
+<span class="nc bnc" id="L1065" title="All 4 branches missed.">		return typeList.contains(&quot;WEAPON&quot;) || typeList.contains(&quot;SHIELD&quot;);</span>
+	}
+
+	/**
+	 * Update the total quantity held of an item as recorded in the
+	 * equipmentList. This will add or remove the item from the list as
+	 * required. Items with the same name are aggregated to give a total
+	 * amount held.
+	 *
+	 * @param item The item to be updated
+	 * @param amtChanged The amount by which the quantity has changed.
+	 */
+	private void updateTotalQuantity(Equipment item, int amtChanged)
+	{
+<span class="nc bnc" id="L1079" title="All 2 branches missed.">		for (EquipmentFacade equip : equippedItemsList)</span>
+		{
+<span class="nc bnc" id="L1081" title="All 2 branches missed.">			if (item.equals(equip))</span>
+			{
+<span class="nc" id="L1083">				int newQty = equippedItemsList.getQuantity(equip) + amtChanged;</span>
+<span class="nc bnc" id="L1084" title="All 2 branches missed.">				if (newQty &gt; 0)</span>
+				{
+<span class="nc" id="L1086">					equippedItemsList.setQuantity(equip, newQty);</span>
+				}
+				else
+				{
+<span class="nc" id="L1090">					equippedItemsList.removeElement(equip);</span>
+				}
+<span class="nc" id="L1092">				return;</span>
+			}
+<span class="nc" id="L1094">		}</span>
+
+		// Item is new so add it
+<span class="nc" id="L1097">		equippedItemsList.addElement(item, amtChanged);</span>
+<span class="nc" id="L1098">	}</span>
+
+	/**
+	 * Update the available natural weapon slots that are displayed. Will hide the
+	 * natural weapon slots unless there are unequipped natural weapons.
+	 */
+	private void updateNaturalWeaponSlots()
+	{
+<span class="nc bnc" id="L1106" title="All 2 branches missed.">		if (pcHasUnequippedNaturalWeapons())</span>
+		{
+			// Ensure natural weapon locations are visible
+<span class="nc bnc" id="L1109" title="All 2 branches missed.">			getNaturalWeaponNodes().values().stream().filter(natWpnEquipNode -&gt; !getNodeList().containsElement(natWpnEquipNode))</span>
+<span class="nc" id="L1110">				.forEach(natWpnEquipNode -&gt; getNodeList().addElement(natWpnEquipNode));</span>
+		}
+		else
+		{
+			// Ensure natural weapon locations are not visible
+<span class="nc" id="L1115">			getNaturalWeaponNodes().values().stream().filter(natWpnEquipNode -&gt; getNodeList().containsElement(natWpnEquipNode))</span>
+<span class="nc" id="L1116">				.forEach(natWpnEquipNode -&gt; getNodeList().removeElement(natWpnEquipNode));</span>
+		}
+<span class="nc" id="L1118">	}</span>
+
+	/**
+	 * Examine each phantom slot and ensure its display status matches the
+	 * current free capacity. This may remove phantom slots from the node list
+	 * (where they are full), add them to the node list (where they have spare
+	 * capacity), or flag a todo (where they are over capacity. This is done to
+	 * react to bonus slots changing in the character.
+	 */
+	private void updatePhantomSlots()
+	{
+		// Check for phantom slots which are no longer usable and slots over capacity
+<span class="nc" id="L1130">		Set&lt;EquipNode&gt; nodesToBeRemoved = new HashSet&lt;&gt;();</span>
+<span class="nc" id="L1131">		Set&lt;EquipNode&gt; presentPNs = new HashSet&lt;&gt;();</span>
+<span class="nc" id="L1132">		Set&lt;EquipNode&gt; neededPNs = new HashSet&lt;&gt;();</span>
+<span class="nc bnc" id="L1133" title="All 2 branches missed.">		for (EquipNode node : getNodeList())</span>
+		{
+<span class="nc bnc" id="L1135" title="All 3 branches missed.">			switch (node.getNodeType())</span>
+			{
+				case PHANTOM_SLOT:
+<span class="nc bnc" id="L1138" title="All 2 branches missed.">					if (getNumFreeSlots(node) &lt;= 0)</span>
+					{
+<span class="nc" id="L1140">						nodesToBeRemoved.add(node);</span>
+					}
+					else
+					{
+<span class="nc" id="L1144">						presentPNs.add(node);</span>
+					}
+<span class="nc" id="L1146">					break;</span>
+
+				case EQUIPMENT:
+<span class="nc bnc" id="L1149" title="All 2 branches missed.">					if (node.getSlot() != null)</span>
+					{
+<span class="nc" id="L1151">						final EquipNode parentNode = getEquipSlotNodeMap().get(node.getSlot());</span>
+<span class="nc bnc" id="L1152" title="All 4 branches missed.">						if ((parentNode != null) &amp;&amp; (parentNode.getNodeType() == EquipNode.NodeType.PHANTOM_SLOT))</span>
+						{
+<span class="nc" id="L1154">							int numFreeSlots = getNumFreeSlots(parentNode);</span>
+<span class="nc bnc" id="L1155" title="All 2 branches missed.">							if (numFreeSlots &lt; 0)</span>
+							{
+<span class="nc" id="L1157">								todoManager.addTodo(new TodoFacadeImpl(Tab.INVENTORY, parentNode.toString(),</span>
+<span class="nc" id="L1158">									&quot;in_equipNodeOverfull&quot;, Tab.EQUIPPING.name(), 9)); //$NON-NLS-1$</span>
+							}
+							else
+							{
+<span class="nc" id="L1162">								todoManager.removeTodo(&quot;in_equipNodeOverfull&quot;, parentNode.toString()); //$NON-NLS-1$</span>
+<span class="nc bnc" id="L1163" title="All 2 branches missed.">								if (numFreeSlots &gt; 0)</span>
+								{
+<span class="nc" id="L1165">									neededPNs.add(parentNode);</span>
+								}
+							}
+						}
+<span class="nc" id="L1169">					}</span>
+					break;
+
+				default:
+					break;
+			}
+<span class="nc" id="L1175">		}</span>
+
+		// Add hiddenPNs to neededPNs if they now have spare capacity
+<span class="nc bnc" id="L1178" title="All 2 branches missed.">		for (EquipNode node : hiddenPhantomNodes)</span>
+		{
+<span class="nc bnc" id="L1180" title="All 2 branches missed.">			if (getNumFreeSlots(node) &gt; 0)</span>
+			{
+<span class="nc" id="L1182">				neededPNs.add(node);</span>
+			}
+<span class="nc" id="L1184">		}</span>
+
+		// Remove the phantom nodes flagged, add to hiddenPNs as needed
+<span class="nc bnc" id="L1187" title="All 2 branches missed.">		for (EquipNode node : nodesToBeRemoved)</span>
+		{
+<span class="nc" id="L1189">			getNodeList().removeElement(node);</span>
+<span class="nc bnc" id="L1190" title="All 2 branches missed.">			if (getQuantity(node) &lt;= 0)</span>
+			{
+<span class="nc" id="L1192">				hiddenPhantomNodes.add(node);</span>
+			}
+<span class="nc" id="L1194">		}</span>
+
+		// Add any now needed phantom nodes to the visible list
+<span class="nc" id="L1197">		neededPNs.removeAll(presentPNs);</span>
+<span class="nc bnc" id="L1198" title="All 2 branches missed.">		for (EquipNode restoredNode : neededPNs)</span>
+		{
+<span class="nc" id="L1200">			getNodeList().addElement(0, restoredNode);</span>
+<span class="nc" id="L1201">			addCompatWeaponSlots(restoredNode);</span>
+<span class="nc" id="L1202">			hiddenPhantomNodes.remove(restoredNode);</span>
+<span class="nc" id="L1203">		}</span>
+<span class="nc" id="L1204">	}</span>
+
+	@Override
+	public boolean isContainer(EquipmentFacade equipment)
+	{
+<span class="nc bnc" id="L1209" title="All 2 branches missed.">		if (!(equipment instanceof Equipment item))</span>
+		{
+<span class="nc" id="L1211">			return false;</span>
+		}
+
+<span class="nc" id="L1214">		return item.isContainer();</span>
+	}
+
+	@Override
+	public void setName(String name)
+	{
+<span class="nc" id="L1220">		this.name.set(name);</span>
+<span class="nc" id="L1221">		eqSet.setName(name);</span>
+<span class="nc" id="L1222">	}</span>
+
+	@Override
+	public void addEquipmentTreeListener(EquipmentTreeListener listener)
+	{
+<span class="nc" id="L1227">		listeners.add(listener);</span>
+<span class="nc" id="L1228">	}</span>
+
+	@Override
+	public void removeEquipmentTreeListener(EquipmentTreeListener listener)
+	{
+<span class="nc" id="L1233">		listeners.remove(listener);</span>
+<span class="nc" id="L1234">	}</span>
+
+	@Override
+	public ReferenceFacade&lt;String&gt; getNameRef()
+	{
+<span class="nc" id="L1239">		return name;</span>
+	}
+
+	@Override
+	public EquipmentListFacade getEquippedItems()
+	{
+<span class="nc" id="L1245">		return equippedItemsList;</span>
+	}
+
+	@Override
+	public boolean canEquip(EquipNode node, EquipmentFacade equipment)
+	{
+<span class="nc bnc" id="L1251" title="All 4 branches missed.">		if ((equipment == null) || (node == null))</span>
+		{
+<span class="nc" id="L1253">			return false;</span>
+		}
+<span class="nc" id="L1255">		return eqSet.canEquip(theCharacter, node, (Equipment) equipment);</span>
+	}
+
+	@Override
+	public String getPreferredLoc(EquipmentFacade equipment)
+	{
+<span class="nc" id="L1261">		EquipNode reqNode = getNaturalWeaponLoc(equipment);</span>
+<span class="nc bnc" id="L1262" title="All 2 branches missed.">		if (reqNode != null)</span>
+		{
+<span class="nc" id="L1264">			return reqNode.toString();</span>
+		}
+<span class="nc bnc" id="L1266" title="All 2 branches missed.">		for (EquipNode node : getEquipSlotNodeMap().values())</span>
+		{
+<span class="nc bnc" id="L1268" title="All 2 branches missed.">			if (node.getNodeType() == EquipNode.NodeType.PHANTOM_SLOT)</span>
+			{
+<span class="nc bnc" id="L1270" title="All 2 branches missed.">				if (canEquip(node, equipment))</span>
+				{
+<span class="nc" id="L1272">					return node.toString();</span>
+				}
+			}
+<span class="nc" id="L1275">		}</span>
+
+<span class="nc" id="L1277">		return LanguageBundle.getString(&quot;in_other&quot;); //$NON-NLS-1$</span>
+	}
+
+	/**
+	 * Retrieve the preferred location for a natural weapon. Will return null
+	 * for non natural weapon equipment items.
+	 *
+	 * @param equipment The equipment item to be checked.
+	 * @return The preferred natural equip node, or null if not applicable.
+	 */
+	protected EquipNode getNaturalWeaponLoc(EquipmentFacade equipment)
+	{
+<span class="nc bnc" id="L1289" title="All 2 branches missed.">		if (!(equipment instanceof Equipment))</span>
+		{
+<span class="nc" id="L1291">			return null;</span>
+		}
+<span class="nc" id="L1293">		return eqSet.getNatWeaponLoc(theCharacter, (Equipment) equipment);</span>
+	}
+
+	private void createNaturalWeaponSlots()
+	{
+<span class="nc bnc" id="L1298" title="All 2 branches missed.">		for (EquipSlot slot : SystemCollections.getUnmodifiableEquipSlotList())</span>
+		{
+<span class="nc bnc" id="L1300" title="All 2 branches missed.">			if (slot.canContainType(&quot;WEAPON&quot;)) //$NON-NLS-1$</span>
+			{
+<span class="nc bnc" id="L1302" title="All 2 branches missed.">				for (EquipNode node : getNodeList())</span>
+				{
+<span class="nc bnc" id="L1304" title="All 2 branches missed.">					if ((node.getNodeType() == EquipNode.NodeType.BODY_SLOT)</span>
+<span class="nc bnc" id="L1305" title="All 2 branches missed.">						&amp;&amp; slot.getBodyStructureName().equalsIgnoreCase(node.getBodyStructure().toString()))</span>
+					{
+<span class="nc" id="L1307">						createNaturalWeaponSlot(slot, node, Constants.EQUIP_LOCATION_NATURAL_PRIMARY);</span>
+<span class="nc" id="L1308">						createNaturalWeaponSlot(slot, node, Constants.EQUIP_LOCATION_NATURAL_SECONDARY);</span>
+<span class="nc" id="L1309">						return;</span>
+					}
+<span class="nc" id="L1311">				}</span>
+			}
+<span class="nc" id="L1313">		}</span>
+
+<span class="nc" id="L1315">	}</span>
+
+	private void createNaturalWeaponSlot(EquipSlot slot, EquipNode node, String locName)
+	{
+<span class="nc" id="L1319">		EquipSlot natWpnEquipSlot = createWeaponEquipSlot(slot, locName);</span>
+<span class="nc" id="L1320">		EquipNode slotNode = new EquipNode(node, natWpnEquipSlot, true);</span>
+<span class="nc" id="L1321">		getNaturalWeaponNodes().put(locName, slotNode);</span>
+<span class="nc" id="L1322">	}</span>
+
+	/**
+	 * Calculate the number of free instances of the slot there are in the
+	 * equipment set.
+	 *
+	 * @param slot The slot to be checked, must be a PHANTOM_SLOT.
+	 * @return The number of slots free
+	 */
+	private int getNumFreeSlots(EquipNode slot)
+	{
+<span class="nc bnc" id="L1333" title="All 2 branches missed.">		if (slot.getNodeType() != EquipNode.NodeType.PHANTOM_SLOT)</span>
+		{
+<span class="nc" id="L1335">			return 0;</span>
+		}
+
+<span class="nc" id="L1338">		int numPossible = getQuantity(slot);</span>
+
+		// Scan for items
+<span class="nc" id="L1341">		int numUsed = 0;</span>
+<span class="nc bnc" id="L1342" title="All 2 branches missed.">		for (EquipNode item : getNodeList())</span>
+		{
+<span class="nc bnc" id="L1344" title="All 4 branches missed.">			if ((item.getNodeType() == EquipNode.NodeType.EQUIPMENT) &amp;&amp; (item.getSlot() == slot.getSlot()))</span>
+			{
+<span class="nc" id="L1346">				Equipment equip = (Equipment) item.getEquipment();</span>
+<span class="nc" id="L1347">				numUsed += equip.getSlots(theCharacter);</span>
+			}
+<span class="nc" id="L1349">		}</span>
+
+<span class="nc" id="L1351">		return numPossible - numUsed;</span>
+	}
+
+	@Override
+	public void removeAllEquipment()
+	{
+<span class="nc" id="L1357">		List&lt;EquipNode&gt; equipToBeRemoved = new ArrayList&lt;&gt;(getNodeList().getSize());</span>
+<span class="nc bnc" id="L1358" title="All 2 branches missed.">		for (EquipNode node : getNodeList())</span>
+		{
+			// Only select top level equipment, anything in a container will be removed along with the container.
+<span class="nc bnc" id="L1361" title="All 4 branches missed.">			if ((node.getNodeType() == EquipNode.NodeType.EQUIPMENT) &amp;&amp; (node.getParent().getNodeType() != EquipNode.NodeType.EQUIPMENT))</span>
+			{
+<span class="nc" id="L1363">				equipToBeRemoved.add(node);</span>
+			}
+<span class="nc" id="L1365">		}</span>
+
+<span class="nc bnc" id="L1367" title="All 2 branches missed.">		for (EquipNode node : equipToBeRemoved)</span>
+		{
+<span class="nc" id="L1369">			removeEquipment(node, getQuantity(node));</span>
+<span class="nc" id="L1370">		}</span>
+<span class="nc" id="L1371">	}</span>
+
+	@Override
+	public String toString()
+	{
+<span class="nc" id="L1376">		return name.get();</span>
+	}
+
+	/**
+	 * Notify any listeners that the quantity of a node has changed.
+	 *
+	 * @param node The node that has changed quantity.
+	 */
+	private void fireQuantityChanged(EquipNode node)
+	{
+<span class="nc" id="L1386">		EquipmentTreeEvent event = null;</span>
+<span class="nc bnc" id="L1387" title="All 2 branches missed.">		for (EquipmentTreeListener equipmentTreeListener : listeners)</span>
+		{
+<span class="nc bnc" id="L1389" title="All 2 branches missed.">			if (event == null)</span>
+			{
+<span class="nc" id="L1391">				event = new EquipmentTreeEvent(this, node);</span>
+			}
+<span class="nc" id="L1393">			equipmentTreeListener.quantityChanged(event);</span>
+<span class="nc" id="L1394">		}</span>
+<span class="nc" id="L1395">	}</span>
+
+	/**
+	 * @return The core EquipSet that this facade represents.
+	 */
+	EquipSet getEquipSet()
+	{
+<span class="nc" id="L1402">		return eqSet;</span>
+	}
+
+	@Override
+	public ListFacade&lt;EquipNode&gt; getNodes()
+	{
+<span class="nc" id="L1408">		return getNodeList();</span>
+	}
+
+	@Override
+	public int getQuantity(EquipNode equipNode)
+	{
+<span class="nc bnc" id="L1414" title="All 3 branches missed.">		switch (equipNode.getNodeType())</span>
+		{
+			case BODY_SLOT:
+<span class="nc" id="L1417">				return 1;</span>
+
+			case PHANTOM_SLOT:
+<span class="nc" id="L1420">				final String slotName = equipNode.getSlot().toString();</span>
+<span class="nc bnc" id="L1421" title="All 2 branches missed.">				if (Constants.EQUIP_LOCATION_BOTH.equals(slotName))</span>
+				{
+<span class="nc" id="L1423">					return 1; // Set to 1, we should only have 1 object here. - Andrew</span>
+				}
+<span class="nc bnc" id="L1425" title="All 2 branches missed.">				if (Constants.EQUIP_LOCATION_DOUBLE.equals(slotName))</span>
+				{
+<span class="nc" id="L1427">					return 1; // Set to 1, we should only have 1 object here. - Andrew</span>
+				}
+<span class="nc bnc" id="L1429" title="All 2 branches missed.">				return equipNode.singleOnly ? 1 : (equipNode.getSlot().getSlotCount()</span>
+<span class="nc" id="L1430">					+ (int) theCharacter.getTotalBonusTo(&quot;SLOTS&quot;, equipNode.getSlot().getSlotName()));</span>
+
+			default:
+<span class="nc" id="L1433">				EquipSet parentEs = charDisplay.getEquipSetByIdPath(equipNode.getIdPath());</span>
+<span class="nc bnc" id="L1434" title="All 2 branches missed.">				return (parentEs == null) ? 0 : parentEs.getQty().intValue();</span>
+		}
+	}
+
+	@Override
+	public String getLocation(EquipNode equipNode)
+	{
+<span class="nc bnc" id="L1441" title="All 2 branches missed.">		if (equipNode.getNodeType() == EquipNode.NodeType.BODY_SLOT)</span>
+		{
+<span class="nc" id="L1443">			return equipNode.toString();</span>
+		}
+<span class="nc bnc" id="L1445" title="All 2 branches missed.">		if (equipNode.getSlot() != null)</span>
+		{
+<span class="nc" id="L1447">			return equipNode.getSlot().toString();</span>
+		}
+<span class="nc" id="L1449">		return equipNode.getBodyStructure().toString();</span>
+	}
+
+	@Override
+	public String getLocation(EquipmentFacade equip)
+	{
+<span class="nc bnc" id="L1455" title="All 2 branches missed.">		for (EquipNode node : getNodeList())</span>
+		{
+<span class="nc bnc" id="L1457" title="All 2 branches missed.">			if (equip.equals(node.getEquipment()))</span>
+			{
+<span class="nc bnc" id="L1459" title="All 2 branches missed.">				return switch (node.getNodeType())</span>
+						{
+<span class="nc" id="L1461">							case EQUIPMENT, PHANTOM_SLOT -&gt; getLocation(node);</span>
+<span class="nc" id="L1462">							default -&gt; node.getParent().toString();</span>
+						};
+			}
+<span class="nc" id="L1465">		}</span>
+
+<span class="nc" id="L1467">		return getPreferredLoc(equip);</span>
+	}
+
+	/**
+	 * Identify if the character has any natural weapons that have not been
+	 * equipped yet.
+	 * @return true if there are unequipped natural attacks, false if not.
+	 */
+	private boolean pcHasUnequippedNaturalWeapons()
+	{
+<span class="nc bnc" id="L1477" title="All 2 branches missed.">		for (Equipment equipItem : theCharacter.getEquipmentMasterList())</span>
+		{
+<span class="nc bnc" id="L1479" title="All 4 branches missed.">			if (equipItem.isNatural() &amp;&amp; !equippedItemsList.containsElement(equipItem))</span>
+			{
+<span class="nc" id="L1481">				return true;</span>
+			}
+<span class="nc" id="L1483">		}</span>
+<span class="nc" id="L1484">		return false;</span>
+	}
+
+	@Override
+	public void elementAdded(ListEvent&lt;EquipmentFacade&gt; e)
+	{
+		// We don't care about new equipment being added.
+<span class="nc" id="L1491">	}</span>
+
+	@Override
+	public void elementRemoved(ListEvent&lt;EquipmentFacade&gt; e)
+	{
+<span class="nc" id="L1496">		EquipmentFacade equipmentFacade = e.getElement();</span>
+<span class="nc bnc" id="L1497" title="All 2 branches missed.">		if (equippedItemsList.containsElement(equipmentFacade))</span>
+		{
+<span class="nc bnc" id="L1499" title="All 2 branches missed.">			if (Logging.isDebugMode())</span>
+			{
+<span class="nc" id="L1501">				Logging.debugPrint(&quot;Currently equipped item &quot; + equipmentFacade + &quot; is being removed.&quot;);</span>
+			}
+		}
+<span class="nc" id="L1504">		List&lt;EquipNode&gt; affectedList = findEquipmentNodes(equipmentFacade);</span>
+<span class="nc bnc" id="L1505" title="All 2 branches missed.">		for (EquipNode equipNode : affectedList)</span>
+		{
+<span class="nc" id="L1507">			EquipSet eSet = charDisplay.getEquipSetByIdPath(equipNode.getIdPath());</span>
+<span class="nc bnc" id="L1508" title="All 2 branches missed.">			if (eSet != null)</span>
+			{
+<span class="nc" id="L1510">				removeEquipment(equipNode, eSet.getQty().intValue());</span>
+			}
+<span class="nc" id="L1512">		}</span>
+<span class="nc" id="L1513">	}</span>
+
+	private List&lt;EquipNode&gt; findEquipmentNodes(EquipmentFacade equipmentFacade)
+	{
+<span class="nc" id="L1517">		List&lt;EquipNode&gt; affectedList = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L1518" title="All 2 branches missed.">		for (EquipNode node : getNodeList())</span>
+		{
+<span class="nc bnc" id="L1520" title="All 2 branches missed.">			if (equipmentFacade.equals(node.getEquipment()))</span>
+			{
+<span class="nc" id="L1522">				affectedList.add(node);</span>
+			}
+<span class="nc" id="L1524">		}</span>
+<span class="nc" id="L1525">		return affectedList;</span>
+	}
+
+	@Override
+	public void elementsChanged(ListEvent&lt;EquipmentFacade&gt; e)
+	{
+		// We expect a refresh of the equipment set to follow an equipment changed 
+		// event, so we can ignore these.
+<span class="nc bnc" id="L1533" title="All 2 branches missed.">		if (Logging.isDebugMode())</span>
+		{
+<span class="nc" id="L1535">			Logging.debugPrint(&quot;Equip elementsChanged &quot; + e);</span>
+		}
+<span class="nc" id="L1537">	}</span>
+
+	@Override
+	public void elementModified(ListEvent&lt;EquipmentFacade&gt; e)
+	{
+		// We don't care about new equipment being modified.
+<span class="nc" id="L1543">	}</span>
+
+	@Override
+	public void quantityChanged(EquipmentListEvent e)
+	{
+<span class="nc" id="L1548">		EquipmentFacade equipmentFacade = e.getEquipment();</span>
+<span class="nc bnc" id="L1549" title="All 2 branches missed.">		if (equippedItemsList.containsElement(equipmentFacade))</span>
+		{
+<span class="nc" id="L1551">			int quantity = purchasedList.getQuantity(equipmentFacade) - equippedItemsList.getQuantity(equipmentFacade);</span>
+<span class="nc bnc" id="L1552" title="All 2 branches missed.">			if (quantity &lt; 0)</span>
+			{
+<span class="nc bnc" id="L1554" title="All 2 branches missed.">				if (Logging.isDebugMode())</span>
+				{
+<span class="nc" id="L1556">					Logging.debugPrint(&quot;Currently equipped item &quot; + equipmentFacade + &quot; is being partially removed &quot;</span>
+<span class="nc" id="L1557">						+ quantity + &quot; from &quot; + equippedItemsList.getQuantity(equipmentFacade));</span>
+				}
+
+<span class="nc" id="L1560">				int numStillToRemove = -1 * quantity;</span>
+<span class="nc" id="L1561">				List&lt;EquipNode&gt; affectedList = findEquipmentNodes(equipmentFacade);</span>
+<span class="nc" id="L1562">				affectedList.sort(new EquipLocImportantComparator()); // TODO: Custom sort order</span>
+<span class="nc bnc" id="L1563" title="All 2 branches missed.">				for (EquipNode equipNode : affectedList)</span>
+				{
+<span class="nc" id="L1565">					EquipSet eSet = charDisplay.getEquipSetByIdPath(equipNode.getIdPath());</span>
+<span class="nc bnc" id="L1566" title="All 2 branches missed.">					if (eSet != null)</span>
+					{
+<span class="nc" id="L1568">						int numToRemove = Math.min(eSet.getQty().intValue(), numStillToRemove);</span>
+<span class="nc" id="L1569">						removeEquipment(equipNode, numToRemove);</span>
+<span class="nc" id="L1570">						numStillToRemove -= numToRemove;</span>
+					}
+
+<span class="nc bnc" id="L1573" title="All 2 branches missed.">					if (numStillToRemove &lt;= 0)</span>
+					{
+<span class="nc" id="L1575">						return;</span>
+					}
+<span class="nc" id="L1577">				}</span>
+
+			}
+		}
+<span class="nc" id="L1581">	}</span>
+
+	/**
+	 * The Class {@code EquipLocImportantComparator} compares EquipNodes based
+	 * on their 'importance' to the character. The predefined order of the slots is 
+	 * not carried, carried, equipped, all others in alpha order.
+	 */
+
+	private static class EquipLocImportantComparator implements Comparator&lt;EquipNode&gt;, Serializable
+	{
+
+		@Override
+		public int compare(EquipNode o1, EquipNode o2)
+		{
+<span class="nc" id="L1595">			BodyStructure bodyStruct1 = o1.getBodyStructure();</span>
+<span class="nc" id="L1596">			BodyStructure bodyStruct2 = o2.getBodyStructure();</span>
+
+<span class="nc bnc" id="L1598" title="All 2 branches missed.">			if (bodyStruct1 != bodyStruct2)</span>
+			{
+<span class="nc" id="L1600">				final String[] locOrder = {Constants.EQUIP_LOCATION_NOTCARRIED, Constants.EQUIP_LOCATION_CARRIED,</span>
+					Constants.EQUIP_LOCATION_EQUIPPED};
+<span class="nc bnc" id="L1602" title="All 2 branches missed.">				for (String locName : locOrder)</span>
+				{
+<span class="nc bnc" id="L1604" title="All 2 branches missed.">					if (locName.equals(bodyStruct1.toString()))</span>
+					{
+<span class="nc" id="L1606">						return -1;</span>
+					}
+<span class="nc bnc" id="L1608" title="All 2 branches missed.">					if (locName.equals(bodyStruct2.toString()))</span>
+					{
+<span class="nc" id="L1610">						return 1;</span>
+					}
+				}
+
+<span class="nc" id="L1614">				return bodyStruct1.toString().compareTo(bodyStruct2.toString());</span>
+			}
+
+<span class="nc" id="L1617">			return o1.compareTo(o2);</span>
+		}
+
+	}
+
+	/**
+	 * The Class {@code EquipNameComparator} compares EquipNodes based
+	 * on alpha order by sort key (if defined) or name.
+	 */
+
+	private static class EquipNameComparator implements Comparator&lt;EquipNode&gt;, Serializable
+	{
+
+		@Override
+		public int compare(final EquipNode o1, final EquipNode o2)
+		{
+<span class="nc" id="L1633">			return o1.getSortKey().compareTo(o2.getSortKey());</span>
+		}
+
+	}
+
+	@Override
+	public boolean isRoot()
+	{
+<span class="nc" id="L1641">		return eqSet.getParentIdPath().equals(&quot;0&quot;);</span>
+	}
+
+	private DefaultListFacade&lt;EquipNode&gt; getNodeList()
+	{
+<span class="nc" id="L1646">		return eqSet.getNodeList();</span>
+	}
+
+	private void setNodeList(DefaultListFacade&lt;EquipNode&gt; nodeList)
+	{
+<span class="nc" id="L1651">		eqSet.setNodeList(nodeList);</span>
+<span class="nc" id="L1652">	}</span>
+
+	private Map&lt;EquipSlot, EquipNode&gt; getEquipSlotNodeMap()
+	{
+<span class="nc" id="L1656">		return eqSet.getEquipSlotNodeMap();</span>
+	}
+
+	private void setEquipSlotNodeMap(Map&lt;EquipSlot, EquipNode&gt; equipSlotNodeMap)
+	{
+<span class="nc" id="L1661">		eqSet.setEquipSlotNodeMap(equipSlotNodeMap);</span>
+<span class="nc" id="L1662">	}</span>
+
+	public Map&lt;String, EquipNode&gt; getNaturalWeaponNodes()
+	{
+<span class="nc" id="L1666">		return eqSet.getNaturalWeaponNodes();</span>
+	}
+
+	private void setNaturalWeaponNodes(Map&lt;String, EquipNode&gt; naturalWeaponNodes)
+	{
+<span class="nc" id="L1671">		eqSet.setNaturalWeaponNodes(naturalWeaponNodes);</span>
+<span class="nc" id="L1672">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

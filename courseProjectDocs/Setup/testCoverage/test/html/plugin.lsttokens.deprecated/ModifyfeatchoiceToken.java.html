@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ModifyfeatchoiceToken.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.lsttokens.deprecated</a> &gt; <span class="el_source">ModifyfeatchoiceToken.java</span></div><h1>ModifyfeatchoiceToken.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) 2008 Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package plugin.lsttokens.deprecated;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.StringTokenizer;
+
+import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.ChoiceActor;
+import pcgen.cdom.base.ChoiceSet;
+import pcgen.cdom.base.ChooseInformation;
+import pcgen.cdom.base.ConcreteTransitionChoice;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.base.TransitionChoice;
+import pcgen.cdom.choiceset.ModifyChoiceDecorator;
+import pcgen.cdom.choiceset.ReferenceChoiceSet;
+import pcgen.cdom.content.CNAbility;
+import pcgen.cdom.content.TabInfo;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.reference.ReferenceManufacturer;
+import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
+import pcgen.core.Globals;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.chooser.CDOMChooserFacadeImpl;
+import pcgen.facade.core.ChooserFacade.ChooserTreeViewType;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.TokenUtilities;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.ParseResult;
+import pcgen.util.chooser.ChooserFactory;
+import pcgen.util.enumeration.Tab;
+
+/**
+ * Deals with the MODIFYFEATCHOICE token
+ */
+<span class="nc" id="L57">public class ModifyfeatchoiceToken extends AbstractTokenWithSeparator&lt;Ability&gt;</span>
+		implements CDOMPrimaryToken&lt;Ability&gt;, ChoiceActor&lt;CNAbility&gt;
+{
+
+<span class="nc" id="L61">	public static final Class&lt;Ability&gt; ABILITY_CLASS = Ability.class;</span>
+
+	@Override
+	public String getTokenName()
+	{
+<span class="nc" id="L66">		return &quot;MODIFYFEATCHOICE&quot;;</span>
+	}
+
+	@Override
+	protected char separator()
+	{
+<span class="nc" id="L72">		return '|';</span>
+	}
+
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context, Ability ability, String value)
+	{
+<span class="nc" id="L78">		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);</span>
+
+<span class="nc" id="L80">		List&lt;CDOMReference&lt;Ability&gt;&gt; refs = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L81">		ReferenceManufacturer&lt;Ability&gt; rm = context.getReferenceContext().getManufacturerId(AbilityCategory.FEAT);</span>
+
+<span class="nc bnc" id="L83" title="All 2 branches missed.">		while (tok.hasMoreTokens())</span>
+		{
+<span class="nc" id="L85">			String token = tok.nextToken();</span>
+
+<span class="nc" id="L87">			CDOMReference&lt;Ability&gt; ref = TokenUtilities.getTypeOrPrimitive(rm, token);</span>
+<span class="nc bnc" id="L88" title="All 2 branches missed.">			if (ref == null)</span>
+			{
+<span class="nc" id="L90">				return ParseResult.INTERNAL_ERROR;</span>
+			}
+
+<span class="nc" id="L93">			refs.add(ref);</span>
+<span class="nc" id="L94">		}</span>
+
+<span class="nc" id="L96">		ReferenceChoiceSet&lt;Ability&gt; rcs = new ReferenceChoiceSet&lt;&gt;(refs);</span>
+<span class="nc" id="L97">		ModifyChoiceDecorator gfd = new ModifyChoiceDecorator(rcs);</span>
+<span class="nc" id="L98">		ChoiceSet&lt;CNAbility&gt; cs = new ChoiceSet&lt;&gt;(getTokenName(), gfd);</span>
+
+<span class="nc" id="L100">		TabInfo ti =</span>
+<span class="nc" id="L101">				context.getReferenceContext().silentlyGetConstructedCDOMObject(TabInfo.class, Tab.ABILITIES.toString());</span>
+<span class="nc" id="L102">		String singularName = ti.getResolvedName();</span>
+<span class="nc bnc" id="L103" title="All 2 branches missed.">		if (singularName.endsWith(&quot;s&quot;))</span>
+		{
+<span class="nc" id="L105">			singularName = singularName.substring(0, singularName.length() - 1);</span>
+		}
+<span class="nc" id="L107">		cs.setTitle(&quot;Select a &quot; + singularName + &quot; to modify&quot;);</span>
+<span class="nc" id="L108">		TransitionChoice&lt;CNAbility&gt; tc = new ConcreteTransitionChoice&lt;&gt;(cs, FormulaFactory.ONE);</span>
+<span class="nc" id="L109">		tc.setRequired(false);</span>
+<span class="nc" id="L110">		context.getObjectContext().put(ability, ObjectKey.MODIFY_CHOICE, tc);</span>
+<span class="nc" id="L111">		tc.setChoiceActor(this);</span>
+
+<span class="nc" id="L113">		return ParseResult.SUCCESS;</span>
+	}
+
+	@Override
+	public String[] unparse(LoadContext context, Ability ability)
+	{
+<span class="nc" id="L119">		TransitionChoice&lt;CNAbility&gt; mc = context.getObjectContext().getObject(ability, ObjectKey.MODIFY_CHOICE);</span>
+<span class="nc bnc" id="L120" title="All 2 branches missed.">		if (mc == null)</span>
+		{
+			// Zero indicates no Token
+<span class="nc" id="L123">			return null;</span>
+		}
+<span class="nc" id="L125">		return new String[]{StringUtil.replaceAll(mc.getChoices().getLSTformat(), &quot;,&quot;, Constants.PIPE)};</span>
+	}
+
+	@Override
+	public Class&lt;Ability&gt; getTokenClass()
+	{
+<span class="nc" id="L131">		return Ability.class;</span>
+	}
+
+	@Override
+	public void applyChoice(CDOMObject owner, CNAbility choice, PlayerCharacter pc)
+	{
+		// build a list of available choices and choices already made.
+<span class="nc" id="L138">		processApplication(pc, choice, choice.getChooseInfo());</span>
+<span class="nc" id="L139">	}</span>
+
+	private &lt;T&gt; void processApplication(PlayerCharacter pc, CNAbility choice, ChooseInformation&lt;T&gt; chooseInfo)
+	{
+<span class="nc" id="L143">		List&lt;T&gt; available = new ArrayList&lt;&gt;(chooseInfo.getSet(pc));</span>
+<span class="nc" id="L144">		List&lt;? extends T&gt; selected = chooseInfo.getChoiceActor().getCurrentlySelected(choice, pc);</span>
+
+<span class="nc" id="L146">		final int currentSelections = selected.size();</span>
+<span class="nc" id="L147">		final List&lt;T&gt; origSelections = new ArrayList&lt;&gt;(selected);</span>
+
+		//
+		// If nothing to choose, or nothing selected, then leave
+		//
+<span class="nc bnc" id="L152" title="All 4 branches missed.">		if (available.isEmpty() || (currentSelections == 0))</span>
+		{
+<span class="nc" id="L154">			return;</span>
+		}
+
+<span class="nc" id="L157">		Globals.sortChooserLists(available, selected);</span>
+
+<span class="nc" id="L159">		CDOMChooserFacadeImpl&lt;T&gt; chooserFacade =</span>
+				new CDOMChooserFacadeImpl&lt;&gt;(&quot;Modify selections for &quot; + choice, available, selected, 0);
+<span class="nc" id="L161">		chooserFacade.setDefaultView(ChooserTreeViewType.NAME);</span>
+<span class="nc" id="L162">		ChooserFactory.getDelegate().showGeneralChooser(chooserFacade);</span>
+<span class="nc" id="L163">		final int selectedSize = chooserFacade.getFinalSelected().size();</span>
+
+<span class="nc bnc" id="L165" title="All 2 branches missed.">		if (selectedSize != currentSelections)</span>
+		{
+			// need to have the same number of selections when finished
+<span class="nc" id="L168">			return;</span>
+		}
+
+<span class="nc" id="L171">		List&lt;T&gt; add = new ArrayList&lt;&gt;(chooserFacade.getFinalSelected());</span>
+<span class="nc" id="L172">		add.removeAll(origSelections);</span>
+<span class="nc" id="L173">		List&lt;T&gt; remove = new ArrayList&lt;&gt;(origSelections);</span>
+<span class="nc" id="L174">		remove.removeAll(chooserFacade.getFinalSelected());</span>
+
+<span class="nc bnc" id="L176" title="All 2 branches missed.">		for (T selection : remove)</span>
+		{
+<span class="nc" id="L178">			chooseInfo.removeChoice(pc, choice, selection);</span>
+<span class="nc" id="L179">		}</span>
+<span class="nc bnc" id="L180" title="All 2 branches missed.">		for (T selection : add)</span>
+		{
+<span class="nc" id="L182">			chooseInfo.removeChoice(pc, choice, selection);</span>
+<span class="nc" id="L183">		}</span>
+<span class="nc" id="L184">	}</span>
+
+	@Override
+	public boolean allow(CNAbility choice, PlayerCharacter pc, boolean allowStack)
+	{
+<span class="nc" id="L189">		return true;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CDOMObjectModel.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.output.model</a> &gt; <span class="el_source">CDOMObjectModel.java</span></div><h1>CDOMObjectModel.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2014-15 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.output.model;
+
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.Objects;
+
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.CDOMWrapperInfoFacet;
+import pcgen.cdom.facet.FacetLibrary;
+import pcgen.output.base.OutputActor;
+
+import freemarker.template.TemplateHashModel;
+import freemarker.template.TemplateModel;
+import freemarker.template.TemplateModelException;
+import freemarker.template.TemplateScalarModel;
+
+/**
+ * A CDOMObjectModel is a wrapper around a CDOMObject which serves as a
+ * TemplateHashModel to expose the appropriate objects within the CDOMObject.
+ */
+public class CDOMObjectModel implements TemplateHashModel, TemplateScalarModel, Iterable&lt;CDOMObject&gt;
+{
+<span class="nc" id="L41">	private static final CDOMWrapperInfoFacet WRAPPER_FACET = FacetLibrary.getFacet(CDOMWrapperInfoFacet.class);</span>
+
+	/**
+	 * The underlying CDOMObject, from which information is retrieved
+	 */
+	private final CDOMObject cdo;
+
+	private final CharID id;
+
+	/**
+	 * Constructs a new CDOMObjectModel from the given CharID and CDOMObject.
+	 * 
+	 * @param id
+	 *            The CharID identifying the PlayerCharacter on which this
+	 *            CDOMObjectModel is processing information
+	 * @param cdo
+	 *            The underlying CDOMObject, from which information is retrieved
+	 * @throws IllegalArgumentException
+	 *             if either argument is null
+	 */
+	public CDOMObjectModel(CharID id, CDOMObject cdo)
+<span class="nc" id="L62">	{</span>
+<span class="nc" id="L63">		Objects.requireNonNull(id, &quot;CharID may not be null&quot;);</span>
+<span class="nc" id="L64">		Objects.requireNonNull(cdo, &quot;CDOMObject may not be null&quot;);</span>
+<span class="nc" id="L65">		this.id = id;</span>
+<span class="nc" id="L66">		this.cdo = cdo;</span>
+<span class="nc" id="L67">	}</span>
+
+	@Override
+	public TemplateModel get(String key) throws TemplateModelException
+	{
+		//TODO may not be entirely correct - really about ... what? formula scope??
+<span class="nc" id="L73">		Class&lt;? extends CDOMObject&gt; cl = cdo.getClass();</span>
+<span class="nc" id="L74">		return proc(cl, key);</span>
+	}
+
+	private &lt;T&gt; TemplateModel proc(Class&lt;T&gt; cl, String key) throws TemplateModelException
+	{
+		/*
+		 * What if it didn't previously exist (e.g. cl==SubClass.class)...
+		 * shouldn't be able to get here really (in that case)
+		 */
+<span class="nc" id="L83">		OutputActor&lt;? super T&gt; actor = WRAPPER_FACET.getActor(id.getDatasetID(), cl, key);</span>
+<span class="nc bnc" id="L84" title="All 2 branches missed.">		if (actor == null)</span>
+		{
+<span class="nc" id="L86">			throw new TemplateModelException(</span>
+<span class="nc" id="L87">				&quot;object of type &quot; + cdo.getClass().getSimpleName() + &quot; did not have output of type &quot; + key);</span>
+		}
+		@SuppressWarnings(&quot;unchecked&quot;)
+<span class="nc" id="L90">		T obj = (T) cdo;</span>
+<span class="nc" id="L91">		return actor.process(id, obj);</span>
+	}
+
+	@Override
+	public boolean isEmpty()
+	{
+		//Never empty because we have &quot;key&quot;
+<span class="nc" id="L98">		return false;</span>
+	}
+
+	@Override
+	public String getAsString()
+	{
+<span class="nc" id="L104">		return cdo.getDisplayName();</span>
+	}
+
+	@Override
+	public Iterator&lt;CDOMObject&gt; iterator()
+	{
+<span class="nc" id="L110">		return Collections.singleton(cdo).iterator();</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PatternMatchingReference.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.reference</a> &gt; <span class="el_source">PatternMatchingReference.java</span></div><h1>PatternMatchingReference.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2007, 2008 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.cdom.reference;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Objects;
+
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.Loadable;
+import pcgen.cdom.enumeration.GroupingState;
+
+/**
+ * A PatternMatchingReference is a CDOMReference that matches objects based on a
+ * pattern of their key.
+ * 
+ * An underlying start list is provided during construction of the
+ * PatternMatchingReference. Generally, this will be the CDOMAllRef for the
+ * class of object underlying this PatternMatchingReference.
+ * 
+ * @param &lt;T&gt;
+ *            The class of object underlying this PatternMatchingReference.
+ */
+public final class PatternMatchingReference&lt;T extends Loadable&gt; extends CDOMReference&lt;T&gt;
+{
+
+	/**
+	 * The CDOMGroupRef containing the underlying list of objects from which
+	 * this PatternMatchingReference will draw.
+	 */
+	private final CDOMGroupRef&lt;T&gt; all;
+
+	/**
+	 * The pattern used to match against the key of objects from the underlying
+	 * CDOMGroupRef
+	 */
+	private final String pattern;
+
+	/*
+	 * CONSIDER is it necessary/useful to cache the results of the pattern
+	 * match? If that is done, under what conditions does the cache need to be
+	 * invalidated (how can the underlying CDOMGroupRef be known to not have
+	 * been modified)?
+	 */
+
+	/**
+	 * Constructs a new PatternMatchingReference
+	 * 
+	 * @param startingGroup
+	 *            The underlying list of objects from which this
+	 *            PatternMatchingReference will draw.
+	 * @param patternText
+	 *            The pattern used to identify items which this
+	 *            PatternMatchingReference will contain. Note that this pattern
+	 *            must end with the PCGen pattern characters (defined by
+	 *            Constants.PERCENT)
+	 * @throws IllegalArgumentException
+	 *             if the starting group is null or the provided pattern does
+	 *             not end with the PCGen pattern characters
+	 */
+	public PatternMatchingReference(CDOMGroupRef&lt;T&gt; startingGroup, String patternText)
+	{
+<span class="fc" id="L80">		super(patternText);</span>
+<span class="fc" id="L81">		Objects.requireNonNull(startingGroup, &quot;Starting Group cannot be null in PatternMatchingReference&quot;);</span>
+<span class="fc" id="L82">		all = startingGroup;</span>
+<span class="fc" id="L83">		String lstPattern = Constants.PERCENT;</span>
+<span class="fc" id="L84">		int patternchar = patternText.length() - lstPattern.length();</span>
+<span class="pc bpc" id="L85" title="1 of 2 branches missed.">		if (patternText.indexOf(lstPattern) != patternchar)</span>
+		{
+<span class="nc" id="L87">			throw new IllegalArgumentException(&quot;Pattern for PatternMatchingReference must end with &quot; + lstPattern);</span>
+		}
+<span class="fc" id="L89">		pattern = patternText.substring(0, patternchar);</span>
+<span class="fc" id="L90">	}</span>
+
+	/**
+	 * Throws an exception. This method may not be called because a
+	 * PatternMatchingReference is resolved based on the pattern provided at
+	 * construction.
+	 * 
+	 * @param item
+	 *            ignored
+	 * @throws IllegalStateException
+	 *             because a PatternMatchingReference is resolved based on the
+	 *             pattern provided at construction.
+	 */
+	@Override
+	public void addResolution(T item)
+	{
+<span class="nc" id="L106">		throw new IllegalStateException(&quot;Cannot add resolution to PatternMatchingReference&quot;);</span>
+	}
+
+	/**
+	 * Returns true if the given Object is included in the Collection of Objects
+	 * to which this PatternMatchingReference refers.
+	 * 
+	 * Note that the behavior of this class is undefined if the CDOMGroupRef
+	 * underlying this PatternMatchingReference has not yet been resolved.
+	 * 
+	 * @param item
+	 *            The object to be tested to see if it is referred to by this
+	 *            PatternMatchingReference.
+	 * @return true if the given Object is included in the Collection of Objects
+	 *         to which this PatternMatchingReference refers; false otherwise.
+	 */
+	@Override
+	public boolean contains(T item)
+	{
+<span class="nc bnc" id="L125" title="All 4 branches missed.">		return all.contains(item) &amp;&amp; item.getKeyName().startsWith(pattern);</span>
+	}
+
+	/**
+	 * Returns a Collection containing the Objects to which this
+	 * PatternMatchingReference refers.
+	 * 
+	 * This method is reference-semantic, meaning that ownership of the
+	 * Collection returned by this method is transferred to the calling object.
+	 * Modification of the returned Collection should not result in modifying
+	 * the PatternMatchingReference, and modifying the PatternMatchingReference
+	 * after the Collection is returned should not modify the Collection.
+	 * 
+	 * Note that the behavior of this class is undefined if the CDOMGroupRef
+	 * underlying this PatternMatchingReference has not yet been resolved.
+	 * 
+	 * @return A Collection containing the Objects to which this
+	 *         PatternMatchingReference refers.
+	 */
+	@Override
+	public Collection&lt;T&gt; getContainedObjects()
+	{
+<span class="nc" id="L147">		List&lt;T&gt; list = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L148" title="All 2 branches missed.">		for (T obj : all.getContainedObjects())</span>
+		{
+<span class="nc bnc" id="L150" title="All 2 branches missed.">			if (obj.getKeyName().startsWith(pattern))</span>
+			{
+<span class="nc" id="L152">				list.add(obj);</span>
+			}
+<span class="nc" id="L154">		}</span>
+<span class="nc" id="L155">		return list;</span>
+	}
+
+	/**
+	 * Returns a representation of this PatternMatchingReference, suitable for
+	 * storing in an LST file.
+	 * 
+	 * Note that this will return the pattern String provided during
+	 * construction of the PatternMatchingReference.
+	 * 
+	 * @return A representation of this PatternMatchingReference, suitable for
+	 *         storing in an LST file.
+	 */
+	@Override
+	public String getLSTformat(boolean useAny)
+	{
+<span class="fc" id="L171">		return getName();</span>
+	}
+
+	/**
+	 * Returns the count of the number of objects included in the Collection of
+	 * Objects to which this PatternMatchingReference refers.
+	 * 
+	 * Note that the behavior of this class is undefined if the CDOMGroupRef
+	 * underlying this PatternMatchingReference has not yet been resolved.
+	 * 
+	 * @return The count of the number of objects included in the Collection of
+	 *         Objects to which this PatternMatchingReference refers.
+	 */
+	@Override
+	public int getObjectCount()
+	{
+<span class="nc" id="L187">		int count = 0;</span>
+<span class="nc bnc" id="L188" title="All 2 branches missed.">		for (T obj : all.getContainedObjects())</span>
+		{
+<span class="nc bnc" id="L190" title="All 2 branches missed.">			if (obj.getKeyName().startsWith(pattern))</span>
+			{
+<span class="nc" id="L192">				count++;</span>
+			}
+<span class="nc" id="L194">		}</span>
+<span class="nc" id="L195">		return count;</span>
+	}
+
+	@Override
+	public boolean equals(Object obj)
+	{
+<span class="pc bpc" id="L201" title="1 of 2 branches missed.">		if (obj instanceof PatternMatchingReference&lt;?&gt; other)</span>
+		{
+<span class="pc bpc" id="L203" title="2 of 4 branches missed.">			return getReferenceClass().equals(other.getReferenceClass()) &amp;&amp; all.equals(other.all)</span>
+<span class="pc bpc" id="L204" title="1 of 2 branches missed.">				&amp;&amp; pattern.equals(other.pattern);</span>
+		}
+<span class="nc" id="L206">		return false;</span>
+	}
+
+	@Override
+	public int hashCode()
+	{
+<span class="fc" id="L212">		return getReferenceClass().hashCode() ^ pattern.hashCode();</span>
+	}
+
+	/**
+	 * Returns the GroupingState for this PatternMatchingReference. The
+	 * GroupingState indicates how this PatternMatchingReference can be combined
+	 * with other PrimitiveChoiceFilters.
+	 * 
+	 * @return The GroupingState for this PatternMatchingReference.
+	 */
+	@Override
+	public GroupingState getGroupingState()
+	{
+<span class="nc" id="L225">		return GroupingState.ANY;</span>
+	}
+
+	@Override
+	public String getChoice()
+	{
+<span class="nc" id="L231">		return null;</span>
+	}
+
+	@Override
+	public Class&lt;T&gt; getReferenceClass()
+	{
+<span class="fc" id="L237">		return all.getReferenceClass();</span>
+	}
+
+	@Override
+	public String getReferenceDescription()
+	{
+<span class="nc" id="L243">		return all.getReferenceDescription() + &quot; (Pattern &quot; + pattern + &quot;)&quot;;</span>
+	}
+
+	@Override
+	public String getPersistentFormat()
+	{
+<span class="nc" id="L249">		return all.getPersistentFormat();</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RememberingChoiceDialog.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.gui3.dialog</a> &gt; <span class="el_source">RememberingChoiceDialog.java</span></div><h1>RememberingChoiceDialog.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2019 (C) Eitan Adler &lt;lists@eitanadler.com&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+
+package pcgen.gui3.dialog;
+
+import java.util.Objects;
+
+import pcgen.gui3.GuiAssertions;
+import pcgen.gui3.GuiUtility;
+import pcgen.system.LanguageBundle;
+import pcgen.system.PropertyContext;
+
+import javafx.application.Platform;
+import javafx.scene.control.Alert;
+import javafx.scene.control.CheckBox;
+import javafx.scene.web.WebView;
+
+public final class RememberingChoiceDialog
+{
+	private RememberingChoiceDialog()
+	{
+	}
+
+	// TODO: there are too many variables here. It should either be a builder
+	// or something that extends Alert/Dialog. This is mainly here to keep this
+	// in one place to allow us to fix later
+
+	public static Alert create(final String title,
+	                           final String header,
+	                           final String htmlContent,
+	                           final String checkboxContentKey,
+	                           final PropertyContext context,
+	                           final String option
+	)
+	{
+<span class="nc" id="L51">		GuiAssertions.assertIsNotJavaFXThread();</span>
+<span class="nc" id="L52">		Objects.requireNonNull(title);</span>
+<span class="nc" id="L53">		Objects.requireNonNull(header);</span>
+<span class="nc" id="L54">		Objects.requireNonNull(htmlContent);</span>
+<span class="nc" id="L55">		Objects.requireNonNull(context);</span>
+<span class="nc" id="L56">		Objects.requireNonNull(option);</span>
+
+<span class="nc" id="L58">		Alert alert = GuiUtility.runOnJavaFXThreadNow(() -&gt; new Alert(Alert.AlertType.INFORMATION));</span>
+<span class="nc" id="L59">		alert.setTitle(title);</span>
+<span class="nc" id="L60">		alert.setContentText(null);</span>
+<span class="nc" id="L61">		alert.setHeaderText(header);</span>
+<span class="nc" id="L62">		CheckBox showLicense = new CheckBox(LanguageBundle.getString(checkboxContentKey));</span>
+<span class="nc" id="L63">		showLicense.selectedProperty().addListener((observableValue, oldValue, newValue) -&gt;</span>
+<span class="nc" id="L64">                context.setBoolean(option, newValue));</span>
+<span class="nc" id="L65">		showLicense.setSelected(context.getBoolean(option));</span>
+<span class="nc" id="L66">		Platform.runLater(() -&gt; {</span>
+<span class="nc" id="L67">			WebView webView = new WebView();</span>
+<span class="nc" id="L68">			webView.getEngine().loadContent(htmlContent);</span>
+<span class="nc" id="L69">			alert.getDialogPane().setContent(webView);</span>
+<span class="nc" id="L70">		});</span>
+<span class="nc" id="L71">		alert.getDialogPane().setExpandableContent(showLicense);</span>
+<span class="nc" id="L72">		return alert;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

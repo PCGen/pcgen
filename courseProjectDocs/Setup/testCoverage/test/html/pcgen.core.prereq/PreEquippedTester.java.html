@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PreEquippedTester.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.core.prereq</a> &gt; <span class="el_source">PreEquippedTester.java</span></div><h1>PreEquippedTester.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2001 (C) Bryan McRoberts &lt;merton_monk@yahoo.com&gt;
+ * Copyright 2003 (C) Chris Ward &lt;frugal@purplewombat.co.uk&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.	   See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.core.prereq;
+
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.EquipmentLocation;
+import pcgen.core.Equipment;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.character.WieldCategory;
+import pcgen.system.LanguageBundle;
+
+<span class="nc" id="L28">public abstract class PreEquippedTester extends AbstractPrerequisiteTest</span>
+{
+
+	/**
+	 * Process the tokens and return the number that is not passed.
+	 *
+	 * @param prereq the prereq
+	 * @param character The pc to use.
+	 * @param equippedType The equipped type to look for (e.g. Equipment.EQUIPPED_TWO_HANDS)
+	 * @return the number that did not pass.
+	 * @throws PrerequisiteException the prerequisite exception
+	 */
+	public int passesPreEquipHandleTokens(final Prerequisite prereq, final PlayerCharacter character,
+		final EquipmentLocation equippedType) throws PrerequisiteException
+	{
+		// TODO refactor this code with PreEquipTester
+<span class="nc" id="L44">		boolean isEquipped = false;</span>
+
+<span class="nc bnc" id="L46" title="All 2 branches missed.">		if (character.hasEquipment())</span>
+		{
+<span class="nc" id="L48">			String aString = prereq.getKey();</span>
+<span class="nc bnc" id="L49" title="All 2 branches missed.">			for (Equipment eq : character.getDisplay().getEquippedEquipmentSet())</span>
+			{
+				//
+				// Only check equipment of the type we are interested in
+				//
+<span class="nc bnc" id="L54" title="All 2 branches missed.">				if (eq.getLocation() != equippedType)</span>
+				{
+<span class="nc" id="L56">					continue;</span>
+				}
+
+<span class="nc bnc" id="L59" title="All 4 branches missed.">				if (aString.startsWith(&quot;WIELDCATEGORY=&quot;) || aString.startsWith(&quot;WIELDCATEGORY.&quot;))</span>
+				{
+<span class="nc" id="L61">					final WieldCategory wCat = eq.getEffectiveWieldCategory(character);</span>
+<span class="nc bnc" id="L62" title="All 4 branches missed.">					if ((wCat != null) &amp;&amp; wCat.getKeyName().equalsIgnoreCase(aString.substring(14)))</span>
+					{
+<span class="nc" id="L64">						isEquipped = true;</span>
+<span class="nc" id="L65">						break;</span>
+					}
+<span class="nc" id="L67">				}</span>
+<span class="nc bnc" id="L68" title="All 4 branches missed.">				else if (aString.startsWith(&quot;TYPE=&quot;) || aString.startsWith(&quot;TYPE.&quot;)) //$NON-NLS-1$ //$NON-NLS-2$</span>
+				{
+<span class="nc" id="L70">					isEquipped = eq.isType(aString);</span>
+<span class="nc" id="L71">					break;</span>
+				}
+				else //not a TYPE string
+				{
+					String eqName;
+<span class="nc bnc" id="L76" title="All 2 branches missed.">					if (aString.startsWith(&quot;BASEITEM=&quot;)) //$NON-NLS-1$ </span>
+					{
+<span class="nc" id="L78">						eqName = eq.getBaseItemName();</span>
+<span class="nc" id="L79">						aString = aString.substring(aString.indexOf(Constants.EQUALS) + 1);</span>
+					}
+					else
+					{
+<span class="nc" id="L83">						eqName = eq.getName();</span>
+					}
+<span class="nc bnc" id="L85" title="All 2 branches missed.">					if (aString.indexOf('%') &gt;= 0)</span>
+					{
+						//handle wildcards (always assume they
+						// end the line)
+<span class="nc" id="L89">						final int percentPos = aString.indexOf('%');</span>
+<span class="nc bnc" id="L90" title="All 2 branches missed.">						if (eqName.regionMatches(true, 0, aString, 0, percentPos))</span>
+						{
+<span class="nc" id="L92">							isEquipped = true;</span>
+<span class="nc" id="L93">							break;</span>
+						}
+<span class="nc" id="L95">					}</span>
+<span class="nc bnc" id="L96" title="All 2 branches missed.">					else if (eqName.equalsIgnoreCase(aString))</span>
+					{
+						//just a straight String compare
+<span class="nc" id="L99">						isEquipped = true;</span>
+<span class="nc" id="L100">						break;</span>
+					}
+				}
+<span class="nc" id="L103">			}</span>
+		}
+
+<span class="nc" id="L106">		final PrerequisiteOperator operator = prereq.getOperator();</span>
+
+		int runningTotal;
+<span class="nc bnc" id="L109" title="All 4 branches missed.">		if (operator.equals(PrerequisiteOperator.EQ) || operator.equals(PrerequisiteOperator.GTEQ))</span>
+		{
+<span class="nc bnc" id="L111" title="All 2 branches missed.">			runningTotal = isEquipped ? 1 : 0;</span>
+		}
+<span class="nc bnc" id="L113" title="All 4 branches missed.">		else if (operator.equals(PrerequisiteOperator.NEQ) || operator.equals(PrerequisiteOperator.LT))</span>
+		{
+<span class="nc bnc" id="L115" title="All 2 branches missed.">			runningTotal = isEquipped ? 0 : 1;</span>
+		}
+		else
+		{
+<span class="nc" id="L119">			throw new PrerequisiteException(</span>
+<span class="nc" id="L120">				LanguageBundle.getFormattedString(</span>
+<span class="nc" id="L121">					&quot;PreEquipped.error.invalid_comparison&quot;, prereq.toString())); //$NON-NLS-1$</span>
+		}
+
+<span class="nc" id="L124">		return countedTotal(prereq, runningTotal);</span>
+
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

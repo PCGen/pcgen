@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PreMultWriter.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.pretokens.writer</a> &gt; <span class="el_source">PreMultWriter.java</span></div><h1>PreMultWriter.java</h1><pre class="source lang-java linenums">/*
+ *
+ * Copyright 2004 (C) Frugal &lt;frugal@purplewombat.co.uk&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.       See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ *
+ *
+ *
+ *
+ */
+package plugin.pretokens.writer;
+
+import java.io.IOException;
+import java.io.Writer;
+
+import pcgen.core.prereq.Prerequisite;
+import pcgen.core.prereq.PrerequisiteOperator;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.output.prereq.AbstractPrerequisiteWriter;
+import pcgen.persistence.lst.output.prereq.PrerequisiteWriterFactory;
+import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
+
+<span class="fc" id="L36">public class PreMultWriter extends AbstractPrerequisiteWriter implements PrerequisiteWriterInterface</span>
+{
+<span class="fc" id="L38">	private boolean allSkillTot = false;</span>
+
+	@Override
+	public String kindHandled()
+	{
+<span class="nc" id="L43">		return &quot;mult&quot;;</span>
+	}
+
+	@Override
+	public PrerequisiteOperator[] operatorsHandled()
+	{
+<span class="fc" id="L49">		return new PrerequisiteOperator[]{PrerequisiteOperator.GTEQ, PrerequisiteOperator.LT, PrerequisiteOperator.EQ,</span>
+			PrerequisiteOperator.NEQ};
+	}
+
+	@Override
+	public void write(Writer writer, Prerequisite prereq) throws PersistenceLayerException
+	{
+<span class="fc" id="L56">		checkValidOperator(prereq, operatorsHandled());</span>
+		try
+		{
+			Prerequisite subreq;
+			//
+			// Check to see if this is a special case for PREMULT
+			//
+<span class="pc bpc" id="L63" title="1 of 2 branches missed.">			if (isSpecialCase(prereq))</span>
+			{
+<span class="nc" id="L65">				handleSpecialCase(writer, prereq);</span>
+<span class="nc" id="L66">				return;</span>
+			}
+<span class="pc bpc" id="L68" title="1 of 2 branches missed.">			if (isNegatedPreability(prereq))</span>
+			{
+<span class="nc" id="L70">				handleNegatedPreAbility(writer, prereq);</span>
+<span class="nc" id="L71">				return;</span>
+			}
+<span class="pc bpc" id="L73" title="1 of 2 branches missed.">			if (prereq.getPrerequisiteCount() != 0)</span>
+			{
+<span class="fc" id="L75">				subreq = prereq.getPrerequisites().get(0);</span>
+				final PrerequisiteWriterInterface test =
+<span class="fc" id="L77">						PrerequisiteWriterFactory.getInstance().getWriter(subreq.getKind());</span>
+<span class="pc bpc" id="L78" title="1 of 2 branches missed.">				if ((test instanceof AbstractPrerequisiteWriter)</span>
+<span class="fc bfc" id="L79" title="All 2 branches covered.">						&amp;&amp; ((AbstractPrerequisiteWriter) test).specialCase(writer, prereq))</span>
+				{
+<span class="fc" id="L81">					return;</span>
+				}
+			}
+
+<span class="fc bfc" id="L85" title="All 2 branches covered.">			if (prereq.getOperator().equals(PrerequisiteOperator.LT))</span>
+			{
+<span class="fc" id="L87">				writer.write('!');</span>
+			}
+
+<span class="fc" id="L90">			writer.write(&quot;PREMULT:&quot;);</span>
+<span class="fc" id="L91">			writer.write(prereq.getOperand());</span>
+<span class="fc" id="L92">			writer.write(',');</span>
+<span class="fc" id="L93">			int i = 0;</span>
+<span class="fc bfc" id="L94" title="All 2 branches covered.">			for (Prerequisite pre : prereq.getPrerequisites())</span>
+			{
+<span class="fc bfc" id="L96" title="All 2 branches covered.">				if (i &gt; 0)</span>
+				{
+<span class="fc" id="L98">					writer.write(',');</span>
+				}
+<span class="fc" id="L100">				writer.write('[');</span>
+
+<span class="fc" id="L102">				PrerequisiteWriterFactory factory = PrerequisiteWriterFactory.getInstance();</span>
+<span class="fc" id="L103">				PrerequisiteWriterInterface w = factory.getWriter(pre.getKind());</span>
+<span class="pc bpc" id="L104" title="1 of 2 branches missed.">				if (w != null)</span>
+				{
+<span class="fc" id="L106">					w.write(writer, pre);</span>
+				}
+				else
+				{
+<span class="nc" id="L110">					writer.write(&quot;unrecognized kind:&quot; + pre.getKind());</span>
+				}
+<span class="fc" id="L112">				writer.write(']');</span>
+<span class="fc" id="L113">				i++;</span>
+<span class="fc" id="L114">			}</span>
+		}
+<span class="nc" id="L116">		catch (IOException e)</span>
+		{
+<span class="nc" id="L118">			throw new PersistenceLayerException(e);</span>
+<span class="fc" id="L119">		}</span>
+<span class="fc" id="L120">	}</span>
+
+	/**
+	 * @param writer
+	 * @param prereq
+	 * @throws IOException
+	 */
+	private void handleSpecialCase(Writer writer, Prerequisite prereq) throws IOException
+	{
+<span class="nc bnc" id="L129" title="All 2 branches missed.">		if (allSkillTot)</span>
+		{
+<span class="nc bnc" id="L131" title="All 2 branches missed.">			if (prereq.getOperator().equals(PrerequisiteOperator.LT))</span>
+			{
+<span class="nc" id="L133">				writer.write('!');</span>
+			}
+<span class="nc" id="L135">			writer.write(&quot;PRESKILLTOT:&quot;);</span>
+
+<span class="nc" id="L137">			int i = 0;</span>
+<span class="nc bnc" id="L138" title="All 2 branches missed.">			for (Prerequisite subreq : prereq.getPrerequisites())</span>
+			{
+<span class="nc bnc" id="L140" title="All 2 branches missed.">				if (i &gt; 0)</span>
+				{
+<span class="nc" id="L142">					writer.write(',');</span>
+				}
+<span class="nc" id="L144">				writer.write(subreq.getKey());</span>
+<span class="nc" id="L145">				i++;</span>
+<span class="nc" id="L146">			}</span>
+<span class="nc" id="L147">			writer.write('=');</span>
+<span class="nc" id="L148">			writer.write(prereq.getOperand());</span>
+		}
+<span class="nc" id="L150">	}</span>
+
+	/**
+	 * @param prereq
+	 * @return TRUE if special case, else FALSE
+	 */
+	private boolean isSpecialCase(Prerequisite prereq)
+	{
+		// Special case of all subreqs being SKILL with total-values=true
+<span class="fc" id="L159">		allSkillTot = true;</span>
+<span class="pc bpc" id="L160" title="1 of 2 branches missed.">		for (Prerequisite element : prereq.getPrerequisites())</span>
+		{
+<span class="pc bpc" id="L162" title="1 of 4 branches missed.">			if (!&quot;skill&quot;.equalsIgnoreCase(element.getKind()) || !element.isTotalValues())</span>
+			{
+<span class="fc" id="L164">				allSkillTot = false;</span>
+<span class="fc" id="L165">				break;</span>
+			}
+<span class="nc" id="L167">		}</span>
+
+<span class="fc" id="L169">        return allSkillTot;</span>
+    }
+
+
+
+	/**
+	 * Identify if this is a PREABILITY which has been converted into a PREMULT
+	 * to include a negated check, i.e. ensure a particular ability is not
+	 * present in the character.
+	 *
+	 * @param prereq The PREMULT to be checked.
+	 * @return true if this is a negated PREABILITY, false if not.
+	 */
+	private boolean isNegatedPreability(Prerequisite prereq)
+	{
+<span class="pc bpc" id="L184" title="1 of 2 branches missed.">		if (prereq.getPrerequisites().isEmpty())</span>
+		{
+<span class="nc" id="L186">			return false;</span>
+		}
+<span class="fc" id="L188">		boolean hasNegated = false;</span>
+<span class="fc bfc" id="L189" title="All 2 branches covered.">		for (Prerequisite element : prereq.getPrerequisites())</span>
+		{
+<span class="fc bfc" id="L191" title="All 2 branches covered.">			if (!&quot;ability&quot;.equalsIgnoreCase(element.getKind()))</span>
+			{
+<span class="fc" id="L193">				return false;</span>
+			}
+<span class="pc bpc" id="L195" title="3 of 4 branches missed.">			if (element.getOperator() == PrerequisiteOperator.LT &amp;&amp; &quot;1&quot;.equals(element.getOperand()))</span>
+			{
+<span class="nc" id="L197">				hasNegated = true;</span>
+			}
+<span class="fc" id="L199">		}</span>
+<span class="fc" id="L200">		return hasNegated;</span>
+	}
+
+	/**
+	 * Restore the format of a prereq such as
+	 * PREABILITY:1,CATEGORY=FEAT,[Surprise Strike]
+	 *
+	 * @param writer The output destination writer.
+	 * @param prereq The prereq to be written, must be a negated PREABILITY
+	 * @throws IOException If the output cannot be written.
+	 */
+	private void handleNegatedPreAbility(Writer writer, Prerequisite prereq) throws IOException
+	{
+<span class="nc" id="L213">		writer.write(&quot;PREABILITY:&quot;);</span>
+<span class="nc" id="L214">		writer.write(String.valueOf(Integer.parseInt(prereq.getOperand()) - 1));</span>
+<span class="nc" id="L215">		writer.write(&quot;,&quot;);</span>
+<span class="nc" id="L216">		String cat = prereq.getPrerequisites().get(0).getCategoryName();</span>
+<span class="nc bnc" id="L217" title="All 2 branches missed.">		if (cat == null)</span>
+		{
+<span class="nc" id="L219">			writer.write(&quot;CATEGORY=ANY&quot;);</span>
+		}
+		else
+		{
+<span class="nc" id="L223">			writer.write(&quot;CATEGORY=&quot; + cat);</span>
+		}
+<span class="nc bnc" id="L225" title="All 2 branches missed.">		for (Prerequisite child : prereq.getPrerequisites())</span>
+		{
+<span class="nc" id="L227">			writer.write(&quot;,&quot;);</span>
+<span class="nc bnc" id="L228" title="All 2 branches missed.">			if (child.getOperator() == PrerequisiteOperator.LT)</span>
+			{
+<span class="nc" id="L230">				writer.write(&quot;[&quot;);</span>
+			}
+<span class="nc" id="L232">			writer.write(child.getKey());</span>
+<span class="nc bnc" id="L233" title="All 2 branches missed.">			if (child.getSubKey() != null)</span>
+			{
+<span class="nc" id="L235">				writer.write(&quot; (&quot;);</span>
+<span class="nc" id="L236">				writer.write(child.getSubKey());</span>
+<span class="nc" id="L237">				writer.write(&quot;)&quot;);</span>
+			}
+<span class="nc bnc" id="L239" title="All 2 branches missed.">			if (child.getOperator() == PrerequisiteOperator.LT)</span>
+			{
+<span class="nc" id="L241">				writer.write(&quot;]&quot;);</span>
+			}
+<span class="nc" id="L243">		}</span>
+<span class="nc" id="L244">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

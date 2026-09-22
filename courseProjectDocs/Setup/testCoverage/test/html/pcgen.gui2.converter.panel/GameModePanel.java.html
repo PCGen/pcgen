@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GameModePanel.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.gui2.converter.panel</a> &gt; <span class="el_source">GameModePanel.java</span></div><h1>GameModePanel.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) 2009 Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package pcgen.gui2.converter.panel;
+
+import java.io.File;
+import java.util.List;
+
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SpringLayout;
+
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.core.GameMode;
+import pcgen.core.Globals;
+import pcgen.core.SettingsHandler;
+import pcgen.core.SystemCollections;
+import pcgen.gui2.converter.event.ProgressEvent;
+import pcgen.persistence.CampaignFileLoader;
+import pcgen.system.ConfigurationSettings;
+import pcgen.system.PCGenSettings;
+import pcgen.util.Logging;
+
+public class GameModePanel extends ConvertSubPanel
+{
+
+	private JComboBox gameModeCombo;
+
+<span class="nc" id="L45">	private final SpringLayout layout = new SpringLayout();</span>
+
+	private final CampaignFileLoader campaignFileLoader;
+
+	/**
+	 * Create a new instance of GameModePanel
+	 * @param campaignFileLoader The loader to read in campaigns
+	 */
+	public GameModePanel(CampaignFileLoader campaignFileLoader)
+<span class="nc" id="L54">	{</span>
+<span class="nc" id="L55">		this.campaignFileLoader = campaignFileLoader;</span>
+<span class="nc" id="L56">	}</span>
+
+	@Override
+	public boolean autoAdvance(CDOMObject pc)
+	{
+<span class="nc" id="L61">		return false;</span>
+	}
+
+	@Override
+	public boolean returnAllowed()
+	{
+<span class="nc" id="L67">		return true;</span>
+	}
+
+	@Override
+	public boolean performAnalysis(CDOMObject pc)
+	{
+<span class="nc" id="L73">		File sourceDir = pc.get(ObjectKey.DIRECTORY);</span>
+<span class="nc" id="L74">		String name = sourceDir.getAbsolutePath();</span>
+<span class="nc bnc" id="L75" title="All 4 branches missed.">		if (!name.equals(ConfigurationSettings.getPccFilesDir()) &amp;&amp; !name.equals(PCGenSettings.getVendorDataDir())</span>
+<span class="nc bnc" id="L76" title="All 2 branches missed.">			&amp;&amp; !name.equals(PCGenSettings.getHomebrewDataDir()))</span>
+		{
+			// User has selected another path - we need to load the sources from there.
+<span class="nc" id="L79">			Logging.log(Logging.INFO, &quot;Loading campaigns from &quot; + sourceDir);</span>
+<span class="nc" id="L80">			Globals.clearCampaignsForRefresh();</span>
+<span class="nc" id="L81">			campaignFileLoader.setAlternateSourceFolder(sourceDir);</span>
+<span class="nc" id="L82">			campaignFileLoader.run();</span>
+		}
+
+<span class="nc" id="L85">		GameMode gameMode = pc.get(ObjectKey.GAME_MODE);</span>
+<span class="nc bnc" id="L86" title="All 2 branches missed.">		if (gameMode != null)</span>
+		{
+<span class="nc" id="L88">			SettingsHandler.setGame(gameMode.getName());</span>
+		}
+		//		Globals.emptyLists();
+		// TODO the campaign list is an unmodifiable list, so it is not possible to sort it.
+		// Globals.sortPObjectListByName(Globals.getCampaignList());
+
+<span class="nc" id="L94">		return saveGameMode(pc);</span>
+	}
+
+	private boolean saveGameMode(CDOMObject pc)
+	{
+<span class="nc bnc" id="L99" title="All 2 branches missed.">		boolean advance = pc.get(ObjectKey.GAME_MODE) != null;</span>
+<span class="nc bnc" id="L100" title="All 2 branches missed.">		if (advance)</span>
+		{
+<span class="nc" id="L102">			fireProgressEvent(ProgressEvent.ALLOWED);</span>
+		}
+		else
+		{
+<span class="nc" id="L106">			fireProgressEvent(ProgressEvent.NOT_ALLOWED);</span>
+		}
+<span class="nc" id="L108">		return advance;</span>
+	}
+
+	private void getSelection(CDOMObject pc)
+	{
+<span class="nc" id="L113">		GameMode gameMode = (GameMode) gameModeCombo.getSelectedItem();</span>
+<span class="nc" id="L114">		pc.put(ObjectKey.GAME_MODE, gameMode);</span>
+
+<span class="nc" id="L116">		PCGenSettings context = PCGenSettings.getInstance();</span>
+<span class="nc" id="L117">		context.setProperty(PCGenSettings.CONVERT_GAMEMODE, gameMode.getName());</span>
+<span class="nc" id="L118">	}</span>
+
+	@Override
+	public void setupDisplay(JPanel panel, final CDOMObject pc)
+	{
+<span class="nc" id="L123">		panel.setLayout(layout);</span>
+<span class="nc" id="L124">		JLabel introLabel = new JLabel(&quot;Please select the Game Mode to Convert:&quot;);</span>
+<span class="nc" id="L125">		panel.add(introLabel);</span>
+<span class="nc" id="L126">		layout.putConstraint(SpringLayout.NORTH, introLabel, 50, SpringLayout.NORTH, panel);</span>
+<span class="nc" id="L127">		layout.putConstraint(SpringLayout.WEST, introLabel, 25, SpringLayout.WEST, panel);</span>
+
+<span class="nc" id="L129">		List&lt;GameMode&gt; games = SystemCollections.getUnmodifiableGameModeList();</span>
+<span class="nc" id="L130">		gameModeCombo = new JComboBox&lt;&gt;(games.toArray());</span>
+<span class="nc" id="L131">		gameModeCombo.addActionListener(arg0 -&gt; {</span>
+<span class="nc" id="L132">			getSelection(pc);</span>
+<span class="nc" id="L133">			saveGameMode(pc);</span>
+<span class="nc" id="L134">		});</span>
+<span class="nc" id="L135">		PCGenSettings context = PCGenSettings.getInstance();</span>
+<span class="nc" id="L136">		SettingsHandler</span>
+<span class="nc" id="L137">			.setGame(context.initProperty(PCGenSettings.CONVERT_GAMEMODE, SettingsHandler.getGameAsProperty().get().getName()));</span>
+<span class="nc" id="L138">		GameMode currGame = SettingsHandler.getGameAsProperty().get();</span>
+<span class="nc bnc" id="L139" title="All 2 branches missed.">		if (pc.get(ObjectKey.GAME_MODE) != null)</span>
+		{
+<span class="nc" id="L141">			currGame = pc.get(ObjectKey.GAME_MODE);</span>
+		}
+<span class="nc" id="L143">		gameModeCombo.setSelectedItem(currGame);</span>
+<span class="nc" id="L144">		getSelection(pc);</span>
+<span class="nc" id="L145">		saveGameMode(pc);</span>
+
+<span class="nc" id="L147">		panel.add(gameModeCombo);</span>
+<span class="nc" id="L148">		layout.putConstraint(SpringLayout.NORTH, gameModeCombo, 20, SpringLayout.SOUTH, introLabel);</span>
+<span class="nc" id="L149">		layout.putConstraint(SpringLayout.WEST, gameModeCombo, 25, SpringLayout.WEST, panel);</span>
+<span class="nc" id="L150">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

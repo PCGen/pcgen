@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>InfoUtilities.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.helper</a> &gt; <span class="el_source">InfoUtilities.java</span></div><h1>InfoUtilities.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2018 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or modify it under the terms
+ * of the GNU Lesser General Public License as published by the Free Software Foundation;
+ * either version 2.1 of the License, or (at your option) any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT ANY
+ * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+ * PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License along with
+ * this library; if not, write to the Free Software Foundation, Inc., 59 Temple Place,
+ * Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.cdom.helper;
+
+import pcgen.base.lang.CaseInsensitiveString;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.MapKey;
+import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.analysis.ResultFacet;
+
+/**
+ * InfoUtilities is a set of utilities related to the INFO and INFOVARS tokens.
+ */
+public final class InfoUtilities
+{
+
+	private InfoUtilities()
+	{
+		//Do not instantiate utility class
+	}
+
+	/**
+	 * Returns array of the value of the variables identified by an INFOVARS token for the
+	 * given identifier (CaseInsensitiveString).
+	 * 
+	 * @param id
+	 *            The CharID identifying the PlayerCharacter for which the array is being
+	 *            retrieved
+	 * @param cdo
+	 *            The CDOMObject on which the INFOVARS item is being retrieved
+	 * @param cis
+	 *            The CaseInsensitiveString identifying the specific INFOVARS item on the
+	 *            given CDOMObject that should be retrieved
+	 * @return An array of the value of the variables identified by the appropriate
+	 *         INFOVARS item
+	 */
+	public static Object[] getInfoVars(CharID id, CDOMObject cdo, CaseInsensitiveString cis)
+	{
+<span class="nc" id="L53">		String[] vars = cdo.get(MapKey.INFOVARS, cis);</span>
+<span class="nc bnc" id="L54" title="All 2 branches missed.">		int varCount = (vars != null) ? vars.length : 0;</span>
+<span class="nc" id="L55">		Object[] replacedvars = new Object[varCount];</span>
+<span class="nc bnc" id="L56" title="All 2 branches missed.">		if (varCount == 0)</span>
+		{
+<span class="nc" id="L58">			return replacedvars;</span>
+		}
+<span class="nc" id="L60">		ResultFacet resultFacet = FacetLibrary.getFacet(ResultFacet.class);</span>
+<span class="nc bnc" id="L61" title="All 2 branches missed.">		for (int i = 0; i &lt; varCount; i++)</span>
+		{
+<span class="nc" id="L63">			replacedvars[i] = resultFacet.getLocalVariable(id, cdo, vars[i]);</span>
+		}
+<span class="nc" id="L65">		return replacedvars;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

@@ -1,0 +1,680 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AbstractListContext.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.rules.context</a> &gt; <span class="el_source">AbstractListContext.java</span></div><h1>AbstractListContext.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2008 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.rules.context;
+
+import java.net.URI;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.IdentityHashMap;
+import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
+
+import pcgen.base.util.DoubleKeyMap;
+import pcgen.base.util.HashMapToList;
+import pcgen.base.util.ListSet;
+import pcgen.base.util.MapToList;
+import pcgen.base.util.TreeMapToList;
+import pcgen.base.util.TripleKeyMap;
+import pcgen.base.util.TripleKeyMapToList;
+import pcgen.cdom.base.AssociatedPrereqObject;
+import pcgen.cdom.base.CDOMList;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.CDOMObjectUtilities;
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.MasterListInterface;
+import pcgen.cdom.base.SimpleAssociatedObject;
+import pcgen.cdom.enumeration.AssociationKey;
+import pcgen.cdom.reference.ReferenceUtilities;
+import pcgen.core.SettingsHandler;
+
+<span class="fc" id="L47">public abstract class AbstractListContext</span>
+{
+
+<span class="fc" id="L50">	private final TrackingListCommitStrategy edits = new TrackingListCommitStrategy();</span>
+
+	void setSourceURI(URI sourceURI)
+	{
+<span class="fc" id="L54">		edits.setSourceURI(sourceURI);</span>
+<span class="fc" id="L55">		getCommitStrategy().setSourceURI(sourceURI);</span>
+<span class="fc" id="L56">	}</span>
+
+	void setExtractURI(URI extractURI)
+	{
+<span class="fc" id="L60">		edits.setExtractURI(extractURI);</span>
+<span class="fc" id="L61">		getCommitStrategy().setExtractURI(extractURI);</span>
+<span class="fc" id="L62">	}</span>
+
+	public &lt;T extends CDOMObject&gt; AssociatedPrereqObject addToMasterList(String tokenName, CDOMObject owner,
+		CDOMReference&lt;? extends CDOMList&lt;T&gt;&gt; list, T allowed)
+	{
+<span class="fc" id="L67">		return edits.addToMasterList(tokenName, owner, list, allowed);</span>
+	}
+
+	public &lt;T extends CDOMObject&gt; void removeFromMasterList(String tokenName, CDOMObject owner,
+		CDOMReference&lt;? extends CDOMList&lt;T&gt;&gt; list, T allowed)
+	{
+<span class="fc" id="L73">		edits.removeFromMasterList(tokenName, owner, list, allowed);</span>
+<span class="fc" id="L74">	}</span>
+
+	public void clearAllMasterLists(String tokenName, CDOMObject owner)
+	{
+<span class="fc" id="L78">		edits.clearAllMasterLists(tokenName, owner);</span>
+<span class="fc" id="L79">	}</span>
+
+	public &lt;T extends CDOMObject&gt; AssociatedPrereqObject addToList(String tokenName, CDOMObject owner,
+		CDOMReference&lt;? extends CDOMList&lt;? super T&gt;&gt; list, CDOMReference&lt;T&gt; allowed)
+	{
+<span class="fc" id="L84">		return edits.addToList(tokenName, owner, list, allowed);</span>
+	}
+
+	public &lt;T extends CDOMObject&gt; AssociatedPrereqObject removeFromList(String tokenName, CDOMObject owner,
+		CDOMReference&lt;? extends CDOMList&lt;? super T&gt;&gt; list, CDOMReference&lt;T&gt; ref)
+	{
+<span class="fc" id="L90">		return edits.removeFromList(tokenName, owner, list, ref);</span>
+	}
+
+	public void removeAllFromList(String tokenName, CDOMObject owner, CDOMReference&lt;? extends CDOMList&lt;?&gt;&gt; swl)
+	{
+<span class="fc" id="L95">		edits.removeAllFromList(tokenName, owner, swl);</span>
+<span class="fc" id="L96">	}</span>
+
+	void commit()
+	{
+<span class="fc" id="L100">		ListCommitStrategy commit = getCommitStrategy();</span>
+<span class="fc bfc" id="L101" title="All 2 branches covered.">		for (CDOMReference&lt;? extends CDOMList&lt;?&gt;&gt; list : edits.positiveMasterMap.getKeySet())</span>
+		{
+			//Note: Intentional Generics Violation due to Sun Compiler
+<span class="fc" id="L104">			commitDirect((CDOMReference) list);</span>
+<span class="fc" id="L105">		}</span>
+<span class="fc bfc" id="L106" title="All 2 branches covered.">		for (CDOMReference&lt;? extends CDOMList&lt;?&gt;&gt; list : edits.negativeMasterMap.getKeySet())</span>
+		{
+			//Note: Intentional Generics Violation due to Sun Compiler
+<span class="fc" id="L109">			removeDirect((CDOMReference) list);</span>
+<span class="fc" id="L110">		}</span>
+<span class="fc bfc" id="L111" title="All 2 branches covered.">		for (URI uri : edits.globalClearSet.getKeySet())</span>
+		{
+<span class="fc bfc" id="L113" title="All 2 branches covered.">			for (CDOMObject owner : edits.globalClearSet.getSecondaryKeySet(uri))</span>
+			{
+<span class="fc bfc" id="L115" title="All 2 branches covered.">				for (String tokenName : edits.globalClearSet.getTertiaryKeySet(uri, owner))</span>
+				{
+<span class="fc bfc" id="L117" title="All 2 branches covered.">					for (CDOMReference&lt;? extends CDOMList&lt;?&gt;&gt; list : edits.globalClearSet.getListFor(uri, owner,</span>
+						tokenName))
+					{
+<span class="fc" id="L120">						commit.removeAllFromList(tokenName, owner, list);</span>
+<span class="fc" id="L121">					}</span>
+<span class="fc" id="L122">				}</span>
+<span class="fc" id="L123">			}</span>
+<span class="fc" id="L124">		}</span>
+<span class="fc bfc" id="L125" title="All 2 branches covered.">		for (URI uri : edits.negativeMap.getKeySet())</span>
+		{
+<span class="fc bfc" id="L127" title="All 2 branches covered.">			for (CDOMObject owner : edits.negativeMap.getSecondaryKeySet(uri))</span>
+			{
+<span class="fc" id="L129">				CDOMObject neg = edits.negativeMap.get(uri, owner);</span>
+<span class="fc" id="L130">				Collection&lt;CDOMReference&lt;? extends CDOMList&lt;?&gt;&gt;&gt; modifiedLists = neg.getModifiedLists();</span>
+<span class="fc bfc" id="L131" title="All 2 branches covered.">				for (CDOMReference&lt;? extends CDOMList&lt;?&gt;&gt; list : modifiedLists)</span>
+				{
+					//Note: Intentional Generics Violation due to Sun Compiler
+<span class="fc" id="L134">					remove(owner, neg, (CDOMReference) list);</span>
+<span class="fc" id="L135">				}</span>
+<span class="fc" id="L136">			}</span>
+<span class="fc" id="L137">		}</span>
+<span class="fc bfc" id="L138" title="All 2 branches covered.">		for (URI uri : edits.positiveMap.getKeySet())</span>
+		{
+<span class="fc bfc" id="L140" title="All 2 branches covered.">			for (CDOMObject owner : edits.positiveMap.getSecondaryKeySet(uri))</span>
+			{
+<span class="fc" id="L142">				CDOMObject neg = edits.positiveMap.get(uri, owner);</span>
+<span class="fc" id="L143">				Collection&lt;CDOMReference&lt;? extends CDOMList&lt;?&gt;&gt;&gt; modifiedLists = neg.getModifiedLists();</span>
+<span class="fc bfc" id="L144" title="All 2 branches covered.">				for (CDOMReference&lt;? extends CDOMList&lt;?&gt;&gt; list : modifiedLists)</span>
+				{
+					//Note: Intentional Generics Violation due to Sun Compiler
+<span class="fc" id="L147">					add(owner, neg, (CDOMReference) list);</span>
+<span class="fc" id="L148">				}</span>
+<span class="fc" id="L149">			}</span>
+<span class="fc" id="L150">		}</span>
+<span class="fc bfc" id="L151" title="All 2 branches covered.">		for (String token : edits.masterAllClear.getKeySet())</span>
+		{
+<span class="fc bfc" id="L153" title="All 2 branches covered.">			for (OwnerURI ou : edits.masterAllClear.getListFor(token))</span>
+			{
+<span class="fc" id="L155">				commit.clearAllMasterLists(token, ou.owner);</span>
+<span class="fc" id="L156">			}</span>
+<span class="fc" id="L157">		}</span>
+<span class="fc" id="L158">		rollback();</span>
+<span class="fc" id="L159">	}</span>
+
+	private &lt;T extends CDOMObject, L extends CDOMList&lt;T&gt;&gt; void commitDirect(CDOMReference&lt;L&gt; list)
+	{
+<span class="fc" id="L163">		ListCommitStrategy commit = getCommitStrategy();</span>
+<span class="fc bfc" id="L164" title="All 2 branches covered.">		for (OwnerURI ou : edits.positiveMasterMap.getSecondaryKeySet(list))</span>
+		{
+<span class="fc bfc" id="L166" title="All 2 branches covered.">			for (CDOMObject child : edits.positiveMasterMap.getTertiaryKeySet(list, ou))</span>
+			{
+<span class="fc" id="L168">				AssociatedPrereqObject assoc = edits.positiveMasterMap.get(list, ou, child);</span>
+<span class="fc" id="L169">				AssociatedPrereqObject edge =</span>
+<span class="fc" id="L170">						commit.addToMasterList(assoc.getAssociation(AssociationKey.TOKEN), ou.owner, list, (T) child);</span>
+<span class="fc" id="L171">				Collection&lt;AssociationKey&lt;?&gt;&gt; associationKeys = assoc.getAssociationKeys();</span>
+<span class="fc bfc" id="L172" title="All 2 branches covered.">				for (AssociationKey&lt;?&gt; ak : associationKeys)</span>
+				{
+<span class="fc" id="L174">					setAssoc(assoc, edge, ak);</span>
+<span class="fc" id="L175">				}</span>
+<span class="fc" id="L176">				edge.addAllPrerequisites(assoc.getPrerequisiteList());</span>
+<span class="fc" id="L177">			}</span>
+<span class="fc" id="L178">		}</span>
+<span class="fc" id="L179">	}</span>
+
+	private &lt;T extends CDOMObject, U extends CDOMList&lt;T&gt;&gt; void removeDirect(CDOMReference&lt;U&gt; list)
+	{
+<span class="fc" id="L183">		ListCommitStrategy commit = getCommitStrategy();</span>
+<span class="fc bfc" id="L184" title="All 2 branches covered.">		for (OwnerURI ou : edits.negativeMasterMap.getSecondaryKeySet(list))</span>
+		{
+<span class="fc bfc" id="L186" title="All 2 branches covered.">			for (CDOMObject child : edits.negativeMasterMap.getTertiaryKeySet(list, ou))</span>
+			{
+<span class="fc" id="L188">				AssociatedPrereqObject assoc = edits.negativeMasterMap.get(list, ou, child);</span>
+<span class="fc" id="L189">				commit.removeFromMasterList(assoc.getAssociation(AssociationKey.TOKEN), ou.owner, list, (T) child);</span>
+<span class="fc" id="L190">			}</span>
+<span class="fc" id="L191">		}</span>
+<span class="fc" id="L192">	}</span>
+
+	void rollback()
+	{
+<span class="fc" id="L196">		edits.decommit();</span>
+<span class="fc" id="L197">	}</span>
+
+	public Collection&lt;CDOMReference&lt;? extends CDOMList&lt;?&gt;&gt;&gt; getChangedLists(CDOMObject owner,
+		Class&lt;? extends CDOMList&lt;?&gt;&gt; cl)
+	{
+<span class="fc" id="L202">		return getCommitStrategy().getChangedLists(owner, cl);</span>
+	}
+
+	public &lt;T extends CDOMObject&gt; AssociatedChanges&lt;CDOMReference&lt;T&gt;&gt; getChangesInList(String tokenName,
+		CDOMObject owner, CDOMReference&lt;? extends CDOMList&lt;T&gt;&gt; swl)
+	{
+<span class="fc" id="L208">		return getCommitStrategy().getChangesInList(tokenName, owner, swl);</span>
+	}
+
+	public &lt;T extends CDOMObject&gt; AssociatedChanges&lt;T&gt; getChangesInMasterList(String tokenName, CDOMObject owner,
+		CDOMReference&lt;? extends CDOMList&lt;T&gt;&gt; swl)
+	{
+<span class="fc" id="L214">		return getCommitStrategy().getChangesInMasterList(tokenName, owner, swl);</span>
+	}
+
+	public &lt;T extends CDOMList&lt;?&gt;&gt; Changes&lt;CDOMReference&lt;T&gt;&gt; getMasterListChanges(String tokenName, CDOMObject owner,
+		Class&lt;T&gt; cl)
+	{
+<span class="fc" id="L220">		return getCommitStrategy().getMasterListChanges(tokenName, owner, cl);</span>
+	}
+
+	public boolean hasMasterLists()
+	{
+<span class="fc" id="L225">		return getCommitStrategy().hasMasterLists();</span>
+	}
+
+	private &lt;BT extends CDOMObject, L extends CDOMList&lt;BT&gt;&gt; void remove(CDOMObject owner, CDOMObject neg,
+		CDOMReference&lt;L&gt; list)
+	{
+<span class="fc" id="L231">		ListCommitStrategy commit = getCommitStrategy();</span>
+<span class="fc" id="L232">		Collection&lt;CDOMReference&lt;BT&gt;&gt; mods = neg.getListMods(list);</span>
+<span class="fc bfc" id="L233" title="All 2 branches covered.">		for (CDOMReference&lt;BT&gt; ref : mods)</span>
+		{
+<span class="fc bfc" id="L235" title="All 2 branches covered.">			for (AssociatedPrereqObject assoc : neg.getListAssociations(list, ref))</span>
+			{
+<span class="fc" id="L237">				String token = assoc.getAssociation(AssociationKey.TOKEN);</span>
+<span class="fc" id="L238">				AssociatedPrereqObject edge = commit.removeFromList(token, owner, list, ref);</span>
+<span class="fc" id="L239">				Collection&lt;AssociationKey&lt;?&gt;&gt; associationKeys = assoc.getAssociationKeys();</span>
+<span class="fc bfc" id="L240" title="All 2 branches covered.">				for (AssociationKey&lt;?&gt; ak : associationKeys)</span>
+				{
+<span class="fc" id="L242">					setAssoc(assoc, edge, ak);</span>
+<span class="fc" id="L243">				}</span>
+<span class="fc" id="L244">				edge.addAllPrerequisites(assoc.getPrerequisiteList());</span>
+<span class="fc" id="L245">			}</span>
+<span class="fc" id="L246">		}</span>
+<span class="fc" id="L247">	}</span>
+
+	private &lt;BT extends CDOMObject, L extends CDOMList&lt;BT&gt;&gt; void add(CDOMObject owner, CDOMObject neg,
+		CDOMReference&lt;L&gt; list)
+	{
+<span class="fc" id="L252">		ListCommitStrategy commit = getCommitStrategy();</span>
+<span class="fc" id="L253">		Collection&lt;CDOMReference&lt;BT&gt;&gt; mods = neg.getListMods(list);</span>
+<span class="fc bfc" id="L254" title="All 2 branches covered.">		for (CDOMReference&lt;BT&gt; ref : mods)</span>
+		{
+<span class="fc bfc" id="L256" title="All 2 branches covered.">			for (AssociatedPrereqObject assoc : neg.getListAssociations(list, ref))</span>
+			{
+<span class="fc" id="L258">				String token = assoc.getAssociation(AssociationKey.TOKEN);</span>
+<span class="fc" id="L259">				AssociatedPrereqObject edge = commit.addToList(token, owner, list, ref);</span>
+<span class="fc" id="L260">				Collection&lt;AssociationKey&lt;?&gt;&gt; associationKeys = assoc.getAssociationKeys();</span>
+<span class="fc bfc" id="L261" title="All 2 branches covered.">				for (AssociationKey&lt;?&gt; ak : associationKeys)</span>
+				{
+<span class="fc" id="L263">					setAssoc(assoc, edge, ak);</span>
+<span class="fc" id="L264">				}</span>
+<span class="fc" id="L265">				edge.addAllPrerequisites(assoc.getPrerequisiteList());</span>
+<span class="fc" id="L266">			}</span>
+<span class="fc" id="L267">		}</span>
+<span class="fc" id="L268">	}</span>
+
+	private &lt;T&gt; void setAssoc(AssociatedPrereqObject assoc, AssociatedPrereqObject edge, AssociationKey&lt;T&gt; ak)
+	{
+<span class="fc" id="L272">		edge.setAssociation(ak, assoc.getAssociation(ak));</span>
+<span class="fc" id="L273">	}</span>
+
+<span class="fc" id="L275">	public static class TrackingListCommitStrategy implements ListCommitStrategy</span>
+	{
+
+<span class="fc" id="L278">		private final DoubleKeyMap&lt;URI, CDOMObject, CDOMObject&gt; positiveMap =</span>
+				new DoubleKeyMap&lt;&gt;(HashMap.class, IdentityHashMap.class);
+
+<span class="fc" id="L281">		private final DoubleKeyMap&lt;URI, CDOMObject, CDOMObject&gt; negativeMap =</span>
+				new DoubleKeyMap&lt;&gt;(HashMap.class, IdentityHashMap.class);
+
+<span class="fc" id="L284">		private final TripleKeyMapToList&lt;URI, CDOMObject, String, CDOMReference&lt;? extends CDOMList&lt;?&gt;&gt;&gt; globalClearSet =</span>
+				new TripleKeyMapToList&lt;&gt;(HashMap.class, IdentityHashMap.class, HashMap.class);
+
+		/*
+		 * TODO These maps (throughout this entire class) are probably problems
+		 * because they are not using Identity characteristics
+		 */
+<span class="fc" id="L291">		private final TripleKeyMap&lt;CDOMReference&lt;? extends CDOMList&lt;?&gt;&gt;, OwnerURI, CDOMObject, AssociatedPrereqObject&gt; positiveMasterMap =</span>
+				new TripleKeyMap&lt;&gt;(); //HashMap.class, HashMap.class, IdentityHashMap.class);
+
+<span class="fc" id="L294">		private final TripleKeyMap&lt;CDOMReference&lt;? extends CDOMList&lt;?&gt;&gt;, OwnerURI, CDOMObject, AssociatedPrereqObject&gt; negativeMasterMap =</span>
+				new TripleKeyMap&lt;&gt;(); //HashMap.class, HashMap.class, IdentityHashMap.class);
+
+<span class="fc" id="L297">		private final HashMapToList&lt;CDOMReference&lt;? extends CDOMList&lt;?&gt;&gt;, OwnerURI&gt; masterClearSet =</span>
+				new HashMapToList&lt;&gt;();
+
+<span class="fc" id="L300">		private final HashMapToList&lt;String, OwnerURI&gt; masterAllClear = new HashMapToList&lt;&gt;();</span>
+
+		private URI sourceURI;
+
+		private URI extractURI;
+
+<span class="fc" id="L306">		protected static class CDOMShell extends CDOMObject</span>
+		{
+			@Override
+			public CDOMShell clone() throws CloneNotSupportedException
+			{
+<span class="nc" id="L311">				throw new CloneNotSupportedException();</span>
+			}
+
+			@Override
+			public boolean isType(String str)
+			{
+<span class="nc" id="L317">				return false;</span>
+			}
+		}
+
+		@Override
+		public void setExtractURI(URI extractURI)
+		{
+<span class="fc" id="L324">			this.extractURI = extractURI;</span>
+<span class="fc" id="L325">		}</span>
+
+		public URI getSourceURI()
+		{
+<span class="nc" id="L329">			return sourceURI;</span>
+		}
+
+		@Override
+		public void setSourceURI(URI sourceURI)
+		{
+<span class="fc" id="L335">			this.sourceURI = sourceURI;</span>
+<span class="fc" id="L336">		}</span>
+
+		@Override
+		public &lt;T extends CDOMObject&gt; AssociatedPrereqObject addToMasterList(String tokenName, CDOMObject owner,
+			CDOMReference&lt;? extends CDOMList&lt;T&gt;&gt; list, T allowed)
+		{
+<span class="fc" id="L342">			SimpleAssociatedObject a = new SimpleAssociatedObject();</span>
+<span class="fc" id="L343">			a.setAssociation(AssociationKey.OWNER, owner);</span>
+<span class="fc" id="L344">			a.setAssociation(AssociationKey.TOKEN, tokenName);</span>
+<span class="fc" id="L345">			positiveMasterMap.put(list, new OwnerURI(sourceURI, owner), allowed, a);</span>
+<span class="fc" id="L346">			return a;</span>
+		}
+
+		@Override
+		public &lt;T extends CDOMObject&gt; void removeFromMasterList(String tokenName, CDOMObject owner,
+			CDOMReference&lt;? extends CDOMList&lt;T&gt;&gt; list, T allowed)
+		{
+<span class="fc" id="L353">			SimpleAssociatedObject a = new SimpleAssociatedObject();</span>
+<span class="fc" id="L354">			a.setAssociation(AssociationKey.OWNER, owner);</span>
+<span class="fc" id="L355">			a.setAssociation(AssociationKey.TOKEN, tokenName);</span>
+<span class="fc" id="L356">			negativeMasterMap.put(list, new OwnerURI(sourceURI, owner), allowed, a);</span>
+<span class="fc" id="L357">		}</span>
+
+		@Override
+		public &lt;T extends CDOMList&lt;?&gt;&gt; Changes&lt;CDOMReference&lt;T&gt;&gt; getMasterListChanges(String tokenName,
+			CDOMObject owner, Class&lt;T&gt; cl)
+		{
+<span class="nc" id="L363">			OwnerURI lo = new OwnerURI(extractURI, owner);</span>
+<span class="nc" id="L364">			TreeSet&lt;CDOMReference&lt;T&gt;&gt; list = new TreeSet&lt;&gt;(ReferenceUtilities.REFERENCE_SORTER);</span>
+<span class="nc" id="L365">			Set&lt;CDOMReference&lt;? extends CDOMList&lt;?&gt;&gt;&gt; set = positiveMasterMap.getKeySet();</span>
+<span class="nc bnc" id="L366" title="All 2 branches missed.">			if (set != null)</span>
+			{
+<span class="nc bnc" id="L368" title="All 2 branches missed.">				LIST: for (CDOMReference&lt;? extends CDOMList&lt;?&gt;&gt; ref : set)</span>
+				{
+<span class="nc bnc" id="L370" title="All 2 branches missed.">					if (!cl.equals(ref.getReferenceClass()))</span>
+					{
+<span class="nc" id="L372">						continue;</span>
+					}
+					@SuppressWarnings(&quot;unchecked&quot;)
+<span class="nc" id="L375">					CDOMReference&lt;T&gt; tr = (CDOMReference&lt;T&gt;) ref;</span>
+<span class="nc bnc" id="L376" title="All 2 branches missed.">					for (CDOMObject allowed : positiveMasterMap.getTertiaryKeySet(tr, lo))</span>
+					{
+<span class="nc" id="L378">						AssociatedPrereqObject assoc = positiveMasterMap.get(tr, lo, allowed);</span>
+<span class="nc bnc" id="L379" title="All 2 branches missed.">						if (owner.equals(assoc.getAssociation(AssociationKey.OWNER))</span>
+<span class="nc bnc" id="L380" title="All 2 branches missed.">							&amp;&amp; tokenName.equals(assoc.getAssociation(AssociationKey.TOKEN)))</span>
+						{
+<span class="nc" id="L382">							list.add(tr);</span>
+<span class="nc" id="L383">							continue LIST;</span>
+						}
+<span class="nc" id="L385">					}</span>
+<span class="nc" id="L386">				}</span>
+			}
+<span class="nc" id="L388">			set = negativeMasterMap.getKeySet();</span>
+<span class="nc" id="L389">			ArrayList&lt;CDOMReference&lt;T&gt;&gt; removelist = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L390" title="All 2 branches missed.">			if (set != null)</span>
+			{
+<span class="nc bnc" id="L392" title="All 2 branches missed.">				LIST: for (CDOMReference&lt;? extends CDOMList&lt;?&gt;&gt; ref : set)</span>
+				{
+<span class="nc bnc" id="L394" title="All 2 branches missed.">					if (!cl.equals(ref.getReferenceClass()))</span>
+					{
+<span class="nc" id="L396">						continue;</span>
+					}
+					@SuppressWarnings(&quot;unchecked&quot;)
+<span class="nc" id="L399">					CDOMReference&lt;T&gt; tr = (CDOMReference&lt;T&gt;) ref;</span>
+<span class="nc bnc" id="L400" title="All 2 branches missed.">					for (CDOMObject allowed : negativeMasterMap.getTertiaryKeySet(tr, lo))</span>
+					{
+<span class="nc" id="L402">						AssociatedPrereqObject assoc = negativeMasterMap.get(tr, lo, allowed);</span>
+<span class="nc bnc" id="L403" title="All 2 branches missed.">						if (owner.equals(assoc.getAssociation(AssociationKey.OWNER))</span>
+<span class="nc bnc" id="L404" title="All 2 branches missed.">							&amp;&amp; tokenName.equals(assoc.getAssociation(AssociationKey.TOKEN)))</span>
+						{
+<span class="nc" id="L406">							removelist.add(tr);</span>
+<span class="nc" id="L407">							continue LIST;</span>
+						}
+<span class="nc" id="L409">					}</span>
+<span class="nc" id="L410">				}</span>
+			}
+<span class="nc" id="L412">			return new CollectionChanges&lt;&gt;(list, removelist, masterAllClear.containsInList(tokenName, lo));</span>
+		}
+
+		@Override
+		public &lt;T extends CDOMObject&gt; AssociatedChanges&lt;T&gt; getChangesInMasterList(String tokenName, CDOMObject owner,
+			CDOMReference&lt;? extends CDOMList&lt;T&gt;&gt; swl)
+		{
+<span class="nc" id="L419">			MapToList&lt;T, AssociatedPrereqObject&gt; map = new TreeMapToList&lt;&gt;(CDOMObjectUtilities::compareKeys);</span>
+<span class="nc" id="L420">			OwnerURI lo = new OwnerURI(extractURI, owner);</span>
+<span class="nc" id="L421">			Set&lt;CDOMObject&gt; added = positiveMasterMap.getTertiaryKeySet(swl, lo);</span>
+<span class="nc bnc" id="L422" title="All 2 branches missed.">			for (CDOMObject lw : added)</span>
+			{
+<span class="nc" id="L424">				AssociatedPrereqObject apo = positiveMasterMap.get(swl, lo, lw);</span>
+<span class="nc bnc" id="L425" title="All 2 branches missed.">				if (tokenName.equals(apo.getAssociation(AssociationKey.TOKEN)))</span>
+				{
+<span class="nc" id="L427">					map.addToListFor((T) lw, apo);</span>
+				}
+<span class="nc" id="L429">			}</span>
+<span class="nc" id="L430">			MapToList&lt;T, AssociatedPrereqObject&gt; rmap = new TreeMapToList&lt;&gt;(CDOMObjectUtilities::compareKeys);</span>
+<span class="nc" id="L431">			Set&lt;CDOMObject&gt; removed = negativeMasterMap.getTertiaryKeySet(swl, lo);</span>
+<span class="nc bnc" id="L432" title="All 2 branches missed.">			for (CDOMObject lw : removed)</span>
+			{
+<span class="nc" id="L434">				AssociatedPrereqObject apo = negativeMasterMap.get(swl, lo, lw);</span>
+<span class="nc bnc" id="L435" title="All 2 branches missed.">				if (tokenName.equals(apo.getAssociation(AssociationKey.TOKEN)))</span>
+				{
+<span class="nc" id="L437">					rmap.addToListFor((T) lw, apo);</span>
+				}
+<span class="nc" id="L439">			}</span>
+<span class="nc" id="L440">			return new AssociatedCollectionChanges&lt;&gt;(map, rmap, masterClearSet.containsInList(swl, lo));</span>
+		}
+
+		public &lt;T extends CDOMObject&gt; void clearMasterList(String tokenName, CDOMObject owner,
+			CDOMReference&lt;? extends CDOMList&lt;T&gt;&gt; list)
+		{
+<span class="nc" id="L446">			masterClearSet.addToListFor(list, new OwnerURI(sourceURI, owner));</span>
+<span class="nc" id="L447">		}</span>
+
+		@Override
+		public void clearAllMasterLists(String tokenName, CDOMObject owner)
+		{
+<span class="fc" id="L452">			masterAllClear.addToListFor(tokenName, new OwnerURI(sourceURI, owner));</span>
+<span class="fc" id="L453">		}</span>
+
+		private CDOMObject getPositive(URI source, CDOMObject cdo)
+		{
+<span class="fc" id="L457">			CDOMObject positive = positiveMap.get(source, cdo);</span>
+<span class="fc bfc" id="L458" title="All 2 branches covered.">			if (positive == null)</span>
+			{
+<span class="fc" id="L460">				positive = new CDOMShell();</span>
+<span class="fc" id="L461">				positiveMap.put(source, cdo, positive);</span>
+			}
+<span class="fc" id="L463">			return positive;</span>
+		}
+
+		private CDOMObject getNegative(URI source, CDOMObject cdo)
+		{
+<span class="fc" id="L468">			CDOMObject negative = negativeMap.get(source, cdo);</span>
+<span class="pc bpc" id="L469" title="1 of 2 branches missed.">			if (negative == null)</span>
+			{
+<span class="fc" id="L471">				negative = new CDOMShell();</span>
+<span class="fc" id="L472">				negativeMap.put(source, cdo, negative);</span>
+			}
+<span class="fc" id="L474">			return negative;</span>
+		}
+
+		@Override
+		public &lt;T extends CDOMObject&gt; AssociatedPrereqObject addToList(String tokenName, CDOMObject owner,
+			CDOMReference&lt;? extends CDOMList&lt;? super T&gt;&gt; list, CDOMReference&lt;T&gt; allowed)
+		{
+<span class="fc" id="L481">			SimpleAssociatedObject a = new SimpleAssociatedObject();</span>
+<span class="fc" id="L482">			a.setAssociation(AssociationKey.TOKEN, tokenName);</span>
+<span class="fc" id="L483">			getPositive(sourceURI, owner).putToList(list, allowed, a);</span>
+<span class="fc" id="L484">			return a;</span>
+		}
+
+		@Override
+		public &lt;T extends CDOMObject&gt; AssociatedPrereqObject removeFromList(String tokenName, CDOMObject owner,
+			CDOMReference&lt;? extends CDOMList&lt;? super T&gt;&gt; list, CDOMReference&lt;T&gt; ref)
+		{
+<span class="fc" id="L491">			SimpleAssociatedObject a = new SimpleAssociatedObject();</span>
+<span class="fc" id="L492">			a.setAssociation(AssociationKey.TOKEN, tokenName);</span>
+<span class="fc" id="L493">			getNegative(sourceURI, owner).putToList(list, ref, a);</span>
+<span class="fc" id="L494">			return a;</span>
+		}
+
+		@Override
+		public Collection&lt;CDOMReference&lt;? extends CDOMList&lt;?&gt;&gt;&gt; getChangedLists(CDOMObject owner,
+			Class&lt;? extends CDOMList&lt;?&gt;&gt; cl)
+		{
+<span class="nc" id="L501">			Set&lt;CDOMReference&lt;? extends CDOMList&lt;?&gt;&gt;&gt; list = new ListSet&lt;&gt;();</span>
+<span class="nc bnc" id="L502" title="All 2 branches missed.">			for (CDOMReference&lt;? extends CDOMList&lt;?&gt;&gt; ref : getPositive(extractURI, owner).getModifiedLists())</span>
+			{
+<span class="nc bnc" id="L504" title="All 2 branches missed.">				if (cl.equals(ref.getReferenceClass()))</span>
+				{
+<span class="nc" id="L506">					list.add(ref);</span>
+				}
+<span class="nc" id="L508">			}</span>
+<span class="nc bnc" id="L509" title="All 2 branches missed.">			for (CDOMReference&lt;? extends CDOMList&lt;?&gt;&gt; ref : getNegative(extractURI, owner).getModifiedLists())</span>
+			{
+<span class="nc bnc" id="L511" title="All 2 branches missed.">				if (cl.equals(ref.getReferenceClass()))</span>
+				{
+<span class="nc" id="L513">					list.add(ref);</span>
+				}
+<span class="nc" id="L515">			}</span>
+
+<span class="nc" id="L517">			Set&lt;String&gt; globalClearTokenKeys = globalClearSet.getTertiaryKeySet(extractURI, owner);</span>
+<span class="nc bnc" id="L518" title="All 2 branches missed.">			for (String key : globalClearTokenKeys)</span>
+			{
+<span class="nc" id="L520">				List&lt;CDOMReference&lt;? extends CDOMList&lt;?&gt;&gt;&gt; globalClearList =</span>
+<span class="nc" id="L521">						globalClearSet.getListFor(extractURI, owner, key);</span>
+<span class="nc bnc" id="L522" title="All 2 branches missed.">				if (globalClearList != null)</span>
+				{
+<span class="nc bnc" id="L524" title="All 2 branches missed.">					for (CDOMReference&lt;? extends CDOMList&lt;?&gt;&gt; ref : globalClearList)</span>
+					{
+<span class="nc bnc" id="L526" title="All 2 branches missed.">						if (cl.equals(ref.getReferenceClass()))</span>
+						{
+<span class="nc" id="L528">							list.add(ref);</span>
+						}
+<span class="nc" id="L530">					}</span>
+				}
+<span class="nc" id="L532">			}</span>
+<span class="nc" id="L533">			return list;</span>
+		}
+
+		@Override
+		public void removeAllFromList(String tokenName, CDOMObject owner, CDOMReference&lt;? extends CDOMList&lt;?&gt;&gt; swl)
+		{
+<span class="fc" id="L539">			globalClearSet.addToListFor(sourceURI, owner, tokenName, swl);</span>
+<span class="fc" id="L540">		}</span>
+
+		@Override
+		public &lt;T extends CDOMObject&gt; AssociatedChanges&lt;CDOMReference&lt;T&gt;&gt; getChangesInList(String tokenName,
+			CDOMObject owner, CDOMReference&lt;? extends CDOMList&lt;T&gt;&gt; swl)
+		{
+<span class="nc bnc" id="L546" title="All 2 branches missed.">			boolean hasGlobalClear = globalClearSet.containsListFor(extractURI, owner, tokenName)</span>
+<span class="nc bnc" id="L547" title="All 2 branches missed.">				&amp;&amp; globalClearSet.getListFor(extractURI, owner, tokenName).contains(swl);</span>
+
+<span class="nc" id="L549">			return new ListChanges&lt;&gt;(tokenName, getPositive(extractURI, owner), getNegative(extractURI, owner), swl,</span>
+				hasGlobalClear);
+		}
+
+		@Override
+		public boolean hasMasterLists()
+		{
+<span class="nc bnc" id="L556" title="All 6 branches missed.">			return !positiveMasterMap.isEmpty() &amp;&amp; !masterClearSet.isEmpty() &amp;&amp; !masterAllClear.isEmpty();</span>
+		}
+
+		public void decommit()
+		{
+<span class="fc" id="L561">			masterAllClear.clear();</span>
+<span class="fc" id="L562">			masterClearSet.clear();</span>
+<span class="fc" id="L563">			positiveMasterMap.clear();</span>
+<span class="fc" id="L564">			negativeMasterMap.clear();</span>
+<span class="fc" id="L565">			positiveMap.clear();</span>
+<span class="fc" id="L566">			negativeMap.clear();</span>
+<span class="fc" id="L567">			globalClearSet.clear();</span>
+<span class="fc" id="L568">		}</span>
+
+		@Override
+		public boolean equalsTracking(ListCommitStrategy obj)
+		{
+<span class="nc bnc" id="L573" title="All 2 branches missed.">			if (obj instanceof TrackingListCommitStrategy other)</span>
+			{
+<span class="nc bnc" id="L575" title="All 2 branches missed.">				return other.masterAllClear.equals(this.masterAllClear)</span>
+<span class="nc bnc" id="L576" title="All 2 branches missed.">					&amp;&amp; other.masterClearSet.equals(this.masterClearSet)</span>
+<span class="nc bnc" id="L577" title="All 2 branches missed.">					&amp;&amp; other.positiveMasterMap.equals(this.positiveMasterMap)</span>
+<span class="nc bnc" id="L578" title="All 2 branches missed.">					&amp;&amp; other.negativeMasterMap.equals(this.negativeMasterMap);</span>
+			}
+<span class="nc" id="L580">			return false;</span>
+		}
+
+		public void purge(CDOMObject cdo)
+		{
+<span class="nc" id="L585">			positiveMap.remove(sourceURI, cdo);</span>
+<span class="nc" id="L586">			negativeMap.remove(sourceURI, cdo);</span>
+<span class="nc" id="L587">			globalClearSet.removeListsFor(sourceURI, cdo);</span>
+<span class="nc" id="L588">		}</span>
+	}
+
+	private static class OwnerURI
+	{
+		final CDOMObject owner;
+		final URI source;
+
+		OwnerURI(URI sourceURI, CDOMObject cdo)
+<span class="fc" id="L597">		{</span>
+<span class="fc" id="L598">			source = sourceURI;</span>
+<span class="fc" id="L599">			owner = cdo;</span>
+<span class="fc" id="L600">		}</span>
+
+		@Override
+		public int hashCode()
+		{
+<span class="fc" id="L605">			return owner.hashCode();</span>
+		}
+
+		@Override
+		public boolean equals(Object o)
+		{
+<span class="nc bnc" id="L611" title="All 2 branches missed.">			if (o instanceof OwnerURI other)</span>
+			{
+<span class="nc bnc" id="L613" title="All 2 branches missed.">				if (source == null)</span>
+				{
+<span class="nc bnc" id="L615" title="All 2 branches missed.">					if (other.source != null)</span>
+					{
+<span class="nc" id="L617">						return false;</span>
+					}
+				}
+				else
+				{
+<span class="nc bnc" id="L622" title="All 2 branches missed.">					if (!source.equals(other.source))</span>
+					{
+<span class="nc" id="L624">						return false;</span>
+					}
+				}
+<span class="nc" id="L627">				return owner.equals(other.owner);</span>
+			}
+<span class="nc" id="L629">			return false;</span>
+		}
+	}
+
+	public boolean masterListsEqual(AbstractListContext lc)
+	{
+<span class="nc" id="L635">		return getCommitStrategy().equalsTracking(lc.getCommitStrategy());</span>
+	}
+
+	protected abstract ListCommitStrategy getCommitStrategy();
+
+	/**
+	 * Create a copy of any associations to the original object and link them 
+	 * to the new object. This will scan lists such as ClassSpellLists and 
+	 * DomainSpellLists which may link to the original object. For each 
+	 * association found, a new association will be created linking to the new object 
+	 * and the association will be added to the list.
+	 * 
+	 * @param &lt;T&gt;    The type of CDOMObject being copied (e.g. Spell, Domain etc)
+	 * @param cdoOld The original object being copied. 
+	 * @param cdoNew The new object to be linked in.
+	 */
+	@SuppressWarnings(&quot;unchecked&quot;)
+	&lt;T extends CDOMObject&gt; void cloneInMasterLists(T cdoOld, T cdoNew)
+	{
+<span class="nc" id="L654">		MasterListInterface masterLists = SettingsHandler.getGameAsProperty().get().getMasterLists();</span>
+<span class="nc bnc" id="L655" title="All 2 branches missed.">		for (CDOMReference ref : masterLists.getActiveLists())</span>
+		{
+<span class="nc" id="L657">			Collection&lt;AssociatedPrereqObject&gt; assocs = masterLists.getAssociations(ref, cdoOld);</span>
+<span class="nc bnc" id="L658" title="All 2 branches missed.">			if (assocs != null)</span>
+			{
+<span class="nc bnc" id="L660" title="All 2 branches missed.">				for (AssociatedPrereqObject apo : assocs)</span>
+				{
+					//					Logging.debugPrint(&quot;Found assoc from &quot; + ref + &quot; to &quot;
+					//							+ apo.getAssociationKeys() + &quot; / &quot;
+					//							+ apo.getAssociation(AssociationKey.OWNER));
+<span class="nc" id="L665">					AssociatedPrereqObject newapo = getCommitStrategy()</span>
+<span class="nc" id="L666">						.addToMasterList(apo.getAssociation(AssociationKey.TOKEN), cdoNew, ref, cdoNew);</span>
+<span class="nc" id="L667">					newapo.addAllPrerequisites(apo.getPrerequisiteList());</span>
+<span class="nc bnc" id="L668" title="All 2 branches missed.">					for (AssociationKey assocKey : apo.getAssociationKeys())</span>
+					{
+<span class="nc bnc" id="L670" title="All 4 branches missed.">						if ((assocKey != AssociationKey.TOKEN) &amp;&amp; (assocKey != AssociationKey.OWNER))</span>
+						{
+<span class="nc" id="L672">							newapo.setAssociation(assocKey, apo.getAssociation(assocKey));</span>
+						}
+<span class="nc" id="L674">					}</span>
+<span class="nc" id="L675">				}</span>
+			}
+<span class="nc" id="L677">		}</span>
+<span class="nc" id="L678">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

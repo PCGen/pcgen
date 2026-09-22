@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>VisibleToken.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.lsttokens.ability</a> &gt; <span class="el_source">VisibleToken.java</span></div><h1>VisibleToken.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2008 (C) Thomas Parker &lt;thpr@users.sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package plugin.lsttokens.ability;
+
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.core.Ability;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.ParseResult;
+import pcgen.util.enumeration.Visibility;
+
+/**
+ * {@code VisibleToken} handles the processing of the VISIBLE tag in the
+ * definition of an Ability.
+ * 
+ * (Sat, 10 Feb 2007) $
+ * 
+ */
+<span class="fc" id="L35">public class VisibleToken extends AbstractNonEmptyToken&lt;Ability&gt; implements CDOMPrimaryToken&lt;Ability&gt;</span>
+{
+
+	@Override
+	public String getTokenName()
+	{
+<span class="fc" id="L41">		return &quot;VISIBLE&quot;;</span>
+	}
+
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context, Ability ability, String value)
+	{
+		Visibility vis;
+<span class="fc bfc" id="L48" title="All 5 branches covered.">        switch (value)</span>
+        {
+            case &quot;YES&quot;:
+<span class="fc" id="L51">                vis = Visibility.DEFAULT;</span>
+<span class="fc" id="L52">                break;</span>
+            case &quot;DISPLAY&quot;:
+<span class="fc" id="L54">                vis = Visibility.DISPLAY_ONLY;</span>
+<span class="fc" id="L55">                break;</span>
+            case &quot;EXPORT&quot;:
+<span class="fc" id="L57">                vis = Visibility.OUTPUT_ONLY;</span>
+<span class="fc" id="L58">                break;</span>
+            case &quot;NO&quot;:
+<span class="fc" id="L60">                vis = Visibility.HIDDEN;</span>
+<span class="fc" id="L61">                break;</span>
+            default:
+<span class="fc" id="L63">                return new ParseResult.Fail(&quot;Unable to understand &quot; + getTokenName() + &quot; tag: &quot; + value);</span>
+        }
+<span class="fc" id="L65">		context.getObjectContext().put(ability, ObjectKey.VISIBILITY, vis);</span>
+<span class="fc" id="L66">		return ParseResult.SUCCESS;</span>
+	}
+
+	@Override
+	public String[] unparse(LoadContext context, Ability ability)
+	{
+<span class="fc" id="L72">		Visibility vis = context.getObjectContext().getObject(ability, ObjectKey.VISIBILITY);</span>
+<span class="fc bfc" id="L73" title="All 2 branches covered.">		if (vis == null)</span>
+		{
+<span class="fc" id="L75">			return null;</span>
+		}
+		String visString;
+<span class="fc bfc" id="L78" title="All 5 branches covered.">		switch (vis)</span>
+		{
+<span class="fc" id="L80">			case DEFAULT -&gt; visString = &quot;YES&quot;;</span>
+<span class="fc" id="L81">			case DISPLAY_ONLY -&gt; visString = &quot;DISPLAY&quot;;</span>
+<span class="fc" id="L82">			case OUTPUT_ONLY -&gt; visString = &quot;EXPORT&quot;;</span>
+<span class="fc" id="L83">			case HIDDEN -&gt; visString = &quot;NO&quot;;</span>
+			default -&gt; {
+<span class="fc" id="L85">				context.addWriteMessage(&quot;Visibility &quot; + vis + &quot; is not a valid Visibility for an Ability&quot;);</span>
+<span class="fc" id="L86">				return null;</span>
+			}
+		}
+<span class="fc" id="L89">		return new String[]{visString};</span>
+	}
+
+	@Override
+	public Class&lt;Ability&gt; getTokenClass()
+	{
+<span class="fc" id="L95">		return Ability.class;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

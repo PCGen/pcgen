@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>LevelLoader.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.persistence.lst</a> &gt; <span class="el_source">LevelLoader.java</span></div><h1>LevelLoader.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2002 (C) James Dempsey
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ *
+ *
+ */
+package pcgen.persistence.lst;
+
+import java.net.URI;
+import java.util.Map;
+import java.util.StringTokenizer;
+
+import pcgen.core.GameMode;
+import pcgen.core.LevelInfo;
+import pcgen.core.XPTable;
+import pcgen.persistence.SystemLoader;
+import pcgen.util.Logging;
+
+/**
+ * {@code LevelLoader} loads up the level system file
+ * by processing each line passed to it.
+ *
+ **/
+public final class LevelLoader
+{
+	/** Creates a new instance of LevelLoader */
+	private LevelLoader()
+	{
+		// Empty Constructor
+	}
+
+	/**
+	 * Parse the line from the level.lst file, populating the
+	 * levelInfo object with the info found.
+	 *
+	 * @param gameMode  the game mode 
+	 * @param inputLine  The line to be parsed
+	 * @param lineNum    The number of the line being parsed.
+	 */
+	public static String parseLine(GameMode gameMode, String inputLine, int lineNum, URI source, String xpTable)
+	{
+<span class="nc bnc" id="L56" title="All 2 branches missed.">		if (gameMode == null)</span>
+		{
+<span class="nc" id="L58">			return &quot;&quot;;</span>
+		}
+
+		// Deal with the start of a new XPTable definition
+<span class="nc bnc" id="L62" title="All 2 branches missed.">		if (inputLine.startsWith(&quot;XPTABLE:&quot;))</span>
+		{
+<span class="nc" id="L64">			String value = inputLine.substring(8);</span>
+<span class="nc bnc" id="L65" title="All 2 branches missed.">			if (value.indexOf('\t') &gt;= 0)</span>
+			{
+<span class="nc" id="L67">				value = value.substring(0, value.indexOf('\t'));</span>
+			}
+<span class="nc" id="L69">			value = value.trim();</span>
+<span class="nc bnc" id="L70" title="All 2 branches missed.">			if (value.equals(&quot;&quot;))</span>
+			{
+<span class="nc" id="L72">				Logging.errorPrint(&quot;Error parsing level line \&quot;&quot; + inputLine + &quot;\&quot;: empty XPTABLE value.&quot;);</span>
+			}
+			else
+			{
+<span class="nc" id="L76">				gameMode.addXPTableName(value);</span>
+<span class="nc" id="L77">				return value;</span>
+			}
+		}
+
+		// Provide a default fallback table name for backwards compatibility
+<span class="nc bnc" id="L82" title="All 2 branches missed.">		if (xpTable.equals(&quot;&quot;))</span>
+		{
+<span class="nc" id="L84">			xpTable = &quot;Default&quot;;</span>
+<span class="nc" id="L85">			gameMode.addXPTableName(xpTable);</span>
+		}
+
+<span class="nc" id="L88">		final LevelInfo levelInfo = new LevelInfo();</span>
+<span class="nc" id="L89">		final StringTokenizer colToken = new StringTokenizer(inputLine, SystemLoader.TAB_DELIM);</span>
+
+<span class="nc" id="L91">		Map&lt;String, LstToken&gt; tokenMap = TokenStore.inst().getTokenMap(LevelLstToken.class);</span>
+<span class="nc bnc" id="L92" title="All 2 branches missed.">		while (colToken.hasMoreTokens())</span>
+		{
+<span class="nc" id="L94">			final String colString = colToken.nextToken().trim();</span>
+
+<span class="nc" id="L96">			final int idxColon = colString.indexOf(':');</span>
+<span class="nc" id="L97">			String key = &quot;&quot;;</span>
+			try
+			{
+<span class="nc" id="L100">				key = colString.substring(0, idxColon);</span>
+			}
+<span class="nc" id="L102">			catch (StringIndexOutOfBoundsException e)</span>
+			{
+				// TODO Handle Exception
+<span class="nc" id="L105">			}</span>
+<span class="nc" id="L106">			LevelLstToken token = (LevelLstToken) tokenMap.get(key);</span>
+
+<span class="nc bnc" id="L108" title="All 2 branches missed.">			if (token != null)</span>
+			{
+<span class="nc" id="L110">				final String value = colString.substring(idxColon + 1);</span>
+<span class="nc" id="L111">				LstUtils.deprecationCheck(token, levelInfo.getLevelString(), source, value);</span>
+<span class="nc bnc" id="L112" title="All 2 branches missed.">				if (!token.parse(levelInfo, value))</span>
+				{
+<span class="nc" id="L114">					Logging.errorPrint(&quot;LevelLoader got invalid &quot; + key + &quot; value of '&quot; + value + &quot;' in '&quot; + inputLine</span>
+						+ &quot;' at line &quot; + lineNum + &quot; of &quot; + source + &quot;. Token ignored.&quot;);
+				}
+<span class="nc" id="L117">			}</span>
+			else
+			{
+<span class="nc" id="L120">				Logging.errorPrint(</span>
+					&quot;LevelLoader got unexpected token of '&quot; + colString + &quot;' at line &quot; + lineNum + &quot;. Token ignored.&quot;);
+			}
+<span class="nc" id="L123">		}</span>
+<span class="nc bnc" id="L124" title="All 2 branches missed.">		if (validateLevelInfo(gameMode, xpTable, levelInfo, inputLine, lineNum, source))</span>
+		{
+<span class="nc" id="L126">			gameMode.addLevelInfo(xpTable, levelInfo);</span>
+		}
+<span class="nc" id="L128">		return xpTable;</span>
+	}
+
+	private static boolean validateLevelInfo(GameMode gameMode, String xpTable, LevelInfo levelInfo, String inputLine,
+		int lineNum, URI source)
+	{
+<span class="nc" id="L134">		String level = levelInfo.getLevelString();</span>
+<span class="nc bnc" id="L135" title="All 2 branches missed.">		if (level == null)</span>
+		{
+<span class="nc" id="L137">			Logging.errorPrint(&quot;LevelLoader got empty level value in '&quot; + inputLine + &quot;' at line &quot; + lineNum + &quot; of &quot;</span>
+				+ source + &quot;. Line ignored.&quot;);
+<span class="nc" id="L139">			return false;</span>
+		}
+<span class="nc" id="L141">		XPTable existingTable = gameMode.getLevelInfo(xpTable);</span>
+<span class="nc bnc" id="L142" title="All 2 branches missed.">		if (existingTable == null)</span>
+		{
+			// No data on this table held yet, so it has to be right
+<span class="nc" id="L145">			return true;</span>
+		}
+
+		// Not a number so just check for a duplicate
+<span class="nc bnc" id="L149" title="All 2 branches missed.">		if (existingTable.getLevelInfo(level) != null)</span>
+		{
+<span class="nc" id="L151">			Logging.errorPrint(&quot;LevelLoader got duplicate level value of '&quot; + level + &quot;' in '&quot; + inputLine</span>
+				+ &quot;' at line &quot; + lineNum + &quot; of &quot; + source + &quot;. Line ignored.&quot;);
+<span class="nc" id="L153">			return false;</span>
+		}
+<span class="nc bnc" id="L155" title="All 2 branches missed.">		if (!isNumeric(level))</span>
+		{
+			// Not a number so must be good now
+<span class="nc" id="L158">			return true;</span>
+		}
+
+<span class="nc bnc" id="L161" title="All 2 branches missed.">		if (!existingTable.validateSequence(level))</span>
+		{
+<span class="nc" id="L163">			Logging.errorPrint(&quot;LevelLoader got out of sequence level value of '&quot; + level + &quot;' in '&quot; + inputLine</span>
+				+ &quot;' at line &quot; + lineNum + &quot; of &quot; + source + &quot;. Line ignored.&quot;);
+
+		}
+<span class="nc" id="L167">		return true;</span>
+	}
+
+	private static boolean isNumeric(String level)
+	{
+		try
+		{
+<span class="nc" id="L174">			Integer.parseInt(level);</span>
+<span class="nc" id="L175">			return true;</span>
+		}
+<span class="nc" id="L177">		catch (NumberFormatException e)</span>
+		{
+<span class="nc" id="L179">			return false;</span>
+		}
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

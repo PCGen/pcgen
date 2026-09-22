@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MonitorableVariableStore.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.formula</a> &gt; <span class="el_source">MonitorableVariableStore.java</span></div><h1>MonitorableVariableStore.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) Thomas Parker, 2016.
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package pcgen.cdom.formula;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.TreeMap;
+
+import pcgen.base.formula.base.VariableID;
+import pcgen.base.formula.inst.SimpleVariableStore;
+import pcgen.base.util.DoubleKeyMapToList;
+
+/**
+ * A MonitorableVariableStore is a WriteableVariableStore that allows
+ * VariableListener objects to listen for changes to the variables within this
+ * VariableStore.
+ */
+<span class="fc" id="L33">public class MonitorableVariableStore extends SimpleVariableStore</span>
+{
+
+	/**
+	 * The listeners, identified by priority and which VariableID they are listening to.
+	 */
+<span class="fc" id="L39">	private final DoubleKeyMapToList&lt;Integer, VariableID&lt;?&gt;, VariableListener&lt;?&gt;&gt; listenerList =</span>
+			new DoubleKeyMapToList&lt;&gt;(TreeMap.class, HashMap.class);
+
+	/**
+	 * Adds a VariableListener for the given VariableID.
+	 * 
+	 * @param varID
+	 *            The VariableID for which the given VariableListener wishes to
+	 *            receive VariableChangeEvents
+	 * @param listener
+	 *            The VariableListener that will listen for changes to the given
+	 *            VariableID
+	 */
+	public &lt;T&gt; void addVariableListener(VariableID&lt;T&gt; varID, VariableListener&lt;? super T&gt; listener)
+	{
+<span class="fc" id="L54">		addVariableListener(0, varID, listener);</span>
+<span class="fc" id="L55">	}</span>
+
+	/**
+	 * Adds a VariableListener for the given VariableID with the given priority .
+	 * 
+	 * @param priority
+	 *            The lower the priority the earlier in the list the new
+	 *            listener will get advised of the change.
+	 * @param varID
+	 *            The VariableID for which the given VariableListener wishes to
+	 *            receive VariableChangeEvents
+	 * @param listener
+	 *            The VariableListener that will listen for changes to the given
+	 *            VariableID
+	 */
+	public &lt;T&gt; void addVariableListener(int priority, VariableID&lt;T&gt; varID, VariableListener&lt;? super T&gt; listener)
+	{
+<span class="fc" id="L72">		listenerList.addToListFor(priority, varID, listener);</span>
+<span class="fc" id="L73">	}</span>
+
+	/**
+	 * Removes a VariableListener from the given VariableID.
+	 * 
+	 * @param varID
+	 *            The VariableID for which the given VariableListener is to be
+	 *            removed from the listener list
+	 * @param listener
+	 *            The VariableListener to be removed from the listener list for
+	 *            the given VariableID
+	 */
+	public &lt;T&gt; void removeVariableListener(VariableID&lt;T&gt; varID, VariableListener&lt;? super T&gt; listener)
+	{
+<span class="nc" id="L87">		removeVariableListener(0, varID, listener);</span>
+<span class="nc" id="L88">	}</span>
+
+	/**
+	 * Removes a VariableListener so that it will no longer receive VariableChangeEvents
+	 * from this MonitorableVariableStore for the given VariableID. This will remove the
+	 * VariableListener from the given priority.
+	 * 
+	 * Note that if the given VariableListener has been registered under a
+	 * different priority, it will still receive events at that priority level.
+	 * 
+	 * @param priority
+	 *            The priority of the listener to be removed
+	 * @param varID
+	 *            The VariableID for which the given VariableListener is to be removed
+	 *            from the listener list
+	 * @param listener
+	 *            The VariableListener to be removed from the listener list for the given
+	 *            VariableID
+	 */
+	public &lt;T&gt; void removeVariableListener(int priority, VariableID&lt;T&gt; varID, VariableListener&lt;? super T&gt; listener)
+	{
+<span class="nc" id="L109">		listenerList.removeFromListFor(0, varID, listener);</span>
+<span class="nc" id="L110">	}</span>
+
+	@Override
+	public &lt;T&gt; T put(VariableID&lt;T&gt; varID, T value)
+	{
+<span class="fc" id="L115">		T old = super.put(varID, value);</span>
+<span class="pc bpc" id="L116" title="1 of 2 branches missed.">		if (!value.equals(old))</span>
+		{
+<span class="fc" id="L118">			fireVariableChanged(varID, old, value);</span>
+		}
+<span class="fc" id="L120">		return old;</span>
+	}
+
+	/**
+	 * Fires a VariableChangeEvent to the VariableListeners subscribed to the
+	 * given VariableID.
+	 * 
+	 * @param varID
+	 *            The VariableID indicating which variable changed
+	 * @param old
+	 *            The previous value of the variable prior to the change
+	 * @param value
+	 *            The (current and) new value of the variable after the change
+	 */
+	public &lt;T&gt; void fireVariableChanged(VariableID&lt;T&gt; varID, T old, T value)
+	{
+<span class="fc bfc" id="L136" title="All 2 branches covered.">		for (Integer priority : listenerList.getKeySet())</span>
+		{
+<span class="fc" id="L138">			List&lt;VariableListener&lt;?&gt;&gt; listeners = listenerList.getListFor(priority, varID);</span>
+<span class="fc" id="L139">			VariableChangeEvent vcEvent = null;</span>
+<span class="fc bfc" id="L140" title="All 2 branches covered.">			if (listeners != null)</span>
+			{
+<span class="fc bfc" id="L142" title="All 2 branches covered.">				for (VariableListener&lt;?&gt; listener : listeners)</span>
+				{
+					// Lazily create event
+<span class="fc bfc" id="L145" title="All 2 branches covered.">					if (vcEvent == null)</span>
+					{
+<span class="fc" id="L147">						vcEvent = new VariableChangeEvent&lt;&gt;(this, varID, old, value);</span>
+					}
+<span class="fc" id="L149">					listener.variableChanged(vcEvent);</span>
+<span class="fc" id="L150">				}</span>
+			}
+<span class="fc" id="L152">		}</span>
+<span class="fc" id="L153">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

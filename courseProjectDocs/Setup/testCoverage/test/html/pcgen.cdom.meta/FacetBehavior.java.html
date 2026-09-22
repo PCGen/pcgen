@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FacetBehavior.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.meta</a> &gt; <span class="el_source">FacetBehavior.java</span></div><h1>FacetBehavior.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) Thomas Parker, 2013.
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package pcgen.cdom.meta;
+
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Objects;
+
+import pcgen.base.lang.UnreachableError;
+import pcgen.base.util.CaseInsensitiveMap;
+
+public final class FacetBehavior
+{
+
+<span class="fc" id="L32">	public static final FacetBehavior MODEL = new FacetBehavior(&quot;Model&quot;);</span>
+<span class="fc" id="L33">	public static final FacetBehavior INPUT = new FacetBehavior(&quot;Input&quot;);</span>
+<span class="fc" id="L34">	public static final FacetBehavior CONDITIONAL = new FacetBehavior(&quot;Conditional&quot;);</span>
+<span class="fc" id="L35">	public static final FacetBehavior CONDITIONAL_GRANTED = new FacetBehavior(&quot;Conditional-Granted&quot;);</span>
+	//	public static final CorePerspective SELECTION = new CorePerspective(&quot;Selection&quot;);
+	//	public static final CorePerspective CONDITIONAL_SELECTION = new CorePerspective(&quot;Conditional Selection&quot;);
+
+<span class="fc" id="L39">	private static CaseInsensitiveMap&lt;FacetBehavior&gt; map = null;</span>
+
+	private String type;
+
+	private FacetBehavior(String type)
+<span class="fc" id="L44">	{</span>
+<span class="fc" id="L45">		Objects.requireNonNull(type, &quot;Type cannot be null&quot;);</span>
+<span class="fc" id="L46">		this.type = type;</span>
+<span class="fc" id="L47">	}</span>
+
+	public static FacetBehavior getKeyFor(String type)
+	{
+<span class="nc bnc" id="L51" title="All 2 branches missed.">		if (map == null)</span>
+		{
+<span class="nc" id="L53">			buildMap();</span>
+		}
+<span class="nc" id="L55">        return map.computeIfAbsent(type, k -&gt; new FacetBehavior(type));</span>
+	}
+
+	private static void buildMap()
+	{
+<span class="nc" id="L60">		map = new CaseInsensitiveMap&lt;&gt;();</span>
+<span class="nc" id="L61">		Field[] fields = FacetBehavior.class.getDeclaredFields();</span>
+<span class="nc bnc" id="L62" title="All 2 branches missed.">		for (Field field : fields)</span>
+		{
+<span class="nc" id="L64">			int mod = field.getModifiers();</span>
+
+<span class="nc bnc" id="L66" title="All 6 branches missed.">			if (Modifier.isStatic(mod) &amp;&amp; Modifier.isFinal(mod) &amp;&amp; Modifier.isPublic(mod))</span>
+			{
+				try
+				{
+<span class="nc" id="L70">					Object obj = field.get(null);</span>
+<span class="nc bnc" id="L71" title="All 2 branches missed.">					if (obj instanceof FacetBehavior)</span>
+					{
+<span class="nc" id="L73">						map.put(field.getName(), (FacetBehavior) obj);</span>
+					}
+				}
+<span class="nc" id="L76">				catch (IllegalArgumentException | IllegalAccessException e)</span>
+				{
+<span class="nc" id="L78">					throw new UnreachableError(e);</span>
+<span class="nc" id="L79">				}</span>
+			}
+		}
+<span class="nc" id="L82">	}</span>
+
+	@Override
+	public String toString()
+	{
+<span class="fc" id="L87">		return type;</span>
+	}
+
+	public static Collection&lt;FacetBehavior&gt; getAllConstants()
+	{
+<span class="nc bnc" id="L92" title="All 2 branches missed.">		if (map == null)</span>
+		{
+<span class="nc" id="L94">			buildMap();</span>
+		}
+<span class="nc" id="L96">		return new HashSet&lt;&gt;(map.values());</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

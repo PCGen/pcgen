@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ConcreteTransitionChoice.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.base</a> &gt; <span class="el_source">ConcreteTransitionChoice.java</span></div><h1>ConcreteTransitionChoice.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2007, 2008 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.cdom.base;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Set;
+
+import pcgen.cdom.formula.Formula;
+import pcgen.cdom.enumeration.AssociationListKey;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.chooser.CDOMChooserFacadeImpl;
+import pcgen.facade.core.ChooserFacade.ChooserTreeViewType;
+import pcgen.util.StringPClassUtil;
+import pcgen.util.chooser.ChooserFactory;
+
+/**
+ * This is a transitional class from PCGen 5.15+ to the final CDOM core. It is
+ * provided as convenience to hold a set of choices and the number of choices
+ * allowed, prior to final implementation of the new choice system
+ * 
+ * @param &lt;T&gt;
+ *            The type of object that will be chosen when this TransitionChoice
+ *            is used
+ */
+public class ConcreteTransitionChoice&lt;T&gt; implements TransitionChoice&lt;T&gt;
+{
+
+	/**
+	 * The underlying SelectableSet used to determine the choices available when
+	 * selections are to be made in this TransitionChoice.
+	 */
+	private final SelectableSet&lt;? extends T&gt; choices;
+
+	/**
+	 * The Formula indicating the number of choices to be made when selections
+	 * are made in this TransitionChoice.
+	 */
+	private final Formula choiceCount;
+
+	/**
+	 * IDentifies if this TransitionChoice selection is required - if it is
+	 * required, then the user cannot dismiss the dialog box without making a
+	 * choice (or the dialog box reappears, etc.)
+	 */
+<span class="fc" id="L63">	private boolean required = true;</span>
+
+	/**
+	 * The ChoiceActor (optional) which will act upon any choices made from this
+	 * TransitionChoice.
+	 */
+	private ChoiceActor&lt;T&gt; choiceActor;
+
+	/**
+	 * Identifies if this TransitionChoice allows stacking of the same object.
+	 * 
+	 * This is typically done with Abilities, which has the STACKS: token in
+	 * order to identify stackable Abilities. Note that this field only allows
+	 * stacking, it does not enable stacking of objects which are not generally
+	 * stackable.
+	 */
+<span class="fc" id="L79">	private boolean allowStack = false;</span>
+
+	/**
+	 * Identifies any limit to stacking in this TransitionChoice. This is only
+	 * enabled if allowStack is true, and limits the number of times a single
+	 * object may be stacked in this selection.
+	 */
+<span class="fc" id="L86">	private Integer stackLimit = null;</span>
+
+	/**
+	 * Constructs a new TransitionChoice with the given SelectableSet (of
+	 * possible choices) and Formula (indicating the number of choices that may
+	 * be taken)
+	 * 
+	 * @param set
+	 *            The SelectableSet indicating the choices available in this
+	 *            TransitionChoice.
+	 * @param count
+	 *            The Formula indicating the number of choices that may be
+	 *            selected when selections are made in this TransitionChoice.
+	 */
+	public ConcreteTransitionChoice(SelectableSet&lt;? extends T&gt; set, Formula count)
+<span class="fc" id="L101">	{</span>
+<span class="fc" id="L102">		choices = set;</span>
+<span class="fc" id="L103">		choiceCount = count;</span>
+<span class="fc" id="L104">	}</span>
+
+	/**
+	 * Returns the SelectableSet for this TransitionChoice.
+	 * 
+	 * TODO Should determine if this should be exposed. It seems this is
+	 * primarily used to get access to getLSTformat and getChoiceClass, so
+	 * perhaps the TransitionChoice should delegate those instead in order to
+	 * protect the SelectableSet?
+	 * 
+	 * @return The SelectableSet for this TransitionChoice.
+	 */
+	@Override
+	public SelectableSet&lt;? extends T&gt; getChoices()
+	{
+<span class="fc" id="L119">		return choices;</span>
+	}
+
+	/**
+	 * Returns the Formula indicating the number of selections available when
+	 * selections are made in this TransitionChoice.
+	 * 
+	 * @return The Formula indicating the number of selections available
+	 */
+	@Override
+	public Formula getCount()
+	{
+<span class="fc" id="L131">		return choiceCount;</span>
+	}
+
+	/**
+	 * Returns true if the given Object is a TransitionChoice and has identical
+	 * underlying choices and choiceCount
+	 */
+	@Override
+	public boolean equals(Object obj)
+	{
+<span class="pc bpc" id="L141" title="1 of 2 branches missed.">		if (obj instanceof ConcreteTransitionChoice&lt;?&gt; other)</span>
+		{
+<span class="pc bpc" id="L143" title="2 of 6 branches missed.">			if (choiceCount == other.choiceCount || (choiceCount != null &amp;&amp; choiceCount.equals(other.choiceCount)))</span>
+			{
+<span class="fc" id="L145">				return choices.equals(other.choices);</span>
+			}
+		}
+<span class="nc" id="L148">		return false;</span>
+	}
+
+	/**
+	 * Returns a consistent-with-equals hashCode for this TransitionChoice.
+	 */
+	@Override
+	public int hashCode()
+	{
+<span class="nc bnc" id="L157" title="All 2 branches missed.">		return choices.hashCode() + 29 * (choiceCount == null ? -1 : choiceCount.hashCode());</span>
+	}
+
+	/**
+	 * Drives a selection for this TransitionChoice on the given
+	 * PlayerCharacter.
+	 * 
+	 * @param pc
+	 *            The PlayerCharacter for which this TransitionChoice should
+	 *            drive a choice.
+	 * @return A Collection of objects of the type that this TransitionChoice
+	 *         selects.
+	 */
+	@Override
+	public Collection&lt;? extends T&gt; driveChoice(PlayerCharacter pc)
+	{
+<span class="nc" id="L173">		int numChoices = choiceCount.resolve(pc, &quot;&quot;).intValue();</span>
+<span class="nc bnc" id="L174" title="All 2 branches missed.">		boolean pickall = (numChoices == Integer.MAX_VALUE);</span>
+
+<span class="nc" id="L176">		String title = choices.getTitle();</span>
+<span class="nc bnc" id="L177" title="All 2 branches missed.">		if (title == null)</span>
+		{
+<span class="nc" id="L179">			title = &quot;Choose a &quot; + StringPClassUtil.getStringFor(choices.getChoiceClass());</span>
+		}
+
+<span class="nc" id="L182">		Collection&lt;? extends T&gt; set = choices.getSet(pc);</span>
+<span class="nc" id="L183">		Set&lt;T&gt; allowed = new LinkedHashSet&lt;&gt;();</span>
+<span class="nc" id="L184">		List&lt;Object&gt; assocList = pc.getAssocList(this, AssociationListKey.ADD);</span>
+<span class="nc bnc" id="L185" title="All 2 branches missed.">		for (T item : set)</span>
+		{
+<span class="nc bnc" id="L187" title="All 4 branches missed.">			if (choiceActor == null || choiceActor.allow(item, pc, allowStack))</span>
+			{
+<span class="nc bnc" id="L189" title="All 6 branches missed.">				if (assocList != null &amp;&amp; stackLimit != null &amp;&amp; stackLimit &gt; 0)</span>
+				{
+<span class="nc" id="L191">					int takenCount = 0;</span>
+<span class="nc bnc" id="L192" title="All 2 branches missed.">					for (Object choice : assocList)</span>
+					{
+<span class="nc bnc" id="L194" title="All 2 branches missed.">						if (choice.equals(item))</span>
+						{
+<span class="nc" id="L196">							takenCount++;</span>
+						}
+<span class="nc" id="L198">					}</span>
+<span class="nc bnc" id="L199" title="All 2 branches missed.">					if (stackLimit &lt;= takenCount)</span>
+					{
+<span class="nc" id="L201">						continue;</span>
+					}
+				}
+<span class="nc" id="L204">				allowed.add(item);</span>
+			}
+<span class="nc" id="L206">		}</span>
+
+		//TODO: What about allowing duplicates?
+<span class="nc bnc" id="L209" title="All 4 branches missed.">		if (pickall || numChoices == set.size())</span>
+		{
+<span class="nc" id="L211">			return allowed;</span>
+		}
+		else
+		{
+<span class="nc" id="L215">			CDOMChooserFacadeImpl&lt;T&gt; chooserFacade =</span>
+					new CDOMChooserFacadeImpl&lt;&gt;(title, new ArrayList&lt;&gt;(allowed), new ArrayList&lt;&gt;(), numChoices);
+<span class="nc" id="L217">			chooserFacade.setAllowsDups(allowStack);</span>
+<span class="nc" id="L218">			chooserFacade.setRequireCompleteSelection(required);</span>
+<span class="nc" id="L219">			chooserFacade.setDefaultView(ChooserTreeViewType.NAME);</span>
+<span class="nc" id="L220">			ChooserFactory.getDelegate().showGeneralChooser(chooserFacade);</span>
+			//TODO: What about cancel? Should it be allowed?
+<span class="nc" id="L222">			return chooserFacade.getFinalSelected();</span>
+		}
+	}
+
+	/**
+	 * Sets whether a selection from this TransitionChoice is required. If
+	 * required, a TransitionChoice will not exit the driveChoice method until
+	 * the user has made a selection.
+	 * 
+	 * @param isRequired
+	 *            true if a selection from this TransitionChoice should be
+	 *            required.
+	 */
+	@Override
+	public void setRequired(boolean isRequired)
+	{
+<span class="fc" id="L238">		required = isRequired;</span>
+<span class="fc" id="L239">	}</span>
+
+	/**
+	 * Sets the (optional) ChoiceActor for this TransitionChoice. The
+	 * ChoiceActor will be called when the act method of TransitionChoice is
+	 * called. If the ChoiceActor is not set, then the set method may not be
+	 * used without triggering an exception.
+	 * 
+	 * @param actor
+	 *            The ChoiceActor for this TransitionChoice.
+	 */
+	@Override
+	public void setChoiceActor(ChoiceActor&lt;T&gt; actor)
+	{
+<span class="fc" id="L253">		choiceActor = actor;</span>
+<span class="fc" id="L254">	}</span>
+
+	/**
+	 * Acts upon choices made in this TransitionChoice.
+	 * 
+	 * @param choicesMade
+	 *            The choices on which this TransitionChoice should act.
+	 * @param owner
+	 *            The owning object for this TransitionChoice
+	 * @param apc
+	 *            The PlayerCharacter to which the choices should be applied.
+	 */
+	@Override
+	public void act(Collection&lt;? extends T&gt; choicesMade, CDOMObject owner, PlayerCharacter apc)
+	{
+<span class="nc bnc" id="L269" title="All 2 branches missed.">		if (choiceActor == null)</span>
+		{
+<span class="nc" id="L271">			throw new IllegalStateException(&quot;Cannot act without a defined ChoiceActor&quot;);</span>
+		}
+<span class="nc bnc" id="L273" title="All 2 branches missed.">		for (T choice : choicesMade)</span>
+		{
+<span class="nc" id="L275">			choiceActor.applyChoice(owner, choice, apc);</span>
+<span class="nc" id="L276">			apc.addAssoc(this, AssociationListKey.ADD, choice);</span>
+<span class="nc" id="L277">		}</span>
+<span class="nc" id="L278">	}</span>
+
+	/**
+	 * Casts an object to the (Generic) Type of this TransitionChoice.
+	 * 
+	 * @param item
+	 *            The incoming object
+	 * @return The incoming object, cast to the (Generic) type of this
+	 *         TransitionChoice.
+	 */
+	@SuppressWarnings(&quot;unchecked&quot;)
+	public T castChoice(Object item)
+	{
+<span class="nc" id="L291">		return (T) item;</span>
+	}
+
+	/**
+	 * Sets whether this TransitionChoice should allow stacking.
+	 * 
+	 * @param allow
+	 *            true if this TransitionChoice should allow stacking; false
+	 *            otherwise.
+	 */
+	@Override
+	public void allowStack(boolean allow)
+	{
+<span class="fc" id="L304">		allowStack = allow;</span>
+<span class="fc" id="L305">	}</span>
+
+	/**
+	 * Sets the stacking limit of this TransitionChoice. This is only enabled if
+	 * allowStack is set to true. This limits the number of times an individual
+	 * item can stack in a given TransitionChoice.
+	 * 
+	 * @param limit
+	 *            The limit (number of times a stackable item may be selected in
+	 *            this TransitionChoice)
+	 */
+	@Override
+	public void setStackLimit(int limit)
+	{
+<span class="fc" id="L319">		stackLimit = limit;</span>
+<span class="fc" id="L320">	}</span>
+
+	/**
+	 * Identifies if this TransitionChoice allows stacking.
+	 * 
+	 * @return true if this TransitionChoice should allow stacking; false
+	 *         otherwise.
+	 */
+	@Override
+	public boolean allowsStacking()
+	{
+<span class="fc" id="L331">		return allowStack;</span>
+	}
+
+	/**
+	 * Returns the Stacking Limit of this TransitionChoice. This is only enabled
+	 * if allowStack is set to true. This limits the number of times an
+	 * individual item can stack in a given TransitionChoice.
+	 * 
+	 * @return The limit (number of times a stackable item may be selected in
+	 *         this TransitionChoice)
+	 */
+	@Override
+	public Integer getStackLimit()
+	{
+<span class="fc" id="L345">		return stackLimit;</span>
+	}
+
+	/**
+	 * Returns the ChoiceActor for this TransitionChoice.
+	 * 
+	 * CONSIDER Should look at another method to get rid of this - do the users
+	 * of this method require their own sub-class to TransitionChoice?
+	 * 
+	 * @return The ChoiceActor for this TransitionChoice.
+	 */
+	@Override
+	public ChoiceActor&lt;T&gt; getChoiceActor()
+	{
+<span class="nc" id="L359">		return choiceActor;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

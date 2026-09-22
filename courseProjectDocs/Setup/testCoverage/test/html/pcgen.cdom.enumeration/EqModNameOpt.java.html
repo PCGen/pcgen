@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>EqModNameOpt.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.enumeration</a> &gt; <span class="el_source">EqModNameOpt.java</span></div><h1>EqModNameOpt.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2007 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.cdom.enumeration;
+
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
+import java.util.List;
+
+import pcgen.base.lang.StringUtil;
+import pcgen.base.lang.UnreachableError;
+import pcgen.base.util.CaseInsensitiveMap;
+import pcgen.cdom.base.Constants;
+import pcgen.core.Equipment;
+import pcgen.core.EquipmentModifier;
+import pcgen.core.Globals;
+import pcgen.core.SettingsHandler;
+import pcgen.core.analysis.EqModSpellInfo;
+import pcgen.core.spell.Spell;
+import pcgen.core.utils.CoreUtility;
+
+/**
+ * An EqModNameOpt is a method of identifying how the name of an
+ * EquipmentModifier should appear when the extended name of a piece of
+ * Equipment (to which the EquipmentModifier is applied) is displayed.
+ * 
+ * It is designed to hold naming choices in a type-safe fashion, so that they
+ * can be quickly compared and use less memory when identical EqModNameOpts
+ * exist in two CDOMObjects.
+ */
+<span class="fc" id="L45">public enum EqModNameOpt</span>
+{
+
+	/*
+	 * NORMAL: the name with a list of choices in parenthesis
+	 * 
+	 * NOTHING: a blank string
+	 * 
+	 * NOLIST: just the name of the object
+	 * 
+	 * NONAME: just the list of choices
+	 * 
+	 * SPELL: treats the first entry in associated as a spell, outputs the
+	 * details
+	 */
+<span class="fc" id="L60">	NORMAL</span>
+	{
+		@Override
+		public String returnName(Equipment parent, EquipmentModifier mod)
+		{
+<span class="nc" id="L65">			StringBuilder sb = new StringBuilder(100);</span>
+<span class="nc" id="L66">			sb.append(mod.getDisplayName());</span>
+<span class="nc bnc" id="L67" title="All 2 branches missed.">			if (!parent.getAssociationList(mod).isEmpty())</span>
+			{
+<span class="nc" id="L69">				sb.append(&quot; (&quot;);</span>
+<span class="nc" id="L70">				sb.append(associatedList(parent.getAssociationList(mod)));</span>
+<span class="nc" id="L71">				sb.append(')');</span>
+			}
+<span class="nc" id="L73">			return sb.toString().trim().replace('|', ' ');</span>
+		}
+	},
+<span class="fc" id="L76">	NOLIST</span>
+	{
+		@Override
+		public String returnName(Equipment parent, EquipmentModifier mod)
+		{
+<span class="nc" id="L81">			return mod.getDisplayName().trim().replace('|', ' ');</span>
+		}
+	},
+<span class="fc" id="L84">	NONAME</span>
+	{
+		@Override
+		public String returnName(Equipment parent, EquipmentModifier mod)
+		{
+<span class="nc" id="L89">			return associatedList(parent.getAssociationList(mod)).trim().replace('|', ' ');</span>
+		}
+	},
+<span class="fc" id="L92">	NOTHING</span>
+	{
+		@Override
+		public String returnName(Equipment parent, EquipmentModifier mod)
+		{
+<span class="nc" id="L97">			return Constants.EMPTY_STRING;</span>
+		}
+	},
+<span class="fc" id="L100">	SPELL</span>
+	{
+		@Override
+		public String returnName(Equipment parent, EquipmentModifier mod)
+		{
+<span class="nc" id="L105">			StringBuilder sb = new StringBuilder(100);</span>
+<span class="nc" id="L106">			boolean first = true;</span>
+<span class="nc bnc" id="L107" title="All 2 branches missed.">			for (String listEntry : parent.getAssociationList(mod))</span>
+			{
+<span class="nc bnc" id="L109" title="All 2 branches missed.">				if (!first)</span>
+				{
+<span class="nc" id="L111">					sb.append(&quot;, &quot;);</span>
+				}
+<span class="nc" id="L113">				first = false;</span>
+
+<span class="nc" id="L115">				String spellName = EqModSpellInfo.getSpellInfoString(listEntry, &quot;SPELLNAME&quot;);</span>
+
+<span class="nc bnc" id="L117" title="All 2 branches missed.">				if (SettingsHandler.guiUsesOutputNameSpells())</span>
+				{
+<span class="nc" id="L119">					final Spell aSpell = Globals.getContext().getReferenceContext()</span>
+<span class="nc" id="L120">						.silentlyGetConstructedCDOMObject(Spell.class, spellName);</span>
+
+<span class="nc bnc" id="L122" title="All 2 branches missed.">					if (aSpell != null)</span>
+					{
+<span class="nc" id="L124">						spellName = aSpell.getOutputName();</span>
+					}
+				}
+
+<span class="nc" id="L128">				sb.append(spellName);</span>
+
+<span class="nc" id="L130">				final String info = EqModSpellInfo.getSpellInfoString(listEntry, &quot;VARIANT&quot;);</span>
+
+<span class="nc bnc" id="L132" title="All 2 branches missed.">				if (!info.isEmpty())</span>
+				{
+<span class="nc" id="L134">					sb.append(&quot; (&quot;).append(info).append(')');</span>
+				}
+
+<span class="nc" id="L137">				String metaFeat = EqModSpellInfo.getSpellInfoString(listEntry, &quot;METAFEATS&quot;);</span>
+<span class="nc" id="L138">				List&lt;String&gt; metaFeats = CoreUtility.split(metaFeat, ',');</span>
+
+<span class="nc bnc" id="L140" title="All 2 branches missed.">				if (!metaFeats.isEmpty())</span>
+				{
+<span class="nc" id="L142">					sb.append('/').append(StringUtil.join(metaFeats, &quot;/&quot;));</span>
+				}
+
+<span class="nc" id="L145">				sb.append('/').append(EqModSpellInfo.getSpellInfoString(listEntry, &quot;CASTER&quot;));</span>
+<span class="nc" id="L146">				sb.append('/').append(CoreUtility.ordinal(EqModSpellInfo.getSpellInfo(listEntry, &quot;CASTERLEVEL&quot;)));</span>
+<span class="nc" id="L147">			}</span>
+
+<span class="nc" id="L149">			return sb.toString().trim().replace('|', ' ');</span>
+		}
+	},
+<span class="fc" id="L152">	TEXT</span>
+	{
+		@Override
+		public String returnName(Equipment parent, EquipmentModifier mod)
+		{
+<span class="nc" id="L157">			return mod.get(StringKey.NAME_TEXT);</span>
+		}
+	};
+
+	public abstract String returnName(Equipment parent, EquipmentModifier mod);
+
+	public static EqModNameOpt valueOfIgnoreCase(String optName)
+	{
+<span class="fc bfc" id="L165" title="All 2 branches covered.">		if (typeMap == null)</span>
+		{
+<span class="fc" id="L167">			buildMap();</span>
+		}
+<span class="fc" id="L169">		EqModNameOpt eqmno = typeMap.get(optName);</span>
+<span class="fc bfc" id="L170" title="All 2 branches covered.">		if (eqmno == null)</span>
+		{
+<span class="fc" id="L172">			throw new IllegalArgumentException(optName + &quot; is not a valid EqModNameOpt&quot;);</span>
+		}
+<span class="fc" id="L174">		return eqmno;</span>
+	}
+
+<span class="fc" id="L177">	private static CaseInsensitiveMap&lt;EqModNameOpt&gt; typeMap = null;</span>
+
+	/**
+	 * Actually build the set of Constants, using any &quot;public static final&quot;
+	 * constants within the child (extending) class as initial values in the
+	 * Constant pool.
+	 */
+	private static void buildMap()
+	{
+<span class="fc" id="L186">		typeMap = new CaseInsensitiveMap&lt;&gt;();</span>
+<span class="fc" id="L187">		Class&lt;EqModNameOpt&gt; thisClass = EqModNameOpt.class;</span>
+<span class="fc bfc" id="L188" title="All 2 branches covered.">		for (Field f : thisClass.getDeclaredFields())</span>
+		{
+<span class="fc" id="L190">			int mod = f.getModifiers();</span>
+<span class="fc" id="L191">			String name = f.getName();</span>
+
+<span class="pc bpc" id="L193" title="1 of 6 branches missed.">			if (Modifier.isStatic(mod) &amp;&amp; Modifier.isFinal(mod) &amp;&amp; Modifier.isPublic(mod))</span>
+			{
+				try
+				{
+<span class="fc" id="L197">					Object obj = f.get(null);</span>
+<span class="pc bpc" id="L198" title="1 of 2 branches missed.">					if (thisClass.isAssignableFrom(obj.getClass()))</span>
+					{
+<span class="fc" id="L200">						EqModNameOpt tObj = thisClass.cast(obj);</span>
+<span class="pc bpc" id="L201" title="1 of 2 branches missed.">						if (typeMap.containsKey(name))</span>
+						{
+<span class="nc" id="L203">							throw new UnreachableError(</span>
+<span class="nc" id="L204">								&quot;Attempt to redefine constant value &quot; + name + &quot;, value was &quot; + typeMap.get(name));</span>
+						}
+<span class="fc" id="L206">						typeMap.put(name, tObj);</span>
+					}
+				}
+<span class="nc" id="L209">				catch (IllegalArgumentException | IllegalAccessException e)</span>
+				{
+<span class="nc" id="L211">					throw new UnreachableError(e);</span>
+<span class="fc" id="L212">				}</span>
+			}
+		}
+<span class="fc" id="L215">	}</span>
+
+	public String associatedList(List&lt;String&gt; associatedList)
+	{
+<span class="nc bnc" id="L219" title="All 2 branches missed.">		if (associatedList == null)</span>
+		{
+<span class="nc" id="L221">			return Constants.EMPTY_STRING;</span>
+		}
+		else
+		{
+<span class="nc" id="L225">			StringBuilder sb = new StringBuilder(50);</span>
+<span class="nc" id="L226">			boolean first = true;</span>
+<span class="nc bnc" id="L227" title="All 2 branches missed.">			for (String choice : associatedList)</span>
+			{
+<span class="nc bnc" id="L229" title="All 2 branches missed.">				if (!first)</span>
+				{
+<span class="nc" id="L231">					sb.append(&quot;, &quot;);</span>
+				}
+<span class="nc" id="L233">				first = false;</span>
+<span class="nc bnc" id="L234" title="All 2 branches missed.">				if (choice == null)</span>
+				{
+<span class="nc" id="L236">					sb.append('*');</span>
+				}
+				else
+				{
+<span class="nc" id="L240">					sb.append(choice);</span>
+				}
+<span class="nc" id="L242">			}</span>
+<span class="nc" id="L243">			return sb.toString();</span>
+		}
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

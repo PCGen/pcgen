@@ -1,0 +1,1070 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PurchaseModeFrame.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.gui2.prefs</a> &gt; <span class="el_source">PurchaseModeFrame.java</span></div><h1>PurchaseModeFrame.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2002 (C) Chris Ryan
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.gui2.prefs;
+
+import java.awt.Container;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+
+import javax.swing.AbstractButton;
+import javax.swing.BorderFactory;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JComponent;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.WindowConstants;
+import javax.swing.border.BevelBorder;
+import javax.swing.table.AbstractTableModel;
+
+import pcgen.cdom.base.Constants;
+import pcgen.core.CustomData;
+import pcgen.core.Globals;
+import pcgen.core.PointBuyCost;
+import pcgen.core.PointBuyMethod;
+import pcgen.core.RuleConstants;
+import pcgen.core.SettingsHandler;
+import pcgen.core.utils.MessageType;
+import pcgen.core.utils.ShowMessageDelegate;
+import pcgen.gui3.GuiUtility;
+import pcgen.gui3.PanelFromResource;
+import pcgen.gui3.component.OKCloseButtonBar;
+import pcgen.gui3.dialog.NewPurchaseMethodDialogController;
+import pcgen.rules.context.AbstractReferenceContext;
+import pcgen.system.LanguageBundle;
+
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.Tooltip;
+
+/**
+ * The Class {@code PurchaseModeFrame} is responsible for displaying
+ * the character stats purchase mode (aka point buy) configuration dialog.  
+ */
+public final class PurchaseModeFrame extends JDialog
+{
+<span class="nc" id="L77">	private static final String TITLE = LanguageBundle.getString(&quot;in_Prefs_purModConf&quot;); //$NON-NLS-1$</span>
+	private static final int STANDARD_MIN_PURCHASE_SCORE = 8;
+	private static final int STANDARD_MAX_PURCHASE_SCORE = 18;
+	private JButton removeMethodButton;
+	private JComboBox currentPurchaseMethods;
+	private JLabel statusBar;
+
+	private JScrollPane jScrollPane1;
+	private JTextField purchaseMethodPointsEdit;
+	private JTextField purchaseScoreMaxEdit;
+	private JTextField purchaseScoreMinEdit;
+	private PurchaseModel purchaseModel;
+
+<span class="nc" id="L90">	private int statMin = PurchaseModeFrame.STANDARD_MIN_PURCHASE_SCORE;</span>
+<span class="nc" id="L91">	private int statMax = PurchaseModeFrame.STANDARD_MAX_PURCHASE_SCORE;</span>
+
+	/** Creates new form PurchaseModeFrame
+	 */
+	PurchaseModeFrame()
+<span class="nc" id="L96">	{</span>
+<span class="nc" id="L97">		initComponents();</span>
+<span class="nc" id="L98">	}</span>
+
+	//
+	// Pop up a window to get information about a new purchase method
+	//
+	private void addMethodButtonActionPerformed()
+	{
+<span class="nc" id="L105">		var npmd = new PanelFromResource&lt;&gt;(</span>
+				NewPurchaseMethodDialogController.class,
+				&quot;NewPurchaseMethodDialog.fxml&quot;
+		);
+
+		// todo: i18n
+<span class="nc" id="L111">		npmd.showAndBlock(&quot;New Purchase Method&quot;);</span>
+<span class="nc" id="L112">		npmd.getController().isCancelled();</span>
+
+<span class="nc bnc" id="L114" title="All 2 branches missed.">		if (!npmd.getController().isCancelled())</span>
+		{
+<span class="nc" id="L116">			final String methodName = npmd.getController().getEnteredName();</span>
+
+<span class="nc" id="L118">			if (SettingsHandler.getGameAsProperty().get().getModeContext().getReferenceContext()</span>
+<span class="nc bnc" id="L119" title="All 2 branches missed.">				.silentlyGetConstructedCDOMObject(PointBuyMethod.class, methodName) == null)</span>
+			{
+<span class="nc" id="L121">				PointBuyMethod pbm = new PointBuyMethod();</span>
+<span class="nc" id="L122">				pbm.setName(methodName);</span>
+<span class="nc" id="L123">				pbm.setPointFormula(Integer.toString(npmd.getController().getEnteredPoints()));</span>
+<span class="nc" id="L124">				currentPurchaseMethods.addItem(pbm);</span>
+<span class="nc" id="L125">				currentPurchaseMethods.setSelectedItem(pbm);</span>
+<span class="nc" id="L126">			}</span>
+			else
+			{
+<span class="nc" id="L129">				ShowMessageDelegate.showMessageDialog(LanguageBundle.getString(&quot;in_Prefs_cannotAdd&quot;), //$NON-NLS-1$</span>
+					Constants.APPLICATION_NAME, MessageType.ERROR);
+			}
+		}
+<span class="nc" id="L133">	}</span>
+
+	private void cancelButtonActionPerformed()
+	{
+<span class="nc" id="L137">		dispose();</span>
+<span class="nc" id="L138">	}</span>
+
+	private static int convertStringToInt(String valueString)
+	{
+		int value;
+
+		try
+		{
+<span class="nc" id="L146">			value = Integer.parseInt(valueString);</span>
+		}
+<span class="nc" id="L148">		catch (final NumberFormatException nfe)</span>
+		{
+			// bad value
+<span class="nc" id="L151">			value = -1;</span>
+<span class="nc" id="L152">		}</span>
+
+<span class="nc" id="L154">		return value;</span>
+	}
+
+	/**
+	 * Display info about the selected purchase method.
+	 */
+	private void currentPurchaseMethodsActionPerformed()
+	{
+<span class="nc" id="L162">		final PointBuyMethod method = (PointBuyMethod) currentPurchaseMethods.getSelectedItem();</span>
+
+<span class="nc bnc" id="L164" title="All 2 branches missed.">		if (method == null)</span>
+		{
+<span class="nc" id="L166">			removeMethodButton.setEnabled(false);</span>
+<span class="nc" id="L167">			purchaseMethodPointsEdit.setText(&quot;&quot;); //$NON-NLS-1$</span>
+		}
+		else
+		{
+<span class="nc" id="L171">			purchaseMethodPointsEdit.setText(method.getPointFormula());</span>
+<span class="nc" id="L172">			removeMethodButton.setEnabled(true);</span>
+		}
+<span class="nc" id="L174">	}</span>
+
+	/** Exit Purchase Mode Frame */
+	private void exitForm()
+	{
+		// TODO
+<span class="nc" id="L180">	}</span>
+
+	private void initComponents()
+	{
+
+<span class="nc" id="L185">		purchaseScoreMinEdit = new JTextField(3);</span>
+<span class="nc" id="L186">		purchaseScoreMaxEdit = new JTextField(3);</span>
+<span class="nc" id="L187">		statusBar = new JLabel();</span>
+<span class="nc" id="L188">		currentPurchaseMethods = new JComboBox&lt;&gt;();</span>
+<span class="nc" id="L189">		purchaseMethodPointsEdit = new JTextField(4);</span>
+<span class="nc" id="L190">		removeMethodButton = new JButton();</span>
+
+<span class="nc" id="L192">		AbstractButton okButton = new JButton();</span>
+<span class="nc" id="L193">		okButton.addActionListener(e -&gt; CustomData.writePurchaseModeConfiguration());</span>
+
+<span class="nc" id="L195">		jScrollPane1 = new JScrollPane();</span>
+
+<span class="nc" id="L197">		getContentPane().setLayout(new GridBagLayout());</span>
+
+<span class="nc" id="L199">		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);</span>
+<span class="nc" id="L200">		setTitle(PurchaseModeFrame.TITLE);</span>
+<span class="nc" id="L201">		addWindowListener(new WindowAdapter()</span>
+<span class="nc" id="L202">		{</span>
+			@Override
+			public void windowClosing(WindowEvent evt)
+			{
+<span class="nc" id="L206">				exitForm();</span>
+<span class="nc" id="L207">			}</span>
+		});
+
+<span class="nc" id="L210">		Container jPanel1 = new JPanel();</span>
+<span class="nc" id="L211">		jPanel1.setLayout(new FlowLayout(FlowLayout.LEFT, 2, 5));</span>
+
+<span class="nc" id="L213">		JLabel purchaseScoreMinLabel = new JLabel();</span>
+<span class="nc" id="L214">		purchaseScoreMinLabel.setText(LanguageBundle.getString(&quot;in_Prefs_purchMin&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L215">		purchaseScoreMinLabel.setToolTipText(LanguageBundle.getString(&quot;in_Prefs_purchMinTip&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L216">		purchaseScoreMinLabel.setPreferredSize(new Dimension(140, 15));</span>
+<span class="nc" id="L217">		jPanel1.add(purchaseScoreMinLabel);</span>
+
+<span class="nc" id="L219">		purchaseScoreMinEdit.setHorizontalAlignment(SwingConstants.RIGHT);</span>
+<span class="nc" id="L220">		purchaseScoreMinEdit.addActionListener(evt -&gt; purchaseScoreMinValueActionPerformed());</span>
+<span class="nc" id="L221">		purchaseScoreMinEdit.addFocusListener(new FocusAdapter()</span>
+<span class="nc" id="L222">		{</span>
+			@Override
+			public void focusLost(FocusEvent e)
+			{
+<span class="nc" id="L226">				purchaseScoreMinValueActionPerformed();</span>
+<span class="nc" id="L227">			}</span>
+
+		});
+<span class="nc" id="L230">		jPanel1.add(purchaseScoreMinEdit);</span>
+
+<span class="nc" id="L232">		AbstractButton purchaseScoreMinIncreaseButton = new JButton();</span>
+<span class="nc" id="L233">		purchaseScoreMinIncreaseButton.setText(LanguageBundle.getString(&quot;in_Prefs_plus&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L234">		purchaseScoreMinIncreaseButton.setToolTipText(LanguageBundle.getString(&quot;in_Prefs_incMin&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L235">		purchaseScoreMinIncreaseButton.addActionListener(evt -&gt; purchaseScoreMinIncreaseButtonActionPerformed());</span>
+
+<span class="nc" id="L237">		jPanel1.add(purchaseScoreMinIncreaseButton);</span>
+
+<span class="nc" id="L239">		AbstractButton purchaseScoreMinDecreaseButton = new JButton();</span>
+<span class="nc" id="L240">		purchaseScoreMinDecreaseButton.setText(LanguageBundle.getString(&quot;in_Prefs_minus&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L241">		purchaseScoreMinDecreaseButton.setToolTipText(LanguageBundle.getString(&quot;in_Prefs_decMin&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L242">		purchaseScoreMinDecreaseButton.addActionListener(evt -&gt; purchaseScoreMinDecreaseButtonActionPerformed());</span>
+
+<span class="nc" id="L244">		jPanel1.add(purchaseScoreMinDecreaseButton);</span>
+
+<span class="nc" id="L246">		GridBagConstraints gridBagConstraints = new GridBagConstraints();</span>
+<span class="nc" id="L247">		gridBagConstraints.gridx = 0;</span>
+<span class="nc" id="L248">		gridBagConstraints.gridy = 1;</span>
+<span class="nc" id="L249">		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;</span>
+<span class="nc" id="L250">		gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;</span>
+<span class="nc" id="L251">		gridBagConstraints.weightx = 1.0;</span>
+<span class="nc" id="L252">		getContentPane().add(jPanel1, gridBagConstraints);</span>
+
+<span class="nc" id="L254">		Container jPanel2 = new JPanel();</span>
+<span class="nc" id="L255">		jPanel2.setLayout(new FlowLayout(FlowLayout.LEFT, 2, 5));</span>
+
+<span class="nc" id="L257">		JLabel purchaseScoreMaxLabel = new JLabel();</span>
+<span class="nc" id="L258">		purchaseScoreMaxLabel.setText(LanguageBundle.getString(&quot;in_Prefs_purchMax&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L259">		purchaseScoreMaxLabel.setToolTipText(LanguageBundle.getString(&quot;in_Prefs_purchMaxTip&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L260">		purchaseScoreMaxLabel.setPreferredSize(new Dimension(140, 15));</span>
+<span class="nc" id="L261">		jPanel2.add(purchaseScoreMaxLabel);</span>
+
+<span class="nc" id="L263">		purchaseScoreMaxEdit.setHorizontalAlignment(SwingConstants.RIGHT);</span>
+<span class="nc" id="L264">		purchaseScoreMaxEdit.addActionListener(evt -&gt; purchaseScoreMaxValueActionPerformed());</span>
+<span class="nc" id="L265">		purchaseScoreMaxEdit.addFocusListener(new FocusAdapter()</span>
+<span class="nc" id="L266">		{</span>
+			@Override
+			public void focusLost(FocusEvent e)
+			{
+<span class="nc" id="L270">				purchaseScoreMaxValueActionPerformed();</span>
+<span class="nc" id="L271">			}</span>
+
+		});
+<span class="nc" id="L274">		jPanel2.add(purchaseScoreMaxEdit);</span>
+
+<span class="nc" id="L276">		AbstractButton purchaseScoreMaxIncreaseButton = new JButton();</span>
+<span class="nc" id="L277">		purchaseScoreMaxIncreaseButton.setText(LanguageBundle.getString(&quot;in_Prefs_plus&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L278">		purchaseScoreMaxIncreaseButton.setToolTipText(LanguageBundle.getString(&quot;in_Prefs_incMax&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L279">		purchaseScoreMaxIncreaseButton.addActionListener(evt -&gt; purchaseScoreMaxIncreaseButtonActionPerformed());</span>
+
+<span class="nc" id="L281">		jPanel2.add(purchaseScoreMaxIncreaseButton);</span>
+
+<span class="nc" id="L283">		AbstractButton purchaseScoreMaxDecreaseButton = new JButton();</span>
+<span class="nc" id="L284">		purchaseScoreMaxDecreaseButton.setText(LanguageBundle.getString(&quot;in_Prefs_minus&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L285">		purchaseScoreMaxDecreaseButton.setToolTipText(LanguageBundle.getString(&quot;in_Prefs_decMax&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L286">		purchaseScoreMaxDecreaseButton.addActionListener(evt -&gt; purchaseScoreMaxDecreaseButtonActionPerformed());</span>
+
+<span class="nc" id="L288">		jPanel2.add(purchaseScoreMaxDecreaseButton);</span>
+
+<span class="nc" id="L290">		GridBagConstraints bagConstraints = new GridBagConstraints();</span>
+<span class="nc" id="L291">		bagConstraints.gridx = 0;</span>
+<span class="nc" id="L292">		bagConstraints.gridy = 2;</span>
+<span class="nc" id="L293">		bagConstraints.fill = GridBagConstraints.HORIZONTAL;</span>
+<span class="nc" id="L294">		bagConstraints.anchor = GridBagConstraints.NORTHWEST;</span>
+<span class="nc" id="L295">		bagConstraints.weightx = 1.0;</span>
+<span class="nc" id="L296">		getContentPane().add(jPanel2, bagConstraints);</span>
+
+<span class="nc" id="L298">		JComponent purchaseMethodPanel = new JPanel();</span>
+<span class="nc" id="L299">		purchaseMethodPanel.setLayout(new GridBagLayout());</span>
+<span class="nc" id="L300">		purchaseMethodPanel</span>
+<span class="nc" id="L301">			.setBorder(</span>
+<span class="nc" id="L302">				BorderFactory.createTitledBorder(LanguageBundle.getString(&quot;in_Prefs_allowPoints&quot;))); //$NON-NLS-1$</span>
+<span class="nc" id="L303">		bagConstraints = new GridBagConstraints();</span>
+<span class="nc" id="L304">		bagConstraints.gridx = 0;</span>
+<span class="nc" id="L305">		bagConstraints.gridy = 3;</span>
+<span class="nc" id="L306">		bagConstraints.fill = GridBagConstraints.HORIZONTAL;</span>
+<span class="nc" id="L307">		bagConstraints.anchor = GridBagConstraints.NORTHWEST;</span>
+<span class="nc" id="L308">		bagConstraints.weightx = 1.0;</span>
+<span class="nc" id="L309">		getContentPane().add(purchaseMethodPanel, bagConstraints);</span>
+
+<span class="nc" id="L311">		Container purchaseMethodNamePanel = new JPanel();</span>
+<span class="nc" id="L312">		purchaseMethodNamePanel.setLayout(new FlowLayout(FlowLayout.LEFT, 2, 5));</span>
+<span class="nc" id="L313">		JLabel savedMethodLabel = new JLabel();</span>
+<span class="nc" id="L314">		savedMethodLabel.setText(LanguageBundle.getString(&quot;in_Prefs_savedMethods&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L315">		savedMethodLabel.setPreferredSize(new Dimension(140, 15));</span>
+<span class="nc" id="L316">		purchaseMethodNamePanel.add(savedMethodLabel);</span>
+<span class="nc" id="L317">		purchaseMethodNamePanel.add(currentPurchaseMethods);</span>
+
+<span class="nc" id="L319">		bagConstraints = new GridBagConstraints();</span>
+<span class="nc" id="L320">		bagConstraints.gridx = 0;</span>
+<span class="nc" id="L321">		bagConstraints.gridy = 0;</span>
+<span class="nc" id="L322">		bagConstraints.fill = GridBagConstraints.HORIZONTAL;</span>
+<span class="nc" id="L323">		bagConstraints.anchor = GridBagConstraints.NORTHWEST;</span>
+<span class="nc" id="L324">		bagConstraints.weightx = 1.0;</span>
+<span class="nc" id="L325">		getContentPane().add(purchaseMethodNamePanel, bagConstraints);</span>
+<span class="nc" id="L326">		purchaseMethodPanel.add(purchaseMethodNamePanel, bagConstraints);</span>
+
+<span class="nc" id="L328">		Container purchaseMethodPointsPanel = new JPanel();</span>
+<span class="nc" id="L329">		purchaseMethodPointsPanel.setLayout(new FlowLayout(FlowLayout.LEFT, 2, 5));</span>
+<span class="nc" id="L330">		JLabel methodPointsLabel = new JLabel();</span>
+<span class="nc" id="L331">		methodPointsLabel.setText(LanguageBundle.getString(&quot;in_Prefs_points&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L332">		methodPointsLabel.setPreferredSize(new Dimension(140, 15));</span>
+<span class="nc" id="L333">		purchaseMethodPointsPanel.add(methodPointsLabel);</span>
+<span class="nc" id="L334">		purchaseMethodPointsEdit.setHorizontalAlignment(SwingConstants.RIGHT);</span>
+<span class="nc" id="L335">		purchaseMethodPointsEdit.setEditable(false);</span>
+
+		//purchaseMethodPointsEdit.setText(&quot;10&quot;);
+<span class="nc" id="L338">		purchaseMethodPointsPanel.add(purchaseMethodPointsEdit);</span>
+
+<span class="nc" id="L340">		bagConstraints = new GridBagConstraints();</span>
+<span class="nc" id="L341">		bagConstraints.gridx = 0;</span>
+<span class="nc" id="L342">		bagConstraints.gridy = 1;</span>
+<span class="nc" id="L343">		bagConstraints.fill = GridBagConstraints.HORIZONTAL;</span>
+<span class="nc" id="L344">		bagConstraints.anchor = GridBagConstraints.NORTHWEST;</span>
+<span class="nc" id="L345">		bagConstraints.weightx = 1.0;</span>
+
+		//		getContentPane().add(purchaseMethodPointsPanel, gridBagConstraints);
+<span class="nc" id="L348">		purchaseMethodPanel.add(purchaseMethodPointsPanel, bagConstraints);</span>
+
+<span class="nc" id="L350">		currentPurchaseMethods.setPreferredSize(new Dimension(140, 21));</span>
+<span class="nc" id="L351">		currentPurchaseMethods.addItemListener(evt -&gt; currentPurchaseMethodsActionPerformed());</span>
+
+<span class="nc" id="L353">		Container purchaseMethodButtonPanel = new JPanel();</span>
+<span class="nc" id="L354">		purchaseMethodButtonPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));</span>
+<span class="nc" id="L355">		AbstractButton addMethodButton = new JButton();</span>
+<span class="nc" id="L356">		addMethodButton.setText(LanguageBundle.getString(&quot;in_Prefs_new&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L357">		addMethodButton.addActionListener(evt -&gt; addMethodButtonActionPerformed());</span>
+<span class="nc" id="L358">		purchaseMethodButtonPanel.add(addMethodButton);</span>
+<span class="nc" id="L359">		removeMethodButton.setText(LanguageBundle.getString(&quot;in_Prefs_remove&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L360">		removeMethodButton.addActionListener(evt -&gt; removeMethodButtonActionPerformed());</span>
+<span class="nc" id="L361">		purchaseMethodButtonPanel.add(removeMethodButton);</span>
+<span class="nc" id="L362">		bagConstraints = new GridBagConstraints();</span>
+<span class="nc" id="L363">		bagConstraints.gridx = 0;</span>
+<span class="nc" id="L364">		bagConstraints.gridy = 2;</span>
+<span class="nc" id="L365">		bagConstraints.fill = GridBagConstraints.HORIZONTAL;</span>
+<span class="nc" id="L366">		bagConstraints.anchor = GridBagConstraints.NORTHWEST;</span>
+<span class="nc" id="L367">		bagConstraints.weightx = 1.0;</span>
+<span class="nc" id="L368">		purchaseMethodPanel.add(purchaseMethodButtonPanel, bagConstraints);</span>
+
+<span class="nc" id="L370">		statusBar.setText(LanguageBundle.getString(&quot;in_Prefs_setCost&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L371">		statusBar.setBorder(new BevelBorder(BevelBorder.LOWERED));</span>
+<span class="nc" id="L372">		bagConstraints = new GridBagConstraints();</span>
+<span class="nc" id="L373">		bagConstraints.gridx = 0;</span>
+<span class="nc" id="L374">		bagConstraints.gridy = 6;</span>
+<span class="nc" id="L375">		bagConstraints.fill = GridBagConstraints.HORIZONTAL;</span>
+<span class="nc" id="L376">		bagConstraints.ipadx = 1;</span>
+<span class="nc" id="L377">		bagConstraints.ipady = 1;</span>
+<span class="nc" id="L378">		bagConstraints.insets = new Insets(1, 1, 1, 1);</span>
+<span class="nc" id="L379">		bagConstraints.anchor = GridBagConstraints.NORTHWEST;</span>
+<span class="nc" id="L380">		bagConstraints.weightx = 1.0;</span>
+<span class="nc" id="L381">		getContentPane().add(statusBar, bagConstraints);</span>
+
+<span class="nc" id="L383">		OKCloseButtonBar buttonBar = new OKCloseButtonBar(</span>
+<span class="nc" id="L384">				evt -&gt; okButtonActionPerformed(),</span>
+<span class="nc" id="L385">				evt -&gt; cancelButtonActionPerformed()</span>
+		);
+
+<span class="nc" id="L388">		Button resetButton = new Button();</span>
+<span class="nc" id="L389">		resetButton.setText(LanguageBundle.getString(&quot;in_Prefs_Reset&quot;));</span>
+<span class="nc" id="L390">		resetButton.setOnAction(evt -&gt; resetButtonActionPerformed());</span>
+<span class="nc" id="L391">		resetButton.setTooltip(new Tooltip(LanguageBundle.getString(&quot;in_Prefs_ResetTip&quot;)));</span>
+<span class="nc" id="L392">		ButtonBar.setButtonData(resetButton, ButtonBar.ButtonData.BACK_PREVIOUS);</span>
+<span class="nc" id="L393">		buttonBar.getButtons().add(resetButton);</span>
+<span class="nc" id="L394">		buttonBar.getOkButton().setTooltip(new Tooltip(LanguageBundle.getString(&quot;in_Prefs_OKTip&quot;)));</span>
+<span class="nc" id="L395">		okButton.addActionListener(evt -&gt; okButtonActionPerformed());</span>
+<span class="nc" id="L396">		buttonBar.getCancelButton().setTooltip(new Tooltip(LanguageBundle.getString(&quot;in_Prefs_CancelTip&quot;)));</span>
+
+		/////////////////////////////////////////////////
+<span class="nc" id="L399">		bagConstraints = new GridBagConstraints();</span>
+<span class="nc" id="L400">		bagConstraints.gridx = 0;</span>
+<span class="nc" id="L401">		bagConstraints.gridy = 5;</span>
+<span class="nc" id="L402">		bagConstraints.fill = GridBagConstraints.HORIZONTAL;</span>
+<span class="nc" id="L403">		bagConstraints.anchor = GridBagConstraints.EAST;</span>
+<span class="nc" id="L404">		bagConstraints.weightx = 1.0;</span>
+<span class="nc" id="L405">		getContentPane().add(GuiUtility.wrapParentAsJFXPanel(buttonBar), bagConstraints);</span>
+
+<span class="nc" id="L407">		jScrollPane1.setViewportBorder(new BevelBorder(BevelBorder.LOWERED));</span>
+<span class="nc" id="L408">		jScrollPane1.setPreferredSize(new Dimension(100, 200));</span>
+
+<span class="nc" id="L410">		purchaseModel = new PurchaseModel();</span>
+<span class="nc" id="L411">		renewAbilityScoreCostTable();</span>
+
+<span class="nc" id="L413">		bagConstraints = new GridBagConstraints();</span>
+<span class="nc" id="L414">		bagConstraints.gridx = 0;</span>
+<span class="nc" id="L415">		bagConstraints.gridy = 0;</span>
+<span class="nc" id="L416">		bagConstraints.fill = GridBagConstraints.BOTH;</span>
+<span class="nc" id="L417">		bagConstraints.anchor = GridBagConstraints.NORTHWEST;</span>
+<span class="nc" id="L418">		bagConstraints.weightx = 1.0;</span>
+<span class="nc" id="L419">		bagConstraints.weighty = 1.0;</span>
+<span class="nc" id="L420">		getContentPane().add(jScrollPane1, bagConstraints);</span>
+
+<span class="nc" id="L422">		pack();</span>
+
+<span class="nc" id="L424">		initializeCurrentPurchaseMethods();</span>
+<span class="nc" id="L425">	}</span>
+
+	private void initializeCurrentPurchaseMethods()
+	{
+		//
+		// Set up the current methods combo's contents
+		//
+<span class="nc" id="L432">		Collection&lt;PointBuyMethod&gt; methods = SettingsHandler.getGameAsProperty().get().getModeContext().getReferenceContext()</span>
+<span class="nc" id="L433">			.getConstructedCDOMObjects(PointBuyMethod.class);</span>
+<span class="nc bnc" id="L434" title="All 2 branches missed.">		if (!methods.isEmpty())</span>
+		{
+<span class="nc" id="L436">			currentPurchaseMethods.setModel(new DefaultComboBoxModel&lt;&gt;(methods.toArray()));</span>
+		}
+<span class="nc" id="L438">		currentPurchaseMethodsActionPerformed(); // Get into correct state</span>
+<span class="nc" id="L439">	}</span>
+
+	private void okButtonActionPerformed()
+	{
+<span class="nc" id="L443">		purchaseModel.keepNewValues();</span>
+<span class="nc" id="L444">		dispose();</span>
+<span class="nc" id="L445">	}</span>
+
+	private void purchaseScoreMaxDecreaseButtonActionPerformed()
+	{
+<span class="nc" id="L449">		int oldValue = purchaseModel.getPurchaseScoreMax();</span>
+
+		// get the current value from the edit field
+<span class="nc" id="L452">		String valueString = purchaseScoreMaxEdit.getText();</span>
+
+		// convert it to an integer
+<span class="nc" id="L455">		int value = PurchaseModeFrame.convertStringToInt(valueString);</span>
+<span class="nc bnc" id="L456" title="All 2 branches missed.">		if (!validateNewMaxValue(value - 1))</span>
+		{
+<span class="nc" id="L458">			return;</span>
+		}
+
+		// decrease the value in the model
+<span class="nc" id="L462">		statusBar.setText(&quot;&quot;); //$NON-NLS-1$</span>
+<span class="nc bnc" id="L463" title="All 2 branches missed.">		if (!purchaseModel.setPurchaseScoreMax(value - 1))</span>
+		{
+			// set a status message
+<span class="nc" id="L466">			statusBar.setText(LanguageBundle.getString(&quot;in_Prefs_maxBelowMin&quot;)); //$NON-NLS-1$</span>
+		}
+
+		// ensure the edit value gets updated correctly
+<span class="nc" id="L470">		updatePurchaseScoreMax(oldValue);</span>
+<span class="nc" id="L471">	}</span>
+
+	private void purchaseScoreMaxIncreaseButtonActionPerformed()
+	{
+<span class="nc" id="L475">		int oldValue = purchaseModel.getPurchaseScoreMax();</span>
+
+		// get the current value from the edit field
+<span class="nc" id="L478">		String valueString = purchaseScoreMaxEdit.getText();</span>
+
+		// convert it to an integer
+<span class="nc" id="L481">		int value = PurchaseModeFrame.convertStringToInt(valueString);</span>
+<span class="nc bnc" id="L482" title="All 2 branches missed.">		if (!validateNewMaxValue(value + 1))</span>
+		{
+<span class="nc" id="L484">			return;</span>
+		}
+
+		// increase the value in the model
+<span class="nc" id="L488">		statusBar.setText(&quot;&quot;); //$NON-NLS-1$</span>
+<span class="nc" id="L489">		boolean updateOk = purchaseModel.setPurchaseScoreMax(value + 1);</span>
+
+		// ensure the edit value gets updated correctly
+<span class="nc" id="L492">		updatePurchaseScoreMax(oldValue);</span>
+
+<span class="nc bnc" id="L494" title="All 2 branches missed.">		if (updateOk)</span>
+		{
+<span class="nc" id="L496">			purchaseModel.setValueAt(purchaseModel.predictNextPurchaseCostMax(), purchaseModel.getRowCount() - 1, 1);</span>
+		}
+<span class="nc" id="L498">	}</span>
+
+	private void purchaseScoreMaxValueActionPerformed()
+	{
+<span class="nc" id="L502">		int oldValue = purchaseModel.getPurchaseScoreMax();</span>
+
+		// get the current value from the edit field
+<span class="nc" id="L505">		String valueString = purchaseScoreMaxEdit.getText();</span>
+
+		// convert it to an integer
+<span class="nc" id="L508">		int value = PurchaseModeFrame.convertStringToInt(valueString);</span>
+<span class="nc bnc" id="L509" title="All 2 branches missed.">		if (!validateNewMaxValue(value))</span>
+		{
+<span class="nc" id="L511">			return;</span>
+		}
+
+		// increase the value in the model
+<span class="nc" id="L515">		statusBar.setText(&quot;&quot;); //$NON-NLS-1$</span>
+<span class="nc" id="L516">		boolean updateOk = purchaseModel.setPurchaseScoreMax(value);</span>
+
+		// ensure the edit value gets updated correctly
+<span class="nc" id="L519">		updatePurchaseScoreMax(oldValue);</span>
+
+<span class="nc bnc" id="L521" title="All 2 branches missed.">		if (updateOk)</span>
+		{
+<span class="nc" id="L523">			purchaseModel.setValueAt(purchaseModel.predictNextPurchaseCostMax(), purchaseModel.getRowCount() - 1, 1);</span>
+		}
+<span class="nc" id="L525">	}</span>
+
+	private boolean validateNewMaxValue(int value)
+	{
+<span class="nc bnc" id="L529" title="All 2 branches missed.">		if (!Globals.checkRule(RuleConstants.ABILRANGE))</span>
+		{
+<span class="nc bnc" id="L531" title="All 2 branches missed.">			if (value &gt; statMax)</span>
+			{
+<span class="nc" id="L533">				statusBar.setText(LanguageBundle.getFormattedString(&quot;in_Prefs_mayNotInc&quot;, //$NON-NLS-1$</span>
+<span class="nc" id="L534">					statMax));</span>
+
+<span class="nc" id="L536">				return false;</span>
+			}
+		}
+<span class="nc" id="L539">		return true;</span>
+	}
+
+	private void purchaseScoreMinDecreaseButtonActionPerformed()
+	{
+<span class="nc" id="L544">		int oldValue = purchaseModel.getPurchaseScoreMin();</span>
+
+		// get the current value from the edit field
+<span class="nc" id="L547">		String valueString = purchaseScoreMinEdit.getText();</span>
+
+		// convert it to an integer
+<span class="nc" id="L550">		int value = PurchaseModeFrame.convertStringToInt(valueString);</span>
+<span class="nc bnc" id="L551" title="All 2 branches missed.">		if (!validateNewMinValue(value - 1))</span>
+		{
+<span class="nc" id="L553">			return;</span>
+		}
+<span class="nc" id="L555">		boolean updateOk = purchaseModel.setPurchaseScoreMin(value - 1);</span>
+
+		// decrease the value in the model
+<span class="nc bnc" id="L558" title="All 2 branches missed.">		if (updateOk)</span>
+		{
+<span class="nc" id="L560">			statusBar.setText(&quot;&quot;);</span>
+		}
+		else
+		{
+			// set a status message
+<span class="nc" id="L565">			statusBar.setText(LanguageBundle.getString(&quot;in_Prefs_noMinBelow0&quot;)); //$NON-NLS-1$</span>
+		}
+
+		// ensure the edit value gets updated correctly
+<span class="nc" id="L569">		updatePurchaseScoreMin(oldValue);</span>
+
+<span class="nc bnc" id="L571" title="All 2 branches missed.">		if (updateOk)</span>
+		{
+<span class="nc" id="L573">			purchaseModel.setValueAt(purchaseModel.predictNextPurchaseCostMin(), 0, 1);</span>
+		}
+<span class="nc" id="L575">	}</span>
+
+	private void purchaseScoreMinIncreaseButtonActionPerformed()
+	{
+<span class="nc" id="L579">		int oldValue = purchaseModel.getPurchaseScoreMin();</span>
+
+		// get the current value from the edit field
+<span class="nc" id="L582">		String valueString = purchaseScoreMinEdit.getText();</span>
+
+		// convert it to an integer
+<span class="nc" id="L585">		int value = PurchaseModeFrame.convertStringToInt(valueString);</span>
+<span class="nc bnc" id="L586" title="All 2 branches missed.">		if (!validateNewMinValue(value + 1))</span>
+		{
+<span class="nc" id="L588">			return;</span>
+		}
+
+		// increase the value in the model
+<span class="nc" id="L592">		statusBar.setText(&quot;&quot;); //$NON-NLS-1$</span>
+<span class="nc bnc" id="L593" title="All 2 branches missed.">		if (!purchaseModel.setPurchaseScoreMin(value + 1))</span>
+		{
+			// TODO Disable buttons (then no need for those messages)
+			// set a status message
+<span class="nc" id="L597">			statusBar.setText(LanguageBundle.getString(&quot;in_Prefs_minExceedMax&quot;)); //$NON-NLS-1$</span>
+		}
+
+		// ensure the edit value gets updated correctly
+<span class="nc" id="L601">		updatePurchaseScoreMin(oldValue);</span>
+<span class="nc" id="L602">	}</span>
+
+	private void purchaseScoreMinValueActionPerformed()
+	{
+<span class="nc" id="L606">		int oldValue = purchaseModel.getPurchaseScoreMin();</span>
+
+		// get the current value from the edit field
+<span class="nc" id="L609">		String valueString = purchaseScoreMinEdit.getText();</span>
+
+		// convert it to an integer
+<span class="nc" id="L612">		int value = PurchaseModeFrame.convertStringToInt(valueString);</span>
+<span class="nc bnc" id="L613" title="All 2 branches missed.">		if (!validateNewMinValue(value))</span>
+		{
+<span class="nc" id="L615">			return;</span>
+		}
+
+		// change the value in the model
+<span class="nc" id="L619">		statusBar.setText(&quot;&quot;); //$NON-NLS-1$</span>
+<span class="nc bnc" id="L620" title="All 2 branches missed.">		if (!purchaseModel.setPurchaseScoreMin(value))</span>
+		{
+			// set a status message
+<span class="nc" id="L623">			statusBar.setText(LanguageBundle.getString(&quot;in_Prefs_minExceedMax&quot;)); //$NON-NLS-1$</span>
+		}
+
+		// ensure the edit value gets updated correctly
+<span class="nc" id="L627">		updatePurchaseScoreMin(oldValue);</span>
+<span class="nc" id="L628">	}</span>
+
+	private boolean validateNewMinValue(int value)
+	{
+<span class="nc" id="L632">		int unconditionalMin = Math.min(0, statMin);</span>
+
+<span class="nc bnc" id="L634" title="All 2 branches missed.">		if (!Globals.checkRule(RuleConstants.ABILRANGE))</span>
+		{
+<span class="nc bnc" id="L636" title="All 2 branches missed.">			if (value &lt; statMin)</span>
+			{
+<span class="nc" id="L638">				statusBar.setText(LanguageBundle.getFormattedString(&quot;in_Prefs_mayNotDec&quot;, //$NON-NLS-1$</span>
+<span class="nc" id="L639">					statMin));</span>
+
+<span class="nc" id="L641">				return false;</span>
+			}
+		}
+
+		// bad value?
+<span class="nc bnc" id="L646" title="All 2 branches missed.">		if (value &lt; unconditionalMin)</span>
+		{
+			// set a status message
+<span class="nc" id="L649">			statusBar.setText(LanguageBundle.getFormattedString(&quot;in_Prefs_mayNotDec&quot;, //$NON-NLS-1$</span>
+<span class="nc" id="L650">				unconditionalMin));</span>
+<span class="nc" id="L651">			return false;</span>
+		}
+<span class="nc" id="L653">		return true;</span>
+	}
+
+	/**
+	 * Remove the current selection from the list of purchase methods.
+	 */
+	private void removeMethodButtonActionPerformed()
+	{
+<span class="nc" id="L661">		final PointBuyMethod method = (PointBuyMethod) currentPurchaseMethods.getSelectedItem();</span>
+
+<span class="nc bnc" id="L663" title="All 2 branches missed.">		if (method != null)</span>
+		{
+<span class="nc" id="L665">			currentPurchaseMethods.removeItem(method);</span>
+		}
+<span class="nc" id="L667">	}</span>
+
+	private void renewAbilityScoreCostTable()
+	{
+<span class="nc" id="L671">		JTable abilityScoreCostTable = new JTable();</span>
+
+<span class="nc" id="L673">		abilityScoreCostTable.setBorder(new BevelBorder(BevelBorder.LOWERED));</span>
+<span class="nc" id="L674">		abilityScoreCostTable.setModel(purchaseModel);</span>
+<span class="nc" id="L675">		abilityScoreCostTable.setToolTipText(LanguageBundle.getString(&quot;in_Prefs_setCost&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L676">		jScrollPane1.setViewportView(abilityScoreCostTable);</span>
+<span class="nc" id="L677">	}</span>
+
+	private void resetButtonActionPerformed()
+	{
+		//renewAbilityScoreCostTable();
+<span class="nc" id="L682">		purchaseModel.copySavedToCurrent();</span>
+<span class="nc" id="L683">		updatePurchaseScoreMin(purchaseModel.getPurchaseScoreMin());</span>
+<span class="nc" id="L684">		updatePurchaseScoreMax(purchaseModel.getPurchaseScoreMax());</span>
+<span class="nc" id="L685">		purchaseModel.fireTableStructureChanged();</span>
+
+<span class="nc" id="L687">		initializeCurrentPurchaseMethods();</span>
+<span class="nc" id="L688">	}</span>
+
+	private void updatePurchaseScoreMax(int oldValue)
+	{
+<span class="nc" id="L692">		int score = purchaseModel.getPurchaseScoreMax();</span>
+<span class="nc" id="L693">		purchaseScoreMaxEdit.setText(Integer.toString(score));</span>
+
+<span class="nc bnc" id="L695" title="All 2 branches missed.">		if (oldValue != score)</span>
+		{
+<span class="nc" id="L697">			purchaseModel.appendRows(score - oldValue);</span>
+<span class="nc" id="L698">			purchaseModel.fireTableStructureChanged();</span>
+		}
+<span class="nc" id="L700">	}</span>
+
+	private void updatePurchaseScoreMin(int oldValue)
+	{
+<span class="nc" id="L704">		int score = purchaseModel.getPurchaseScoreMin();</span>
+<span class="nc" id="L705">		purchaseScoreMinEdit.setText(Integer.toString(score));</span>
+
+<span class="nc bnc" id="L707" title="All 2 branches missed.">		if (oldValue != score)</span>
+		{
+<span class="nc" id="L709">			purchaseModel.prependRows(score - oldValue);</span>
+<span class="nc" id="L710">			purchaseModel.resetAllCosts();</span>
+<span class="nc" id="L711">			purchaseModel.fireTableStructureChanged();</span>
+		}
+<span class="nc" id="L713">	}</span>
+
+	/**
+	 * @param statMin The new lowest value a purchase mode can take a stat to.
+	 */
+	void setStatMin(int statMin)
+	{
+<span class="nc" id="L720">		this.statMin = statMin;</span>
+<span class="nc" id="L721">	}</span>
+
+	/**
+	 * @param statMax The new highest value a purchase mode can take a stat to.
+	 */
+	void setStatMax(int statMax)
+	{
+<span class="nc" id="L728">		this.statMax = statMax;</span>
+<span class="nc" id="L729">	}</span>
+
+	private final class PurchaseModel extends AbstractTableModel
+	{
+		private static final long serialVersionUID = 8257526994109828957L;
+<span class="nc" id="L734">		private final boolean[] canEdit = {false, true};</span>
+<span class="nc" id="L735">		private final String[] columnHeaders = {LanguageBundle.getString(&quot;in_Prefs_abScore&quot;), //$NON-NLS-1$</span>
+<span class="nc" id="L736">			LanguageBundle.getString(&quot;in_Prefs_cost&quot;)}; //$NON-NLS-1$</span>
+		private Object[][] currentValues;
+		private Object[][] savedValues;
+<span class="nc" id="L739">		private final Class&lt;?&gt;[] types = {Integer.class, Integer.class};</span>
+<span class="nc" id="L740">		private int currentPurchaseScoreMax = 10;</span>
+<span class="nc" id="L741">		private int currentPurchaseScoreMin = 10; // Start at the average stat</span>
+<span class="nc" id="L742">		private int savedPurchaseScoreMax = 0;</span>
+<span class="nc" id="L743">		private int savedPurchaseScoreMin = 0;</span>
+
+		private PurchaseModel()
+<span class="nc" id="L746">		{</span>
+
+			// Initialize the saved values
+<span class="nc" id="L749">			initValues();</span>
+
+			// copy the saved values to the current values
+<span class="nc" id="L752">			copySavedToCurrent();</span>
+<span class="nc" id="L753">		}</span>
+
+		@Override
+		public boolean isCellEditable(int rowIndex, int columnIndex)
+		{
+<span class="nc" id="L758">			return canEdit[columnIndex];</span>
+		}
+
+		@Override
+		public Class&lt;?&gt; getColumnClass(int columnIndex)
+		{
+<span class="nc" id="L764">			return types[columnIndex];</span>
+		}
+
+		@Override
+		public int getColumnCount()
+		{
+<span class="nc" id="L770">			return columnHeaders.length;</span>
+		}
+
+		@Override
+		public String getColumnName(int param)
+		{
+<span class="nc" id="L776">			return columnHeaders[param];</span>
+		}
+
+		@Override
+		public int getRowCount()
+		{
+<span class="nc" id="L782">			return currentValues.length;</span>
+		}
+
+		@Override
+		public void setValueAt(Object obj, int row, int column)
+		{
+<span class="nc bnc" id="L788" title="All 4 branches missed.">			if ((row &lt; 0) || (row &gt;= currentValues.length))</span>
+			{
+<span class="nc" id="L790">				throw new ArrayIndexOutOfBoundsException(</span>
+<span class="nc" id="L791">					LanguageBundle.getFormattedString(&quot;in_Prefs_rowOutBound&quot;, row)); //$NON-NLS-1$</span>
+			}
+
+<span class="nc bnc" id="L794" title="All 4 branches missed.">			if ((column == 0) || (column == 1))</span>
+			{
+<span class="nc" id="L796">				currentValues[row][column] = obj;</span>
+<span class="nc" id="L797">				fireTableCellUpdated(row, column);</span>
+			}
+			else
+			{
+<span class="nc" id="L801">				throw new ArrayIndexOutOfBoundsException(</span>
+<span class="nc" id="L802">					LanguageBundle.getFormattedString(&quot;in_Prefs_columnOutBound&quot;, column)); //$NON-NLS-1$</span>
+			}
+<span class="nc" id="L804">		}</span>
+
+		@Override
+		public Object getValueAt(int row, int column)
+		{
+<span class="nc bnc" id="L809" title="All 4 branches missed.">			if ((row &lt; 0) || (row &gt;= currentValues.length))</span>
+			{
+<span class="nc" id="L811">				throw new ArrayIndexOutOfBoundsException(</span>
+<span class="nc" id="L812">					LanguageBundle.getFormattedString(&quot;in_Prefs_rowOutBound&quot;, row)); //$NON-NLS-1$</span>
+			}
+
+<span class="nc bnc" id="L815" title="All 4 branches missed.">			if ((column == 0) || (column == 1))</span>
+			{
+<span class="nc" id="L817">				return currentValues[row][column];</span>
+			}
+<span class="nc" id="L819">			throw new ArrayIndexOutOfBoundsException(</span>
+<span class="nc" id="L820">				LanguageBundle.getFormattedString(&quot;in_Prefs_columnOutBound&quot;, column)); //$NON-NLS-1$</span>
+		}
+
+		/**
+		 * Copy the saved purchase mode to the current one
+		 */
+		private void copySavedToCurrent()
+		{
+<span class="nc bnc" id="L828" title="All 2 branches missed.">			if (savedValues != null)</span>
+			{
+<span class="nc" id="L830">				currentPurchaseScoreMin = savedPurchaseScoreMin;</span>
+<span class="nc" id="L831">				currentPurchaseScoreMax = savedPurchaseScoreMax;</span>
+
+<span class="nc" id="L833">				final int nrEntries = (currentPurchaseScoreMax - currentPurchaseScoreMin) + 1;</span>
+
+<span class="nc" id="L835">				currentValues = new Object[nrEntries][2];</span>
+
+<span class="nc bnc" id="L837" title="All 2 branches missed.">				for (int i = 0; i &lt; nrEntries; ++i)</span>
+				{
+<span class="nc" id="L839">					currentValues[i][0] = savedValues[i][0];</span>
+<span class="nc" id="L840">					currentValues[i][1] = savedValues[i][1];</span>
+				}
+			}
+<span class="nc" id="L843">		}</span>
+
+		/**
+		 * Initialise the values
+		 */
+		private void initValues()
+		{
+			// get the ability score costs from settings
+<span class="nc" id="L851">			int[] scoreCosts = SettingsHandler.getGameAsProperty().get().getAbilityScoreCost();</span>
+
+<span class="nc bnc" id="L853" title="All 2 branches missed.">			if (scoreCosts != null)</span>
+			{
+				// get the save values from the settings
+<span class="nc" id="L856">				savedPurchaseScoreMin = SettingsHandler.getGameAsProperty().get().getPurchaseScoreMin();</span>
+<span class="nc" id="L857">				savedPurchaseScoreMax = SettingsHandler.getGameAsProperty().get().getPurchaseScoreMax();</span>
+
+<span class="nc" id="L859">				savedValues = new Object[scoreCosts.length][2];</span>
+
+<span class="nc bnc" id="L861" title="All 2 branches missed.">				for (int i = savedPurchaseScoreMin; i &lt;= savedPurchaseScoreMax; ++i)</span>
+				{
+<span class="nc" id="L863">					int index = i - savedPurchaseScoreMin;</span>
+<span class="nc" id="L864">					savedValues[index][0] = i;</span>
+<span class="nc" id="L865">					savedValues[index][1] = scoreCosts[index];</span>
+				}
+			}
+			else
+			{
+<span class="nc" id="L870">				savedPurchaseScoreMin = 10;</span>
+<span class="nc" id="L871">				savedPurchaseScoreMax = 10;</span>
+
+<span class="nc" id="L873">				savedValues = new Object[1][2];</span>
+<span class="nc" id="L874">				savedValues[0][0] = 10;</span>
+<span class="nc" id="L875">				savedValues[0][1] = 0;</span>
+			}
+
+			//
+			// Make sure the min/max buttons have the correct info
+			//
+<span class="nc" id="L881">			purchaseScoreMinEdit.setText(Integer.toString(savedPurchaseScoreMin));</span>
+<span class="nc" id="L882">			purchaseScoreMaxEdit.setText(Integer.toString(savedPurchaseScoreMax));</span>
+<span class="nc" id="L883">		}</span>
+
+		/** Scale rises in the maximum purchase cost &lt;strong&gt;after&lt;/strong&gt; a new, empty cost row has been added.
+		 * @return int
+		 */
+		private int predictNextPurchaseCostMax()
+		{
+<span class="nc" id="L890">			int maxIndex = getRowCount() - 2; // have already added the new row</span>
+<span class="nc" id="L891">			int max = (Integer) getValueAt(maxIndex, 1);</span>
+
+<span class="nc bnc" id="L893" title="All 2 branches missed.">			if (getRowCount() == 2) // initial and one empty</span>
+			{
+<span class="nc" id="L895">				return max + 1;</span>
+			}
+
+<span class="nc" id="L898">			int penultimate = (Integer) getValueAt(maxIndex - 1, 1);</span>
+
+<span class="nc" id="L900">			return max + (max - penultimate);</span>
+		}
+
+		/** Scale drops in the minimum purchase cost &lt;strong&gt;after&lt;/strong&gt; a new, empty cost row has been added.
+		 * @return int
+		 */
+		private int predictNextPurchaseCostMin()
+		{
+<span class="nc" id="L908">			int minIndex = 1; // Have already added the new row</span>
+<span class="nc" id="L909">			int min = (Integer) getValueAt(minIndex, 1);</span>
+
+<span class="nc bnc" id="L911" title="All 2 branches missed.">			if (getRowCount() == 2) // initial and one empty</span>
+			{
+<span class="nc" id="L913">				return min - 1;</span>
+			}
+
+<span class="nc" id="L916">			int penultimate = (Integer) getValueAt(minIndex + 1, 1);</span>
+
+<span class="nc" id="L918">			return min - (penultimate - min);</span>
+		}
+
+		/** Setter for property purchaseScoreMax.
+		 * @param purchaseScoreMax New value of property purchaseScoreMax.
+		 * @return true or false
+		 */
+		private boolean setPurchaseScoreMax(int purchaseScoreMax)
+		{
+<span class="nc bnc" id="L927" title="All 4 branches missed.">			if ((purchaseScoreMax &gt;= 0) &amp;&amp; (purchaseScoreMax &gt;= currentPurchaseScoreMin))</span>
+			{
+<span class="nc" id="L929">				currentPurchaseScoreMax = purchaseScoreMax;</span>
+
+<span class="nc" id="L931">				return true;</span>
+			}
+
+<span class="nc" id="L934">			return false;</span>
+		}
+
+		/** Getter for property purchaseScoreMax.
+		 * @return Value of property purchaseScoreMax.
+		 */
+		private int getPurchaseScoreMax()
+		{
+<span class="nc" id="L942">			return currentPurchaseScoreMax;</span>
+		}
+
+		/** Setter for property purchaseScoreMin.
+		 * @param purchaseScoreMin New value of property purchaseScoreMin.
+		 * @return true or false
+		 */
+		private boolean setPurchaseScoreMin(int purchaseScoreMin)
+		{
+<span class="nc bnc" id="L951" title="All 2 branches missed.">			if (purchaseScoreMin &lt;= currentPurchaseScoreMax)</span>
+			{
+<span class="nc" id="L953">				currentPurchaseScoreMin = purchaseScoreMin;</span>
+
+<span class="nc" id="L955">				return true;</span>
+			}
+
+<span class="nc" id="L958">			return false;</span>
+		}
+
+		/** Getter for property purchaseScoreMin.
+		 * @return Value of property purchaseScoreMin.
+		 */
+		private int getPurchaseScoreMin()
+		{
+<span class="nc" id="L966">			return currentPurchaseScoreMin;</span>
+		}
+
+		private void appendRows(int nrRows)
+		{
+<span class="nc" id="L971">			final int nrEntries = (currentPurchaseScoreMax - currentPurchaseScoreMin) + 1;</span>
+
+<span class="nc" id="L973">			final int preLength = currentValues.length;</span>
+<span class="nc" id="L974">			Object[][] newValues = Arrays.copyOf(currentValues, nrEntries);</span>
+
+			// Only happens if adding rows
+<span class="nc bnc" id="L977" title="All 2 branches missed.">			for (int i = 0; i &lt; nrRows; ++i)</span>
+			{
+<span class="nc" id="L979">				final int score = ((i + currentPurchaseScoreMax) - nrRows) + 1;</span>
+<span class="nc" id="L980">				newValues[i + preLength][0] = score;</span>
+
+<span class="nc" id="L982">				int preVal = -1;</span>
+<span class="nc bnc" id="L983" title="All 2 branches missed.">				if ((i + preLength) != 0)</span>
+				{
+<span class="nc" id="L985">					preVal = (Integer) newValues[(i + preLength) - 1][1];</span>
+				}
+
+<span class="nc" id="L988">				newValues[i + preLength][1] = preVal + 1;</span>
+			}
+
+<span class="nc" id="L991">			currentValues = newValues;</span>
+<span class="nc" id="L992">		}</span>
+
+		private void keepNewValues()
+		{
+			// set the current values into the settings
+<span class="nc" id="L997">			SettingsHandler.getGameAsProperty().get().clearPointBuyStatCosts();</span>
+
+<span class="nc bnc" id="L999" title="All 2 branches missed.">			for (int i = currentPurchaseScoreMin; i &lt;= currentPurchaseScoreMax; ++i)</span>
+			{
+<span class="nc" id="L1001">				PointBuyCost pbc = new PointBuyCost();</span>
+<span class="nc" id="L1002">				pbc.setName(Integer.toString(i));</span>
+<span class="nc" id="L1003">				pbc.setBuyCost((Integer) currentValues[i - currentPurchaseScoreMin][1]);</span>
+<span class="nc" id="L1004">				SettingsHandler.getGameAsProperty().get().addPointBuyStatCost(pbc);</span>
+			}
+
+<span class="nc" id="L1007">			AbstractReferenceContext ref = SettingsHandler.getGameAsProperty().get().getModeContext().getReferenceContext();</span>
+<span class="nc" id="L1008">			Collection&lt;PointBuyMethod&gt; methods = new ArrayList&lt;&gt;(ref.getConstructedCDOMObjects(PointBuyMethod.class));</span>
+<span class="nc bnc" id="L1009" title="All 2 branches missed.">			for (int i = 0, x = currentPurchaseMethods.getItemCount(); i &lt; x; ++i)</span>
+			{
+<span class="nc" id="L1011">				final PointBuyMethod pbm = (PointBuyMethod)currentPurchaseMethods.getItemAt(i);</span>
+<span class="nc" id="L1012">				PointBuyMethod masterPBM = ref.silentlyGetConstructedCDOMObject(PointBuyMethod.class, pbm.getKeyName());</span>
+<span class="nc bnc" id="L1013" title="All 2 branches missed.">				if (masterPBM == null)</span>
+				{
+<span class="nc" id="L1015">					ref.importObject(pbm);</span>
+				}
+				else
+				{
+<span class="nc" id="L1019">					methods.remove(masterPBM);</span>
+<span class="nc" id="L1020">					masterPBM.setPointFormula(pbm.getPointFormula());</span>
+				}
+			}
+<span class="nc bnc" id="L1023" title="All 2 branches missed.">			for (final PointBuyMethod pbm : methods)</span>
+			{
+<span class="nc" id="L1025">				ref.forget(pbm);</span>
+<span class="nc" id="L1026">			}</span>
+<span class="nc" id="L1027">		}</span>
+
+		private void prependRows(int nrRows)
+		{
+<span class="nc" id="L1031">			final int nrEntries = (currentPurchaseScoreMax - currentPurchaseScoreMin) + 1;</span>
+
+<span class="nc" id="L1033">			Object[][] newValues = new Object[nrEntries][2];</span>
+
+<span class="nc bnc" id="L1035" title="All 2 branches missed.">			if (nrRows &gt; 0)</span>
+			{
+				// removing rows
+<span class="nc" id="L1038">				System.arraycopy(currentValues, nrRows, newValues, 0, nrEntries);</span>
+			}
+			else
+			{
+				// adding rows
+<span class="nc" id="L1043">				nrRows = Math.abs(nrRows);</span>
+<span class="nc" id="L1044">				System.arraycopy(currentValues, 0, newValues, nrRows, currentValues.length);</span>
+
+<span class="nc bnc" id="L1046" title="All 2 branches missed.">				for (int i = 0; i &lt; nrRows; ++i)</span>
+				{
+<span class="nc" id="L1048">					final int score = i + currentPurchaseScoreMin;</span>
+<span class="nc" id="L1049">					newValues[i][0] = score;</span>
+				}
+			}
+
+<span class="nc" id="L1053">			currentValues = newValues;</span>
+<span class="nc" id="L1054">		}</span>
+
+		/**
+		 * Reset the cost of all rows, starting from 0 for the lowest.
+		 */
+		private void resetAllCosts()
+		{
+<span class="nc" id="L1061">			int cost = 0;</span>
+<span class="nc bnc" id="L1062" title="All 2 branches missed.">			for (int i = 0; i &lt; currentValues.length; i++)</span>
+			{
+<span class="nc" id="L1064">				currentValues[i][1] = cost;</span>
+<span class="nc" id="L1065">				cost++;</span>
+			}
+<span class="nc" id="L1067">		}</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

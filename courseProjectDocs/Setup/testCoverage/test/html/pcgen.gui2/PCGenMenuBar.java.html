@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PCGenMenuBar.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.gui2</a> &gt; <span class="el_source">PCGenMenuBar.java</span></div><h1>PCGenMenuBar.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2008 Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ * 
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ * 
+ */
+package pcgen.gui2;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.awt.event.KeyEvent;
+import java.io.File;
+import java.util.Objects;
+import java.util.logging.Level;
+
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.text.DefaultEditorKit;
+
+import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.core.SourceSelectionFacade;
+import pcgen.facade.core.TempBonusFacade;
+import pcgen.facade.util.DefaultListFacade;
+import pcgen.facade.util.ListFacade;
+import pcgen.facade.util.ReferenceFacade;
+import pcgen.facade.util.SortedListFacade;
+import pcgen.facade.util.event.ReferenceEvent;
+import pcgen.facade.util.event.ReferenceListener;
+import pcgen.gui2.tools.CharacterSelectionListener;
+import pcgen.gui2.util.AbstractListMenu;
+import pcgen.gui2.util.AbstractRadioListMenu;
+import pcgen.system.CharacterManager;
+import pcgen.system.FacadeFactory;
+import pcgen.system.LanguageBundle;
+import pcgen.util.Comparators;
+import pcgen.util.Logging;
+
+/**
+ * The menu bar that is displayed in PCGen's main window.
+ */
+public final class PCGenMenuBar extends JMenuBar implements CharacterSelectionListener
+{
+
+	/**
+	 * The context indicating what items are currently loaded/being processed in the UI
+	 */
+	private final UIContext uiContext;
+	private final PCGenFrame frame;
+	private final PCGenActionMap actionMap;
+	private final TempBonusMenu tempMenu;
+	private CharacterFacade character;
+
+	public PCGenMenuBar(PCGenFrame frame, UIContext uiContext)
+<span class="nc" id="L69">	{</span>
+<span class="nc" id="L70">		this.uiContext = Objects.requireNonNull(uiContext);</span>
+<span class="nc" id="L71">		this.frame = frame;</span>
+<span class="nc" id="L72">		this.actionMap = frame.getActionMap();</span>
+<span class="nc" id="L73">		this.tempMenu = new TempBonusMenu();</span>
+<span class="nc" id="L74">		initComponents();</span>
+<span class="nc" id="L75">	}</span>
+
+	private void initComponents()
+	{
+<span class="nc" id="L79">		add(new FileMenu());</span>
+<span class="nc" id="L80">		add(createEditMenu());</span>
+<span class="nc" id="L81">		add(createSourcesMenu());</span>
+<span class="nc" id="L82">		add(createToolsMenu());</span>
+<span class="nc" id="L83">		add(createHelpMenu());</span>
+<span class="nc" id="L84">	}</span>
+
+	private JMenu createEditMenu()
+	{
+<span class="nc" id="L88">		JMenu menu = new JMenu();</span>
+<span class="nc" id="L89">		menu.setText(LanguageBundle.getString(&quot;in_mnuEdit&quot;));</span>
+<span class="nc" id="L90">		menu.setMnemonic(KeyEvent.VK_E);</span>
+<span class="nc" id="L91">		menu.add(new JMenuItem(actionMap.get(PCGenActionMap.ADD_KIT_COMMAND)));</span>
+<span class="nc" id="L92">		menu.addSeparator();</span>
+<span class="nc" id="L93">		menu.add(tempMenu);</span>
+<span class="nc" id="L94">		menu.addSeparator();</span>
+
+<span class="nc" id="L96">		JMenuItem cutMenuItem = new JMenuItem(new DefaultEditorKit.CutAction());</span>
+<span class="nc" id="L97">		cutMenuItem.setText(&quot;Cut&quot;);</span>
+<span class="nc" id="L98">		cutMenuItem.setMnemonic(KeyEvent.VK_T);</span>
+<span class="nc" id="L99">		menu.add(cutMenuItem);</span>
+
+<span class="nc" id="L101">		JMenuItem copyMenuItem = new JMenuItem(new DefaultEditorKit.CopyAction());</span>
+<span class="nc" id="L102">		copyMenuItem.setText(&quot;Copy&quot;);</span>
+<span class="nc" id="L103">		copyMenuItem.setMnemonic(KeyEvent.VK_C);</span>
+<span class="nc" id="L104">		menu.add(copyMenuItem);</span>
+
+<span class="nc" id="L106">		JMenuItem pasteMenuItem = new JMenuItem(new DefaultEditorKit.PasteAction());</span>
+<span class="nc" id="L107">		pasteMenuItem.setText(&quot;Paste&quot;);</span>
+<span class="nc" id="L108">		pasteMenuItem.setMnemonic(KeyEvent.VK_P);</span>
+<span class="nc" id="L109">		menu.add(pasteMenuItem);</span>
+<span class="nc" id="L110">		return menu;</span>
+	}
+
+	private JMenu createSourcesMenu()
+	{
+<span class="nc" id="L115">		JMenu menu = new JMenu();</span>
+<span class="nc" id="L116">		menu.setText(LanguageBundle.getString(&quot;in_mnuSources&quot;));</span>
+<span class="nc" id="L117">		menu.setToolTipText(LanguageBundle.getString(&quot;in_mnuSourcesTip&quot;));</span>
+<span class="nc" id="L118">		menu.add(new JMenuItem(actionMap.get(PCGenActionMap.SOURCES_LOAD_SELECT_COMMAND)));</span>
+<span class="nc" id="L119">		menu.addSeparator();</span>
+<span class="nc" id="L120">		menu.add(new QuickSourceMenu());</span>
+<span class="nc" id="L121">		menu.addSeparator();</span>
+<span class="nc" id="L122">		menu.add(new JMenuItem(actionMap.get(PCGenActionMap.SOURCES_RELOAD_COMMAND)));</span>
+<span class="nc" id="L123">		menu.add(new JMenuItem(actionMap.get(PCGenActionMap.SOURCES_UNLOAD_COMMAND)));</span>
+<span class="nc" id="L124">		menu.addSeparator();</span>
+<span class="nc" id="L125">		menu.add(actionMap.get(PCGenActionMap.INSTALL_DATA_COMMAND));</span>
+
+<span class="nc" id="L127">		return menu;</span>
+	}
+
+	private JMenu createToolsMenu()
+	{
+<span class="nc" id="L132">		JMenu menu = new JMenu();</span>
+<span class="nc" id="L133">		menu.setText(LanguageBundle.getString(&quot;in_mnuTools&quot;));</span>
+<span class="nc" id="L134">		menu.add(new JMenuItem(actionMap.get(PCGenActionMap.PREFERENCES_COMMAND)));</span>
+<span class="nc" id="L135">		menu.addSeparator();</span>
+<span class="nc" id="L136">		menu.add(new JMenuItem(actionMap.get(PCGenActionMap.LOG_COMMAND)));</span>
+<span class="nc" id="L137">		menu.add(new LoggingLevelMenu());</span>
+<span class="nc" id="L138">		menu.add(new JMenuItem(actionMap.get(PCGenActionMap.CALCULATOR_COMMAND)));</span>
+<span class="nc" id="L139">		menu.add(new JMenuItem(actionMap.get(PCGenActionMap.COREVIEW_COMMAND)));</span>
+<span class="nc" id="L140">		menu.add(new JMenuItem(actionMap.get(PCGenActionMap.SOLVERVIEW_COMMAND)));</span>
+<span class="nc" id="L141">		return menu;</span>
+	}
+
+	private JMenu createHelpMenu()
+	{
+<span class="nc" id="L146">		JMenu menu = new JMenu();</span>
+<span class="nc" id="L147">		menu.setText(LanguageBundle.getString(&quot;in_mnuHelp&quot;));</span>
+<span class="nc" id="L148">		menu.add(new JMenuItem(actionMap.get(PCGenActionMap.HELP_DOCS_COMMAND)));</span>
+<span class="nc" id="L149">		menu.addSeparator();</span>
+<span class="nc" id="L150">		menu.add(new JMenuItem(actionMap.get(PCGenActionMap.HELP_OGL_COMMAND)));</span>
+<span class="nc" id="L151">		menu.add(new JMenuItem(actionMap.get(PCGenActionMap.HELP_TIPOFTHEDAY_COMMAND)));</span>
+<span class="nc" id="L152">		menu.addSeparator();</span>
+<span class="nc" id="L153">		menu.add(new JMenuItem(actionMap.get(PCGenActionMap.HELP_ABOUT_COMMAND)));</span>
+<span class="nc" id="L154">		return menu;</span>
+	}
+
+	@Override
+	public void setCharacter(CharacterFacade character)
+	{
+<span class="nc" id="L160">		this.character = character;</span>
+<span class="nc" id="L161">		tempMenu.setListModel(character.getAvailableTempBonuses());</span>
+<span class="nc" id="L162">	}</span>
+
+	private class FileMenu extends AbstractListMenu&lt;File&gt; implements ActionListener
+	{
+
+		FileMenu()
+<span class="nc" id="L168">		{</span>
+<span class="nc" id="L169">			super(actionMap.get(PCGenActionMap.FILE_COMMAND));</span>
+<span class="nc" id="L170">			add(new JMenuItem(actionMap.get(PCGenActionMap.NEW_COMMAND)));</span>
+<span class="nc" id="L171">			add(new JMenuItem(actionMap.get(PCGenActionMap.OPEN_COMMAND)));</span>
+<span class="nc" id="L172">			addSeparator();</span>
+<span class="nc" id="L173">			add(new JMenuItem(actionMap.get(PCGenActionMap.CLOSE_COMMAND)));</span>
+<span class="nc" id="L174">			add(new JMenuItem(actionMap.get(PCGenActionMap.CLOSEALL_COMMAND)));</span>
+<span class="nc" id="L175">			addSeparator();</span>
+
+<span class="nc" id="L177">			add(new JMenuItem(actionMap.get(PCGenActionMap.SAVE_COMMAND)));</span>
+<span class="nc" id="L178">			add(new JMenuItem(actionMap.get(PCGenActionMap.SAVEAS_COMMAND)));</span>
+<span class="nc" id="L179">			add(new JMenuItem(actionMap.get(PCGenActionMap.SAVEALL_COMMAND)));</span>
+<span class="nc" id="L180">			add(new JMenuItem(actionMap.get(PCGenActionMap.REVERT_COMMAND)));</span>
+<span class="nc" id="L181">			addSeparator();</span>
+<span class="nc" id="L182">			add(new PartyMenu());</span>
+<span class="nc" id="L183">			addSeparator();</span>
+
+<span class="nc" id="L185">			add(new JMenuItem(actionMap.get(PCGenActionMap.PRINT_COMMAND)));</span>
+<span class="nc" id="L186">			add(new JMenuItem(actionMap.get(PCGenActionMap.EXPORT_COMMAND)));</span>
+<span class="nc" id="L187">			addSeparator();</span>
+<span class="nc" id="L188">			setOffset(16);</span>
+<span class="nc" id="L189">			setListModel(CharacterManager.getRecentCharacters());</span>
+<span class="nc" id="L190">			addSeparator();</span>
+
+<span class="nc" id="L192">			add(new JMenuItem(actionMap.get(PCGenActionMap.EXIT_COMMAND)));</span>
+<span class="nc" id="L193">		}</span>
+
+		@Override
+		protected JMenuItem createMenuItem(File item, int index)
+		{
+<span class="nc" id="L198">			JMenuItem menuItem = new JMenuItem();</span>
+<span class="nc" id="L199">			menuItem.setText((index + 1) + &quot; &quot; + item.getName()); //$NON-NLS-1$</span>
+<span class="nc" id="L200">			menuItem.setToolTipText(</span>
+<span class="nc" id="L201">				LanguageBundle.getFormattedString(&quot;in_OpenRecentCharTip&quot;, item.getAbsolutePath())); //$NON-NLS-1$</span>
+<span class="nc" id="L202">			menuItem.setActionCommand(item.getAbsolutePath());</span>
+<span class="nc" id="L203">			menuItem.setMnemonic(String.valueOf(index + 1).charAt(0));</span>
+<span class="nc" id="L204">			menuItem.addActionListener(this);</span>
+<span class="nc" id="L205">			return menuItem;</span>
+		}
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+<span class="nc" id="L211">			frame.loadCharacterFromFile(new File(e.getActionCommand()));</span>
+<span class="nc" id="L212">		}</span>
+
+	}
+
+	private class PartyMenu extends AbstractListMenu&lt;File&gt; implements ActionListener
+	{
+
+		PartyMenu()
+<span class="nc" id="L220">		{</span>
+<span class="nc" id="L221">			super(actionMap.get(PCGenActionMap.PARTY_COMMAND));</span>
+<span class="nc" id="L222">			add(new JMenuItem(actionMap.get(PCGenActionMap.OPEN_PARTY_COMMAND)));</span>
+<span class="nc" id="L223">			add(new JMenuItem(actionMap.get(PCGenActionMap.CLOSE_PARTY_COMMAND)));</span>
+<span class="nc" id="L224">			addSeparator();</span>
+
+<span class="nc" id="L226">			add(new JMenuItem(actionMap.get(PCGenActionMap.SAVE_PARTY_COMMAND)));</span>
+<span class="nc" id="L227">			add(new JMenuItem(actionMap.get(PCGenActionMap.SAVEAS_PARTY_COMMAND)));</span>
+<span class="nc" id="L228">			addSeparator();</span>
+<span class="nc" id="L229">			setOffset(6);</span>
+<span class="nc" id="L230">			setListModel(CharacterManager.getRecentParties());</span>
+<span class="nc" id="L231">		}</span>
+
+		@Override
+		protected JMenuItem createMenuItem(File item, int index)
+		{
+<span class="nc" id="L236">			JMenuItem menuItem = new JMenuItem();</span>
+<span class="nc" id="L237">			menuItem.setText((index + 1) + &quot; &quot; + item.getName()); //$NON-NLS-1$</span>
+<span class="nc" id="L238">			menuItem.setToolTipText(item.getAbsolutePath());</span>
+<span class="nc" id="L239">			menuItem.setActionCommand(item.getAbsolutePath());</span>
+<span class="nc" id="L240">			menuItem.setMnemonic(String.valueOf(index + 1).charAt(0));</span>
+<span class="nc" id="L241">			menuItem.addActionListener(this);</span>
+<span class="nc" id="L242">			return menuItem;</span>
+		}
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+<span class="nc" id="L248">			frame.loadPartyFromFile(new File(e.getActionCommand()));</span>
+<span class="nc" id="L249">		}</span>
+
+	}
+
+	private final class QuickSourceMenu extends AbstractRadioListMenu&lt;SourceSelectionFacade&gt;
+			implements ReferenceListener&lt;SourceSelectionFacade&gt;
+	{
+
+		private QuickSourceMenu()
+<span class="nc" id="L258">		{</span>
+
+<span class="nc" id="L260">			super(actionMap.get(PCGenActionMap.SOURCES_LOAD_COMMAND));</span>
+<span class="nc" id="L261">			super.setText(LanguageBundle.getString(&quot;in_mnuSourcesLoad&quot;));</span>
+
+
+<span class="nc" id="L264">			ReferenceFacade&lt;SourceSelectionFacade&gt; ref = uiContext.getCurrentSourceSelectionRef();</span>
+<span class="nc" id="L265">			setSelectedItem(ref.get());</span>
+<span class="nc" id="L266">			ListFacade&lt;SourceSelectionFacade&gt; sources = FacadeFactory.getDisplayedSourceSelections();</span>
+<span class="nc" id="L267">			setListModel(new SortedListFacade&lt;&gt;(Comparators.toStringIgnoreCaseCollator(), sources));</span>
+<span class="nc" id="L268">			ref.addReferenceListener(this);</span>
+<span class="nc" id="L269">		}</span>
+
+		@Override
+		public void itemStateChanged(ItemEvent e)
+		{
+<span class="nc bnc" id="L274" title="All 2 branches missed.">			if (e.getStateChange() == ItemEvent.SELECTED)</span>
+			{
+<span class="nc" id="L276">				Object item = e.getItemSelectable().getSelectedObjects()[0];</span>
+<span class="nc bnc" id="L277" title="All 2 branches missed.">				if (frame.loadSourceSelection((SourceSelectionFacade) item))</span>
+				{
+<span class="nc" id="L279">					setSelectedItem(uiContext.getCurrentSourceSelectionRef().get());</span>
+				}
+			}
+<span class="nc" id="L282">		}</span>
+
+		@Override
+		public void referenceChanged(ReferenceEvent&lt;SourceSelectionFacade&gt; e)
+		{
+<span class="nc" id="L287">			clearSelection();</span>
+<span class="nc" id="L288">			setSelectedItem(e.getNewReference());</span>
+<span class="nc" id="L289">		}</span>
+
+	}
+
+	private final class TempBonusMenu extends AbstractListMenu&lt;TempBonusFacade&gt; implements ItemListener
+	{
+
+		private TempBonusMenu()
+<span class="nc" id="L297">		{</span>
+<span class="nc" id="L298">			super(actionMap.get(PCGenActionMap.TEMP_BONUS_COMMAND));</span>
+<span class="nc" id="L299">		}</span>
+
+		@Override
+		protected JMenuItem createMenuItem(TempBonusFacade item, int index)
+		{
+<span class="nc" id="L304">			Objects.requireNonNull(item);</span>
+<span class="nc" id="L305">			return new CheckBoxMenuItem(item, character.getTempBonuses().containsElement(item), this);</span>
+		}
+
+		@Override
+		public void itemStateChanged(ItemEvent e)
+		{
+<span class="nc" id="L311">			TempBonusFacade bonus = (TempBonusFacade) e.getItemSelectable().getSelectedObjects()[0];</span>
+<span class="nc bnc" id="L312" title="All 2 branches missed.">			if (e.getStateChange() == ItemEvent.SELECTED)</span>
+			{
+<span class="nc" id="L314">				character.addTempBonus(bonus);</span>
+			}
+			else
+			{
+<span class="nc" id="L318">				character.removeTempBonus(bonus);</span>
+			}
+<span class="nc" id="L320">		}</span>
+
+	}
+
+	/**
+	 * The Class {@code LoggingLevelMenu} provides a menu to control the
+	 * level of logging output.
+	 */
+	private class LoggingLevelMenu extends AbstractRadioListMenu&lt;LoggingLevelWrapper&gt;
+	{
+		LoggingLevelMenu()
+<span class="nc" id="L331">		{</span>
+<span class="nc" id="L332">			super(actionMap.get(PCGenActionMap.LOGGING_LEVEL_COMMAND));</span>
+<span class="nc" id="L333">			DefaultListFacade&lt;LoggingLevelWrapper&gt; levels = new DefaultListFacade&lt;&gt;();</span>
+<span class="nc" id="L334">			Level currentLvl = Logging.getCurrentLoggingLevel();</span>
+<span class="nc" id="L335">			LoggingLevelWrapper current = null;</span>
+<span class="nc bnc" id="L336" title="All 2 branches missed.">			for (Level level : Logging.getLoggingLevels())</span>
+			{
+<span class="nc" id="L338">				LoggingLevelWrapper levelWrapper = new LoggingLevelWrapper(level);</span>
+<span class="nc" id="L339">				levels.addElement(levelWrapper);</span>
+<span class="nc bnc" id="L340" title="All 2 branches missed.">				if (level == currentLvl)</span>
+				{
+<span class="nc" id="L342">					current = levelWrapper;</span>
+				}
+<span class="nc" id="L344">			}</span>
+<span class="nc" id="L345">			setListModel(levels);</span>
+<span class="nc" id="L346">			setSelectedItem(current);</span>
+<span class="nc" id="L347">		}</span>
+
+		@Override
+		public void itemStateChanged(ItemEvent e)
+		{
+<span class="nc bnc" id="L352" title="All 2 branches missed.">			if (e.getStateChange() == ItemEvent.SELECTED)</span>
+			{
+<span class="nc" id="L354">				Object item = e.getItemSelectable().getSelectedObjects()[0];</span>
+<span class="nc" id="L355">				Level level = ((LoggingLevelWrapper) item).getLevel();</span>
+<span class="nc" id="L356">				Logging.setCurrentLoggingLevel(level);</span>
+			}
+<span class="nc" id="L358">		}</span>
+
+	}
+
+	/**
+	 * The Class {@code LoggingLevelWrapper} provides a display wrapper
+	 * around a Level. 
+	 */
+	private static class LoggingLevelWrapper
+	{
+		private final Level level;
+
+		LoggingLevelWrapper(Level level)
+<span class="nc" id="L371">		{</span>
+<span class="nc" id="L372">			this.level = level;</span>
+<span class="nc" id="L373">		}</span>
+
+		@Override
+		public String toString()
+		{
+<span class="nc" id="L378">			return LanguageBundle.getString(&quot;in_loglvl&quot; + level.getName());</span>
+		}
+
+		/**
+		 * @return the level
+		 */
+		Level getLevel()
+		{
+<span class="nc" id="L386">			return level;</span>
+		}
+
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

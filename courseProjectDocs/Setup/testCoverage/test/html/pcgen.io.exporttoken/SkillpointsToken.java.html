@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SkillpointsToken.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.io.exporttoken</a> &gt; <span class="el_source">SkillpointsToken.java</span></div><h1>SkillpointsToken.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2003 (C) Devon Jones &lt;soulcatcher@evilsoft.org&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.     See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ *
+ *
+ */
+package pcgen.io.exporttoken;
+
+import java.math.BigDecimal;
+import java.util.StringTokenizer;
+
+import pcgen.cdom.enumeration.SkillCost;
+import pcgen.core.PCClass;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.Skill;
+import pcgen.core.display.CharacterDisplay;
+import pcgen.io.ExportHandler;
+import pcgen.util.BigDecimalHelper;
+import pcgen.util.Logging;
+
+/**
+ * Deal with the Tokens:
+ * 
+ * SKILLPOINTS
+ * SKILLPOINTS.TOTAL
+ * SKILLPOINTS.UNUSED
+ * SKILLPOINTS.USED
+ */
+<span class="nc" id="L43">public class SkillpointsToken extends Token</span>
+{
+	/** Token name */
+	public static final String TOKENNAME = &quot;SKILLPOINTS&quot;;
+
+	@Override
+	public String getTokenName()
+	{
+<span class="nc" id="L51">		return TOKENNAME;</span>
+	}
+
+	@Override
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	{
+<span class="nc" id="L57">		final StringTokenizer aTok = new StringTokenizer(tokenSource, &quot;.&quot;);</span>
+		String bString;
+<span class="nc" id="L59">		int classNum = -1;</span>
+
+<span class="nc" id="L61">		bString = aTok.nextToken();</span>
+
+<span class="nc bnc" id="L63" title="All 2 branches missed.">		if (aTok.hasMoreTokens())</span>
+		{
+<span class="nc" id="L65">			bString = aTok.nextToken();</span>
+		}
+
+<span class="nc bnc" id="L68" title="All 2 branches missed.">		if (aTok.hasMoreTokens())</span>
+		{
+<span class="nc" id="L70">			String pcclass = aTok.nextToken();</span>
+			try
+			{
+<span class="nc" id="L73">				classNum = Integer.parseInt(pcclass);</span>
+			}
+<span class="nc" id="L75">			catch (NumberFormatException e)</span>
+			{
+<span class="nc" id="L77">				Logging.errorPrint(&quot;Expected class number in &quot; + tokenSource + &quot; but got &quot; + pcclass + &quot;.&quot;);</span>
+<span class="nc" id="L78">			}</span>
+		}
+
+<span class="nc bnc" id="L81" title="All 2 branches missed.">		if (bString.startsWith(&quot;SKILLPOINTS&quot;))</span>
+		{
+<span class="nc" id="L83">			bString = &quot;TOTAL&quot;;</span>
+		}
+
+<span class="nc" id="L86">		float aTotalSkillPoints = 0;</span>
+
+<span class="nc bnc" id="L88" title="All 4 branches missed.">		if (&quot;TOTAL&quot;.equals(bString) || &quot;UNUSED&quot;.equals(bString))</span>
+		{
+<span class="nc bnc" id="L90" title="All 2 branches missed.">			aTotalSkillPoints += (classNum &gt;= 0) ? getUnusedSkillPoints(pc, classNum) : getUnusedSkillPoints(pc);</span>
+		}
+
+<span class="nc bnc" id="L93" title="All 4 branches missed.">		if (&quot;TOTAL&quot;.equals(bString) || &quot;USED&quot;.equals(bString))</span>
+		{
+<span class="nc bnc" id="L95" title="All 2 branches missed.">			aTotalSkillPoints += (classNum &gt;= 0) ? getUsedSkillPoints(pc, classNum) : getUsedSkillPoints(pc);</span>
+		}
+
+<span class="nc" id="L98">		return BigDecimalHelper.trimZeros(new BigDecimal(String.valueOf(aTotalSkillPoints)));</span>
+	}
+
+	/**
+	 * Get unused skill points for the PC
+	 * @param pc
+	 * @return unused skill points for the PC
+	 */
+	public static int getUnusedSkillPoints(PlayerCharacter pc)
+	{
+<span class="nc" id="L108">		float usedPoints = 0;</span>
+
+<span class="nc bnc" id="L110" title="All 2 branches missed.">		for (PCClass pcClass : pc.getDisplay().getClassSet())</span>
+		{
+<span class="nc bnc" id="L112" title="All 2 branches missed.">			if (pcClass.getSkillPool(pc) &gt; 0)</span>
+			{
+<span class="nc" id="L114">				usedPoints += pcClass.getSkillPool(pc);</span>
+			}
+<span class="nc" id="L116">		}</span>
+
+<span class="nc" id="L118">		return (int) usedPoints;</span>
+	}
+
+	/**
+	 * Get unused skill points for the PC
+	 * @param pc
+	 * @return unused skill points for the PC
+	 */
+	public static int getUnusedSkillPoints(PlayerCharacter pc, int classNum)
+	{
+<span class="nc" id="L128">		float usedPoints = 0;</span>
+
+<span class="nc bnc" id="L130" title="All 4 branches missed.">		if (classNum &lt; 0 || classNum &gt;= pc.getDisplay().getClassCount())</span>
+		{
+<span class="nc" id="L132">			return 0;</span>
+		}
+<span class="nc" id="L134">		PCClass pcClass = pc.getDisplay().getClassList().get(classNum);</span>
+<span class="nc bnc" id="L135" title="All 2 branches missed.">		if (pcClass.getSkillPool(pc) &gt; 0)</span>
+		{
+<span class="nc" id="L137">			usedPoints += pcClass.getSkillPool(pc);</span>
+		}
+
+<span class="nc" id="L140">		return (int) usedPoints;</span>
+	}
+
+	/**
+	 * Get the used skill points for the PC
+	 * @param pc
+	 * @return the used skill points for the PC
+	 */
+	public static int getUsedSkillPoints(PlayerCharacter pc)
+	{
+<span class="nc" id="L150">		float usedPoints = 0;</span>
+<span class="nc bnc" id="L151" title="All 2 branches missed.">		for (Skill aSkill : pc.getDisplay().getSkillSet())</span>
+		{
+<span class="nc bnc" id="L153" title="All 2 branches missed.">			for (PCClass pcc : pc.getSkillRankClasses(aSkill))</span>
+			{
+<span class="nc" id="L155">				Double rank = pc.getSkillRankForClass(aSkill, pcc);</span>
+<span class="nc bnc" id="L156" title="All 2 branches missed.">				if (rank == null)</span>
+				{
+<span class="nc" id="L158">					rank = 0.0d;</span>
+				}
+<span class="nc" id="L160">				SkillCost skillCost = pc.getSkillCostForClass(aSkill, pcc);</span>
+<span class="nc" id="L161">				usedPoints += (rank * skillCost.getCost());</span>
+<span class="nc" id="L162">			}</span>
+<span class="nc" id="L163">		}</span>
+
+<span class="nc" id="L165">		return (int) usedPoints;</span>
+	}
+
+	/**
+	 * Get the used skill points for the PC
+	 * @param pc
+	 * @return the used skill points for the PC
+	 */
+	public static int getUsedSkillPoints(PlayerCharacter pc, int classNum)
+	{
+<span class="nc" id="L175">		CharacterDisplay display = pc.getDisplay();</span>
+<span class="nc bnc" id="L176" title="All 4 branches missed.">		if (classNum &lt; 0 || classNum &gt;= display.getClassCount())</span>
+		{
+<span class="nc" id="L178">			return 0;</span>
+		}
+<span class="nc" id="L180">		PCClass targetClass = display.getClassList().get(classNum);</span>
+<span class="nc" id="L181">		float usedPoints = 0;</span>
+<span class="nc bnc" id="L182" title="All 2 branches missed.">		for (Skill aSkill : display.getSkillSet())</span>
+		{
+<span class="nc" id="L184">			Integer outputIndex = pc.getSkillOrder(aSkill);</span>
+<span class="nc bnc" id="L185" title="All 6 branches missed.">			if ((pc.getRank(aSkill).doubleValue() &gt; 0) || (outputIndex != null &amp;&amp; outputIndex != 0))</span>
+			{
+<span class="nc" id="L187">				Double rank = pc.getSkillRankForClass(aSkill, targetClass);</span>
+<span class="nc bnc" id="L188" title="All 2 branches missed.">				if (rank == null)</span>
+				{
+<span class="nc" id="L190">					rank = 0.0d;</span>
+				}
+<span class="nc" id="L192">				SkillCost skillCost = pc.getSkillCostForClass(aSkill, targetClass);</span>
+<span class="nc" id="L193">				usedPoints += (rank * skillCost.getCost());</span>
+			}
+<span class="nc" id="L195">		}</span>
+
+<span class="nc" id="L197">		return (int) usedPoints;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

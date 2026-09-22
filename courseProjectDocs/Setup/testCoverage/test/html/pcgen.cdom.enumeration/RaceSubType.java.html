@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RaceSubType.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.enumeration</a> &gt; <span class="el_source">RaceSubType.java</span></div><h1>RaceSubType.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) 2006 Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package pcgen.cdom.enumeration;
+
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Objects;
+
+import pcgen.base.enumeration.TypeSafeConstant;
+import pcgen.base.util.CaseInsensitiveMap;
+
+/**
+ * 
+ * This Class is a Type Safe Constant. It is designed to hold RaceSubTypes in a
+ * type-safe fashion, so that they can be quickly compared and use less memory
+ * when identical RaceSubTypes exist in two CDOMObjects.
+ */
+public final class RaceSubType implements TypeSafeConstant
+{
+
+	/**
+	 * This Map contains the mappings from Strings to the Type Safe Constant
+	 */
+	private static CaseInsensitiveMap&lt;RaceSubType&gt; typeMap;
+
+	/**
+	 * This is used to provide a unique ordinal to each constant in this class
+	 */
+<span class="fc" id="L44">	private static int ordinalCount = 0;</span>
+
+	/**
+	 * The name of this Constant
+	 */
+	private final String fieldName;
+
+	/**
+	 * The ordinal of this Constant
+	 */
+	private final int ordinal;
+
+	private RaceSubType(String name)
+<span class="fc" id="L57">	{</span>
+<span class="fc" id="L58">		Objects.requireNonNull(name, &quot;Name for RaceSubType cannot be null&quot;);</span>
+<span class="fc" id="L59">		ordinal = ordinalCount++;</span>
+<span class="fc" id="L60">		fieldName = name;</span>
+<span class="fc" id="L61">	}</span>
+
+	/**
+	 * Converts this Constant to a String (returns the name of this Constant)
+	 * 
+	 * @return The string representation (name) of this Constant
+	 */
+	@Override
+	public String toString()
+	{
+<span class="fc" id="L71">		return fieldName;</span>
+	}
+
+	/**
+	 * Gets the ordinal of this Constant
+	 */
+	@Override
+	public int getOrdinal()
+	{
+<span class="nc" id="L80">		return ordinal;</span>
+	}
+
+	/**
+	 * Returns the constant for the given String (the search for the constant is
+	 * case insensitive). If the constant does not already exist, a new Constant
+	 * is created with the given String as the name of the Constant.
+	 * 
+	 * @param name
+	 *            The name of the constant to be returned
+	 * @return The Constant for the given name
+	 */
+	public static RaceSubType getConstant(String name)
+	{
+<span class="fc" id="L94">		initializeTypeMap();</span>
+<span class="fc" id="L95">		RaceSubType type = typeMap.get(name);</span>
+<span class="fc bfc" id="L96" title="All 2 branches covered.">		if (type == null)</span>
+		{
+<span class="fc" id="L98">			type = new RaceSubType(name);</span>
+<span class="fc" id="L99">			typeMap.put(name, type);</span>
+		}
+<span class="fc" id="L101">		return type;</span>
+	}
+
+	/**
+	 * Thread safe construction of typeMap
+	 */
+	private static synchronized void initializeTypeMap()
+	{
+<span class="fc bfc" id="L109" title="All 2 branches covered.">		if (typeMap == null)</span>
+		{
+<span class="fc" id="L111">			typeMap = new CaseInsensitiveMap&lt;&gt;();</span>
+		}
+<span class="fc" id="L113">	}</span>
+
+	/**
+	 * Returns the constant for the given String (the search for the constant is
+	 * case insensitive). If the constant does not already exist, an
+	 * IllegalArgumentException is thrown.
+	 * 
+	 * @param name
+	 *            The name of the constant to be returned
+	 * @return The Constant for the given name
+	 * @throws IllegalArgumentException
+	 *             if the given String is not a previously defined RaceSubType
+	 */
+	public static RaceSubType valueOf(String name)
+	{
+<span class="nc" id="L128">		initializeTypeMap();</span>
+<span class="nc" id="L129">		RaceSubType type = typeMap.get(name);</span>
+<span class="nc bnc" id="L130" title="All 2 branches missed.">		if (type == null)</span>
+		{
+<span class="nc" id="L132">			throw new IllegalArgumentException(name + &quot; is not a previously defined RaceSubType&quot;);</span>
+		}
+<span class="nc" id="L134">		return type;</span>
+	}
+
+	/**
+	 * Returns a Collection of all of the Constants in this Class.
+	 * 
+	 * This collection maintains a reference to the Constants in this Class, so
+	 * if a new Constant is created, the Collection returned by this method will
+	 * be modified. (Beware of ConcurrentModificationExceptions)
+	 * 
+	 * @return a Collection of all of the Constants in this Class.
+	 */
+	public static Collection&lt;RaceSubType&gt; getAllConstants()
+	{
+<span class="nc bnc" id="L148" title="All 2 branches missed.">		if (typeMap == null)</span>
+		{
+<span class="nc" id="L150">			return Collections.emptyList();</span>
+		}
+<span class="nc" id="L152">		return Collections.unmodifiableCollection(typeMap.values());</span>
+	}
+
+	/**
+	 * Clears all of the Constants in this Class (forgetting the mapping from
+	 * the String to the Constant).
+	 */
+	/*
+	 * CONSIDER Need to consider the ramifications of this on TypeSafeMap, since
+	 * this does not (and really cannot) reset the ordinal count... Does this
+	 * method need to be renamed, such that it is clearConstantMap? - Tom
+	 * Parker, Feb 28, 2007
+	 */
+	public static void clearConstants()
+	{
+<span class="fc bfc" id="L167" title="All 2 branches covered.">		if (typeMap != null)</span>
+		{
+<span class="fc" id="L169">			typeMap.clear();</span>
+		}
+<span class="fc" id="L171">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

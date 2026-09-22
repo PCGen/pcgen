@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SkillInfoUtilities.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.core.analysis</a> &gt; <span class="el_source">SkillInfoUtilities.java</span></div><h1>SkillInfoUtilities.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2009 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * Copyright 2001 (C) Bryan McRoberts &lt;merton_monk@yahoo.com&gt;
+ * 
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.core.analysis;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.Type;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.core.Globals;
+import pcgen.core.PCStat;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.Skill;
+import pcgen.core.bonus.BonusObj;
+import pcgen.core.bonus.BonusUtilities;
+
+public final class SkillInfoUtilities
+{
+
+	private SkillInfoUtilities()
+	{
+	}
+
+	/**
+	 * Get the key attribute's description
+	 * 
+	 * @return description
+	 */
+	public static String getKeyStatFromStats(PlayerCharacter pc, Skill sk)
+	{
+<span class="nc" id="L50">		CDOMSingleRef&lt;PCStat&gt; stat = sk.get(ObjectKey.KEY_STAT);</span>
+<span class="nc bnc" id="L51" title="All 2 branches missed.">		if (stat == null)</span>
+		{
+<span class="nc bnc" id="L53" title="All 2 branches missed.">			if (Globals.getGameModeHasPointPool())</span>
+			{
+<span class="nc" id="L55">				List&lt;PCStat&gt; statList = SkillInfoUtilities.getKeyStatList(pc, sk, null);</span>
+<span class="nc" id="L56">				StringBuilder sb = new StringBuilder(50);</span>
+<span class="nc bnc" id="L57" title="All 2 branches missed.">				for (PCStat s : statList)</span>
+				{
+<span class="nc" id="L59">                    sb.append(s.getKeyName());</span>
+<span class="nc" id="L60">				}</span>
+<span class="nc" id="L61">				return sb.toString();</span>
+			}
+			else
+			{
+<span class="nc" id="L65">				return &quot;&quot;;</span>
+			}
+		}
+		else
+		{
+<span class="nc" id="L70">			return stat.get().getKeyName();</span>
+		}
+	}
+
+	/**
+	 * Get a list of PCStat's that apply a SKILL bonus to this skill. Generates
+	 * (optionally, if typeList is non-null) a list of String's types
+	 * 
+	 * @param typeList
+	 * @return List of stats that apply
+	 */
+	public static List&lt;PCStat&gt; getKeyStatList(PlayerCharacter pc, Skill sk, List&lt;Type&gt; typeList)
+	{
+<span class="nc" id="L83">		List&lt;PCStat&gt; aList = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L84" title="All 2 branches missed.">		if (Globals.getGameModeHasPointPool())</span>
+		{
+<span class="nc bnc" id="L86" title="All 2 branches missed.">			for (Type aType : sk.getTrueTypeList(false))</span>
+			{
+<span class="nc bnc" id="L88" title="All 2 branches missed.">				for (PCStat stat : pc.getDisplay().getStatSet())</span>
+				{
+					//
+					// Get a list of all BONUS:SKILL|TYPE.&lt;type&gt;|x for this
+					// skill that would come from current stat
+					//
+<span class="nc" id="L94">					List&lt;BonusObj&gt; bonusList = BonusUtilities.getBonusFromList(stat.getSafeListFor(ListKey.BONUS),</span>
+						&quot;SKILL&quot;, &quot;TYPE.&quot; + aType);
+<span class="nc bnc" id="L96" title="All 2 branches missed.">					if (!bonusList.isEmpty())</span>
+					{
+<span class="nc bnc" id="L98" title="All 2 branches missed.">						for (int iCount = bonusList.size() - 1; iCount &gt;= 0; --iCount)</span>
+						{
+<span class="nc" id="L100">							aList.add(stat);</span>
+						}
+<span class="nc bnc" id="L102" title="All 4 branches missed.">						if ((typeList != null) &amp;&amp; !typeList.contains(aType))</span>
+						{
+<span class="nc" id="L104">							typeList.add(aType);</span>
+						}
+					}
+<span class="nc" id="L107">				}</span>
+<span class="nc" id="L108">			}</span>
+		}
+<span class="nc" id="L110">		return aList;</span>
+	}
+
+	/**
+	 * Get an iterator for the sub types
+	 * 
+	 * @return iterator for the sub types
+	 */
+	public static Iterator&lt;Type&gt; getSubtypeIterator(Skill sk)
+	{
+<span class="nc" id="L120">		List&lt;Type&gt; ret = sk.getSafeListFor(ListKey.TYPE);</span>
+<span class="nc" id="L121">		CDOMSingleRef&lt;PCStat&gt; keystat = sk.get(ObjectKey.KEY_STAT);</span>
+<span class="nc bnc" id="L122" title="All 2 branches missed.">		if (keystat == null)</span>
+		{
+<span class="nc" id="L124">			ret.remove(Type.NONE);</span>
+		}
+		else
+		{
+			// skip the keystat
+<span class="nc" id="L129">			ret.remove(Type.getConstant(keystat.get().getDisplayName()));</span>
+			/*
+			 * TODO This is magic, and makes tremendous assumptions about the
+			 * DATA - BAD BAD BAD
+			 */
+		}
+<span class="nc" id="L135">		return ret.iterator();</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TransparentFactory.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.reference</a> &gt; <span class="el_source">TransparentFactory.java</span></div><h1>TransparentFactory.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2010 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.cdom.reference;
+
+import java.lang.reflect.InvocationTargetException;
+import java.util.Objects;
+
+import pcgen.base.lang.UnreachableError;
+import pcgen.cdom.base.ClassIdentity;
+import pcgen.cdom.base.Loadable;
+
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+
+/**
+ * A TransparentFactory is a ManufacturableFactory that produces Transparent CDOMReference
+ * objects. These are CDOMReferences that it will not be reasonable to directly resolve -
+ * because they may be needed across many different data loads (as - for example - the
+ * game modes are not reloaded). These references are therefore resolved a different way
+ * (by loading them with another reference).
+ * 
+ * Please note one significant item about a TransparentFactory (which will impact the
+ * GameMode's ReferenceContext). No Categorized object should ever be constructed directly
+ * in the game mode - it will not be properly initialized with it's category, and thus
+ * will encounter many problems during its life cycle.
+ * 
+ * @param &lt;T&gt;
+ *            The type of object managed by this TransparentFactory
+ */
+public final class TransparentFactory&lt;T extends Loadable&gt; implements ManufacturableFactory&lt;T&gt;
+{
+
+	/**
+	 * The reference Class of object processed by this TrasnsparentFactory.
+	 */
+	private final Class&lt;T&gt; refClass;
+
+	/**
+	 * The String representation of the Format of objects in this TransparentFactory (e.g.
+	 * &quot;ABILITY=FEAT&quot;).
+	 */
+	private final String formatRepresentation;
+
+	/**
+	 * Constructs a new TransparentFactory that will process objects of the given Class
+	 */
+	@SuppressFBWarnings(value = &quot;REFLC_REFLECTION_MAY_INCREASE_ACCESSIBILITY_OF_CLASS&quot;,
+		justification = &quot;Reflection on refClass is the documented purpose of TransparentFactory: it builds references to CDOM types resolved by name from LST data&quot;)
+	public TransparentFactory(String formatRepresentation, Class&lt;T&gt; objClass)
+<span class="fc" id="L64">	{</span>
+<span class="fc" id="L65">		this.formatRepresentation = Objects.requireNonNull(formatRepresentation);</span>
+<span class="pc bpc" id="L66" title="1 of 2 branches missed.">		if (objClass == null)</span>
+		{
+<span class="nc" id="L68">			throw new IllegalArgumentException(&quot;Reference Class for &quot; + getClass().getName() + &quot; cannot be null&quot;);</span>
+		}
+		try
+		{
+<span class="fc" id="L72">			objClass.newInstance();</span>
+		}
+<span class="nc" id="L74">		catch (InstantiationException e)</span>
+		{
+<span class="nc" id="L76">			throw new IllegalArgumentException(</span>
+<span class="nc" id="L77">				&quot;Class for &quot; + getClass().getName() + &quot; must possess a zero-argument constructor&quot;, e);</span>
+		}
+<span class="nc" id="L79">		catch (IllegalAccessException e)</span>
+		{
+<span class="nc" id="L81">			throw new IllegalArgumentException(</span>
+<span class="nc" id="L82">				&quot;Class for &quot; + getClass().getName() + &quot; must possess a public zero-argument constructor&quot;, e);</span>
+<span class="fc" id="L83">		}</span>
+<span class="fc" id="L84">		refClass = objClass;</span>
+<span class="fc" id="L85">	}</span>
+
+	@Override
+	public CDOMGroupRef&lt;T&gt; getAllReference()
+	{
+<span class="nc" id="L90">		return new CDOMTransparentAllRef&lt;&gt;(formatRepresentation, refClass);</span>
+	}
+
+	@Override
+	public CDOMGroupRef&lt;T&gt; getTypeReference(String... types)
+	{
+<span class="nc" id="L96">		return new CDOMTransparentTypeRef&lt;&gt;(formatRepresentation, refClass, types);</span>
+	}
+
+	@Override
+	public CDOMSingleRef&lt;T&gt; getReference(String key)
+	{
+<span class="nc" id="L102">		return new CDOMTransparentSingleRef&lt;&gt;(formatRepresentation, refClass, key);</span>
+	}
+
+	@Override
+	public T newInstance()
+	{
+		try
+		{
+<span class="nc" id="L110">			return refClass.getConstructor().newInstance();</span>
+		}
+<span class="nc" id="L112">		catch (InstantiationException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e)</span>
+		{
+<span class="nc" id="L114">			throw new UnreachableError(</span>
+				&quot;Class was tested at &quot; + &quot;construction to ensure it had a public, &quot; + &quot;zero-argument constructor&quot;, e);
+		}
+	}
+
+	@Override
+	public boolean isMember(T item)
+	{
+<span class="nc" id="L122">		return refClass.equals(item.getClass());</span>
+	}
+
+	@Override
+	public Class&lt;T&gt; getReferenceClass()
+	{
+<span class="fc" id="L128">		return refClass;</span>
+	}
+
+	@Override
+	public String getReferenceDescription()
+	{
+<span class="nc" id="L134">		return refClass.getSimpleName();</span>
+	}
+
+	@Override
+	public boolean resolve(ReferenceManufacturer&lt;T&gt; rm, String name, CDOMSingleRef&lt;T&gt; value,
+		UnconstructedValidator validator)
+	{
+<span class="nc" id="L141">		throw new UnsupportedOperationException(&quot;Resolution should not occur on Transparent object&quot;);</span>
+	}
+
+	@Override
+	public boolean populate(ReferenceManufacturer&lt;T&gt; parentCrm, ReferenceManufacturer&lt;T&gt; rm,
+		UnconstructedValidator validator)
+	{
+		// No work to do?
+<span class="nc" id="L149">		return true;</span>
+	}
+
+	@Override
+	public ManufacturableFactory&lt;T&gt; getParent()
+	{
+<span class="nc" id="L155">		throw new UnsupportedOperationException(&quot;Resolution of Parent should not occur on Transparent object&quot;);</span>
+	}
+
+	@Override
+	public ClassIdentity&lt;T&gt; getReferenceIdentity()
+	{
+<span class="nc" id="L161">		throw new UnsupportedOperationException(&quot;Resolution to Identity should not occur on Transparent object&quot;);</span>
+	}
+
+	@Override
+	public String getPersistentFormat()
+	{
+<span class="fc" id="L167">		return formatRepresentation;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

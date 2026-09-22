@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ConditionalAbilityFacet.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.facet</a> &gt; <span class="el_source">ConditionalAbilityFacet.java</span></div><h1>ConditionalAbilityFacet.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) Thomas Parker, 2010.
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package pcgen.cdom.facet;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
+
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.base.AbstractSingleSourceListFacet;
+import pcgen.cdom.helper.CNAbilitySelection;
+
+/**
+ * ConditionalAbilityFacet is a DataFacet that contains information about
+ * conditionally granted Ability objects that are contained in a Player
+ * Character. All conditionally granted abilities (regardless of whether they
+ * are granted to the Player Character) are stored here.
+ * ConditionallyGrantedAbilityFacet performs the calculation to determine which
+ * are active / granted to the Player Character.
+ * 
+ */
+<span class="fc" id="L38">public class ConditionalAbilityFacet extends AbstractSingleSourceListFacet&lt;CNAbilitySelection, Object&gt;</span>
+{
+	private PrerequisiteFacet prerequisiteFacet;
+
+	/**
+	 * Returns a non-null copy of the Set of objects the character qualifies for
+	 * in this ConditionalAbilityFacet for the Player Character represented by
+	 * the given CharID. This method returns an empty Collection if the Player
+	 * Character identified by the given CharID qualifies for none of the
+	 * objects in this ConditionalAbilityFacet.
+	 * 
+	 * This method is value-semantic in that ownership of the returned
+	 * Collection is transferred to the class calling this method. Modification
+	 * of the returned Collection will not modify this ConditionalAbilityFacet
+	 * and modification of this ConditionalAbilityFacet will not modify the
+	 * returned Collection. Modifications to the returned Collection will also
+	 * not modify any future or previous objects returned by this (or other)
+	 * methods on ConditionalAbilityFacet. If you wish to modify the information
+	 * stored in this ConditionalAbilityFacet, you must use the add*() and
+	 * remove*() methods of ConditionalAbilityFacet.
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which the
+	 *            items in this AbstractQualifiedListFacet should be returned.
+	 * @return A non-null Set of objects the Player Character represented by the
+	 *         given CharID qualifies for in this AbstractQualifiedListFacet
+	 */
+	public Collection&lt;CNAbilitySelection&gt; getQualifiedSet(CharID id)
+	{
+<span class="fc" id="L67">		List&lt;CNAbilitySelection&gt; set = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L68">		Map&lt;CNAbilitySelection, Object&gt; cached = getCachedMap(id);</span>
+<span class="pc bpc" id="L69" title="1 of 2 branches missed.">		if (cached != null)</span>
+		{
+<span class="nc bnc" id="L71" title="All 2 branches missed.">			for (Map.Entry&lt;CNAbilitySelection, Object&gt; me : cached.entrySet())</span>
+			{
+<span class="nc" id="L73">				CNAbilitySelection cnas = me.getKey();</span>
+<span class="nc bnc" id="L74" title="All 2 branches missed.">				if (prerequisiteFacet.qualifies(id, cnas, me.getValue()))</span>
+				{
+<span class="nc" id="L76">					set.add(cnas);</span>
+				}
+<span class="nc" id="L78">			}</span>
+		}
+<span class="fc" id="L80">		return set;</span>
+	}
+
+	/**
+	 * Check if the character is allowed to take the ability selection.
+	 * @param id
+	 *            The CharID representing the Player Character.
+	 * @param cas The ability selection to be checked.
+	 * @return true if the character qualifies for the selection, false if not.
+	 */
+	public boolean isQualified(CharID id, CNAbilitySelection cas)
+	{
+<span class="nc" id="L92">		Map&lt;CNAbilitySelection, Object&gt; cached = getCachedMap(id);</span>
+<span class="nc bnc" id="L93" title="All 2 branches missed.">		if (cached != null)</span>
+		{
+<span class="nc" id="L95">			Object source = cached.get(cas);</span>
+			//null gate b/c we may not have cas
+<span class="nc bnc" id="L97" title="All 2 branches missed.">			if (source != null)</span>
+			{
+<span class="nc" id="L99">				return prerequisiteFacet.qualifies(id, cas, source);</span>
+			}
+		}
+<span class="nc" id="L102">		return false;</span>
+	}
+
+	public void setPrerequisiteFacet(PrerequisiteFacet prerequisiteFacet)
+	{
+<span class="fc" id="L107">		this.prerequisiteFacet = prerequisiteFacet;</span>
+<span class="fc" id="L108">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

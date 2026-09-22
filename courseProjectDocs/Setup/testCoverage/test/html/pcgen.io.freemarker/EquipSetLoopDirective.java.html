@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>EquipSetLoopDirective.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.io.freemarker</a> &gt; <span class="el_source">EquipSetLoopDirective.java</span></div><h1>EquipSetLoopDirective.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2013 (C) James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ *
+ */
+package pcgen.io.freemarker;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import pcgen.core.PlayerCharacter;
+import pcgen.core.character.EquipSet;
+
+import freemarker.core.Environment;
+import freemarker.template.TemplateDirectiveBody;
+import freemarker.template.TemplateDirectiveModel;
+import freemarker.template.TemplateException;
+import freemarker.template.TemplateModel;
+import freemarker.template.TemplateModelException;
+
+/**
+ * Implements a custom Freemarker macro to loop over the characte's equipment 
+ * sets
+ * 
+ * &lt;p&gt;Parameters: None&lt;/p&gt;
+ * 
+ * &lt;p&gt;Nested content is output once for each loop&lt;/p&gt;
+ * 
+ */
+public class EquipSetLoopDirective implements TemplateDirectiveModel
+{
+	private PlayerCharacter pc;
+
+	/**
+	 * Create a new instance of EquipSetLoopDirective
+	 * @param pc The character being exported.
+	 */
+	public EquipSetLoopDirective(PlayerCharacter pc)
+<span class="nc" id="L55">	{</span>
+<span class="nc" id="L56">		this.pc = pc;</span>
+<span class="nc" id="L57">	}</span>
+
+	@SuppressWarnings(&quot;rawtypes&quot;)
+	@Override
+	public void execute(Environment env, Map params, TemplateModel[] loopVars, TemplateDirectiveBody body)
+		throws TemplateException, IOException
+	{
+<span class="nc bnc" id="L64" title="All 2 branches missed.">		if (body == null)</span>
+		{
+<span class="nc" id="L66">			throw new TemplateModelException(&quot;This directive must have content.&quot;);</span>
+		}
+
+<span class="nc" id="L69">		List&lt;EquipSet&gt; eqSetList = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L70">		EquipSet currSet = null;</span>
+<span class="nc" id="L71">		String currIdPath = pc.getCalcEquipSetId();</span>
+<span class="nc bnc" id="L72" title="All 2 branches missed.">		for (EquipSet es : pc.getDisplay().getEquipSet())</span>
+		{
+<span class="nc bnc" id="L74" title="All 2 branches missed.">			if (es.getParentIdPath().equals(&quot;0&quot;))</span>
+			{
+<span class="nc" id="L76">				eqSetList.add(es);</span>
+<span class="nc bnc" id="L77" title="All 2 branches missed.">				if (es.getIdPath().equals(currIdPath))</span>
+				{
+<span class="nc" id="L79">					currSet = es;</span>
+				}
+			}
+<span class="nc" id="L82">		}</span>
+
+<span class="nc bnc" id="L84" title="All 2 branches missed.">		for (EquipSet equipSet : eqSetList)</span>
+		{
+<span class="nc" id="L86">			pc.setCalcEquipSetId(equipSet.getIdPath());</span>
+<span class="nc" id="L87">			pc.setCalcEquipmentList(equipSet.getUseTempMods());</span>
+
+			// Executes the nested body (same as &lt;#nested&gt; in FTL). In this
+			// case we don't provide a special writer as the parameter:
+<span class="nc" id="L91">			body.render(env.getOut());</span>
+<span class="nc" id="L92">		}</span>
+
+<span class="nc bnc" id="L94" title="All 2 branches missed.">		if (currSet != null)</span>
+		{
+<span class="nc" id="L96">			pc.setCalcEquipSetId(currSet.getIdPath());</span>
+<span class="nc" id="L97">			pc.setCalcEquipmentList(currSet.getUseTempMods());</span>
+		}
+<span class="nc" id="L99">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

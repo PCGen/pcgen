@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>VisionToken.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.exporttokens</a> &gt; <span class="el_source">VisionToken.java</span></div><h1>VisionToken.java</h1><pre class="source lang-java linenums">/*
+ * VisionToken.java
+ * Copyright 2003 (C) Devon Jones &lt;soulcatcher@evilsoft.org&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.     See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package plugin.exporttokens;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.StringTokenizer;
+
+import pcgen.core.Globals;
+import pcgen.core.Vision;
+import pcgen.core.display.CharacterDisplay;
+import pcgen.io.ExportHandler;
+import pcgen.io.exporttoken.AbstractExportToken;
+
+/**
+ * {@code VisionToken} produces the output for the output token
+ * VISION.
+ */
+<span class="nc" id="L35">public class VisionToken extends AbstractExportToken</span>
+{
+	@Override
+	public String getTokenName()
+	{
+<span class="nc" id="L40">		return &quot;VISION&quot;;</span>
+	}
+
+	@Override
+	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
+	{
+<span class="nc" id="L46">		StringTokenizer aTok = new StringTokenizer(tokenSource, &quot;.&quot;);</span>
+<span class="nc" id="L47">		aTok.nextToken();</span>
+
+<span class="nc" id="L49">		List&lt;Vision&gt; visionList = new ArrayList&lt;&gt;(display.getVisionList());</span>
+
+<span class="nc" id="L51">		int visionIndex = 0;</span>
+<span class="nc" id="L52">		int startIndex = 0;</span>
+
+<span class="nc bnc" id="L54" title="All 2 branches missed.">		if (aTok.hasMoreTokens())</span>
+		{
+			try
+			{
+<span class="nc" id="L58">				startIndex = Integer.parseInt(aTok.nextToken());</span>
+<span class="nc" id="L59">				visionIndex = startIndex + 1;</span>
+			}
+<span class="nc" id="L61">			catch (NumberFormatException e)</span>
+			{
+				//TODO: Should this really be ignored?
+<span class="nc" id="L64">			}</span>
+		}
+		else
+		{
+<span class="nc" id="L68">			visionIndex = visionList.size();</span>
+		}
+
+<span class="nc bnc" id="L71" title="All 4 branches missed.">		if (visionList.isEmpty() || startIndex &gt;= visionList.size())</span>
+		{
+<span class="nc" id="L73">			return &quot;&quot;;</span>
+		}
+
+<span class="nc" id="L76">		List&lt;Vision&gt; subList = visionList.subList(Math.max(startIndex, 0), Math.min(visionIndex, visionList.size()));</span>
+
+<span class="nc" id="L78">		StringBuilder result = new StringBuilder();</span>
+<span class="nc bnc" id="L79" title="All 2 branches missed.">		for (Vision vision : subList)</span>
+		{
+<span class="nc bnc" id="L81" title="All 2 branches missed.">			if (result.length() &gt; 0)</span>
+			{
+<span class="nc" id="L83">				result.append(&quot;, &quot;);</span>
+			}
+<span class="nc" id="L85">			result.append(vision.getType());</span>
+<span class="nc" id="L86">			String distStr = vision.getDistance().toString();</span>
+<span class="nc" id="L87">			int dist = 0;</span>
+<span class="nc bnc" id="L88" title="All 4 branches missed.">			if ((distStr != null) &amp;&amp; (!distStr.trim().isEmpty()))</span>
+			{
+<span class="nc" id="L90">				dist = Integer.parseInt(distStr);</span>
+			}
+<span class="nc bnc" id="L92" title="All 2 branches missed.">			if (dist &gt; 0)</span>
+			{
+<span class="nc" id="L94">				result.append(&quot; (&quot;);</span>
+<span class="nc" id="L95">				result.append(Globals.getGameModeUnitSet().displayDistanceInUnitSet(dist));</span>
+<span class="nc" id="L96">				result.append(Globals.getGameModeUnitSet().getDistanceUnit());</span>
+<span class="nc" id="L97">				result.append(')');</span>
+			}
+<span class="nc" id="L99">		}</span>
+
+<span class="nc" id="L101">		return result.toString();</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

@@ -1,0 +1,485 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FacadeFactory.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.system</a> &gt; <span class="el_source">FacadeFactory.java</span></div><h1>FacadeFactory.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2010 Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ */
+package pcgen.system;
+
+import java.net.URI;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.StreamSupport;
+
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.core.Campaign;
+import pcgen.core.GameMode;
+import pcgen.core.GameModeDisplay;
+import pcgen.core.Globals;
+import pcgen.core.SettingsHandler;
+import pcgen.core.SystemCollections;
+import pcgen.facade.core.CampaignInfoFactory;
+import pcgen.facade.core.GameModeDisplayFacade;
+import pcgen.facade.core.LoadableFacade.LoadingState;
+import pcgen.facade.core.SourceSelectionFacade;
+import pcgen.facade.util.DefaultListFacade;
+import pcgen.facade.util.DefaultReferenceFacade;
+import pcgen.facade.util.ListFacade;
+import pcgen.facade.util.ListFacades;
+import pcgen.facade.util.ReferenceFacade;
+import pcgen.facade.util.WriteableReferenceFacade;
+import pcgen.gui2.facade.Gui2CampaignInfoFactory;
+import pcgen.persistence.PersistenceManager;
+import pcgen.util.Logging;
+
+public final class FacadeFactory
+{
+
+	private static final PropertyContext SOURCES_CONTEXT =
+<span class="nc" id="L57">			PCGenSettings.getInstance().createChildContext(&quot;customSources&quot;);</span>
+<span class="nc" id="L58">	private static DefaultListFacade&lt;SourceSelectionFacade&gt; quickSources = null;</span>
+<span class="nc" id="L59">	private static DefaultListFacade&lt;Campaign&gt; campaigns = null;</span>
+<span class="nc" id="L60">	private static DefaultListFacade&lt;GameMode&gt; gamemodes = null;</span>
+<span class="nc" id="L61">	private static DefaultListFacade&lt;GameModeDisplayFacade&gt; gamemodedisplays = null;</span>
+<span class="nc" id="L62">	private static DefaultListFacade&lt;SourceSelectionFacade&gt; displayedSources = null;</span>
+	private static DefaultListFacade&lt;SourceSelectionFacade&gt; customSources;
+	private static Map&lt;String, Campaign&gt; campaignMap;
+<span class="nc" id="L65">	private static Map&lt;GameMode, DefaultListFacade&lt;Campaign&gt;&gt; campaignListMap = null;</span>
+<span class="nc" id="L66">	private static final CampaignInfoFactory CAMP_INFO_FACTORY = new Gui2CampaignInfoFactory();</span>
+
+	private FacadeFactory()
+	{
+	}
+
+	static void initialize()
+	{
+<span class="nc" id="L74">		List&lt;GameMode&gt; modes = SystemCollections.getUnmodifiableGameModeList();</span>
+<span class="nc" id="L75">		List&lt;GameModeDisplay&gt; modeDisplays = SystemCollections.getUnmodifiableGameModeDisplayList();</span>
+<span class="nc" id="L76">		List&lt;Campaign&gt; camps = Globals.getCampaignList();</span>
+<span class="nc" id="L77">		gamemodes = new DefaultListFacade&lt;&gt;(modes);</span>
+<span class="nc" id="L78">		gamemodedisplays = new DefaultListFacade&lt;&gt;(modeDisplays);</span>
+<span class="nc" id="L79">		campaigns = new DefaultListFacade&lt;&gt;(camps);</span>
+<span class="nc" id="L80">		quickSources = new DefaultListFacade&lt;&gt;();</span>
+<span class="nc" id="L81">		displayedSources = new DefaultListFacade&lt;&gt;();</span>
+<span class="nc" id="L82">		customSources = new DefaultListFacade&lt;&gt;();</span>
+<span class="nc" id="L83">		campaignMap = new HashMap&lt;&gt;();</span>
+<span class="nc" id="L84">		campaignListMap = new HashMap&lt;&gt;();</span>
+<span class="nc" id="L85">		initCampaigns();</span>
+<span class="nc" id="L86">		initGameModes(modes);</span>
+<span class="nc" id="L87">		initCustomSourceSelections();</span>
+<span class="nc" id="L88">		initDisplayedSources();</span>
+<span class="nc" id="L89">	}</span>
+
+	private static void initCampaigns()
+	{
+<span class="nc bnc" id="L93" title="All 2 branches missed.">		for (final Campaign campaign : campaigns)</span>
+		{
+<span class="nc" id="L95">			campaignMap.put(campaign.getKeyName(), campaign);</span>
+<span class="nc" id="L96">			ListFacade&lt;GameMode&gt; gameModeList = campaign.getGameModes();</span>
+<span class="nc bnc" id="L97" title="All 2 branches missed.">			for (GameMode gameMode : gameModeList)</span>
+			{
+<span class="nc bnc" id="L99" title="All 2 branches missed.">				if (!campaignListMap.containsKey(gameMode))</span>
+				{
+<span class="nc" id="L101">					campaignListMap.put(gameMode, new DefaultListFacade&lt;&gt;());</span>
+				}
+<span class="nc" id="L103">				DefaultListFacade&lt;Campaign&gt; campaignList = campaignListMap.get(gameMode);</span>
+<span class="nc bnc" id="L104" title="All 2 branches missed.">				if (campaignList.containsElement(campaign))</span>
+				{
+<span class="nc" id="L106">					String sourceUri = campaign.getSourceURI().toString();</span>
+<span class="nc" id="L107">					Logging</span>
+<span class="nc" id="L108">						.errorPrint(&quot;Campaign &quot; + sourceUri + &quot; lists GAMEMODE:&quot; + gameMode + &quot; multiple times.&quot;);</span>
+<span class="nc" id="L109">				}</span>
+				else
+				{
+<span class="nc" id="L112">					campaignList.addElement(campaign);</span>
+				}
+<span class="nc" id="L114">			}</span>
+<span class="nc bnc" id="L115" title="All 4 branches missed.">			if (Boolean.TRUE.equals(campaign.getSafe(ObjectKey.SHOW_IN_MENU)) &amp;&amp; !gameModeList.isEmpty())</span>
+			{
+<span class="nc" id="L117">				GameMode game = gameModeList.getElementAt(0);</span>
+<span class="nc" id="L118">				ListFacade&lt;Campaign&gt; list = new DefaultListFacade&lt;&gt;(Collections.singleton(campaign));</span>
+<span class="nc" id="L119">				quickSources.addElement(new BasicSourceSelectionFacade(campaign.getKeyName(), list, game));</span>
+			}
+<span class="nc" id="L121">		}</span>
+<span class="nc" id="L122">	}</span>
+
+	private static void initGameModes(List&lt;GameMode&gt; modes)
+	{
+<span class="nc bnc" id="L126" title="All 2 branches missed.">		for (GameMode mode : modes)</span>
+		{
+<span class="nc" id="L128">			String title = mode.getDefaultSourceTitle();</span>
+<span class="nc bnc" id="L129" title="All 6 branches missed.">			if (SettingsHandler.getGameAsProperty().get().equals(mode) &amp;&amp; title == null &amp;&amp; !mode.getDefaultDataSetList().isEmpty())</span>
+			{
+<span class="nc" id="L131">				title = mode.getName();</span>
+			}
+<span class="nc bnc" id="L133" title="All 4 branches missed.">			if (title != null &amp;&amp; !title.isEmpty())</span>
+			{
+<span class="nc" id="L135">				DefaultListFacade&lt;Campaign&gt; qcamps = new DefaultListFacade&lt;&gt;();</span>
+<span class="nc" id="L136">				List&lt;String&gt; sources = mode.getDefaultDataSetList();</span>
+<span class="nc bnc" id="L137" title="All 2 branches missed.">				for (String string : sources)</span>
+				{
+<span class="nc" id="L139">					Campaign camp = Globals.getCampaignKeyed(string);</span>
+<span class="nc bnc" id="L140" title="All 2 branches missed.">					if (camp != null)</span>
+					{
+<span class="nc" id="L142">						qcamps.addElement(camp);</span>
+					}
+					else
+					{
+<span class="nc" id="L146">						Logging.log(Logging.WARNING, &quot;Unable to find source &quot; + string + &quot; used in default source &quot;</span>
+							+ title + &quot; for game mode &quot; + mode + &quot;. &quot; + title + &quot; might not work correctly.&quot;);
+					}
+<span class="nc" id="L149">				}</span>
+<span class="nc bnc" id="L150" title="All 2 branches missed.">				if (qcamps.isEmpty())</span>
+				{
+<span class="nc" id="L152">					Logging.log(Logging.WARNING,</span>
+						&quot;Unable to load default source '&quot; + title + &quot;'. All of its sources are missing.&quot;);
+<span class="nc" id="L154">					continue;</span>
+				}
+<span class="nc" id="L156">				quickSources.addElement(new BasicSourceSelectionFacade(mode.getDefaultSourceTitle(), qcamps, mode));</span>
+			}
+<span class="nc" id="L158">		}</span>
+<span class="nc" id="L159">	}</span>
+
+	private static void initDisplayedSources()
+	{
+<span class="nc" id="L163">		IntStream.range(0, quickSources.getSize())</span>
+<span class="nc" id="L164">		         .mapToObj(quickSources::getElementAt)</span>
+<span class="nc" id="L165">		         .forEach(displayedSources::addElement);</span>
+<span class="nc" id="L166">	}</span>
+
+	private static void initCustomSourceSelections()
+	{
+<span class="nc" id="L170">		var keys = SOURCES_CONTEXT.getStringList(&quot;selectionNames&quot;);</span>
+<span class="nc" id="L171">		keys.forEach(name -&gt; {</span>
+<span class="nc" id="L172">			PropertyContext context = SOURCES_CONTEXT.createChildContext(name);</span>
+<span class="nc" id="L173">			String modeName = context.getProperty(&quot;gamemode&quot;);</span>
+<span class="nc" id="L174">			GameMode mode = SystemCollections.getGameModeNamed(modeName);</span>
+<span class="nc bnc" id="L175" title="All 2 branches missed.">			if (mode == null)</span>
+			{
+<span class="nc" id="L177">				Logging</span>
+<span class="nc" id="L178">					.errorPrint(&quot;Unable to load quick source '&quot; + name + &quot;'. Game mode '&quot; + modeName + &quot;' is missing&quot;);</span>
+<span class="nc" id="L179">				return;</span>
+			}
+<span class="nc" id="L181">			var selectionList = context.getStringList(&quot;campaigns&quot;);</span>
+
+<span class="nc" id="L183">			var groupedCampaigns = selectionList.stream()</span>
+<span class="nc" id="L184">					.collect(Collectors.partitioningBy(campaignMap::containsKey));</span>
+<span class="nc" id="L185">			var availableCampaigns = groupedCampaigns.getOrDefault(true, Collections.emptyList());</span>
+<span class="nc" id="L186">			var absentCampaigns = groupedCampaigns.getOrDefault(false, Collections.emptyList());</span>
+<span class="nc" id="L187">			absentCampaigns.forEach(campaign -&gt;</span>
+<span class="nc" id="L188">					Logging.log(Logging.WARNING, '\'' + campaign + '\'' + &quot; campaign not found, custom quick source '&quot; + name + &quot;' might not work correctly.&quot;));</span>
+
+<span class="nc" id="L190">			List&lt;Campaign&gt; sources = availableCampaigns.stream()</span>
+<span class="nc" id="L191">					.map(campaignMap::get)</span>
+<span class="nc" id="L192">					.toList();</span>
+<span class="nc bnc" id="L193" title="All 2 branches missed.">			if (sources.isEmpty())</span>
+			{
+<span class="nc" id="L195">				Logging.errorPrint(&quot;Unable to load quick source '&quot; + name + &quot;'. All of its sources are missing&quot;);</span>
+<span class="nc" id="L196">				return;</span>
+			}
+<span class="nc" id="L198">			CustomSourceSelectionFacade selection = new CustomSourceSelectionFacade(name);</span>
+<span class="nc" id="L199">			selection.setGameMode(mode);</span>
+<span class="nc" id="L200">			selection.setCampaigns(sources);</span>
+<span class="nc bnc" id="L201" title="All 2 branches missed.">			if (!absentCampaigns.isEmpty())</span>
+			{
+<span class="nc" id="L203">				selection.setLoadingState(LoadingState.LOADED_WITH_ERRORS);</span>
+<span class="nc" id="L204">				selection.setErrorMessage(&quot;Some campaigns are missing&quot;);</span>
+			}
+<span class="nc" id="L206">			customSources.addElement(selection);</span>
+<span class="nc" id="L207">			quickSources.addElement(selection);</span>
+<span class="nc" id="L208">		});</span>
+<span class="nc" id="L209">	}</span>
+
+	public static SourceSelectionFacade createCustomSourceSelection(String name)
+	{
+<span class="nc" id="L213">		SourceSelectionFacade selection = new CustomSourceSelectionFacade(name);</span>
+<span class="nc" id="L214">		customSources.addElement(selection);</span>
+<span class="nc" id="L215">		quickSources.addElement(selection);</span>
+<span class="nc" id="L216">		displayedSources.addElement(selection);</span>
+<span class="nc" id="L217">		setCustomSourceSelectionArray();</span>
+<span class="nc" id="L218">		return selection;</span>
+	}
+
+	public static void deleteCustomSourceSelection(SourceSelectionFacade source)
+	{
+<span class="nc bnc" id="L223" title="All 2 branches missed.">		if (!(source instanceof CustomSourceSelectionFacade))</span>
+		{
+<span class="nc" id="L225">			throw new IllegalArgumentException();</span>
+		}
+<span class="nc" id="L227">		customSources.removeElement(source);</span>
+<span class="nc" id="L228">		quickSources.removeElement(source);</span>
+<span class="nc" id="L229">		displayedSources.removeElement(source);</span>
+<span class="nc" id="L230">		PropertyContext context = SOURCES_CONTEXT.createChildContext(source.toString());</span>
+<span class="nc" id="L231">		context.removeProperty(&quot;gamemode&quot;);</span>
+<span class="nc" id="L232">		context.removeProperty(&quot;campaigns&quot;);</span>
+<span class="nc" id="L233">		setCustomSourceSelectionArray();</span>
+<span class="nc" id="L234">	}</span>
+
+	private static void setCustomSourceSelectionArray()
+	{
+<span class="nc" id="L238">		var sources = StreamSupport.stream(customSources.spliterator(), false)</span>
+<span class="nc" id="L239">				.map(Object::toString)</span>
+<span class="nc" id="L240">				.toList();</span>
+<span class="nc" id="L241">		SOURCES_CONTEXT.setStringList(&quot;selectionNames&quot;, sources);</span>
+<span class="nc" id="L242">	}</span>
+
+	public static SourceSelectionFacade createSourceSelection(GameMode gameMode,
+		List&lt;? extends Campaign&gt; campaignList)
+	{
+<span class="nc" id="L247">		return new BasicSourceSelectionFacade(null, new DefaultListFacade(campaignList), gameMode);</span>
+	}
+
+	public static SourceSelectionFacade createSourceSelection(GameMode gameMode,
+		List&lt;? extends Campaign&gt; campaignList, String sourceTitle)
+	{
+<span class="nc" id="L253">		return new BasicSourceSelectionFacade(sourceTitle, new DefaultListFacade(campaignList), gameMode);</span>
+	}
+
+	/**
+	 * returns a list of all SourceSelections that have not been hidden.
+	 * @return a ListFacade containing SourceSelections
+	 */
+	public static ListFacade&lt;SourceSelectionFacade&gt; getDisplayedSourceSelections()
+	{
+<span class="nc" id="L262">		return displayedSources;</span>
+	}
+
+	public static ListFacade&lt;SourceSelectionFacade&gt; getSourceSelections()
+	{
+<span class="nc" id="L267">		return quickSources;</span>
+	}
+
+	public static ListFacade&lt;SourceSelectionFacade&gt; getCustomSourceSelections()
+	{
+<span class="nc" id="L272">		return customSources;</span>
+	}
+
+	public static ListFacade&lt;Campaign&gt; getCampaigns()
+	{
+<span class="nc" id="L277">		return campaigns;</span>
+	}
+
+	public static ListFacade&lt;GameMode&gt; getGameModes()
+	{
+<span class="nc" id="L282">		return gamemodes;</span>
+	}
+
+	public static ListFacade&lt;GameModeDisplayFacade&gt; getGameModeDisplays()
+	{
+<span class="nc" id="L287">		return gamemodedisplays;</span>
+	}
+
+	public static ListFacade&lt;Campaign&gt; getSupportedCampaigns(GameMode gameMode)
+	{
+<span class="nc bnc" id="L292" title="All 2 branches missed.">		if (!campaignListMap.containsKey(gameMode))</span>
+		{
+<span class="nc" id="L294">			return ListFacades.emptyList();</span>
+		}
+<span class="nc" id="L296">		return campaignListMap.get(gameMode);</span>
+	}
+
+	/**
+	 * @return the Campaign Info Factory for the gui2 package.
+	 */
+	public static CampaignInfoFactory getCampaignInfoFactory()
+	{
+<span class="nc" id="L304">		return CAMP_INFO_FACTORY;</span>
+	}
+
+	public static boolean passesPrereqs(List&lt;Campaign&gt; campaigns)
+	{
+<span class="nc" id="L309">		PersistenceManager pman = PersistenceManager.getInstance();</span>
+<span class="nc" id="L310">		List&lt;URI&gt; oldList = pman.getChosenCampaignSourcefiles();</span>
+<span class="nc" id="L311">		List&lt;URI&gt; uris = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L312" title="All 2 branches missed.">		for (Campaign campaign : campaigns)</span>
+		{
+<span class="nc" id="L314">			uris.add(campaign.getSourceURI());</span>
+<span class="nc" id="L315">		}</span>
+<span class="nc" id="L316">		pman.setChosenCampaignSourcefiles(uris);</span>
+<span class="nc bnc" id="L317" title="All 2 branches missed.">		for (Campaign campaign : campaigns)</span>
+		{
+<span class="nc bnc" id="L319" title="All 2 branches missed.">			if (!campaign.qualifies(null, campaign))</span>
+			{
+<span class="nc" id="L321">				pman.setChosenCampaignSourcefiles(oldList);</span>
+<span class="nc" id="L322">				return false;</span>
+			}
+<span class="nc" id="L324">		}</span>
+<span class="nc" id="L325">		pman.setChosenCampaignSourcefiles(oldList);</span>
+<span class="nc" id="L326">		return true;</span>
+	}
+
+	private static final class BasicSourceSelectionFacade implements SourceSelectionFacade
+	{
+
+		private final ListFacade&lt;Campaign&gt; campaignModel;
+		private final DefaultReferenceFacade&lt;GameMode&gt; gameMode;
+		private final String name;
+
+		private BasicSourceSelectionFacade(String name, ListFacade&lt;Campaign&gt; campaignModel,
+			GameMode gameMode)
+<span class="nc" id="L338">		{</span>
+<span class="nc" id="L339">			this.name = name;</span>
+<span class="nc" id="L340">			this.campaignModel = campaignModel;</span>
+<span class="nc" id="L341">			this.gameMode = new DefaultReferenceFacade&lt;&gt;(gameMode);</span>
+<span class="nc" id="L342">		}</span>
+
+		@Override
+		public void setCampaigns(List&lt;Campaign&gt; campaign)
+		{
+<span class="nc" id="L347">			throw new UnsupportedOperationException(&quot;Not supported yet.&quot;);</span>
+		}
+
+		@Override
+		public void setGameMode(GameMode gameMode)
+		{
+<span class="nc" id="L353">			throw new UnsupportedOperationException(&quot;Not supported yet.&quot;);</span>
+		}
+
+		@Override
+		public boolean isModifiable()
+		{
+<span class="nc" id="L359">			return false;</span>
+		}
+
+		@Override
+		public LoadingState getLoadingState()
+		{
+<span class="nc" id="L365">			return LoadingState.LOADED;</span>
+		}
+
+		@Override
+		public String getLoadingErrorMessage()
+		{
+<span class="nc" id="L371">			return null;</span>
+		}
+
+		@Override
+		public String toString()
+		{
+<span class="nc bnc" id="L377" title="All 2 branches missed.">			if (name != null)</span>
+			{
+<span class="nc" id="L379">				return name;</span>
+			}
+<span class="nc bnc" id="L381" title="All 2 branches missed.">			if (gameMode.get() != null)</span>
+			{
+<span class="nc" id="L383">				return LanguageBundle.getFormattedString(&quot;in_source_gamemode&quot;, gameMode.get().getDisplayName());</span>
+			}
+<span class="nc" id="L385">			return &quot;&quot;;</span>
+		}
+
+		@Override
+		public ListFacade&lt;Campaign&gt; getCampaigns()
+		{
+<span class="nc" id="L391">			return campaignModel;</span>
+		}
+
+		@Override
+		public ReferenceFacade&lt;GameMode&gt; getGameMode()
+		{
+<span class="nc" id="L397">			return gameMode;</span>
+		}
+
+	}
+
+	private static final class CustomSourceSelectionFacade implements SourceSelectionFacade
+	{
+
+		private final PropertyContext context;
+		private final String name;
+<span class="nc" id="L407">		private LoadingState loadingState = LoadingState.LOADED;</span>
+<span class="nc" id="L408">		private String errorMessage = null;</span>
+
+		private CustomSourceSelectionFacade(String name)
+<span class="nc" id="L411">		{</span>
+<span class="nc" id="L412">			this.name = name;</span>
+<span class="nc" id="L413">			this.context = FacadeFactory.SOURCES_CONTEXT.createChildContext(name);</span>
+<span class="nc" id="L414">		}</span>
+
+<span class="nc" id="L416">		private final WriteableReferenceFacade&lt;GameMode&gt; gameMode = new DefaultReferenceFacade&lt;&gt;();</span>
+<span class="nc" id="L417">		private final DefaultListFacade&lt;Campaign&gt; campaigns = new DefaultListFacade&lt;&gt;();</span>
+
+		@Override
+		public boolean isModifiable()
+		{
+<span class="nc" id="L422">			return true;</span>
+		}
+
+		@Override
+		public void setCampaigns(List&lt;Campaign&gt; campaign)
+		{
+<span class="nc" id="L428">			campaigns.setContents(campaign);</span>
+<span class="nc" id="L429">			var camps = campaign.stream()</span>
+<span class="nc" id="L430">					.map(CDOMObject::getKeyName)</span>
+<span class="nc" id="L431">					.toList();</span>
+<span class="nc" id="L432">			context.setStringList(&quot;campaigns&quot;, camps);</span>
+<span class="nc" id="L433">		}</span>
+
+		@Override
+		public void setGameMode(GameMode gameMode)
+		{
+<span class="nc" id="L438">			this.gameMode.set(gameMode);</span>
+<span class="nc" id="L439">			context.setProperty(&quot;gamemode&quot;, gameMode.getName());</span>
+<span class="nc" id="L440">		}</span>
+
+		@Override
+		public String toString()
+		{
+<span class="nc" id="L445">			return name;</span>
+		}
+
+		@Override
+		public LoadingState getLoadingState()
+		{
+<span class="nc" id="L451">			return loadingState;</span>
+		}
+
+		@Override
+		public String getLoadingErrorMessage()
+		{
+<span class="nc" id="L457">			return errorMessage;</span>
+		}
+
+		private void setLoadingState(LoadingState loadingState)
+		{
+<span class="nc" id="L462">			this.loadingState = loadingState;</span>
+<span class="nc" id="L463">		}</span>
+
+		private void setErrorMessage(String errorMessage)
+		{
+<span class="nc" id="L467">			this.errorMessage = errorMessage;</span>
+<span class="nc" id="L468">		}</span>
+
+		@Override
+		public ListFacade&lt;Campaign&gt; getCampaigns()
+		{
+<span class="nc" id="L473">			return campaigns;</span>
+		}
+
+		@Override
+		public ReferenceFacade&lt;GameMode&gt; getGameMode()
+		{
+<span class="nc" id="L479">			return gameMode;</span>
+		}
+
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RuleCheck.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.core</a> &gt; <span class="el_source">RuleCheck.java</span></div><h1>RuleCheck.java</h1><pre class="source lang-java linenums">/*
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.core;
+
+import java.net.URI;
+
+import pcgen.cdom.base.Loadable;
+import pcgen.cdom.reference.CDOMSingleRef;
+
+<span class="fc" id="L23">public final class RuleCheck implements Loadable</span>
+{
+	private String ruleName;
+	private String ruleKey;
+<span class="fc" id="L27">	private String ruleDescription = &quot;&quot;;</span>
+<span class="fc" id="L28">	private String parm = &quot;&quot;;</span>
+<span class="fc" id="L29">	private String var = &quot;&quot;;</span>
+	private CDOMSingleRef&lt;RuleCheck&gt; excludeKey;
+<span class="fc" id="L31">	private boolean isEnabledByDefault = false;</span>
+	private URI sourceURI;
+
+	@Override
+	public URI getSourceURI()
+	{
+<span class="nc" id="L37">		return sourceURI;</span>
+	}
+
+	@Override
+	public void setSourceURI(URI source)
+	{
+<span class="nc" id="L43">		sourceURI = source;</span>
+<span class="nc" id="L44">	}</span>
+
+	@Override
+	public boolean isInternal()
+	{
+<span class="nc" id="L49">		return false;</span>
+	}
+
+	@Override
+	public boolean isType(String type)
+	{
+<span class="nc" id="L55">		return false;</span>
+	}
+
+	public void setDefault(Boolean set)
+	{
+<span class="nc" id="L60">		isEnabledByDefault = set;</span>
+<span class="nc" id="L61">	}</span>
+
+	public boolean getDefault()
+	{
+<span class="nc" id="L65">		return isEnabledByDefault;</span>
+	}
+
+	public void setDesc(String description)
+	{
+<span class="nc" id="L70">		ruleDescription = description;</span>
+<span class="nc" id="L71">	}</span>
+
+	public String getDesc()
+	{
+<span class="nc" id="L75">		return ruleDescription;</span>
+	}
+
+	public void setExclude(CDOMSingleRef&lt;RuleCheck&gt; ref)
+	{
+<span class="nc" id="L80">		excludeKey = ref;</span>
+<span class="nc" id="L81">	}</span>
+
+	public boolean isExclude()
+	{
+<span class="nc bnc" id="L85" title="All 2 branches missed.">		return (excludeKey != null);</span>
+	}
+
+	public CDOMSingleRef&lt;RuleCheck&gt; getExclude()
+	{
+<span class="nc" id="L90">		return excludeKey;</span>
+	}
+
+	/**
+	 * Returns the unique key for this Rule
+	 * 
+	 * @return key
+	 */
+	@Override
+	public String getKeyName()
+	{
+<span class="nc" id="L101">		return ruleKey;</span>
+	}
+
+	/**
+	 * Sets the Name (and key if not already set)
+	 * 
+	 * @param name
+	 *            set name to
+	 */
+	@Override
+	public void setName(String name)
+	{
+<span class="nc" id="L113">		ruleName = name;</span>
+
+<span class="nc bnc" id="L115" title="All 2 branches missed.">		if (ruleKey == null)</span>
+		{
+<span class="nc" id="L117">			ruleKey = name;</span>
+		}
+<span class="nc" id="L119">	}</span>
+
+	@Override
+	public String getDisplayName()
+	{
+<span class="nc" id="L124">		return ruleName;</span>
+	}
+
+	public String getName()
+	{
+<span class="nc" id="L129">		return ruleName;</span>
+	}
+
+	/**
+	 * @param aString
+	 *            set parm, key and var to
+	 */
+	public void setParameter(final String aString)
+	{
+<span class="nc" id="L138">		parm = aString;</span>
+
+<span class="nc bnc" id="L140" title="All 2 branches missed.">		if (var.length() &lt;= 0)</span>
+		{
+<span class="nc" id="L142">			var = aString;</span>
+		}
+<span class="nc" id="L144">	}</span>
+
+	public String getParameter()
+	{
+<span class="nc" id="L148">		return parm;</span>
+	}
+
+	/**
+	 * @param aString
+	 *            set key and var to
+	 */
+	public void setVariable(final String aString)
+	{
+<span class="nc" id="L157">		var = aString;</span>
+<span class="nc" id="L158">	}</span>
+
+	public String getVariable()
+	{
+<span class="nc" id="L162">		return var;</span>
+	}
+
+	public void setKeyName(String key)
+	{
+<span class="nc" id="L167">		ruleKey = key;</span>
+<span class="nc" id="L168">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

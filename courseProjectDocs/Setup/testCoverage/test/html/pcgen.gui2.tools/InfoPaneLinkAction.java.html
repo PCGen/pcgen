@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>InfoPaneLinkAction.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.gui2.tools</a> &gt; <span class="el_source">InfoPaneLinkAction.java</span></div><h1>InfoPaneLinkAction.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2013 (C) James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ *
+ */
+package pcgen.gui2.tools;
+
+import java.io.IOException;
+import java.net.URISyntaxException;
+
+import javax.swing.event.HyperlinkEvent;
+import javax.swing.event.HyperlinkListener;
+
+import pcgen.cdom.base.Constants;
+import pcgen.core.utils.MessageType;
+import pcgen.core.utils.ShowMessageDelegate;
+import pcgen.system.LanguageBundle;
+import pcgen.util.Logging;
+
+/**
+ * The Class {@code InfoPaneLinkAction} acts on the user clicking on hyperlinks
+ * in an info pane such as the source info pane.
+ * 
+ */
+public class InfoPaneLinkAction implements HyperlinkListener
+{
+
+	private InfoPane infoPane;
+
+	/**
+	 * Create a new instance.
+	 * @param infoPane the infopane that this will listen to
+	 */
+	public InfoPaneLinkAction(InfoPane infoPane)
+<span class="nc" id="L49">	{</span>
+<span class="nc" id="L50">		this.infoPane = infoPane;</span>
+<span class="nc" id="L51">	}</span>
+
+	/**
+	 * Attach the handler to the on-screen field. 
+	 */
+	public void install()
+	{
+<span class="nc" id="L58">		infoPane.addHyperlinkListener(this);</span>
+<span class="nc" id="L59">	}</span>
+
+	/**
+	 * Detach the handler from the on-screen field. 
+	 */
+	public void uninstall()
+	{
+<span class="nc" id="L66">		infoPane.removeHyperlinkListener(this);</span>
+<span class="nc" id="L67">	}</span>
+
+	@Override
+	public void hyperlinkUpdate(HyperlinkEvent e)
+	{
+<span class="nc bnc" id="L72" title="All 2 branches missed.">		if (e.getEventType() == HyperlinkEvent.EventType.ACTIVATED)</span>
+		{
+			try
+			{
+<span class="nc" id="L76">				DesktopBrowserLauncher.viewInBrowser(e.getURL().toURI());</span>
+			}
+<span class="nc" id="L78">			catch (IOException | URISyntaxException e1)</span>
+			{
+<span class="nc" id="L80">				Logging.errorPrint(&quot;Failed to open URL &quot; //$NON-NLS-1$</span>
+<span class="nc" id="L81">					+ e.getURL() + &quot; due to &quot;, e1); //$NON-NLS-1$</span>
+<span class="nc" id="L82">				ShowMessageDelegate.showMessageDialog(</span>
+<span class="nc" id="L83">					LanguageBundle.getFormattedString(&quot;in_Src_browser&quot;, e //$NON-NLS-1$</span>
+<span class="nc" id="L84">					.getURL().toString()), Constants.APPLICATION_NAME, MessageType.ERROR);</span>
+<span class="nc" id="L85">			}</span>
+		}
+<span class="nc" id="L87">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

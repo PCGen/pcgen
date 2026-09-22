@@ -1,0 +1,554 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TemplateInfoTab.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.gui2.tabs</a> &gt; <span class="el_source">TemplateInfoTab.java</span></div><h1>TemplateInfoTab.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2010 (C) Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ * 
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ * 
+ */
+package pcgen.gui2.tabs;
+
+import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
+import javax.swing.AbstractAction;
+import javax.swing.Box;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+
+import pcgen.core.PCTemplate;
+import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.core.InfoFactory;
+import pcgen.facade.util.DefaultListFacade;
+import pcgen.facade.util.ListFacade;
+import pcgen.facade.util.event.ListEvent;
+import pcgen.facade.util.event.ListListener;
+import pcgen.gui2.filter.Filter;
+import pcgen.gui2.filter.FilterBar;
+import pcgen.gui2.filter.FilterButton;
+import pcgen.gui2.filter.FilteredListFacade;
+import pcgen.gui2.filter.FilteredTreeViewTable;
+import pcgen.gui2.filter.SearchFilterPanel;
+import pcgen.gui2.tabs.models.CharacterTreeCellRenderer.Handler;
+import pcgen.gui2.tabs.models.QualifiedTreeCellRenderer;
+import pcgen.gui2.tools.FlippingSplitPane;
+import pcgen.gui2.tools.Icons;
+import pcgen.gui2.tools.InfoPane;
+import pcgen.gui2.util.treeview.CachedDataView;
+import pcgen.gui2.util.treeview.DataView;
+import pcgen.gui2.util.treeview.DataViewColumn;
+import pcgen.gui2.util.treeview.DefaultDataViewColumn;
+import pcgen.gui2.util.treeview.TreeView;
+import pcgen.gui2.util.treeview.TreeViewModel;
+import pcgen.gui2.util.treeview.TreeViewPath;
+import pcgen.system.LanguageBundle;
+import pcgen.util.enumeration.Tab;
+
+/**
+ * This component allows the user to manage a character's templates.
+ */
+public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoTab
+{
+
+<span class="nc" id="L71">	private final TabTitle tabTitle = new TabTitle(Tab.TEMPLATES);</span>
+	private final FilteredTreeViewTable&lt;CharacterFacade, PCTemplate&gt; availableTable;
+	private final FilteredTreeViewTable&lt;CharacterFacade, PCTemplate&gt; selectedTable;
+	private final JButton addButton;
+	private final JButton removeButton;
+	private final InfoPane infoPane;
+	private final FilterButton&lt;CharacterFacade, PCTemplate&gt; qFilterButton;
+	private final QualifiedTreeCellRenderer qualifiedRenderer;
+
+	public TemplateInfoTab()
+<span class="nc" id="L81">	{</span>
+<span class="nc" id="L82">		this.availableTable = new FilteredTreeViewTable&lt;&gt;();</span>
+<span class="nc" id="L83">		this.selectedTable = new FilteredTreeViewTable&lt;&gt;();</span>
+<span class="nc" id="L84">		this.addButton = new JButton();</span>
+<span class="nc" id="L85">		this.removeButton = new JButton();</span>
+<span class="nc" id="L86">		this.infoPane = new InfoPane(&quot;in_irTemplateInfo&quot;); //$NON-NLS-1$</span>
+<span class="nc" id="L87">		this.qFilterButton = new FilterButton&lt;&gt;(&quot;TemplateQualified&quot;);</span>
+<span class="nc" id="L88">		this.qualifiedRenderer = new QualifiedTreeCellRenderer();</span>
+<span class="nc" id="L89">		initComponents();</span>
+<span class="nc" id="L90">	}</span>
+
+	private void initComponents()
+	{
+<span class="nc" id="L94">		FlippingSplitPane topPane = new FlippingSplitPane();</span>
+<span class="nc" id="L95">		setTopComponent(topPane);</span>
+<span class="nc" id="L96">		setOrientation(VERTICAL_SPLIT);</span>
+
+<span class="nc" id="L98">		JPanel availPanel = new JPanel(new BorderLayout());</span>
+<span class="nc" id="L99">		FilterBar&lt;CharacterFacade, PCTemplate&gt; bar = new FilterBar&lt;&gt;();</span>
+<span class="nc" id="L100">		bar.addDisplayableFilter(new SearchFilterPanel());</span>
+<span class="nc" id="L101">		qFilterButton.setText(LanguageBundle.getString(&quot;in_igQualFilter&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L102">		bar.addDisplayableFilter(qFilterButton);</span>
+<span class="nc" id="L103">		availPanel.add(bar, BorderLayout.NORTH);</span>
+
+<span class="nc" id="L105">		availableTable.setDisplayableFilter(bar);</span>
+<span class="nc" id="L106">		availableTable.setTreeCellRenderer(qualifiedRenderer);</span>
+<span class="nc" id="L107">		availPanel.add(new JScrollPane(availableTable), BorderLayout.CENTER);</span>
+
+<span class="nc" id="L109">		Box box = Box.createHorizontalBox();</span>
+<span class="nc" id="L110">		box.add(Box.createHorizontalGlue());</span>
+<span class="nc" id="L111">		addButton.setHorizontalTextPosition(SwingConstants.LEADING);</span>
+<span class="nc" id="L112">		box.add(addButton);</span>
+<span class="nc" id="L113">		box.add(Box.createHorizontalStrut(5));</span>
+<span class="nc" id="L114">		box.setBorder(new EmptyBorder(0, 0, 5, 0));</span>
+<span class="nc" id="L115">		availPanel.add(box, BorderLayout.SOUTH);</span>
+
+<span class="nc" id="L117">		topPane.setLeftComponent(availPanel);</span>
+
+<span class="nc" id="L119">		JPanel selPanel = new JPanel(new BorderLayout());</span>
+<span class="nc" id="L120">		FilterBar&lt;CharacterFacade, PCTemplate&gt; filterBar = new FilterBar&lt;&gt;();</span>
+<span class="nc" id="L121">		filterBar.addDisplayableFilter(new SearchFilterPanel());</span>
+
+<span class="nc" id="L123">		selectedTable.setDisplayableFilter(filterBar);</span>
+<span class="nc" id="L124">		selectedTable.setTreeCellRenderer(qualifiedRenderer);</span>
+<span class="nc" id="L125">		selPanel.add(new JScrollPane(selectedTable), BorderLayout.CENTER);</span>
+
+<span class="nc" id="L127">		box = Box.createHorizontalBox();</span>
+<span class="nc" id="L128">		box.add(Box.createHorizontalStrut(5));</span>
+<span class="nc" id="L129">		box.add(removeButton);</span>
+<span class="nc" id="L130">		box.add(Box.createHorizontalGlue());</span>
+<span class="nc" id="L131">		box.setBorder(new EmptyBorder(0, 0, 5, 0));</span>
+<span class="nc" id="L132">		selPanel.add(box, BorderLayout.SOUTH);</span>
+
+<span class="nc" id="L134">		topPane.setRightComponent(selPanel);</span>
+<span class="nc" id="L135">		setBottomComponent(infoPane);</span>
+<span class="nc" id="L136">		setResizeWeight(0.75);</span>
+<span class="nc" id="L137">	}</span>
+
+	@Override
+	public ModelMap createModels(CharacterFacade character)
+	{
+<span class="nc" id="L142">		ModelMap models = new ModelMap();</span>
+<span class="nc" id="L143">		models.put(TreeViewModelHandler.class, new TreeViewModelHandler(character));</span>
+<span class="nc" id="L144">		models.put(InfoHandler.class, new InfoHandler(character));</span>
+<span class="nc" id="L145">		models.put(AddAction.class, new AddAction(character));</span>
+<span class="nc" id="L146">		models.put(RemoveAction.class, new RemoveAction(character));</span>
+<span class="nc" id="L147">		models.put(Handler.class, qualifiedRenderer.createHandler(character));</span>
+<span class="nc" id="L148">		models.put(QualifiedFilterHandler.class, new QualifiedFilterHandler(character));</span>
+<span class="nc" id="L149">		return models;</span>
+	}
+
+	@Override
+	public void restoreModels(ModelMap models)
+	{
+<span class="nc" id="L155">		models.get(QualifiedFilterHandler.class).install();</span>
+<span class="nc" id="L156">		models.get(Handler.class).install();</span>
+<span class="nc" id="L157">		models.get(TreeViewModelHandler.class).install();</span>
+<span class="nc" id="L158">		models.get(InfoHandler.class).install();</span>
+<span class="nc" id="L159">		models.get(AddAction.class).install();</span>
+<span class="nc" id="L160">		models.get(RemoveAction.class).install();</span>
+<span class="nc" id="L161">	}</span>
+
+	@Override
+	public void storeModels(ModelMap models)
+	{
+<span class="nc" id="L166">		models.get(TreeViewModelHandler.class).uninstall();</span>
+<span class="nc" id="L167">		models.get(InfoHandler.class).uninstall();</span>
+<span class="nc" id="L168">		models.get(AddAction.class).uninstall();</span>
+<span class="nc" id="L169">		models.get(RemoveAction.class).uninstall();</span>
+<span class="nc" id="L170">		models.get(Handler.class).uninstall();</span>
+<span class="nc" id="L171">	}</span>
+
+	@Override
+	public TabTitle getTabTitle()
+	{
+<span class="nc" id="L176">		return tabTitle;</span>
+	}
+
+	private class InfoHandler implements ListSelectionListener
+	{
+
+		private final CharacterFacade character;
+		private String text;
+
+		InfoHandler(CharacterFacade character)
+<span class="nc" id="L186">		{</span>
+<span class="nc" id="L187">			this.character = character;</span>
+<span class="nc" id="L188">			this.text = &quot;&quot;; //$NON-NLS-1$</span>
+<span class="nc" id="L189">		}</span>
+
+		void install()
+		{
+<span class="nc" id="L193">			availableTable.getSelectionModel().addListSelectionListener(this);</span>
+<span class="nc" id="L194">			selectedTable.getSelectionModel().addListSelectionListener(this);</span>
+<span class="nc" id="L195">			infoPane.setText(text);</span>
+<span class="nc" id="L196">		}</span>
+
+		void uninstall()
+		{
+<span class="nc" id="L200">			availableTable.getSelectionModel().removeListSelectionListener(this);</span>
+<span class="nc" id="L201">			selectedTable.getSelectionModel().removeListSelectionListener(this);</span>
+<span class="nc" id="L202">		}</span>
+
+		@Override
+		public void valueChanged(ListSelectionEvent e)
+		{
+<span class="nc bnc" id="L207" title="All 2 branches missed.">			if (!e.getValueIsAdjusting())</span>
+			{
+<span class="nc" id="L209">				Object obj = null;</span>
+<span class="nc bnc" id="L210" title="All 2 branches missed.">				if (e.getSource() == availableTable.getSelectionModel())</span>
+				{
+<span class="nc" id="L212">					int selectedRow = availableTable.getSelectedRow();</span>
+<span class="nc bnc" id="L213" title="All 2 branches missed.">					if (selectedRow != -1)</span>
+					{
+<span class="nc" id="L215">						obj = availableTable.getModel().getValueAt(selectedRow, 0);</span>
+					}
+<span class="nc" id="L217">				}</span>
+				else
+				{
+<span class="nc" id="L220">					int selectedRow = selectedTable.getSelectedRow();</span>
+<span class="nc bnc" id="L221" title="All 2 branches missed.">					if (selectedRow != -1)</span>
+					{
+<span class="nc" id="L223">						obj = selectedTable.getModel().getValueAt(selectedRow, 0);</span>
+					}
+				}
+<span class="nc bnc" id="L226" title="All 2 branches missed.">				if (obj instanceof PCTemplate)</span>
+				{
+<span class="nc" id="L228">					text = character.getInfoFactory().getHTMLInfo((PCTemplate) obj);</span>
+<span class="nc" id="L229">					infoPane.setText(text);</span>
+				}
+			}
+<span class="nc" id="L232">		}</span>
+
+	}
+
+	private class AddAction extends AbstractAction
+	{
+
+		private final CharacterFacade character;
+
+		AddAction(CharacterFacade character)
+<span class="nc" id="L242">		{</span>
+<span class="nc" id="L243">			super(LanguageBundle.getString(&quot;in_irAddTemplate&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L244">			this.character = character;</span>
+<span class="nc" id="L245">			putValue(SMALL_ICON, Icons.Forward16.getImageIcon());</span>
+<span class="nc" id="L246">		}</span>
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+<span class="nc" id="L251">			List&lt;Object&gt; data = availableTable.getSelectedData();</span>
+<span class="nc bnc" id="L252" title="All 2 branches missed.">			for (Object object : data)</span>
+			{
+<span class="nc bnc" id="L254" title="All 2 branches missed.">				if (object instanceof PCTemplate)</span>
+				{
+<span class="nc" id="L256">					character.addTemplate((PCTemplate) object);</span>
+<span class="nc" id="L257">					return;</span>
+				}
+<span class="nc" id="L259">			}</span>
+<span class="nc" id="L260">		}</span>
+
+		void install()
+		{
+<span class="nc" id="L264">			availableTable.addActionListener(this);</span>
+<span class="nc" id="L265">			addButton.setAction(this);</span>
+<span class="nc" id="L266">		}</span>
+
+		void uninstall()
+		{
+<span class="nc" id="L270">			availableTable.removeActionListener(this);</span>
+<span class="nc" id="L271">		}</span>
+
+	}
+
+	private class RemoveAction extends AbstractAction
+	{
+
+		private final CharacterFacade character;
+
+		RemoveAction(CharacterFacade character)
+<span class="nc" id="L281">		{</span>
+<span class="nc" id="L282">			super(LanguageBundle.getString(&quot;in_irRemoveTemplate&quot;)); //$NON-NLS-1$</span>
+<span class="nc" id="L283">			this.character = character;</span>
+<span class="nc" id="L284">			putValue(SMALL_ICON, Icons.Back16.getImageIcon());</span>
+<span class="nc" id="L285">		}</span>
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+<span class="nc" id="L290">			List&lt;Object&gt; data = selectedTable.getSelectedData();</span>
+<span class="nc bnc" id="L291" title="All 2 branches missed.">			for (Object object : data)</span>
+			{
+<span class="nc bnc" id="L293" title="All 2 branches missed.">				if (object instanceof PCTemplate)</span>
+				{
+<span class="nc" id="L295">					character.removeTemplate((PCTemplate) object);</span>
+<span class="nc" id="L296">					return;</span>
+				}
+<span class="nc" id="L298">			}</span>
+<span class="nc" id="L299">		}</span>
+
+		void install()
+		{
+<span class="nc" id="L303">			selectedTable.addActionListener(this);</span>
+<span class="nc" id="L304">			removeButton.setAction(this);</span>
+<span class="nc" id="L305">		}</span>
+
+		void uninstall()
+		{
+<span class="nc" id="L309">			selectedTable.removeActionListener(this);</span>
+<span class="nc" id="L310">		}</span>
+
+	}
+
+	private class QualifiedFilterHandler
+	{
+
+<span class="nc" id="L317">		private final Filter&lt;CharacterFacade, PCTemplate&gt; qFilter = new Filter&lt;&gt;()</span>
+<span class="nc" id="L318">		{</span>
+			@Override
+			public boolean accept(CharacterFacade context, PCTemplate element)
+			{
+<span class="nc" id="L322">				return character.isQualifiedFor(element);</span>
+			}
+
+		};
+		private final CharacterFacade character;
+
+		QualifiedFilterHandler(CharacterFacade character)
+<span class="nc" id="L329">		{</span>
+<span class="nc" id="L330">			this.character = character;</span>
+<span class="nc" id="L331">		}</span>
+
+		void install()
+		{
+<span class="nc" id="L335">			qFilterButton.setFilter(qFilter);</span>
+<span class="nc" id="L336">		}</span>
+
+	}
+
+	private class TreeViewModelHandler
+	{
+
+		private final TemplateDataView availDataView;
+		private final TemplateDataView selDataView;
+		private final TemplateTreeViewModel availTreeView;
+		private final TemplateTreeViewModel selTreeView;
+
+		TreeViewModelHandler(CharacterFacade character)
+<span class="nc" id="L349">		{</span>
+<span class="nc" id="L350">			availDataView = new TemplateDataView(character, true);</span>
+<span class="nc" id="L351">			selDataView = new TemplateDataView(character, false);</span>
+<span class="nc" id="L352">			availTreeView = new TemplateTreeViewModel(character, true, availDataView);</span>
+<span class="nc" id="L353">			selTreeView = new TemplateTreeViewModel(character, false, selDataView);</span>
+<span class="nc" id="L354">		}</span>
+
+		void install()
+		{
+<span class="nc" id="L358">			availableTable.setTreeViewModel(availTreeView);</span>
+<span class="nc" id="L359">			selectedTable.setTreeViewModel(selTreeView);</span>
+<span class="nc" id="L360">		}</span>
+
+		void uninstall()
+		{
+<span class="nc" id="L364">		}</span>
+	}
+
+	private static class TemplateDataView extends CachedDataView&lt;PCTemplate&gt;
+	{
+
+		private final List&lt;DefaultDataViewColumn&gt; columns;
+		private final InfoFactory infoFactory;
+		private final boolean isAvailModel;
+
+		TemplateDataView(CharacterFacade character, boolean isAvailModel)
+<span class="nc" id="L375">		{</span>
+<span class="nc" id="L376">			this.infoFactory = character.getInfoFactory();</span>
+<span class="nc" id="L377">			this.isAvailModel = isAvailModel;</span>
+<span class="nc bnc" id="L378" title="All 2 branches missed.">			if (isAvailModel)</span>
+			{
+<span class="nc" id="L380">				columns = Arrays.asList(new DefaultDataViewColumn(&quot;in_lvlAdj&quot;, String.class, true), //$NON-NLS-1$</span>
+					new DefaultDataViewColumn(&quot;in_modifier&quot;, String.class, true), //$NON-NLS-1$
+					new DefaultDataViewColumn(&quot;in_preReqs&quot;, String.class, true), //$NON-NLS-1$
+					new DefaultDataViewColumn(&quot;in_descrip&quot;, String.class, false), //$NON-NLS-1$
+					new DefaultDataViewColumn(&quot;in_source&quot;, String.class, false)); //$NON-NLS-1$
+			}
+			else
+			{
+<span class="nc" id="L388">				columns = Arrays.asList(new DefaultDataViewColumn(&quot;in_lvlAdj&quot;, String.class, false), //$NON-NLS-1$</span>
+					new DefaultDataViewColumn(&quot;in_modifier&quot;, String.class, false), //$NON-NLS-1$
+					new DefaultDataViewColumn(&quot;in_preReqs&quot;, String.class, false), //$NON-NLS-1$
+					new DefaultDataViewColumn(&quot;in_descrip&quot;, String.class, false), //$NON-NLS-1$
+					new DefaultDataViewColumn(&quot;in_source&quot;, String.class, false)); //$NON-NLS-1$
+			}
+<span class="nc" id="L394">		}</span>
+
+		@Override
+		public List&lt;? extends DataViewColumn&gt; getDataColumns()
+		{
+<span class="nc" id="L399">			return columns;</span>
+		}
+
+		@Override
+		public String getPrefsKey()
+		{
+<span class="nc bnc" id="L405" title="All 2 branches missed.">			return isAvailModel ? &quot;TemplateTreeAvail&quot; : &quot;TemplateTreeSelected&quot;; //$NON-NLS-1$//$NON-NLS-2$</span>
+		}
+
+		@Override
+		public Object getDataInternal(PCTemplate obj, int column)
+		{
+<span class="nc bnc" id="L411" title="All 6 branches missed.">			return switch (column)</span>
+					{
+<span class="nc" id="L413">						case 0 -&gt; infoFactory.getLevelAdjustment(obj);</span>
+<span class="nc" id="L414">						case 1 -&gt; infoFactory.getModifier(obj);</span>
+<span class="nc" id="L415">						case 2 -&gt; infoFactory.getPreReqHTML(obj);</span>
+<span class="nc" id="L416">						case 3 -&gt; infoFactory.getDescription(obj);</span>
+<span class="nc" id="L417">						case 4 -&gt; obj.getSource();</span>
+<span class="nc" id="L418">						default -&gt; null;</span>
+					};
+		}
+
+	}
+
+	private static class TemplateTreeViewModel implements TreeViewModel&lt;PCTemplate&gt;,
+			Filter&lt;CharacterFacade, PCTemplate&gt;, ListListener&lt;PCTemplate&gt;
+	{
+
+<span class="nc" id="L428">		private static final DefaultListFacade&lt;? extends TreeView&lt;PCTemplate&gt;&gt; TREE_VIEWS =</span>
+<span class="nc" id="L429">				new DefaultListFacade&lt;&gt;(Arrays.asList(TemplateTreeView.values()));</span>
+		private final CharacterFacade character;
+		private final boolean isAvailModel;
+		private final TemplateDataView dataView;
+		private final FilteredListFacade&lt;CharacterFacade, PCTemplate&gt; templates;
+
+		TemplateTreeViewModel(CharacterFacade character, boolean isAvailModel, TemplateDataView dataView)
+<span class="nc" id="L436">		{</span>
+<span class="nc" id="L437">			this.character = character;</span>
+<span class="nc" id="L438">			this.isAvailModel = isAvailModel;</span>
+<span class="nc" id="L439">			this.dataView = dataView;</span>
+<span class="nc bnc" id="L440" title="All 2 branches missed.">			if (isAvailModel)</span>
+			{
+<span class="nc" id="L442">				templates = new FilteredListFacade&lt;&gt;();</span>
+<span class="nc" id="L443">				templates.setContext(character);</span>
+<span class="nc" id="L444">				templates.setFilter(this);</span>
+<span class="nc" id="L445">				templates.setDelegate(character.getDataSet().getTemplates());</span>
+<span class="nc" id="L446">				character.getTemplates().addListListener(this);</span>
+			}
+			else
+			{
+<span class="nc" id="L450">				templates = null;</span>
+			}
+<span class="nc" id="L452">		}</span>
+
+		@Override
+		public ListFacade&lt;? extends TreeView&lt;PCTemplate&gt;&gt; getTreeViews()
+		{
+<span class="nc" id="L457">			return TREE_VIEWS;</span>
+		}
+
+		@Override
+		public int getDefaultTreeViewIndex()
+		{
+<span class="nc" id="L463">			return 0;</span>
+		}
+
+		@Override
+		public DataView&lt;PCTemplate&gt; getDataView()
+		{
+<span class="nc" id="L469">			return dataView;</span>
+		}
+
+		@Override
+		public ListFacade&lt;PCTemplate&gt; getDataModel()
+		{
+<span class="nc bnc" id="L475" title="All 2 branches missed.">			if (isAvailModel)</span>
+			{
+<span class="nc" id="L477">				return templates;</span>
+			}
+			else
+			{
+<span class="nc" id="L481">				return character.getTemplates();</span>
+			}
+		}
+
+		@Override
+		public void elementAdded(ListEvent&lt;PCTemplate&gt; e)
+		{
+<span class="nc" id="L488">			templates.refilter();</span>
+<span class="nc" id="L489">		}</span>
+
+		@Override
+		public void elementRemoved(ListEvent&lt;PCTemplate&gt; e)
+		{
+<span class="nc" id="L494">			templates.refilter();</span>
+<span class="nc" id="L495">		}</span>
+
+		@Override
+		public void elementsChanged(ListEvent&lt;PCTemplate&gt; e)
+		{
+<span class="nc" id="L500">			templates.refilter();</span>
+<span class="nc" id="L501">		}</span>
+
+		@Override
+		public void elementModified(ListEvent&lt;PCTemplate&gt; e)
+		{
+<span class="nc" id="L506">			templates.refilter();</span>
+<span class="nc" id="L507">		}</span>
+
+		@Override
+		public boolean accept(CharacterFacade context, PCTemplate element)
+		{
+<span class="nc bnc" id="L512" title="All 2 branches missed.">			return !context.getTemplates().containsElement(element);</span>
+		}
+
+	}
+
+<span class="nc" id="L517">	private enum TemplateTreeView implements TreeView&lt;PCTemplate&gt;</span>
+	{
+
+<span class="nc" id="L520">		NAME(&quot;in_nameLabel&quot;), //$NON-NLS-1$</span>
+<span class="nc" id="L521">		TYPE_NAME(&quot;in_typeName&quot;), //$NON-NLS-1$</span>
+<span class="nc" id="L522">		SOURCE_NAME(&quot;in_sourceName&quot;); //$NON-NLS-1$</span>
+		private final String name;
+
+		private TemplateTreeView(String name)
+<span class="nc" id="L526">		{</span>
+<span class="nc" id="L527">			this.name = LanguageBundle.getString(name);</span>
+<span class="nc" id="L528">		}</span>
+
+		@Override
+		public String getViewName()
+		{
+<span class="nc" id="L533">			return name;</span>
+		}
+
+		@Override
+		public List&lt;TreeViewPath&lt;PCTemplate&gt;&gt; getPaths(PCTemplate pobj)
+		{
+<span class="nc bnc" id="L539" title="All 4 branches missed.">			return switch (this)</span>
+					{
+<span class="nc" id="L541">						case NAME -&gt; Collections.singletonList(new TreeViewPath&lt;&gt;(pobj));</span>
+<span class="nc" id="L542">						case TYPE_NAME -&gt; Collections.singletonList(new TreeViewPath&lt;&gt;(pobj, pobj.getType()));</span>
+<span class="nc" id="L543">						case SOURCE_NAME -&gt; Collections.singletonList(new TreeViewPath&lt;&gt;(</span>
+								pobj,
+<span class="nc" id="L545">								pobj.getSourceForNodeDisplay()</span>
+						));
+<span class="nc" id="L547">						default -&gt; throw new InternalError();</span>
+					};
+		}
+
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

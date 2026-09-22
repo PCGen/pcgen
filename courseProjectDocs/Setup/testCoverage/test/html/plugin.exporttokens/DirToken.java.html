@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DirToken.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.exporttokens</a> &gt; <span class="el_source">DirToken.java</span></div><h1>DirToken.java</h1><pre class="source lang-java linenums">/*
+ * DirToken.java
+ * Copyright 2003 (C) Devon Jones &lt;soulcatcher@evilsoft.org&gt;
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.     See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package plugin.exporttokens;
+
+import java.io.File;
+import java.util.StringTokenizer;
+
+import pcgen.core.SettingsHandler;
+import pcgen.core.display.CharacterDisplay;
+import pcgen.io.ExportHandler;
+import pcgen.io.exporttoken.AbstractExportToken;
+import pcgen.system.ConfigurationSettings;
+import pcgen.system.PCGenSettings;
+import pcgen.util.Logging;
+
+/**
+ * Handle the DirToken which allows the output of the various paths
+ * selected in preferences. Syntax is:
+ * DIR.PCGEN
+ * DIR.TEMPLATES
+ * DIR.PCG
+ * DIR.HTML
+ * DIR.TEMP
+ */
+<span class="nc" id="L41">public class DirToken extends AbstractExportToken</span>
+{
+	@Override
+	public String getTokenName()
+	{
+<span class="nc" id="L46">		return &quot;DIR&quot;;</span>
+	}
+
+	@Override
+	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
+	{
+		String retString;
+<span class="nc" id="L53">		StringTokenizer aTok = new StringTokenizer(tokenSource, &quot;.&quot;);</span>
+<span class="nc" id="L54">		aTok.nextToken();</span>
+
+<span class="nc" id="L56">		String dirType = &quot;&quot;;</span>
+
+<span class="nc bnc" id="L58" title="All 2 branches missed.">		if (aTok.hasMoreTokens())</span>
+		{
+<span class="nc" id="L60">			dirType = aTok.nextToken();</span>
+		}
+
+<span class="nc bnc" id="L63" title="All 2 branches missed.">		if (&quot;PCGEN&quot;.equals(dirType))</span>
+		{
+<span class="nc" id="L65">			retString = getPCGenToken();</span>
+		}
+<span class="nc bnc" id="L67" title="All 2 branches missed.">		else if (&quot;TEMPLATES&quot;.equals(dirType))</span>
+		{
+<span class="nc" id="L69">			retString = getTemplatesToken();</span>
+		}
+<span class="nc bnc" id="L71" title="All 2 branches missed.">		else if (&quot;PCG&quot;.equals(dirType))</span>
+		{
+<span class="nc" id="L73">			retString = getPcgToken();</span>
+		}
+<span class="nc bnc" id="L75" title="All 2 branches missed.">		else if (&quot;HTML&quot;.equals(dirType))</span>
+		{
+<span class="nc" id="L77">			retString = getHtmlToken();</span>
+		}
+<span class="nc bnc" id="L79" title="All 2 branches missed.">		else if (&quot;TEMP&quot;.equals(dirType))</span>
+		{
+<span class="nc" id="L81">			retString = getTempToken();</span>
+		}
+		else
+		{
+<span class="nc" id="L85">			Logging.errorPrint(&quot;DIR: Unknown Dir: &quot; + dirType);</span>
+<span class="nc" id="L86">			retString = dirType;</span>
+		}
+
+<span class="nc" id="L89">		return retString;</span>
+	}
+
+	/**
+	 * Get the HTML sub token
+	 * @return HTML sub token
+	 */
+	public static String getHtmlToken()
+	{
+<span class="nc" id="L98">		return SettingsHandler.getHTMLOutputSheetPath();</span>
+	}
+
+	/**
+	 * Get the PCGEN sub token
+	 * @return PCGEN sub token
+	 */
+	public static String getPCGenToken()
+	{
+<span class="nc" id="L107">		return new File(ConfigurationSettings.getSystemsDir()).getAbsolutePath();</span>
+	}
+
+	/**
+	 * Get the PCG sub token
+	 * @return PCG sub token
+	 */
+	public static String getPcgToken()
+	{
+<span class="nc" id="L116">		return new File(PCGenSettings.getPcgDir()).getAbsolutePath();</span>
+	}
+
+	/**
+	 * Get the TEMP sub token
+	 * @return TEMP sub token
+	 */
+	public static String getTempToken()
+	{
+<span class="nc" id="L125">		return SettingsHandler.getTempPath().getAbsolutePath();</span>
+	}
+
+	/**
+	 * Get the TEMPLATES sub token
+	 * @return TEMPLATES sub token
+	 */
+	public static String getTemplatesToken()
+	{
+<span class="nc" id="L134">		return new File(ConfigurationSettings.getOutputSheetsDir()).getAbsolutePath();</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

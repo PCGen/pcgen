@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PreSpellCastMemorizeTester.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">plugin.pretokens.test</a> &gt; <span class="el_source">PreSpellCastMemorizeTester.java</span></div><h1>PreSpellCastMemorizeTester.java</h1><pre class="source lang-java linenums">/*
+ * To change the template for this generated file go to
+ * Window - Preferences - Java - Code Generation - Code and Comments
+ */
+package plugin.pretokens.test;
+
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.core.PCClass;
+import pcgen.core.display.CharacterDisplay;
+import pcgen.core.prereq.AbstractDisplayPrereqTest;
+import pcgen.core.prereq.Prerequisite;
+import pcgen.system.LanguageBundle;
+
+/**
+ * To change the template for this generated type comment go to
+ * Window - Preferences - Java - Code Generation - Code and Comments
+ */
+<span class="nc" id="L19">public class PreSpellCastMemorizeTester extends AbstractDisplayPrereqTest</span>
+{
+
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String kindHandled()
+    {
+<span class="nc" id="L30">        return &quot;spellcast.memorize&quot;; //$NON-NLS-1$</span>
+    }
+
+    @Override
+    public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
+    {
+
+<span class="nc" id="L37">        final int requiredNumber = Integer.parseInt(prereq.getOperand());</span>
+<span class="nc" id="L38">        final boolean prereqMemorized = prereq.getKey().toUpperCase().startsWith(&quot;Y&quot;); //$NON-NLS-1$</span>
+<span class="nc" id="L39">        int runningTotal = 0;</span>
+
+<span class="nc bnc" id="L41" title="All 2 branches missed.">        for (PCClass aClass : display.getClassSet())</span>
+        {
+<span class="nc bnc" id="L43" title="All 2 branches missed.">            if (aClass.getSafe(ObjectKey.MEMORIZE_SPELLS) == prereqMemorized)</span>
+            {
+<span class="nc" id="L45">                runningTotal++;</span>
+            }
+<span class="nc" id="L47">        }</span>
+
+<span class="nc" id="L49">        runningTotal = prereq.getOperator().compare(runningTotal, requiredNumber);</span>
+<span class="nc" id="L50">        return countedTotal(prereq, runningTotal);</span>
+    }
+
+    @Override
+    public String toHtmlString(final Prerequisite prereq)
+    {
+<span class="nc" id="L56">        final boolean prereqMemorized = prereq.getKey().toUpperCase().startsWith(&quot;Y&quot;); //$NON-NLS-1$</span>
+<span class="nc" id="L57">        final Object[] args = {prereq.getOperator().toDisplayString(), prereq.getOperand()};</span>
+
+<span class="nc bnc" id="L59" title="All 2 branches missed.">        if (prereqMemorized)</span>
+        {
+<span class="nc" id="L61">            return LanguageBundle.getFormattedString(&quot;PreSpellCastMemorize.toHtml_does_memorise&quot;, args); //$NON-NLS-1$</span>
+        }
+<span class="nc" id="L63">        return LanguageBundle.getFormattedString(&quot;PreSpellCastMemorize.toHtml_does_not_memorise&quot;, args); //$NON-NLS-1$</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

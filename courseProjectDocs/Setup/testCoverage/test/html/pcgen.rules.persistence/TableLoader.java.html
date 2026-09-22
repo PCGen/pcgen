@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TableLoader.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.rules.persistence</a> &gt; <span class="el_source">TableLoader.java</span></div><h1>TableLoader.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2016 (C) Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.rules.persistence;
+
+import java.net.URI;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Pattern;
+
+import pcgen.base.text.ParsingSeparator;
+import pcgen.base.util.FormatManager;
+import pcgen.cdom.format.table.DataTable;
+import pcgen.cdom.format.table.TableColumn;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.LstLineFileLoader;
+import pcgen.rules.context.LoadContext;
+
+/**
+ * A TableLoader loads CSV-like files into Tables for PCGen.
+ * 
+ * The CSV files must conform to the CSV file format with some additional
+ * limitations. Embedded newlines are not permitted in quotes. This should
+ * generate an error from TableLoader.
+ */
+<span class="fc" id="L40">public class TableLoader extends LstLineFileLoader</span>
+{
+	/**
+	 * A pattern for empty lines. This helps the LineProcessors from having to
+	 * deal with this situation.
+	 */
+<span class="fc" id="L46">	private static Pattern EMPTY = Pattern.compile(&quot;^[\\s,\\\&quot;]+$&quot;);</span>
+
+	/**
+	 * The active LineProcessor used to interpret the contents of the next
+	 * loaded line in a Table file.
+	 */
+<span class="fc" id="L52">	private LineProcessor processor = new ExpectStartTable();</span>
+
+	@Override
+	public void loadLstString(LoadContext context, URI uri, String aString) throws PersistenceLayerException
+	{
+		//Reset to ensure prior file corruption doesn't leak into a new file
+<span class="fc" id="L58">		processor = new ExpectStartTable();</span>
+<span class="fc" id="L59">		super.loadLstString(context, uri, aString);</span>
+<span class="fc bfc" id="L60" title="All 2 branches covered.">		if (!(processor instanceof ExpectStartTable))</span>
+		{
+<span class="fc" id="L62">			throw new PersistenceLayerException(&quot;Did not find last ENDTABLE: entry in &quot; + uri);</span>
+		}
+<span class="fc" id="L64">	}</span>
+
+	@Override
+	public void parseLine(LoadContext context, String lstLine, URI sourceURI) throws PersistenceLayerException
+	{
+		//ignore comments
+<span class="pc bpc" id="L70" title="1 of 4 branches missed.">		if (lstLine.startsWith(&quot;#&quot;) || lstLine.startsWith(&quot;\&quot;#&quot;))</span>
+		{
+<span class="fc" id="L72">			return;</span>
+		}
+		//Empty line (commas, whitespace, empty quotes)
+<span class="fc bfc" id="L75" title="All 2 branches covered.">		if (EMPTY.matcher(lstLine).find())</span>
+		{
+<span class="fc" id="L77">			return;</span>
+		}
+<span class="fc" id="L79">		processor = processor.parseLine(context, lstLine, sourceURI);</span>
+<span class="fc" id="L80">	}</span>
+
+	/**
+	 * A LineProcessor interprets a line of a Table file and returns the
+	 * LineProcessor that should be responsible for interpreting the next line
+	 * of the file.
+	 * 
+	 * A LineProcessor is not expected to be able to understand/comprehend
+	 * either blank lines or comment lines. Both of those should be ignored
+	 * prior to the line being passed to a LineProcessor.
+	 */
+	@FunctionalInterface
+	public interface LineProcessor
+	{
+		/**
+		 * Processes the given line of a Table file (identified by the
+		 * sourceURI).
+		 * 
+		 * @param context
+		 *            The LoadContext to be used for interpretation of the Table
+		 *            file
+		 * @param lstLine
+		 *            The line of the Table file to be processed
+		 * @param sourceURI
+		 *            The URI indicating the file being processed
+		 * @return The LineProcessor that should be responsible for interpreting
+		 *         the next line of the file
+		 * @throws PersistenceLayerException
+		 *             if there is an error during the loading of the given line
+		 */
+		public LineProcessor parseLine(LoadContext context, String lstLine, URI sourceURI)
+			throws PersistenceLayerException;
+	}
+
+	/**
+	 * Unescapes a given entry. This performs whitespace padding removal both
+	 * before and after the removal of the optional escaping quotes available in
+	 * the CSV file format.
+	 * 
+	 * @param entry
+	 *            The entry to be unescaped into its base state
+	 * @return The unescaped entry (trimmed and with CSV quoting removed)
+	 */
+	private static String unescape(String entry)
+	{
+<span class="fc" id="L125">		String unescaped = entry.trim();</span>
+<span class="pc bpc" id="L126" title="1 of 4 branches missed.">		if (unescaped.startsWith(&quot;\&quot;&quot;) &amp;&amp; unescaped.endsWith(&quot;\&quot;&quot;))</span>
+		{
+<span class="fc" id="L128">			unescaped = unescaped.substring(1, unescaped.length() - 1);</span>
+<span class="fc" id="L129">			unescaped = unescaped.replace(&quot;\&quot;\&quot;&quot;, &quot;\&quot;&quot;);</span>
+		}
+<span class="fc" id="L131">		return unescaped.trim();</span>
+	}
+
+	/**
+	 * Ensures the rest of a given line is empty. This means the
+	 * ParsingSeparator should only return entries that trim to length zero
+	 * (after accounting for CSV escaping quotes)
+	 * 
+	 * @param line
+	 *            The line being processed (for debugging purposes only)
+	 * @param ps
+	 *            The ParsingSeparator that should only return &quot;blank&quot; entries
+	 * @throws PersistenceLayerException
+	 *             if there is any non-blank content returned by the
+	 *             ParsingSeparator
+	 */
+	private static void ensureEmpty(String line, ParsingSeparator ps) throws PersistenceLayerException
+	{
+<span class="fc bfc" id="L149" title="All 2 branches covered.">		while (ps.hasNext())</span>
+		{
+<span class="fc" id="L151">			String next = ps.next();</span>
+<span class="pc bpc" id="L152" title="1 of 4 branches missed.">			if ((!next.isEmpty()) &amp;&amp; (!unescape(next).isEmpty()))</span>
+			{
+<span class="fc" id="L154">				throw new PersistenceLayerException(&quot;Expected Rest of Line to be empty: &quot; + line);</span>
+			}
+<span class="fc" id="L156">		}</span>
+<span class="fc" id="L157">	}</span>
+
+	/**
+	 * Generates a new &quot;naive&quot; CSV separator. This is not formally CSV compliant
+	 * because it ignores &quot;embedded&quot; new lines. For purposes of PCGen this is
+	 * acceptable.
+	 * 
+	 * @param lstLine
+	 *            The line to be processed by a CSV-like ParsingSeparator
+	 * @return A ParsingSeparator for the given line
+	 */
+	private static ParsingSeparator generateCSVSeparator(String lstLine)
+	{
+<span class="fc" id="L170">		ParsingSeparator ps = new ParsingSeparator(lstLine, ',');</span>
+<span class="fc" id="L171">		ps.addGroupingPair('&quot;', '&quot;');</span>
+<span class="fc" id="L172">		return ps;</span>
+	}
+
+	/**
+	 * ExpectStartTable is the LineProcessor that waits for a &quot;STARTTABLE:&quot;
+	 * entry in a Table file. If any other content is encountered, a
+	 * PersistenceLayerException is thrown.
+	 */
+	private static class ExpectStartTable implements LineProcessor
+	{
+
+		@Override
+		public LineProcessor parseLine(LoadContext context, String lstLine, URI sourceURI)
+			throws PersistenceLayerException
+		{
+<span class="fc" id="L187">			ParsingSeparator ps = generateCSVSeparator(lstLine);</span>
+<span class="fc" id="L188">			String first = unescape(ps.next());</span>
+<span class="fc bfc" id="L189" title="All 2 branches covered.">			if (first.startsWith(&quot;STARTTABLE:&quot;))</span>
+			{
+<span class="fc" id="L191">				ensureEmpty(lstLine, ps);</span>
+<span class="fc" id="L192">				DataTable table =</span>
+<span class="fc" id="L193">						context.getReferenceContext().constructCDOMObject(DataTable.class, first.substring(11));</span>
+<span class="fc" id="L194">				return new ImportColumnNames(table);</span>
+			}
+<span class="fc" id="L196">			throw new PersistenceLayerException(</span>
+				&quot;Expected STARTTABLE: entry, but found: &quot; + lstLine + &quot; in &quot; + sourceURI);
+		}
+
+	}
+
+	/**
+	 * ImportColumnNames is the LineProcessor that reads in the column names in
+	 * a Table file.
+	 */
+	private static class ImportColumnNames implements LineProcessor
+	{
+
+		/**
+		 * The underlying Table to which the column names should be assigned
+		 */
+		private final DataTable t;
+
+		/**
+		 * Constructs a new ImportColumnNames with the given underlying Table.
+		 * 
+		 * @param table
+		 *            The underlying Table to which the column names should be
+		 *            assigned
+		 */
+		ImportColumnNames(DataTable table)
+<span class="fc" id="L222">		{</span>
+<span class="fc" id="L223">			t = table;</span>
+<span class="fc" id="L224">		}</span>
+
+		@Override
+		public LineProcessor parseLine(LoadContext context, String lstLine, URI sourceURI)
+			throws PersistenceLayerException
+		{
+<span class="fc" id="L230">			ParsingSeparator ps = generateCSVSeparator(lstLine);</span>
+<span class="fc" id="L231">			List&lt;String&gt; columnNames = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L232">			boolean first = true;</span>
+<span class="fc" id="L233">			boolean foundEmpty = false;</span>
+<span class="fc bfc" id="L234" title="All 2 branches covered.">			while (ps.hasNext())</span>
+			{
+<span class="fc" id="L236">				String columnName = unescape(ps.next());</span>
+<span class="fc bfc" id="L237" title="All 2 branches covered.">				if (columnName.isEmpty())</span>
+				{
+<span class="fc" id="L239">					foundEmpty = true;</span>
+<span class="fc" id="L240">					continue;</span>
+				}
+				//Once an empty item was reached, nothing later on can have content
+<span class="fc bfc" id="L243" title="All 2 branches covered.">				if (foundEmpty)</span>
+				{
+<span class="fc" id="L245">					throw new PersistenceLayerException(&quot;Encountered blank Column Name entry in &quot; + lstLine + &quot; for &quot;</span>
+<span class="fc" id="L246">						+ t.getDisplayName() + &quot; in &quot; + sourceURI);</span>
+				}
+<span class="fc bfc" id="L248" title="All 4 branches covered.">				if (first &amp;&amp; columnName.startsWith(&quot;STARTTABLE:&quot;))</span>
+				{
+<span class="fc" id="L250">					throw new PersistenceLayerException(</span>
+<span class="fc" id="L251">						&quot;Encountered STARTTABLE: entry while expecting Column Names for &quot; + t.getDisplayName() + &quot; in &quot;</span>
+							+ sourceURI);
+				}
+<span class="fc bfc" id="L254" title="All 4 branches covered.">				if (first &amp;&amp; columnName.startsWith(&quot;ENDTABLE:&quot;))</span>
+				{
+<span class="fc" id="L256">					throw new PersistenceLayerException(&quot;Encountered ENDTABLE: entry while expecting Column Names for &quot;</span>
+<span class="fc" id="L257">						+ t.getDisplayName() + &quot; in &quot; + sourceURI);</span>
+				}
+<span class="fc" id="L259">				columnNames.add(columnName);</span>
+<span class="fc" id="L260">				first = false;</span>
+<span class="fc" id="L261">			}</span>
+<span class="fc" id="L262">			return new ImportColumnFormats(t, columnNames);</span>
+		}
+
+	}
+
+	/**
+	 * ImportColumnFormats is the LineProcessor that reads in the column formats
+	 * in a Table file.
+	 * 
+	 * The number of Format lines in a table must match the number of column
+	 * names in the table.
+	 */
+	private static class ImportColumnFormats implements LineProcessor
+	{
+
+		/**
+		 * The underlying Table to which the formats should be assigned.
+		 */
+		private final DataTable t;
+
+		private final List&lt;String&gt; columnNames;
+
+		/**
+		 * Constructs a new ImportColumnFormats with the given underlying Table.
+		 * 
+		 * @param table
+		 *            The underlying Table to which the formats should be
+		 *            assigned
+		 * @param columnNames
+		 */
+		ImportColumnFormats(DataTable table, List&lt;String&gt; columnNames)
+<span class="fc" id="L293">		{</span>
+<span class="fc" id="L294">			t = table;</span>
+<span class="fc" id="L295">			this.columnNames = columnNames;</span>
+<span class="fc" id="L296">		}</span>
+
+		@Override
+		public LineProcessor parseLine(LoadContext context, String lstLine, URI sourceURI)
+			throws PersistenceLayerException
+		{
+<span class="fc" id="L302">			ParsingSeparator ps = generateCSVSeparator(lstLine);</span>
+<span class="fc" id="L303">			boolean first = true;</span>
+<span class="fc" id="L304">			boolean foundEmpty = false;</span>
+<span class="fc" id="L305">			int i = 0;</span>
+<span class="fc bfc" id="L306" title="All 2 branches covered.">			while (ps.hasNext())</span>
+			{
+<span class="fc" id="L308">				String formatName = unescape(ps.next());</span>
+<span class="fc bfc" id="L309" title="All 2 branches covered.">				if (formatName.isEmpty())</span>
+				{
+<span class="fc" id="L311">					foundEmpty = true;</span>
+<span class="fc" id="L312">					continue;</span>
+				}
+				//Once an empty item was reached, nothing later on can have content
+<span class="fc bfc" id="L315" title="All 2 branches covered.">				if (foundEmpty)</span>
+				{
+<span class="fc" id="L317">					throw new PersistenceLayerException(&quot;Encountered blank FORMAT entry in &quot; + lstLine + &quot; for &quot;</span>
+<span class="fc" id="L318">						+ t.getDisplayName() + &quot; in &quot; + sourceURI);</span>
+				}
+<span class="fc bfc" id="L320" title="All 4 branches covered.">				if (first &amp;&amp; formatName.startsWith(&quot;STARTTABLE:&quot;))</span>
+				{
+<span class="fc" id="L322">					throw new PersistenceLayerException(&quot;Encountered STARTTABLE: entry while expecting Formats for &quot;</span>
+<span class="fc" id="L323">						+ t.getDisplayName() + &quot; in &quot; + sourceURI);</span>
+				}
+<span class="pc bpc" id="L325" title="1 of 4 branches missed.">				if (first &amp;&amp; formatName.startsWith(&quot;ENDTABLE:&quot;))</span>
+				{
+<span class="nc" id="L327">					throw new PersistenceLayerException(&quot;Encountered ENDTABLE: entry while expecting Formats for &quot;</span>
+<span class="nc" id="L328">						+ t.getDisplayName() + &quot; in &quot; + sourceURI);</span>
+				}
+<span class="fc bfc" id="L330" title="All 2 branches covered.">				if (columnNames.size() &lt;= i)</span>
+				{
+<span class="fc" id="L332">					throw new PersistenceLayerException(&quot;Encountered FORMAT &quot; + i + &quot; but no such column was named for &quot;</span>
+<span class="fc" id="L333">						+ t.getDisplayName() + &quot; in &quot; + sourceURI);</span>
+				}
+<span class="fc" id="L335">				String name = columnNames.get(i++);</span>
+
+<span class="fc" id="L337">				TableColumn column = context.getReferenceContext().constructNowIfNecessary(TableColumn.class, name);</span>
+<span class="fc" id="L338">				FormatManager&lt;?&gt; format = context.getReferenceContext().getFormatManager(formatName);</span>
+<span class="fc bfc" id="L339" title="All 2 branches covered.">				if (column.getFormatManager() == null)</span>
+				{
+<span class="fc" id="L341">					column.setFormatManager(format);</span>
+<span class="fc" id="L342">					column.setSourceURI(sourceURI);</span>
+				}
+<span class="fc bfc" id="L344" title="All 2 branches covered.">				else if (!column.getFormatManager().equals(format))</span>
+				{
+<span class="fc" id="L346">					throw new PersistenceLayerException(&quot;Table column &quot; + name + &quot; in table &quot; + t.getDisplayName()</span>
+						+ &quot; in &quot; + sourceURI + &quot; had different format than previous column format: &quot; + format + &quot; in &quot;
+<span class="fc" id="L348">						+ column.getSourceURI());</span>
+				}
+
+<span class="fc" id="L351">				t.addColumn(column);</span>
+<span class="fc" id="L352">				first = false;</span>
+<span class="fc" id="L353">			}</span>
+<span class="fc bfc" id="L354" title="All 2 branches covered.">			if (t.getColumnCount() != columnNames.size())</span>
+			{
+<span class="fc" id="L356">				throw new PersistenceLayerException(&quot;Table &quot; + t.getDisplayName()</span>
+					+ &quot; had different quantity of column names and formats &quot; + &quot; in &quot; + sourceURI);
+			}
+<span class="fc" id="L359">			return new ImportData(t);</span>
+		}
+	}
+
+	/**
+	 * ImportData is the LineProcessor that reads in the row data in a Table
+	 * file. Each entry must conform to the format defined in the format row of
+	 * the Table. There may not be more columns in a data row than there were
+	 * formats.
+	 */
+	private static class ImportData implements LineProcessor
+	{
+
+		/**
+		 * The underlying Table to which the data will be loaded.
+		 */
+		private final DataTable t;
+
+		/**
+		 * Constructs a new ImportData with the given underlying Table.
+		 * 
+		 * @param table
+		 *            The underlying Table to which the data will be loaded
+		 */
+		ImportData(DataTable table)
+<span class="fc" id="L384">		{</span>
+<span class="fc" id="L385">			t = table;</span>
+<span class="fc" id="L386">		}</span>
+
+		@Override
+		public LineProcessor parseLine(LoadContext context, String lstLine, URI sourceURI)
+			throws PersistenceLayerException
+		{
+<span class="fc" id="L392">			ParsingSeparator ps = generateCSVSeparator(lstLine);</span>
+<span class="fc" id="L393">			int i = 0;</span>
+<span class="fc" id="L394">			List&lt;Object&gt; rowContents = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L395" title="All 2 branches covered.">			while (ps.hasNext())</span>
+			{
+<span class="fc" id="L397">				String content = unescape(ps.next());</span>
+<span class="fc bfc" id="L398" title="All 2 branches covered.">				if (i == 0)</span>
+				{
+<span class="fc bfc" id="L400" title="All 2 branches covered.">					if (content.startsWith(&quot;STARTTABLE:&quot;))</span>
+					{
+<span class="fc" id="L402">						throw new PersistenceLayerException(</span>
+<span class="fc" id="L403">							&quot;Encountered STARTTABLE: entry before reaching ENDTABLE for &quot; + t.getDisplayName() + &quot; in &quot;</span>
+								+ sourceURI);
+					}
+<span class="fc bfc" id="L406" title="All 2 branches covered.">					if (content.startsWith(&quot;ENDTABLE:&quot;))</span>
+					{
+<span class="fc" id="L408">						ensureEmpty(lstLine, ps);</span>
+<span class="fc bfc" id="L409" title="All 2 branches covered.">						if (t.getRowCount() == 0)</span>
+						{
+<span class="fc" id="L411">							throw new PersistenceLayerException(</span>
+<span class="fc" id="L412">								&quot;Table &quot; + t.getDisplayName() + &quot; had no data in &quot; + sourceURI);</span>
+						}
+<span class="fc" id="L414">						t.trim();</span>
+<span class="fc" id="L415">						return new ExpectStartTable();</span>
+					}
+				}
+<span class="fc" id="L418">				rowContents.add(t.getFormat(i++).convert(content));</span>
+<span class="fc" id="L419">			}</span>
+<span class="fc" id="L420">			t.addRow(rowContents);</span>
+<span class="fc" id="L421">			return this;</span>
+		}
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

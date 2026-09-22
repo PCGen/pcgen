@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DomainInputFacet.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.facet.input</a> &gt; <span class="el_source">DomainInputFacet.java</span></div><h1>DomainInputFacet.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) Thomas Parker, 2012.
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package pcgen.cdom.facet.input;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.DomainSelectionFacet;
+import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.PlayerCharacterTrackingFacet;
+import pcgen.cdom.facet.model.DomainFacet;
+import pcgen.cdom.helper.ClassSource;
+import pcgen.core.Domain;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.analysis.ChooseActivation;
+import pcgen.core.chooser.ChoiceManagerList;
+import pcgen.core.chooser.ChooserUtilities;
+import pcgen.util.Logging;
+
+/**
+ * DomainInputFacet is a Facet that handles addition of Domains to a Player
+ * Character.
+ */
+<span class="fc" id="L40">public class DomainInputFacet</span>
+{
+
+	private DomainFacet domainFacet;
+
+	private DomainSelectionFacet domainSelectionFacet;
+
+<span class="fc" id="L47">	private final PlayerCharacterTrackingFacet trackingFacet =</span>
+<span class="fc" id="L48">			FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);</span>
+
+	public boolean add(CharID id, Domain obj, ClassSource source)
+	{
+<span class="fc" id="L52">		PlayerCharacter pc = trackingFacet.getPC(id);</span>
+<span class="pc bpc" id="L53" title="2 of 4 branches missed.">		if (pc.isAllowInteraction() &amp;&amp; ChooseActivation.hasNewChooseToken(obj))</span>
+		{
+<span class="nc" id="L55">			ChoiceManagerList&lt;?&gt; aMan = ChooserUtilities.getChoiceManager(obj, pc);</span>
+<span class="nc" id="L56">			return processChoice(id, pc, obj, aMan, source);</span>
+		}
+		else
+		{
+<span class="fc" id="L60">			directSet(id, obj, null, source);</span>
+		}
+<span class="fc" id="L62">		return true;</span>
+	}
+
+	private &lt;T&gt; boolean processChoice(CharID id, PlayerCharacter pc, Domain obj, ChoiceManagerList&lt;T&gt; aMan,
+		ClassSource source)
+	{
+<span class="nc" id="L68">		List&lt;T&gt; selectedList = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L69">		List&lt;T&gt; availableList = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L70">		aMan.getChoices(pc, availableList, selectedList);</span>
+
+<span class="nc bnc" id="L72" title="All 2 branches missed.">		if (availableList.isEmpty())</span>
+		{
+<span class="nc" id="L74">			return false;</span>
+		}
+<span class="nc bnc" id="L76" title="All 2 branches missed.">		if (!selectedList.isEmpty())</span>
+		{
+			//Error?
+<span class="nc" id="L79">			Logging.log(Logging.INFO, &quot;Selected List is not emtpy, it contains : &quot; + selectedList.size() + &quot; domains&quot;);</span>
+		}
+<span class="nc" id="L81">		final List&lt;T&gt; newSelections = aMan.doChooser(pc, availableList, selectedList, new ArrayList&lt;&gt;());</span>
+<span class="nc bnc" id="L82" title="All 2 branches missed.">		if (newSelections.size() != 1)</span>
+		{
+			//Error?
+<span class="nc" id="L85">			return false;</span>
+		}
+<span class="nc bnc" id="L87" title="All 2 branches missed.">		for (T sel : newSelections)</span>
+		{
+<span class="nc" id="L89">			directSet(id, obj, sel, source);</span>
+<span class="nc" id="L90">		}</span>
+<span class="nc" id="L91">		return true;</span>
+	}
+
+	public void importSelection(CharID id, Domain obj, String choice, ClassSource source)
+	{
+<span class="nc" id="L96">		PlayerCharacter pc = trackingFacet.getPC(id);</span>
+<span class="nc bnc" id="L97" title="All 2 branches missed.">		if (ChooseActivation.hasNewChooseToken(obj))</span>
+		{
+<span class="nc" id="L99">			ChoiceManagerList&lt;?&gt; aMan = ChooserUtilities.getChoiceManager(obj, pc);</span>
+<span class="nc" id="L100">			String[] assoc = choice.split(&quot;,&quot;, -1);</span>
+<span class="nc bnc" id="L101" title="All 2 branches missed.">			for (String string : assoc)</span>
+			{
+<span class="nc bnc" id="L103" title="All 2 branches missed.">				if (string.startsWith(&quot;FEAT?&quot;))</span>
+				{
+<span class="nc" id="L105">					int openloc = string.indexOf('(');</span>
+<span class="nc" id="L106">					int closeloc = string.lastIndexOf(')');</span>
+<span class="nc" id="L107">					string = string.substring(openloc + 1, closeloc);</span>
+				}
+<span class="nc" id="L109">				processImport(id, obj, aMan, string, source);</span>
+			}
+<span class="nc" id="L111">		}</span>
+		else
+		{
+<span class="nc" id="L114">			directSet(id, obj, null, source);</span>
+		}
+<span class="nc" id="L116">	}</span>
+
+	private &lt;T&gt; void processImport(CharID id, Domain obj, ChoiceManagerList&lt;T&gt; aMan, String choice, ClassSource source)
+	{
+<span class="nc" id="L120">		directSet(id, obj, aMan.decodeChoice(choice), source);</span>
+<span class="nc" id="L121">	}</span>
+
+	public &lt;T&gt; void directSet(CharID id, Domain obj, T sel, ClassSource source)
+	{
+<span class="fc" id="L125">		domainFacet.add(id, obj, source);</span>
+<span class="pc bpc" id="L126" title="1 of 2 branches missed.">		if (sel != null)</span>
+		{
+<span class="nc" id="L128">			domainSelectionFacet.set(id, obj, sel);</span>
+		}
+<span class="fc" id="L130">	}</span>
+
+	public void remove(CharID id, Domain obj)
+	{
+<span class="nc" id="L134">		PlayerCharacter pc = trackingFacet.getPC(id);</span>
+		/*
+		 * TODO This order of operations differs from Race and Template - is
+		 * there a reason selection is first here and second there? Arguably
+		 * this is correct since directSet is doing the selection last, so
+		 * first-in first-out implies avoiding that issue
+		 */
+<span class="nc bnc" id="L141" title="All 2 branches missed.">		if (pc.isAllowInteraction())</span>
+		{
+<span class="nc" id="L143">			domainSelectionFacet.remove(id, obj);</span>
+		}
+<span class="nc" id="L145">		domainFacet.remove(id, obj);</span>
+<span class="nc" id="L146">	}</span>
+
+	public void setDomainSelectionFacet(DomainSelectionFacet domainSelectionFacet)
+	{
+<span class="fc" id="L150">		this.domainSelectionFacet = domainSelectionFacet;</span>
+<span class="fc" id="L151">	}</span>
+
+	public void setDomainFacet(DomainFacet domainFacet)
+	{
+<span class="fc" id="L155">		this.domainFacet = domainFacet;</span>
+<span class="fc" id="L156">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

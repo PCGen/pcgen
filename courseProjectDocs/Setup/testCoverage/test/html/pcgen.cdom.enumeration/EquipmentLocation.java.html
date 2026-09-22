@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>EquipmentLocation.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pcgen</a> &gt; <a href="index.source.html" class="el_package">pcgen.cdom.enumeration</a> &gt; <span class="el_source">EquipmentLocation.java</span></div><h1>EquipmentLocation.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) 2009 Tom Parker &lt;thpr@users.sourceforge.net&gt;
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package pcgen.cdom.enumeration;
+
+import pcgen.system.LanguageBundle;
+
+<span class="fc" id="L22">public enum EquipmentLocation</span>
+{
+
+	/** The item is held in neither hand */
+<span class="fc" id="L26">	EQUIPPED_NEITHER</span>
+	{
+		@Override
+		public String getString()
+		{
+<span class="nc" id="L31">			return LanguageBundle.getString(&quot;EquipLocation.Neither&quot;);</span>
+		}
+
+		@Override
+		public boolean isEquipped()
+		{
+<span class="nc" id="L37">			return true;</span>
+		}
+	},
+
+	/** The item is held in the primary hand */
+<span class="fc" id="L42">	EQUIPPED_PRIMARY</span>
+	{
+		@Override
+		public String getString()
+		{
+<span class="nc" id="L47">			return LanguageBundle.getString(&quot;EquipLocation.Primary&quot;);</span>
+		}
+
+		@Override
+		public boolean isEquipped()
+		{
+<span class="nc" id="L53">			return true;</span>
+		}
+	},
+
+	/** The item is held in the secondary hand */
+<span class="fc" id="L58">	EQUIPPED_SECONDARY</span>
+	{
+		@Override
+		public String getString()
+		{
+<span class="nc" id="L63">			return LanguageBundle.getString(&quot;EquipLocation.Secondary&quot;);</span>
+		}
+
+		@Override
+		public boolean isEquipped()
+		{
+<span class="nc" id="L69">			return true;</span>
+		}
+	},
+
+	/** The item is held in both hands */
+<span class="fc" id="L74">	EQUIPPED_BOTH</span>
+	{
+		@Override
+		public String getString()
+		{
+<span class="nc" id="L79">			return LanguageBundle.getString(&quot;EquipLocation.Both&quot;);</span>
+		}
+
+		@Override
+		public boolean isEquipped()
+		{
+<span class="nc" id="L85">			return true;</span>
+		}
+	},
+
+	/** The item is either a double weapon or one of a pair of weapons */
+<span class="fc" id="L90">	EQUIPPED_TWO_HANDS</span>
+	{
+		@Override
+		public String getString()
+		{
+<span class="nc" id="L95">			return LanguageBundle.getString(&quot;EquipLocation.TwoHands&quot;);</span>
+		}
+
+		@Override
+		public boolean isEquipped()
+		{
+<span class="nc" id="L101">			return true;</span>
+		}
+	},
+
+	/** The item is held in neither hand and equipped for a temporary bonus */
+<span class="fc" id="L106">	EQUIPPED_TEMPBONUS</span>
+	{
+		@Override
+		public String getString()
+		{
+<span class="nc" id="L111">			return LanguageBundle.getString(&quot;EquipLocation.TempBonus&quot;);</span>
+		}
+
+		@Override
+		public boolean isEquipped()
+		{
+			/*
+			 * TODO The code actually seems to imply this is false.
+			 */
+<span class="nc" id="L120">			return true;</span>
+		}
+	},
+
+	/** The item is carried but not equipped */
+<span class="fc" id="L125">	CARRIED_NEITHER</span>
+	{
+		@Override
+		public String getString()
+		{
+<span class="nc" id="L130">			return LanguageBundle.getString(&quot;EquipLocation.Carried&quot;);</span>
+		}
+
+		@Override
+		public boolean isEquipped()
+		{
+<span class="nc" id="L136">			return false;</span>
+		}
+	},
+
+	/** The item is contained by another item */
+<span class="fc" id="L141">	CONTAINED</span>
+	{
+		@Override
+		public String getString()
+		{
+<span class="nc" id="L146">			return LanguageBundle.getString(&quot;EquipLocation.Contained&quot;);</span>
+		}
+
+		@Override
+		public boolean isEquipped()
+		{
+<span class="nc" id="L152">			return false;</span>
+		}
+	},
+
+	/** The item is not carried */
+<span class="fc" id="L157">	NOT_CARRIED</span>
+	{
+		@Override
+		public String getString()
+		{
+<span class="nc" id="L162">			return LanguageBundle.getString(&quot;EquipLocation.NotCarried&quot;);</span>
+		}
+
+		@Override
+		public boolean isEquipped()
+		{
+<span class="nc" id="L168">			return false;</span>
+		}
+	};
+
+	public abstract String getString();
+
+	public abstract boolean isEquipped();
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>
