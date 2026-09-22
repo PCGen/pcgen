@@ -885,7 +885,18 @@ Druid	KEY:Variant Multiclass ~ Druid	CATEGORY:Feat	TYPE:Variant Multiclass	COST:
 	BONUS:VAR|WildShapeLVL|TL|PREVARGTEQ:TL,15
 	ABILITY:Special Ability|AUTOMATIC|Druid VM ~ Greater Wildshape|PREVARGTEQ:TL,19
 
-Fighter	KEY:Variant Multiclass ~ Fighter	CATEGORY:Feat	TYPE:Variant Multiclass	COST:0	!PRECLASS:1,Fighter=1	DEFINE:MulticlassFighter|0	DESC:A character who chooses fighter as his secondary class gains secondary class features.
+Fighter	KEY:Variant Multiclass ~ Fighter	CATEGORY:Special Ability	TYPE:Variant Multiclass.SpecialQuality	!PRECLASS:1,Fighter=1	DEFINE:MulticlassFighter|0	DESC:A character who chooses fighter as his secondary class gains secondary class features.
+	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,3
+	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,7
+	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,11
+	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,15
+	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,19
+	ABILITY:Special Ability|AUTOMATIC|Multiclass Fighter ~ Bravery|PREVARGTEQ:TL,3
+	ABILITY:Special Ability|AUTOMATIC|Multiclass Fighter ~ Armor Training 1|PREVARGTEQ:TL,7
+	ABILITY:Special Ability|AUTOMATIC|Multiclass Fighter ~ Weapon Training 1|PREVARGTEQ:TL,11
+	ABILITY:Special Ability|AUTOMATIC|Multiclass Fighter ~ Armor Training 2|PREVARGTEQ:TL,15
+	ABILITY:Special Ability|AUTOMATIC|Multiclass Fighter ~ Weapon Training 2|PREVARGTEQ:TL,19
+	BONUS:VAR|MulticlassFighter|1
 	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,3
 	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,7
 	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,11
@@ -941,7 +952,23 @@ Ranger	KEY:Variant Multiclass ~ Ranger	CATEGORY:Feat	TYPE:Variant Multiclass	COS
 	ABILITY:Special Ability|AUTOMATIC|Woodland Stride|Swift Tracker|PREVARGTEQ:TL,15
 	ABILITY:Special Ability|AUTOMATIC|Quarry|PREVARGTEQ:TL,19
 
-Rogue	KEY:Variant Multiclass ~ Rogue	CATEGORY:Feat	TYPE:Variant Multiclass	COST:0	!PRECLASS:1,Rogue=1	DESC:A character who chooses rogue as her secondary class gains secondary class features.
+Rogue	KEY:Variant Multiclass ~ Rogue	CATEGORY:Special Ability	TYPE:Variant Multiclass.SpecialQuality	!PRECLASS:1,Rogue=1	DESC:A character who chooses rogue as her secondary class gains secondary class features.
+	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,3
+	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,7
+	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,11
+	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,15
+	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,19
+	ABILITY:Special Ability|AUTOMATIC|Trapfinding|PREVARGTEQ:TL,3
+	BONUS:VAR|TrapfindingLVL|TL|PREVARGTEQ:TL,3
+	ABILITY:Special Ability|AUTOMATIC|Sneak Attack|PREVARGTEQ:TL,7
+	BONUS:VAR|SneakAttackDice|1|PREVARGTEQ:TL,7
+	BONUS:VAR|SneakAttackDice|1|PREVARGTEQ:TL,11
+	ABILITY:Special Ability|AUTOMATIC|Evasion|PREVARGTEQ:TL,11
+	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge|PREVARGTEQ:TL,15
+	BONUS:VAR|SneakAttackDice|1|PREVARGTEQ:TL,15
+	ABILITY:Special Ability|AUTOMATIC|Improved Uncanny Dodge|PREVARGTEQ:TL,19
+	BONUS:VAR|SneakAttackDice|1|PREVARGTEQ:TL,19
+	BONUS:VAR|UncannyDodgeFlankingLevel|TL|PREVARGTEQ:TL,19
 	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,3
 	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,7
 	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,11
