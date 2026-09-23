@@ -170,6 +170,32 @@ public class JTreeTable extends JTableEx
 		return tree;
 	}
 
+	/**
+	 * The path whose expand/collapse control is at the given tree-space point, or null if the
+	 * point is not on a branch node's control. The tree column editor toggles this directly
+	 * because some platform L&amp;Fs ignore the synthetic forwarded click (#triangle single-click).
+	 *
+	 * @param tree the embedded tree
+	 * @param treeX x in the tree's coordinate space
+	 * @param treeY y in the tree's coordinate space
+	 * @return the branch path to toggle, or null
+	 */
+	static TreePath expandControlPathForClick(JTree tree, int treeX, int treeY)
+	{
+		TreePath path = tree.getClosestPathForLocation(treeX, treeY);
+		if (path == null || tree.getModel().isLeaf(path.getLastPathComponent()))
+		{
+			return null;
+		}
+		Rectangle bounds = tree.getPathBounds(path);
+		if (bounds == null || treeY < bounds.y || treeY >= (bounds.y + bounds.height))
+		{
+			return null;
+		}
+		// The disclosure control sits in the strip to the left of the node's content bounds.
+		return (treeX < bounds.x) ? path : null;
+	}
+
 	public TreeCellRenderer getTreeCellRenderer()
 	{
 		return tree.getCellRenderer();
@@ -789,7 +815,27 @@ public class JTreeTable extends JTableEx
 							me.getY(), me.getClickCount(), me.isPopupTrigger(), me.getButton());
 						//we translate the event into the tree's coordinate system
 						newME.translatePoint(-cell.x, 0);
+
+						// Some L&Fs (e.g. Aqua) ignore the synthetic forwarded click on the disclosure
+						// control (#Spells-tab). Note the state before dispatch and toggle here only if
+						// the dispatch didn't, so L&Fs that DO handle it aren't double-toggled.
+						TreePath control = SwingUtilities.isLeftMouseButton(me)
+							? expandControlPathForClick(tree, newME.getX(), newME.getY()) : null;
+						boolean wasExpanded = control != null && tree.isExpanded(control);
+
 						tree.dispatchEvent(newME);
+
+						if (control != null && tree.isExpanded(control) == wasExpanded)
+						{
+							if (wasExpanded)
+							{
+								tree.collapsePath(control);
+							}
+							else
+							{
+								tree.expandPath(control);
+							}
+						}
 
 						break;
 					}
