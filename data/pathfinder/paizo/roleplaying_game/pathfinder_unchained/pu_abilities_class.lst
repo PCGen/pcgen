@@ -824,9 +824,8 @@ CATEGORY=Class|Summoner.MOD	BONUS:VAR|EidolonSubtype_Psychopomp|1|TYPE=Boolean|P
 #	Witch (1 + 1/2 Int): Nature, Religion, Spellcraft.
 #	Wizard (1 + 1/2 Int): Religion, Society, Spellcraft.
 
-###Block:
-# Ability Name	Unique Key					Category of Ability		Type							Define				Description																																																																																																																																																																																																																																																																																																																																																																																																																																																																				Ability																																																																								Modify VAR
-Barbarian	KEY:Variant Multiclass ~ Barbarian	CATEGORY:Feat	TYPE:Variant Multiclass	COST:0	!PRECLASS:1,Barbarian=1	DESC:A character who chooses barbarian as her secondary class gains secondary class features.
+###Block: Variant Multiclass
+Barbarian	KEY:Variant Multiclass ~ Barbarian	CATEGORY:Special Ability	TYPE:Variant Multiclass.SpecialQuality	!PRECLASS:1,Barbarian=1	DESC:Gains barbarian secondary class features.
 	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,3
 	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,7
 	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,11
@@ -838,7 +837,7 @@ Barbarian	KEY:Variant Multiclass ~ Barbarian	CATEGORY:Feat	TYPE:Variant Multicla
 	ABILITY:Special Ability|AUTOMATIC|Barbarian VM ~ Damage Reduction|PREVARGTEQ:TL,15
 	ABILITY:Special Ability|AUTOMATIC|Barbarian VM ~ Greater Rage|PREVARGTEQ:TL,19
 
-Bard	KEY:Variant Multiclass ~ Bard	CATEGORY:Special Ability	TYPE:Variant Multiclass.SpecialQuality	!PRECLASS:1,Bard=1	DESC:A character who chooses bard as his secondary class gains the following secondary class features.
+Bard	KEY:Variant Multiclass ~ Bard	CATEGORY:Special Ability	TYPE:Variant Multiclass.SpecialQuality	!PRECLASS:1,Bard=1	DESC:Gains bard secondary class features.
 	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,3
 	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,7
 	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,11
@@ -853,8 +852,8 @@ Bard	KEY:Variant Multiclass ~ Bard	CATEGORY:Special Ability	TYPE:Variant Multicl
 	ABILITY:Special Ability|AUTOMATIC|Lore Master|PREVARGTEQ:TL,15
 	BONUS:VAR|LoreMasterLVL|5|PREVARGTEQ:TL,15
 	ABILITY:Special Ability|AUTOMATIC|Bardic Performance ~ Dirge of Doom|Bardic Performance ~ Inspire Greatness|PREVARGTEQ:TL,19
-	
-Cleric	KEY:Variant Multiclass ~ Cleric	CATEGORY:Feat	TYPE:Variant Multiclass	COST:0	!PRECLASS:1,Cleric=1	DESC:A character who chooses cleric as her secondary class gains secondary class features.
+
+Cleric	KEY:Variant Multiclass ~ Cleric	CATEGORY:Special Ability	TYPE:Variant Multiclass.SpecialQuality	!PRECLASS:1,Cleric=1	DESC:Gains cleric secondary class features.
 	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,3
 	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,7
 	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,11
@@ -869,7 +868,7 @@ Cleric	KEY:Variant Multiclass ~ Cleric	CATEGORY:Feat	TYPE:Variant Multiclass	COS
 	ABILITY:Special Ability|AUTOMATIC|Cleric VM ~ Improved Domain|PREVARGTEQ:TL,15
 	BONUS:VAR|ChannelEnergyLVL|2|PREVARGTEQ:TL,19
 
-Druid	KEY:Variant Multiclass ~ Druid	CATEGORY:Feat	TYPE:Variant Multiclass	COST:0	!PRECLASS:1,Druid=1	DESC:A character who chooses druid as her secondary class gains secondary class features.
+Druid	KEY:Variant Multiclass ~ Druid	CATEGORY:Special Ability	TYPE:Variant Multiclass.SpecialQuality	!PRECLASS:1,Druid=1	DESC:Gains druid secondary class features.
 	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,3
 	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,7
 	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,11
@@ -885,18 +884,7 @@ Druid	KEY:Variant Multiclass ~ Druid	CATEGORY:Feat	TYPE:Variant Multiclass	COST:
 	BONUS:VAR|WildShapeLVL|TL|PREVARGTEQ:TL,15
 	ABILITY:Special Ability|AUTOMATIC|Druid VM ~ Greater Wildshape|PREVARGTEQ:TL,19
 
-Fighter	KEY:Variant Multiclass ~ Fighter	CATEGORY:Special Ability	TYPE:Variant Multiclass.SpecialQuality	!PRECLASS:1,Fighter=1	DEFINE:MulticlassFighter|0	DESC:A character who chooses fighter as his secondary class gains secondary class features.
-	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,3
-	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,7
-	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,11
-	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,15
-	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,19
-	ABILITY:Special Ability|AUTOMATIC|Multiclass Fighter ~ Bravery|PREVARGTEQ:TL,3
-	ABILITY:Special Ability|AUTOMATIC|Multiclass Fighter ~ Armor Training 1|PREVARGTEQ:TL,7
-	ABILITY:Special Ability|AUTOMATIC|Multiclass Fighter ~ Weapon Training 1|PREVARGTEQ:TL,11
-	ABILITY:Special Ability|AUTOMATIC|Multiclass Fighter ~ Armor Training 2|PREVARGTEQ:TL,15
-	ABILITY:Special Ability|AUTOMATIC|Multiclass Fighter ~ Weapon Training 2|PREVARGTEQ:TL,19
-	BONUS:VAR|MulticlassFighter|1
+Fighter	KEY:Variant Multiclass ~ Fighter	CATEGORY:Special Ability	TYPE:Variant Multiclass.SpecialQuality	DEFINE:MulticlassFighter|0	!PRECLASS:1,Fighter=1	DESC:Gains fighter secondary class features.
 	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,3
 	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,7
 	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,11
@@ -909,7 +897,7 @@ Fighter	KEY:Variant Multiclass ~ Fighter	CATEGORY:Special Ability	TYPE:Variant M
 	ABILITY:Special Ability|AUTOMATIC|Multiclass Fighter ~ Weapon Training 2|PREVARGTEQ:TL,19
 	BONUS:VAR|MulticlassFighter|1
 
-Monk	KEY:Variant Multiclass ~ Monk	CATEGORY:Feat	TYPE:Variant Multiclass	COST:0	!PRECLASS:1,Monk=1	DESC:A character who chooses monk as his secondary class gains secondary class features.
+Monk	KEY:Variant Multiclass ~ Monk	CATEGORY:Special Ability	TYPE:Variant Multiclass.SpecialQuality	!PRECLASS:1,Monk=1	DESC:Gains monk secondary class features.
 	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,3
 	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,7
 	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,11
@@ -923,7 +911,7 @@ Monk	KEY:Variant Multiclass ~ Monk	CATEGORY:Feat	TYPE:Variant Multiclass	COST:0	
 	BONUS:COMBAT|AC|3|TYPE=Dodge|PREVARGTEQ:TL,15
 	ABILITY:Special Ability|AUTOMATIC|Improved Evasion|PREVARGTEQ:TL,19
 
-Paladin	KEY:Variant Multiclass ~ Paladin	CATEGORY:Feat	TYPE:Variant Multiclass	COST:0	!PRECLASS:1,Paladin=1	DESC:A character who chooses paladin as her secondary class gains secondary class features.
+Paladin	KEY:Variant Multiclass ~ Paladin	CATEGORY:Special Ability	TYPE:Variant Multiclass.SpecialQuality	!PRECLASS:1,Paladin=1	DESC:Gains paladin secondary class features.
 	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,3
 	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,7
 	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,11
@@ -939,7 +927,7 @@ Paladin	KEY:Variant Multiclass ~ Paladin	CATEGORY:Feat	TYPE:Variant Multiclass	C
 	ABILITY:Special Ability|AUTOMATIC|Divine Bond|PREVARGTEQ:TL,19
 	BONUS:VAR|DivineBondLVL|TL-3|PREVARGTEQ:TL,19
 
-Ranger	KEY:Variant Multiclass ~ Ranger	CATEGORY:Feat	TYPE:Variant Multiclass	COST:0	!PRECLASS:1,Ranger=1	DESC:A character who chooses ranger as his secondary class gains secondary class features.
+Ranger	KEY:Variant Multiclass ~ Ranger	CATEGORY:Special Ability	TYPE:Variant Multiclass.SpecialQuality	!PRECLASS:1,Ranger=1	DESC:Gains ranger secondary class features.
 	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,3
 	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,7
 	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,11
@@ -952,7 +940,7 @@ Ranger	KEY:Variant Multiclass ~ Ranger	CATEGORY:Feat	TYPE:Variant Multiclass	COS
 	ABILITY:Special Ability|AUTOMATIC|Woodland Stride|Swift Tracker|PREVARGTEQ:TL,15
 	ABILITY:Special Ability|AUTOMATIC|Quarry|PREVARGTEQ:TL,19
 
-Rogue	KEY:Variant Multiclass ~ Rogue	CATEGORY:Special Ability	TYPE:Variant Multiclass.SpecialQuality	!PRECLASS:1,Rogue=1	DESC:A character who chooses rogue as her secondary class gains secondary class features.
+Rogue	KEY:Variant Multiclass ~ Rogue	CATEGORY:Special Ability	TYPE:Variant Multiclass.SpecialQuality	!PRECLASS:1,Rogue=1	DESC:Gains rogue secondary class features.
 	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,3
 	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,7
 	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,11
@@ -961,32 +949,13 @@ Rogue	KEY:Variant Multiclass ~ Rogue	CATEGORY:Special Ability	TYPE:Variant Multi
 	ABILITY:Special Ability|AUTOMATIC|Trapfinding|PREVARGTEQ:TL,3
 	BONUS:VAR|TrapfindingLVL|TL|PREVARGTEQ:TL,3
 	ABILITY:Special Ability|AUTOMATIC|Sneak Attack|PREVARGTEQ:TL,7
-	BONUS:VAR|SneakAttackDice|1|PREVARGTEQ:TL,7
-	BONUS:VAR|SneakAttackDice|1|PREVARGTEQ:TL,11
+	BONUS:VAR|RogueSneakAttackLVL|TL|PREVARGTEQ:TL,7
 	ABILITY:Special Ability|AUTOMATIC|Evasion|PREVARGTEQ:TL,11
 	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge|PREVARGTEQ:TL,15
-	BONUS:VAR|SneakAttackDice|1|PREVARGTEQ:TL,15
 	ABILITY:Special Ability|AUTOMATIC|Improved Uncanny Dodge|PREVARGTEQ:TL,19
-	BONUS:VAR|SneakAttackDice|1|PREVARGTEQ:TL,19
-	BONUS:VAR|UncannyDodgeFlankingLevel|TL|PREVARGTEQ:TL,19
-	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,3
-	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,7
-	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,11
-	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,15
-	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,19
-	ABILITY:Special Ability|AUTOMATIC|Trapfinding|PREVARGTEQ:TL,3
-	BONUS:VAR|TrapfindingLVL|TL|PREVARGTEQ:TL,3
-	ABILITY:Special Ability|AUTOMATIC|Sneak Attack|PREVARGTEQ:TL,7
-	BONUS:VAR|SneakAttackDice|1|PREVARGTEQ:TL,7
-	BONUS:VAR|SneakAttackDice|1|PREVARGTEQ:TL,11
-	ABILITY:Special Ability|AUTOMATIC|Evasion|PREVARGTEQ:TL,11
-	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge|PREVARGTEQ:TL,15
-	BONUS:VAR|SneakAttackDice|1|PREVARGTEQ:TL,15
-	ABILITY:Special Ability|AUTOMATIC|Improved Uncanny Dodge|PREVARGTEQ:TL,19
-	BONUS:VAR|SneakAttackDice|1|PREVARGTEQ:TL,19
 	BONUS:VAR|UncannyDodgeFlankingLevel|TL|PREVARGTEQ:TL,19
 
-Sorcerer	KEY:Variant Multiclass ~ Sorcerer	CATEGORY:Feat	TYPE:Variant Multiclass	COST:0	!PRECLASS:1,Sorcerer=1	DESC:A character who chooses sorcerer as her secondary class gains secondary class features.
+Sorcerer	KEY:Variant Multiclass ~ Sorcerer	CATEGORY:Special Ability	TYPE:Variant Multiclass.SpecialQuality	!PRECLASS:1,Sorcerer=1	DESC:Gains sorcerer secondary class features.
 	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,3
 	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,7
 	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,11
@@ -1000,7 +969,7 @@ Sorcerer	KEY:Variant Multiclass ~ Sorcerer	CATEGORY:Feat	TYPE:Variant Multiclass
 	ABILITY:Special Ability|AUTOMATIC|Sorcerer VM ~ Greater Bloodline Power|PREVARGTEQ:TL,15
 	ABILITY:Special Ability|AUTOMATIC|Sorcerer VM ~ True Bloodline Power|PREVARGTEQ:TL,19
 
-Wizard	KEY:Variant Multiclass ~ Wizard	CATEGORY:Feat	TYPE:Variant Multiclass	COST:0	!PRECLASS:1,Wizard=1	DESC:A character who chooses wizard as his secondary class gains secondary class features.
+Wizard	KEY:Variant Multiclass ~ Wizard	CATEGORY:Special Ability	TYPE:Variant Multiclass.SpecialQuality	!PRECLASS:1,Wizard=1	DESC:Gains wizard secondary class features.
 	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,3
 	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,7
 	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,11
@@ -1015,161 +984,7 @@ Wizard	KEY:Variant Multiclass ~ Wizard	CATEGORY:Feat	TYPE:Variant Multiclass	COS
 	BONUS:ABILITYPOOL|Wizard Arcane Discovery|1|PREVARGTEQ:TL,15
 	ABILITY:Special Ability|AUTOMATIC|Wizard VM ~ Greater School Power|PREVARGTEQ:TL,19
 
-Alchemist	KEY:Variant Multiclass ~ Alchemist	CATEGORY:Special Ability	TYPE:Variant Multiclass.SpecialQuality	!PRECLASS:1,Alchemist=1	DESC:A character who chooses alchemist as his secondary class gains secondary class features.
-	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,3
-	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,7
-	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,11
-	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,15
-	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,19
-	BONUS:SKILL|Craft (Alchemy)|TL|TYPE=Competence|PREVARGTEQ:TL,3
-	ABILITY:Special Ability|AUTOMATIC|Alchemy ~ Potions|PREVARGTEQ:TL,3
-	ABILITY:Special Ability|AUTOMATIC|Bombs|PREVARGTEQ:TL,7
-	BONUS:VAR|BombDice|(TL+1)/2|PREVARGTEQ:TL,7
-	BONUS:VAR|BombDamageBonus|INT|PREVARGTEQ:TL,7
-	BONUS:VAR|AlchemistBombTimes|INT+floor(TL/2)|PREVARGTEQ:TL,7
-	ABILITY:Special Ability|AUTOMATIC|Mutagen|PREVARGTEQ:TL,11
-	BONUS:VAR|MutagenDuration|10*TL|PREVARGTEQ:TL,11
-	ABILITY:Special Ability|AUTOMATIC|Poison Use|Swift Poisoning|PREVARGTEQ:TL,15
-	ABILITY:Special Ability|AUTOMATIC|Immunity to Poison|PREVARGTEQ:TL,19
-	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,3
-	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,7
-	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,11
-	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,15
-	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,19
-	BONUS:SKILL|Craft (Alchemy)|TL|TYPE=Competence|PREVARGTEQ:TL,3
-	ABILITY:Special Ability|AUTOMATIC|Alchemy ~ Potions|PREVARGTEQ:TL,3
-	ABILITY:Special Ability|AUTOMATIC|Bombs|PREVARGTEQ:TL,7
-	BONUS:VAR|BombDice|(TL+1)/2|PREVARGTEQ:TL,7
-	BONUS:VAR|BombDamageBonus|INT|PREVARGTEQ:TL,7
-	BONUS:VAR|AlchemistBombTimes|INT+floor(TL/2)|PREVARGTEQ:TL,7
-	ABILITY:Special Ability|AUTOMATIC|Mutagen|PREVARGTEQ:TL,11
-	BONUS:VAR|MutagenDuration|10*TL|PREVARGTEQ:TL,11
-	ABILITY:Special Ability|AUTOMATIC|Poison Use|Swift Poisoning|PREVARGTEQ:TL,15
-	ABILITY:Special Ability|AUTOMATIC|Immunity to Poison|PREVARGTEQ:TL,19
-
-Cavalier	KEY:Variant Multiclass ~ Cavalier	CATEGORY:Special Ability	TYPE:Variant Multiclass.SpecialQuality	!PRECLASS:1,Cavalier=1	DESC:A character who chooses cavalier as his secondary class gains the following secondary class features.
-	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,3
-	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,7
-	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,11
-	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,15
-	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,19
-	ABILITY:Special Ability|AUTOMATIC|Cavalier's Challenge|PREVARGTEQ:TL,3
-	BONUS:VAR|CavalierChallengeTimes|1|PREVARGTEQ:TL,3
-	BONUS:VAR|CavalierChallengeLVL|TL-2|PREVARGTEQ:TL,3
-	ABILITY:Special Ability|AUTOMATIC|Tactician|PREVARGTEQ:TL,11
-	BONUS:VAR|TacticianLVL|TL|PREVARGTEQ:TL,11
-	ABILITY:Special Ability|AUTOMATIC|Greater Tactician|PREVARGTEQ:TL,19
-	
-Gunslinger	KEY:Variant Multiclass ~ Gunslinger	CATEGORY:Special Ability	TYPE:Variant Multiclass.SpecialQuality	!PRECLASS:1,Gunslinger=1	DESC:A character who chooses gunslinger as her secondary class gains the following secondary class features.
-	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,3
-	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,7
-	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,11
-	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,15
-	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,19
-	ABILITY:Special Ability|AUTOMATIC|Weapon Prof ~ Firearm|PREVARGTEQ:TL,3
-	ABILITY:Special Ability|AUTOMATIC|Gunsmithing|PREVARGTEQ:TL,7
-	ABILITY:FEAT|AUTOMATIC|Amateur Gunslinger|PREVARGTEQ:TL,11
-	
-Inquisitor	KEY:Variant Multiclass ~ Inquisitor	CATEGORY:Special Ability	TYPE:Variant Multiclass.SpecialQuality	!PRECLASS:1,Inquisitor=1	DESC:A character who chooses inquisitor as her secondary class gains the following secondary class features.
-	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,3
-	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,7
-	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,11
-	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,15
-	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,19
-	ABILITY:Special Ability|AUTOMATIC|Stern Gaze|PREVARGTEQ:TL,3
-	BONUS:VAR|SternGazeLVL|TL|PREVARGTEQ:TL,3
-	ABILITY:Special Ability|AUTOMATIC|Judgment|PREVARGTEQ:TL,7
-	BONUS:VAR|InquisitorJudgmentTimes|1|PREVARGTEQ:TL,7
-	BONUS:VAR|InquisitorJudgmentLVL|TL-3|PREVARGTEQ:TL,7
-	ABILITY:Special Ability|AUTOMATIC|Solo Tactics|PREVARGTEQ:TL,11
-	BONUS:VAR|InquisitorJudgmentTimes|1|PREVARGTEQ:TL,15
-	ABILITY:Special Ability|AUTOMATIC|Second Judgment|PREVARGTEQ:TL,19
-	
-Magus	KEY:Variant Multiclass ~ Magus	CATEGORY:Special Ability	TYPE:Variant Multiclass.SpecialQuality	!PRECLASS:1,Magus=1	DESC:A character who chooses magus as his secondary class gains secondary class features.
-	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,3
-	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,7
-	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,11
-	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,15
-	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,19
-	ABILITY:Special Ability|AUTOMATIC|Arcane Pool|PREVARGTEQ:TL,3
-	BONUS:VAR|ArcanePoolLVL|TL-2|PREVARGTEQ:TL,3
-	BONUS:ABILITYPOOL|Magus Arcana|1|PREVARGTEQ:TL,7
-	BONUS:VAR|MagusArcanaLVL|TL|PREVARGTEQ:TL,7
-	ABILITY:Special Ability|AUTOMATIC|Spellstrike|PREVARGTEQ:TL,11
-	BONUS:ABILITYPOOL|Magus Arcana|1|PREVARGTEQ:TL,15
-	BONUS:ABILITYPOOL|Magus Arcana|1|PREVARGTEQ:TL,19
-	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,3
-	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,7
-	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,11
-	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,15
-	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,19
-	ABILITY:Special Ability|AUTOMATIC|Arcane Pool|PREVARGTEQ:TL,3
-	BONUS:VAR|ArcanePoolLVL|TL-2|PREVARGTEQ:TL,3
-	BONUS:ABILITYPOOL|Magus Arcana|1|PREVARGTEQ:TL,7
-	BONUS:VAR|MagusArcanaLVL|TL|PREVARGTEQ:TL,7
-	ABILITY:Special Ability|AUTOMATIC|Spellstrike|PREVARGTEQ:TL,11
-	BONUS:ABILITYPOOL|Magus Arcana|1|PREVARGTEQ:TL,15
-	BONUS:ABILITYPOOL|Magus Arcana|1|PREVARGTEQ:TL,19
-
-Oracle	KEY:Variant Multiclass ~ Oracle	CATEGORY:Special Ability	TYPE:Variant Multiclass.SpecialQuality	!PRECLASS:1,Oracle=1	DESC:A character who chooses oracle as her secondary class gains secondary class features.
-	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,3
-	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,7
-	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,11
-	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,15
-	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,19
-	BONUS:ABILITYPOOL|Oracle Mystery|1|PREVARGTEQ:TL,1
-	BONUS:ABILITYPOOL|Oracle Curse|1|PREVARGTEQ:TL,1
-	BONUS:VAR|OracleCurseLVL|floor(TL/2)|PREVARGTEQ:TL,1
-	BONUS:ABILITYPOOL|Oracle Revelation|1|PREVARGTEQ:TL,3
-	BONUS:VAR|OracleRevelationLVL|max(1,TL-6)|PREVARGTEQ:TL,3
-	BONUS:ABILITYPOOL|Oracle Orison|1|PREVARGTEQ:TL,7
-	BONUS:VAR|OracleCurseLVL|5|PREVARGTEQ:TL,11
-	BONUS:ABILITYPOOL|Oracle Revelation|1|PREVARGTEQ:TL,15
-	BONUS:ABILITYPOOL|Oracle Revelation|1|PREVARGTEQ:TL,19
-	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,3
-	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,7
-	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,11
-	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,15
-	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,19
-	BONUS:ABILITYPOOL|Oracle Mystery|1|PREVARGTEQ:TL,1
-	BONUS:ABILITYPOOL|Oracle Curse|1|PREVARGTEQ:TL,1
-	BONUS:VAR|OracleCurseLVL|floor(TL/2)|PREVARGTEQ:TL,1
-	BONUS:ABILITYPOOL|Oracle Revelation|1|PREVARGTEQ:TL,3
-	BONUS:VAR|OracleRevelationLVL|max(1,TL-6)|PREVARGTEQ:TL,3
-	BONUS:ABILITYPOOL|Oracle Orison|1|PREVARGTEQ:TL,7
-	BONUS:VAR|OracleCurseLVL|5|PREVARGTEQ:TL,11
-	BONUS:ABILITYPOOL|Oracle Revelation|1|PREVARGTEQ:TL,15
-	BONUS:ABILITYPOOL|Oracle Revelation|1|PREVARGTEQ:TL,19
-
-Summoner	KEY:Variant Multiclass ~ Summoner	CATEGORY:Special Ability	TYPE:Variant Multiclass.SpecialQuality	!PRECLASS:1,Summoner=1	DESC:A character who chooses summoner as his secondary class gains secondary class features.
-	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,3
-	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,7
-	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,11
-	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,15
-	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,19
-	ABILITY:Special Ability|AUTOMATIC|Summoner ~ Summon Monster|PREVARGTEQ:TL,3
-	BONUS:VAR|SummonerSummonMonsterLVL|min((TL-1)/2,9)|PREVARGTEQ:TL,3
-	BONUS:VAR|SummonerSummonMonsterTimes|1|PREVARGTEQ:TL,3
-	ABILITY:Special Ability|AUTOMATIC|Companion ~ Eidolon|PREVARGTEQ:TL,7
-	BONUS:VAR|EidolonCompanionLVL|TL-4|PREVARGTEQ:TL,7
-	BONUS:VAR|SummonerSummonMonsterTimes|2|PREVARGTEQ:TL,11
-	ABILITY:Special Ability|AUTOMATIC|Shield Ally|PREVARGTEQ:TL,15
-	ABILITY:Special Ability|AUTOMATIC|Aspect|PREVARGTEQ:TL,19
-	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,3
-	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,7
-	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,11
-	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,15
-	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,19
-	ABILITY:Special Ability|AUTOMATIC|Summoner ~ Summon Monster|PREVARGTEQ:TL,3
-	BONUS:VAR|SummonerSummonMonsterLVL|min((TL-1)/2,9)|PREVARGTEQ:TL,3
-	BONUS:VAR|SummonerSummonMonsterTimes|1|PREVARGTEQ:TL,3
-	ABILITY:Special Ability|AUTOMATIC|Companion ~ Eidolon|PREVARGTEQ:TL,7
-	BONUS:VAR|EidolonCompanionLVL|TL-4|PREVARGTEQ:TL,7
-	BONUS:VAR|SummonerSummonMonsterTimes|2|PREVARGTEQ:TL,11
-	ABILITY:Special Ability|AUTOMATIC|Shield Ally|PREVARGTEQ:TL,15
-	ABILITY:Special Ability|AUTOMATIC|Aspect|PREVARGTEQ:TL,19
-
-Witch	KEY:Variant Multiclass ~ Witch	CATEGORY:Feat	TYPE:Variant Multiclass	COST:0	!PRECLASS:1,Witch=1	DESC:A character who chooses witch as her secondary class gains secondary class features.
+Witch	KEY:Variant Multiclass ~ Witch	CATEGORY:Special Ability	TYPE:Variant Multiclass.SpecialQuality	!PRECLASS:1,Witch=1	DESC:Gains witch secondary class features.
 	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,3
 	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,7
 	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,11
@@ -1185,478 +1000,102 @@ Witch	KEY:Variant Multiclass ~ Witch	CATEGORY:Feat	TYPE:Variant Multiclass	COST:
 	BONUS:ABILITYPOOL|Witch Hex|1|PREVARGTEQ:TL,15
 	BONUS:ABILITYPOOL|Witch Major Hex|1|PREVARGTEQ:TL,19
 
-###Block:
-# Barbarian	
-# Bard		
-# Cleric	
-# Druid		
+Alchemist	KEY:Variant Multiclass ~ Alchemist	CATEGORY:Special Ability	TYPE:Variant Multiclass.SpecialQuality	!PRECLASS:1,Alchemist=1	DESC:Gains alchemist secondary class features.
+	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,3
+	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,7
+	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,11
+	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,15
+	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,19
+	BONUS:SKILL|Craft (Alchemy)|TL|TYPE=Competence|PREVARGTEQ:TL,3
+	ABILITY:Special Ability|AUTOMATIC|Alchemy ~ Potions|PREVARGTEQ:TL,3
+	ABILITY:Special Ability|AUTOMATIC|Bombs|PREVARGTEQ:TL,7
+	BONUS:VAR|BombDice|(TL+1)/2|PREVARGTEQ:TL,7
+	BONUS:VAR|BombDamageBonus|INT|PREVARGTEQ:TL,7
+	BONUS:VAR|AlchemistBombTimes|INT+floor(TL/2)|PREVARGTEQ:TL,7
+	ABILITY:Special Ability|AUTOMATIC|Mutagen|PREVARGTEQ:TL,11
+	BONUS:VAR|MutagenDuration|10*TL|PREVARGTEQ:TL,11
+	ABILITY:Special Ability|AUTOMATIC|Poison Use|Swift Poisoning|PREVARGTEQ:TL,15
+	ABILITY:Special Ability|AUTOMATIC|Immunity to Poison|PREVARGTEQ:TL,19
 
-# Fighter Multiclass Features
-# Ability Name	Unique Key							Category of Ability		Type								Visible	Description															Ability										Modify VAR
-Bravery		KEY:Multiclass Fighter ~ Bravery			CATEGORY:Special Ability	TYPE:Variant Multiclass Fighter.SpecialQuality	VISIBLE:EXPORT	DESC:At 3rd level, he gains the bravery class feature as a fighter of his character level - 1	ABILITY:Fighter Class Feature|AUTOMATIC|Fighter ~ Bravery		BONUS:VAR|BraveryLVL|MAX(0,TL-1)
-Armor Training 1	KEY:Multiclass Fighter ~ Armor Training 1		CATEGORY:Special Ability	TYPE:Variant Multiclass Fighter.SpecialQuality	VISIBLE:EXPORT	DESC:At 7th level, he gains armor training 1									ABILITY:Fighter Class Feature|AUTOMATIC|Fighter ~ Armor Training	BONUS:VAR|ArmorTrainingLVL|3	BONUS:VAR|FighterArmorTrainingLVL|3
-Weapon Training 1	KEY:Multiclass Fighter ~ Weapon Training 1	CATEGORY:Special Ability	TYPE:Variant Multiclass Fighter.SpecialQuality	VISIBLE:EXPORT	DESC:At 11th level, he gains weapon training 1									ABILITY:Fighter Class Feature|AUTOMATIC|Fighter ~ Weapon Training	BONUS:VAR|WeaponTrainingLVL|5	BONUS:VAR|FighterWeaponTrainingLVL|5
-Armor Training 2	KEY:Multiclass Fighter ~ Armor Training 2		CATEGORY:Special Ability	TYPE:Variant Multiclass Fighter.SpecialQuality	VISIBLE:EXPORT	DESC:At 15th level, he gains armor training 2																				BONUS:VAR|ArmorTrainingLVL|4	BONUS:VAR|FighterArmorTrainingLVL|4
-Weapon Training 2	KEY:Multiclass Fighter ~ Weapon Training 2	CATEGORY:Special Ability	TYPE:Variant Multiclass Fighter.SpecialQuality	VISIBLE:EXPORT	DESC:At 19th level, he gains weapon training 2																				BONUS:VAR|WeaponTrainingLVL|4	BONUS:VAR|FighterWeaponTrainingLVL|4
+Cavalier	KEY:Variant Multiclass ~ Cavalier	CATEGORY:Special Ability	TYPE:Variant Multiclass.SpecialQuality	!PRECLASS:1,Cavalier=1	DESC:Gains cavalier secondary class features.
+	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,3
+	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,7
+	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,11
+	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,15
+	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,19
+	ABILITY:Special Ability|AUTOMATIC|Cavalier's Challenge|PREVARGTEQ:TL,3
+	BONUS:VAR|CavalierChallengeTimes|1|PREVARGTEQ:TL,3
+	BONUS:VAR|CavalierChallengeLVL|TL-2|PREVARGTEQ:TL,3
+	ABILITY:Special Ability|AUTOMATIC|Tactician|PREVARGTEQ:TL,11
+	BONUS:VAR|TacticianLVL|TL|PREVARGTEQ:TL,11
+	ABILITY:Special Ability|AUTOMATIC|Greater Tactician|PREVARGTEQ:TL,19
 
-# Monk		
-# Paladin	
-# Ranger	
-# Rogue		
-# Sorcerer	
-# Wizard	
-# Alchemist	
-# Cavalier
+Gunslinger	KEY:Variant Multiclass ~ Gunslinger	CATEGORY:Special Ability	TYPE:Variant Multiclass.SpecialQuality	!PRECLASS:1,Gunslinger=1	DESC:Gains gunslinger secondary class features.
+	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,3
+	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,7
+	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,11
+	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,15
+	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,19
+	ABILITY:Special Ability|AUTOMATIC|Weapon Prof ~ Firearm|PREVARGTEQ:TL,3
+	ABILITY:Special Ability|AUTOMATIC|Gunsmithing|PREVARGTEQ:TL,7
+	ABILITY:FEAT|AUTOMATIC|Amateur Gunslinger|PREVARGTEQ:TL,11
 
+Inquisitor	KEY:Variant Multiclass ~ Inquisitor	CATEGORY:Special Ability	TYPE:Variant Multiclass.SpecialQuality	!PRECLASS:1,Inquisitor=1	DESC:Gains inquisitor secondary class features.
+	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,3
+	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,7
+	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,11
+	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,15
+	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,19
+	ABILITY:Special Ability|AUTOMATIC|Stern Gaze|PREVARGTEQ:TL,3
+	BONUS:VAR|SternGazeLVL|TL|PREVARGTEQ:TL,3
+	ABILITY:Special Ability|AUTOMATIC|Judgment|PREVARGTEQ:TL,7
+	BONUS:VAR|InquisitorJudgmentTimes|1|PREVARGTEQ:TL,7
+	BONUS:VAR|InquisitorJudgmentLVL|TL-3|PREVARGTEQ:TL,7
+	ABILITY:Special Ability|AUTOMATIC|Solo Tactics|PREVARGTEQ:TL,11
+	BONUS:VAR|InquisitorJudgmentTimes|1|PREVARGTEQ:TL,15
+	ABILITY:Special Ability|AUTOMATIC|Second Judgment|PREVARGTEQ:TL,19
 
+Magus	KEY:Variant Multiclass ~ Magus	CATEGORY:Special Ability	TYPE:Variant Multiclass.SpecialQuality	!PRECLASS:1,Magus=1	DESC:Gains magus secondary class features.
+	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,3
+	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,7
+	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,11
+	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,15
+	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,19
+	ABILITY:Special Ability|AUTOMATIC|Arcane Pool|PREVARGTEQ:TL,3
+	BONUS:VAR|ArcanePoolLVL|TL-2|PREVARGTEQ:TL,3
+	BONUS:ABILITYPOOL|Magus Arcana|1|PREVARGTEQ:TL,7
+	BONUS:VAR|MagusArcanaLVL|TL|PREVARGTEQ:TL,7
+	ABILITY:Special Ability|AUTOMATIC|Spellstrike|PREVARGTEQ:TL,11
+	BONUS:ABILITYPOOL|Magus Arcana|1|PREVARGTEQ:TL,15
+	BONUS:ABILITYPOOL|Magus Arcana|1|PREVARGTEQ:TL,19
 
+Oracle	KEY:Variant Multiclass ~ Oracle	CATEGORY:Special Ability	TYPE:Variant Multiclass.SpecialQuality	!PRECLASS:1,Oracle=1	DESC:Gains oracle secondary class features.
+	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,3
+	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,7
+	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,11
+	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,15
+	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,19
+	BONUS:ABILITYPOOL|Oracle Mystery|1|PREVARGTEQ:TL,1
+	BONUS:ABILITYPOOL|Oracle Curse|1|PREVARGTEQ:TL,1
+	BONUS:VAR|OracleCurseLVL|TL/2|PREVARGTEQ:TL,1
+	BONUS:ABILITYPOOL|Oracle Revelation|1|PREVARGTEQ:TL,3
+	BONUS:VAR|OracleRevelationLVL|max(1,TL-6)|PREVARGTEQ:TL,3
+	BONUS:ABILITYPOOL|Oracle Orison|1|PREVARGTEQ:TL,7
+	BONUS:VAR|OracleCurseLVL|5|PREVARGTEQ:TL,11
+	BONUS:ABILITYPOOL|Oracle Revelation|1|PREVARGTEQ:TL,15
+	BONUS:ABILITYPOOL|Oracle Revelation|1|PREVARGTEQ:TL,19
 
-
-# Gunslinger	
-# Inquisitor	
-# Magus		
-# Oracle	
-# Summoner	
-# Witch		
-
-
-
-
-###Block
-# Ability Name	Unique Key					Category of Ability		Type			Visible		Ability
-Acrobatics		KEY:Skill unlock ~ Acrobatics		CATEGORY:Special Ability	TYPE:SkillUnlock	VISIBLE:DISPLAY	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ acrobatics 05 Ranks|PRESKILL:1,acrobatics=5	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ acrobatics 10 Ranks|PRESKILL:1,acrobatics=10	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ acrobatics 15 Ranks|PRESKILL:1,acrobatics=15	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ acrobatics 20 Ranks|PRESKILL:1,acrobatics=20
-Appraise		KEY:Skill unlock ~ Appraise		CATEGORY:Special Ability	TYPE:SkillUnlock	VISIBLE:DISPLAY	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ appraise 05 Ranks|PRESKILL:1,appraise=5	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ appraise 10 Ranks|PRESKILL:1,appraise=10	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ appraise 15 Ranks|PRESKILL:1,appraise=15	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ appraise 20 Ranks|PRESKILL:1,appraise=20
-Bluff			KEY:Skill unlock ~ Bluff		CATEGORY:Special Ability	TYPE:SkillUnlock	VISIBLE:DISPLAY	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ bluff 05 Ranks|PRESKILL:1,bluff=5	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ bluff 10 Ranks|PRESKILL:1,bluff=10	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ bluff 15 Ranks|PRESKILL:1,bluff=15	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ bluff 20 Ranks|PRESKILL:1,bluff=20
-Climb			KEY:Skill unlock ~ Climb		CATEGORY:Special Ability	TYPE:SkillUnlock	VISIBLE:DISPLAY	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ climb 05 Ranks|PRESKILL:1,climb=5	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ climb 10 Ranks|PRESKILL:1,climb=10	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ climb 15 Ranks|PRESKILL:1,climb=15	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ climb 20 Ranks|PRESKILL:1,climb=20
-Craft			KEY:Skill unlock ~ Craft		CATEGORY:Special Ability	TYPE:SkillUnlock	VISIBLE:DISPLAY	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ craft 05 Ranks|PRESKILL:1,craft=5	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ craft 10 Ranks|PRESKILL:1,craft=10	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ craft 15 Ranks|PRESKILL:1,craft=15	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ craft 20 Ranks|PRESKILL:1,craft=20
-Diplomacy		KEY:Skill unlock ~ Diplomacy		CATEGORY:Special Ability	TYPE:SkillUnlock	VISIBLE:DISPLAY	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ diplomacy 05 Ranks|PRESKILL:1,diplomacy=5	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ diplomacy 10 Ranks|PRESKILL:1,diplomacy=10	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ diplomacy 15 Ranks|PRESKILL:1,diplomacy=15	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ diplomacy 20 Ranks|PRESKILL:1,diplomacy=20
-Disable Device	KEY:Skill unlock ~ Disable Device	CATEGORY:Special Ability	TYPE:SkillUnlock	VISIBLE:DISPLAY	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ disable device 05 Ranks|PRESKILL:1,disable device=5	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ disable device 10 Ranks|PRESKILL:1,disable device=10	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ disable device 15 Ranks|PRESKILL:1,disable device=15	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ disable device 20 Ranks|PRESKILL:1,disable device=20
-Disguise		KEY:Skill unlock ~ Disguise		CATEGORY:Special Ability	TYPE:SkillUnlock	VISIBLE:DISPLAY	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ disguise 05 Ranks|PRESKILL:1,disguise=5	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ disguise 10 Ranks|PRESKILL:1,disguise=10	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ disguise 15 Ranks|PRESKILL:1,disguise=15	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ disguise 20 Ranks|PRESKILL:1,disguise=20
-Escape Artist	KEY:Skill unlock ~ Escape Artist	CATEGORY:Special Ability	TYPE:SkillUnlock	VISIBLE:DISPLAY	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ escape artist 05 Ranks|PRESKILL:1,escape artist=5	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ escape artist 10 Ranks|PRESKILL:1,escape artist=10	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ escape artist 15 Ranks|PRESKILL:1,escape artist=15	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ escape artist 20 Ranks|PRESKILL:1,escape artist=20
-Fly			KEY:Skill unlock ~ Fly			CATEGORY:Special Ability	TYPE:SkillUnlock	VISIBLE:DISPLAY	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ fly 05 Ranks|PRESKILL:1,fly=5	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ fly 10 Ranks|PRESKILL:1,fly=10	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ fly 15 Ranks|PRESKILL:1,fly=15	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ fly 20 Ranks|PRESKILL:1,fly=20
-Handle Animal	KEY:Skill unlock ~ Handle Animal	CATEGORY:Special Ability	TYPE:SkillUnlock	VISIBLE:DISPLAY	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ handle animal 05 Ranks|PRESKILL:1,handle animal=5	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ handle animal 10 Ranks|PRESKILL:1,handle animal=10	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ handle animal 15 Ranks|PRESKILL:1,handle animal=15	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ handle animal 20 Ranks|PRESKILL:1,handle animal=20
-Heal			KEY:Skill unlock ~ Heal			CATEGORY:Special Ability	TYPE:SkillUnlock	VISIBLE:DISPLAY	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ heal 05 Ranks|PRESKILL:1,heal=5	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ heal 10 Ranks|PRESKILL:1,heal=10	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ heal 15 Ranks|PRESKILL:1,heal=15	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ heal 20 Ranks|PRESKILL:1,heal=20
-Intimidate		KEY:Skill unlock ~ Intimidate		CATEGORY:Special Ability	TYPE:SkillUnlock	VISIBLE:DISPLAY	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ intimidate 05 Ranks|PRESKILL:1,intimidate=5	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ intimidate 10 Ranks|PRESKILL:1,intimidate=10	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ intimidate 15 Ranks|PRESKILL:1,intimidate=15	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ intimidate 20 Ranks|PRESKILL:1,intimidate=20
-Knowledge		KEY:Skill unlock ~ Knowledge		CATEGORY:Special Ability	TYPE:SkillUnlock	VISIBLE:DISPLAY	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ knowledge 05 Ranks|PRESKILL:1,knowledge=5	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ knowledge 10 Ranks|PRESKILL:1,knowledge=10	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ knowledge 15 Ranks|PRESKILL:1,knowledge=15	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ knowledge 20 Ranks|PRESKILL:1,knowledge=20
-Linguistics		KEY:Skill unlock ~ Linguistics	CATEGORY:Special Ability	TYPE:SkillUnlock	VISIBLE:DISPLAY	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ linguistics 05 Ranks|PRESKILL:1,linguistics=5	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ linguistics 10 Ranks|PRESKILL:1,linguistics=10	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ linguistics 15 Ranks|PRESKILL:1,linguistics=15	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ linguistics 20 Ranks|PRESKILL:1,linguistics=20
-Perception		KEY:Skill unlock ~ Perception		CATEGORY:Special Ability	TYPE:SkillUnlock	VISIBLE:DISPLAY	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ perception 05 Ranks|PRESKILL:1,perception=5	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ perception 10 Ranks|PRESKILL:1,perception=10	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ perception 15 Ranks|PRESKILL:1,perception=15	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ perception 20 Ranks|PRESKILL:1,perception=20
-Perform		KEY:Skill unlock ~ Perform		CATEGORY:Special Ability	TYPE:SkillUnlock	VISIBLE:DISPLAY	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ perform 05 Ranks|PRESKILL:1,perform=5	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ perform 10 Ranks|PRESKILL:1,perform=10	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ perform 15 Ranks|PRESKILL:1,perform=15	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ perform 20 Ranks|PRESKILL:1,perform=20
-Profession		KEY:Skill unlock ~ Profession		CATEGORY:Special Ability	TYPE:SkillUnlock	VISIBLE:DISPLAY	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ profession 05 Ranks|PRESKILL:1,profession=5	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ profession 10 Ranks|PRESKILL:1,profession=10	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ profession 15 Ranks|PRESKILL:1,profession=15	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ profession 20 Ranks|PRESKILL:1,profession=20
-Ride			KEY:Skill unlock ~ Ride			CATEGORY:Special Ability	TYPE:SkillUnlock	VISIBLE:DISPLAY	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ ride 05 Ranks|PRESKILL:1,ride=5	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ ride 10 Ranks|PRESKILL:1,ride=10	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ ride 15 Ranks|PRESKILL:1,ride=15	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ ride 20 Ranks|PRESKILL:1,ride=20
-Sense Motive	KEY:Skill unlock ~ Sense Motive	CATEGORY:Special Ability	TYPE:SkillUnlock	VISIBLE:DISPLAY	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ sense motive 05 Ranks|PRESKILL:1,sense motive=5	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ sense motive 10 Ranks|PRESKILL:1,sense motive=10	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ sense motive 15 Ranks|PRESKILL:1,sense motive=15	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ sense motive 20 Ranks|PRESKILL:1,sense motive=20
-Sleight Of Hand	KEY:Skill unlock ~ Sleight Of Hand	CATEGORY:Special Ability	TYPE:SkillUnlock	VISIBLE:DISPLAY	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ sleight of hand 05 Ranks|PRESKILL:1,sleight of hand=5	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ sleight of hand 10 Ranks|PRESKILL:1,sleight of hand=10	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ sleight of hand 15 Ranks|PRESKILL:1,sleight of hand=15	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ sleight of hand 20 Ranks|PRESKILL:1,sleight of hand=20
-Spellcraft		KEY:Skill unlock ~ Spellcraft		CATEGORY:Special Ability	TYPE:SkillUnlock	VISIBLE:DISPLAY	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ spellcraft 05 Ranks|PRESKILL:1,spellcraft=5	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ spellcraft 10 Ranks|PRESKILL:1,spellcraft=10	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ spellcraft 15 Ranks|PRESKILL:1,spellcraft=15	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ spellcraft 20 Ranks|PRESKILL:1,spellcraft=20
-Stealth		KEY:Skill unlock ~ Stealth		CATEGORY:Special Ability	TYPE:SkillUnlock	VISIBLE:DISPLAY	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ stealth 05 Ranks|PRESKILL:1,stealth=5	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ stealth 10 Ranks|PRESKILL:1,stealth=10	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ stealth 15 Ranks|PRESKILL:1,stealth=15	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ stealth 20 Ranks|PRESKILL:1,stealth=20
-Survival		KEY:Skill unlock ~ Survival		CATEGORY:Special Ability	TYPE:SkillUnlock	VISIBLE:DISPLAY	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ survival 05 Ranks|PRESKILL:1,survival=5	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ survival 10 Ranks|PRESKILL:1,survival=10	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ survival 15 Ranks|PRESKILL:1,survival=15	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ survival 20 Ranks|PRESKILL:1,survival=20
-Swim			KEY:Skill unlock ~ Swim			CATEGORY:Special Ability	TYPE:SkillUnlock	VISIBLE:DISPLAY	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ swim 05 Ranks|PRESKILL:1,swim=5	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ swim 10 Ranks|PRESKILL:1,swim=10	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ swim 15 Ranks|PRESKILL:1,swim=15	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ swim 20 Ranks|PRESKILL:1,swim=20
-Use Magic Device	KEY:Skill unlock ~ Use Magic Device	CATEGORY:Special Ability	TYPE:SkillUnlock	VISIBLE:DISPLAY	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ use magic device 05 Ranks|PRESKILL:1,use magic device=5	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ use magic device 10 Ranks|PRESKILL:1,use magic device=10	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ use magic device 15 Ranks|PRESKILL:1,use magic device=15	ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ use magic device 20 Ranks|PRESKILL:1,use magic device=20
-
-###Block
-# Ability Name	Unique Key					SORTKEY						Category of Ability		Type					Required Ability										Description																						Ability
-Acrobatics		KEY:Certainty ~ Acrobatics		SORTKEY:Certainty ~ acrobatics		CATEGORY:Special Ability	TYPE:SpecialQuality.Certainty	PREABILITY:1,CATEGORY=Special Ability,Skill unlock ~ acrobatics		DESC:%1/day |RogueCertaintyLevel	DESC:you can reroll an acrobatics check that you have just made and take the better result.		ABILITY:Special Ability|AUTOMATIC|Skill Mastery ~ acrobatics|PREABILITY:1,CATEGORY=Special Ability,Unchained Rogue Talent ~ Skill Mastery
-Appraise		KEY:Certainty ~ Appraise		SORTKEY:Certainty ~ appraise			CATEGORY:Special Ability	TYPE:SpecialQuality.Certainty	PREABILITY:1,CATEGORY=Special Ability,Skill unlock ~ appraise		DESC:%1/day |RogueCertaintyLevel	DESC:you can reroll an appraise check that you have just made and take the better result			ABILITY:Special Ability|AUTOMATIC|Skill Mastery ~ appraise|PREABILITY:1,CATEGORY=Special Ability,Unchained Rogue Talent ~ Skill Mastery
-Bluff			KEY:Certainty ~ Bluff			SORTKEY:Certainty ~ bluff			CATEGORY:Special Ability	TYPE:SpecialQuality.Certainty	PREABILITY:1,CATEGORY=Special Ability,Skill unlock ~ bluff			DESC:%1/day |RogueCertaintyLevel	DESC:you can reroll a bluff check that you have just made and take the better result			ABILITY:Special Ability|AUTOMATIC|Skill Mastery ~ bluff|PREABILITY:1,CATEGORY=Special Ability,Unchained Rogue Talent ~ Skill Mastery
-Climb			KEY:Certainty ~ Climb			SORTKEY:Certainty ~ climb			CATEGORY:Special Ability	TYPE:SpecialQuality.Certainty	PREABILITY:1,CATEGORY=Special Ability,Skill unlock ~ climb			DESC:%1/day |RogueCertaintyLevel	DESC:you can reroll a climb check that you have just made and take the better result			ABILITY:Special Ability|AUTOMATIC|Skill Mastery ~ climb|PREABILITY:1,CATEGORY=Special Ability,Unchained Rogue Talent ~ Skill Mastery
-Craft			KEY:Certainty ~ Craft			SORTKEY:Certainty ~ craft			CATEGORY:Special Ability	TYPE:SpecialQuality.Certainty	PREABILITY:1,CATEGORY=Special Ability,Skill unlock ~ craft			DESC:%1/day |RogueCertaintyLevel	DESC:you can reroll a craft check that you have just made and take the better result			ABILITY:Special Ability|AUTOMATIC|Skill Mastery ~ craft|PREABILITY:1,CATEGORY=Special Ability,Unchained Rogue Talent ~ Skill Mastery
-Diplomacy		KEY:Certainty ~ Diplomacy		SORTKEY:Certainty ~ diplomacy			CATEGORY:Special Ability	TYPE:SpecialQuality.Certainty	PREABILITY:1,CATEGORY=Special Ability,Skill unlock ~ diplomacy		DESC:%1/day |RogueCertaintyLevel	DESC:you can reroll a diplomacy check that you have just made and take the better result			ABILITY:Special Ability|AUTOMATIC|Skill Mastery ~ diplomacy|PREABILITY:1,CATEGORY=Special Ability,Unchained Rogue Talent ~ Skill Mastery
-Disable Device	KEY:Certainty ~ Disable Device	SORTKEY:Certainty ~ disable device		CATEGORY:Special Ability	TYPE:SpecialQuality.Certainty	PREABILITY:1,CATEGORY=Special Ability,Skill unlock ~ disable device	DESC:%1/day |RogueCertaintyLevel	DESC:you can reroll a disable device check that you have just made and take the better result		ABILITY:Special Ability|AUTOMATIC|Skill Mastery ~ disable device|PREABILITY:1,CATEGORY=Special Ability,Unchained Rogue Talent ~ Skill Mastery
-Disguise		KEY:Certainty ~ Disguise		SORTKEY:Certainty ~ disguise			CATEGORY:Special Ability	TYPE:SpecialQuality.Certainty	PREABILITY:1,CATEGORY=Special Ability,Skill unlock ~ disguise		DESC:%1/day |RogueCertaintyLevel	DESC:you can reroll a disguise check that you have just made and take the better result			ABILITY:Special Ability|AUTOMATIC|Skill Mastery ~ disguise|PREABILITY:1,CATEGORY=Special Ability,Unchained Rogue Talent ~ Skill Mastery
-Escape Artist	KEY:Certainty ~ Escape Artist		SORTKEY:Certainty ~ escape artist		CATEGORY:Special Ability	TYPE:SpecialQuality.Certainty	PREABILITY:1,CATEGORY=Special Ability,Skill unlock ~ escape artist	DESC:%1/day |RogueCertaintyLevel	DESC:you can reroll an escape artist check that you have just made and take the better result		ABILITY:Special Ability|AUTOMATIC|Skill Mastery ~ escape artist|PREABILITY:1,CATEGORY=Special Ability,Unchained Rogue Talent ~ Skill Mastery
-Fly			KEY:Certainty ~ Fly			SORTKEY:Certainty ~ fly				CATEGORY:Special Ability	TYPE:SpecialQuality.Certainty	PREABILITY:1,CATEGORY=Special Ability,Skill unlock ~ fly			DESC:%1/day |RogueCertaintyLevel	DESC:you can reroll a fly check that you have just made and take the better result				ABILITY:Special Ability|AUTOMATIC|Skill Mastery ~ fly|PREABILITY:1,CATEGORY=Special Ability,Unchained Rogue Talent ~ Skill Mastery
-Handle Animal	KEY:Certainty ~ Handle Animal		SORTKEY:Certainty ~ handle animal		CATEGORY:Special Ability	TYPE:SpecialQuality.Certainty	PREABILITY:1,CATEGORY=Special Ability,Skill unlock ~ handle animal	DESC:%1/day |RogueCertaintyLevel	DESC:you can reroll a handle animal check that you have just made and take the better result		ABILITY:Special Ability|AUTOMATIC|Skill Mastery ~ handle animal|PREABILITY:1,CATEGORY=Special Ability,Unchained Rogue Talent ~ Skill Mastery
-Heal			KEY:Certainty ~ Heal			SORTKEY:Certainty ~ heal			CATEGORY:Special Ability	TYPE:SpecialQuality.Certainty	PREABILITY:1,CATEGORY=Special Ability,Skill unlock ~ heal			DESC:%1/day |RogueCertaintyLevel	DESC:you can reroll a heal check that you have just made and take the better result				ABILITY:Special Ability|AUTOMATIC|Skill Mastery ~ heal|PREABILITY:1,CATEGORY=Special Ability,Unchained Rogue Talent ~ Skill Mastery
-Intimidate		KEY:Certainty ~ Intimidate		SORTKEY:Certainty ~ intimidate		CATEGORY:Special Ability	TYPE:SpecialQuality.Certainty	PREABILITY:1,CATEGORY=Special Ability,Skill unlock ~ intimidate		DESC:%1/day |RogueCertaintyLevel	DESC:you can reroll an intimidate check that you have just made and take the better result		ABILITY:Special Ability|AUTOMATIC|Skill Mastery ~ intimidate|PREABILITY:1,CATEGORY=Special Ability,Unchained Rogue Talent ~ Skill Mastery
-Knowledge		KEY:Certainty ~ Knowledge		SORTKEY:Certainty ~ knowledge			CATEGORY:Special Ability	TYPE:SpecialQuality.Certainty	PREABILITY:1,CATEGORY=Special Ability,Skill unlock ~ knowledge		DESC:%1/day |RogueCertaintyLevel	DESC:you can reroll a knowledge check that you have just made and take the better result			ABILITY:Special Ability|AUTOMATIC|Skill Mastery ~ knowledge|PREABILITY:1,CATEGORY=Special Ability,Unchained Rogue Talent ~ Skill Mastery
-Linguistics		KEY:Certainty ~ Linguistics		SORTKEY:Certainty ~ linguistics		CATEGORY:Special Ability	TYPE:SpecialQuality.Certainty	PREABILITY:1,CATEGORY=Special Ability,Skill unlock ~ linguistics		DESC:%1/day |RogueCertaintyLevel	DESC:you can reroll a linguistics check that you have just made and take the better result		ABILITY:Special Ability|AUTOMATIC|Skill Mastery ~ linguistics|PREABILITY:1,CATEGORY=Special Ability,Unchained Rogue Talent ~ Skill Mastery
-Perception		KEY:Certainty ~ Perception		SORTKEY:Certainty ~ perception		CATEGORY:Special Ability	TYPE:SpecialQuality.Certainty	PREABILITY:1,CATEGORY=Special Ability,Skill unlock ~ perception		DESC:%1/day |RogueCertaintyLevel	DESC:you can reroll a perception check that you have just made and take the better result			ABILITY:Special Ability|AUTOMATIC|Skill Mastery ~ perception|PREABILITY:1,CATEGORY=Special Ability,Unchained Rogue Talent ~ Skill Mastery
-Perform		KEY:Certainty ~ Perform			SORTKEY:Certainty ~ perform			CATEGORY:Special Ability	TYPE:SpecialQuality.Certainty	PREABILITY:1,CATEGORY=Special Ability,Skill unlock ~ perform		DESC:%1/day |RogueCertaintyLevel	DESC:you can reroll a perform check that you have just made and take the better result			ABILITY:Special Ability|AUTOMATIC|Skill Mastery ~ perform|PREABILITY:1,CATEGORY=Special Ability,Unchained Rogue Talent ~ Skill Mastery
-Profession		KEY:Certainty ~ Profession		SORTKEY:Certainty ~ profession		CATEGORY:Special Ability	TYPE:SpecialQuality.Certainty	PREABILITY:1,CATEGORY=Special Ability,Skill unlock ~ profession		DESC:%1/day |RogueCertaintyLevel	DESC:you can reroll a profession check that you have just made and take the better result			ABILITY:Special Ability|AUTOMATIC|Skill Mastery ~ profession|PREABILITY:1,CATEGORY=Special Ability,Unchained Rogue Talent ~ Skill Mastery
-Ride			KEY:Certainty ~ Ride			SORTKEY:Certainty ~ ride			CATEGORY:Special Ability	TYPE:SpecialQuality.Certainty	PREABILITY:1,CATEGORY=Special Ability,Skill unlock ~ ride			DESC:%1/day |RogueCertaintyLevel	DESC:you can reroll a ride check that you have just made and take the better result				ABILITY:Special Ability|AUTOMATIC|Skill Mastery ~ ride|PREABILITY:1,CATEGORY=Special Ability,Unchained Rogue Talent ~ Skill Mastery
-Sense Motive	KEY:Certainty ~ Sense Motive		SORTKEY:Certainty ~ sense motive		CATEGORY:Special Ability	TYPE:SpecialQuality.Certainty	PREABILITY:1,CATEGORY=Special Ability,Skill unlock ~ sense motive		DESC:%1/day |RogueCertaintyLevel	DESC:you can reroll a sense motive check that you have just made and take the better result		ABILITY:Special Ability|AUTOMATIC|Skill Mastery ~ sense motive|PREABILITY:1,CATEGORY=Special Ability,Unchained Rogue Talent ~ Skill Mastery
-Sleight Of Hand	KEY:Certainty ~ Sleight Of Hand	SORTKEY:Certainty ~ sleight of hand		CATEGORY:Special Ability	TYPE:SpecialQuality.Certainty	PREABILITY:1,CATEGORY=Special Ability,Skill unlock ~ sleight of hand	DESC:%1/day |RogueCertaintyLevel	DESC:you can reroll a sleight of hand check that you have just made and take the better result		ABILITY:Special Ability|AUTOMATIC|Skill Mastery ~ sleight of hand|PREABILITY:1,CATEGORY=Special Ability,Unchained Rogue Talent ~ Skill Mastery
-Spellcraft		KEY:Certainty ~ Spellcraft		SORTKEY:Certainty ~ spellcraft		CATEGORY:Special Ability	TYPE:SpecialQuality.Certainty	PREABILITY:1,CATEGORY=Special Ability,Skill unlock ~ spellcraft		DESC:%1/day |RogueCertaintyLevel	DESC:you can reroll a spellcraft check that you have just made and take the better result			ABILITY:Special Ability|AUTOMATIC|Skill Mastery ~ spellcraft|PREABILITY:1,CATEGORY=Special Ability,Unchained Rogue Talent ~ Skill Mastery
-Stealth		KEY:Certainty ~ Stealth			SORTKEY:Certainty ~ stealth			CATEGORY:Special Ability	TYPE:SpecialQuality.Certainty	PREABILITY:1,CATEGORY=Special Ability,Skill unlock ~ stealth		DESC:%1/day |RogueCertaintyLevel	DESC:you can reroll a stealth check that you have just made and take the better result			ABILITY:Special Ability|AUTOMATIC|Skill Mastery ~ stealth|PREABILITY:1,CATEGORY=Special Ability,Unchained Rogue Talent ~ Skill Mastery
-Survival		KEY:Certainty ~ Survival		SORTKEY:Certainty ~ survival			CATEGORY:Special Ability	TYPE:SpecialQuality.Certainty	PREABILITY:1,CATEGORY=Special Ability,Skill unlock ~ survival		DESC:%1/day |RogueCertaintyLevel	DESC:you can reroll a survival check that you have just made and take the better result			ABILITY:Special Ability|AUTOMATIC|Skill Mastery ~ survival|PREABILITY:1,CATEGORY=Special Ability,Unchained Rogue Talent ~ Skill Mastery
-Swim			KEY:Certainty ~ Swim			SORTKEY:Certainty ~ swim			CATEGORY:Special Ability	TYPE:SpecialQuality.Certainty	PREABILITY:1,CATEGORY=Special Ability,Skill unlock ~ swim			DESC:%1/day |RogueCertaintyLevel	DESC:you can reroll a swim check that you have just made and take the better result				ABILITY:Special Ability|AUTOMATIC|Skill Mastery ~ swim|PREABILITY:1,CATEGORY=Special Ability,Unchained Rogue Talent ~ Skill Mastery
-Use Magic Device	KEY:Certainty ~ Use Magic Device	SORTKEY:Certainty ~ use magic device	CATEGORY:Special Ability	TYPE:SpecialQuality.Certainty	PREABILITY:1,CATEGORY=Special Ability,Skill unlock ~ use magic device	DESC:%1/day |RogueCertaintyLevel	DESC:you can reroll a use magic device check that you have just made and take the better result.	ABILITY:Special Ability|AUTOMATIC|Skill Mastery ~ use magic device|PREABILITY:1,CATEGORY=Special Ability,Unchained Rogue Talent ~ Skill Mastery
-
-
-
-###Block
-# Ability Name	Unique Key						SORTKEY						Category of Ability		Type						Description
-Acrobatics		KEY:Skill Mastery ~ Acrobatics		SORTKEY:Skill Mastery ~ acrobatics		CATEGORY:Special Ability	TYPE:SpecialQuality.Skill Mastery	DESC:When making an acrobatics check, you may take 10 even if stress and distractions would normally prevent you from doing so.
-Appraise		KEY:Skill Mastery ~ Appraise			SORTKEY:Skill Mastery ~ appraise		CATEGORY:Special Ability	TYPE:SpecialQuality.Skill Mastery	DESC:When making an appraise check, you may take 10 even if stress and distractions would normally prevent you from doing so.
-Bluff			KEY:Skill Mastery ~ Bluff			SORTKEY:Skill Mastery ~ bluff			CATEGORY:Special Ability	TYPE:SpecialQuality.Skill Mastery	DESC:When making a bluff check, you may take 10 even if stress and distractions would normally prevent you from doing so.
-Climb			KEY:Skill Mastery ~ Climb			SORTKEY:Skill Mastery ~ climb			CATEGORY:Special Ability	TYPE:SpecialQuality.Skill Mastery	DESC:When making a climb check, you may take 10 even if stress and distractions would normally prevent you from doing so.
-Craft			KEY:Skill Mastery ~ Craft			SORTKEY:Skill Mastery ~ craft			CATEGORY:Special Ability	TYPE:SpecialQuality.Skill Mastery	DESC:When making a craft check, you may take 10 even if stress and distractions would normally prevent you from doing so.
-Diplomacy		KEY:Skill Mastery ~ Diplomacy			SORTKEY:Skill Mastery ~ diplomacy		CATEGORY:Special Ability	TYPE:SpecialQuality.Skill Mastery	DESC:When making a diplomacy check, you may take 10 even if stress and distractions would normally prevent you from doing so.
-Disable Device	KEY:Skill Mastery ~ Disable Device		SORTKEY:Skill Mastery ~ disable device	CATEGORY:Special Ability	TYPE:SpecialQuality.Skill Mastery	DESC:When making a disable device check, you may take 10 even if stress and distractions would normally prevent you from doing so.
-Disguise		KEY:Skill Mastery ~ Disguise			SORTKEY:Skill Mastery ~ disguise		CATEGORY:Special Ability	TYPE:SpecialQuality.Skill Mastery	DESC:When making a disguise check, you may take 10 even if stress and distractions would normally prevent you from doing so.
-Escape Artist	KEY:Skill Mastery ~ Escape Artist		SORTKEY:Skill Mastery ~ escape artist	CATEGORY:Special Ability	TYPE:SpecialQuality.Skill Mastery	DESC:When making an escape artist check, you may take 10 even if stress and distractions would normally prevent you from doing so.
-Fly			KEY:Skill Mastery ~ Fly				SORTKEY:Skill Mastery ~ fly			CATEGORY:Special Ability	TYPE:SpecialQuality.Skill Mastery	DESC:When making a fly check, you may take 10 even if stress and distractions would normally prevent you from doing so.
-Handle Animal	KEY:Skill Mastery ~ Handle Animal		SORTKEY:Skill Mastery ~ handle animal	CATEGORY:Special Ability	TYPE:SpecialQuality.Skill Mastery	DESC:When making a handle animal check, you may take 10 even if stress and distractions would normally prevent you from doing so.
-Heal			KEY:Skill Mastery ~ Heal			SORTKEY:Skill Mastery ~ heal			CATEGORY:Special Ability	TYPE:SpecialQuality.Skill Mastery	DESC:When making a heal check, you may take 10 even if stress and distractions would normally prevent you from doing so.
-Intimidate		KEY:Skill Mastery ~ Intimidate		SORTKEY:Skill Mastery ~ intimidate		CATEGORY:Special Ability	TYPE:SpecialQuality.Skill Mastery	DESC:When making an intimidate check, you may take 10 even if stress and distractions would normally prevent you from doing so.
-Knowledge		KEY:Skill Mastery ~ Knowledge			SORTKEY:Skill Mastery ~ knowledge		CATEGORY:Special Ability	TYPE:SpecialQuality.Skill Mastery	DESC:When making a knowledge check, you may take 10 even if stress and distractions would normally prevent you from doing so.
-Linguistics		KEY:Skill Mastery ~ Linguistics		SORTKEY:Skill Mastery ~ linguistics		CATEGORY:Special Ability	TYPE:SpecialQuality.Skill Mastery	DESC:When making a linguistics check, you may take 10 even if stress and distractions would normally prevent you from doing so.
-Perception		KEY:Skill Mastery ~ Perception		SORTKEY:Skill Mastery ~ perception		CATEGORY:Special Ability	TYPE:SpecialQuality.Skill Mastery	DESC:When making a perception check, you may take 10 even if stress and distractions would normally prevent you from doing so.
-Perform		KEY:Skill Mastery ~ Perform			SORTKEY:Skill Mastery ~ perform		CATEGORY:Special Ability	TYPE:SpecialQuality.Skill Mastery	DESC:When making a perform check, you may take 10 even if stress and distractions would normally prevent you from doing so.
-Profession		KEY:Skill Mastery ~ Profession		SORTKEY:Skill Mastery ~ profession		CATEGORY:Special Ability	TYPE:SpecialQuality.Skill Mastery	DESC:When making a profession check, you may take 10 even if stress and distractions would normally prevent you from doing so.
-Ride			KEY:Skill Mastery ~ Ride			SORTKEY:Skill Mastery ~ ride			CATEGORY:Special Ability	TYPE:SpecialQuality.Skill Mastery	DESC:When making a ride check, you may take 10 even if stress and distractions would normally prevent you from doing so.
-Sense Motive	KEY:Skill Mastery ~ Sense Motive		SORTKEY:Skill Mastery ~ sense motive	CATEGORY:Special Ability	TYPE:SpecialQuality.Skill Mastery	DESC:When making a sense motive check, you may take 10 even if stress and distractions would normally prevent you from doing so.
-Sleight Of Hand	KEY:Skill Mastery ~ Sleight Of Hand		SORTKEY:Skill Mastery ~ sleight of hand	CATEGORY:Special Ability	TYPE:SpecialQuality.Skill Mastery	DESC:When making a sleight of hand check, you may take 10 even if stress and distractions would normally prevent you from doing so.
-Spellcraft		KEY:Skill Mastery ~ Spellcraft		SORTKEY:Skill Mastery ~ spellcraft		CATEGORY:Special Ability	TYPE:SpecialQuality.Skill Mastery	DESC:When making a spellcraft check, you may take 10 even if stress and distractions would normally prevent you from doing so.
-Stealth		KEY:Skill Mastery ~ Stealth			SORTKEY:Skill Mastery ~ stealth		CATEGORY:Special Ability	TYPE:SpecialQuality.Skill Mastery	DESC:When making a stealth check, you may take 10 even if stress and distractions would normally prevent you from doing so.
-Survival		KEY:Skill Mastery ~ Survival			SORTKEY:Skill Mastery ~ survival		CATEGORY:Special Ability	TYPE:SpecialQuality.Skill Mastery	DESC:When making a survival check, you may take 10 even if stress and distractions would normally prevent you from doing so.
-Swim			KEY:Skill Mastery ~ Swim			SORTKEY:Skill Mastery ~ swim			CATEGORY:Special Ability	TYPE:SpecialQuality.Skill Mastery	DESC:When making a swim check, you may take 10 even if stress and distractions would normally prevent you from doing so.
-Use Magic Device	KEY:Skill Mastery ~ Use Magic Device	SORTKEY:Skill Mastery ~ use magic device	CATEGORY:Special Ability	TYPE:SpecialQuality.Skill Mastery	DESC:When making a use magic device check, you may take 10 even if stress and distractions would normally prevent you from doing so.
-
-
-
-###Block
-# Ability Name					Unique Key							SORTKEY						Category of Ability		Type							Required Skill			Description																																																																																									Ability
-Skill unlock acrobatics 5 Ranks		KEY:Skill unlock ~ acrobatics 05 Ranks		SORTKEY:Rogue's Edge acrobatics 05		CATEGORY:Special Ability	TYPE:SpecialQuality.Signature Skill 05	PRESKILL:1,acrobatics=5		DESC:You can move at normal speed through a threatened square without provoking an attack of opportunity by increasing the DC of the check by 5 (instead of by 10). You aren't denied your Dexterity bonus when attempting Acrobatics checks with DCs of 20 or lower.
-Skill unlock acrobatics 10 Ranks		KEY:Skill unlock ~ acrobatics 10 Ranks		SORTKEY:Rogue's Edge acrobatics 10		CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:You can attempt an Acrobatics check at a -10 penalty and use the result as your CMD against trip maneuvers. You can also attempt an Acrobatics check at a -10 penalty in place of a Reflex save to avoid falling. You must choose to use this ability before the trip attempt or Reflex save is rolled. With a successful DC 20 Acrobatics check, you treat an unintentional fall as 10 feet shorter plus 10 feet for every 10 by which you exceed the DC, and treat an intentional fall as 10 feet shorter for every 10 by which you exceed the DC.
-Skill unlock acrobatics 15 Ranks		KEY:Skill unlock ~ acrobatics 15 Ranks		SORTKEY:Rogue's Edge acrobatics 15		CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:You do not provoke attacks of opportunity when standing up from prone.
-Skill unlock acrobatics 20 Ranks		KEY:Skill unlock ~ acrobatics 20 Ranks		SORTKEY:Rogue's Edge acrobatics 20		CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:You double the result of any Acrobatics check when jumping and never fall prone at the end of a fall as long as you remain conscious.
-
-Skill unlock appraise 5 Ranks			KEY:Skill unlock ~ appraise 05 Ranks		SORTKEY:Rogue's Edge appraise 05		CATEGORY:Special Ability	TYPE:SpecialQuality.Signature Skill 05	PRESKILL:1,appraise=5		DESC:A successful DC 20 Appraise check reveals whether an item is magical, and a second check (DC = 25 + the item's caster level) unveils its properties. You can use Appraise to detect non-written forgeries and counterfeits.
-Skill unlock appraise 10 Ranks		KEY:Skill unlock ~ appraise 10 Ranks		SORTKEY:Rogue's Edge appraise 10		CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:You can determine the most expensive object a creature is wearing or wielding (or in a 5-foot cube) as a standard action by succeeding at a DC 20 check. You never make a wildly inaccurate appraisal of an item's value.
-Skill unlock appraise 15 Ranks		KEY:Skill unlock ~ appraise 15 Ranks		SORTKEY:Rogue's Edge appraise 15		CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:Determining the most expensive object as above is a move action. You can substitute an Appraise check at a -10 penalty for a Will save to disbelieve a figment or glamer.
-Skill unlock appraise 20 Ranks		KEY:Skill unlock ~ appraise 20 Ranks		SORTKEY:Rogue's Edge appraise 20		CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:Determining the most expensive object as above is a move action, and if the check succeeds, you gain a +2 circumstance bonus on combat maneuver checks to steal that object or disarm a creature of that object for 1 minute.
-
-Skill unlock bluff 5 Ranks			KEY:Skill unlock ~ bluff 05 Ranks			SORTKEY:Rogue's Edge bluff 05			CATEGORY:Special Ability	TYPE:SpecialQuality.Signature Skill 05	PRESKILL:1,bluff=5		DESC:The penalty to Bluff a creature after a failed check is halved unless you failed by 5 or more.
-Skill unlock bluff 10 Ranks			KEY:Skill unlock ~ bluff 10 Ranks			SORTKEY:Rogue's Edge bluff 10			CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:You take no penalty to Bluff a creature after a failed check unless you failed by 5 or more.
-Skill unlock bluff 15 Ranks			KEY:Skill unlock ~ bluff 15 Ranks			SORTKEY:Rogue's Edge bluff 15			CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:Creatures magically attempting to read your thoughts, detect your alignment, or reveal when you are lying must attempt a caster level check (DC = 11 + your ranks in Bluff ) or the effect reveals nothing.
-Skill unlock bluff 20 Ranks			KEY:Skill unlock ~ bluff 20 Ranks			SORTKEY:Rogue's Edge bluff 20			CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:As a full-round action, you can make a suggestion (as the spell, maximum duration 1 hour) to a creature within 30 feet (Will negates, DC = 15 + your Charisma modif ier). A creature that saves against your suggestion is immune to further uses of this effect for 24 hours, and whenever the suggested creature is specifically confronted with proof of your manipulation, it receives another saving throw. This is an extraordinary mindaffecting compulsion.
-
-Skill unlock climb 5 Ranks			KEY:Skill unlock ~ climb 05 Ranks			SORTKEY:Rogue's Edge climb 05			CATEGORY:Special Ability	TYPE:SpecialQuality.Signature Skill 05	PRESKILL:1,climb=5		DESC:You are no longer denied your Dexterity bonus when climbing.
-Skill unlock climb 10 Ranks			KEY:Skill unlock ~ climb 10 Ranks			SORTKEY:Rogue's Edge climb 10			CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:You gain a natural climb speed (but not the +8 racial bonus on Climb checks) of 10 feet, but only on surfaces with a Climb DC of 20 or lower.
-Skill unlock climb 15 Ranks			KEY:Skill unlock ~ climb 15 Ranks			SORTKEY:Rogue's Edge climb 15			CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:You gain a natural climb speed (but not the +8 racial bonus on Climb checks) equal to your base speed on surfaces with a Climb DC of 20 or lower, and of 10 feet on all other surfaces.
-Skill unlock climb 20 Ranks			KEY:Skill unlock ~ climb 20 Ranks			SORTKEY:Rogue's Edge climb 20			CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:You gain a natural climb speed equal to your base speed on all surfaces. If you have both hands free, you gain a +8 racial bonus on Climb checks.
-
-Skill unlock craft 5 Ranks			KEY:Skill unlock ~ craft 05 Ranks			SORTKEY:Rogue's Edge craft 05			CATEGORY:Special Ability	TYPE:SpecialQuality.Signature Skill 05	PRESKILL:1,TYPE.craft=5		DESC:When determining your weekly progress, double the result of your Craft check before multiplying the result by the item's DC.
-Skill unlock craft 10 Ranks			KEY:Skill unlock ~ craft 10 Ranks			SORTKEY:Rogue's Edge craft 10			CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:You do not ruin any of your raw materials unless you fail a check by 10 or more.
-Skill unlock craft 15 Ranks			KEY:Skill unlock ~ craft 15 Ranks			SORTKEY:Rogue's Edge craft 15			CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:When you determine your progress, the result of your check is how much work you complete each day in silver pieces.
-Skill unlock craft 20 Ranks			KEY:Skill unlock ~ craft 20 Ranks			SORTKEY:Rogue's Edge craft 20			CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:You can craft magic armor, magic weapons, magic rings, and wondrous items that fall under your category of Craft using the normal Craft rules.
-
-Skill unlock diplomacy 5 Ranks		KEY:Skill unlock ~ diplomacy 05 Ranks		SORTKEY:Rogue's Edge diplomacy 05		CATEGORY:Special Ability	TYPE:SpecialQuality.Signature Skill 05	PRESKILL:1,diplomacy=5		DESC:The time required to influence a creature's attitude or gather information is halved.
-Skill unlock diplomacy 10 Ranks		KEY:Skill unlock ~ diplomacy 10 Ranks		SORTKEY:Rogue's Edge diplomacy 10		CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:You can attempt to adjust a creature's attitude in 1 round by taking a -10 penalty. If you take 1 minute to adjust a creature's attitude, add your Charisma bonus to the number of hours that attitude change persists.
-Skill unlock diplomacy 15 Ranks		KEY:Skill unlock ~ diplomacy 15 Ranks		SORTKEY:Rogue's Edge diplomacy 15		CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:You can attempt to adjust a creature's attitude in 1 round with no penalty. If you take 1 minute to adjust a creature's attitude, the duration of the resulting change is measured in days, not hours. You can gather information in 10 minutes by taking a -5 penalty.
-Skill unlock diplomacy 20 Ranks		KEY:Skill unlock ~ diplomacy 20 Ranks		SORTKEY:Rogue's Edge diplomacy 20		CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:You can attempt to adjust a creature's attitude in 1 round with no penalty. If you take 1 minute to adjust a creature's attitude, the duration of the resulting change is measured in weeks, not hours. You can gather information in 1d4 minutes with no penalty.
-
-Skill unlock disable device 5 Ranks		KEY:Skill unlock ~ disable device 05 Ranks	SORTKEY:Rogue's Edge disable device 05	CATEGORY:Special Ability	TYPE:SpecialQuality.Signature Skill 05	PRESKILL:1,disable device=5	DESC:Reduce the time required to disarm a trap or open a lock by taking a -5 penalty on your Disable Device check for each step by which you reduce the time required: 2d4 rounds, 1d4 rounds, 1 round, a standard action, a move action, a swift action.
-Skill unlock disable device 10 Ranks	KEY:Skill unlock ~ disable device 10 Ranks	SORTKEY:Rogue's Edge disable device 10	CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:You can disarm magical traps at a -10 penalty even if you lack the trapfinding ability. If you possess the trapfinding ability, when attempting to disable magic traps, you never trigger them, even if you perform the trigger action (such as looking at a symbol). If you fail the check, you can still trigger the trap, and you can't use this ability to bypass it.
-Skill unlock disable device 15 Ranks	KEY:Skill unlock ~ disable device 15 Ranks	SORTKEY:Rogue's Edge disable device 15	CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:When attacked by a trap, you can attempt a Disable Device check as an immediate action (adding your trap sense bonus, if any) opposed by the trap's attack roll or its save DC. If you succeed, you take half damage (or no damage if you exceed the DC by at least 10).
-Skill unlock disable device 20 Ranks	KEY:Skill unlock ~ disable device 20 Ranks	SORTKEY:Rogue's Edge disable device 20	CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:You halve the penalties for performing a quick disarm as described in the 5 Ranks entry. If you possess the trapfinding ability and accept a -20 penalty while using the ability unlocked at 15 ranks, all nearby allies gain the benef it, and you disable the trap as an immediate action before it can trigger if you exceed the DC by at least 10.
-
-Skill unlock disguise 5 Ranks			KEY:Skill unlock ~ disguise 05 Ranks		SORTKEY:Rogue's Edge disguise 05		CATEGORY:Special Ability	TYPE:SpecialQuality.Signature Skill 05	PRESKILL:1,disguise=5		DESC:You can create a disguise in 1d3 minutes.
-Skill unlock disguise 10 Ranks		KEY:Skill unlock ~ disguise 10 Ranks		SORTKEY:Rogue's Edge disguise 10		CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:You can create a disguise in 1d3 rounds. If you take the full normal amount of time to create your disguise, you take no penalty for disguising your gender, race, or age category.
-Skill unlock disguise 15 Ranks		KEY:Skill unlock ~ disguise 15 Ranks		SORTKEY:Rogue's Edge disguise 15		CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:You can create a disguise as a full-round action.
-Skill unlock disguise 20 Ranks		KEY:Skill unlock ~ disguise 20 Ranks		SORTKEY:Rogue's Edge disguise 20		CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:You can create a disguise as a standard action, or as a full-round action combined with a Bluff check to create a diversion to hide.
-
-Skill unlock escape artist 5 Ranks		KEY:Skill unlock ~ escape artist 05 Ranks		SORTKEY:Rogue's Edge escape artist 05	CATEGORY:Special Ability	TYPE:SpecialQuality.Signature Skill 05	PRESKILL:1,escape artist=5	DESC:If you take a -10 penalty, the time required to use the escape artist skill is halved; escaping a grapple or pin is a move action, and escaping a net, animate rope, command plants, or control plants spell is a standard action.
-Skill unlock escape artist 10 Ranks		KEY:Skill unlock ~ escape artist 10 Ranks		SORTKEY:Rogue's Edge escape artist 10	CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:You can attempt to escape from any entangling effect as a standard action with an Escape Artist check (DC = the effect's save DC + 10). You can attempt an Escape Artist check as a move action to set the DC for a creature to escape from ropes or bindings; you gain a +10 bonus on the check if you instead attempt it as a full-round action.
-Skill unlock escape artist 15 Ranks		KEY:Skill unlock ~ escape artist 15 Ranks		SORTKEY:Rogue's Edge escape artist 15	CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:You can escape any entangling effect (as above) as a move action. As a standard action, you can attempt an Escape Artist check (DC = the effect's save DC + 20) to suppress a slow or paralysis effect for 1 round, plus 1 round for every 5 by which you exceed the DC. This action counts as purely mental for the purpose of being able to take it while paralyzed.
-Skill unlock escape artist 20 Ranks		KEY:Skill unlock ~ escape artist 20 Ranks		SORTKEY:Rogue's Edge escape artist 20	CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:You can escape being entangled, grappled, or pinned as an immediate action with an Escape Artist check (DC = the effect's DC + 10 or the attacker's CMB + 10). You can attempt to suppress a slow or paralysis effect as a standard action (increasing the DC by 10), a move action (increasing the DC by 15), or an immediate action (increasing the DC by 20).
-
-Skill unlock fly 5 Ranks			KEY:Skill unlock ~ fly 05 Ranks			SORTKEY:Rogue's Edge fly 05			CATEGORY:Special Ability	TYPE:SpecialQuality.Signature Skill 05	PRESKILL:1,fly=5			DESC:A successful DC 20 Fly check allows you to make a 45-degree turn without sacrificing movement.
-Skill unlock fly 10 Ranks			KEY:Skill unlock ~ fly 10 Ranks			SORTKEY:Rogue's Edge fly 10			CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:A successful DC 30 Fly check allows you to ascend at a 45-degree angle at full speed. You treat falls after midair collisions as 10 feet shorter with a successful DC 10 Fly check, plus 10 feet for every 10 points by which you exceed the DC.
-Skill unlock fly 15 Ranks			KEY:Skill unlock ~ fly 15 Ranks			SORTKEY:Rogue's Edge fly 15			CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:A successful DC 30 Fly check allows you to make a 90-degree turn without sacrificing movement, or a 180-degree turn by sacrificing 5 feet of movement. You are considered one size category larger when determining wind effects on Fly checks.
-Skill unlock fly 20 Ranks			KEY:Skill unlock ~ fly 20 Ranks			SORTKEY:Rogue's Edge fly 20			CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:A successful DC 35 Fly check allows you to fly straight up at full speed. You are considered two size categories larger when determining wind effects on Fly checks.
-
-Skill unlock handle animal 5 Ranks		KEY:Skill unlock ~ handle animal 05 Ranks		SORTKEY:Rogue's Edge handle animal 05	CATEGORY:Special Ability	TYPE:SpecialQuality.Signature Skill 05	PRESKILL:1,handle animal=5	DESC:Creatures you have trained gain a +2 bonus on Will saves when adjacent to you.
-Skill unlock handle animal 10 Ranks		KEY:Skill unlock ~ handle animal 10 Ranks		SORTKEY:Rogue's Edge handle animal 10	CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:Creatures you have trained gain a +2 bonus on Will saves whenever you are within 30 feet and clearly visible. You can teach a trick in 1 day by increasing the DC by 20.
-Skill unlock handle animal 15 Ranks		KEY:Skill unlock ~ handle animal 15 Ranks		SORTKEY:Rogue's Edge handle animal 15	CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:You can train an animal to understand your speech (as speak with animals) with 1 week of effort and a successful DC 30 Handle Animal check. Its actions are still limited by its Intelligence. You can teach a trick in 1 day (increasing the DC by 10) or 1 hour (increasing the DC by 20).
-Skill unlock handle animal 20 Ranks		KEY:Skill unlock ~ handle animal 20 Ranks		SORTKEY:Rogue's Edge handle animal 20	CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:You can make your speech understandable to any animal for 24 hours with a successful DC 30 Handle Animal check (DC 40 for magical beasts or vermin). You can teach a trick in 1 day, 1 hour (increasing the DC by 10), or 1 minute (increasing the DC by 20).
-
-Skill unlock heal 5 Ranks			KEY:Skill unlock ~ heal 05 Ranks			SORTKEY:Rogue's Edge heal 05			CATEGORY:Special Ability	TYPE:SpecialQuality.Signature Skill 05	PRESKILL:1,heal=5			DESC:When you treat deadly wounds, the target recovers hit points and ability damage as if it had rested for a full day.
-Skill unlock heal 10 Ranks			KEY:Skill unlock ~ heal 10 Ranks			SORTKEY:Rogue's Edge heal 10			CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:When you treat deadly wounds, the target recovers hit points as if it had rested for a full day with
-Skill unlock heal 15 Ranks			KEY:Skill unlock ~ heal 15 Ranks			SORTKEY:Rogue's Edge heal 15			CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:When you treat deadly wounds, the creature recovers hit point and ability damage as if it had rested for 3 days.
-Skill unlock heal 20 Ranks			KEY:Skill unlock ~ heal 20 Ranks			SORTKEY:Rogue's Edge heal 20			CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:When you treat deadly wounds, the target recovers hit point and ability damage as if it had rested for 3 days with long-term care.
-
-Skill unlock intimidate 5 Ranks		KEY:Skill unlock ~ intimidate 05 Ranks		SORTKEY:Rogue's Edge intimidate 05		CATEGORY:Special Ability	TYPE:SpecialQuality.Signature Skill 05	PRESKILL:1,intimidate=5		DESC:If you exceed the DC to demoralize a target by at least 10, it is frightened for 1 round and shaken thereafter.* A Will save (DC = 10 + your number of ranks in Intimidate) negates the frightened condition, but the target is still shaken, even if it has the stalwart ability.																																												ABILITY:Special Ability|AUTOMATIC|Skill unlock ~ intimidate note
-Skill unlock intimidate 10 Ranks		KEY:Skill unlock ~ intimidate 10 Ranks		SORTKEY:Rogue's Edge intimidate 10		CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:If you exceed the DC to demoralize a target by at least 10, it is panicked for 1 round or frightened for 1d4 rounds (your choice) and shaken thereafter.* A Will save (DC = 10 + your number of ranks in Intimidate) negates the frightened or panicked condition, but the target is still shaken, even if it has the stalwart ability.
-Skill unlock intimidate 15 Ranks		KEY:Skill unlock ~ intimidate 15 Ranks		SORTKEY:Rogue's Edge intimidate 15		CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:If you exceed the DC to demoralize a target by at least 20, it is cowering for 1 round or panicked for 1d4 rounds (your choice) and frightened thereafter.* A Will save (DC = 10 + your number of ranks in Intimidate) negates the cowering, panicked, and frightened conditions, but the target is still shaken, even if it has the stalwart ability.
-Skill unlock intimidate 20 Ranks		KEY:Skill unlock ~ intimidate 20 Ranks		SORTKEY:Rogue's Edge intimidate 20		CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:If you exceed the DC to demoralize a target by at least 20, it is cowering for 1d4 rounds and panicked thereafter.* A Will save (DC = 10 + your number of ranks in Intimidate) negates the cowering and panicked conditions, but the target is still shaken, even if it has the stalwart ability.
-Skill unlock intimidate note			KEY:Skill unlock ~ intimidate note			SORTKEY:Rogue's Edge intimidate note	CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:An asterisk (*) indicates the total duration cannot exceed 1 round plus 1 round for every 5 by which you exceed the DC.
-
-Skill unlock knowledge 5 Ranks		KEY:Skill unlock ~ knowledge 05 Ranks		SORTKEY:Rogue's Edge knowledge 05		CATEGORY:Special Ability	TYPE:SpecialQuality.Signature Skill 05	PRESKILL:1,TYPE.knowledge=5	DESC:When you successfully identify a creature, you gain one additional piece of information for every 5 ranks you possess in that Knowledge skill.
-Skill unlock knowledge 10 Ranks		KEY:Skill unlock ~ knowledge 10 Ranks		SORTKEY:Rogue's Edge knowledge 10		CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:When you successfully identify a creature, you gain a +1 competence bonus on attack rolls, opposed ability checks, skill checks, and caster level checks against creatures of that kind (e.g., glabrezu demons, but not other demons or evil outsiders) for 1 minute. This bonus increases by 1 for every 5 ranks beyond 10 you possess in that Knowledge skill.
-Skill unlock knowledge 15 Ranks		KEY:Skill unlock ~ knowledge 15 Ranks		SORTKEY:Rogue's Edge knowledge 15		CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:When you fail a Knowledge check, you can reroll the check at a -10 penalty. The competence bonus above also applies to saving throws against exceptional, spell-like, or supernatural abilities used by creatures you identify.
-Skill unlock knowledge 20 Ranks		KEY:Skill unlock ~ knowledge 20 Ranks		SORTKEY:Rogue's Edge knowledge 20		CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:Whenever you attempt a Knowledge check, you can roll twice and take the better result.
-
-Skill unlock linguistics 5 Ranks		KEY:Skill unlock ~ linguistics 05 Ranks		SORTKEY:Rogue's Edge linguistics 05		CATEGORY:Special Ability	TYPE:SpecialQuality.Signature Skill 05	PRESKILL:1,linguistics=5	DESC:You can use Linguistics instead of Sense Motive to intercept and interpret secret messages (as the Bluff skill). You gain a +1 insight bonus on Perception and Disable Device checks to detect or disarm written magical traps.  This bonus increases by 1 for every 5 ranks beyond 5 you possess in Linguistics.
-Skill unlock linguistics 10 Ranks		KEY:Skill unlock ~ linguistics 10 Ranks		SORTKEY:Rogue's Edge linguistics 10		CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:If you succeed at a Linguistics check by at least 10 when examining writing, you can learn the precise meaning rather than general content, and you never draw false conclusions on a failed check. A successful DC 30 Linguistics check reveals the general meaning of speech, a successful DC 35 check reveals 1d4 pieces of specific information, and a successful DC 40 check reveals exact meaning.
-Skill unlock linguistics 15 Ranks		KEY:Skill unlock ~ linguistics 15 Ranks		SORTKEY:Rogue's Edge linguistics 15		CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:You can decipher magical writings (as read magic) by succeeding at a Linguistics check (DC = 25 + caster level). If you identify a written magical trap in this way, you gain a +2 circumstance bonus on Disable Device checks to disarm it.
-Skill unlock linguistics 20 Ranks		KEY:Skill unlock ~ linguistics 20 Ranks		SORTKEY:Rogue's Edge linguistics 20		CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:You can attempt to decipher magical or nonmagical text at a rate of one page per round. If you instead spend 1 minute per page, roll twice and take the better result.
-
-Skill unlock perception 5 Ranks		KEY:Skill unlock ~ perception 05 Ranks		SORTKEY:Rogue's Edge perception 05		CATEGORY:Special Ability	TYPE:SpecialQuality.Signature Skill 05	PRESKILL:1,perception=5		DESC:You remain alert to sounds even in your sleep, and the normal DC increase to Perception checks when you are sleeping is halved. The distance modifier on the DC of Perception checks you attempt is reduced to +1 per 20 feet.
-Skill unlock perception 10 Ranks		KEY:Skill unlock ~ perception 10 Ranks		SORTKEY:Rogue's Edge perception 10		CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:The distance modifier on the DC of Perception checks you attempt is reduced to +1 per 30 feet. In addition, you gain a +5 bonus on Perception checks to notice or locate an invisible creature or object.
-Skill unlock perception 15 Ranks		KEY:Skill unlock ~ perception 15 Ranks		SORTKEY:Rogue's Edge perception 15		CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:You remain alert to sounds even in your sleep, and the normal DC increase to Perception checks when you are sleeping doesn't apply to you. The distance modifier on the DC of your Perception checks is reduced to +1 per 40 feet.
-Skill unlock perception 20 Ranks		KEY:Skill unlock ~ perception 20 Ranks		SORTKEY:Rogue's Edge perception 20		CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:You gain a +10 bonus on Perception checks to notice invisible creatures or objects. The distance modifier on the DC of Perception checks you attempt is reduced to +1 per 60 feet.
-
-Skill unlock perform 5 Ranks			KEY:Skill unlock ~ perform 05 Ranks			SORTKEY:Rogue's Edge perform 05		CATEGORY:Special Ability	TYPE:SpecialQuality.Signature Skill 05	PRESKILL:1,TYPE.perform=5	DESC:Whenever you attempt a Bluff, Diplomacy, Handle Animal, or Intimidate check, you can attempt a DC 20 Perform check to gain a +2 circumstance bonus on the check.
-Skill unlock perform 10 Ranks			KEY:Skill unlock ~ perform 10 Ranks			SORTKEY:Rogue's Edge perform 10		CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:Whenever you cast a spell with the emotion or language-dependent descriptor, you can attempt a DC 25 Perform check to increase the save DC by 1.
-Skill unlock perform 15 Ranks			KEY:Skill unlock ~ perform 15 Ranks			SORTKEY:Rogue's Edge perform 15		CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:Whenever you cast a spell with the emotion or language-dependent descriptor, you can attempt a DC 30 Perform check to increase your caster level by 1. You must choose whether to use this ability or the ability unlocked at 10 ranks when casting the spell.
-Skill unlock perform 20 Ranks			KEY:Skill unlock ~ perform 20 Ranks			SORTKEY:Rogue's Edge perform 20		CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:Choose one of the following skills: Bluff, Diplomacy, or Intimidate. When you attempt a skill check with that skill, you can also attempt a Perform check and use the better result to determine the success of that skill check.
-
-Skill unlock profession 5 Ranks		KEY:Skill unlock ~ profession 05 Ranks		SORTKEY:Rogue's Edge profession 05		CATEGORY:Special Ability	TYPE:SpecialQuality.Signature Skill 05	PRESKILL:1,TYPE.profession=5	DESC:When using Profession checks to earn income, you earn gold pieces equal to the result of your check each week.
-Skill unlock profession 10 Ranks		KEY:Skill unlock ~ profession 10 Ranks		SORTKEY:Rogue's Edge profession 10		CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:When attempting Profession checks, you can roll twice and take the better result. When answering questions about your Profession, you can always take 10.
-Skill unlock profession 15 Ranks		KEY:Skill unlock ~ profession 15 Ranks		SORTKEY:Rogue's Edge profession 15		CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:You can attempt checks to earn income once per day instead of once per week.
-Skill unlock profession 20 Ranks		KEY:Skill unlock ~ profession 20 Ranks		SORTKEY:Rogue's Edge profession 20		CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:When attempting Profession checks, you can choose to roll once instead of twice. If you do and the result of the roll is less than 10, replace it with 10. When answering questions about your Profession, you can always take 20.
-
-Skill unlock ride 5 Ranks			KEY:Skill unlock ~ ride 05 Ranks			SORTKEY:Rogue's Edge ride 05			CATEGORY:Special Ability	TYPE:SpecialQuality.Signature Skill 05	PRESKILL:1,ride=5			DESC:Your mount gains a +2 bonus on Fortitude saves or Constitution checks to avoid becoming fatigued or exhausted. This bonus increases by 1 for every 5 ranks beyond 5 you possess in Ride.
-Skill unlock ride 10 Ranks			KEY:Skill unlock ~ ride 10 Ranks			SORTKEY:Rogue's Edge ride 10			CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:When you spur your mount, its speed is increased by 20 feet, and it gains a +2 bonus on Ref lex saves and a +2 dodge bonus to AC.
-Skill unlock ride 15 Ranks			KEY:Skill unlock ~ ride 15 Ranks			SORTKEY:Rogue's Edge ride 15			CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:When an opponent targets you or your mount with a bull rush, drag, overrun, reposition, or trip combat maneuver while you are mounted, you can substitute the result of a Ride check in place of your (or your mount's) CMD.
-Skill unlock ride 20 Ranks			KEY:Skill unlock ~ ride 20 Ranks			SORTKEY:Rogue's Edge ride 20			CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:When you spur your mount, its speed is increased by 30 feet, and it gains a +4 bonus on Ref lex saves and a +4 dodge bonus to AC.
-
-Skill unlock sense motive 5 Ranks		KEY:Skill unlock ~ sense motive 05 Ranks		SORTKEY:Rogue's Edge sense motive 05	CATEGORY:Special Ability	TYPE:SpecialQuality.Signature Skill 05	PRESKILL:1,sense motive=5	DESC:If you were aware of an opponent before rolling initiative (such as when you ambush an enemy or negotiations break down into combat, but not when both sides happen upon each other or you are surprised), you can attempt a Sense Motive check as part of your initiative check (DC = 11 + the highest Bluff modifier among your opponents or DC 15, whichever is higher). If you succeed, you gain a +1 bonus on the initiative check, plus an additional +1 for every 5 by which you exceeded the DC.
-Skill unlock sense motive 10 Ranks		KEY:Skill unlock ~ sense motive 10 Ranks		SORTKEY:Rogue's Edge sense motive 10	CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:After 1 minute of conversation, you can read a creature's surface thoughts (as detect thoughts) by attempting a Sense Motive check at a -20 penalty opposed by the creature's Bluff check.
-Skill unlock sense motive 15 Ranks		KEY:Skill unlock ~ sense motive 15 Ranks		SORTKEY:Rogue's Edge sense motive 15	CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:You can read surface thoughts as above after 1 round. In addition, when attacked, you can attempt a Sense Motive check as an immediate action opposed by your target's attack roll. A successful check grants a +2 insight bonus to your AC against attacks from that specific opponent for 1 minute.
-Skill unlock sense motive 20 Ranks		KEY:Skill unlock ~ sense motive 20 Ranks		SORTKEY:Rogue's Edge sense motive 20	CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:You can read surface thoughts as above as a standard action. A successful check to gain an insight bonus to your AC also negates the attack that triggered it.
-
-Skill unlock sleight of hand 5 Ranks	KEY:Skill unlock ~ sleight of hand 05 Ranks	SORTKEY:Rogue's Edge sleight of hand 05	CATEGORY:Special Ability	TYPE:SpecialQuality.Signature Skill 05	PRESKILL:1,sleight of hand=5	DESC:When attempting a disarm or steal maneuver, a successful Sleight of Hand check against your target's CMD grants a +2 circumstance bonus on your combat maneuver check.
-Skill unlock sleight of hand 10 Ranks	KEY:Skill unlock ~ sleight of hand 10 Ranks	SORTKEY:Rogue's Edge sleight of hand 10	CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:The penalty for attempting a Sleight of Hand check (including drawing a hidden weapon) as a move action is reduced to -10.
-Skill unlock sleight of hand 15 Ranks	KEY:Skill unlock ~ sleight of hand 15 Ranks	SORTKEY:Rogue's Edge sleight of hand 15	CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:You can attempt a Sleight of Hand check (including drawing a hidden weapon) as a swift action at a -20 penalty.
-Skill unlock sleight of hand 20 Ranks	KEY:Skill unlock ~ sleight of hand 20 Ranks	SORTKEY:Rogue's Edge sleight of hand 20	CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:You take no penalty for using Sleight of Hand as a move action, and take only a -10 penalty when using it as a swift action.
-
-Skill unlock spellcraft 5 Ranks		KEY:Skill unlock ~ spellcraft 05 Ranks		SORTKEY:Rogue's Edge spellcraft 05		CATEGORY:Special Ability	TYPE:SpecialQuality.Signature Skill 05	PRESKILL:1,spellcraft=5		DESC:Identifying magic items takes 1 full round, and the time required to learn a spell from a spellbook is halved.
-Skill unlock spellcraft 10 Ranks		KEY:Skill unlock ~ spellcraft 10 Ranks		SORTKEY:Rogue's Edge spellcraft 10		CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:You can identify magic items without using detect magic, though the DC is increased by 10.
-Skill unlock spellcraft 15 Ranks		KEY:Skill unlock ~ spellcraft 15 Ranks		SORTKEY:Rogue's Edge spellcraft 15		CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:Identifying magic items is a standard action, and the time required to learn a new spell from a spellbook is reduced to 1 minute per spell level.
-Skill unlock spellcraft 20 Ranks		KEY:Skill unlock ~ spellcraft 20 Ranks		SORTKEY:Rogue's Edge spellcraft 20		CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:Whenever you attempt a caster level check, attempt a Spellcraft check at a -20 penalty at the same DC. If the spellcraft check succeeds, you gain a +2 circumstance bonus on your caster level check.
-
-Skill unlock stealth 5 Ranks			KEY:Skill unlock ~ stealth 05 Ranks			SORTKEY:Rogue's Edge stealth 05		CATEGORY:Special Ability	TYPE:SpecialQuality.Signature Skill 05	PRESKILL:1,stealth=5		DESC:Reduce the Stealth penalty from sniping by 10.
-Skill unlock stealth 10 Ranks			KEY:Skill unlock ~ stealth 10 Ranks			SORTKEY:Rogue's Edge stealth 10		CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:Stealth check penalties for moving quickly are halved, including the ability unlocked at 5 ranks, moving full speed, and reaching concealment after creating a distraction.
-Skill unlock stealth 15 Ranks			KEY:Skill unlock ~ stealth 15 Ranks			SORTKEY:Rogue's Edge stealth 15		CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:If you attack after successfully using Stealth, your target is denied its Dexterity bonus against all attacks that you make before the end of your turn.
-Skill unlock stealth 20 Ranks			KEY:Skill unlock ~ stealth 20 Ranks			SORTKEY:Rogue's Edge stealth 20		CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:If you attack after successfully using Stealth, your target is denied its Dexterity bonus against all attacks that you make before the beginning of your next turn.
-
-Skill unlock survival 5 Ranks			KEY:Skill unlock ~ survival 05 Ranks		SORTKEY:Rogue's Edge survival 05		CATEGORY:Special Ability	TYPE:SpecialQuality.Signature Skill 05	PRESKILL:1,survival=5		DESC:You reduce all nonlethal damage you take from heat, cold, starvation, or thirst by 1 point for every 5 ranks you possess in Survival.
-Skill unlock survival 10 Ranks		KEY:Skill unlock ~ survival 10 Ranks		SORTKEY:Rogue's Edge survival 10		CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:You can track creatures that leave no tracks, including flying and swimming creatures and creatures using trackless step or pass without trace, taking a -20 penalty on your Survival check.
-Skill unlock survival 15 Ranks		KEY:Skill unlock ~ survival 15 Ranks		SORTKEY:Rogue's Edge survival 15		CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:Once per day, you can spend 1 hour and attempt a DC 30 Survival check. Success grants you cold resistance or fire resistance 5 for 24 hours. You can share this with one ally for every 5 by which you exceeded the check.
-Skill unlock survival 20 Ranks		KEY:Skill unlock ~ survival 20 Ranks		SORTKEY:Rogue's Edge survival 20		CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:You take only a -10 penalty when tracking creatures that leave no tracks.
-
-Skill unlock swim 5 Ranks			KEY:Skill unlock ~ swim 05 Ranks			SORTKEY:Rogue's Edge swim 05			CATEGORY:Special Ability	TYPE:SpecialQuality.Signature Skill 05	PRESKILL:1,swim=5			DESC:You gain a swim speed of 10 feet, but only in water with a Swim DC of 15 or lower.
-Skill unlock swim 10 Ranks			KEY:Skill unlock ~ swim 10 Ranks			SORTKEY:Rogue's Edge swim 10			CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:You gain a swim speed (though you do not gain the +8 racial bonus on Swim checks) equal to your base speed in water with a Swim DC of 15 or lower, or 10 feet in all other water.
-Skill unlock swim 15 Ranks			KEY:Skill unlock ~ swim 15 Ranks			SORTKEY:Rogue's Edge swim 15			CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:You ignore the penalties for using slashing or bludgeoning weapons underwater, as freedom of movement.
-Skill unlock swim 20 Ranks			KEY:Skill unlock ~ swim 20 Ranks			SORTKEY:Rogue's Edge swim 20			CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:You gain a swim speed equal to your base speed in all water. If you have both hands free, you gain a +8 racial bonus on Swim checks.
-
-Skill unlock use magic device 5 Ranks	KEY:Skill unlock ~ use magic device 05 Ranks	SORTKEY:Rogue's Edge use magic device 05	CATEGORY:Special Ability	TYPE:SpecialQuality.Signature Skill 05	PRESKILL:1,use magic device=5	DESC:You can use the aid another action to assist another creature's Use Magic Device check by attempting a check against the item's Use Magic Device DC.
-Skill unlock use magic device 10 Ranks	KEY:Skill unlock ~ use magic device 10 Ranks	SORTKEY:Rogue's Edge use magic device 10	CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:If you roll a natural 1 when activating an item, you take a -10 penalty on Use Magic Device checks with that item for 24 hours instead of being unable to activate it. This penalty stacks with itself.
-Skill unlock use magic device 15 Ranks	KEY:Skill unlock ~ use magic device 15 Ranks	SORTKEY:Rogue's Edge use magic device 15	CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:You can use this skill to emulate two races or two alignments simultaneously.
-Skill unlock use magic device 20 Ranks	KEY:Skill unlock ~ use magic device 20 Ranks	SORTKEY:Rogue's Edge use magic device 20	CATEGORY:Special Ability	TYPE:SpecialQuality									DESC:If you roll a natural 1 when activating an item, you can reroll the check at a -10 penalty to activate the item. You must take the result of the second check, even if it is worse, and you can't reroll it again.
-
-###Block: Combat Trick Tracker
-# Ability Name		Category of Ability
-Combat Trick Tracker	CATEGORY:Internal
-
-###Block: Combat Tricks
-# Ability Name						Unique Key								Category of Ability		Type						Description																																																																																										Source Page
-Combat Trick / Agile Maneuvers			KEY:Combat Trick ~ Agile Maneuvers				CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:You can spend a number of stamina points equal to your Dexterity bonus while attempting combat maneuver checks. For every 2 stamina points that you spend in this way, you are considered to be one size category larger than your actual size when determining whether you can affect a target creature with your combat maneuver and when calculating your size bonus for that check.																												SOURCEPAGE:113
-Combat Trick / Arcane Armor Mastery			KEY:Combat Trick ~ Arcane Armor Mastery			CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:When casting a spell while wearing armor, you can spend 1 stamina point to activate Arcane Armor Mastery as a free action, or spend a number of stamina points equal to the spell's level (minimum 1) to ignore your armor's arcane spell failure chance entirely for that casting.																																													SOURCEPAGE:113
-Combat Trick / Arcane Armor Training		KEY:Combat Trick ~ Arcane Armor Training			CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:When casting a spell while wearing armor, you can spend 1 stamina point to activate Arcane Armor Training as a free action.																																																																						SOURCEPAGE:114
-Combat Trick / Arcane Strike				KEY:Combat Trick ~ Arcane Strike				CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:You can spend any number of stamina points to increase the duration of this feat's effects by 1 round for each stamina point spent.																																																																					SOURCEPAGE:114
-Combat Trick / Bleeding Critical			KEY:Combat Trick ~ Bleeding Critical			CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:When you deal bleed damage with this feat, you can spend up to 3 stamina points to increase the amount of bleed damage dealt by double the number of stamina points you spent.																																																														SOURCEPAGE:114
-Combat Trick / Blind-Fight				KEY:Combat Trick ~ Blind-Fight				CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:Once per round, when you hit a creature that benefits from concealment, you can spend 2 stamina points to ignore the miss chance from that creature's concealment until the end of your next turn.																																																										SOURCEPAGE:114
-Combat Trick / Blinding Critical			KEY:Combat Trick ~ Blinding Critical			CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:When you confirm a critical hit and attempt to blind an opponent with this feat, you can spend up to 5 stamina points to increase the DC of this feat's saving throw by an amount equal to the number of stamina points you spent.																																																					SOURCEPAGE:114
-Combat Trick / Catch Off-Guard			KEY:Combat Trick ~ Catch Off-Guard				CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:When making an attack with an improvised weapon against an armed opponent, you can spend 5 stamina points. If you do, the target is considered flat-footed during that attack. An opponent who recognizes you and has seen you use Catch Off-Guard in this way is immune to this effect.																																												SOURCEPAGE:115
-Combat Trick / Channel Smite				KEY:Combat Trick ~ Channel Smite				CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:When making an attack using this feat, you can spend a number of stamina points up to the number of dice in your channel energy. For each stamina point you spend in this way, add an additional 1d6 points of positive or negative energy damage to your Channel Smite attack. This damage is also halved if the target succeeds at its Will save against the Channel Smite attack.																													SOURCEPAGE:115
-Combat Trick / Cleave					KEY:Combat Trick ~ Cleave					CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:When using the Cleave or Great Cleave feat, you can spend 4 stamina points to negate the -2 penalty to Armor Class until your next turn.																																																																				SOURCEPAGE:115
-Combat Trick / Combat Expertise			KEY:Combat Trick ~ Combat Expertise				CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:You can select this feat even if you don't meet the ability score prerequisite (Intelligence 13). You gain the benefit of this feat only as long as you have at least 1 stamina point in your stamina pool. If you spend stamina points to raise an attack roll using the Combat Stamina feat's benefits, ignore an amount of your Combat Expertise penalty equal to the number of stamina points you spent.																									SOURCEPAGE:115
-Combat Trick / Combat Reflexes			KEY:Combat Trick ~ Combat Reflexes				CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:When you miss with an attack of opportunity, you can spend 5 stamina points to make a second attack for the same provoking action. That second attack of opportunity takes a -5 penalty on the attack roll and costs one of your attacks of opportunity for the round.																																															SOURCEPAGE:115
-Combat Trick / Critical Focus				KEY:Combat Trick ~ Critical Focus				CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:If your successful critical confirmation roll is a natural 19 or 20, you can spend 2 stamina points to roll another confirmation roll. If this confirmation roll also succeeds, increase your critical multiplier by 1 for this attack, and you can roll again. If you continue to roll 19 or 20, you can continue to spend stamina points for additional rolls, and the increases to the critical multiplier stack.																							SOURCEPAGE:116
-Combat Trick / Critical Mastery			KEY:Combat Trick ~ Critical Mastery				CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:When you confirm a critical hit, instead of applying the effects of two critical feats you possess, you can spend 2 stamina points to apply the effect of any one critical feat you don't possess (but for which you qualify).																																																						SOURCEPAGE:116
-Combat Trick / Dazzling Display			KEY:Combat Trick ~ Dazzling Display				CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:When wielding a melee weapon with which you have Weapon Focus, you can make a single melee attack as a standard action against a foe. If the attack hits, you can select any number of foes within 30 feet who saw the attack, including that foe. Spend 2 stamina points per foe you have selected, then attempt an Intimidate check to demoralize those foes.																																SOURCEPAGE:116
-Combat Trick / Deadly Aim				KEY:Combat Trick ~ Deadly Aim					CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:When using this feat, you can spend 4 stamina points to reduce the penalty to attack rolls imposed by the feat by 1 until the beginning of your next turn. You can't reduce the penalty below 0.																																																											SOURCEPAGE:116
-Combat Trick / Deadly Stroke				KEY:Combat Trick ~ Deadly Stroke				CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:You can spend 5 stamina points to make a Deadly Stroke attack against a dazed opponent, or 10 stamina points to make a Deadly Stroke against an opponent you are flanking.																																																														SOURCEPAGE:116
-Combat Trick / Deafening Critical			KEY:Combat Trick ~ Deafening Critical			CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:When you confirm a critical hit and attempt to deafen an opponent with this feat, you can spend up to 5 stamina points to increase the DC of this feat's saving throw by an amount equal to the number of stamina points you spent.																																																					SOURCEPAGE:116
-Combat Trick / Defensive Combat Training		KEY:Combat Trick ~ Defensive Combat Training		CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:When targeted with a combat maneuver, you can spend any number of stamina points to gain a bonus to your CMD equal to the number of stamina points you spent.																																																																SOURCEPAGE:117
-Combat Trick / Deflect Arrows				KEY:Combat Trick ~ Deflect Arrows				CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:You can spend 5 stamina points to def lect an arrow while you're flat-footed. You must still be aware of the attack.																																																																							SOURCEPAGE:117
-Combat Trick / Disruptive				KEY:Combat Trick ~ Disruptive					CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:When you use your last attack of opportunity available to you in a round, you can spend 2 stamina points to extend the duration of this feat's increase to DCs for enemies casting defensively within your threatened area until the start of your next turn.																																																SOURCEPAGE:118
-Combat Trick / Dodge					KEY:Combat Trick ~ Dodge					CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:When you move your speed or farther, you can spend a number of stamina points up to double your Dexterity bonus. If you do, until the start of your next turn, you gain an increase to the dodge bonus granted by the Dodge feat equal to half the number of stamina points you spent.																																												SOURCEPAGE:118
-Combat Trick / Double Slice				KEY:Combat Trick ~ Double Slice				CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:When you hit an opponent with both a primary-hand attack and an off-hand attack while using Two-Weapon Fighting, you can spend a number of stamina points up to half your Strength bonus. If you do, add a bonus on the damage roll of the second of the two attacks equal to the number of stamina points you spent. You can use this combat trick only once per round.																															SOURCEPAGE:118
-Combat Trick / Exhausting Critical			KEY:Combat Trick ~ Exhausting Critical			CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:When you threaten a critical hit against an exhausted target and choose to use Exhausting Critical, you can spend up to 5 stamina points. If you do, you gain a +2 bonus on the confirmation roll for each stamina point you spent.																																																					SOURCEPAGE:119
-Combat Trick / Far Shot					KEY:Combat Trick ~ Far Shot					CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:When making a single ranged attack as a standard action, you can spend 5 stamina points to ignore all range penalties on that attack.																																																																				SOURCEPAGE:119
-Combat Trick / Gorgon's Fist				KEY:Combat Trick ~ Gorgon's Fist				CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:You can spend 5 stamina points to make a Gorgon's Fist attack as one of the individual attacks made during a full attack.																																																																						SOURCEPAGE:120
-Combat Trick / Great Cleave				KEY:Combat Trick ~ Great Cleave				CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:Once per round when you miss a foe with an attack gained from Cleave, you can spend 5 stamina points to make another Cleave attack anyway.																																																																				SOURCEPAGE:120
-Combat Trick / Greater Bull Rush			KEY:Combat Trick ~ Greater Bull Rush			CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:When you bull rush an opponent, you can spend 5 stamina points to have the opponent's movement from the bull rush provoke an attack of opportunity from you as well.																																																															SOURCEPAGE:120
-Combat Trick / Greater Disarm				KEY:Combat Trick ~ Greater Disarm				CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:You can select this feat even if you don't meet the ability score prerequisite (Intelligence 13). You gain the benefits of this feat only as long as you have at least 1 stamina point in your stamina pool. When you successfully disarm a foe, you can spend 5 stamina points to select where the weapon lands by choosing a square within 15 feet of the disarmed foe. If you choose a square in your space and have at least one hand free, you can grab the weapon as part of the disarm attempt.										SOURCEPAGE:120
-Combat Trick / Greater Feint				KEY:Combat Trick ~ Greater Feint				CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:You can select this feat even if you don't meet the ability score prerequisite (Intelligence 13). You gain the benefits of this feat only as long as you have at least 1 stamina point in your stamina pool. If you have at least 1 point in your stamina pool, you can feint as a swift action, but the feint causes the opponent to become flatfooted only for your next attack rather than for all attacks until the beginning of your next turn.																		SOURCEPAGE:121
-Combat Trick / Greater Grapple			KEY:Combat Trick ~ Greater Grapple				CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:After you take a move action to successfully maintain a grapple, you can spend 5 stamina points before the end of your turn to maintain that grapple as a swift action. This allows you to make up to three grapple checks to maintain a grapple during a round, but you still can't maintain a grapple until the round after you initiate it.																																			SOURCEPAGE:121
-Combat Trick / Greater Overrun			KEY:Combat Trick ~ Greater Overrun				CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:If you succeed at a combat maneuver check to overrun an opponent, but do not exceed your opponent's CMD by 5 or more, you can spend 2 stamina points to knock the target prone anyway.																																																												SOURCEPAGE:121
-Combat Trick / Greater Penetrating Strike		KEY:Combat Trick ~ Greater Penetrating Strike		CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:When you use a weapon with which you have Weapon Focus to damage a creature that has damage reduction, you can spend 5 stamina points to allow all your allies within 30 feet to ignore 10 points of that creature's damage reduction for 1 round. This amount is reduced to 5 points for damage reduction without a type (such as DR 10/-). This effect does not stack with Greater Penetrating Strike's normal effect, but it does allow you to apply the effect to all your other weapons for the duration.								SOURCEPAGE:121
-Combat Trick / Greater Shield Focus			KEY:Combat Trick ~ Greater Shield Focus			CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:When an attack is made against you while you are using a shield, you can spend up to 4 stamina points. For that attack, your shield bonus increases by an amount equal to the number of stamina points you spent. This increase does not stack with any gained from the Shield Focus combat trick.																																										SOURCEPAGE:121
-Combat Trick / Greater Sunder				KEY:Combat Trick ~ Greater Sunder				CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:When you succeed at a sunder combat maneuver check, you can spend a number of stamina points up to your Strength bonus to deal an amount of extra damage to the target equal to double the number of stamina points you spent. The damage type is the same as that of the weapon you used to attempt the maneuver.																																								SOURCEPAGE:121
-Combat Trick / Greater Trip				KEY:Combat Trick ~ Greater Trip				CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:You can select this feat even if you don't meet the ability score prerequisite (Intelligence 13). You gain the benefits of this feat only as long as you have at least 1 stamina point in your stamina pool. You can spend 2 stamina points after you successfully trip an opponent to deal 1d6 points of falling damage to the target.																																				SOURCEPAGE:122
-Combat Trick / Greater Two-Weapon Fighting	KEY:Combat Trick ~ Greater Two-Weapon Fighting		CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:If you hit with the third attack granted by this feat and your base attack bonus is 16 or higher, you can spend 2 stamina points to make another attack with your off hand at a -15 penalty.																																																											SOURCEPAGE:122
-Combat Trick / Greater Vital Strike			KEY:Combat Trick ~ Greater Vital Strike			CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:When using the Vital Strike combat trick, you can spend 4 stamina points instead of 2 to reroll four damage dice.																																																																								SOURCEPAGE:122
-Combat Trick / Greater Weapon Focus			KEY:Combat Trick ~ Greater Weapon Focus			CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:Once per round, you can spend 2 stamina points to gain your Greater Weapon Focus bonus on attack rolls with another weapon. This bonus lasts until the start of your next turn.																																																													SOURCEPAGE:122
-Combat Trick / Greater Weapon Specialization	KEY:Combat Trick ~ Greater Weapon Specialization	CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:Once per round, you can spend 2 stamina points to gain your Greater Weapon Specialization bonus on damage rolls with another weapon. This bonus lasts until the start of your next turn.																																																												SOURCEPAGE:122
-Combat Trick / Improved Bull Rush			KEY:Combat Trick ~ Improved Bull Rush			CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:When you are the target of a bull rush combat maneuver, you can spend a number of stamina points up to your Strength or Dexterity bonus, whichever is greater. Your CMD increases by that number for that bull rush attempt.																																																						SOURCEPAGE:122
-Combat Trick / Improved Critical			KEY:Combat Trick ~ Improved Critical			CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:When you hit with an attack and the roll fails to threaten a critical hit by 3 or less, you can spend 5 stamina points to attempt to deal double damage anyway. Roll as if confirming a critical hit. If this confirmation roll succeeds, your attack is still not a critical hit, but it deals double damage.																																								SOURCEPAGE:123
-Combat Trick / Improved Disarm			KEY:Combat Trick ~ Improved Disarm				CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:You can select this feat even if you don't meet the ability score prerequisite (Intelligence 13). You gain the benefit of this feat only as long as you have at least 1 stamina point in your stamina pool. When you are the target of a disarm combat maneuver, you can spend a number of stamina points up to your Strength or Dexterity bonus, whichever is greater. Your CMD against that disarm attempt increases by that number.																				SOURCEPAGE:123
-Combat Trick / Improved Feint				KEY:Combat Trick ~ Improved Feint				CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:You can select this feat even if you don't meet the Ability score prerequisite (Intelligence 13). You gain the benefit of this feat only as long as you have at least 1 stamina point in your stamina pool. You can spend 5 stamina points to feint as a move action.																																															SOURCEPAGE:123
-Combat Trick / Improved Grapple			KEY:Combat Trick ~ Improved Grapple				CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:When you are the target of a grapple combat maneuver to initiate or maintain a grapple, you can spend a number of stamina points up to your Strength or Dexterity bonus, whichever is greater. Your CMD against that grapple attempt increases by that number.																																																SOURCEPAGE:123
-Combat Trick / Improved Initiative			KEY:Combat Trick ~ Improved Initiative			CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:Before rolling initiative, you can spend 10 stamina points to use 20 as the number rolled.																																																																												SOURCEPAGE:123
-Combat Trick / Improved Overrun			KEY:Combat Trick ~ Improved Overrun				CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:When you are the target of an overrun combat maneuver, you can spend a number of stamina points up to your Strength or Dexterity bonus, whichever is greater. Your CMD against that overrun attempt increases by that number.																																																						SOURCEPAGE:123
-Combat Trick / Improved Precise Shot		KEY:Combat Trick ~ Improved Precise Shot			CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:When you use the ability of the Precise Shot combat trick, the bonuses increase to +4.																																																																												SOURCEPAGE:123
-Combat Trick / Improved Shield Bash			KEY:Combat Trick ~ Improved Shield Bash			CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:When attempting a shield bash attack, you can spend 5 stamina points to either wield a heavy shield as if it were a light weapon or gain a +2 bonus on the shield bash attack roll with a light shield. Whichever option you choose, the effect lasts until the start of your next turn.																																												SOURCEPAGE:123
-Combat Trick / Improved Sunder			KEY:Combat Trick ~ Improved Sunder				CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:When you are the target of a sunder combat maneuver, you can spend a number of stamina points up to your Strength or Dexterity bonus, whichever is greater. Your CMD increases by that number for that sunder attempt.																																																							SOURCEPAGE:124
-Combat Trick / Improved Trip				KEY:Combat Trick ~ Improved Trip				CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:You can select this feat even if you don't meet the ability score prerequisite (Intelligence 13). You gain the benefits of this feat only as long as you have at least 1 stamina point in your stamina pool. When you are the target of a trip combat maneuver, you can spend a number of stamina points up to your Strength or Dexterity bonus, whichever is greater. Your CMD against that trip attempt increases by that number.																					SOURCEPAGE:124
-Combat Trick / Improved Two-Weapon Fighting	KEY:Combat Trick ~ Improved Two-Weapon Fighting		CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:When making an attack of opportunity, you can spend 5 stamina points to also make an attack of opportunity with your off-hand weapon. That second attack takes a -5 penalty.																																																														SOURCEPAGE:124
-Combat Trick / Improved Unarmed Strike		KEY:Combat Trick ~ Improved Unarmed Strike		CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:When you deal nonlethal damage with an unarmed strike, you can spend up to 5 stamina points to deal an amount of additional nonlethal damage equal to double the amount of stamina points you spent.																																																										SOURCEPAGE:124
-Combat Trick / Improved Vital Strike		KEY:Combat Trick ~ Improved Vital Strike			CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:When using the Vital Strike combat trick, you can spend 3 stamina points instead of 2 to reroll three damage dice.																																																																								SOURCEPAGE:124
-Combat Trick / Improvised Weapon Mastery		KEY:Combat Trick ~ Improvised Weapon Mastery		CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:When making an improvised weapon attack, you can spend 2 stamina points to increase the damage of the attack by an additional step (to a maximum of 1d10, or 2d8 if the improvised weapon is two-handed).																																																									SOURCEPAGE:124
-Combat Trick / Intimidating Prowess			KEY:Combat Trick ~ Intimidating Prowess			CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:When attempting an Intimidate check, you can spend 2 stamina points for each size category smaller you are than a given target to ignore the size difference penalty against that target.																																																												SOURCEPAGE:124
-Combat Trick / Lightning Stance			KEY:Combat Trick ~ Lightning Stance				CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:When you take a single move action and move no less than your speed, you can spend 5 stamina points to benefit from a 50%% miss chance until the start of your next turn.																																																														SOURCEPAGE:125
-Combat Trick / Lunge					KEY:Combat Trick ~ Lunge					CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:When you use this feat, you can spend 2 stamina points to avoid taking the -2 penalty to AC for that use.																																																																									SOURCEPAGE:125
-Combat Trick / Manyshot					KEY:Combat Trick ~ Manyshot					CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:When using this feat, you can spend 5 stamina points to fire two arrows with your final iterative attack during the full attack.																																																																					SOURCEPAGE:126
-Combat Trick / Medusa's Wrath				KEY:Combat Trick ~ Medusa's Wrath				CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:While using this feat, you can spend 10 stamina points to make the bonus attacks against a foe that you are flanking, instead of only a dazed, flatfooted, paralyzed, staggered, stunned, or unconscious foe.																																																								SOURCEPAGE:126
-Combat Trick / Mobility					KEY:Combat Trick ~ Mobility					CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:Your dodge bonus to AC from the Dodge feat combat trick is doubled against attacks of opportunity provoked by movement. If you don't have the Dodge feat, you can still use its combat trick.																																																											SOURCEPAGE:127
-Combat Trick / Mounted Archery			KEY:Combat Trick ~ Mounted Archery				CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:When making an attack using a ranged weapon while mounted, you can spend 1 or 2 stamina points to reduce the penalties on the attack roll by double the number of stamina points you spent.																																																											SOURCEPAGE:127
-Combat Trick / Mounted Combat				KEY:Combat Trick ~ Mounted Combat				CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:Once you have already used this feat, you can spend 5 stamina points to use it an additional time during the same round. You can use this trick as many times in a round as you like, as long as you spend 5 stamina points per use.																																																					SOURCEPAGE:127
-Combat Trick / Penetrating Strike			KEY:Combat Trick ~ Penetrating Strike			CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:Whenever you deal damage to a creature with damage reduction using the selected weapons, you can spend 5 stamina points to allow all your allies (other than yourself ) within 30 feet of the creature to ignore 5 points of the creature's damage reduction for 1 round. This has no effect on creatures with damage reduction without a type (such as DR 10/-). This effect does not stack with Penetrating Strike's normal effect, but it does allow you to apply the effect to all your other weapons for the duration.						SOURCEPAGE:128
-Combat Trick / Pinpoint Targeting			KEY:Combat Trick ~ Pinpoint Targeting			CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:When you use this feat, you can spend stamina points to retain the ability to move. If you spend 2 stamina points, you can take a 5-foot step after you make the attack. If you instead spend 5 stamina points, you can move up to half your speed as a move action.																																															SOURCEPAGE:129
-Combat Trick / Point-Blank Shot			KEY:Combat Trick ~ Point-Blank Shot				CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:You can spend up to 6 stamina points to increase this feat's range by 5 feet for each stamina point you spent.																																																																								SOURCEPAGE:129
-Combat Trick / Power Attack				KEY:Combat Trick ~ Power Attack				CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:When using this feat, you can spend 2 stamina points to gain the benefits and the hindrances of that feat until the end of your turn, instead of until your next turn.																																																															SOURCEPAGE:129
-Combat Trick / Precise Shot				KEY:Combat Trick ~ Precise Shot				CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:As a standard action, you can spend 2 stamina points and make a ranged attack against a foe engaged in melee with an ally. If the attack hits, it deals no damage, but your ally gains your choice of either a +2 bonus on her next attack roll against that opponent or a +2 bonus to AC against that opponent's next attack. This bonus lasts until the start of your next turn.																													SOURCEPAGE:129
-Combat Trick / Quick Draw				KEY:Combat Trick ~ Quick Draw					CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:As long as you have at least 1 stamina point in your stamina pool, you can sheathe a weapon as a swift action.																																																																								SOURCEPAGE:129
-Combat Trick / Rapid Reload				KEY:Combat Trick ~ Rapid Reload				CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:When reloading a crossbow or firearm, you can spend 5 stamina points to reduce the reload time by one step; a standard action becomes a move action, a move action becomes a swift action, and a swift action becomes a free action. The weapon you are reloading doesn't need to be the one you chose when you took this feat. If the weapon already has a reload time of one free action, when you make a full attack with the weapon, you can spend 2 stamina points to gain a +1 bonus on all damage rolls with the weapon during that full attack.	SOURCEPAGE:130
-Combat Trick / Rapid Shot				KEY:Combat Trick ~ Rapid Shot					CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:When using this feat, you can spend a number of stamina points up to the number of shots taken using this feat. If you do, you decrease the penalty of a single Rapid Shot ranged attack by 2 for each stamina point you spent.																																																					SOURCEPAGE:130
-Combat Trick / Ride-By Attack				KEY:Combat Trick ~ Ride-By Attack				CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:After making a mounted charge attack using this feat, you can spend 5 stamina points to change the direction of your movement instead of continuing to move in a straight line.																																																													SOURCEPAGE:130
-Combat Trick / Scorpion Style				KEY:Combat Trick ~ Scorpion Style				CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:When you hit with an unarmed attack using this feat and the target successfully saves against the effect, you can spend 2 stamina points to reduce the target's movement speed by half for 1 round.																																																										SOURCEPAGE:130
-Combat Trick / Shatter Defenses			KEY:Combat Trick ~ Shatter Defenses				CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:When you hit an opponent that has been made flat-footed to your attacks by this feat, you can spend 5 stamina points to make that opponent flat-footed to the attacks of one ally who is within 30 feet of that creature until the start of your next turn.																																																	SOURCEPAGE:131
-Combat Trick / Shield Focus				KEY:Combat Trick ~ Shield Focus				CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:When an attack is made against you while you are using a shield, you can spend up to 2 stamina points. If you do, the shield's bonus to AC against that attack increases by an amount equal to the number of stamina points you spent.																																																				SOURCEPAGE:131
-Combat Trick / Shield Master				KEY:Combat Trick ~ Shield Master				CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:Just before you roll a Fortitude or Ref lex saving throw, you can spend 5 stamina points to add your shield's enhancement bonus as a bonus on the saving throw.																																																																SOURCEPAGE:131
-Combat Trick / Shield Slam				KEY:Combat Trick ~ Shield Slam				CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:Instead of attempting a free bull rush when using the Shield Slam feat, you can spend 2 stamina points to attempt a disarm, repositionAPG, trip, or sunder combat maneuver. This combat maneuver attempt does not provoke an attack of opportunity from the target.																																															SOURCEPAGE:131
-Combat Trick / Shot on the Run			KEY:Combat Trick ~ Shot on the Run				CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:You can spend 5 stamina points to use this feat as a standard action instead of a full-round action.																																																																										SOURCEPAGE:131
-Combat Trick / Sickening Critical			KEY:Combat Trick ~ Sickening Critical			CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:When you threaten a critical hit using this feat, before rolling the confirmation roll, you can spend 5 stamina points. If you do and the critical hit is confirmed, the foe is nauseated for 1d4+1 rounds unless it succeeds at a Fortitude save with a DC equal to 10 + your base attack bonus, which reduces the effect to the normal sickened condition.																																	SOURCEPAGE:131
-Combat Trick / Snatch Arrows				KEY:Combat Trick ~ Snatch Arrows				CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:When you snatch a thrown weapon, as long as you have at least 1 stamina point in your stamina pool, you can make a thrown ranged attack with it against any target, not just the original attacker.																																																										SOURCEPAGE:132
-Combat Trick / Spellbreaker				KEY:Combat Trick ~ Spellbreaker				CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:When you hit a caster with an attack of opportunity it provoked by failing to cast defensively, you can spend 5 stamina points to daze the caster until the end of its next turn. If the caster succeeds at a Fortitude save with a DC equal to 10 + your base attack bonus, it is staggered instead.																																										SOURCEPAGE:132
-Combat Trick / Spirited Charge			KEY:Combat Trick ~ Spirited Charge				CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:When making a mounted charge, you can spend a number of stamina points up to your Strength bonus. If your charge attack hits, you deal an amount of extra damage equal to the number of stamina points you spent. This additional damage is doubled by this feat (or tripled if you're using a lance).																																										SOURCEPAGE:132
-Combat Trick / Spring Attack				KEY:Combat Trick ~ Spring Attack				CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:You can spend 5 stamina points to use this feat as a standard action instead of a full-round action.																																																																										SOURCEPAGE:132
-Combat Trick / Staggering Critical			KEY:Combat Trick ~ Staggering Critical			CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:When you score a critical hit and attempt to stagger an opponent with this feat, you can spend up to 5 stamina points to increase the DC of this feat's saving throw by an amount equal to the number of stamina points you spent.																																																					SOURCEPAGE:132
-Combat Trick / Stand Still				KEY:Combat Trick ~ Stand Still				CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:When you succeed at a combat maneuver check to stop a creature's movement with this feat, you can spend 5 stamina points. If you do, on that creature's next turn, its movement speed is halved and it can't take a 5-foot step.																																																					SOURCEPAGE:132
-Combat Trick / Step Up					KEY:Combat Trick ~ Step Up					CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:As long as you have at least 1 stamina point in your stamina pool, on the turn after you use this feat, you can still take a 5-foot step, and you don't reduce your speed if you take an action to move due to this feat.																																																						SOURCEPAGE:132
-Combat Trick / Strike Back				KEY:Combat Trick ~ Strike Back				CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:When you ready an action to attack someone outside of your melee reach, you can spend 5 stamina points to take a 5-foot step, but you must move closer to the attacking creature. You can take this 5-foot step even if your readied action includes a 5-foot step.																																															SOURCEPAGE:133
-Combat Trick / Stunning Critical			KEY:Combat Trick ~ Stunning Critical			CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:When you confirm a critical hit and attempt to stun an opponent with this feat, you can spend up to 5 stamina points to increase the DC of this feat's saving throw by an amount equal to the number of stamina points you spent.																																																					SOURCEPAGE:133
-Combat Trick / Stunning Fist				KEY:Combat Trick ~ Stunning Fist				CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:You can spend 5 stamina points to declare that you are using Stunning Fist after you've hit with an unarmed strike.																																																																							SOURCEPAGE:133
-Combat Trick / Throw Anything				KEY:Combat Trick ~ Throw Anything				CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:As long as you have at least 1 stamina point in your stamina pool, when you use a melee weapon that is not a thrown weapon for a ranged improvised weapon attack, you use the weapon's melee critical threat range and multiplier instead of the normal 20/x2 for improvised weapons. You can spend 2 stamina points to increase your range increment for thrown weapon attacks (including ranged improvised weapons) by 10 feet until the beginning of your next turn.															SOURCEPAGE:133
-Combat Trick / Tiring Critical			KEY:Combat Trick ~ Tiring Critical				CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:When you threaten a critical hit against a fatigued foe, you can spend 5 stamina points before attempting the confirmation roll. If you confirm the critical hit, the foe becomes exhausted.																																																											SOURCEPAGE:134
-Combat Trick / Trample					KEY:Combat Trick ~ Trample					CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:When you attempt to overrun an opponent while mounted and you don't succeed at the overrun combat maneuver check, you can spend 2 stamina points and continue to move as if the target of the overrun had moved out of the way.																																																					SOURCEPAGE:134
-Combat Trick / Two-Weapon Defense			KEY:Combat Trick ~ Two-Weapon Defense			CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:Once per round, you can spend 2 stamina points to double the bonuses granted by this feat until the start of your next turn.																																																																						SOURCEPAGE:135
-Combat Trick / Two-Weapon Fighting			KEY:Combat Trick ~ Two-Weapon Fighting			CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:You can spend any number of stamina points to reduce the penalty from Two-Weapon Fighting on attacks made with a weapon in your primary hand by 1 for every 2 stamina points you spent. This benefit lasts until the start of your next turn. You can't reduce the penalty below 0.																																													SOURCEPAGE:135
-Combat Trick / Two-Weapon Rend			KEY:Combat Trick ~ Two-Weapon Rend				CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:You can spend 5 stamina points to use this feat's benefit a second time in a single round.																																																																												SOURCEPAGE:135
-Combat Trick / Unseat					KEY:Combat Trick ~ Unseat					CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:When you use this feat to successfully unseat a foe, you can spend 5 stamina points to make the rider fall prone in an unoccupied space of your choice adjacent to the mount instead of a space directly away from you.																																																							SOURCEPAGE:135
-Combat Trick / Vital Strike				KEY:Combat Trick ~ Vital Strike				CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:After rolling the damage of a Vital Strike attack, you can spend 2 stamina points to reroll up to two of the weapon's damage dice. (For weapons with more than one damage die, count all the weapon's base damage dice together as one.) You must take the second result, even if it's lower.																																											SOURCEPAGE:135
-Combat Trick / Weapon Finesse				KEY:Combat Trick ~ Weapon Finesse				CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:You can spend 2 stamina points to negate the penalty on attack rolls from your shield's armor check penalty until the start of your next turn.																																																																			SOURCEPAGE:135
-Combat Trick / Weapon Focus				KEY:Combat Trick ~ Weapon Focus				CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:Once per round, you can spend 2 stamina points to gain your Weapon Focus bonus on attack rolls with a weapon with which you don't have Weapon Focus. This bonus lasts until the start of your next turn.																																																									SOURCEPAGE:135
-Combat Trick / Weapon Specialization		KEY:Combat Trick ~ Weapon Specialization			CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:Once per round, you can spend 2 stamina points to gain your Weapon Specialization bonus on damage rolls with a weapon with which you don't have Weapon Specialization. This bonus lasts until the start of your next turn.																																																						SOURCEPAGE:135
-Combat Trick / Whirlwind Attack			KEY:Combat Trick ~ Whirlwind Attack				CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:When using this feat, you can spend stamina points to still take bonus or extra attacks granted by other feats, spells, or abilities. You must spend 5 stamina points per extra attack you take in this way. This combat trick allows you to make extra attacks to which you have access-it doesn't by itself grant extra attacks.																																					SOURCEPAGE:135
-Combat Trick / Wind Stance				KEY:Combat Trick ~ Wind Stance				CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:When using this feat, you can spend 5 stamina points to gain 20%% concealment for 1 round against all attacks (not just ranged attacks).																																																																				SOURCEPAGE:135
-
-
-###Block:
-# Ability Name						Ability
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Agile Maneuvers|PREABILITY:1,CATEGORY=FEAT,Agile Maneuvers
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Arcane Armor Mastery|PREABILITY:1,CATEGORY=FEAT,Arcane Armor Mastery
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Arcane Armor Training|PREABILITY:1,CATEGORY=FEAT,Arcane Armor Training
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Arcane Strike|PREABILITY:1,CATEGORY=FEAT,Arcane Strike
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Bleeding Critical|PREABILITY:1,CATEGORY=FEAT,Bleeding Critical
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Blind-Fight|PREABILITY:1,CATEGORY=FEAT,Blind-Fight
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Blinding Critical|PREABILITY:1,CATEGORY=FEAT,Blinding Critical
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Catch Off-Guard|PREABILITY:1,CATEGORY=FEAT,Catch Off-Guard
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Channel Smite|PREABILITY:1,CATEGORY=FEAT,Channel Smite
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Cleave|PREABILITY:1,CATEGORY=FEAT,Cleave
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Combat Expertise|PREABILITY:1,CATEGORY=FEAT,Combat Expertise
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Combat Reflexes|PREABILITY:1,CATEGORY=FEAT,Combat Reflexes
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Critical Focus|PREABILITY:1,CATEGORY=FEAT,Critical Focus
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Critical Mastery|PREABILITY:1,CATEGORY=FEAT,Critical Mastery
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Dazzling Display|PREABILITY:1,CATEGORY=FEAT,Dazzling Display
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Deadly Aim|PREABILITY:1,CATEGORY=FEAT,Deadly Aim
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Deadly Stroke|PREABILITY:1,CATEGORY=FEAT,Deadly Stroke
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Deafening Critical|PREABILITY:1,CATEGORY=FEAT,Deafening Critical
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Defensive Combat Training|PREABILITY:1,CATEGORY=FEAT,Defensive Combat Training
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Deflect Arrows|PREABILITY:1,CATEGORY=FEAT,Deflect Arrows
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Disruptive|PREABILITY:1,CATEGORY=FEAT,Disruptive
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Dodge|PREABILITY:1,CATEGORY=FEAT,Dodge
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Double Slice|PREABILITY:1,CATEGORY=FEAT,Double Slice
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Exhausting Critical|PREABILITY:1,CATEGORY=FEAT,Exhausting Critical
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Far Shot|PREABILITY:1,CATEGORY=FEAT,Far Shot
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Gorgon's Fist|PREABILITY:1,CATEGORY=FEAT,Gorgon's Fist
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Great Cleave|PREABILITY:1,CATEGORY=FEAT,Great Cleave
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Greater Bull Rush|PREABILITY:1,CATEGORY=FEAT,Greater Bull Rush
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Greater Disarm|PREABILITY:1,CATEGORY=FEAT,Greater Disarm
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Greater Feint|PREABILITY:1,CATEGORY=FEAT,Greater Feint
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Greater Grapple|PREABILITY:1,CATEGORY=FEAT,Greater Grapple
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Greater Overrun|PREABILITY:1,CATEGORY=FEAT,Greater Overrun
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Greater Penetrating Strike|PREABILITY:1,CATEGORY=FEAT,Greater Penetrating Strike
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Greater Shield Focus|PREABILITY:1,CATEGORY=FEAT,Greater Shield Focus
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Greater Sunder|PREABILITY:1,CATEGORY=FEAT,Greater Sunder
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Greater Trip|PREABILITY:1,CATEGORY=FEAT,Greater Trip
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Greater Two-Weapon Fighting|PREABILITY:1,CATEGORY=FEAT,Greater Two-Weapon Fighting
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Greater Vital Strike|PREABILITY:1,CATEGORY=FEAT,Greater Vital Strike
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Greater Weapon Focus|PREABILITY:1,CATEGORY=FEAT,Greater Weapon Focus
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Greater Weapon Specialization|PREABILITY:1,CATEGORY=FEAT,Greater Weapon Specialization
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Improved Bull Rush|PREABILITY:1,CATEGORY=FEAT,Improved Bull Rush
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Improved Critical|PREABILITY:1,CATEGORY=FEAT,Improved Critical
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Improved Disarm|PREABILITY:1,CATEGORY=FEAT,Improved Disarm
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Improved Feint|PREABILITY:1,CATEGORY=FEAT,Improved Feint
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Improved Grapple|PREABILITY:1,CATEGORY=FEAT,Improved Grapple
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Improved Initiative|PREABILITY:1,CATEGORY=FEAT,Improved Initiative
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Improved Overrun|PREABILITY:1,CATEGORY=FEAT,Improved Overrun
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Improved Precise Shot|PREABILITY:1,CATEGORY=FEAT,Improved Precise Shot
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Improved Shield Bash|PREABILITY:1,CATEGORY=FEAT,Improved Shield Bash
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Improved Sunder|PREABILITY:1,CATEGORY=FEAT,Improved Sunder
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Improved Trip|PREABILITY:1,CATEGORY=FEAT,Improved Trip
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Improved Two-Weapon Fighting|PREABILITY:1,CATEGORY=FEAT,Improved Two-Weapon Fighting
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Improved Unarmed Strike|PREABILITY:1,CATEGORY=FEAT,Improved Unarmed Strike
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Improved Vital Strike|PREABILITY:1,CATEGORY=FEAT,Improved Vital Strike
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Improvised Weapon Mastery|PREABILITY:1,CATEGORY=FEAT,Improvised Weapon Mastery
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Intimidating Prowess|PREABILITY:1,CATEGORY=FEAT,Intimidating Prowess
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Lightning Stance|PREABILITY:1,CATEGORY=FEAT,Lightning Stance
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Lunge|PREABILITY:1,CATEGORY=FEAT,Lunge
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Manyshot|PREABILITY:1,CATEGORY=FEAT,Manyshot
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Medusa's Wrath|PREABILITY:1,CATEGORY=FEAT,Medusa's Wrath
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Mobility|PREABILITY:1,CATEGORY=FEAT,Mobility
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Mounted Archery|PREABILITY:1,CATEGORY=FEAT,Mounted Archery
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Mounted Combat|PREABILITY:1,CATEGORY=FEAT,Mounted Combat
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Penetrating Strike|PREABILITY:1,CATEGORY=FEAT,Penetrating Strike
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Pinpoint Targeting|PREABILITY:1,CATEGORY=FEAT,Pinpoint Targeting
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Point-Blank Shot|PREABILITY:1,CATEGORY=FEAT,Point-Blank Shot
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Power Attack|PREABILITY:1,CATEGORY=FEAT,Power Attack
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Precise Shot|PREABILITY:1,CATEGORY=FEAT,Precise Shot
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Quick Draw|PREABILITY:1,CATEGORY=FEAT,Quick Draw
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Rapid Reload|PREABILITY:1,CATEGORY=FEAT,Rapid Reload
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Rapid Shot|PREABILITY:1,CATEGORY=FEAT,Rapid Shot
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Ride-By Attack|PREABILITY:1,CATEGORY=FEAT,Ride-By Attack
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Scorpion Style|PREABILITY:1,CATEGORY=FEAT,Scorpion Style
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Shatter Defenses|PREABILITY:1,CATEGORY=FEAT,Shatter Defenses
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Shield Focus|PREABILITY:1,CATEGORY=FEAT,Shield Focus
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Shield Master|PREABILITY:1,CATEGORY=FEAT,Shield Master
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Shield Slam|PREABILITY:1,CATEGORY=FEAT,Shield Slam
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Shot on the Run|PREABILITY:1,CATEGORY=FEAT,Shot on the Run
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Sickening Critical|PREABILITY:1,CATEGORY=FEAT,Sickening Critical
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Snatch Arrows|PREABILITY:1,CATEGORY=FEAT,Snatch Arrows
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Spellbreaker|PREABILITY:1,CATEGORY=FEAT,Spellbreaker
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Spirited Charge|PREABILITY:1,CATEGORY=FEAT,Spirited Charge
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Spring Attack|PREABILITY:1,CATEGORY=FEAT,Spring Attack
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Staggering Critical|PREABILITY:1,CATEGORY=FEAT,Staggering Critical
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Stand Still|PREABILITY:1,CATEGORY=FEAT,Stand Still
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Step Up|PREABILITY:1,CATEGORY=FEAT,Step Up
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Strike Back|PREABILITY:1,CATEGORY=FEAT,Strike Back
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Stunning Critical|PREABILITY:1,CATEGORY=FEAT,Stunning Critical
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Stunning Fist|PREABILITY:1,CATEGORY=FEAT,Stunning Fist
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Throw Anything|PREABILITY:1,CATEGORY=FEAT,Throw Anything
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Tiring Critical|PREABILITY:1,CATEGORY=FEAT,Tiring Critical
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Trample|PREABILITY:1,CATEGORY=FEAT,Trample
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Two-Weapon Defense|PREABILITY:1,CATEGORY=FEAT,Two-Weapon Defense
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Two-Weapon Fighting|PREABILITY:1,CATEGORY=FEAT,Two-Weapon Fighting
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Two-Weapon Rend|PREABILITY:1,CATEGORY=FEAT,Two-Weapon Rend
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Unseat|PREABILITY:1,CATEGORY=FEAT,Unseat
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Vital Strike|PREABILITY:1,CATEGORY=FEAT,Vital Strike
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Weapon Finesse|PREABILITY:1,CATEGORY=FEAT,Weapon Finesse
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Weapon Focus|PREABILITY:1,CATEGORY=FEAT,Weapon Focus
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Weapon Specialization|PREABILITY:1,CATEGORY=FEAT,Weapon Specialization
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Whirlwind Attack|PREABILITY:1,CATEGORY=FEAT,Whirlwind Attack
-CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Wind Stance|PREABILITY:1,CATEGORY=FEAT,Wind Stance
+Summoner	KEY:Variant Multiclass ~ Summoner	CATEGORY:Special Ability	TYPE:Variant Multiclass.SpecialQuality	!PRECLASS:1,Summoner=1	DESC:Gains summoner secondary class features.
+	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,3
+	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,7
+	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,11
+	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,15
+	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,19
+	ABILITY:Special Ability|AUTOMATIC|Summoner ~ Summon Monster|PREVARGTEQ:TL,3
+	BONUS:VAR|SummonerSummonMonsterLVL|min((TL-1)/2,9)|PREVARGTEQ:TL,3
+	BONUS:VAR|SummonerSummonMonsterTimes|1|PREVARGTEQ:TL,3
+	ABILITY:Special Ability|AUTOMATIC|Companion ~ Eidolon|PREVARGTEQ:TL,7
+	BONUS:VAR|EidolonCompanionLVL|TL-4|PREVARGTEQ:TL,7
+	BONUS:VAR|SummonerSummonMonsterTimes|2|PREVARGTEQ:TL,11
+	ABILITY:Special Ability|AUTOMATIC|Shield Ally|PREVARGTEQ:TL,15
+	ABILITY:Special Ability|AUTOMATIC|Aspect|PREVARGTEQ:TL,19
