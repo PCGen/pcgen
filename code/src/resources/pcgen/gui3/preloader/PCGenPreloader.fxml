@@ -18,26 +18,32 @@
   * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
   -->
 
+<?import java.net.URL?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.Scene?>
-<?import javafx.scene.image.Image?><?import pcgen.gui3.component.PCGenStatusBar?>
+<?import pcgen.gui3.component.PCGenStatusBar?>
 <Scene xmlns="http://javafx.com/javafx/25.0.1" xmlns:fx="http://javafx.com/fxml"
-       fx:controller="pcgen.gui3.preloader.PCGenPreloaderController">
-    <AnchorPane prefHeight="200" prefWidth="200">
-        <BorderPane>
+       fx:controller="pcgen.gui3.preloader.PCGenPreloaderController"
+       fill="TRANSPARENT">
+    <stylesheets>
+        <URL value="@PCGenPreloader.css"/>
+    </stylesheets>
+    <!-- Outer StackPane gives the drop shadow room to render; the card itself
+         carries the rounded border, background clip, and gold frame. -->
+    <StackPane styleClass="splash-root">
+        <BorderPane styleClass="splash-card">
             <center>
-                <ImageView fitHeight="230" fitWidth="420" id="styleImage">
-                    <Image url="@SplashPcgen_Ennie.png"
-                           backgroundLoading="true"
-                           preserveRatio="true"
-                           smooth="true"/>
+                <ImageView fx:id="splashImage" id="splashImage" fitHeight="230" fitWidth="420"
+                           preserveRatio="false" smooth="true">
+                    <Image url="@SplashPcgen_Ennie.png" backgroundLoading="true"/>
                 </ImageView>
             </center>
             <bottom>
-                <PCGenStatusBar fx:id="pcGenStatusBar" />
+                <PCGenStatusBar fx:id="pcGenStatusBar" styleClass="splash-status"/>
             </bottom>
         </BorderPane>
-    </AnchorPane>
+    </StackPane>
 </Scene>
