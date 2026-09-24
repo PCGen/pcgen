@@ -25,6 +25,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.IdentityHashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -96,7 +97,7 @@ public class BonusManager
 			return bonus;
 		}
 
-		fullyQualifiedBonusType = fullyQualifiedBonusType.toUpperCase();
+		fullyQualifiedBonusType = fullyQualifiedBonusType.toUpperCase(Locale.ROOT);
 		if (cachedActiveBonusSumsMap.containsKey(fullyQualifiedBonusType))
 		{
 			return cachedActiveBonusSumsMap.get(fullyQualifiedBonusType);
@@ -213,7 +214,7 @@ public class BonusManager
 	 */
 	private double getActiveBonusForMapKey(String fullyQualifiedBonusType, final double defaultValue)
 	{
-		fullyQualifiedBonusType = fullyQualifiedBonusType.toUpperCase();
+		fullyQualifiedBonusType = fullyQualifiedBonusType.toUpperCase(Locale.ROOT);
 
 		final String regVal = activeBonusMap.get(fullyQualifiedBonusType);
 
@@ -242,7 +243,7 @@ public class BonusManager
 	public String getSpellBonusType(String bonusName, String bonusInfo)
 	{
 		String prefix = bonusName + '.' + bonusInfo;
-		prefix = prefix.toUpperCase();
+		prefix = prefix.toUpperCase(Locale.ROOT);
 
 		for (String fullyQualifedBonusType : activeBonusMap.keySet())
 		{
@@ -381,19 +382,6 @@ public class BonusManager
 	}
 
 	/**
-	 * Combines the non-stacking bonus maximum and stacking 
-	 * bonus totals to a total bonus for the bonus type. 
-	 *  
-	 * @param nonStackMap
-	 *            The map of non-stacking (i.e. highest wins) bonuses being built up.
-	 * @param stackMap
-	 *            The map of stacking (i.e. total all) bonuses being built up.
-	 * @param fullyQualifiedBonusType
-	 *            The type of the bonus e.g. STAT.DEX:LUCK
-	 * @param targetMap
-	 *            The map of bonuses (stack+non-stack) being built up which will be populated with the total bonus.
-	 */
-	/**
 	 * Drop any cached bonus sums that the given bonus type contributes to. Sums can be
 	 * requested (and cached) while the active bonus map is still being built, e.g. when a
 	 * formula reads a stat; without this a later bonus to that stat would be ignored.
@@ -406,7 +394,7 @@ public class BonusManager
 		{
 			return;
 		}
-		String base = fullyQualifiedBonusType.toUpperCase();
+		String base = fullyQualifiedBonusType.toUpperCase(Locale.ROOT);
 		if (base.endsWith(".STACK"))
 		{
 			base = base.substring(0, base.length() - 6);
@@ -419,12 +407,25 @@ public class BonusManager
 		cachedActiveBonusSumsMap.keySet().removeIf(key -> changed.equals(key) || changed.startsWith(key + ":"));
 	}
 
+	/**
+	 * Combines the non-stacking bonus maximum and stacking
+	 * bonus totals to a total bonus for the bonus type.
+	 *
+	 * @param nonStackMap
+	 *            The map of non-stacking (i.e. highest wins) bonuses being built up.
+	 * @param stackMap
+	 *            The map of stacking (i.e. total all) bonuses being built up.
+	 * @param fullyQualifiedBonusType
+	 *            The type of the bonus e.g. STAT.DEX:LUCK
+	 * @param targetMap
+	 *            The map of bonuses (stack+non-stack) being built up which will be populated with the total bonus.
+	 */
 	private static void totalBonusesForType(Map<String, String> nonStackMap, Map<String, String> stackMap,
 	                                        String fullyQualifiedBonusType, Map<String, String> targetMap)
 	{
 		if (fullyQualifiedBonusType != null)
 		{
-			fullyQualifiedBonusType = fullyQualifiedBonusType.toUpperCase();
+			fullyQualifiedBonusType = fullyQualifiedBonusType.toUpperCase(Locale.ROOT);
 		}
 		String nonStackString = nonStackMap.get(fullyQualifiedBonusType);
 		Float nonStackVal = nonStackString == null ? 0.0f : Float.parseFloat(nonStackString);
@@ -650,7 +651,7 @@ public class BonusManager
 	{
 		if (fullyQualifiedBonusType != null)
 		{
-			fullyQualifiedBonusType = fullyQualifiedBonusType.toUpperCase();
+			fullyQualifiedBonusType = fullyQualifiedBonusType.toUpperCase(Locale.ROOT);
 
 			// only specific bonuses can actually be fractional
 			// -> TODO should define this in external file
