@@ -33,7 +33,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Labeled;
 import javafx.scene.control.TextArea;
 import javafx.scene.text.Text;
-import org.apache.commons.lang3.StringUtils;
 
 /**
  * Controller for about panel.
@@ -130,19 +129,8 @@ public class AboutDialogController
 		String s = LanguageBundle.getString("in_abt_lib_apache"); //$NON-NLS-1$
 		librariesArea.setText(s);
 
-		String releaseDateStr = PCGenPropBundle.getReleaseDate();
-		if (StringUtils.isNotBlank(PCGenPropBundle.getAutobuildDate()))
-		{
-			releaseDateStr = PCGenPropBundle.getAutobuildDate();
-		}
-		releaseDate.setText(releaseDateStr);
-
-		String versionNum = PCGenPropBundle.getVersionNumber();
-		if (StringUtils.isNotBlank(PCGenPropBundle.getAutobuildNumber()))
-		{
-			versionNum += " autobuild #" + PCGenPropBundle.getAutobuildNumber();
-		}
-		pcgenVersion.setText(versionNum);
+		releaseDate.setText(PCGenPropBundle.getReleaseDate());
+		pcgenVersion.setText(PCGenPropBundle.getVersionNumber());
 
 	}
 
