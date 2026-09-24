@@ -333,6 +333,7 @@ public class BonusManager
 				final double iBonus = bp.resolve(pc).doubleValue();
 				setActiveBonusStack(iBonus, bp.fullyQualifiedBonusType, nonStackMap, stackMap);
 				totalBonusesForType(nonStackMap, stackMap, bp.fullyQualifiedBonusType, activeBonusMap);
+				invalidateCachedSums(bp.fullyQualifiedBonusType);
 
 				if (Logging.isDebugMode())
 				{
@@ -392,6 +393,32 @@ public class BonusManager
 	 * @param targetMap
 	 *            The map of bonuses (stack+non-stack) being built up which will be populated with the total bonus.
 	 */
+	/**
+	 * Drop any cached bonus sums that the given bonus type contributes to. Sums can be
+	 * requested (and cached) while the active bonus map is still being built, e.g. when a
+	 * formula reads a stat; without this a later bonus to that stat would be ignored.
+	 *
+	 * @param fullyQualifiedBonusType The bonus type just added, e.g. STAT.STR:RACE
+	 */
+	private void invalidateCachedSums(String fullyQualifiedBonusType)
+	{
+		if (fullyQualifiedBonusType == null || cachedActiveBonusSumsMap.isEmpty())
+		{
+			return;
+		}
+		String base = fullyQualifiedBonusType.toUpperCase();
+		if (base.endsWith(".STACK"))
+		{
+			base = base.substring(0, base.length() - 6);
+		}
+		else if (base.endsWith(".REPLACE"))
+		{
+			base = base.substring(0, base.length() - 8);
+		}
+		final String changed = base;
+		cachedActiveBonusSumsMap.keySet().removeIf(key -> changed.equals(key) || changed.startsWith(key + ":"));
+	}
+
 	private static void totalBonusesForType(Map<String, String> nonStackMap, Map<String, String> stackMap,
 	                                        String fullyQualifiedBonusType, Map<String, String> targetMap)
 	{
@@ -596,6 +623,7 @@ public class BonusManager
 			final double iBonus = bp.resolve(pc).doubleValue();
 			setActiveBonusStack(iBonus, bp.fullyQualifiedBonusType, nonStackMap, stackMap);
 			totalBonusesForType(nonStackMap, stackMap, bp.fullyQualifiedBonusType, activeBonusMap);
+			invalidateCachedSums(bp.fullyQualifiedBonusType);
 			//			Logging.debugPrint("vBONUS: " + anObj.getDisplayName() + " : "
 			//					+ iBonus + " : " + bp.fullyQualifiedBonusType);
 		}
