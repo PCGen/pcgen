@@ -31,7 +31,9 @@ import pcgen.util.Logging;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  * This is the application logic for the "Splash Screen" when loading PCGEn
@@ -54,7 +56,7 @@ public class PCGenPreloader implements PCGenTaskListener, Controllable<PCGenPrel
 		GuiAssertions.assertIsNotOnGUIThread();
 		loader.setLocation(getClass().getResource("PCGenPreloader.fxml"));
 		Platform.runLater(() -> {
-			primaryStage = new Stage();
+			primaryStage = new Stage(StageStyle.TRANSPARENT);
 			final Scene scene;
 			try
 			{
@@ -65,7 +67,10 @@ public class PCGenPreloader implements PCGenTaskListener, Controllable<PCGenPrel
 				return;
 			}
 
+			scene.setFill(Color.TRANSPARENT);
 			primaryStage.setScene(scene);
+			primaryStage.setAlwaysOnTop(true);
+			primaryStage.centerOnScreen();
 			primaryStage.show();
 		});
 	}

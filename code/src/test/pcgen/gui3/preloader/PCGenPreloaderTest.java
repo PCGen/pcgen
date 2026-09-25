@@ -51,7 +51,7 @@ class PCGenPreloaderTest
 	@Test
 	void test_preloader_has_a_image_and_progress_bar(final FxRobotInterface robot)
 	{
-		FxAssert.verifyThat("#styleImage", NodeMatchers.isVisible());
+		FxAssert.verifyThat("#splashImage", NodeMatchers.isVisible());
 		FxAssert.verifyThat("#pcGenStatusBar", NodeMatchers.isVisible());
 	}
 
