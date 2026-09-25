@@ -19,6 +19,7 @@ package pcgen.core.utils;
 
 import java.io.File;
 import java.net.URI;
+import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -43,6 +44,9 @@ public final class CoreUtility
 {
 
 	private static final double EPSILON = 0.0001d;
+
+	// Collator sorts accented/non-English names correctly; shared as sorting is single-threaded.
+	private static final Collator NAME_COLLATOR = Collator.getInstance();
 
 	public static final Comparator<Equipment> EQUIPMENT_COMPARATOR = new Comparator<>()
 	{
@@ -70,21 +74,21 @@ public final class CoreUtility
 				return result2;
 			}
 
-			final int result3 = obj1.getName().compareToIgnoreCase(obj2.getName());
+			final int result3 = NAME_COLLATOR.compare(obj1.getName(), obj2.getName());
 
 			if (result3 != 0)
 			{
 				return result3;
 			}
 
-			final int result4 = obj1.getAppliedName().compareToIgnoreCase(obj2.getAppliedName());
+			final int result4 = NAME_COLLATOR.compare(obj1.getAppliedName(), obj2.getAppliedName());
 
 			if (result4 != 0)
 			{
 				return result4;
 			}
 
-			return obj1.getParentName().compareToIgnoreCase(obj2.getParentName());
+			return NAME_COLLATOR.compare(obj1.getParentName(), obj2.getParentName());
 		}
 
 		@Override

@@ -18,6 +18,7 @@
  */
 package pcgen.core.display;
 
+import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Iterator;
@@ -37,6 +38,9 @@ import pcgen.util.enumeration.Visibility;
  */
 public final class SkillDisplay
 {
+
+	// Collator sorts accented/non-English names correctly; shared as sorting is single-threaded.
+	private static final Collator NAME_COLLATOR = Collator.getInstance();
 
 	private SkillDisplay()
 	{
@@ -86,7 +90,7 @@ public final class SkillDisplay
 				}
 				else
 				{
-					return skill1.getOutputName().compareToIgnoreCase(skill2.getOutputName());
+					return NAME_COLLATOR.compare(skill1.getOutputName(), skill2.getOutputName());
 				}
 			}
 		});

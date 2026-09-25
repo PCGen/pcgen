@@ -22,6 +22,7 @@ import java.io.File;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.net.URI;
+import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -104,6 +105,9 @@ public final class Equipment extends PObject
 {
 
 	private static final long serialVersionUID = 1;
+
+	// Collator sorts accented/non-English names correctly; shared as sorting is single-threaded.
+	private static final Collator NAME_COLLATOR = Collator.getInstance();
 
 	private static final String EQMOD_WEIGHT = "_WEIGHTADD";
 
@@ -2720,7 +2724,7 @@ public final class Equipment extends PObject
 	{
 		final Equipment e = (Equipment) o;
 
-		return getName().compareToIgnoreCase(e.getName());
+		return NAME_COLLATOR.compare(getName(), e.getName());
 	}
 
 	@Override
