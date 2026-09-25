@@ -17,6 +17,7 @@
  */
 package pcgen.core;
 
+import java.text.Collator;
 import java.util.Comparator;
 
 import pcgen.core.analysis.SkillRankControl;
@@ -30,6 +31,8 @@ public final class SkillComparator implements Comparator<Skill>
 	public static final int RESORT_TRAINED = 1;
 	public static final boolean RESORT_ASCENDING = true;
 	public static final boolean RESORT_DESCENDING = false;
+	// Collator sorts accented/non-English names correctly; shared as sorting is single-threaded.
+	private static final Collator NAME_COLLATOR = Collator.getInstance();
 	private boolean sortOrder;
 	private int sort;
 	private final PlayerCharacter pc;
@@ -75,12 +78,12 @@ public final class SkillComparator implements Comparator<Skill>
 				}
 				else
 				{
-					return s1.getOutputName().compareToIgnoreCase(s2.getOutputName());
+					return NAME_COLLATOR.compare(s1.getOutputName(), s2.getOutputName());
 				}
 			}
 			case RESORT_NAME:
 			default:
-				return s1.getOutputName().compareToIgnoreCase(s2.getOutputName());
+				return NAME_COLLATOR.compare(s1.getOutputName(), s2.getOutputName());
 		}
 	}
 }
