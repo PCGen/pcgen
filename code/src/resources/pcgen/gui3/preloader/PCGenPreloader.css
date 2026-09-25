@@ -64,16 +64,20 @@
 
 .splash-status .progress-bar {
     -fx-pref-width: 160;
+    -fx-pref-height: 14;
+    -fx-max-height: 14;
+    -fx-min-height: 14;
 }
 
 .splash-status .progress-bar > .track {
     -fx-background-color: rgba(0, 0, 0, 0.35);
-    -fx-background-radius: 6;
+    -fx-background-radius: 7;
+    -fx-background-insets: 0;
 }
 
 .splash-status .progress-bar > .bar {
     -fx-background-color: linear-gradient(to right, #a8802f, #e0be6a);
-    -fx-background-insets: 0;
-    -fx-background-radius: 6;
-    -fx-padding: 6;
+    -fx-background-radius: 7;
+    -fx-background-insets: 2;
+    -fx-padding: 0;
 }
