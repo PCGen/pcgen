@@ -14,6 +14,7 @@
 package pcgen.gui3.sources;
 
 import java.util.Optional;
+import java.util.logging.Logger;
 
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -24,12 +25,23 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.web.WebView;
 import javafx.util.Callback;
 
+import pcgen.gui2.UIPropertyContext;
+
 /**
  * Controller for the Basic tab of the source-selection dialog: a list of
  * pre-defined {@link SourceBundle}s plus an HTML preview of the focused entry.
  */
 public class BasicSourceSelectionController
 {
+	private static final Logger LOG = Logger.getLogger(BasicSourceSelectionController.class.getName());
+
+	// Shares the legacy Swing dialog's context/key so a previously remembered
+	// source carries over and both dialogs stay in sync.
+	private static final UIPropertyContext CONTEXT =
+			UIPropertyContext.createContext("SourceSelectionDialog"); //$NON-NLS-1$
+	private static final String PROP_SELECTED_SOURCE = "selectedSource"; //$NON-NLS-1$
+	private static final String DEFAULT_SOURCE = "Pathfinder RPG for Players"; //$NON-NLS-1$
+
 	@FXML
 	private SplitPane splitPane;
 
@@ -51,6 +63,7 @@ public class BasicSourceSelectionController
 				SourceInfoRenderer.clear(infoPane.getEngine());
 				return;
 			}
+			CONTEXT.setProperty(PROP_SELECTED_SOURCE, selected.displayName());
 			// Use the first campaign as the info source. If the bundle
 			// holds several, the info covers only the leader; renderer can be
 			// expanded later to summarise the whole bundle.
@@ -68,7 +81,16 @@ public class BasicSourceSelectionController
 	public void setSources(ObservableList<SourceBundle> items)
 	{
 		sourceList.setItems(items);
-		sourceList.getSelectionModel().selectFirst();
+		// Restore the previously selected source (shared with the legacy dialog),
+		// falling back to a sensible default and then the first entry.
+		String remembered = CONTEXT.initProperty(PROP_SELECTED_SOURCE, DEFAULT_SOURCE);
+		items.stream()
+				.filter(bundle -> remembered.equals(bundle.displayName()))
+				.findFirst()
+				.ifPresentOrElse(bundle -> {
+					LOG.fine(() -> "Restored saved source: " + remembered);
+					sourceList.getSelectionModel().select(bundle);
+				}, sourceList.getSelectionModel()::selectFirst);
 	}
 
 	public Optional<SourceBundle> getSelectedSource()
