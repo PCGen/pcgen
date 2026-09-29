@@ -91,7 +91,7 @@ final class ModernHtmlInfoBuilder
 
 	private static Configuration createConfiguration()
 	{
-		Configuration cfg = new Configuration(Configuration.VERSION_2_3_32);
+		Configuration cfg = new Configuration(Configuration.VERSION_2_3_35);
 		cfg.setDefaultEncoding(StandardCharsets.UTF_8.name());
 		try
 		{
@@ -104,7 +104,7 @@ final class ModernHtmlInfoBuilder
 				return cfg;
 			}
 		}
-		catch (IOException | RuntimeException ignored)
+		catch (IOException | RuntimeException _)
 		{
 			// Fall through to the classpath loader below.
 		}
@@ -146,9 +146,11 @@ final class ModernHtmlInfoBuilder
 		model.put("images", buildImages(aCamp, dataDir));
 		model.put("status", buildStatus(aCamp));
 		model.put("facts", buildFacts(aCamp));
-		model.put("description", aCamp.get(StringKey.DESCRIPTION));
-		model.put("requirements", buildRequirements(aCamp));
-		model.put("allow", buildAllow(aCamp));
+		// Optional blocks: put the key only when present, so the template's
+		// <#if x??> gates on a genuinely-absent key (see FreeMarker FAQ on nulls).
+		Optional.ofNullable(aCamp.get(StringKey.DESCRIPTION)).ifPresent(d -> model.put("description", d));
+		buildRequirements(aCamp).ifPresent(r -> model.put("requirements", r));
+		buildAllow(aCamp).ifPresent(a -> model.put("allow", a));
 		model.put("sections", buildSections(aCamp));
 		model.put("pccLabel", LanguageBundle.getString("in_infPccPath"));
 		model.put("pccPath", aCamp.getSourceURI().getPath());
@@ -222,28 +224,28 @@ final class ModernHtmlInfoBuilder
 		return facts;
 	}
 
-	/** The prerequisite requirements markup, or {@code null} when there are none. */
-	private static String buildRequirements(Campaign aCamp)
+	/** The prerequisite requirements markup, or empty when there are none. */
+	private static Optional<String> buildRequirements(Campaign aCamp)
 	{
 		String preString =
 				PrerequisiteUtilities.preReqHTMLStringsForList(null, null, aCamp.getPrerequisiteList(), false);
 		if (preString.isEmpty())
 		{
-			return null;
+			return Optional.empty();
 		}
 		// in_InfoRequirements is an HTML pattern ("<br><b>Requirements:</b>&nbsp;{0}"); preString is markup.
-		return LanguageBundle.getFormattedString("in_InfoRequirements", preString);
+		return Optional.of(LanguageBundle.getFormattedString("in_InfoRequirements", preString));
 	}
 
-	/** The allow-info markup ({@code {label, valueHtml}}), or {@code null} when empty. */
-	private static Map<String, Object> buildAllow(Campaign aCamp)
+	/** The allow-info markup ({@code {label, valueHtml}}), or empty when there is none. */
+	private static Optional<Map<String, Object>> buildAllow(Campaign aCamp)
 	{
 		String allow = AllowUtilities.getAllowInfo(null, aCamp);
 		if (allow.isEmpty())
 		{
-			return null;
+			return Optional.empty();
 		}
-		return fact(LanguageBundle.getString("in_requirements"), allow);
+		return Optional.of(fact(LanguageBundle.getString("in_requirements"), allow));
 	}
 
 	/** The titled text blocks (INFORMATION, COPYRIGHT, INCLUDED SOURCES), in order. */
@@ -353,7 +355,7 @@ final class ModernHtmlInfoBuilder
 			}
 			return sb.toString();
 		}
-		catch (RuntimeException exception)
+		catch (RuntimeException _)
 		{
 			return fileUri.toString();
 		}
