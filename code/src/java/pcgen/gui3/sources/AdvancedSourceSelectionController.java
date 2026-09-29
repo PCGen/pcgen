@@ -222,12 +222,12 @@ public class AdvancedSourceSelectionController
 	{
 		if (item == null)
 		{
-			infoPane.getEngine().loadContent("");
+			SourceInfoRenderer.clear(infoPane.getEngine());
 			return;
 		}
 		campaignOf(item).ifPresentOrElse(
-				c -> infoPane.getEngine().loadContent(FacadeFactory.getCampaignInfoFactory().getHTMLInfo(c)),
-				() -> infoPane.getEngine().loadContent(""));
+				c -> SourceInfoRenderer.renderCampaign(infoPane.getEngine(), c),
+				() -> SourceInfoRenderer.clear(infoPane.getEngine()));
 	}
 
 	/**

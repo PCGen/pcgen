@@ -117,7 +117,7 @@ public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 		Status status = aCamp.getSafe(ObjectKey.STATUS);
 		infoText.appendI18nElement(
 				"in_infStatus", //$NON-NLS-1$
-				String.format("<font color=\"#%s\">%s</font>", ColorUtilty.colorToRGBString(
+				String.format("<font color=\"%s\">%s</font>", ColorUtilty.colorToRGBString(
 						status.getColor()), status)
 		).appendLineBreak();
 		String descr = aCamp.get(StringKey.DESCRIPTION);

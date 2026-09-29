@@ -24,8 +24,6 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.web.WebView;
 import javafx.util.Callback;
 
-import pcgen.system.FacadeFactory;
-
 /**
  * Controller for the Basic tab of the source-selection dialog: a list of
  * pre-defined {@link SourceBundle}s plus an HTML preview of the focused entry.
@@ -50,14 +48,13 @@ public class BasicSourceSelectionController
 		sourceList.getSelectionModel().selectedItemProperty().addListener((obs, old, selected) -> {
 			if (selected == null || selected.campaigns().isEmpty())
 			{
-				infoPane.getEngine().loadContent("");
+				SourceInfoRenderer.clear(infoPane.getEngine());
 				return;
 			}
-			// Use the first campaign as the legacy info source. If the bundle
-			// holds several, the HTML covers only the leader; renderer can be
+			// Use the first campaign as the info source. If the bundle
+			// holds several, the info covers only the leader; renderer can be
 			// expanded later to summarise the whole bundle.
-			var infoText = FacadeFactory.getCampaignInfoFactory().getHTMLInfo(selected.campaigns().get(0));
-			infoPane.getEngine().loadContent(infoText);
+			SourceInfoRenderer.renderCampaign(infoPane.getEngine(), selected.campaigns().getFirst());
 		});
 		sourceList.setOnMouseClicked(event -> {
 			if (event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 2
