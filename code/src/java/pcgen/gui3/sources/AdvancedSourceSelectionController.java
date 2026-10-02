@@ -13,9 +13,11 @@
  */
 package pcgen.gui3.sources;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
@@ -24,6 +26,7 @@ import java.util.stream.StreamSupport;
 
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -87,7 +90,14 @@ public class AdvancedSourceSelectionController
 	@FXML
 	private WebView infoPane;
 
-	private final ObservableList<Campaign> selectedCampaigns = FXCollections.observableArrayList();
+	/**
+	 * The campaigns chosen on this tab. Backed by {@link #model} once
+	 * {@link #setModel} runs; an empty standalone list until then, so the
+	 * controller is usable in isolation (e.g. FXML preview).
+	 */
+	private ObservableList<Campaign> selectedCampaigns = FXCollections.observableArrayList();
+
+	private SourceSelectionModel model;
 
 	private Runnable onLoadRequested = () -> { };
 	private Runnable onUnloadAllRequested = () -> { };
@@ -114,12 +124,6 @@ public class AdvancedSourceSelectionController
 				.addListener((obs, old, item) -> showInfoFor(item));
 		treeSelected.getSelectionModel().selectedItemProperty()
 				.addListener((obs, old, item) -> showInfoFor(item));
-
-		// Selected list changes drive the right-side tree rebuild. Done as a
-		// listener (rather than a binding) so we keep the same TreeItem
-		// expansion state and column widths across rebuilds.
-		selectedCampaigns.addListener((javafx.collections.ListChangeListener<Campaign>) c ->
-				treeSelected.setRoot(buildTree(selectedCampaigns)));
 
 		treeAvailable.setOnMouseClicked(event -> {
 			if (event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 2
@@ -180,18 +184,27 @@ public class AdvancedSourceSelectionController
 	@FXML
 	protected void onAddSelectedAction(ActionEvent event)
 	{
+		// Validate against a working copy so the observable list — and the tree
+		// bound to it — is mutated once at the end, not per candidate.
+		var working = new ArrayList<>(selectedCampaigns);
+		var accepted = new ArrayList<Campaign>();
 		selectedLeavesIn(treeAvailable).forEach(c -> {
-			if (selectedCampaigns.contains(c))
+			if (working.contains(c))
 			{
 				return;
 			}
-			selectedCampaigns.add(c);
-			if (!FacadeFactory.passesPrereqs(selectedCampaigns))
+			working.add(c);
+			if (FacadeFactory.passesPrereqs(working))
 			{
-				selectedCampaigns.remove(c);
-				warnBadCombo(c);
+				accepted.add(c);
+			}
+			else
+			{
+				working.remove(c);
+				warnBadCombo(c, working);
 			}
 		});
+		selectedCampaigns.addAll(accepted);
 	}
 
 	@FXML
@@ -207,10 +220,10 @@ public class AdvancedSourceSelectionController
 		selectedCampaigns.clear();
 	}
 
-	private void warnBadCombo(Campaign campaign)
+	private void warnBadCombo(Campaign campaign, List<Campaign> context)
 	{
 		var prereqDesc = FacadeFactory.getCampaignInfoFactory()
-				.getRequirementsHTMLString(campaign, selectedCampaigns);
+				.getRequirementsHTMLString(campaign, context);
 		var alert = new Alert(Alert.AlertType.INFORMATION);
 		alert.setTitle(LanguageBundle.getString("in_src_badComboTitle"));
 		alert.setHeaderText(null);
@@ -257,7 +270,7 @@ public class AdvancedSourceSelectionController
 	 */
 	public Optional<SourceBundle> getSelectedSource()
 	{
-		var gameMode = cmbGameMode.getSelectionModel().getSelectedItem();
+		var gameMode = cmbGameMode.getValue();
 		if (gameMode == null)
 		{
 			return Optional.empty();
@@ -274,41 +287,100 @@ public class AdvancedSourceSelectionController
 	private static Stream<Campaign> selectedLeavesIn(TreeTableView<SourceTreeNode> tree)
 	{
 		return tree.getSelectionModel().getSelectedItems().stream()
-				.filter(java.util.Objects::nonNull)
+				.filter(Objects::nonNull)
 				.flatMap(item -> campaignOf(item).stream());
 	}
 
 	private static Optional<Campaign> campaignOf(TreeItem<SourceTreeNode> item)
 	{
-		return item.getValue() instanceof SourceTreeNode.Leaf l ? Optional.of(l.campaign()) : Optional.empty();
+		return item.getValue() instanceof SourceTreeNode.Leaf(Campaign campaign) ? Optional.of(campaign) : Optional.empty();
 	}
 
+	/**
+	 * Binds this tab to its shared {@link SourceSelectionModel}: the Selected
+	 * tree now reflects the model's campaign list, and the available tree
+	 * follows the model's game mode. The Basic tab projects onto the same model,
+	 * so a Basic selection lands here through this binding.
+	 */
+	public void setModel(SourceSelectionModel sourceModel)
+	{
+		this.model = Objects.requireNonNull(sourceModel);
+		this.selectedCampaigns = sourceModel.getSelectedCampaigns();
+
+		// Selected list changes drive the right-side tree rebuild.
+		selectedCampaigns.addListener((ListChangeListener<Campaign>) _ ->
+				treeSelected.setRoot(buildTree(selectedCampaigns)));
+		treeSelected.setRoot(buildTree(selectedCampaigns));
+
+		// Seed the model's game mode (unless already set, e.g. by a Basic
+		// projection) before wiring, so there is a single value to react to.
+		if (model.getGameMode() == null)
+		{
+			model.setGameMode(resolveDefaultGameMode());
+		}
+
+		// The combo's value and the model's game mode are one store.
+		cmbGameMode.valueProperty().bindBidirectional(model.gameModeProperty());
+		model.gameModeProperty().addListener((_, _, mode) -> onGameModeChanged(mode));
+
+		// Reflect the initial mode into the tree once (without clearing campaigns —
+		// nothing is stale at init; only later changes invalidate the selection).
+		rebuildAvailable(model.getGameMode());
+	}
+
+	/**
+	 * Reacts to a game-mode change: persist it, rebuild the available tree, and
+	 * drop the now-invalid selected campaigns. The Basic projection sets the mode
+	 * before replacing campaigns, so the clear here does not lose a projection's
+	 * campaigns (see {@link SourceSelectionDialogPane#project}).
+	 */
+	private void onGameModeChanged(GameMode mode)
+	{
+		if (mode != null)
+		{
+			CONTEXT.setProperty(PROP_SELECTED_GAME, mode.getDisplayName());
+		}
+		rebuildAvailable(mode);
+		selectedCampaigns.clear();
+	}
+
+	private void rebuildAvailable(GameMode mode)
+	{
+		var campaigns = StreamSupport
+				.stream(FacadeFactory.getSupportedCampaigns(mode).spliterator(), false)
+				.toList();
+		LOG.fine(() -> "Found " + campaigns.size() + " campaigns"
+				+ (mode == null ? "" : " for " + mode.getDisplayName()));
+		treeAvailable.setRoot(buildTree(campaigns));
+	}
+
+	/**
+	 * Supplies the combo's game-mode choices. The combo's value is bound to the
+	 * model in {@link #setModel}; selection changes flow through that binding, so
+	 * there is no listener to install here.
+	 */
 	public void setGameModeSource(ObservableList<GameMode> gameModes)
 	{
 		cmbGameMode.setItems(gameModes);
+	}
 
-		Optional<String> defaultGame = Optional.ofNullable(CONTEXT.getProperty(PROP_SELECTED_GAME, null));
-
-		var selectedGame = defaultGame.flatMap(sgn ->
-				gameModes.stream()
-						.filter(g -> sgn.equals(g.getDisplayName()))
-						.findFirst());
-		selectedGame.ifPresent(s -> LOG.fine(() -> "Restored saved GameMode: " + s.getDisplayName()));
-
-		selectedGame.ifPresentOrElse(g -> cmbGameMode.getSelectionModel().select(g),
-				cmbGameMode.getSelectionModel()::selectFirst);
-
-		cmbGameMode.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, selectedGameMode) -> {
-			LOG.fine(() -> "Selected GameMode: " + selectedGameMode.getDisplayName());
-			var campaigns = StreamSupport
-					.stream(FacadeFactory.getSupportedCampaigns(selectedGameMode).spliterator(), false)
-					.toList();
-			LOG.fine(() -> "Found " + campaigns.size() + " campaigns.");
-			treeAvailable.setRoot(buildTree(campaigns));
-			// Switching game mode invalidates the selected list — campaigns from
-			// a different mode aren't loadable here.
-			selectedCampaigns.clear();
-		});
+	/**
+	 * Resolves the last-used game mode saved under {@link #PROP_SELECTED_GAME}
+	 * against the combo's current items, falling back to the first item. Requires
+	 * {@link #setGameModeSource} to have populated the items first.
+	 */
+	private GameMode resolveDefaultGameMode()
+	{
+		Optional<String> savedName = Optional.ofNullable(CONTEXT.getProperty(PROP_SELECTED_GAME, null));
+		return savedName
+				.flatMap(name -> cmbGameMode.getItems().stream()
+						.filter(g -> name.equals(g.getDisplayName()))
+						.findFirst())
+				.map(saved -> {
+					LOG.fine(() -> "Restored saved GameMode: " + saved.getDisplayName());
+					return saved;
+				})
+				.orElseGet(() -> cmbGameMode.getItems().isEmpty() ? null : cmbGameMode.getItems().getFirst());
 	}
 
 	/**

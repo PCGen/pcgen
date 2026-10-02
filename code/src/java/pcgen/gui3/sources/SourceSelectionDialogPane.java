@@ -72,6 +72,8 @@ public class SourceSelectionDialogPane extends DialogPane
 
 	private ObjectProperty<ActiveTabEnum> activeTab;
 
+	private final SourceSelectionModel model = new SourceSelectionModel();
+
 	public SourceSelectionDialogPane(ObservableList<SourceBundle> sources,
 									 ObservableList<GameMode> gameModes)
 	{
@@ -113,13 +115,33 @@ public class SourceSelectionDialogPane extends DialogPane
 	protected void initialize()
 	{
 		basicTabController.setSources(sources);
+		// Items before model: setModel resolves the saved default against them.
 		advancedTabController.setGameModeSource(gameModes);
+		advancedTabController.setModel(model);
+
+		basicTabController.selectedSourceProperty().addListener(
+				(obs, old, bundle) -> project(model, bundle));
+		basicTabController.getSelectedSource().ifPresent(bundle -> project(model, bundle));
 	}
 
 	/**
-	 * Wires the Load action so that double-clicking either list/tree, or
-	 * pressing the dialog's OK button, runs the same handler. The handler is
-	 * given the {@link SourceBundle} the user picked (if any).
+	 * Projects a Basic-tab {@link SourceBundle} onto the shared model: adopts its
+	 * game mode, then replaces the campaign set. A null bundle (nothing selected)
+	 * is ignored. One-way only — nothing here reads the model back into Basic.
+	 */
+	static void project(SourceSelectionModel model, SourceBundle bundle)
+	{
+		if (bundle == null)
+		{
+			return;
+		}
+		model.setGameMode(bundle.gameMode());
+		model.getSelectedCampaigns().setAll(bundle.campaigns());
+	}
+
+	/**
+	 * Wires the Load action so double-clicking a list/tree row or pressing OK
+	 * runs {@code handler}, given the {@link SourceBundle} the user picked.
 	 */
 	public void setOnLoadRequested(Runnable handler)
 	{
@@ -128,18 +150,15 @@ public class SourceSelectionDialogPane extends DialogPane
 	}
 
 	/**
-	 * Registers the handler invoked when the user presses Unload All on the
-	 * Advanced tab — typically {@code PCGenFrame.unloadSources()}.
+	 * Registers the handler for the Advanced tab's Unload All button — typically
+	 * {@code PCGenFrame.unloadSources()}.
 	 */
 	public void setOnUnloadAllRequested(Runnable handler)
 	{
 		advancedTabController.setOnUnloadAllRequested(handler);
 	}
 
-	/**
-	 * The {@link SourceBundle} the user has chosen on the active tab, or
-	 * empty if nothing is selected.
-	 */
+	/** The {@link SourceBundle} chosen on the active tab, or empty if none. */
 	public Optional<SourceBundle> getSelectedSource()
 	{
 		return getActiveTab() == ActiveTabEnum.ADVANCED

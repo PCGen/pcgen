@@ -16,6 +16,7 @@ package pcgen.gui3.sources;
 import java.util.Optional;
 import java.util.logging.Logger;
 
+import javafx.beans.property.ReadOnlyObjectProperty;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListCell;
@@ -96,6 +97,15 @@ public class BasicSourceSelectionController
 	public Optional<SourceBundle> getSelectedSource()
 	{
 		return Optional.ofNullable(sourceList.getSelectionModel().getSelectedItem());
+	}
+
+	/**
+	 * The list's selected-source property, so the dialog can observe Basic
+	 * selections and project them onto the shared {@link SourceSelectionModel}.
+	 */
+	public ReadOnlyObjectProperty<SourceBundle> selectedSourceProperty()
+	{
+		return sourceList.getSelectionModel().selectedItemProperty();
 	}
 
 	/**
