@@ -16,6 +16,7 @@ package pcgen.gui3.sources;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -132,6 +133,9 @@ public class AdvancedSourceSelectionController
 				onLoadRequested.run();
 			}
 		});
+
+		fldSearch.textProperty().addListener((_, _, _) -> rebuildAvailable());
+		fldSearch.setOnAction(ActionEvent::consume);
 	}
 
 	private void bindAvailableColumns()
@@ -325,7 +329,7 @@ public class AdvancedSourceSelectionController
 
 		// Reflect the initial mode into the tree once (without clearing campaigns —
 		// nothing is stale at init; only later changes invalidate the selection).
-		rebuildAvailable(model.getGameMode());
+		rebuildAvailable();
 	}
 
 	/**
@@ -340,18 +344,50 @@ public class AdvancedSourceSelectionController
 		{
 			CONTEXT.setProperty(PROP_SELECTED_GAME, mode.getDisplayName());
 		}
-		rebuildAvailable(mode);
+		rebuildAvailable();
 		selectedCampaigns.clear();
 	}
 
-	private void rebuildAvailable(GameMode mode)
+	/**
+	 * Rebuilds the available tree from the current game mode, keeping only the
+	 * campaigns that match the search box. Reads both the mode (from the model)
+	 * and the query (from the field) so the game-mode and search listeners can
+	 * both trigger it with no arguments.
+	 */
+	private void rebuildAvailable()
 	{
+		Objects.requireNonNull(model, "setModel must run before rebuildAvailable");
+		GameMode mode = model.getGameMode();
+		String query = fldSearch.getText();
 		var campaigns = StreamSupport
 				.stream(FacadeFactory.getSupportedCampaigns(mode).spliterator(), false)
+				.filter(c -> matches(c, query))
 				.toList();
 		LOG.fine(() -> "Found " + campaigns.size() + " campaigns"
 				+ (mode == null ? "" : " for " + mode.getDisplayName()));
 		treeAvailable.setRoot(buildTree(campaigns));
+	}
+
+	/**
+	 * Case-insensitive match of {@code query} against a campaign's display name,
+	 * book type, and short source abbreviation (Swing SearchFilterPanel parity).
+	 * A blank query matches everything. Package-private for unit testing.
+	 */
+	static boolean matches(Campaign campaign, String query)
+	{
+		if (query == null || query.isBlank())
+		{
+			return true;
+		}
+		String needle = query.toLowerCase(Locale.ROOT);
+		return containsIgnoreCase(campaign.getDisplayName(), needle)
+				|| containsIgnoreCase(campaign.getListAsString(ListKey.BOOK_TYPE), needle)
+				|| containsIgnoreCase(campaign.get(StringKey.SOURCE_SHORT), needle);
+	}
+
+	private static boolean containsIgnoreCase(String haystack, String lowerNeedle)
+	{
+		return haystack != null && haystack.toLowerCase(Locale.ROOT).contains(lowerNeedle);
 	}
 
 	/**
@@ -387,8 +423,9 @@ public class AdvancedSourceSelectionController
 	 * Builds an expanded Publisher → Setting → Campaign tree from the supplied
 	 * campaigns. Campaigns without a CAMPAIGN_SETTING attach as direct
 	 * publisher children; those with a setting are grouped under a setting node.
+	 * Package-private for unit testing.
 	 */
-	private static TreeItem<SourceTreeNode> buildTree(List<Campaign> campaigns)
+	static TreeItem<SourceTreeNode> buildTree(List<Campaign> campaigns)
 	{
 		var fallbackPublisher = LanguageBundle.getString("in_other");
 
