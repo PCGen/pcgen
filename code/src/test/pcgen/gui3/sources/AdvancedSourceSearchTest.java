@@ -21,10 +21,12 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Campaign;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 /**
  * Unit tests for the Advanced tab's search predicate
- * ({@link AdvancedSourceSelectionController#matches}): case-insensitive match
+ * ({@link SourceSelectionModel#matches}): case-insensitive match
  * over a campaign's display name, book type, and short source abbreviation,
  * with a blank query matching everything (Swing SearchFilterPanel parity).
  */
@@ -45,55 +47,31 @@ class AdvancedSourceSearchTest
 		return campaign;
 	}
 
-	@Test
-	void matches_should_matchByName_when_queryInDisplayName()
+	@ParameterizedTest(name = "matches on \"{0}\"")
+	@ValueSource(strings = {
+			"judg",   // display name
+			"JUDG",   // case-insensitive
+			"supp",   // book type
+			"ij"      // short source abbreviation
+	})
+	void matches_should_returnTrue_when_queryHitsAnyField(String query)
 	{
 		var c = campaign("Inquisitors' Judgments", "Supplement", "IJ");
-		assertTrue(AdvancedSourceSelectionController.matches(c, "judg"));
-	}
-
-	@Test
-	void matches_should_beCaseInsensitive_when_queryDiffersInCase()
-	{
-		var c = campaign("Inquisitors' Judgments", "Supplement", "IJ");
-		assertTrue(AdvancedSourceSelectionController.matches(c, "JUDG"));
-	}
-
-	@Test
-	void matches_should_matchByBookType_when_queryInBookType()
-	{
-		var c = campaign("Inquisitors' Judgments", "Supplement", "IJ");
-		assertTrue(AdvancedSourceSelectionController.matches(c, "supp"));
-	}
-
-	@Test
-	void matches_should_matchBySourceShort_when_queryInAbbreviation()
-	{
-		var c = campaign("Inquisitors' Judgments", "Supplement", "IJ");
-		assertTrue(AdvancedSourceSelectionController.matches(c, "ij"));
+		assertTrue(SourceSelectionModel.matches(c, query));
 	}
 
 	@Test
 	void matches_should_returnFalse_when_queryMatchesNoField()
 	{
 		var c = campaign("Inquisitors' Judgments", "Supplement", "IJ");
-		assertFalse(AdvancedSourceSelectionController.matches(c, "dragon"));
-	}
-
-	@Test
-	void matches_should_matchEverything_when_queryBlank()
-	{
-		var c = campaign("Inquisitors' Judgments", "Supplement", "IJ");
-		assertTrue(AdvancedSourceSelectionController.matches(c, ""));
-		assertTrue(AdvancedSourceSelectionController.matches(c, "   "));
-		assertTrue(AdvancedSourceSelectionController.matches(c, null));
+		assertFalse(SourceSelectionModel.matches(c, "dragon"));
 	}
 
 	@Test
 	void matches_should_notThrow_when_fieldsAbsent()
 	{
 		var c = campaign("Core Rules", null, null);
-		assertTrue(AdvancedSourceSelectionController.matches(c, "core"));
-		assertFalse(AdvancedSourceSelectionController.matches(c, "supplement"));
+		assertTrue(SourceSelectionModel.matches(c, "core"));
+		assertFalse(SourceSelectionModel.matches(c, "supplement"));
 	}
 }

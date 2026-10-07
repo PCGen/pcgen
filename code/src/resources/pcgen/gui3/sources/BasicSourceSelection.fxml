@@ -12,7 +12,7 @@
     <VBox>
         <TextFlow>
             <Text text="Select a predefined source below to load, or use the "/>
-            <Text fill="#4000ff" text="Advanced"/>
+            <Text styleClass="advanced-link" text="Advanced"/>
             <Text text=" tab to select from our huge list of supported sources."/>
         </TextFlow>
         <SplitPane fx:id="splitPane" dividerPositions="0.35" VBox.vgrow="ALWAYS">

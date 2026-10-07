@@ -8,3 +8,17 @@
 .tab-pane > .tab-header-area > .headers-region > .tab > .tab-container > .tab-label {
     -fx-alignment: CENTER;
 }
+
+.field-label {
+    -fx-padding: 0 5 0 5;
+}
+
+.button-row {
+    -fx-padding: 5 0 5 0;
+    -fx-spacing: 5;
+}
+
+/* The "Advanced" word in the Basic tab's intro, styled as a link cue. */
+.advanced-link {
+    -fx-fill: #4000ff;
+}

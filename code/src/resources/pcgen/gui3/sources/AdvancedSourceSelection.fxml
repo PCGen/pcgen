@@ -1,56 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.TreeTableView?>
 <?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.control.TreeTableView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Priority?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.web.WebView?>
-
 <Tab text="Advanced" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pcgen.gui3.sources.AdvancedSourceSelectionController">
     <VBox>
 
-        <SplitPane fx:id="splitPane" orientation="VERTICAL" dividerPositions="0.7" VBox.vgrow="ALWAYS">
+        <SplitPane orientation="VERTICAL" dividerPositions="0.7" VBox.vgrow="ALWAYS">
             <SplitPane dividerPositions="0.6">
                 <GridPane>
-                    <Label text="%in_src_gameLabel" minWidth="-Infinity" GridPane.columnIndex="0" GridPane.rowIndex="0">
-                        <GridPane.margin>
-                            <Insets left="5.0" right="5.0" />
-                        </GridPane.margin>
-                    </Label>
+                    <Label text="%in_src_gameLabel" styleClass="field-label" minWidth="-Infinity" GridPane.columnIndex="0" GridPane.rowIndex="0" />
                     <ComboBox fx:id="cmbGameMode" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-                    <Label text="%in_filterLabel" minWidth="-Infinity" GridPane.columnIndex="2" GridPane.rowIndex="0">
-                        <GridPane.margin>
-                            <Insets left="5.0" right="5.0" />
-                        </GridPane.margin>
-                    </Label>
+                    <Label text="%in_filterLabel" styleClass="field-label" minWidth="-Infinity" GridPane.columnIndex="2" GridPane.rowIndex="0" />
                     <TextField fx:id="fldSearch" GridPane.columnIndex="3" GridPane.rowIndex="0" />
                     <Button fx:id="btnFilterClear" onAction="#onFilterClearAction" GridPane.columnIndex="4" GridPane.rowIndex="0" />
 
                     <TreeTableView fx:id="treeAvailable" GridPane.columnIndex="0" GridPane.columnSpan="5" GridPane.rowIndex="1" showRoot="false">
                         <columns>
-                            <TreeTableColumn text="%in_src_pubSetName" prefWidth="320"/>
-                            <TreeTableColumn text="%in_src_bookType" prefWidth="120"/>
-                            <TreeTableColumn text="%in_src_status" prefWidth="100"/>
-                            <TreeTableColumn text="%in_src_loaded" prefWidth="100" visible="false"/>
+                            <TreeTableColumn fx:id="colAvailableName" text="%in_src_pubSetName" prefWidth="320"/>
+                            <TreeTableColumn fx:id="colAvailableBookType" text="%in_src_bookType" prefWidth="120"/>
+                            <TreeTableColumn fx:id="colAvailableStatus" text="%in_src_status" prefWidth="100"/>
+                            <TreeTableColumn fx:id="colAvailableLoaded" text="%in_src_loaded" prefWidth="100" visible="false"/>
                         </columns>
                     </TreeTableView>
 
-                    <HBox spacing="5.0" GridPane.columnIndex="0" GridPane.columnSpan="5" GridPane.rowIndex="2">
-                        <padding>
-                            <Insets top="5.0" bottom="5.0"/>
-                        </padding>
+                    <HBox styleClass="button-row" GridPane.columnIndex="0" GridPane.columnSpan="5" GridPane.rowIndex="2">
                         <Button fx:id="btnUnloadAll" text="%in_src_unloadAll" onAction="#onUnloadAllAction"/>
                         <Region HBox.hgrow="ALWAYS"/>
                         <Button fx:id="btnAddSelected" text="%in_addSelected" onAction="#onAddSelectedAction"/>
@@ -72,13 +58,10 @@
                 <VBox SplitPane.resizableWithParent="false">
                     <TreeTableView fx:id="treeSelected" VBox.vgrow="ALWAYS" showRoot="false">
                         <columns>
-                            <TreeTableColumn text="%in_nameLabel" prefWidth="220"/>
+                            <TreeTableColumn fx:id="colSelectedName" text="%in_nameLabel" prefWidth="220"/>
                         </columns>
                     </TreeTableView>
-                    <HBox spacing="5.0">
-                        <padding>
-                            <Insets top="5.0" bottom="5.0"/>
-                        </padding>
+                    <HBox styleClass="button-row">
                         <Button fx:id="btnRemoveSelected" text="%in_removeSelected" onAction="#onRemoveSelectedAction"/>
                     </HBox>
                 </VBox>

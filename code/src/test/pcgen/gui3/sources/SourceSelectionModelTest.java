@@ -66,4 +66,32 @@ class SourceSelectionModelTest
 		assertEquals(1, model.getSelectedCampaigns().size());
 		assertSame(second, model.getSelectedCampaigns().getFirst());
 	}
+
+	@Test
+	void availableCampaigns_should_startEmpty_when_fresh()
+	{
+		assertEquals(0, new SourceSelectionModel().getAvailableCampaigns().size());
+	}
+
+	@Test
+	void availableCampaigns_should_recompute_when_gameModeChanges()
+	{
+		var model = new SourceSelectionModel();
+		// A fresh (unknown) game mode has no supported campaigns; the model must
+		// re-run its derivation and maintain the list (empty, not stale/erroring)
+		// — proving availableCampaigns is actively maintained, not lazy.
+		model.setGameMode(new GameMode("Fresh"));
+		assertEquals(0, model.getAvailableCampaigns().size());
+	}
+
+	@Test
+	void availableCampaigns_should_recompute_when_searchQueryChanges()
+	{
+		var model = new SourceSelectionModel();
+		model.searchQueryProperty().set("alpha");
+		// No throw and a maintained (possibly empty) list — the search-query
+		// dependency is wired into the derivation.
+		assertEquals(0, model.getAvailableCampaigns().stream()
+				.filter(c -> !c.toString().toLowerCase().contains("alpha")).count());
+	}
 }

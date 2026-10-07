@@ -15,8 +15,8 @@ package pcgen.gui3.sources;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -86,7 +86,22 @@ public class AdvancedSourceSelectionController
 	private TreeTableView<SourceTreeNode> treeAvailable;
 
 	@FXML
+	private TreeTableColumn<SourceTreeNode, String> colAvailableName;
+
+	@FXML
+	private TreeTableColumn<SourceTreeNode, String> colAvailableBookType;
+
+	@FXML
+	private TreeTableColumn<SourceTreeNode, String> colAvailableStatus;
+
+	@FXML
+	private TreeTableColumn<SourceTreeNode, String> colAvailableLoaded;
+
+	@FXML
 	private TreeTableView<SourceTreeNode> treeSelected;
+
+	@FXML
+	private TreeTableColumn<SourceTreeNode, String> colSelectedName;
 
 	@FXML
 	private WebView infoPane;
@@ -134,42 +149,29 @@ public class AdvancedSourceSelectionController
 			}
 		});
 
-		fldSearch.textProperty().addListener((_, _, _) -> rebuildAvailable());
+		// Enter in the search field is swallowed so it does not bubble to the
+		// dialog's default Load button and close the dialog mid-search; filtering
+		// is live via the searchQuery binding (see setModel).
 		fldSearch.setOnAction(ActionEvent::consume);
 	}
 
 	private void bindAvailableColumns()
 	{
-		// FXML's <TreeTableColumn> declarations are untyped, so the columns
-		// list comes back as TreeTableColumn<SourceTreeNode, ?>. Cast to
-		// String columns at wire-up time so the cell-value factories can
-		// return ReadOnlyObjectWrapper<String> without unchecked warnings.
-		@SuppressWarnings("unchecked")
-		var nameColumn = (TreeTableColumn<SourceTreeNode, String>) treeAvailable.getColumns().get(0);
-		@SuppressWarnings("unchecked")
-		var bookTypeColumn = (TreeTableColumn<SourceTreeNode, String>) treeAvailable.getColumns().get(1);
-		@SuppressWarnings("unchecked")
-		var statusColumn = (TreeTableColumn<SourceTreeNode, String>) treeAvailable.getColumns().get(2);
-		@SuppressWarnings("unchecked")
-		var loadedColumn = (TreeTableColumn<SourceTreeNode, String>) treeAvailable.getColumns().get(3);
-
-		nameColumn.setCellValueFactory(v ->
+		colAvailableName.setCellValueFactory(v ->
 				new ReadOnlyObjectWrapper<>(v.getValue().getValue().displayLabel()));
-		bookTypeColumn.setCellValueFactory(v ->
+		colAvailableBookType.setCellValueFactory(v ->
 				new ReadOnlyObjectWrapper<>(campaignOf(v.getValue())
 						.map(c -> c.getListAsString(ListKey.BOOK_TYPE)).orElse("")));
-		statusColumn.setCellValueFactory(v ->
+		colAvailableStatus.setCellValueFactory(v ->
 				new ReadOnlyObjectWrapper<>(campaignOf(v.getValue())
 						.map(c -> c.getSafe(ObjectKey.STATUS).toString()).orElse("")));
-		loadedColumn.setCellValueFactory(v ->
+		colAvailableLoaded.setCellValueFactory(v ->
 				new ReadOnlyObjectWrapper<>(campaignOf(v.getValue()).isPresent() ? "Loaded" : "Not loaded"));
 	}
 
 	private void bindSelectedColumns()
 	{
-		@SuppressWarnings("unchecked")
-		var selectedNameColumn = (TreeTableColumn<SourceTreeNode, String>) treeSelected.getColumns().get(0);
-		selectedNameColumn.setCellValueFactory(v ->
+		colSelectedName.setCellValueFactory(v ->
 				new ReadOnlyObjectWrapper<>(v.getValue().getValue().displayLabel()));
 	}
 
@@ -288,6 +290,30 @@ public class AdvancedSourceSelectionController
 				new SourceBundle(c.getDisplayName(), gameMode, List.of(c), false, null));
 	}
 
+	/**
+	 * Persists the committed choice as the remembered defaults: the game mode and,
+	 * keyed by that mode, the campaign names actually loaded. Call only when the
+	 * user commits the dialog with Load/OK on the Advanced tab, passing the bundle
+	 * being loaded (not {@code null}) — browsing then cancelling, or loading from
+	 * the Basic tab, must not overwrite the Advanced memory.
+	 *
+	 * <p>Keys/values use {@link GameMode#getName()} and {@link Campaign#toString()}
+	 * for interoperability with the legacy Swing dialog.
+	 */
+	public void commitSelection(SourceBundle loaded)
+	{
+		GameMode mode = loaded.gameMode();
+		if (mode == null)
+		{
+			return;
+		}
+		CONTEXT.setProperty(PROP_SELECTED_GAME, mode.getName());
+		String names = loaded.campaigns().stream()
+				.map(Campaign::toString)
+				.collect(Collectors.joining("|")); //$NON-NLS-1$
+		CONTEXT.setProperty(PROP_SELECTED_SOURCES + mode.getName(), names);
+	}
+
 	private static Stream<Campaign> selectedLeavesIn(TreeTableView<SourceTreeNode> tree)
 	{
 		return tree.getSelectionModel().getSelectedItems().stream()
@@ -316,78 +342,92 @@ public class AdvancedSourceSelectionController
 				treeSelected.setRoot(buildTree(selectedCampaigns)));
 		treeSelected.setRoot(buildTree(selectedCampaigns));
 
+		// The available tree mirrors the model's maintained availableCampaigns
+		// list (recomputed by the model on game-mode or search-query change).
+		var available = model.getAvailableCampaigns();
+		available.addListener((ListChangeListener<Campaign>) _ ->
+				treeAvailable.setRoot(buildTree(available)));
+
 		// Seed the model's game mode (unless already set, e.g. by a Basic
-		// projection) before wiring, so there is a single value to react to.
+		// projection) before binding, so there is a single value to react to.
 		if (model.getGameMode() == null)
 		{
 			model.setGameMode(resolveDefaultGameMode());
 		}
 
-		// The combo's value and the model's game mode are one store.
+		// The combo's value and the model's game mode are one store; likewise the
+		// search field and the model's query. Write only through the model.
 		cmbGameMode.valueProperty().bindBidirectional(model.gameModeProperty());
+		fldSearch.textProperty().bindBidirectional(model.searchQueryProperty());
+
+		// Swap the selected campaigns to the new mode's remembered set when the
+		// user switches mode (persistence of the choice happens only on Load/OK).
 		model.gameModeProperty().addListener((_, _, mode) -> onGameModeChanged(mode));
 
-		// Reflect the initial mode into the tree once (without clearing campaigns —
-		// nothing is stale at init; only later changes invalidate the selection).
-		rebuildAvailable();
+		// Reflect the initial mode into the tree once.
+		treeAvailable.setRoot(buildTree(model.getAvailableCampaigns()));
 	}
 
 	/**
-	 * Reacts to a game-mode change: persist it, rebuild the available tree, and
-	 * drop the now-invalid selected campaigns. The Basic projection sets the mode
-	 * before replacing campaigns, so the clear here does not lose a projection's
-	 * campaigns (see {@link SourceSelectionDialogPane#project}).
+	 * Reacts to a user mode switch: replace the selected campaigns (which belong
+	 * to the old mode) with the new mode's remembered set. The Basic projection
+	 * sets the mode then replaces campaigns, so its {@code setAll} runs after this
+	 * and wins (see {@link SourceSelectionDialogPane#project}).
 	 */
 	private void onGameModeChanged(GameMode mode)
 	{
-		if (mode != null)
-		{
-			CONTEXT.setProperty(PROP_SELECTED_GAME, mode.getDisplayName());
-		}
-		rebuildAvailable();
-		selectedCampaigns.clear();
+		selectedCampaigns.setAll(rememberedCampaignsFor(mode));
 	}
 
 	/**
-	 * Rebuilds the available tree from the current game mode, keeping only the
-	 * campaigns that match the search box. Reads both the mode (from the model)
-	 * and the query (from the field) so the game-mode and search listeners can
-	 * both trigger it with no arguments.
+	 * The campaigns to pre-select for {@code mode}: the set remembered under
+	 * {@link #PROP_SELECTED_SOURCES} for this mode, or the mode's default data set
+	 * when nothing is remembered. Names that no longer resolve to a supported
+	 * campaign are skipped with a warning — a stale config must never be fatal.
 	 */
-	private void rebuildAvailable()
+	private List<Campaign> rememberedCampaignsFor(GameMode mode)
 	{
-		Objects.requireNonNull(model, "setModel must run before rebuildAvailable");
-		GameMode mode = model.getGameMode();
-		String query = fldSearch.getText();
-		var campaigns = StreamSupport
+		if (mode == null)
+		{
+			return List.of();
+		}
+		String remembered = CONTEXT.getProperty(PROP_SELECTED_SOURCES + mode.getName(), null);
+		List<String> names = (remembered == null || remembered.isBlank())
+				? mode.getDefaultDataSetList()
+				: List.of(remembered.split("\\|")); //$NON-NLS-1$
+		List<Campaign> available = StreamSupport
 				.stream(FacadeFactory.getSupportedCampaigns(mode).spliterator(), false)
-				.filter(c -> matches(c, query))
 				.toList();
-		LOG.fine(() -> "Found " + campaigns.size() + " campaigns"
-				+ (mode == null ? "" : " for " + mode.getDisplayName()));
-		treeAvailable.setRoot(buildTree(campaigns));
+		return resolveCampaigns(names, available);
 	}
 
 	/**
-	 * Case-insensitive match of {@code query} against a campaign's display name,
-	 * book type, and short source abbreviation (Swing SearchFilterPanel parity).
-	 * A blank query matches everything. Package-private for unit testing.
+	 * Resolves campaign {@code names} against the {@code available} campaigns,
+	 * matching on {@link Campaign#toString()} (the key the legacy Swing dialog
+	 * reads and writes). A name that no longer resolves is skipped with a warning
+	 * rather than failing — a stale config must never be fatal. Package-private
+	 * for unit testing.
 	 */
-	static boolean matches(Campaign campaign, String query)
+	static List<Campaign> resolveCampaigns(List<String> names, List<Campaign> available)
 	{
-		if (query == null || query.isBlank())
-		{
-			return true;
-		}
-		String needle = query.toLowerCase(Locale.ROOT);
-		return containsIgnoreCase(campaign.getDisplayName(), needle)
-				|| containsIgnoreCase(campaign.getListAsString(ListKey.BOOK_TYPE), needle)
-				|| containsIgnoreCase(campaign.get(StringKey.SOURCE_SHORT), needle);
-	}
+		Map<String, Campaign> byName = new HashMap<>();
+		available.forEach(c -> byName.put(c.toString(), c));
 
-	private static boolean containsIgnoreCase(String haystack, String lowerNeedle)
-	{
-		return haystack != null && haystack.toLowerCase(Locale.ROOT).contains(lowerNeedle);
+		List<Campaign> resolved = new ArrayList<>(names.size());
+		for (String name : names)
+		{
+			Campaign campaign = byName.get(name);
+			if (campaign == null)
+			{
+				LOG.warning(() -> "Remembered source '" + name
+						+ "' is no longer available; skipping.");
+			}
+			else
+			{
+				resolved.add(campaign);
+			}
+		}
+		return resolved;
 	}
 
 	/**
@@ -410,7 +450,7 @@ public class AdvancedSourceSelectionController
 		Optional<String> savedName = Optional.ofNullable(CONTEXT.getProperty(PROP_SELECTED_GAME, null));
 		return savedName
 				.flatMap(name -> cmbGameMode.getItems().stream()
-						.filter(g -> name.equals(g.getDisplayName()))
+						.filter(g -> name.equals(g.getName()))
 						.findFirst())
 				.map(saved -> {
 					LOG.fine(() -> "Restored saved GameMode: " + saved.getDisplayName());

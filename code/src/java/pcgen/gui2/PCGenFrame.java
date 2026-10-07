@@ -1382,8 +1382,10 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 					{
 						return;
 					}
-					pane.getSelectedSource().ifPresent(bundle ->
-							SwingUtilities.invokeLater(() -> handleSourceLoadRequest(bundle)));
+					pane.getSelectedSource().ifPresent(bundle -> {
+						pane.commitSelection(bundle);
+						SwingUtilities.invokeLater(() -> handleSourceLoadRequest(bundle));
+					});
 				});
 			}
 		);

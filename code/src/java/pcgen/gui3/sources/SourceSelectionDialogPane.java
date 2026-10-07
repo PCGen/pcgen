@@ -135,6 +135,9 @@ public class SourceSelectionDialogPane extends DialogPane
 		{
 			return;
 		}
+		// setGameMode fires the Advanced tab's per-mode restore; setAll then
+		// overrides it, so a Basic projection always wins over remembered sources
+		// (restore is for a manual mode-switch on the Advanced tab).
 		model.setGameMode(bundle.gameMode());
 		model.getSelectedCampaigns().setAll(bundle.campaigns());
 	}
@@ -164,6 +167,19 @@ public class SourceSelectionDialogPane extends DialogPane
 		return getActiveTab() == ActiveTabEnum.ADVANCED
 				? advancedTabController.getSelectedSource()
 				: basicTabController.getSelectedSource();
+	}
+
+	/**
+	 * Persists the Advanced tab's choice (remembered game mode + per-mode
+	 * campaigns). Call only when the dialog is committed with Load/OK.
+	 */
+	public void commitSelection(SourceBundle loaded)
+	{
+		// Only the Advanced tab curates per-mode source memory; loading from the Basic tab must not overwrite it.
+		if (getActiveTab() == ActiveTabEnum.ADVANCED)
+		{
+			advancedTabController.commitSelection(loaded);
+		}
 	}
 
 	@FXML

@@ -12,18 +12,17 @@
     <content>
         <TabPane fx:id="tabSources" tabClosingPolicy="UNAVAILABLE">
             <fx:include source="BasicSourceSelection.fxml" fx:id="basicTab"
-                        onSelectionChanged="#onSelectionTabChanged" />
+                        onSelectionChanged="#onSelectionTabChanged"/>
             <fx:include source="AdvancedSourceSelection.fxml" fx:id="advancedTab"
                         onSelectionChanged="#onSelectionTabChanged"/>
         </TabPane>
     </content>
 
-    <buttonTypes>
-        <ButtonType fx:id="btnInstallData" buttonData="LEFT" text="Install Data"/>
-        <ButtonType fx:id="btnCancel" buttonData="CANCEL_CLOSE" text="Cancel"/>
-        <ButtonType fx:id="btnLoad" buttonData="OK_DONE" text="Load"/>
-    </buttonTypes>
     <stylesheets>
         <URL value="@SourceSelectionDialogPane.css"/>
     </stylesheets>
+
+    <ButtonType fx:id="btnInstallData" buttonData="LEFT" text="Install Data"/>
+    <ButtonType fx:id="btnCancel" buttonData="CANCEL_CLOSE" text="Cancel"/>
+    <ButtonType fx:id="btnLoad" buttonData="OK_DONE" text="Load"/>
 </fx:root>
