@@ -20,7 +20,7 @@
 
         <SplitPane orientation="VERTICAL" dividerPositions="0.7" VBox.vgrow="ALWAYS">
             <SplitPane dividerPositions="0.6">
-                <GridPane>
+                <GridPane styleClass="pane-inset">
                     <Label text="%in_src_gameLabel" styleClass="field-label" minWidth="-Infinity" GridPane.columnIndex="0" GridPane.rowIndex="0" />
                     <ComboBox fx:id="cmbGameMode" GridPane.columnIndex="1" GridPane.rowIndex="0" />
                     <Label text="%in_filterLabel" styleClass="field-label" minWidth="-Infinity" GridPane.columnIndex="2" GridPane.rowIndex="0" />
@@ -55,7 +55,7 @@
                         <ColumnConstraints hgrow="NEVER" />
                     </columnConstraints>
                 </GridPane>
-                <VBox SplitPane.resizableWithParent="false">
+                <VBox styleClass="pane-inset" SplitPane.resizableWithParent="false">
                     <TreeTableView fx:id="treeSelected" VBox.vgrow="ALWAYS" showRoot="false">
                         <columns>
                             <TreeTableColumn fx:id="colSelectedName" text="%in_nameLabel" prefWidth="220"/>

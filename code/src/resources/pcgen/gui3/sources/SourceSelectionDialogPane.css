@@ -22,3 +22,18 @@
 .advanced-link {
     -fx-fill: #4000ff;
 }
+
+/* The nested SplitPanes on the Advanced tab each draw a 1px border, which
+   shows as a stray vertical line along the content edge (the Basic tab has a
+   single SplitPane so it is not visible). Drop the SplitPane chrome. */
+.split-pane {
+    -fx-padding: 0;
+    -fx-background-insets: 0;
+    -fx-background-color: transparent;
+}
+
+/* Inset the Advanced tab's panes from the content edge so the tree and its
+   button row (Unload All / Add / Remove) don't sit flush against it. */
+.pane-inset {
+    -fx-padding: 0 5 0 5;
+}
