@@ -199,6 +199,19 @@ public class SourceSelectionDialogPane extends DialogPane
 	}
 
 	/**
+	 * Finds the custom selection facade whose name ({@code toString()}) matches
+	 * {@code name}, among {@code candidates} (typically
+	 * {@code FacadeFactory.getCustomSourceSelections()}). Package-private for unit testing.
+	 */
+	static Optional<pcgen.facade.core.SourceSelectionFacade> resolveCustomFacade(
+			String name, java.util.List<pcgen.facade.core.SourceSelectionFacade> candidates)
+	{
+		return candidates.stream()
+				.filter(facade -> name.equals(facade.toString()))
+				.findFirst();
+	}
+
+	/**
 	 * Classifies {@code name} against {@code sources}: a case-sensitive exact
 	 * match on a modifiable (custom) bundle is OVERWRITE_CUSTOM; a match on a
 	 * non-modifiable (bundled) one is BLOCK_BUILTIN; otherwise NEW.
