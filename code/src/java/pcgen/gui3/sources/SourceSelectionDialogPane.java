@@ -85,22 +85,6 @@ public class SourceSelectionDialogPane extends DialogPane
 		loader.setRoot(this);
 		loader.setController(this);
 
-		activeTabProperty().addListener((observable, oldValue, newValue) ->
-		{
-			if (newValue == ActiveTabEnum.BASIC)
-			{
-				this.getButtonTypes().remove(btnSave);
-				this.getButtonTypes().remove(btnAlways);
-				this.getButtonTypes().add(btnDelete);
-			}
-			else
-			{
-				this.getButtonTypes().add(btnSave);
-				this.getButtonTypes().add(btnAlways);
-				this.getButtonTypes().remove(btnDelete);
-			}
-		});
-
 		try
 		{
 			loader.load();
