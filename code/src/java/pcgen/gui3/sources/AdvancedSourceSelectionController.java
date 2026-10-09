@@ -33,6 +33,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
@@ -77,6 +78,12 @@ public class AdvancedSourceSelectionController
 	private Button btnUnloadAll;
 
 	@FXML
+	private Button btnSave;
+
+	@FXML
+	private CheckBox chkAlwaysAdvanced;
+
+	@FXML
 	private TextField fldSearch;
 
 	@FXML
@@ -117,6 +124,7 @@ public class AdvancedSourceSelectionController
 
 	private Runnable onLoadRequested = () -> { };
 	private Runnable onUnloadAllRequested = () -> { };
+	private Runnable onSaveRequested = () -> { };
 
 	@FXML
 	protected void initialize()
@@ -266,6 +274,27 @@ public class AdvancedSourceSelectionController
 	public void setOnUnloadAllRequested(Runnable handler)
 	{
 		this.onUnloadAllRequested = handler == null ? () -> { } : handler;
+	}
+
+	/**
+	 * Registers the action to invoke for Save Source Selection — persisting this
+	 * tab's campaign set as a named custom selection.
+	 */
+	public void setOnSaveRequested(Runnable handler)
+	{
+		this.onSaveRequested = handler == null ? () -> { } : handler;
+	}
+
+	@FXML
+	protected void onSaveAction(ActionEvent event)
+	{
+		onSaveRequested.run();
+	}
+
+	/** Whether the user asked for the Advanced tab to be the default on reopen. */
+	public boolean isAlwaysAdvanced()
+	{
+		return chkAlwaysAdvanced.isSelected();
 	}
 
 	/**

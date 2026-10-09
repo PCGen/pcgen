@@ -26,7 +26,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.DialogPane;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
@@ -40,6 +39,13 @@ import pcgen.system.LanguageBundle;
  * caller drives both via JavaFX-native {@code ObservableList}s. Use
  * {@link #getSelectedSource()} after the dialog returns to find out what the
  * user picked.
+ *
+ * <p>Only dialog-global actions belong in the button bar. Tab-specific actions
+ * live inside their own tab — Save and Always-Advanced in the Advanced tab's
+ * action rows, Delete on the Basic tab's individual rows — for two reasons:
+ * adding or hiding a {@link ButtonType} per tab re-flows the bar and makes the
+ * buttons jump on every tab switch, and any {@code ButtonType} button dismisses
+ * the dialog unless its action event is consumed.
  */
 public class SourceSelectionDialogPane extends DialogPane
 {
@@ -60,15 +66,6 @@ public class SourceSelectionDialogPane extends DialogPane
 
 	@FXML
 	private Tab advancedTab;
-
-	@FXML
-	private ButtonType btnSave;
-
-	@FXML
-	private ButtonType btnAlways;
-
-	@FXML
-	private ButtonType btnDelete;
 
 	private ObjectProperty<ActiveTabEnum> activeTab;
 
@@ -213,20 +210,15 @@ public class SourceSelectionDialogPane extends DialogPane
 		return NameClass.NEW;
 	}
 
+	/**
+	 * Keeps each button at its natural width. The bar mixes a wide action
+	 * ("Install Data") with short ones, and uniform sizing would stretch them all
+	 * to the widest.
+	 */
 	@Override
 	protected Node createButton(ButtonType buttonType)
 	{
-		Node button;
-		if (buttonType.getButtonData() == ButtonBar.ButtonData.SMALL_GAP)
-		{
-			var checkBox = new CheckBox();
-			checkBox.setText(buttonType.getText());
-			button = checkBox;
-		}
-		else
-		{
-			button = super.createButton(buttonType);
-		}
+		Node button = super.createButton(buttonType);
 		ButtonBar.setButtonUniformSize(button, false);
 		return button;
 	}
