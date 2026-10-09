@@ -97,6 +97,7 @@ import pcgen.gui3.dialog.AboutDialog;
 import pcgen.gui3.dialog.RememberingChoiceDialog;
 import pcgen.gui3.dialog.TipOfTheDayController;
 import pcgen.gui3.sources.SourceBundle;
+import pcgen.gui3.sources.SourceSelectionBridge;
 import pcgen.gui3.sources.SourceSelectionDialogPane;
 import pcgen.io.PCGFile;
 import pcgen.persistence.SourceFileLoader;
@@ -116,6 +117,7 @@ import pcgen.util.chooser.RandomChooser;
 
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.embed.swing.JFXPanel;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -1344,6 +1346,11 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 		// Build the gui3-side data once, on the EDT, then drop into the FX thread
 		// for the dialog. Conversion from facades to gui3 records lives here so
 		// the dialog itself never sees the facade types.
+		var gameModes = StreamSupport
+				.stream(FacadeFactory.getGameModeDisplays().spliterator(), false)
+				.map(GameModeDisplayFacade::getGameMode)
+				.toList();
+
 		var bundles = StreamSupport
 				.stream(new SortedListFacade<>(Comparators.toStringIgnoreCaseCollator(),
 						FacadeFactory.getDisplayedSourceSelections()).spliterator(), false)
@@ -1354,15 +1361,18 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 						s.isModifiable(),
 						s.getLoadingState()))
 				.toList();
-		var gameModes = StreamSupport
-				.stream(FacadeFactory.getGameModeDisplays().spliterator(), false)
-				.map(GameModeDisplayFacade::getGameMode)
-				.toList();
 
 		Platform.runLater(() -> {
+				// Mutable: deleting a source removes its row in place, so the list
+				// cannot be a fixed view over the snapshot above.
+				var sourceItems = FXCollections.observableArrayList(bundles);
+
 				var pane = new SourceSelectionDialogPane(
-						FXCollections.observableList(bundles),
+						sourceItems,
 						FXCollections.observableList(gameModes));
+
+				pane.setOnDeleteRequested(bundle -> deleteSourceSelection(bundle, sourceItems));
+
 				var dialog = new Dialog<ButtonType>();
 				dialog.setTitle("Select Sources");
 				dialog.setResizable(true);
@@ -1397,6 +1407,34 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 		}
 		sourceSelectionDialog.setLocationRelativeTo(this);
 		sourceSelectionDialog.setVisible(true);
+	}
+
+	/**
+	 * Deletes the custom source selection behind {@code bundle} and, only if the
+	 * engine accepted it, drops its row from {@code sourceItems}.
+	 * <p>
+	 * Two thread hops are unavoidable: {@code FacadeFactory} mutates
+	 * {@code DefaultListFacade}s that Swing list models observe, so the delete
+	 * runs on the EDT, while the row removal has to go back to the FX thread.
+	 * Removing the row only on success keeps the dialog honest if the selection
+	 * has already gone (e.g. deleted from the legacy dialog).
+	 */
+	private void deleteSourceSelection(SourceBundle bundle, ObservableList<SourceBundle> sourceItems)
+	{
+		SwingUtilities.invokeLater(() -> {
+			var deleted = SourceSelectionBridge.deleteSourceSelection(
+					bundle,
+					ListFacades.wrap(FacadeFactory.getCustomSourceSelections()),
+					FacadeFactory::deleteCustomSourceSelection);
+			if (deleted)
+			{
+				Platform.runLater(() -> sourceItems.remove(bundle));
+			}
+			else
+			{
+				Logging.errorPrint("No custom source selection found to delete for: " + bundle.displayName());
+			}
+		});
 	}
 
 	/**
