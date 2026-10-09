@@ -19,6 +19,5 @@
             <ListView fx:id="sourceList" SplitPane.resizableWithParent="false"/>
             <WebView fx:id="infoPane"/>
         </SplitPane>
-
     </VBox>
 </Tab>

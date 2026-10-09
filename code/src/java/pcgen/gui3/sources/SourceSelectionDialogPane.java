@@ -16,6 +16,7 @@ package pcgen.gui3.sources;
 import java.io.IOException;
 import java.io.UncheckedIOException;
 import java.util.Optional;
+import java.util.function.Consumer;
 
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
@@ -131,6 +132,16 @@ public class SourceSelectionDialogPane extends DialogPane
 	{
 		basicTabController.setOnLoadRequested(handler);
 		advancedTabController.setOnLoadRequested(handler);
+	}
+
+	/**
+	 * Registers the handler for deleting a custom source selection, invoked with
+	 * the bundle whose row trash icon was clicked (or that was selected when the
+	 * DELETE key was pressed). The controller has already confirmed with the user.
+	 */
+	public void setOnDeleteRequested(Consumer<SourceBundle> handler)
+	{
+		basicTabController.setOnDeleteRequested(handler);
 	}
 
 	/**

@@ -18,6 +18,20 @@
     -fx-spacing: 5;
 }
 
+/* The per-row Delete on the Basic tab. A normal button's chrome and padding
+   would make custom rows visibly taller than built-in ones, so render the icon
+   flat and let it pick up the row background. */
+.row-delete {
+    -fx-padding: 0;
+    -fx-background-color: transparent;
+    -fx-background-radius: 3;
+    -fx-cursor: hand;
+}
+
+.row-delete:hover {
+    -fx-background-color: -fx-outer-border;
+}
+
 /* The "Advanced" word in the Basic tab's intro, styled as a link cue. */
 .advanced-link {
     -fx-fill: #4000ff;
