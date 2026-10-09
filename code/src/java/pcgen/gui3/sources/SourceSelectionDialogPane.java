@@ -184,43 +184,6 @@ public class SourceSelectionDialogPane extends DialogPane
 		}
 	}
 
-	/** Classification of a proposed Save name against the current source list. */
-	enum NameClass
-	{
-		NEW, OVERWRITE_CUSTOM, BLOCK_BUILTIN
-	}
-
-	/**
-	 * Finds the custom selection facade whose name ({@code toString()}) matches
-	 * {@code name}, among {@code candidates} (typically
-	 * {@code FacadeFactory.getCustomSourceSelections()}). Package-private for unit testing.
-	 */
-	static Optional<pcgen.facade.core.SourceSelectionFacade> resolveCustomFacade(
-			String name, java.util.List<pcgen.facade.core.SourceSelectionFacade> candidates)
-	{
-		return candidates.stream()
-				.filter(facade -> name.equals(facade.toString()))
-				.findFirst();
-	}
-
-	/**
-	 * Classifies {@code name} against {@code sources}: a case-sensitive exact
-	 * match on a modifiable (custom) bundle is OVERWRITE_CUSTOM; a match on a
-	 * non-modifiable (bundled) one is BLOCK_BUILTIN; otherwise NEW.
-	 * Package-private for unit testing.
-	 */
-	static NameClass classifyName(String name, java.util.List<SourceBundle> sources)
-	{
-		for (SourceBundle bundle : sources)
-		{
-			if (bundle.name() != null && bundle.name().equals(name))
-			{
-				return bundle.modifiable() ? NameClass.OVERWRITE_CUSTOM : NameClass.BLOCK_BUILTIN;
-			}
-		}
-		return NameClass.NEW;
-	}
-
 	/**
 	 * Keeps each button at its natural width. The bar mixes a wide action
 	 * ("Install Data") with short ones, and uniform sizing would stretch them all

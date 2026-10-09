@@ -37,31 +37,31 @@ class SourceSaveNameTest
 	void classify_should_returnNew_when_nameUnused()
 	{
 		var sources = List.of(builtIn("Core"), custom("Mine"));
-		assertEquals(SourceSelectionDialogPane.NameClass.NEW,
-				SourceSelectionDialogPane.classifyName("Fresh", sources));
+		assertEquals(SourceSelectionBridge.NameClass.NEW,
+				SourceSelectionBridge.classifyName("Fresh", sources));
 	}
 
 	@Test
 	void classify_should_returnOverwriteCustom_when_nameMatchesModifiable()
 	{
 		var sources = List.of(builtIn("Core"), custom("Mine"));
-		assertEquals(SourceSelectionDialogPane.NameClass.OVERWRITE_CUSTOM,
-				SourceSelectionDialogPane.classifyName("Mine", sources));
+		assertEquals(SourceSelectionBridge.NameClass.OVERWRITE_CUSTOM,
+				SourceSelectionBridge.classifyName("Mine", sources));
 	}
 
 	@Test
 	void classify_should_returnBlockBuiltin_when_nameMatchesBundled()
 	{
 		var sources = List.of(builtIn("Core"), custom("Mine"));
-		assertEquals(SourceSelectionDialogPane.NameClass.BLOCK_BUILTIN,
-				SourceSelectionDialogPane.classifyName("Core", sources));
+		assertEquals(SourceSelectionBridge.NameClass.BLOCK_BUILTIN,
+				SourceSelectionBridge.classifyName("Core", sources));
 	}
 
 	@Test
 	void classify_should_beCaseSensitiveExactMatch_treatingDifferentAsNew()
 	{
 		var sources = List.of(custom("Mine"));
-		assertEquals(SourceSelectionDialogPane.NameClass.NEW,
-				SourceSelectionDialogPane.classifyName("mine", sources));
+		assertEquals(SourceSelectionBridge.NameClass.NEW,
+				SourceSelectionBridge.classifyName("mine", sources));
 	}
 }

@@ -50,13 +50,13 @@ class SourceFacadeResolveTest
 	{
 		var a = named("Alpha");
 		var b = named("Beta");
-		assertSame(b, SourceSelectionDialogPane.resolveCustomFacade("Beta", List.of(a, b)).orElseThrow());
+		assertSame(b, SourceSelectionBridge.resolveCustomFacade("Beta", List.of(a, b)).orElseThrow());
 	}
 
 	@Test
 	void resolve_should_returnEmpty_when_missing()
 	{
 		var a = named("Alpha");
-		assertTrue(SourceSelectionDialogPane.resolveCustomFacade("Ghost", List.of(a)).isEmpty());
+		assertTrue(SourceSelectionBridge.resolveCustomFacade("Ghost", List.of(a)).isEmpty());
 	}
 }
