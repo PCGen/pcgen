@@ -27,6 +27,7 @@ import java.util.stream.StreamSupport;
 import pcgen.core.Campaign;
 import pcgen.core.campaign.CampaignAdditionPlanner;
 import pcgen.core.campaign.CampaignDependencyOrder;
+import pcgen.core.campaign.CampaignRejectionDiagnosis;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
@@ -214,4 +215,138 @@ class SourceSelectionDataTest
 				"only the data's deliberate mutual exclusions may be refused");
 	}
 
+
+	/** The collection the reporting user had left selected from an earlier session. */
+	private static final String GM_COLLECTION = "Pathfinder RPG for Game Masters";
+
+	/**
+	 * Diagnoses the rejections produced by adding every book while
+	 * {@code preSelected} is already selected, exactly as the Advanced tab
+	 * does.
+	 */
+	private static List<CampaignRejectionDiagnosis.Diagnosis> diagnoseAddingEverythingWith(
+			String... preSelectedKeys)
+	{
+		List<Campaign> available = everyPathfinderBook();
+		List<String> wanted = List.of(preSelectedKeys);
+		List<Campaign> preSelected = available.stream()
+				.filter(campaign -> wanted.contains(campaign.getKeyName()))
+				.toList();
+		assertEquals(wanted.size(), preSelected.size(),
+				() -> "the pre-selected books must exist in the data: " + wanted);
+		List<Campaign> candidates = available.stream()
+				.filter(campaign -> !preSelected.contains(campaign))
+				.toList();
+		var plan = CampaignAdditionPlanner.plan(preSelected,
+				CampaignDependencyOrder.mostDependedUponFirst(candidates),
+				FacadeFactory::findUnqualified);
+		return CampaignRejectionDiagnosis.diagnose(plan.rejected(), preSelected,
+				Campaign::getSubCampaigns, FacadeFactory::findUnqualified);
+	}
+
+	private static List<String> keysDiagnosedAs(List<CampaignRejectionDiagnosis.Diagnosis> diagnoses,
+			Class<? extends CampaignRejectionDiagnosis.Reason> reason)
+	{
+		return diagnoses.stream()
+				.filter(diagnosis -> reason.isInstance(diagnosis.reason()))
+				.map(diagnosis -> diagnosis.campaign().getKeyName())
+				.sorted()
+				.toList();
+	}
+
+	/**
+	 * The reported complaint. With the "Pathfinder RPG for Game Masters"
+	 * collection left selected from an earlier session, adding every book
+	 * refused fourteen of them, including the Core Rulebook and the Advanced
+	 * Player's Guide. The planner is right to refuse them -- the collection
+	 * carries a {@code !PRECAMPAIGN} against every book it repackages -- but
+	 * the dialog could only quote each book's own requirements, which never
+	 * mention the collection.
+	 *
+	 * <p>Ten of the fourteen are reachable through that collection's
+	 * {@code PCC:} files, so they are already loaded and there is nothing for
+	 * the user to do about them at all. Six are named in the collection
+	 * directly; the reduced "Player Options Only" editions arrive one level
+	 * deeper, because each full Bestiary loads its own reduced edition.
+	 */
+	@Test
+	void addingEveryBook_whileACollectionIsSelected_should_reportItsOwnBooksAsAlreadyIncluded()
+	{
+		var diagnoses = diagnoseAddingEverythingWith(GM_COLLECTION);
+
+		assertEquals(
+				List.of("Advanced Class Guide", "Advanced Player's Guide", "Bestiary", "Bestiary 2",
+						"Bestiary 2 ~ Player Options Only", "Bestiary 3",
+						"Bestiary 3 ~ Player Options Only", "Bestiary 4 ~ Player Options Only",
+						"Bestiary ~ Player Options Only", "Core Rulebook"),
+				keysDiagnosedAs(diagnoses, CampaignRejectionDiagnosis.AlreadyIncluded.class),
+				() -> "every book the selected collection loads must be reported as already included, "
+						+ "not as a failure. Diagnosed: " + describe(diagnoses));
+	}
+
+	/**
+	 * The rival collections are refused by the selected one and by nothing
+	 * else: every MultiSet carries {@code !PRECAMPAIGN:1,BOOKTYPE=MultiSet},
+	 * so selecting one rules out the others. That obstacle appears nowhere in
+	 * the refused collection's own requirements, which is exactly the case the
+	 * old message could not explain.
+	 */
+	@Test
+	void addingEveryBook_whileACollectionIsSelected_should_nameItAsTheBlocker_forRivalCollections()
+	{
+		var diagnoses = diagnoseAddingEverythingWith(GM_COLLECTION);
+
+		assertEquals(List.of("Pathfinder RPG Core Supplements", "Pathfinder RPG for Players"),
+				keysDiagnosedAs(diagnoses, CampaignRejectionDiagnosis.ConflictsWith.class),
+				() -> "Diagnosed: " + describe(diagnoses));
+		diagnoses.stream()
+				.filter(diagnosis -> diagnosis.reason() instanceof CampaignRejectionDiagnosis.ConflictsWith)
+				.forEach(diagnosis -> assertEquals(List.of(GM_COLLECTION),
+						((CampaignRejectionDiagnosis.ConflictsWith) diagnosis.reason()).blockers().stream()
+								.map(Campaign::getKeyName).toList(),
+						() -> "the selected collection is the obstacle for "
+								+ diagnosis.campaign().getKeyName()));
+	}
+
+	/**
+	 * What is left are the data's deliberate exclusions, which stand whatever
+	 * the user has selected: a Bonus Bestiary superseded by Bestiary 3, and a
+	 * Psionics edition that supersedes two others. Neither is the selected
+	 * collection's doing, and neither may be blamed on it.
+	 */
+	@Test
+	void addingEveryBook_whileACollectionIsSelected_should_leaveTheDataExclusionsUnmet()
+	{
+		var diagnoses = diagnoseAddingEverythingWith(GM_COLLECTION);
+
+		assertEquals(List.of("Bonus Bestiary", "DSP - Ultimate Psionics"),
+				keysDiagnosedAs(diagnoses, CampaignRejectionDiagnosis.Unmet.class),
+				() -> "Diagnosed: " + describe(diagnoses));
+	}
+
+	/**
+	 * Nothing is selected, so no rejection can be anyone else's fault. This
+	 * guards against a diagnosis that blames a selected book for a rule the
+	 * data applies regardless.
+	 */
+	@Test
+	void addingEveryBook_fromAnEmptySelection_should_diagnoseEveryRejectionAsUnmet()
+	{
+		var plan = planSelectingEverything();
+
+		var diagnoses = CampaignRejectionDiagnosis.diagnose(plan.rejected(), List.of(),
+				Campaign::getSubCampaigns, FacadeFactory::findUnqualified);
+
+		assertEquals(keys(plan.rejected()).stream().sorted().toList(),
+				keysDiagnosedAs(diagnoses, CampaignRejectionDiagnosis.Unmet.class),
+				() -> "Diagnosed: " + describe(diagnoses));
+	}
+
+	private static String describe(List<CampaignRejectionDiagnosis.Diagnosis> diagnoses)
+	{
+		return diagnoses.stream()
+				.map(diagnosis -> diagnosis.campaign().getKeyName() + " -> " + diagnosis.reason())
+				.toList()
+				.toString();
+	}
 }

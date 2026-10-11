@@ -150,6 +150,95 @@ class BadComboAlertTest
 		assertEquals("", BadComboAlert.buildHtml(List.of()));
 	}
 
+	private static BadComboAlert.Covered covered(String name, String container)
+	{
+		return new BadComboAlert.Covered(name, container);
+	}
+
+	/**
+	 * A book inside a selected MultiSet is already loaded, so presenting it
+	 * among the failures tells the user to fix something that is not broken.
+	 */
+	@Test
+	void buildHtml_should_notUseTheFailureWording_whenEverythingWasAlreadyIncluded()
+	{
+		var html = BadComboAlert.buildHtml(List.of(),
+				List.of(covered("Advanced Player's Guide", "Pathfinder RPG for Game Masters")));
+
+		assertFalse(html.isEmpty(), "the user asked for something and deserves an answer");
+		assertFalse(html.contains("cannot be selected"),
+				"nothing failed, so nothing may be described as a failure: " + html);
+	}
+
+	@Test
+	void buildHtml_should_nameTheBookAndItsContainer_whenAlreadyIncluded()
+	{
+		var html = BadComboAlert.buildHtml(List.of(),
+				List.of(covered("Advanced Player's Guide", "Pathfinder RPG for Game Masters")));
+
+		assertTrue(html.contains("Advanced Player's Guide"), html);
+		assertTrue(html.contains("Pathfinder RPG for Game Masters"),
+				"the container is the whole point of the message: " + html);
+	}
+
+	@Test
+	void buildHtml_should_reportBothSections_whenSomeFailedAndSomeWereAlreadyIncluded()
+	{
+		var html = BadComboAlert.buildHtml(
+				List.of(rejection("Bonus Bestiary", RED_ITALIC)),
+				List.of(covered("Advanced Player's Guide", "Pathfinder RPG for Game Masters")));
+
+		assertTrue(html.contains("Bonus Bestiary"), html);
+		assertTrue(html.contains("Advanced Player's Guide"), html);
+		assertTrue(html.contains(RED_ITALIC), html);
+	}
+
+	/**
+	 * The failures are what the user has to act on, so they come first; the
+	 * already-included note is reassurance and belongs underneath.
+	 */
+	@Test
+	void buildHtml_should_putTheFailuresBeforeTheAlreadyIncludedNote()
+	{
+		var html = BadComboAlert.buildHtml(
+				List.of(rejection("Bonus Bestiary", RED_ITALIC)),
+				List.of(covered("Advanced Player's Guide", "Pathfinder RPG for Game Masters")));
+
+		assertTrue(html.indexOf("Bonus Bestiary") < html.indexOf("Advanced Player's Guide"), html);
+	}
+
+	@Test
+	void buildHtml_should_escapeNames_inTheAlreadyIncludedNote()
+	{
+		var html = BadComboAlert.buildHtml(List.of(),
+				List.of(covered("Trouble <b>Maker</b>", "Bundle <i>X</i>")));
+
+		assertTrue(html.contains("Trouble &lt;b&gt;Maker&lt;/b&gt;"), html);
+		assertTrue(html.contains("Bundle &lt;i&gt;X&lt;/i&gt;"), html);
+	}
+
+	@Test
+	void buildHtml_should_returnNothing_whenNeitherSectionHasAnything()
+	{
+		assertEquals("", BadComboAlert.buildHtml(List.of(), List.of()));
+	}
+
+	/**
+	 * A single failure alongside an already-included note cannot use the
+	 * singular pattern, which ends by telling the user to consult Source Info
+	 * for "the" requirements and would read as though it covered both.
+	 */
+	@Test
+	void buildHtml_should_notUseTheSingularPattern_whenThereIsAlsoAnAlreadyIncludedNote()
+	{
+		var html = BadComboAlert.buildHtml(
+				List.of(rejection("Bonus Bestiary", RED_ITALIC)),
+				List.of(covered("Advanced Player's Guide", "Pathfinder RPG for Game Masters")));
+
+		assertFalse(html.contains(LanguageBundle.getFormattedString("in_src_badComboMsg", RED_ITALIC)),
+				"the singular pattern describes the whole dialog and cannot be reused here: " + html);
+	}
+
 	/**
 	 * The regression test for the reported bug: a {@code Label} would show the
 	 * tags as text.
@@ -318,7 +407,7 @@ class BadComboAlertTest
 		var alert = WaitForAsyncUtils.asyncFx(() -> {
 			stage.setScene(new Scene(new StackPane(), 520, 400));
 			stage.show();
-			return BadComboAlert.build(List.of(rejection("Book of Arcane Magic", RED_ITALIC)), stage);
+			return BadComboAlert.build(List.of(rejection("Book of Arcane Magic", RED_ITALIC)), List.of(), stage);
 		}).get();
 
 		assertEquals(stage, alert.getOwner(),

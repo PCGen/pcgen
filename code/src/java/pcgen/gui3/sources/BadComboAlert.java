@@ -87,35 +87,89 @@ final class BadComboAlert
 	}
 
 	/**
-	 * Builds the message document.
+	 * A campaign that is already loaded through a selected collection.
 	 *
-	 * <p>A single rejection reuses the pattern the Swing dialog has always
-	 * used, so that case stays identical -- and already translated. Several
-	 * rejections need a plural pattern and have to name the campaigns, since
-	 * the requirements alone would not say which book they belong to.
+	 * @param campaignName the campaign's display name, as plain text
+	 * @param containerName the selected campaign that loads it, as plain text
+	 */
+	record Covered(String campaignName, String containerName)
+	{
+	}
+
+	/**
+	 * Builds the message document.
 	 *
 	 * @param rejections the campaigns that were refused
 	 * @return an HTML document, or an empty string if nothing was rejected
 	 */
 	static String buildHtml(List<Rejection> rejections)
 	{
-		if (rejections.isEmpty())
+		return buildHtml(rejections, List.of());
+	}
+
+	/**
+	 * Builds the message document.
+	 *
+	 * <p>A single rejection and nothing else reuses the pattern the Swing
+	 * dialog has always used, so that case stays identical -- and already
+	 * translated. Anything more needs the plural pattern and has to name the
+	 * campaigns, since the requirements alone would not say which book they
+	 * belong to.
+	 *
+	 * <p>Campaigns already loaded through a selected collection get their own
+	 * section, below the failures and without their wording: nothing failed for
+	 * them, and asking the user to resolve a requirement that is already
+	 * satisfied would send them looking for a problem that does not exist.
+	 *
+	 * @param rejections the campaigns that were refused
+	 * @param covered the campaigns a selected collection already loads
+	 * @return an HTML document, or an empty string if there is nothing to say
+	 */
+	static String buildHtml(List<Rejection> rejections, List<Covered> covered)
+	{
+		if (rejections.isEmpty() && covered.isEmpty())
 		{
 			return "";
 		}
-		if (rejections.size() == 1)
+		if (covered.isEmpty() && rejections.size() == 1)
 		{
 			return LanguageBundle.getFormattedString(
 					"in_src_badComboMsg", rejections.getFirst().requirementsHtml());
 		}
+		var body = new StringBuilder();
+		if (!rejections.isEmpty())
+		{
+			body.append(LanguageBundle.getFormattedString(
+					"in_src_badComboMsgMultiBody", rejectionList(rejections)));
+		}
+		if (!covered.isEmpty())
+		{
+			body.append(LanguageBundle.getFormattedString(
+					"in_src_alreadyIncludedMsg", coveredList(covered)));
+		}
+		return LanguageBundle.getFormattedString("in_src_badComboMsgWrapper", body.toString());
+	}
+
+	private static String rejectionList(List<Rejection> rejections)
+	{
 		var list = new StringBuilder("<ul>");
 		for (Rejection rejection : rejections)
 		{
 			list.append("<li><b>").append(escape(rejection.campaignName())).append("</b><br>")
 					.append(rejection.requirementsHtml()).append("</li>");
 		}
-		list.append("</ul>");
-		return LanguageBundle.getFormattedString("in_src_badComboMsgMulti", list.toString());
+		return list.append("</ul>").toString();
+	}
+
+	private static String coveredList(List<Covered> covered)
+	{
+		var list = new StringBuilder("<ul>");
+		for (Covered entry : covered)
+		{
+			list.append(LanguageBundle.getFormattedString("in_src_alreadyIncludedEntry",
+					escape(entry.campaignName()), escape(entry.containerName())));
+		}
+		return list.append("</ul>").toString();
 	}
 
 	/**
@@ -126,18 +180,31 @@ final class BadComboAlert
 	 */
 	static Alert build(List<Rejection> rejections)
 	{
-		return build(rejections, null);
+		return build(rejections, List.of(), null);
 	}
 
 	/**
 	 * Builds the alert without showing it.
 	 *
-	 * @param rejections the campaigns that were refused; must not be empty
+	 * @param rejections the campaigns that were refused
+	 * @param covered the campaigns a selected collection already loads
+	 * @return the configured alert
+	 */
+	static Alert build(List<Rejection> rejections, List<Covered> covered)
+	{
+		return build(rejections, covered, null);
+	}
+
+	/**
+	 * Builds the alert without showing it.
+	 *
+	 * @param rejections the campaigns that were refused
+	 * @param covered the campaigns a selected collection already loads
 	 * @param owner the window to open over, or {@code null} to let the window
 	 *              manager place the dialog
 	 * @return the configured alert
 	 */
-	static Alert build(List<Rejection> rejections, Window owner)
+	static Alert build(List<Rejection> rejections, List<Covered> covered, Window owner)
 	{
 		var alert = new Alert(Alert.AlertType.INFORMATION);
 		alert.setTitle(LanguageBundle.getString("in_src_badComboTitle"));
@@ -149,7 +216,7 @@ final class BadComboAlert
 		// The list is capped, so the user may want to trade screen space for
 		// seeing more of it at once.
 		alert.setResizable(true);
-		alert.getDialogPane().setContent(buildView(buildHtml(rejections), alert));
+		alert.getDialogPane().setContent(buildView(buildHtml(rejections, covered), alert));
 		return alert;
 	}
 
@@ -178,16 +245,17 @@ final class BadComboAlert
 	 * acknowledge it. Does nothing when there is nothing to report.
 	 *
 	 * @param rejections the campaigns that were refused
+	 * @param covered the campaigns a selected collection already loads
 	 * @param owner the window to open over, or {@code null} to let the window
 	 *              manager place the dialog
 	 */
-	static void show(List<Rejection> rejections, Window owner)
+	static void show(List<Rejection> rejections, List<Covered> covered, Window owner)
 	{
-		if (rejections.isEmpty())
+		if (rejections.isEmpty() && covered.isEmpty())
 		{
 			return;
 		}
-		build(rejections, owner).showAndWait();
+		build(rejections, covered, owner).showAndWait();
 	}
 
 	private static WebView buildView(String html, Alert alert)

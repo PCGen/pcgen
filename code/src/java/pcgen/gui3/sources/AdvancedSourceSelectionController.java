@@ -52,6 +52,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Campaign;
 import pcgen.core.campaign.CampaignAdditionPlanner;
+import pcgen.core.campaign.CampaignRejectionDiagnosis;
 import pcgen.core.campaign.CampaignDependencyOrder;
 import pcgen.core.GameMode;
 import pcgen.gui2.UIPropertyContext;
@@ -229,11 +230,19 @@ public class AdvancedSourceSelectionController
 	}
 
 	/**
-	 * Reports the campaigns that could not be added, with the engine's
-	 * description of what each one is missing.
+	 * Reports the campaigns that could not be added, saying why.
 	 *
-	 * <p>The requirements are described against the selection as it now stands,
-	 * so the message answers "what is missing from what you have" rather than
+	 * <p>The engine only ever answers "this set does not qualify", so the
+	 * dialog used to quote each campaign's own prerequisite expression. That
+	 * describes the rule rather than the situation, and is least helpful
+	 * exactly when the situation is surprising -- a user who selected every
+	 * Pathfinder book while a MultiSet collection was already selected was
+	 * shown fourteen expressions and no hint that one selected collection was
+	 * behind all of them. {@link CampaignRejectionDiagnosis} works out which of
+	 * three things actually happened, and each gets the message that fits it.
+	 *
+	 * <p>Requirements are still described against the selection as it now
+	 * stands, so they answer "what is missing from what you have" rather than
 	 * from some intermediate set the user never saw.
 	 */
 	private void warnBadCombo(List<Campaign> rejected)
@@ -242,14 +251,48 @@ public class AdvancedSourceSelectionController
 		{
 			return;
 		}
-		var infoFactory = FacadeFactory.getCampaignInfoFactory();
 		var context = List.copyOf(selectedCampaigns);
-		BadComboAlert.show(rejected.stream()
-				.map(campaign -> new BadComboAlert.Rejection(
-						campaign.getDisplayName(),
-						infoFactory.getRequirementsHTMLString(campaign, context)))
-				.toList(),
-				ownerWindow());
+		var diagnoses = CampaignRejectionDiagnosis.diagnose(
+				rejected, context, Campaign::getSubCampaigns, FacadeFactory::findUnqualified);
+		var problems = new ArrayList<BadComboAlert.Rejection>();
+		var covered = new ArrayList<BadComboAlert.Covered>();
+		for (var diagnosis : diagnoses)
+		{
+			var campaign = diagnosis.campaign();
+			if (diagnosis.reason() instanceof CampaignRejectionDiagnosis.AlreadyIncluded included)
+			{
+				covered.add(new BadComboAlert.Covered(
+						campaign.getDisplayName(), included.container().getDisplayName()));
+			}
+			else
+			{
+				problems.add(new BadComboAlert.Rejection(
+						campaign.getDisplayName(), explain(diagnosis.reason(), campaign, context)));
+			}
+		}
+		BadComboAlert.show(List.copyOf(problems), List.copyOf(covered), ownerWindow());
+	}
+
+	/**
+	 * The markup describing why a campaign was refused.
+	 *
+	 * <p>A conflict with something already selected is named outright, because
+	 * the campaign's own requirements never mention it: the obstacle lives in
+	 * the other campaign's {@code !PRECAMPAIGN}. Anything else falls back to
+	 * the engine's description, which for a genuinely unmet requirement is the
+	 * best answer available.
+	 */
+	private static String explain(CampaignRejectionDiagnosis.Reason reason, Campaign campaign,
+			List<Campaign> context)
+	{
+		if (reason instanceof CampaignRejectionDiagnosis.ConflictsWith conflict)
+		{
+			return LanguageBundle.getFormattedString("in_src_blockedBySelected",
+					conflict.blockers().stream()
+							.map(Campaign::getDisplayName)
+							.collect(Collectors.joining(", ")));
+		}
+		return FacadeFactory.getCampaignInfoFactory().getRequirementsHTMLString(campaign, context);
 	}
 
 	/**
