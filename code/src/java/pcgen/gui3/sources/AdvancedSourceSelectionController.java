@@ -31,7 +31,6 @@ import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
@@ -45,6 +44,7 @@ import javafx.scene.control.TreeTableView;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.web.WebView;
+import javafx.stage.Window;
 import javafx.util.Callback;
 
 import pcgen.cdom.enumeration.ListKey;
@@ -192,14 +192,14 @@ public class AdvancedSourceSelectionController
 	/**
 	 * Copies every focused leaf in the available tree into the selected list,
 	 * skipping campaigns that are already selected. If adding a campaign would
-	 * break a prereq chain, we roll the add back and warn — same contract as
+	 * break a prereq chain, we roll the add back and warn -- same contract as
 	 * the legacy AdvancedSourceSelectionPanel.AddAction.
 	 */
 	@FXML
 	protected void onAddSelectedAction(ActionEvent event)
 	{
-		// Validate against a working copy so the observable list — and the tree
-		// bound to it — is mutated once at the end, not per candidate.
+		// Validate against a working copy so the observable list -- and the tree
+		// bound to it -- is mutated once at the end, not per candidate.
 		var working = new ArrayList<>(selectedCampaigns);
 		var accepted = new ArrayList<Campaign>();
 		selectedLeavesIn(treeAvailable).forEach(c -> {
@@ -234,15 +234,26 @@ public class AdvancedSourceSelectionController
 		selectedCampaigns.clear();
 	}
 
+	/**
+	 * Reports that a campaign could not be added, with the engine's description
+	 * of what it is missing.
+	 */
 	private void warnBadCombo(Campaign campaign, List<Campaign> context)
 	{
 		var prereqDesc = FacadeFactory.getCampaignInfoFactory()
 				.getRequirementsHTMLString(campaign, context);
-		var alert = new Alert(Alert.AlertType.INFORMATION);
-		alert.setTitle(LanguageBundle.getString("in_src_badComboTitle"));
-		alert.setHeaderText(null);
-		alert.setContentText(LanguageBundle.getFormattedString("in_src_badComboMsg", prereqDesc));
-		alert.showAndWait();
+		BadComboAlert.show(List.of(new BadComboAlert.Rejection(campaign.getDisplayName(), prereqDesc)),
+				ownerWindow());
+	}
+
+	/**
+	 * The window this panel lives in, so dialogs raised from it open over it
+	 * rather than wherever the window manager decides.
+	 */
+	private Window ownerWindow()
+	{
+		var scene = treeAvailable == null ? null : treeAvailable.getScene();
+		return scene == null ? null : scene.getWindow();
 	}
 
 	private void showInfoFor(TreeItem<SourceTreeNode> item)
