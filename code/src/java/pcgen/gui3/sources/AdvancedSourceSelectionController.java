@@ -51,6 +51,8 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Campaign;
+import pcgen.core.campaign.CampaignAdditionPlanner;
+import pcgen.core.campaign.CampaignDependencyOrder;
 import pcgen.core.GameMode;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.system.FacadeFactory;

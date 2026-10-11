@@ -11,7 +11,7 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
  */
-package pcgen.gui3.sources;
+package pcgen.core.campaign;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

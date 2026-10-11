@@ -11,7 +11,7 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Lesser General Public License for more details.
  */
-package pcgen.gui3.sources;
+package pcgen.core.campaign;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -46,7 +46,7 @@ import pcgen.core.Campaign;
  * both what the caller means and immune to whatever equality
  * {@code CDOMObject} happens to define.
  */
-final class CampaignAdditionPlanner
+public final class CampaignAdditionPlanner
 {
 	private CampaignAdditionPlanner()
 	{
@@ -58,7 +58,7 @@ final class CampaignAdditionPlanner
 	 * @param accepted candidates that may be added, in the order requested
 	 * @param rejected candidates that would not qualify, in the order requested
 	 */
-	record Plan(List<Campaign> accepted, List<Campaign> rejected)
+	public record Plan(List<Campaign> accepted, List<Campaign> rejected)
 	{
 	}
 
@@ -91,7 +91,7 @@ final class CampaignAdditionPlanner
 	 *                        added
 	 * @return the accepted and rejected candidates
 	 */
-	static Plan plan(List<Campaign> alreadySelected, List<Campaign> candidates,
+	public static Plan plan(List<Campaign> alreadySelected, List<Campaign> candidates,
 			Function<List<Campaign>, List<Campaign>> findUnqualified)
 	{
 		Set<Campaign> selected = identitySet(alreadySelected);

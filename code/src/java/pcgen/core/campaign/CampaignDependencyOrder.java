@@ -11,7 +11,7 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
  */
-package pcgen.gui3.sources;
+package pcgen.core.campaign;
 
 import java.util.Comparator;
 import java.util.HashMap;
@@ -47,7 +47,7 @@ import pcgen.core.prereq.PrerequisiteOperator;
  *
  * @see "SourceSelectionDataTest, which measures this against the real data"
  */
-final class CampaignDependencyOrder
+public final class CampaignDependencyOrder
 {
 	/** Prefix marking a prerequisite on a named campaign rather than a book type. */
 	private static final String INCLUDES = "INCLUDES=";
@@ -65,7 +65,7 @@ final class CampaignDependencyOrder
 	 * @param candidates the campaigns on offer, in display order
 	 * @return the same campaigns, most depended upon first
 	 */
-	static List<Campaign> mostDependedUponFirst(List<Campaign> candidates)
+	public static List<Campaign> mostDependedUponFirst(List<Campaign> candidates)
 	{
 		Map<String, Integer> demand = new HashMap<>();
 		for (Campaign candidate : candidates)

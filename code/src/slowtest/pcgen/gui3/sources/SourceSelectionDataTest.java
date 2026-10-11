@@ -25,6 +25,8 @@ import java.util.List;
 import java.util.stream.StreamSupport;
 
 import pcgen.core.Campaign;
+import pcgen.core.campaign.CampaignAdditionPlanner;
+import pcgen.core.campaign.CampaignDependencyOrder;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
