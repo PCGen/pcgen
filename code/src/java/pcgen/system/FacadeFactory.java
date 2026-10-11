@@ -306,6 +306,26 @@ public final class FacadeFactory
 
 	public static boolean passesPrereqs(List<Campaign> campaigns)
 	{
+		return findUnqualified(campaigns).isEmpty();
+	}
+
+	/**
+	 * Returns the campaigns in {@code campaigns} that do not qualify when the
+	 * whole list is the loaded set.
+	 *
+	 * <p>Qualification is a property of the set, not of a campaign on its own:
+	 * the chosen source files are switched to the whole list before each
+	 * campaign is asked. A caller that needs to know <em>which</em> campaigns
+	 * are at fault must therefore ask about the complete set in one call --
+	 * testing candidates one at a time against a growing set judges each
+	 * against a different, incomplete world.
+	 *
+	 * @param campaigns the set to test
+	 * @return the members that do not qualify, in the order given; empty when
+	 *         the whole set is valid
+	 */
+	public static List<Campaign> findUnqualified(List<Campaign> campaigns)
+	{
 		PersistenceManager pman = PersistenceManager.getInstance();
 		List<URI> oldList = pman.getChosenCampaignSourcefiles();
 		List<URI> uris = new ArrayList<>();
@@ -314,16 +334,25 @@ public final class FacadeFactory
 			uris.add(campaign.getSourceURI());
 		}
 		pman.setChosenCampaignSourcefiles(uris);
-		for (Campaign campaign : campaigns)
+		try
 		{
-			if (!campaign.qualifies(null, campaign))
+			List<Campaign> unqualified = new ArrayList<>();
+			for (Campaign campaign : campaigns)
 			{
-				pman.setChosenCampaignSourcefiles(oldList);
-				return false;
+				if (!campaign.qualifies(null, campaign))
+				{
+					unqualified.add(campaign);
+				}
 			}
+			return unqualified;
 		}
-		pman.setChosenCampaignSourcefiles(oldList);
-		return true;
+		finally
+		{
+			// Restoring in a finally matters: an escaping exception would
+			// otherwise leave the persistence manager pointing at this
+			// temporary set.
+			pman.setChosenCampaignSourcefiles(oldList);
+		}
 	}
 
 	private static final class BasicSourceSelectionFacade implements SourceSelectionFacade

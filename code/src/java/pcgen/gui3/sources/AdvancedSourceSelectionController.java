@@ -190,35 +190,27 @@ public class AdvancedSourceSelectionController
 	}
 
 	/**
-	 * Copies every focused leaf in the available tree into the selected list,
-	 * skipping campaigns that are already selected. If adding a campaign would
-	 * break a prereq chain, we roll the add back and warn -- same contract as
-	 * the legacy AdvancedSourceSelectionPanel.AddAction.
+	 * Copies every focused leaf in the available tree into the selected list.
+	 *
+	 * <p>The whole resulting set is validated in one go. Validating candidates
+	 * one at a time, as this and the legacy Swing panel used to, rejected a
+	 * campaign whose prerequisite sorted later in the tree even when the user
+	 * had selected both -- see {@link CampaignAdditionPlanner}. Anything still
+	 * refused is reported once, together, rather than one modal per campaign.
+	 *
+	 * <p>Candidates are offered most-depended-upon first so that any conflict
+	 * between mutually exclusive books is settled in favour of the one other
+	 * books need, rather than the one that happens to come first in the tree.
 	 */
 	@FXML
 	protected void onAddSelectedAction(ActionEvent event)
 	{
-		// Validate against a working copy so the observable list -- and the tree
-		// bound to it -- is mutated once at the end, not per candidate.
-		var working = new ArrayList<>(selectedCampaigns);
-		var accepted = new ArrayList<Campaign>();
-		selectedLeavesIn(treeAvailable).forEach(c -> {
-			if (working.contains(c))
-			{
-				return;
-			}
-			working.add(c);
-			if (FacadeFactory.passesPrereqs(working))
-			{
-				accepted.add(c);
-			}
-			else
-			{
-				working.remove(c);
-				warnBadCombo(c, working);
-			}
-		});
-		selectedCampaigns.addAll(accepted);
+		var plan = CampaignAdditionPlanner.plan(
+				List.copyOf(selectedCampaigns),
+				CampaignDependencyOrder.mostDependedUponFirst(selectedLeavesIn(treeAvailable).toList()),
+				FacadeFactory::findUnqualified);
+		selectedCampaigns.addAll(plan.accepted());
+		warnBadCombo(plan.rejected());
 	}
 
 	@FXML
@@ -235,14 +227,26 @@ public class AdvancedSourceSelectionController
 	}
 
 	/**
-	 * Reports that a campaign could not be added, with the engine's description
-	 * of what it is missing.
+	 * Reports the campaigns that could not be added, with the engine's
+	 * description of what each one is missing.
+	 *
+	 * <p>The requirements are described against the selection as it now stands,
+	 * so the message answers "what is missing from what you have" rather than
+	 * from some intermediate set the user never saw.
 	 */
-	private void warnBadCombo(Campaign campaign, List<Campaign> context)
+	private void warnBadCombo(List<Campaign> rejected)
 	{
-		var prereqDesc = FacadeFactory.getCampaignInfoFactory()
-				.getRequirementsHTMLString(campaign, context);
-		BadComboAlert.show(List.of(new BadComboAlert.Rejection(campaign.getDisplayName(), prereqDesc)),
+		if (rejected.isEmpty())
+		{
+			return;
+		}
+		var infoFactory = FacadeFactory.getCampaignInfoFactory();
+		var context = List.copyOf(selectedCampaigns);
+		BadComboAlert.show(rejected.stream()
+				.map(campaign -> new BadComboAlert.Rejection(
+						campaign.getDisplayName(),
+						infoFactory.getRequirementsHTMLString(campaign, context)))
+				.toList(),
 				ownerWindow());
 	}
 
