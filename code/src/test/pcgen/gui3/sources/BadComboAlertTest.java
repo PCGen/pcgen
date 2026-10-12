@@ -217,6 +217,49 @@ class BadComboAlertTest
 		assertTrue(html.contains("Bundle &lt;i&gt;X&lt;/i&gt;"), html);
 	}
 
+	/**
+	 * Five blockers read as "..., which is already selected. Remove it", which
+	 * is both wrong and confusing about how many sources are in the way.
+	 */
+	@Test
+	void blockedBySelected_should_usePluralWording_forSeveralBlockers()
+	{
+		var html = BadComboAlert.blockedBySelected(
+				List.of("Pathfinder RPG for Game Masters", "Ultimate Magic"));
+
+		assertFalse(html.contains("which is already selected"),
+				"two blockers are not an \"is\": " + html);
+		assertFalse(html.contains("Remove it"), "there is more than one to remove: " + html);
+	}
+
+	@Test
+	void blockedBySelected_should_useSingularWording_forOneBlocker()
+	{
+		var html = BadComboAlert.blockedBySelected(List.of("Pathfinder RPG for Game Masters"));
+
+		assertTrue(html.contains("which is already selected"), html);
+		assertTrue(html.contains("Remove it"), html);
+	}
+
+	@Test
+	void blockedBySelected_should_nameEveryBlocker()
+	{
+		var html = BadComboAlert.blockedBySelected(List.of("Ultimate Magic", "Ultimate Combat"));
+
+		assertTrue(html.contains("Ultimate Magic"), html);
+		assertTrue(html.contains("Ultimate Combat"), html);
+	}
+
+	/** Blocker names come from data files and must not be able to restyle the document. */
+	@Test
+	void blockedBySelected_should_escapeBlockerNames()
+	{
+		var html = BadComboAlert.blockedBySelected(List.of("Trouble <b>Maker</b>"));
+
+		assertTrue(html.contains("Trouble &lt;b&gt;Maker&lt;/b&gt;"), html);
+		assertFalse(html.contains("Trouble <b>Maker</b>"), html);
+	}
+
 	@Test
 	void buildHtml_should_returnNothing_whenNeitherSectionHasAnything()
 	{

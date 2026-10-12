@@ -287,10 +287,8 @@ public class AdvancedSourceSelectionController
 	{
 		if (reason instanceof CampaignRejectionDiagnosis.ConflictsWith conflict)
 		{
-			return LanguageBundle.getFormattedString("in_src_blockedBySelected",
-					conflict.blockers().stream()
-							.map(Campaign::getDisplayName)
-							.collect(Collectors.joining(", ")));
+			return BadComboAlert.blockedBySelected(
+					conflict.blockers().stream().map(Campaign::getDisplayName).toList());
 		}
 		return FacadeFactory.getCampaignInfoFactory().getRequirementsHTMLString(campaign, context);
 	}

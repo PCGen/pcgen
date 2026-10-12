@@ -16,6 +16,7 @@ package pcgen.gui3.sources;
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javafx.concurrent.Worker;
 import javafx.scene.control.Alert;
@@ -148,6 +149,29 @@ final class BadComboAlert
 					"in_src_alreadyIncludedMsg", coveredList(covered)));
 		}
 		return LanguageBundle.getFormattedString("in_src_badComboMsgWrapper", body.toString());
+	}
+
+	/**
+	 * Describes a campaign refused by campaigns the user has already selected.
+	 *
+	 * <p>This replaces the engine's requirements expression rather than
+	 * supplementing it, because the obstacle is not in the refused campaign's
+	 * requirements at all: it lives in the {@code !PRECAMPAIGN} of the selected
+	 * campaign that excludes it. The expression could therefore be read in full
+	 * without ever learning what to do.
+	 *
+	 * @param blockerNames the selected campaigns in the way, as plain text
+	 * @return the markup describing the obstacle
+	 */
+	static String blockedBySelected(List<String> blockerNames)
+	{
+		var names = blockerNames.stream()
+				.map(BadComboAlert::escape)
+				.map(name -> "<b>" + name + "</b>")
+				.collect(Collectors.joining(", "));
+		return LanguageBundle.getFormattedString(
+				blockerNames.size() == 1 ? "in_src_blockedBySelected" : "in_src_blockedBySelectedMulti",
+				names);
 	}
 
 	private static String rejectionList(List<Rejection> rejections)
