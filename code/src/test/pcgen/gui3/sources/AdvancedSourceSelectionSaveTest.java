@@ -20,6 +20,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import javafx.fxml.FXMLLoader;
@@ -131,15 +132,34 @@ class AdvancedSourceSelectionSaveTest
 		assertInstanceOf(CheckBox.class, lookup("#chkAlwaysAdvanced"));
 	}
 
+	/**
+	 * Save asks for a name first, so a user who changes their mind at the
+	 * prompt must not have anything stored.
+	 */
 	@Test
-	void save_should_invokeHandler_when_fired()
+	void save_should_storeNothing_when_theNamePromptIsCancelled()
 	{
 		var fired = new AtomicInteger();
-		controller.setOnSaveRequested(fired::incrementAndGet);
+		controller.setOnSaveRequested(_ -> fired.incrementAndGet());
+		controller.setNamePrompt(_ -> Optional.empty());
 
 		WaitForAsyncUtils.waitForAsyncFx(5000, () -> ((Button) lookup("#btnSave")).fire());
 
-		assertEquals(1, fired.get());
+		assertEquals(0, fired.get());
+	}
+
+	@Test
+	void save_should_askForANameWhenFired()
+	{
+		var asked = new AtomicInteger();
+		controller.setNamePrompt(_ -> {
+			asked.incrementAndGet();
+			return Optional.empty();
+		});
+
+		WaitForAsyncUtils.waitForAsyncFx(5000, () -> ((Button) lookup("#btnSave")).fire());
+
+		assertEquals(1, asked.get(), "the button must reach the save flow");
 	}
 
 	@Test

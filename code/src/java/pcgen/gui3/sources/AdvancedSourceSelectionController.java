@@ -22,6 +22,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.function.Supplier;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -33,6 +37,10 @@ import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.ButtonBar.ButtonData;
+import javafx.scene.control.TextInputDialog;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Control;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
@@ -134,7 +142,17 @@ public class AdvancedSourceSelectionController
 
 	private Runnable onLoadRequested = () -> { };
 	private Runnable onUnloadAllRequested = () -> { };
-	private Runnable onSaveRequested = () -> { };
+	private Consumer<SourceBundle> onSaveRequested = _ -> { };
+
+	/** The sources already on offer, for deciding whether a Save name is free. */
+	private Supplier<List<SourceBundle>> existingSources = List::of;
+
+	/** Asks the user what to call the selection. Replaceable so tests raise no modal. */
+	private Function<String, Optional<String>> namePrompt = AdvancedSourceSelectionController::promptForName;
+
+	/** Asks before replacing a saved selection. Replaceable so tests raise no modal. */
+	private Predicate<SourceSaveDecision> saveConfirmation =
+			AdvancedSourceSelectionController::confirmOverwrite;
 
 	/**
 	 * How each offered campaign stands against the current selection, for the
@@ -385,15 +403,141 @@ public class AdvancedSourceSelectionController
 	 * Registers the action to invoke for Save Source Selection — persisting this
 	 * tab's campaign set as a named custom selection.
 	 */
-	public void setOnSaveRequested(Runnable handler)
+	public void setOnSaveRequested(Consumer<SourceBundle> handler)
 	{
-		this.onSaveRequested = handler == null ? () -> { } : handler;
+		this.onSaveRequested = handler == null ? _ -> { } : handler;
 	}
 
+	/**
+	 * Supplies the selections already on offer, so a Save name can be checked
+	 * against them. Without this every name looks free and the dialog would
+	 * shadow a bundled selection or silently duplicate a saved one.
+	 */
+	public void setExistingSources(Supplier<List<SourceBundle>> sources)
+	{
+		this.existingSources = sources == null ? List::of : sources;
+	}
+
+	/** Overrides the name prompt, so tests need not raise a modal. */
+	void setNamePrompt(Function<String, Optional<String>> prompt)
+	{
+		this.namePrompt = prompt;
+	}
+
+	/** Overrides the overwrite confirmation, so tests need not raise a modal. */
+	void setSaveConfirmation(Predicate<SourceSaveDecision> confirmation)
+	{
+		this.saveConfirmation = confirmation;
+	}
+
+	/**
+	 * Saves this tab's campaign set as a named selection.
+	 *
+	 * <p>The name is offered pre-filled with the current selection's, which is
+	 * how the user overwrites one -- the Swing dialog listed the saved
+	 * selections and copied whichever was clicked into its name field, to the
+	 * same end.
+	 */
 	@FXML
 	protected void onSaveAction(ActionEvent event)
 	{
-		onSaveRequested.run();
+		var existing = existingSources.get();
+		namePrompt.apply(suggestedSaveName(List.copyOf(selectedCampaigns), existing))
+				.flatMap(typed -> plannedSave(typed, existing, model.getGameMode(),
+						List.copyOf(selectedCampaigns), saveConfirmation, this::reportSaveRefused))
+				.ifPresent(onSaveRequested);
+	}
+
+	/**
+	 * What saving under {@code typed} should store, if anything.
+	 *
+	 * <p>A name that cannot be used is reported and nothing is stored; one that
+	 * would replace an existing selection is stored only if confirmed.
+	 *
+	 * @param typed the name the user gave
+	 * @param existing the selections already on offer
+	 * @param mode the game mode the selection belongs to
+	 * @param campaigns the campaigns to store
+	 * @param confirmation asked before replacing an existing selection
+	 * @param report tells the user why a name was refused
+	 * @return the selection to store, or empty if the save should not happen
+	 */
+	static Optional<SourceBundle> plannedSave(String typed, List<SourceBundle> existing, GameMode mode,
+			List<Campaign> campaigns, Predicate<SourceSaveDecision> confirmation, Consumer<String> report)
+	{
+		var decision = SourceSaveDecision.forName(typed, existing);
+		if (!decision.canSave())
+		{
+			decision.message().ifPresent(report);
+			return Optional.empty();
+		}
+		if (decision.needsConfirmation() && !confirmation.test(decision))
+		{
+			return Optional.empty();
+		}
+		return Optional.of(new SourceBundle(decision.name(), mode, campaigns, true, null));
+	}
+
+	/**
+	 * The name to offer in the Save prompt: the one already saved under this
+	 * exact campaign set, so re-saving a selection the user opened overwrites
+	 * it rather than quietly creating a second copy under a name they have to
+	 * retype.
+	 *
+	 * <p>Bundled selections are skipped: they cannot be saved over, so offering
+	 * one's name would walk the user into a refusal. An empty selection matches
+	 * nothing, or it would offer the name of any saved selection that happens
+	 * to be empty.
+	 *
+	 * @param selected the campaigns about to be saved
+	 * @param existing the selections already on offer
+	 * @return the name to pre-fill, or an empty string
+	 */
+	static String suggestedSaveName(List<Campaign> selected, List<SourceBundle> existing)
+	{
+		if (selected.isEmpty())
+		{
+			return "";
+		}
+		return existing.stream()
+				.filter(bundle -> bundle.modifiable() && bundle.name() != null)
+				.filter(bundle -> bundle.campaigns().equals(selected))
+				.map(SourceBundle::name)
+				.findFirst()
+				.orElse("");
+	}
+
+	private void reportSaveRefused(String message)
+	{
+		var alert = new Alert(Alert.AlertType.WARNING);
+		alert.setTitle(LanguageBundle.getString("in_src_saveTitle"));
+		alert.setHeaderText(null);
+		alert.setContentText(message);
+		alert.initOwner(ownerWindow());
+		alert.showAndWait();
+	}
+
+	/** Default prompt: a single text field, pre-filled and pre-selected. */
+	private static Optional<String> promptForName(String suggested)
+	{
+		var dialog = new TextInputDialog(suggested);
+		dialog.setTitle(LanguageBundle.getString("in_src_saveTitle"));
+		dialog.setHeaderText(null);
+		dialog.setContentText(LanguageBundle.getString("in_src_savePrompt"));
+		return dialog.showAndWait();
+	}
+
+	/** Default confirmation: overwriting discards whatever was stored before. */
+	private static boolean confirmOverwrite(SourceSaveDecision decision)
+	{
+		var alert = new Alert(Alert.AlertType.CONFIRMATION);
+		alert.setTitle(LanguageBundle.getString("in_src_saveTitle"));
+		alert.setHeaderText(decision.message().orElse(null));
+		var save = new ButtonType(LanguageBundle.getString("in_save"), ButtonData.OK_DONE);
+		alert.getButtonTypes().setAll(save, ButtonType.CANCEL);
+		return alert.showAndWait()
+				.filter(button -> button.getButtonData() == ButtonData.OK_DONE)
+				.isPresent();
 	}
 
 	/** Whether the user asked for the Advanced tab to be the default on reopen. */

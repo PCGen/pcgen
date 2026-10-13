@@ -16,6 +16,7 @@ package pcgen.gui3.sources;
 import java.io.IOException;
 import java.io.UncheckedIOException;
 import java.util.Optional;
+import java.util.List;
 import java.util.function.Consumer;
 
 import javafx.beans.property.ObjectProperty;
@@ -138,6 +139,23 @@ public class SourceSelectionDialogPane extends DialogPane
 	}
 
 	/**
+	 * Registers the handler for Save Source Selection, invoked with the
+	 * Advanced tab's campaign set under the name the user chose.
+	 *
+	 * <p>The Advanced tab also needs to see the selections already on offer, or
+	 * every name looks free and a save would shadow a bundled selection or
+	 * duplicate a saved one.
+	 *
+	 * @param handler stores the selection, typically via
+	 *                {@code SourceSelectionBridge.saveSourceSelection}
+	 */
+	public void setOnSaveRequested(Consumer<SourceBundle> handler)
+	{
+		advancedTabController.setOnSaveRequested(handler);
+		advancedTabController.setExistingSources(() -> List.copyOf(sources));
+	}
+
+	/**
 	 * Registers the handler for deleting a custom source selection, invoked with
 	 * the bundle whose row trash icon was clicked (or that was selected when the
 	 * DELETE key was pressed). The controller has already confirmed with the user.
@@ -157,6 +175,18 @@ public class SourceSelectionDialogPane extends DialogPane
 	}
 
 	/** The {@link SourceBundle} chosen on the active tab, or empty if none. */
+	/**
+	 * Highlights {@code bundle} in the Basic list without changing tab, so a
+	 * save made from the Advanced tab is visible without moving the user off
+	 * the tab they are working in.
+	 *
+	 * @param bundle the selection to highlight
+	 */
+	public void selectSource(SourceBundle bundle)
+	{
+		basicTabController.selectSource(bundle);
+	}
+
 	public Optional<SourceBundle> getSelectedSource()
 	{
 		return getActiveTab() == ActiveTabEnum.ADVANCED

@@ -111,6 +111,30 @@ public class BasicSourceSelectionController
 				}, sourceList.getSelectionModel()::selectFirst);
 	}
 
+	/**
+	 * Selects the row holding {@code bundle}, so a selection just saved from the
+	 * Advanced tab is visible here when the user looks.
+	 *
+	 * <p>Matched by name rather than identity: the row carries a different
+	 * {@link SourceBundle} instance describing the same stored selection.
+	 *
+	 * @param bundle the selection to highlight
+	 */
+	public void selectSource(SourceBundle bundle)
+	{
+		if (bundle == null || bundle.name() == null)
+		{
+			return;
+		}
+		sourceList.getItems().stream()
+				.filter(item -> bundle.name().equals(item.name()))
+				.findFirst()
+				.ifPresent(item -> {
+					sourceList.getSelectionModel().select(item);
+					sourceList.scrollTo(item);
+				});
+	}
+
 	public Optional<SourceBundle> getSelectedSource()
 	{
 		return Optional.ofNullable(sourceList.getSelectionModel().getSelectedItem());

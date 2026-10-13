@@ -16,6 +16,7 @@ package pcgen.gui3.sources;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Consumer;
+import java.util.function.Function;
 
 import pcgen.facade.core.SourceSelectionFacade;
 
@@ -80,6 +81,43 @@ public final class SourceSelectionBridge
 					return true;
 				})
 				.orElse(false);
+	}
+
+	/**
+	 * Stores {@code bundle} as a custom source selection, reusing the facade
+	 * already kept under its name or asking {@code creator} for a new one.
+	 *
+	 * <p>Reusing matters: {@code FacadeFactory.createCustomSourceSelection}
+	 * appends unconditionally, so creating one under a name already taken
+	 * leaves the user with two entries they cannot tell apart. Names are
+	 * matched exactly, as {@link #classifyName} does, so the dialog's decision
+	 * to overwrite and the facade it then overwrites cannot disagree.
+	 *
+	 * <p>A blank or absent name is refused rather than stored. The engine would
+	 * accept one, and the resulting row is indistinguishable from the unnamed
+	 * fallback the Basic list shows for ad-hoc selections.
+	 *
+	 * @param bundle the selection to store
+	 * @param candidates the existing custom selections, typically
+	 *                   {@code FacadeFactory.getCustomSourceSelections()}
+	 * @param creator makes a new custom selection of a given name, typically
+	 *                {@code FacadeFactory::createCustomSourceSelection}
+	 * @return the facade written to, or empty if there was nothing to write
+	 */
+	public static Optional<SourceSelectionFacade> saveSourceSelection(
+			SourceBundle bundle, List<SourceSelectionFacade> candidates,
+			Function<String, SourceSelectionFacade> creator)
+	{
+		if (bundle == null || bundle.name() == null || bundle.name().isBlank())
+		{
+			return Optional.empty();
+		}
+		String name = bundle.name();
+		SourceSelectionFacade facade =
+				resolveCustomFacade(name, candidates).orElseGet(() -> creator.apply(name));
+		facade.setCampaigns(List.copyOf(bundle.campaigns()));
+		facade.setGameMode(bundle.gameMode());
+		return Optional.of(facade);
 	}
 
 	/**

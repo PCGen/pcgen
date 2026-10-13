@@ -1372,6 +1372,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 						FXCollections.observableList(gameModes));
 
 				pane.setOnDeleteRequested(bundle -> deleteSourceSelection(bundle, sourceItems));
+				pane.setOnSaveRequested(bundle -> saveSourceSelection(bundle, sourceItems, pane));
 
 				var dialog = new Dialog<ButtonType>();
 				dialog.setTitle("Select Sources");
@@ -1435,6 +1436,60 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 				Logging.errorPrint("No custom source selection found to delete for: " + bundle.displayName());
 			}
 		});
+	}
+
+	/**
+	 * Stores {@code bundle} as a custom source selection and reflects it in the
+	 * dialog's list.
+	 * <p>
+	 * The thread hops mirror {@link #deleteSourceSelection}: {@code FacadeFactory}
+	 * mutates {@code DefaultListFacade}s that Swing list models observe, so the
+	 * write runs on the EDT, and the row has to be added back on the FX thread.
+	 * <p>
+	 * An existing row is replaced rather than appended to, because saving over
+	 * a selection reuses its facade -- appending would show the same selection
+	 * twice. The saved row is then selected in the Basic list, so the user can
+	 * see the save landed without being moved off the tab they are working in.
+	 */
+	private void saveSourceSelection(SourceBundle bundle, ObservableList<SourceBundle> sourceItems,
+			SourceSelectionDialogPane pane)
+	{
+		SwingUtilities.invokeLater(() -> {
+			var saved = SourceSelectionBridge.saveSourceSelection(
+					bundle,
+					ListFacades.wrap(FacadeFactory.getCustomSourceSelections()),
+					FacadeFactory::createCustomSourceSelection);
+			if (saved.isEmpty())
+			{
+				Logging.errorPrint("Could not save the source selection: " + bundle.displayName());
+				return;
+			}
+			Platform.runLater(() -> {
+				int existing = indexOfSourceNamed(sourceItems, bundle.name());
+				if (existing < 0)
+				{
+					sourceItems.add(bundle);
+				}
+				else
+				{
+					sourceItems.set(existing, bundle);
+				}
+				pane.selectSource(bundle);
+			});
+		});
+	}
+
+	/** The row holding the selection called {@code name}, or -1. */
+	private static int indexOfSourceNamed(ObservableList<SourceBundle> sourceItems, String name)
+	{
+		for (int index = 0; index < sourceItems.size(); index++)
+		{
+			if (name.equals(sourceItems.get(index).name()))
+			{
+				return index;
+			}
+		}
+		return -1;
 	}
 
 	/**
