@@ -46,6 +46,12 @@ import pcgen.gui2.UIPropertyContext;
  * the colour and the tooltip, including the paths that clear them. A cell that
  * only ever added them would carry a blocked row's red text onto whatever row
  * reused it.
+ *
+ * <p>Clearing the colour means restoring the unmarked one, never setting
+ * {@code null}. {@code Labeled.textFill} is bound to the fill of the
+ * {@code Text} node the skin draws, and a {@code Text} with a null fill paints
+ * nothing -- so a null fill does not restore the default, it makes the row's
+ * label vanish while its disclosure arrow stays behind.
  */
 final class SourceAvailabilityCell extends TreeTableCell<SourceTreeNode, String>
 {
@@ -99,8 +105,9 @@ final class SourceAvailabilityCell extends TreeTableCell<SourceTreeNode, String>
 		if (status == null)
 		{
 			// A grouping row, or a campaign no longer offered. Neither has a
-			// standing against the selection worth describing.
-			setTextFill(null);
+			// standing against the selection worth describing, but both still
+			// need a fill: a null one paints nothing at all.
+			setTextFill(UIPropertyContext.getQualifiedColor());
 			setTooltip(null);
 			return;
 		}

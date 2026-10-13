@@ -20,6 +20,7 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.IdentityHashMap;
+import java.util.List;
 import java.util.Map;
 
 import javafx.scene.control.TreeItem;
@@ -132,16 +133,43 @@ class SourceAvailabilityCellTest
 
 	/**
 	 * Publisher and setting rows group the books; they are not sources and
-	 * cannot be added, so they must not be coloured as though they could.
+	 * cannot be added, so they carry no marking and nothing to explain.
 	 */
 	@Test
-	void groupingRow_isLeftAlone()
+	void groupingRow_isNotMarked()
 	{
 		var cell = new SourceAvailabilityCell(IdentityHashMap::new, c -> "why");
 		show(cell, new SourceTreeNode.Publisher("Paizo"), "Paizo");
 
-		assertNull(cell.getTextFill());
+		assertEquals(pcgen.gui2.UIPropertyContext.getQualifiedColor(), cell.getTextFill());
 		assertNull(cell.getTooltip());
+	}
+
+	/**
+	 * A {@code Labeled}'s text fill is bound to the fill of the {@code Text}
+	 * node its skin draws, and a {@code Text} with a null fill paints nothing.
+	 * Leaving it unset therefore does not mean "use the default", it means the
+	 * row's label disappears while its disclosure arrow stays -- which is how
+	 * every publisher and setting heading went blank.
+	 */
+	@Test
+	void everyRowWithText_hasAFillToPaintItWith()
+	{
+		var book = campaign("Core Rulebook");
+		Map<Campaign, Status> statuses = new IdentityHashMap<>();
+		statuses.put(book, Status.ADDABLE);
+		var cell = new SourceAvailabilityCell(() -> statuses, c -> "why");
+
+		for (SourceTreeNode node : List.of(new SourceTreeNode.Publisher("Paizo"),
+				new SourceTreeNode.Setting("Paizo", "Golarion"),
+				new SourceTreeNode.Leaf(book),
+				new SourceTreeNode.Leaf(campaign("Not Offered"))))
+		{
+			show(cell, node, node.displayLabel());
+
+			assertNotNull(cell.getTextFill(), () -> "a null fill makes " + node.displayLabel()
+					+ " invisible, leaving an empty row behind");
+		}
 	}
 
 	@Test
@@ -188,7 +216,6 @@ class SourceAvailabilityCellTest
 		cell.updateItem(null, true);
 
 		assertNull(cell.getText());
-		assertNull(cell.getTextFill());
 		assertNull(cell.getTooltip());
 	}
 
@@ -213,12 +240,12 @@ class SourceAvailabilityCellTest
 
 	/** A campaign missing from the map, such as one filtered out, must not throw. */
 	@Test
-	void sourceWithNoKnownStatus_isLeftAlone()
+	void sourceWithNoKnownStatus_isNotMarked()
 	{
 		var cell = new SourceAvailabilityCell(IdentityHashMap::new, c -> "why");
 		show(cell, new SourceTreeNode.Leaf(campaign("Core Rulebook")), "Core Rulebook");
 
-		assertNull(cell.getTextFill());
+		assertEquals(pcgen.gui2.UIPropertyContext.getQualifiedColor(), cell.getTextFill());
 		assertNull(cell.getTooltip());
 	}
 
