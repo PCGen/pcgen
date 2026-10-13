@@ -13,11 +13,11 @@
  */
 package pcgen.gui3.sources;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.attribute.PosixFilePermissions;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -155,14 +155,60 @@ final class SourceInfoRenderer
 		engine.loadContent("");
 	}
 
-	private static synchronized Path sharedTempFile() throws IOException
+	/**
+	 * The file this renderer writes its HTML into, created on first use.
+	 *
+	 * <p>It is deliberately not left in the system temp directory, which every
+	 * account on the machine can write to. The file is cached and reused for
+	 * each campaign the user clicks, so anyone able to replace it between a
+	 * render and the {@code load()} that follows chooses what the WebView
+	 * shows -- and that document is given a real {@code file:} origin, with
+	 * scripting enabled, precisely so it can reach local files. Restricting the
+	 * file alone would not help: in a writable directory it can be replaced
+	 * whatever its own permissions say.
+	 *
+	 * @return the file to render into
+	 * @throws IOException if the file or its directory cannot be created
+	 */
+	static synchronized Path sharedTempFile() throws IOException
 	{
 		if (tempFile == null)
 		{
-			File file = File.createTempFile("pcgen-source-info", ".html");
-			file.deleteOnExit();
-			tempFile = file.toPath();
+			Path directory = createPrivateDirectory();
+			// Deletion runs in reverse order of registration, so the directory
+			// must be registered first to be removed after the file it holds.
+			directory.toFile().deleteOnExit();
+			Path file = Files.createTempFile(directory, "source-info", ".html");
+			file.toFile().deleteOnExit();
+			tempFile = file;
 		}
 		return tempFile;
+	}
+
+	/**
+	 * Creates a temp directory only its owner may enter.
+	 *
+	 * <p>The permissions are applied as the directory is created rather than
+	 * set afterwards, which would leave a window in which it is open. The name
+	 * is left to {@code createTempDirectory} for the same reason a fixed one
+	 * would be wrong: an attacker who can guess it can create the directory
+	 * first, on their own terms.
+	 *
+	 * @return the new directory
+	 * @throws IOException if it cannot be created
+	 */
+	static Path createPrivateDirectory() throws IOException
+	{
+		try
+		{
+			return Files.createTempDirectory("pcgen-source-info",
+					PosixFilePermissions.asFileAttribute(PosixFilePermissions.fromString("rwx------")));
+		}
+		catch (UnsupportedOperationException notPosix)
+		{
+			// Windows has no POSIX permissions, and its per-user temp directory
+			// is already closed to other accounts by its inherited ACL.
+			return Files.createTempDirectory("pcgen-source-info");
+		}
 	}
 }
