@@ -140,8 +140,10 @@ public class AdvancedSourceSelectionController
 
 	private SourceSelectionModel model;
 
-	private Runnable onLoadRequested = () -> { };
 	private Runnable onUnloadAllRequested = () -> { };
+	/** Title shared by the Save prompt and both of its outcomes. */
+	private static final String SAVE_TITLE = "in_src_saveTitle";
+
 	private Consumer<SourceBundle> onSaveRequested = _ -> { };
 
 	/** The sources already on offer, for deciding whether a Save name is free. */
@@ -333,10 +335,10 @@ public class AdvancedSourceSelectionController
 		for (var diagnosis : diagnoses)
 		{
 			var campaign = diagnosis.campaign();
-			if (diagnosis.reason() instanceof CampaignRejectionDiagnosis.AlreadyIncluded included)
+			if (diagnosis.reason() instanceof CampaignRejectionDiagnosis.AlreadyIncluded(Campaign container))
 			{
 				covered.add(new BadComboAlert.Covered(
-						campaign.getDisplayName(), included.container().getDisplayName()));
+						campaign.getDisplayName(), container.getDisplayName()));
 			}
 			else
 			{
@@ -359,10 +361,10 @@ public class AdvancedSourceSelectionController
 	private static String explain(CampaignRejectionDiagnosis.Reason reason, Campaign campaign,
 			List<Campaign> context)
 	{
-		if (reason instanceof CampaignRejectionDiagnosis.ConflictsWith conflict)
+		if (reason instanceof CampaignRejectionDiagnosis.ConflictsWith(List<Campaign> blockers))
 		{
 			return BadComboAlert.blockedBySelected(
-					conflict.blockers().stream().map(Campaign::getDisplayName).toList());
+					blockers.stream().map(Campaign::getDisplayName).toList());
 		}
 		return FacadeFactory.getCampaignInfoFactory().getRequirementsHTMLString(campaign, context);
 	}
@@ -510,7 +512,7 @@ public class AdvancedSourceSelectionController
 	private void reportSaveRefused(String message)
 	{
 		var alert = new Alert(Alert.AlertType.WARNING);
-		alert.setTitle(LanguageBundle.getString("in_src_saveTitle"));
+		alert.setTitle(LanguageBundle.getString(SAVE_TITLE));
 		alert.setHeaderText(null);
 		alert.setContentText(message);
 		alert.initOwner(ownerWindow());
@@ -521,7 +523,7 @@ public class AdvancedSourceSelectionController
 	private static Optional<String> promptForName(String suggested)
 	{
 		var dialog = new TextInputDialog(suggested);
-		dialog.setTitle(LanguageBundle.getString("in_src_saveTitle"));
+		dialog.setTitle(LanguageBundle.getString(SAVE_TITLE));
 		dialog.setHeaderText(null);
 		dialog.setContentText(LanguageBundle.getString("in_src_savePrompt"));
 		return dialog.showAndWait();
@@ -531,7 +533,7 @@ public class AdvancedSourceSelectionController
 	private static boolean confirmOverwrite(SourceSaveDecision decision)
 	{
 		var alert = new Alert(Alert.AlertType.CONFIRMATION);
-		alert.setTitle(LanguageBundle.getString("in_src_saveTitle"));
+		alert.setTitle(LanguageBundle.getString(SAVE_TITLE));
 		alert.setHeaderText(decision.message().orElse(null));
 		var save = new ButtonType(LanguageBundle.getString("in_save"), ButtonData.OK_DONE);
 		alert.getButtonTypes().setAll(save, ButtonType.CANCEL);
@@ -696,12 +698,13 @@ public class AdvancedSourceSelectionController
 	{
 		return switch (reason)
 		{
-			case CampaignRejectionDiagnosis.AlreadyIncluded included -> LanguageBundle.getFormattedString(
-					"in_src_tipAlreadyIncluded", included.container().getDisplayName());
-			case CampaignRejectionDiagnosis.ConflictsWith conflict -> LanguageBundle.getFormattedString(
-					"in_src_tipBlockedBySelected",
-					conflict.blockers().stream().map(Campaign::getDisplayName)
-							.collect(Collectors.joining(", ")));
+			case CampaignRejectionDiagnosis.AlreadyIncluded(Campaign container) ->
+					LanguageBundle.getFormattedString(
+							"in_src_tipAlreadyIncluded", container.getDisplayName());
+			case CampaignRejectionDiagnosis.ConflictsWith(List<Campaign> blockers) ->
+					LanguageBundle.getFormattedString("in_src_tipBlockedBySelected",
+							blockers.stream().map(Campaign::getDisplayName)
+									.collect(Collectors.joining(", ")));
 			case CampaignRejectionDiagnosis.Unmet _ ->
 					LanguageBundle.getString("in_src_tipUnmetRequirements");
 		};

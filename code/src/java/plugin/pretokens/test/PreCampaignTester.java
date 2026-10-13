@@ -201,10 +201,6 @@ public class PreCampaignTester extends AbstractDisplayPrereqTest
 		}
 	}
 
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
 	/** Counts directly selected books of a type. */
 	private static final String BOOK_TYPE = "BOOKTYPE="; //$NON-NLS-1$
 
@@ -214,6 +210,10 @@ public class PreCampaignTester extends AbstractDisplayPrereqTest
 	/** Matches a named book, including one a selected collection loads. */
 	private static final String INCLUDES = "INCLUDES="; //$NON-NLS-1$
 
+	/**
+	 * Get the type of prerequisite handled by this token.
+	 * @return the type of prerequisite handled by this token.
+	 */
 	@Override
 	public String kindHandled()
 	{

@@ -96,7 +96,7 @@ final class SourceAvailabilityCell extends TreeTableCell<SourceTreeNode, String>
 		var row = getTreeTableRow();
 		var treeItem = row == null ? null : row.getTreeItem();
 		var node = treeItem == null ? null : treeItem.getValue();
-		return node instanceof SourceTreeNode.Leaf leaf ? leaf.campaign() : null;
+		return node instanceof SourceTreeNode.Leaf(Campaign campaign) ? campaign : null;
 	}
 
 	private void apply(Campaign campaign)

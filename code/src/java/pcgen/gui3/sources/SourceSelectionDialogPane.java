@@ -180,7 +180,6 @@ public class SourceSelectionDialogPane extends DialogPane
 		advancedTabController.setOnUnloadAllRequested(handler);
 	}
 
-	/** The {@link SourceBundle} chosen on the active tab, or empty if none. */
 	/**
 	 * Highlights {@code bundle} in the Basic list without changing tab, so a
 	 * save made from the Advanced tab is visible without moving the user off
@@ -193,6 +192,7 @@ public class SourceSelectionDialogPane extends DialogPane
 		basicTabController.selectSource(bundle);
 	}
 
+	/** The {@link SourceBundle} chosen on the active tab, or empty if none. */
 	public Optional<SourceBundle> getSelectedSource()
 	{
 		return getActiveTab() == ActiveTabEnum.ADVANCED

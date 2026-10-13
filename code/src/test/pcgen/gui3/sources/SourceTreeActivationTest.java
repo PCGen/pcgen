@@ -49,10 +49,6 @@ class SourceTreeActivationTest
 	private final AtomicInteger activations = new AtomicInteger();
 	private TreeTableView<SourceTreeNode> tree;
 
-	/**
-	 * A control may only be built on the FX thread; the test methods run on the
-	 * "Test worker" thread, so construction cannot go in a field initialiser.
-	 */
 	/** Events that got past the tree to its parent, as one would to the dialog. */
 	private final AtomicInteger escaped = new AtomicInteger();
 
