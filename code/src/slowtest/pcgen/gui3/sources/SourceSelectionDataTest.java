@@ -22,11 +22,14 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
 import pcgen.core.Campaign;
 import pcgen.core.campaign.CampaignAdditionPlanner;
 import pcgen.core.campaign.CampaignDependencyOrder;
+import pcgen.core.campaign.CampaignAvailability;
 import pcgen.core.campaign.CampaignRejectionDiagnosis;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
@@ -348,5 +351,89 @@ class SourceSelectionDataTest
 				.map(diagnosis -> diagnosis.campaign().getKeyName() + " -> " + diagnosis.reason())
 				.toList()
 				.toString();
+	}
+
+	private static Map<CampaignAvailability.Status, List<String>> availabilityWith(String... selectedKeys)
+	{
+		List<Campaign> available = everyPathfinderBook();
+		List<String> wanted = List.of(selectedKeys);
+		List<Campaign> selected = available.stream()
+				.filter(campaign -> wanted.contains(campaign.getKeyName()))
+				.toList();
+		assertEquals(wanted.size(), selected.size(), () -> "the selected books must exist: " + wanted);
+		return CampaignAvailability
+				.classify(available, selected, Campaign::getSubCampaigns, FacadeFactory::passesPrereqs)
+				.entrySet().stream()
+				.collect(Collectors.groupingBy(Map.Entry::getValue,
+						Collectors.mapping(entry -> entry.getKey().getKeyName(),
+								Collectors.collectingAndThen(Collectors.toList(),
+										keys -> keys.stream().sorted().toList()))));
+	}
+
+	/**
+	 * With nothing selected the tree should be almost entirely black: a book
+	 * that needs another is not blocked, it simply needs the other book added
+	 * in the same breath, which the planner does.
+	 */
+	@Test
+	void withNothingSelected_mostBooksAreOfferedAsAddable()
+	{
+		var byStatus = availabilityWith();
+
+		assertEquals(List.of(), byStatus.getOrDefault(CampaignAvailability.Status.ALREADY_INCLUDED, List.of()),
+				"nothing is selected, so nothing can be loaded through a selection");
+		assertFalse(byStatus.getOrDefault(CampaignAvailability.Status.ADDABLE, List.of()).isEmpty());
+	}
+
+	/**
+	 * The reported scenario. Ten of the books the collection loads must be
+	 * shown as already loaded rather than as failures -- that distinction is
+	 * the whole reason this is not simply Swing's single red colour.
+	 */
+	@Test
+	void withACollectionSelected_itsOwnBooksAreOfferedAsAlreadyIncluded()
+	{
+		var byStatus = availabilityWith(GM_COLLECTION);
+
+		assertTrue(byStatus.get(CampaignAvailability.Status.ALREADY_INCLUDED)
+						.containsAll(List.of("Advanced Player's Guide", "Bestiary", "Core Rulebook",
+								"Bestiary ~ Player Options Only")),
+				() -> "Already included: " + byStatus.get(CampaignAvailability.Status.ALREADY_INCLUDED));
+		assertTrue(byStatus.get(CampaignAvailability.Status.ALREADY_INCLUDED).contains(GM_COLLECTION),
+				"the collection itself is selected, so it is loaded too");
+	}
+
+	/**
+	 * The rival collections are the ones genuinely in the way, and the only
+	 * ones that should carry the failure colour from this selection.
+	 */
+	@Test
+	void withACollectionSelected_rivalCollectionsAreOfferedAsBlocked()
+	{
+		var byStatus = availabilityWith(GM_COLLECTION);
+
+		assertTrue(byStatus.get(CampaignAvailability.Status.BLOCKED)
+						.containsAll(List.of("Pathfinder RPG Core Supplements", "Pathfinder RPG for Players")),
+				() -> "Blocked: " + byStatus.get(CampaignAvailability.Status.BLOCKED));
+	}
+
+	/**
+	 * Swing marked every book it could not add with one colour. Showing the
+	 * books a selected collection already loads in that colour is what this
+	 * replaces, so the two counts must genuinely differ.
+	 */
+	@Test
+	void withACollectionSelected_fewerBooksAreBlockedThanSwingWouldHaveMarked()
+	{
+		var byStatus = availabilityWith(GM_COLLECTION);
+		int blocked = byStatus.getOrDefault(CampaignAvailability.Status.BLOCKED, List.of()).size();
+		int alreadyIncluded =
+				byStatus.getOrDefault(CampaignAvailability.Status.ALREADY_INCLUDED, List.of()).size();
+
+		assertTrue(alreadyIncluded > 0 && blocked > 0,
+				() -> "blocked=" + blocked + " alreadyIncluded=" + alreadyIncluded);
+		assertTrue(alreadyIncluded >= 10,
+				() -> "the collection loads at least ten of the offered books; alreadyIncluded="
+						+ alreadyIncluded);
 	}
 }

@@ -14,8 +14,10 @@
 package pcgen.gui3.sources;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -52,6 +54,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Campaign;
 import pcgen.core.campaign.CampaignAdditionPlanner;
+import pcgen.core.campaign.CampaignAvailability;
 import pcgen.core.campaign.CampaignRejectionDiagnosis;
 import pcgen.core.campaign.CampaignDependencyOrder;
 import pcgen.core.GameMode;
@@ -129,6 +132,22 @@ public class AdvancedSourceSelectionController
 	private Runnable onUnloadAllRequested = () -> { };
 	private Runnable onSaveRequested = () -> { };
 
+	/**
+	 * How each offered campaign stands against the current selection, for the
+	 * available tree's row marking. Recomputed whenever the selection or the
+	 * offered list changes rather than per cell repaint: the cost is one engine
+	 * call per campaign, which is cheap once but not on every scroll tick.
+	 */
+	private Map<Campaign, CampaignAvailability.Status> availability = Map.of();
+
+	/**
+	 * Why each marked campaign is marked, for its tooltip. Computed with the
+	 * statuses rather than in the cell: diagnosing a campaign costs two engine
+	 * calls, which is affordable once per selection change but not on every
+	 * repaint of every visible row.
+	 */
+	private Map<Campaign, String> availabilityReasons = Map.of();
+
 	@FXML
 	protected void initialize()
 	{
@@ -170,6 +189,8 @@ public class AdvancedSourceSelectionController
 	{
 		colAvailableName.setCellValueFactory(v ->
 				new ReadOnlyObjectWrapper<>(v.getValue().getValue().displayLabel()));
+		colAvailableName.setCellFactory(_ ->
+				new SourceAvailabilityCell(() -> availability, availabilityReasons::get));
 		colAvailableBookType.setCellValueFactory(v ->
 				new ReadOnlyObjectWrapper<>(campaignOf(v.getValue())
 						.map(c -> c.getListAsString(ListKey.BOOK_TYPE)).orElse("")));
@@ -425,15 +446,19 @@ public class AdvancedSourceSelectionController
 		this.selectedCampaigns = sourceModel.getSelectedCampaigns();
 
 		// Selected list changes drive the right-side tree rebuild.
-		selectedCampaigns.addListener((ListChangeListener<Campaign>) _ ->
-				treeSelected.setRoot(buildTree(selectedCampaigns)));
+		selectedCampaigns.addListener((ListChangeListener<Campaign>) _ -> {
+			treeSelected.setRoot(buildTree(selectedCampaigns));
+			refreshAvailability();
+		});
 		treeSelected.setRoot(buildTree(selectedCampaigns));
 
 		// The available tree mirrors the model's maintained availableCampaigns
 		// list (recomputed by the model on game-mode or search-query change).
 		var available = model.getAvailableCampaigns();
-		available.addListener((ListChangeListener<Campaign>) _ ->
-				treeAvailable.setRoot(buildTree(available)));
+		available.addListener((ListChangeListener<Campaign>) _ -> {
+			refreshAvailability();
+			treeAvailable.setRoot(buildTree(available));
+		});
 
 		// Seed the model's game mode (unless already set, e.g. by a Basic
 		// projection) before binding, so there is a single value to react to.
@@ -452,7 +477,64 @@ public class AdvancedSourceSelectionController
 		model.gameModeProperty().addListener((_, _, mode) -> onGameModeChanged(mode));
 
 		// Reflect the initial mode into the tree once.
+		refreshAvailability();
 		treeAvailable.setRoot(buildTree(model.getAvailableCampaigns()));
+	}
+
+	/**
+	 * Recomputes how each offered campaign stands against the selection, and
+	 * repaints the available tree so the marking follows.
+	 *
+	 * <p>A refresh is needed because the cells are only told that their row's
+	 * data changed when the row itself changes, and here nothing about the row
+	 * has: what changed is the selection it is judged against.
+	 */
+	private void refreshAvailability()
+	{
+		var selected = List.copyOf(selectedCampaigns);
+		availability = CampaignAvailability.classify(
+				List.copyOf(model.getAvailableCampaigns()),
+				selected,
+				Campaign::getSubCampaigns,
+				FacadeFactory::passesPrereqs);
+		var marked = availability.entrySet().stream()
+				.filter(entry -> entry.getValue() != CampaignAvailability.Status.ADDABLE)
+				.map(Map.Entry::getKey)
+				.toList();
+		availabilityReasons = describeAll(marked, selected);
+		treeAvailable.refresh();
+	}
+
+	/**
+	 * Explains every marked campaign in one pass.
+	 *
+	 * <p>These are the same diagnoses the warning dialog gives, so the tree and
+	 * the dialog cannot contradict each other -- the tree simply says it before
+	 * the user clicks Add rather than after.
+	 */
+	private static Map<Campaign, String> describeAll(List<Campaign> marked, List<Campaign> selected)
+	{
+		Map<Campaign, String> reasons = new IdentityHashMap<>();
+		CampaignRejectionDiagnosis.diagnose(marked, selected,
+						Campaign::getSubCampaigns, FacadeFactory::findUnqualified)
+				.forEach(diagnosis -> reasons.put(diagnosis.campaign(), tipFor(diagnosis.reason())));
+		return Collections.unmodifiableMap(reasons);
+	}
+
+	/** The tooltip text for a diagnosis. Plain text: a Tooltip renders no markup. */
+	private static String tipFor(CampaignRejectionDiagnosis.Reason reason)
+	{
+		return switch (reason)
+		{
+			case CampaignRejectionDiagnosis.AlreadyIncluded included -> LanguageBundle.getFormattedString(
+					"in_src_tipAlreadyIncluded", included.container().getDisplayName());
+			case CampaignRejectionDiagnosis.ConflictsWith conflict -> LanguageBundle.getFormattedString(
+					"in_src_tipBlockedBySelected",
+					conflict.blockers().stream().map(Campaign::getDisplayName)
+							.collect(Collectors.joining(", ")));
+			case CampaignRejectionDiagnosis.Unmet _ ->
+					LanguageBundle.getString("in_src_tipUnmetRequirements");
+		};
 	}
 
 	/**
