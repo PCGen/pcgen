@@ -1,0 +1,91 @@
+/*
+ * Copyright 2026 (C) Vest <Vest@users.noreply.github.com>
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ */
+package pcgen.core.campaign;
+
+import java.util.ArrayDeque;
+import java.util.Collections;
+import java.util.IdentityHashMap;
+import java.util.List;
+import java.util.Set;
+import java.util.function.Function;
+
+import pcgen.core.Campaign;
+
+/**
+ * Answers whether a campaign is already loaded through one the user selected.
+ *
+ * <p>A campaign's {@code PCC:} files name other campaigns it loads, and PCGen's
+ * data uses that to ship collections: "Pathfinder RPG for Game Masters" loads
+ * the Core Rulebook, the Bestiaries and the Advanced Player's Guide. The
+ * relationships nest -- each full Bestiary loads its own reduced "Player
+ * Options Only" edition -- so a book two levels down is just as loaded as one
+ * named directly, and the walk has to go all the way down.
+ *
+ * <p>Campaigns are compared by identity, as elsewhere in this package.
+ */
+public final class CampaignContainment
+{
+	private CampaignContainment()
+	{
+	}
+
+	/**
+	 * The selected campaign that loads {@code campaign}, at any depth.
+	 *
+	 * <p>The outermost campaign is returned rather than the immediate parent,
+	 * because that is the one the user chose and the only one they can act on.
+	 *
+	 * @param campaign the campaign to look for
+	 * @param selected the campaigns the user has selected
+	 * @param contentsOf the campaigns a campaign loads, normally
+	 *                   {@code Campaign::getSubCampaigns}
+	 * @return the selected campaign loading it, or {@code null} if none does
+	 */
+	public static Campaign containerOf(Campaign campaign, List<Campaign> selected,
+			Function<Campaign, List<Campaign>> contentsOf)
+	{
+		for (Campaign candidate : selected)
+		{
+			if (loads(candidate, campaign, contentsOf))
+			{
+				return candidate;
+			}
+		}
+		return null;
+	}
+
+	/** Whether {@code container} loads {@code sought}, at any depth. */
+	private static boolean loads(Campaign container, Campaign sought,
+			Function<Campaign, List<Campaign>> contentsOf)
+	{
+		// Data is authored by hand and a collection may name itself, or a
+		// sibling that names it back, so the walk has to tolerate cycles.
+		Set<Campaign> visited = Collections.newSetFromMap(new IdentityHashMap<>());
+		visited.add(container);
+		var pending = new ArrayDeque<>(contentsOf.apply(container));
+		while (!pending.isEmpty())
+		{
+			Campaign next = pending.pop();
+			if (next == sought)
+			{
+				return true;
+			}
+			if (visited.add(next))
+			{
+				pending.addAll(contentsOf.apply(next));
+			}
+		}
+		return false;
+	}
+}

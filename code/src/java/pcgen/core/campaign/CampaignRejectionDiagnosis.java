@@ -13,7 +13,6 @@
  */
 package pcgen.core.campaign;
 
-import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.IdentityHashMap;
@@ -142,56 +141,13 @@ public final class CampaignRejectionDiagnosis
 			Set<Campaign> alreadyBroken, Function<Campaign, List<Campaign>> contentsOf,
 			Function<List<Campaign>, List<Campaign>> findUnqualified)
 	{
-		Campaign container = selectedContaining(campaign, selected, contentsOf);
+		Campaign container = CampaignContainment.containerOf(campaign, selected, contentsOf);
 		if (container != null)
 		{
 			return new AlreadyIncluded(container);
 		}
 		List<Campaign> blockers = brokenByAdding(campaign, selected, alreadyBroken, findUnqualified);
 		return blockers.isEmpty() ? new Unmet() : new ConflictsWith(blockers);
-	}
-
-	/**
-	 * The selected campaign that loads {@code campaign}, directly or through
-	 * bundles it loads in turn.
-	 *
-	 * <p>The outermost campaign is returned rather than the immediate parent,
-	 * because that is the one the user chose and can act on.
-	 */
-	private static Campaign selectedContaining(Campaign campaign, List<Campaign> selected,
-			Function<Campaign, List<Campaign>> contentsOf)
-	{
-		for (Campaign candidate : selected)
-		{
-			if (loads(candidate, campaign, contentsOf))
-			{
-				return candidate;
-			}
-		}
-		return null;
-	}
-
-	/** Whether {@code container} loads {@code sought}, at any depth. */
-	private static boolean loads(Campaign container, Campaign sought,
-			Function<Campaign, List<Campaign>> contentsOf)
-	{
-		// Data is authored by hand and a bundle may name itself or a sibling
-		// that names it back, so the walk has to tolerate cycles.
-		Set<Campaign> visited = identitySet(List.of(container));
-		var pending = new ArrayDeque<>(contentsOf.apply(container));
-		while (!pending.isEmpty())
-		{
-			Campaign next = pending.pop();
-			if (next == sought)
-			{
-				return true;
-			}
-			if (visited.add(next))
-			{
-				pending.addAll(contentsOf.apply(next));
-			}
-		}
-		return false;
 	}
 
 	/**
