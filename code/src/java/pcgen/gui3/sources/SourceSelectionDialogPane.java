@@ -19,10 +19,7 @@ import java.util.Optional;
 import java.util.List;
 import java.util.function.Consumer;
 
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.ObservableList;
-import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -69,7 +66,14 @@ public class SourceSelectionDialogPane extends DialogPane
 	@FXML
 	private Tab advancedTab;
 
-	private ObjectProperty<ActiveTabEnum> activeTab;
+	/**
+	 * Which tab is in front. A plain field, not an observable property: nothing
+	 * binds to it or observes it, and the lazy-property idiom it used to follow
+	 * left two different answers for one question -- null meant BASIC, while an
+	 * instantiated-but-unset property meant INITIAL, so merely calling the
+	 * accessor changed what the getter reported.
+	 */
+	private ActiveTabEnum activeTab = ActiveTabEnum.BASIC;
 
 	private final SourceSelectionModel model = new SourceSelectionModel();
 
@@ -105,6 +109,8 @@ public class SourceSelectionDialogPane extends DialogPane
 		basicTabController.selectedSourceProperty().addListener(
 				(obs, old, bundle) -> project(model, bundle));
 		basicTabController.getSelectedSource().ifPresent(bundle -> project(model, bundle));
+
+		trackActiveTab(tabSources, basicTab, tab -> activeTab = tab);
 	}
 
 	/**
@@ -207,16 +213,6 @@ public class SourceSelectionDialogPane extends DialogPane
 		}
 	}
 
-	@FXML
-	protected void onSelectionTabChanged(Event event)
-	{
-		var target = (Tab) event.getTarget();
-		if (target.isSelected())
-		{
-			activeTabProperty().set(target == basicTab ? ActiveTabEnum.BASIC : ActiveTabEnum.ADVANCED);
-		}
-	}
-
 	/**
 	 * Keeps each button at its natural width. The bar mixes a wide action
 	 * ("Install Data") with short ones, and uniform sizing would stretch them all
@@ -232,34 +228,44 @@ public class SourceSelectionDialogPane extends DialogPane
 
 	public final ActiveTabEnum getActiveTab()
 	{
-		return activeTab == null ? ActiveTabEnum.BASIC : activeTab.get();
+		return activeTab;
 	}
 
-	public final ObjectProperty<ActiveTabEnum> activeTabProperty()
+	/**
+	 * Reports which tab is in front, now and on every change.
+	 *
+	 * <p>Taken from the selection model rather than from a selection-changed
+	 * event. {@code Event.getTarget()} is typed only as {@code EventTarget} --
+	 * {@code Node}, {@code Window}, {@code Scene}, {@code MenuItem} and
+	 * {@code TreeItem} all implement it -- so reading the tab out of the event
+	 * needed a cast whose correctness rested on an FXML attribute staying
+	 * attached to a {@code Tab}, with nothing to check it until it threw. The
+	 * event also fired for the tab being left as well as the one being
+	 * entered, so the handler ran twice per switch and filtered the other out
+	 * by hand.
+	 *
+	 * <p>The current tab is reported immediately, so no caller has to cope with
+	 * a period before the first switch when the answer is unknown.
+	 *
+	 * @param tabs the tab pane to follow
+	 * @param basicTab the tab that counts as {@link ActiveTabEnum#BASIC}
+	 * @param sink told which tab is in front
+	 */
+	static void trackActiveTab(TabPane tabs, Tab basicTab, Consumer<ActiveTabEnum> sink)
 	{
-		if (activeTab == null)
-		{
-			activeTab = new SimpleObjectProperty<>(this, "activeTab", ActiveTabEnum.INITIAL)
-			{
-				@Override
-				public void set(ActiveTabEnum newValue)
-				{
-					var model = tabSources.getSelectionModel();
-					var tab = switch (newValue)
-					{
-						case INITIAL, BASIC -> basicTab;
-						case ADVANCED -> advancedTab;
-					};
-					super.set(newValue);
-					model.select(tab);
-				}
-			};
-		}
-		return activeTab;
+		var selection = tabs.getSelectionModel();
+		selection.selectedItemProperty().addListener(
+				(_, _, tab) -> sink.accept(activeTabFor(tab, basicTab)));
+		sink.accept(activeTabFor(selection.getSelectedItem(), basicTab));
+	}
+
+	private static ActiveTabEnum activeTabFor(Tab selected, Tab basicTab)
+	{
+		return selected == basicTab ? ActiveTabEnum.BASIC : ActiveTabEnum.ADVANCED;
 	}
 
 	enum ActiveTabEnum
 	{
-		INITIAL, BASIC, ADVANCED
+		BASIC, ADVANCED
 	}
 }

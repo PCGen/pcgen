@@ -6,10 +6,8 @@
          xmlns:fx="http://javafx.com/fxml" prefHeight="600.0" prefWidth="800.0">
     <content>
         <TabPane fx:id="tabSources" tabClosingPolicy="UNAVAILABLE">
-            <fx:include source="BasicSourceSelection.fxml" fx:id="basicTab"
-                        onSelectionChanged="#onSelectionTabChanged"/>
-            <fx:include source="AdvancedSourceSelection.fxml" fx:id="advancedTab"
-                        onSelectionChanged="#onSelectionTabChanged"/>
+            <fx:include source="BasicSourceSelection.fxml" fx:id="basicTab"/>
+            <fx:include source="AdvancedSourceSelection.fxml" fx:id="advancedTab"/>
         </TabPane>
     </content>
 
