@@ -125,13 +125,16 @@ public class SourceSelectionDialogPane extends DialogPane
 	}
 
 	/**
-	 * Wires the Load action so double-clicking a list/tree row or pressing OK
-	 * runs {@code handler}, given the {@link SourceBundle} the user picked.
+	 * Wires the Load action so double-clicking a Basic row or pressing OK runs
+	 * {@code handler}.
+	 *
+	 * <p>The Advanced tab does not take part: its rows move sources between its
+	 * two trees rather than committing the dialog, so a gesture there must not
+	 * load anything.
 	 */
 	public void setOnLoadRequested(Runnable handler)
 	{
 		basicTabController.setOnLoadRequested(handler);
-		advancedTabController.setOnLoadRequested(handler);
 	}
 
 	/**

@@ -33,6 +33,7 @@ import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Control;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
@@ -44,7 +45,10 @@ import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
 import javafx.scene.control.TreeTableView;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.web.WebView;
 import javafx.stage.Window;
 import javafx.util.Callback;
@@ -171,18 +175,49 @@ public class AdvancedSourceSelectionController
 		treeSelected.getSelectionModel().selectedItemProperty()
 				.addListener((obs, old, item) -> showInfoFor(item));
 
-		treeAvailable.setOnMouseClicked(event -> {
-			if (event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 2
-					&& selectedLeavesIn(treeAvailable).findAny().isPresent())
-			{
-				onLoadRequested.run();
-			}
-		});
+		// Each tree acts on its own rows: the available tree adds them, the
+		// selected tree takes them back.
+		activateRowsWith(treeAvailable, () -> onAddSelectedAction(null));
+		activateRowsWith(treeSelected, () -> onRemoveSelectedAction(null));
 
 		// Enter in the search field is swallowed so it does not bubble to the
 		// dialog's default Load button and close the dialog mid-search; filtering
 		// is live via the searchQuery binding (see setModel).
 		fldSearch.setOnAction(ActionEvent::consume);
+	}
+
+	/**
+	 * Makes Enter and a double-click act on the rows of {@code control}.
+	 *
+	 * <p>Enter is swallowed whether or not it had anything to act on. The
+	 * dialog's Load button is {@code ButtonData.OK_DONE}, which
+	 * {@code DialogPane.createButton} makes the scene's default button, so any
+	 * Enter that escapes a control commits the whole selection and closes the
+	 * dialog -- which is not what Enter means with a source highlighted.
+	 * Consuming it only when a row happened to be selected would leave the
+	 * dialog closing or not depending on where the highlight sat.
+	 *
+	 * <p>Escape and every other key are left alone, so the dialog can still be
+	 * cancelled from here.
+	 *
+	 * @param control the list or tree whose rows are to be actionable
+	 * @param action what to do with the selected rows
+	 */
+	static void activateRowsWith(Control control, Runnable action)
+	{
+		control.addEventHandler(KeyEvent.KEY_PRESSED, event -> {
+			if (event.getCode() == KeyCode.ENTER)
+			{
+				event.consume();
+				action.run();
+			}
+		});
+		control.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+			if (event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 2)
+			{
+				action.run();
+			}
+		});
 	}
 
 	private void bindAvailableColumns()
@@ -334,15 +369,6 @@ public class AdvancedSourceSelectionController
 		campaignOf(item).ifPresentOrElse(
 				c -> SourceInfoRenderer.renderCampaign(infoPane.getEngine(), c),
 				() -> SourceInfoRenderer.clear(infoPane.getEngine()));
-	}
-
-	/**
-	 * Registers the action to invoke when the user double-clicks an available
-	 * campaign — typically the same action as the dialog's Load button.
-	 */
-	public void setOnLoadRequested(Runnable handler)
-	{
-		this.onLoadRequested = handler == null ? () -> { } : handler;
 	}
 
 	/**
