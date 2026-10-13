@@ -61,17 +61,18 @@ public class PreCampaignTester extends AbstractDisplayPrereqTest
 		}
 
 		int runningTotal = 0;
-		if (prereq.getKey().startsWith("BOOKTYPE="))
+		if (prereq.getKey().startsWith(BOOK_TYPE))
 		{
-			runningTotal += countCampaignByBookType(prereq.getKey().substring(9), false);
+			runningTotal += countCampaignByBookType(prereq.getKey().substring(BOOK_TYPE.length()), false);
 		}
-		else if (prereq.getKey().startsWith("INCLUDESBOOKTYPE="))
+		else if (prereq.getKey().startsWith(INCLUDES_BOOK_TYPE))
 		{
-			runningTotal += countCampaignByBookType(prereq.getKey().substring(17), true);
+			runningTotal +=
+					countCampaignByBookType(prereq.getKey().substring(INCLUDES_BOOK_TYPE.length()), true);
 		}
-		else if (prereq.getKey().startsWith("INCLUDES="))
+		else if (prereq.getKey().startsWith(INCLUDES))
 		{
-			runningTotal += countCampaignByName(prereq.getKey().substring(9), source, true);
+			runningTotal += countCampaignByName(prereq.getKey().substring(INCLUDES.length()), source, true);
 		}
 		else
 		{
@@ -204,6 +205,15 @@ public class PreCampaignTester extends AbstractDisplayPrereqTest
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
+	/** Counts directly selected books of a type. */
+	private static final String BOOK_TYPE = "BOOKTYPE="; //$NON-NLS-1$
+
+	/** Counts books of a type, including those a selected collection loads. */
+	private static final String INCLUDES_BOOK_TYPE = "INCLUDESBOOKTYPE="; //$NON-NLS-1$
+
+	/** Matches a named book, including one a selected collection loads. */
+	private static final String INCLUDES = "INCLUDES="; //$NON-NLS-1$
+
 	@Override
 	public String kindHandled()
 	{
@@ -213,14 +223,58 @@ public class PreCampaignTester extends AbstractDisplayPrereqTest
 	@Override
 	public String toHtmlString(final Prerequisite prereq)
 	{
+		String required = describeKey(prereq.getKey());
+
 		// Simplify the output when requiring a single source
 		if (prereq.getOperator() == PrerequisiteOperator.GTEQ && ("1".equals(prereq.getOperand())))
 		{
-			return prereq.getKey();
+			return required;
 		}
 
-        return LanguageBundle.getFormattedString("PreCampaign.toHtml", //$NON-NLS-1$
-            prereq.getOperator().toDisplayString(), prereq.getOperand(), prereq.getKey());
+		return LanguageBundle.getFormattedString("PreCampaign.toHtml", //$NON-NLS-1$
+			prereq.getOperator().toDisplayString(), prereq.getOperand(), required);
+	}
+
+	/**
+	 * Describes what a prerequisite key requires, in words.
+	 *
+	 * <p>A key is the token its author typed into a {@code .pcc} file, and the
+	 * prefix is how the four conditions above are told apart. Showing it as
+	 * written puts that syntax in front of the user, who was told a source
+	 * needed "INCLUDESBOOKTYPE=Core Rules and none of (INCLUDES=DSP - Psionics
+	 * Unleashed, ...)".
+	 *
+	 * <p>Both name forms become the plain name. They differ -- a bare name
+	 * requires the book itself to be selected, where {@code INCLUDES=} is also
+	 * satisfied by a collection that loads it -- but bare keys are the
+	 * commonest kind and arrive in long lists, so qualifying each one would
+	 * bury the names. Where that difference decides anything, the source
+	 * dialog says so itself.
+	 *
+	 * @param key the prerequisite's key
+	 * @return the requirement in words
+	 */
+	private static String describeKey(final String key)
+	{
+		if (key.startsWith(BOOK_TYPE))
+		{
+			return bookTypeDescription(key.substring(BOOK_TYPE.length()));
+		}
+		if (key.startsWith(INCLUDES_BOOK_TYPE))
+		{
+			return bookTypeDescription(key.substring(INCLUDES_BOOK_TYPE.length()));
+		}
+		if (key.startsWith(INCLUDES))
+		{
+			return key.substring(INCLUDES.length());
+		}
+		return key;
+	}
+
+	/** A book type names a kind of book, so saying it alone would read as a title. */
+	private static String bookTypeDescription(final String bookType)
+	{
+		return LanguageBundle.getFormattedString("PreCampaign.bookType", bookType); //$NON-NLS-1$
 	}
 
 }
