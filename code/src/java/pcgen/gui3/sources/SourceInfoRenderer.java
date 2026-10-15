@@ -14,6 +14,7 @@
 package pcgen.gui3.sources;
 
 import java.io.IOException;
+import java.net.URI;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 import java.nio.charset.StandardCharsets;
@@ -28,6 +29,7 @@ import javafx.concurrent.Worker;
 import javafx.scene.web.WebEngine;
 
 import pcgen.core.Campaign;
+import pcgen.gui2.tools.DesktopBrowserLauncher;
 import pcgen.system.ConfigurationSettings;
 
 /**
@@ -133,6 +135,7 @@ final class SourceInfoRenderer
 			return;
 		}
 		wiredEngine = engine;
+		SourceInfoLinks.install(engine, SourceInfoRenderer::openInBrowser);
 		engine.getLoadWorker().stateProperty().addListener((obs, oldState, newState) -> {
 			if (newState != Worker.State.SCHEDULED)
 			{
@@ -152,6 +155,19 @@ final class SourceInfoRenderer
 				javafx.application.Platform.runLater(() -> load(engine, lastCampaign, lastDataDir));
 			}
 		});
+	}
+
+	/** Hands a source's link to the system browser, as the legacy info pane does. */
+	private static void openInBrowser(URI address)
+	{
+		try
+		{
+			DesktopBrowserLauncher.viewInBrowser(address);
+		}
+		catch (IOException exception)
+		{
+			LOG.log(Level.WARNING, exception, () -> "Unable to open " + address);
+		}
 	}
 
 	private static boolean isTempFileLocation(String location)
