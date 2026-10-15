@@ -20,6 +20,7 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
 import java.util.function.Consumer;
+import java.util.logging.Logger;
 
 import javafx.concurrent.Worker;
 import javafx.scene.web.WebEngine;
@@ -44,6 +45,8 @@ import org.w3c.dom.events.EventTarget;
  */
 final class SourceInfoLinks
 {
+	private static final Logger LOG = Logger.getLogger(SourceInfoLinks.class.getName());
+
 	/** The schemes a source link is meant to use. */
 	private static final Set<String> BROWSABLE = Set.of("http", "https");
 
@@ -54,31 +57,47 @@ final class SourceInfoLinks
 	/**
 	 * The browser-openable address {@code href} names, if it names one.
 	 *
+	 * <p>Three quite different things end up here and only two are faults. An
+	 * anchor with no target, a link within the document, and a path relative to
+	 * the data directory are ordinary HTML, and are passed over in silence; a
+	 * malformed address and one naming a scheme PCGen will not open are
+	 * problems in hand-authored data, and are reported. Since the click is
+	 * cancelled either way, a refused link simply does nothing when pressed,
+	 * and without a line in the log the author of the data has no way to find
+	 * out why.
+	 *
 	 * @param href the anchor's href, as written in the data
-	 * @return the address to open, or empty if it is not one to hand over
+	 * @return the address to open, or empty if there is nothing to open
 	 */
 	static Optional<URI> externalTarget(String href)
 	{
-		if (href == null || href.isBlank())
+		String address = href == null ? "" : href.trim();
+		if (address.isEmpty())
 		{
 			return Optional.empty();
 		}
+		URI uri;
 		try
 		{
-			URI uri = new URI(href.trim());
-			String scheme = uri.getScheme();
-			if (scheme == null || !BROWSABLE.contains(scheme.toLowerCase(Locale.ROOT)))
-			{
-				return Optional.empty();
-			}
-			return Optional.of(uri);
+			uri = new URI(address);
 		}
 		catch (URISyntaxException _)
 		{
-			// Hand-authored data, so a malformed address is to be expected
-			// rather than reported as a fault.
+			LOG.warning(() -> "Ignoring a malformed source link: " + address);
 			return Optional.empty();
 		}
+		String scheme = uri.getScheme();
+		if (scheme == null)
+		{
+			// Relative to the document's base href, or a position within it.
+			return Optional.empty();
+		}
+		if (!BROWSABLE.contains(scheme.toLowerCase(Locale.ROOT)))
+		{
+			LOG.warning(() -> "Refusing to open a source link using the " + scheme + " scheme: " + address);
+			return Optional.empty();
+		}
+		return Optional.of(uri);
 	}
 
 	/**

@@ -133,4 +133,84 @@ class SourceInfoLinkTargetTest
 		assertTrue(thrown.getMessage() != null && thrown.getMessage().contains("document"),
 				"the message has to say what was missing: " + thrown.getMessage());
 	}
+
+	/** Captures what the class reports, so "ignored" can be told from "ignored silently". */
+	private static final class Captured implements AutoCloseable
+	{
+		private final java.util.logging.Logger logger =
+				java.util.logging.Logger.getLogger(SourceInfoLinks.class.getName());
+		private final java.util.List<String> messages = new java.util.ArrayList<>();
+		private final java.util.logging.Handler handler = new java.util.logging.Handler()
+		{
+			@Override public void publish(java.util.logging.LogRecord record)
+			{
+				messages.add(record.getMessage());
+			}
+
+			@Override public void flush() { }
+
+			@Override public void close() { }
+		};
+
+		Captured()
+		{
+			logger.addHandler(handler);
+		}
+
+		@Override public void close()
+		{
+			logger.removeHandler(handler);
+		}
+	}
+
+	private static java.util.List<String> reportsFor(String href)
+	{
+		try (var captured = new Captured())
+		{
+			SourceInfoLinks.externalTarget(href);
+			return java.util.List.copyOf(captured.messages);
+		}
+	}
+
+	/**
+	 * A link PCGen refuses to open does nothing when clicked, since the click
+	 * is cancelled either way. Without a word in the log, a publisher with a
+	 * bad URL in their data has no way to discover it.
+	 */
+	@Test
+	void malformedLink_isReported()
+	{
+		var reports = reportsFor("http://exa mple.com/ ]");
+
+		assertEquals(1, reports.size(), reports.toString());
+		assertTrue(reports.getFirst().contains("exa mple.com"), reports.getFirst());
+	}
+
+	@Test
+	void refusedScheme_isReported_sayingWhichScheme()
+	{
+		var reports = reportsFor("javascript:alert(1)");
+
+		assertEquals(1, reports.size(), reports.toString());
+		assertTrue(reports.getFirst().contains("javascript"), reports.getFirst());
+	}
+
+	/**
+	 * An anchor with no target, a fragment, or a path relative to the data
+	 * directory are ordinary HTML, not faults. Reporting them would bury the
+	 * two cases above in noise.
+	 */
+	@Test
+	void ordinaryNonWebLinks_areNotReported()
+	{
+		assertEquals(java.util.List.of(), reportsFor(""), "an anchor with no target");
+		assertEquals(java.util.List.of(), reportsFor("#requirements"), "a link within the document");
+		assertEquals(java.util.List.of(), reportsFor("pathfinder/cover.png"), "a path under the data dir");
+	}
+
+	@Test
+	void aLinkThatOpens_isNotReported()
+	{
+		assertEquals(java.util.List.of(), reportsFor("https://paizo.com"));
+	}
 }
