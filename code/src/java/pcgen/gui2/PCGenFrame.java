@@ -96,7 +96,9 @@ import pcgen.gui3.component.PCGenToolBar;
 import pcgen.gui3.dialog.AboutDialog;
 import pcgen.gui3.dialog.RememberingChoiceDialog;
 import pcgen.gui3.dialog.TipOfTheDayController;
+import pcgen.gui2.dialog.DataInstaller;
 import pcgen.gui3.sources.SourceBundle;
+import pcgen.gui3.sources.SourceDialogOutcome;
 import pcgen.gui3.sources.SourceSelectionBridge;
 import pcgen.gui3.sources.SourceSelectionDialogPane;
 import pcgen.io.PCGFile;
@@ -1389,7 +1391,15 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 				pane.setOnUnloadAllRequested(() -> SwingUtilities.invokeLater(this::unloadSources));
 
 				dialog.showAndWait().ifPresent(button -> {
-					if (button.getButtonData() != ButtonBar.ButtonData.OK_DONE)
+					if (SourceDialogOutcome.installsData(button, pane.getInstallDataButton()))
+					{
+						// The installer is Swing, and rewrites the data the
+						// dialog was just listing, so it opens on the EDT after
+						// this dialog has gone.
+						SwingUtilities.invokeLater(PCGenFrame::showDataInstaller);
+						return;
+					}
+					if (!SourceDialogOutcome.loadsSelection(button))
 					{
 						return;
 					}
@@ -1436,6 +1446,13 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 				Logging.errorPrint("No custom source selection found to delete for: " + bundle.displayName());
 			}
 		});
+	}
+
+	/** Opens the data installer, as the legacy source dialog's Install Data does. */
+	private static void showDataInstaller()
+	{
+		var installer = new DataInstaller();
+		installer.setVisible(true);
 	}
 
 	/**

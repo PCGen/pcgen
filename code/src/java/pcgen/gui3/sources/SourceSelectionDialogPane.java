@@ -66,6 +66,9 @@ public class SourceSelectionDialogPane extends DialogPane
 	@FXML
 	private Tab advancedTab;
 
+	@FXML
+	private ButtonType btnInstallData;
+
 	/**
 	 * Which tab is in front. A plain field, not an observable property: nothing
 	 * binds to it or observes it, and the lazy-property idiom it used to follow
@@ -181,6 +184,20 @@ public class SourceSelectionDialogPane extends DialogPane
 	}
 
 	/**
+	 * The button that leaves this dialog for the data installer.
+	 *
+	 * <p>Every button in the bar dismisses the dialog, so the caller tells this
+	 * one apart by identity once the dialog has closed; see
+	 * {@link SourceDialogOutcome}.
+	 *
+	 * @return the Install Data button
+	 */
+	public ButtonType getInstallDataButton()
+	{
+		return btnInstallData;
+	}
+
+	/**
 	 * Highlights {@code bundle} in the Basic list without changing tab, so a
 	 * save made from the Advanced tab is visible without moving the user off
 	 * the tab they are working in.
@@ -264,7 +281,7 @@ public class SourceSelectionDialogPane extends DialogPane
 		return selected == basicTab ? ActiveTabEnum.BASIC : ActiveTabEnum.ADVANCED;
 	}
 
-	enum ActiveTabEnum
+	public enum ActiveTabEnum
 	{
 		BASIC, ADVANCED
 	}
