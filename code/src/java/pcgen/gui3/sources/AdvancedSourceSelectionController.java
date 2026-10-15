@@ -549,6 +549,16 @@ public class AdvancedSourceSelectionController
 	}
 
 	/**
+	 * Shows the remembered state of "always use advanced sources".
+	 *
+	 * @param alwaysAdvanced whether the box should be ticked
+	 */
+	public void setAlwaysAdvanced(boolean alwaysAdvanced)
+	{
+		chkAlwaysAdvanced.setSelected(alwaysAdvanced);
+	}
+
+	/**
 	 * Builds the {@link SourceBundle} the user has chosen on this tab.
 	 * Prefers the explicit Selected list when non-empty; falls back to the
 	 * single focused leaf in the available tree so single-click + Load still

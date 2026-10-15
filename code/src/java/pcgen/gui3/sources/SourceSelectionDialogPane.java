@@ -184,6 +184,32 @@ public class SourceSelectionDialogPane extends DialogPane
 	}
 
 	/**
+	 * Opens on the remembered tab, with the check box matching.
+	 *
+	 * @param preference the remembered tab preference
+	 */
+	public void applyTabPreference(SourceTabPreference preference)
+	{
+		advancedTabController.setAlwaysAdvanced(preference.alwaysAdvanced());
+		tabSources.getSelectionModel().select(
+				preference.initialTab() == ActiveTabEnum.ADVANCED ? advancedTab : basicTab);
+	}
+
+	/**
+	 * The tab preference as the user leaves it, to be remembered for next time.
+	 *
+	 * <p>Taken from the check box rather than from whichever tab happens to be
+	 * in front: the user may well look at the other one before closing, and
+	 * that is not a change of preference.
+	 *
+	 * @return the preference to store
+	 */
+	public SourceTabPreference getTabPreference()
+	{
+		return new SourceTabPreference(advancedTabController.isAlwaysAdvanced());
+	}
+
+	/**
 	 * The button that leaves this dialog for the data installer.
 	 *
 	 * <p>Every button in the bar dismisses the dialog, so the caller tells this

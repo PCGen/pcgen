@@ -99,6 +99,7 @@ import pcgen.gui3.dialog.TipOfTheDayController;
 import pcgen.gui2.dialog.DataInstaller;
 import pcgen.gui3.sources.SourceBundle;
 import pcgen.gui3.sources.SourceDialogOutcome;
+import pcgen.gui3.sources.SourceTabPreference;
 import pcgen.gui3.sources.SourceSelectionBridge;
 import pcgen.gui3.sources.SourceSelectionDialogPane;
 import pcgen.io.PCGFile;
@@ -1373,6 +1374,9 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 						sourceItems,
 						FXCollections.observableList(gameModes));
 
+				pane.applyTabPreference(SourceTabPreference.fromStored(UIPropertyContext.getInstance()
+						.initBoolean(UIPropertyContext.SOURCE_USE_BASIC_KEY, true)));
+
 				pane.setOnDeleteRequested(bundle -> deleteSourceSelection(bundle, sourceItems));
 				pane.setOnSaveRequested(bundle -> saveSourceSelection(bundle, sourceItems, pane));
 
@@ -1389,6 +1393,11 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 				// Unload All has to hop back to the Swing EDT — it touches
 				// CharacterManager and global Globals state.
 				pane.setOnUnloadAllRequested(() -> SwingUtilities.invokeLater(this::unloadSources));
+
+				// Remembered whatever the dialog was closed with, as the legacy
+				// dialog does on hide -- cancelling still keeps the preference.
+				dialog.setOnHidden(_ -> UIPropertyContext.getInstance().setBoolean(
+						UIPropertyContext.SOURCE_USE_BASIC_KEY, pane.getTabPreference().storedUseBasic()));
 
 				dialog.showAndWait().ifPresent(button -> {
 					if (SourceDialogOutcome.installsData(button, pane.getInstallDataButton()))
