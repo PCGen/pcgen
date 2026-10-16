@@ -22,9 +22,11 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 import java.nio.file.attribute.PosixFilePermissions;
+import java.util.function.Consumer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import javafx.application.Platform;
 import javafx.concurrent.Worker;
 import javafx.scene.web.WebEngine;
 
@@ -49,76 +51,84 @@ import pcgen.system.ConfigurationSettings;
  * {@link ModernHtmlInfoBuilder}'s dev template loading, that lets a developer
  * edit {@code campaign-info.ftl} and see the change via Reload — no restart.
  */
-final class SourceInfoRenderer
+final class SourceInfoRenderer implements AutoCloseable
 {
 	private static final Logger LOG = Logger.getLogger(SourceInfoRenderer.class.getName());
 
-	private static Path tempFile;
+	private final WebEngine engine;
+	private Path tempFile;
 
 	/**
 	 * Held open across renders. Closing a freshly written file is what the cost
 	 * of showing a source almost entirely was; see {@link #writeDocument}.
 	 */
-	private static FileChannel tempChannel;
+	private FileChannel tempChannel;
 
 	/** The document last written, so an identical one need not be written again. */
-	private static String lastHtml;
+	private String lastHtml;
 
 	/** The campaign last rendered into {@link #tempFile}, for reload-regeneration. */
-	private static Campaign lastCampaign;
-	private static Path lastDataDir;
+	private Campaign lastCampaign;
+	private Path lastDataDir;
 
 	/**
 	 * True while we are performing our own {@code load()} of the temp file, so
 	 * the reload interceptor can tell our render apart from a user-triggered
 	 * reload of the same URL.
 	 */
-	private static boolean ourLoad;
+	private boolean ourLoad;
 
-	/** The engine we have installed the reload interceptor on (install once). */
-	private static WebEngine wiredEngine;
-
-	private SourceInfoRenderer()
+	/**
+	 * Owns the document and reload state of one source-info preview.
+	 *
+	 * @param engine the preview engine
+	 */
+	SourceInfoRenderer(WebEngine engine)
 	{
+		this(engine, SourceInfoRenderer::openInBrowser);
 	}
 
 	/**
-	 * Renders {@code campaign}'s source info into {@code engine}. A null
-	 * campaign clears the pane.
+	 * Owns a preview with an injected browser launcher.
 	 *
-	 * @param engine the target engine
-	 * @param campaign the campaign to display, or {@code null} to clear
+	 * @param engine the preview engine
+	 * @param browser opens external links
 	 */
-	static void renderCampaign(WebEngine engine, Campaign campaign)
+	SourceInfoRenderer(WebEngine engine, Consumer<URI> browser)
 	{
-		installReloadInterceptor(engine);
-		if (campaign == null)
-		{
-			lastCampaign = null;
-			clear(engine);
-			return;
-		}
-		lastCampaign = campaign;
-		lastDataDir = Path.of(ConfigurationSettings.getPccFilesDir());
-		load(engine, campaign, lastDataDir);
+		this.engine = engine;
+		SourceInfoLinks.install(engine, browser);
+		installReloadInterceptor();
 	}
 
-	/** Renders {@code campaign} into the temp file and loads it into {@code engine}. */
-	private static void load(WebEngine engine, Campaign campaign, Path dataDir)
+	/**
+	 * Renders a campaign into this preview.
+	 *
+	 * @param campaign the campaign to display
+	 */
+	void renderCampaign(Campaign campaign)
+	{
+		lastCampaign = campaign;
+		lastDataDir = Path.of(ConfigurationSettings.getPccFilesDir());
+		load(campaign, lastDataDir);
+	}
+
+	/** Renders a campaign into this preview's document file and loads it. */
+	private void load(Campaign campaign, Path dataDir)
 	{
 		try
 		{
 			String html = ModernHtmlInfoBuilder.forCampaign(campaign, dataDir);
 			writeDocument(html);
 			ourLoad = true;
-			engine.load(sharedTempFile().toUri().toString());
+			engine.load(documentFile().toUri().toString());
 		}
 		catch (IOException exception)
 		{
 			// Template render or temp write failed: clear the pane rather than
 			// throw on selection.
 			LOG.log(Level.WARNING, exception, () -> "Unable to render source info for " + campaign.getKeyName());
-			clear(engine);
+			clear();
 		}
 	}
 
@@ -128,14 +138,8 @@ final class SourceInfoRenderer
 	 * template edits are picked up. Our own {@link #load} is ignored via the
 	 * {@link #ourLoad} guard.
 	 */
-	private static void installReloadInterceptor(WebEngine engine)
+	private void installReloadInterceptor()
 	{
-		if (wiredEngine == engine)
-		{
-			return;
-		}
-		wiredEngine = engine;
-		SourceInfoLinks.install(engine, SourceInfoRenderer::openInBrowser);
 		engine.getLoadWorker().stateProperty().addListener((obs, oldState, newState) -> {
 			if (newState != Worker.State.SCHEDULED)
 			{
@@ -150,9 +154,14 @@ final class SourceInfoRenderer
 			// A reload we did not initiate (built-in menu) of our temp file:
 			// regenerate from the last campaign so the reload shows fresh output.
 			// Defer off the load-worker callback to avoid a re-entrant load().
-			if (lastCampaign != null && isTempFileLocation(engine.getLocation()))
+			if (lastCampaign != null && engine.getLocation().equals(tempFile.toUri().toString()))
 			{
-				javafx.application.Platform.runLater(() -> load(engine, lastCampaign, lastDataDir));
+				Platform.runLater(() -> {
+					if (lastCampaign != null)
+					{
+						load(lastCampaign, lastDataDir);
+					}
+				});
 			}
 		});
 	}
@@ -170,16 +179,31 @@ final class SourceInfoRenderer
 		}
 	}
 
-	private static boolean isTempFileLocation(String location)
-	{
-		return location != null && tempFile != null && location.equals(tempFile.toUri().toString());
-	}
-
 	/** Clears the pane. An empty document needs no file access. */
-	static void clear(WebEngine engine)
+	void clear()
 	{
+		lastCampaign = null;
 		ourLoad = true;
 		engine.loadContent("");
+	}
+
+	/** Cancels pending loads and closes this preview's cached document channel. */
+	@Override
+	public void close()
+	{
+		lastCampaign = null;
+		engine.getLoadWorker().cancel();
+		if (tempChannel != null)
+		{
+			try
+			{
+				tempChannel.close();
+			}
+			catch (IOException exception)
+			{
+				LOG.log(Level.WARNING, exception, () -> "Unable to close source info document");
+			}
+		}
 	}
 
 	/**
@@ -203,13 +227,13 @@ final class SourceInfoRenderer
 	 * @param html the document to write
 	 * @throws IOException if it cannot be written
 	 */
-	static synchronized void writeDocument(String html) throws IOException
+	void writeDocument(String html) throws IOException
 	{
 		if (html.equals(lastHtml))
 		{
 			return;
 		}
-		var channel = sharedChannel();
+		var channel = documentChannel();
 		channel.truncate(0);
 		channel.position(0);
 		var bytes = ByteBuffer.wrap(html.getBytes(StandardCharsets.UTF_8));
@@ -222,11 +246,11 @@ final class SourceInfoRenderer
 		lastHtml = html;
 	}
 
-	private static synchronized FileChannel sharedChannel() throws IOException
+	private FileChannel documentChannel() throws IOException
 	{
 		if (tempChannel == null)
 		{
-			tempChannel = FileChannel.open(sharedTempFile(), StandardOpenOption.WRITE);
+			tempChannel = FileChannel.open(documentFile(), StandardOpenOption.WRITE);
 		}
 		return tempChannel;
 	}
@@ -246,7 +270,7 @@ final class SourceInfoRenderer
 	 * @return the file to render into
 	 * @throws IOException if the file or its directory cannot be created
 	 */
-	static synchronized Path sharedTempFile() throws IOException
+	Path documentFile() throws IOException
 	{
 		if (tempFile == null)
 		{

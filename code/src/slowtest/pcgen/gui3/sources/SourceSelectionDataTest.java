@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
@@ -243,7 +244,9 @@ class SourceSelectionDataTest
 		var plan = CampaignAdditionPlanner.plan(preSelected,
 				CampaignDependencyOrder.mostDependedUponFirst(candidates),
 				FacadeFactory::findUnqualified);
-		return CampaignRejectionDiagnosis.diagnose(plan.rejected(), preSelected,
+		var selected = new ArrayList<>(preSelected);
+		selected.addAll(plan.accepted());
+		return CampaignRejectionDiagnosis.diagnose(plan.rejected(), selected,
 				Campaign::getSubCampaigns, FacadeFactory::findUnqualified);
 	}
 
@@ -288,14 +291,11 @@ class SourceSelectionDataTest
 	}
 
 	/**
-	 * The rival collections are refused by the selected one and by nothing
-	 * else: every MultiSet carries {@code !PRECAMPAIGN:1,BOOKTYPE=MultiSet},
-	 * so selecting one rules out the others. That obstacle appears nowhere in
-	 * the refused collection's own requirements, which is exactly the case the
-	 * old message could not explain.
+	 * The rival collections conflict with the selected one, even when accepted
+	 * additions introduce further blockers. Every MultiSet excludes the others.
 	 */
 	@Test
-	void addingEveryBook_whileACollectionIsSelected_should_nameItAsTheBlocker_forRivalCollections()
+	void addingEveryBook_whileACollectionIsSelected_should_nameItAmongTheBlockers_forRivalCollections()
 	{
 		var diagnoses = diagnoseAddingEverythingWith(GM_COLLECTION);
 
@@ -304,9 +304,9 @@ class SourceSelectionDataTest
 				() -> "Diagnosed: " + describe(diagnoses));
 		diagnoses.stream()
 				.filter(diagnosis -> diagnosis.reason() instanceof CampaignRejectionDiagnosis.ConflictsWith)
-				.forEach(diagnosis -> assertEquals(List.of(GM_COLLECTION),
+				.forEach(diagnosis -> assertTrue(
 						((CampaignRejectionDiagnosis.ConflictsWith) diagnosis.reason()).blockers().stream()
-								.map(Campaign::getKeyName).toList(),
+								.map(Campaign::getKeyName).toList().contains(GM_COLLECTION),
 						() -> "the selected collection is the obstacle for "
 								+ diagnosis.campaign().getKeyName()));
 	}
@@ -327,21 +327,18 @@ class SourceSelectionDataTest
 				() -> "Diagnosed: " + describe(diagnoses));
 	}
 
-	/**
-	 * Nothing is selected, so no rejection can be anyone else's fault. This
-	 * guards against a diagnosis that blames a selected book for a rule the
-	 * data applies regardless.
-	 */
+	/** Newly accepted books form the context for diagnosing the remaining refusals. */
 	@Test
-	void addingEveryBook_fromAnEmptySelection_should_diagnoseEveryRejectionAsUnmet()
+	void addingEveryBook_fromAnEmptySelection_should_reportTheReducedEditionsAsAlreadyIncluded()
 	{
 		var plan = planSelectingEverything();
 
-		var diagnoses = CampaignRejectionDiagnosis.diagnose(plan.rejected(), List.of(),
+		var diagnoses = CampaignRejectionDiagnosis.diagnose(plan.rejected(), plan.accepted(),
 				Campaign::getSubCampaigns, FacadeFactory::findUnqualified);
 
-		assertEquals(keys(plan.rejected()).stream().sorted().toList(),
-				keysDiagnosedAs(diagnoses, CampaignRejectionDiagnosis.Unmet.class),
+		assertEquals(List.of("Bestiary 2 ~ Player Options Only", "Bestiary 3 ~ Player Options Only",
+						"Bestiary 4 ~ Player Options Only", "Bestiary ~ Player Options Only"),
+				keysDiagnosedAs(diagnoses, CampaignRejectionDiagnosis.AlreadyIncluded.class),
 				() -> "Diagnosed: " + describe(diagnoses));
 	}
 
@@ -362,7 +359,7 @@ class SourceSelectionDataTest
 				.toList();
 		assertEquals(wanted.size(), selected.size(), () -> "the selected books must exist: " + wanted);
 		return CampaignAvailability
-				.classify(available, selected, Campaign::getSubCampaigns, FacadeFactory::passesPrereqs)
+				.classify(available, selected, Campaign::getSubCampaigns, FacadeFactory::findUnqualified)
 				.entrySet().stream()
 				.collect(Collectors.groupingBy(Map.Entry::getValue,
 						Collectors.mapping(entry -> entry.getKey().getKeyName(),
@@ -370,19 +367,27 @@ class SourceSelectionDataTest
 										keys -> keys.stream().sorted().toList()))));
 	}
 
-	/**
-	 * With nothing selected the tree should be almost entirely black: a book
-	 * that needs another is not blocked, it simply needs the other book added
-	 * in the same breath, which the planner does.
-	 */
+	/** An individual supplement is blocked until its prerequisite is selected. */
 	@Test
-	void withNothingSelected_mostBooksAreOfferedAsAddable()
+	void withNothingSelected_coreIsAddableButSupplementsNeedTheirPrerequisites()
 	{
 		var byStatus = availabilityWith();
 
 		assertEquals(List.of(), byStatus.getOrDefault(CampaignAvailability.Status.ALREADY_INCLUDED, List.of()),
 				"nothing is selected, so nothing can be loaded through a selection");
-		assertFalse(byStatus.getOrDefault(CampaignAvailability.Status.ADDABLE, List.of()).isEmpty());
+		assertTrue(byStatus.get(CampaignAvailability.Status.ADDABLE).contains("Core Rulebook"));
+		assertTrue(byStatus.get(CampaignAvailability.Status.BLOCKED).contains("Advanced Player's Guide"));
+	}
+
+	@Test
+	void afterRemovingCore_otherBooksMissingCoreRemainBlocked()
+	{
+		var byStatus = availabilityWith("Advanced Player's Guide");
+
+		assertTrue(byStatus.get(CampaignAvailability.Status.BLOCKED).contains("Bestiary"),
+				"a broken selection must not hide another book's missing prerequisite");
+		assertTrue(byStatus.get(CampaignAvailability.Status.ADDABLE).contains("Core Rulebook"),
+				"the book that repairs the selection must remain addable");
 	}
 
 	/**
@@ -435,5 +440,14 @@ class SourceSelectionDataTest
 		assertTrue(alreadyIncluded >= 10,
 				() -> "the collection loads at least ten of the offered books; alreadyIncluded="
 						+ alreadyIncluded);
+		List<Campaign> available = everyPathfinderBook();
+		Campaign collection = available.stream()
+				.filter(campaign -> GM_COLLECTION.equals(campaign.getKeyName()))
+				.findFirst().orElseThrow();
+		long swingBlocked = available.stream()
+				.filter(campaign -> !FacadeFactory.passesPrereqs(List.of(collection, campaign)))
+				.count();
+		assertTrue(blocked < swingBlocked,
+				() -> "gui3 blocked=" + blocked + ", Swing marked=" + swingBlocked);
 	}
 }

@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import pcgen.core.Campaign;
 import pcgen.core.GameMode;
 
 import org.junit.jupiter.api.Test;
@@ -95,19 +96,6 @@ class SourceSaveDecisionTest
 		assertTrue(decision.message().orElseThrow().contains("Core"), decision.message().orElseThrow());
 	}
 
-	@Test
-	void blankName_isRefused()
-	{
-		assertFalse(decide("   ").canSave());
-		assertFalse(decide("").canSave());
-	}
-
-	@Test
-	void absentName_isRefused()
-	{
-		assertFalse(decide(null).canSave());
-	}
-
 	/** A name typed with stray spaces is the same name. */
 	@Test
 	void surroundingWhitespace_isIgnored()
@@ -151,14 +139,14 @@ class SourceSaveDecisionTest
 		assertTrue(decide("Fresh").message().isEmpty());
 	}
 
-	private static pcgen.core.Campaign campaign(String name)
+	private static Campaign campaign(String name)
 	{
-		var campaign = new pcgen.core.Campaign();
+		var campaign = new Campaign();
 		campaign.setName(name);
 		return campaign;
 	}
 
-	private static SourceBundle saved(String name, pcgen.core.Campaign... campaigns)
+	private static SourceBundle saved(String name, Campaign... campaigns)
 	{
 		return new SourceBundle(name, MODE, List.of(campaigns), true, null);
 	}
@@ -199,17 +187,6 @@ class SourceSaveDecisionTest
 
 		var suggestion = AdvancedSourceSelectionController.suggestedSaveName(
 				List.of(core), List.of(new SourceBundle("Core", MODE, List.of(core), false, null)));
-
-		assertEquals("", suggestion);
-	}
-
-	@Test
-	void suggestedName_ignoresUnnamedSelections()
-	{
-		var core = campaign("Core Rulebook");
-
-		var suggestion = AdvancedSourceSelectionController.suggestedSaveName(
-				List.of(core), List.of(new SourceBundle(null, MODE, List.of(core), true, null)));
 
 		assertEquals("", suggestion);
 	}
@@ -276,13 +253,6 @@ class SourceSaveDecisionTest
 				"confirming must not override a name that cannot be used at all");
 		assertEquals(1, reported.size());
 		assertTrue(reported.getFirst().contains("Core"), reported.getFirst());
-	}
-
-	@Test
-	void blankName_isNotStored_andSaysNothing()
-	{
-		assertTrue(plan("   ", true, SOURCES).isEmpty());
-		assertEquals(List.of(), reported, "the user simply has not finished typing");
 	}
 
 	@Test

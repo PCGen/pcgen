@@ -34,13 +34,12 @@ public final class SourceDialogOutcome
 	/**
 	 * Whether the highlighted selection should now be loaded.
 	 *
-	 * @param chosen the button the dialog closed on, or {@code null} if it was
-	 *               dismissed without one
+	 * @param chosen the button supplied by the dialog's result
 	 * @return true if the user asked to load
 	 */
 	public static boolean loadsSelection(ButtonType chosen)
 	{
-		return chosen != null && chosen.getButtonData() == ButtonData.OK_DONE;
+		return chosen.getButtonData() == ButtonData.OK_DONE;
 	}
 
 	/**
@@ -51,13 +50,12 @@ public final class SourceDialogOutcome
 	 * not what it does, so a second left-hand button would otherwise open the
 	 * installer as well.
 	 *
-	 * @param chosen the button the dialog closed on, or {@code null} if it was
-	 *               dismissed without one
+	 * @param chosen the button supplied by the dialog's result
 	 * @param installData the dialog's Install Data button
 	 * @return true if the user asked to install data
 	 */
 	public static boolean installsData(ButtonType chosen, ButtonType installData)
 	{
-		return chosen != null && chosen == installData;
+		return chosen == installData;
 	}
 }

@@ -16,7 +16,6 @@ package pcgen.gui3.sources;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Locale;
-import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
 import java.util.function.Consumer;
@@ -71,7 +70,7 @@ final class SourceInfoLinks
 	 */
 	static Optional<URI> externalTarget(String href)
 	{
-		String address = href == null ? "" : href.trim();
+		String address = href.trim();
 		if (address.isEmpty())
 		{
 			return Optional.empty();
@@ -125,36 +124,19 @@ final class SourceInfoLinks
 	/**
 	 * Attaches the click handlers to {@code document}'s anchors.
 	 *
-	 * <p>Called only once the load worker reports {@code SUCCEEDED}, where a
-	 * loaded document is not something to hedge on. Returning quietly on a null
-	 * one would leave every link in the pane dead and say nothing about why,
-	 * whereas the thrown {@code NullPointerException} reaches PCGen's
-	 * uncaught-exception handler and the log. It costs the pane nothing:
-	 * JavaFX invokes property listeners individually and routes a throw to that
-	 * handler, so the renderer's reload interceptor still runs.
-	 *
 	 * @param document the loaded document
 	 * @param browser opens an address
 	 */
 	static void interceptAnchors(Document document, Consumer<URI> browser)
 	{
-		Objects.requireNonNull(document, "document was not available after a successful load");
 		var anchors = document.getElementsByTagName("a");
 		for (int i = 0; i < anchors.getLength(); i++)
 		{
-			if (anchors.item(i) instanceof EventTarget anchor)
-			{
-				anchor.addEventListener("click", event -> {
-					// Stop the pane following the link whatever the address
-					// turns out to be: an address not worth opening is still
-					// not worth navigating to.
-					event.preventDefault();
-					if (event.getCurrentTarget() instanceof Element element)
-					{
-						externalTarget(element.getAttribute("href")).ifPresent(browser);
-					}
-				}, false);
-			}
+			var element = (Element) anchors.item(i);
+			((EventTarget) element).addEventListener("click", event -> {
+				event.preventDefault();
+				externalTarget(element.getAttribute("href")).ifPresent(browser);
+			}, false);
 		}
 	}
 }

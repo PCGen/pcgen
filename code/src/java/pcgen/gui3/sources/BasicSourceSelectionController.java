@@ -37,7 +37,7 @@ import pcgen.system.LanguageBundle;
  * Controller for the Basic tab of the source-selection dialog: a list of
  * pre-defined {@link SourceBundle}s plus an HTML preview of the focused entry.
  */
-public class BasicSourceSelectionController
+public class BasicSourceSelectionController implements AutoCloseable
 {
 	private static final Logger LOG = Logger.getLogger(BasicSourceSelectionController.class.getName());
 
@@ -57,27 +57,30 @@ public class BasicSourceSelectionController
 	@FXML
 	private WebView infoPane;
 
-	private Runnable onLoadRequested = () -> { };
+	private SourceInfoRenderer infoRenderer;
 
-	private Consumer<SourceBundle> onDeleteRequested = bundle -> { };
+	private Runnable onLoadRequested;
 
-	private Predicate<SourceBundle> deleteConfirmation = BasicSourceSelectionController::confirmDelete;
+	private Consumer<SourceBundle> onDeleteRequested;
+
+	private Predicate<SourceBundle> deleteConfirmation = this::confirmDelete;
 
 	@FXML
 	protected void initialize()
 	{
+		infoRenderer = new SourceInfoRenderer(infoPane.getEngine());
 		sourceList.setCellFactory(list -> new SourceBundleListCell(this::requestDelete));
 		sourceList.getSelectionModel().selectedItemProperty().addListener((obs, old, selected) -> {
 			if (selected == null || selected.campaigns().isEmpty())
 			{
-				SourceInfoRenderer.clear(infoPane.getEngine());
+				infoRenderer.clear();
 				return;
 			}
 			CONTEXT.setProperty(PROP_SELECTED_SOURCE, selected.displayName());
 			// Use the first campaign as the info source. If the bundle
 			// holds several, the info covers only the leader; renderer can be
 			// expanded later to summarise the whole bundle.
-			SourceInfoRenderer.renderCampaign(infoPane.getEngine(), selected.campaigns().getFirst());
+			infoRenderer.renderCampaign(selected.campaigns().getFirst());
 		});
 		// The trash icon is mouse-only, so give the list a keyboard equivalent.
 		sourceList.setOnKeyPressed(event -> {
@@ -94,6 +97,13 @@ public class BasicSourceSelectionController
 				onLoadRequested.run();
 			}
 		});
+	}
+
+	/** Releases the preview's document channel when the source dialog closes. */
+	@Override
+	public void close()
+	{
+		infoRenderer.close();
 	}
 
 	public void setSources(ObservableList<SourceBundle> items)
@@ -122,10 +132,6 @@ public class BasicSourceSelectionController
 	 */
 	public void selectSource(SourceBundle bundle)
 	{
-		if (bundle == null || bundle.name() == null)
-		{
-			return;
-		}
 		sourceList.getItems().stream()
 				.filter(item -> bundle.name().equals(item.name()))
 				.findFirst()
@@ -155,7 +161,7 @@ public class BasicSourceSelectionController
 	 */
 	public void setOnLoadRequested(Runnable handler)
 	{
-		this.onLoadRequested = handler == null ? () -> { } : handler;
+		this.onLoadRequested = handler;
 	}
 
 	/**
@@ -164,7 +170,7 @@ public class BasicSourceSelectionController
 	 */
 	public void setOnDeleteRequested(Consumer<SourceBundle> handler)
 	{
-		this.onDeleteRequested = handler == null ? bundle -> { } : handler;
+		this.onDeleteRequested = handler;
 	}
 
 	/** Overrides the confirmation prompt shown before a delete is forwarded. */
@@ -191,9 +197,10 @@ public class BasicSourceSelectionController
 	 * Default confirmation: deleting a saved selection is irreversible, and the
 	 * trash icon sits on the row itself, so it is easy to hit by accident.
 	 */
-	private static boolean confirmDelete(SourceBundle bundle)
+	private boolean confirmDelete(SourceBundle bundle)
 	{
 		var alert = buildDeleteConfirmation(bundle);
+		alert.initOwner(sourceList.getScene().getWindow());
 		return alert.showAndWait()
 				.filter(button -> button.getButtonData() == ButtonData.OK_DONE)
 				.isPresent();

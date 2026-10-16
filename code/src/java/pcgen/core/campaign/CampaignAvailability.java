@@ -18,8 +18,8 @@ import java.util.Collections;
 import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.function.Function;
-import java.util.function.Predicate;
 
 import pcgen.core.Campaign;
 
@@ -81,29 +81,34 @@ public final class CampaignAvailability
 	 * @param selected the campaigns already selected
 	 * @param contentsOf the campaigns a campaign loads, normally
 	 *                   {@code Campaign::getSubCampaigns}
-	 * @param passesPrereqs whether a set of campaigns qualifies
+	 * @param findUnqualified the campaigns that fail against a whole selection
 	 * @return the status of each offered campaign, keyed by identity
 	 */
 	public static Map<Campaign, Status> classify(List<Campaign> offered, List<Campaign> selected,
-			Function<Campaign, List<Campaign>> contentsOf, Predicate<List<Campaign>> passesPrereqs)
+			Function<Campaign, List<Campaign>> contentsOf,
+			Function<List<Campaign>, List<Campaign>> findUnqualified)
 	{
 		Map<Campaign, Status> statuses = new IdentityHashMap<>();
 		if (offered.isEmpty())
 		{
 			return Collections.unmodifiableMap(statuses);
 		}
-		boolean selectionAlreadyFails = !selected.isEmpty() && !passesPrereqs.test(List.copyOf(selected));
+		Set<Campaign> alreadyUnqualified = Collections.newSetFromMap(new IdentityHashMap<>());
+		if (!selected.isEmpty())
+		{
+			alreadyUnqualified.addAll(findUnqualified.apply(List.copyOf(selected)));
+		}
 		for (Campaign campaign : offered)
 		{
 			statuses.put(campaign,
-					statusOf(campaign, selected, selectionAlreadyFails, contentsOf, passesPrereqs));
+					statusOf(campaign, selected, alreadyUnqualified, contentsOf, findUnqualified));
 		}
 		return Collections.unmodifiableMap(statuses);
 	}
 
 	private static Status statusOf(Campaign campaign, List<Campaign> selected,
-			boolean selectionAlreadyFails, Function<Campaign, List<Campaign>> contentsOf,
-			Predicate<List<Campaign>> passesPrereqs)
+			Set<Campaign> alreadyUnqualified, Function<Campaign, List<Campaign>> contentsOf,
+			Function<List<Campaign>, List<Campaign>> findUnqualified)
 	{
 		if (isSelected(campaign, selected)
 				|| CampaignContainment.containerOf(campaign, selected, contentsOf) != null)
@@ -112,13 +117,8 @@ public final class CampaignAvailability
 		}
 		List<Campaign> withCandidate = new ArrayList<>(selected);
 		withCandidate.add(campaign);
-		if (passesPrereqs.test(withCandidate))
-		{
-			return Status.ADDABLE;
-		}
-		// A selection the engine already refuses would otherwise mark every
-		// book blocked, blaming each for a fault none of them caused.
-		return selectionAlreadyFails ? Status.ADDABLE : Status.BLOCKED;
+		return findUnqualified.apply(withCandidate).stream().allMatch(alreadyUnqualified::contains)
+				? Status.ADDABLE : Status.BLOCKED;
 	}
 
 	private static boolean isSelected(Campaign campaign, List<Campaign> selected)

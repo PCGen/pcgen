@@ -46,7 +46,7 @@ import pcgen.system.LanguageBundle;
  * buttons jump on every tab switch, and any {@code ButtonType} button dismisses
  * the dialog unless its action event is consumed.
  */
-public class SourceSelectionDialogPane extends DialogPane
+public class SourceSelectionDialogPane extends DialogPane implements AutoCloseable
 {
 	private final ObservableList<SourceBundle> sources;
 	private final ObservableList<GameMode> gameModes;
@@ -111,8 +111,6 @@ public class SourceSelectionDialogPane extends DialogPane
 
 		basicTabController.selectedSourceProperty().addListener(
 				(obs, old, bundle) -> project(model, bundle));
-		basicTabController.getSelectedSource().ifPresent(bundle -> project(model, bundle));
-
 		trackActiveTab(tabSources, basicTab, tab -> activeTab = tab);
 	}
 
@@ -145,6 +143,14 @@ public class SourceSelectionDialogPane extends DialogPane
 	public void setOnLoadRequested(Runnable handler)
 	{
 		basicTabController.setOnLoadRequested(handler);
+	}
+
+	/** Releases both previews when the dialog closes. */
+	@Override
+	public void close()
+	{
+		basicTabController.close();
+		advancedTabController.close();
 	}
 
 	/**
@@ -191,6 +197,10 @@ public class SourceSelectionDialogPane extends DialogPane
 	public void applyTabPreference(SourceTabPreference preference)
 	{
 		advancedTabController.setAlwaysAdvanced(preference.alwaysAdvanced());
+		if (!preference.alwaysAdvanced())
+		{
+			basicTabController.getSelectedSource().ifPresent(bundle -> project(model, bundle));
+		}
 		tabSources.getSelectionModel().select(
 				preference.initialTab() == ActiveTabEnum.ADVANCED ? advancedTab : basicTab);
 	}

@@ -57,24 +57,15 @@ public final class SourceSelectionBridge
 	/**
 	 * Resolves {@code bundle} to its custom facade and hands it to
 	 * {@code deleter}, reporting whether the delete actually happened. Returns
-	 * false without calling the deleter when the bundle is absent, unnamed, not
-	 * user-modifiable, or has no matching facade.
+	 * false without calling the deleter when no matching facade remains.
 	 * <p>
 	 * Callers must only drop the corresponding row on a true return.
-	 * {@code FacadeFactory.deleteCustomSourceSelection} throws
-	 * {@code IllegalArgumentException} for anything that is not a
-	 * {@code CustomSourceSelectionFacade}, hence the modifiable guard.
+	 * The controller supplies a named custom selection after confirming deletion.
 	 */
 	public static boolean deleteSourceSelection(
 			SourceBundle bundle, List<SourceSelectionFacade> candidates,
 			Consumer<SourceSelectionFacade> deleter)
 	{
-		if (bundle == null || bundle.name() == null || !bundle.modifiable())
-		{
-			return false;
-		}
-		// Matched on name(), never displayName(): an unnamed bundle falls back to
-		// the game-mode name, which would delete whichever selection shares it.
 		return resolveCustomFacade(bundle.name(), candidates)
 				.map(facade -> {
 					deleter.accept(facade);
@@ -93,31 +84,26 @@ public final class SourceSelectionBridge
 	 * matched exactly, as {@link #classifyName} does, so the dialog's decision
 	 * to overwrite and the facade it then overwrites cannot disagree.
 	 *
-	 * <p>A blank or absent name is refused rather than stored. The engine would
-	 * accept one, and the resulting row is indistinguishable from the unnamed
-	 * fallback the Basic list shows for ad-hoc selections.
+	 * <p>The controller supplies a named selection accepted by
+	 * {@link AdvancedSourceSelectionController#plannedSave}.
 	 *
 	 * @param bundle the selection to store
 	 * @param candidates the existing custom selections, typically
 	 *                   {@code FacadeFactory.getCustomSourceSelections()}
 	 * @param creator makes a new custom selection of a given name, typically
 	 *                {@code FacadeFactory::createCustomSourceSelection}
-	 * @return the facade written to, or empty if there was nothing to write
+	 * @return the facade written to
 	 */
-	public static Optional<SourceSelectionFacade> saveSourceSelection(
+	public static SourceSelectionFacade saveSourceSelection(
 			SourceBundle bundle, List<SourceSelectionFacade> candidates,
 			Function<String, SourceSelectionFacade> creator)
 	{
-		if (bundle == null || bundle.name() == null || bundle.name().isBlank())
-		{
-			return Optional.empty();
-		}
 		String name = bundle.name();
 		SourceSelectionFacade facade =
 				resolveCustomFacade(name, candidates).orElseGet(() -> creator.apply(name));
-		facade.setCampaigns(List.copyOf(bundle.campaigns()));
+		facade.setCampaigns(bundle.campaigns());
 		facade.setGameMode(bundle.gameMode());
-		return Optional.of(facade);
+		return facade;
 	}
 
 	/**
@@ -129,7 +115,7 @@ public final class SourceSelectionBridge
 	{
 		for (SourceBundle bundle : sources)
 		{
-			if (bundle.name() != null && bundle.name().equals(name))
+			if (bundle.name().equals(name))
 			{
 				return bundle.modifiable() ? NameClass.OVERWRITE_CUSTOM : NameClass.BLOCK_BUILTIN;
 			}

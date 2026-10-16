@@ -44,19 +44,13 @@ record SourceSaveDecision(String name, boolean canSave, boolean needsConfirmatio
 	/**
 	 * Decides whether {@code name} may be saved over {@code sources}.
 	 *
-	 * @param name the name as typed, possibly null or padded
+	 * @param name the nonblank name accepted by the prompt, possibly padded
 	 * @param sources the selections already on offer
 	 * @return the decision
 	 */
 	static SourceSaveDecision forName(String name, List<SourceBundle> sources)
 	{
-		String trimmed = name == null ? "" : name.trim();
-		if (trimmed.isEmpty())
-		{
-			// The Save button is disabled for an empty name, so there is
-			// nothing to explain: the user has not finished typing.
-			return new SourceSaveDecision(trimmed, false, false, Optional.empty());
-		}
+		String trimmed = name.trim();
 		return switch (SourceSelectionBridge.classifyName(trimmed, sources))
 		{
 			case NEW -> new SourceSaveDecision(trimmed, true, false, Optional.empty());

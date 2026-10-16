@@ -1377,7 +1377,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 				pane.applyTabPreference(SourceTabPreference.fromStored(UIPropertyContext.getInstance()
 						.initBoolean(UIPropertyContext.SOURCE_USE_BASIC_KEY, true)));
 
-				pane.setOnDeleteRequested(bundle -> deleteSourceSelection(bundle, sourceItems));
+				pane.setOnDeleteRequested(bundle -> deleteSourceSelection(bundle, sourceItems, pane));
 				pane.setOnSaveRequested(bundle -> saveSourceSelection(bundle, sourceItems, pane));
 
 				var dialog = new Dialog<ButtonType>();
@@ -1396,8 +1396,11 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 
 				// Remembered whatever the dialog was closed with, as the legacy
 				// dialog does on hide -- cancelling still keeps the preference.
-				dialog.setOnHidden(_ -> UIPropertyContext.getInstance().setBoolean(
-						UIPropertyContext.SOURCE_USE_BASIC_KEY, pane.getTabPreference().storedUseBasic()));
+				dialog.setOnHidden(_ -> {
+					pane.close();
+					UIPropertyContext.getInstance().setBoolean(
+							UIPropertyContext.SOURCE_USE_BASIC_KEY, pane.getTabPreference().storedUseBasic());
+				});
 
 				dialog.showAndWait().ifPresent(button -> {
 					if (SourceDialogOutcome.installsData(button, pane.getInstallDataButton()))
@@ -1439,7 +1442,8 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 	 * Removing the row only on success keeps the dialog honest if the selection
 	 * has already gone (e.g. deleted from the legacy dialog).
 	 */
-	private void deleteSourceSelection(SourceBundle bundle, ObservableList<SourceBundle> sourceItems)
+	private void deleteSourceSelection(SourceBundle bundle, ObservableList<SourceBundle> sourceItems,
+			SourceSelectionDialogPane pane)
 	{
 		SwingUtilities.invokeLater(() -> {
 			var deleted = SourceSelectionBridge.deleteSourceSelection(
@@ -1448,7 +1452,12 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 					FacadeFactory::deleteCustomSourceSelection);
 			if (deleted)
 			{
-				Platform.runLater(() -> sourceItems.remove(bundle));
+				Platform.runLater(() -> {
+					if (pane.getScene().getWindow().isShowing())
+					{
+						sourceItems.remove(bundle);
+					}
+				});
 			}
 			else
 			{
@@ -1481,16 +1490,15 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 			SourceSelectionDialogPane pane)
 	{
 		SwingUtilities.invokeLater(() -> {
-			var saved = SourceSelectionBridge.saveSourceSelection(
+			SourceSelectionBridge.saveSourceSelection(
 					bundle,
 					ListFacades.wrap(FacadeFactory.getCustomSourceSelections()),
 					FacadeFactory::createCustomSourceSelection);
-			if (saved.isEmpty())
-			{
-				Logging.errorPrint("Could not save the source selection: " + bundle.displayName());
-				return;
-			}
 			Platform.runLater(() -> {
+				if (!pane.getScene().getWindow().isShowing())
+				{
+					return;
+				}
 				int existing = indexOfSourceNamed(sourceItems, bundle.name());
 				if (existing < 0)
 				{

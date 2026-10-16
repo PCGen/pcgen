@@ -14,12 +14,19 @@
 package pcgen.gui3.sources;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.testfx.util.WaitForAsyncUtils.asyncFx;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
+import java.util.concurrent.TimeUnit;
 
+import javafx.scene.web.WebEngine;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.testfx.framework.junit5.ApplicationExtension;
 
 /**
  * Writing the rendered document is the expensive half of showing a source:
@@ -34,17 +41,33 @@ import org.junit.jupiter.api.Test;
  * unless it is truncated, and skipping work is only safe if "unchanged" really
  * means unchanged.
  */
+@ExtendWith(ApplicationExtension.class)
 class SourceInfoDocumentWriteTest
 {
-	private static String contents() throws IOException
+	private SourceInfoRenderer renderer;
+
+	@BeforeEach
+	void createRenderer() throws Exception
 	{
-		return Files.readString(SourceInfoRenderer.sharedTempFile(), StandardCharsets.UTF_8);
+		renderer = asyncFx(() -> new SourceInfoRenderer(new WebEngine()))
+				.get(5, TimeUnit.SECONDS);
+	}
+
+	@AfterEach
+	void closeRenderer() throws Exception
+	{
+		asyncFx(renderer::close).get(5, TimeUnit.SECONDS);
+	}
+
+	private String contents() throws IOException
+	{
+		return Files.readString(renderer.documentFile(), StandardCharsets.UTF_8);
 	}
 
 	@Test
 	void documentIsWrittenToTheFile() throws IOException
 	{
-		SourceInfoRenderer.writeDocument("<html>Core Rulebook</html>");
+		renderer.writeDocument("<html>Core Rulebook</html>");
 
 		assertEquals("<html>Core Rulebook</html>", contents());
 	}
@@ -52,9 +75,9 @@ class SourceInfoDocumentWriteTest
 	@Test
 	void adifferentDocumentReplacesTheLastOne() throws IOException
 	{
-		SourceInfoRenderer.writeDocument("<html>Core Rulebook</html>");
+		renderer.writeDocument("<html>Core Rulebook</html>");
 
-		SourceInfoRenderer.writeDocument("<html>Bestiary</html>");
+		renderer.writeDocument("<html>Bestiary</html>");
 
 		assertEquals("<html>Bestiary</html>", contents());
 	}
@@ -67,9 +90,9 @@ class SourceInfoDocumentWriteTest
 	@Test
 	void ashorterDocumentDoesNotLeaveTheTailOfALongerOne() throws IOException
 	{
-		SourceInfoRenderer.writeDocument("<html>" + "x".repeat(4000) + "</html>");
+		renderer.writeDocument("<html>" + "x".repeat(4000) + "</html>");
 
-		SourceInfoRenderer.writeDocument("<html>short</html>");
+		renderer.writeDocument("<html>short</html>");
 
 		assertEquals("<html>short</html>", contents());
 	}
@@ -83,10 +106,10 @@ class SourceInfoDocumentWriteTest
 	@Test
 	void anUnchangedDocumentIsNotWrittenAgain() throws IOException
 	{
-		SourceInfoRenderer.writeDocument("<html>Core Rulebook</html>");
-		Files.writeString(SourceInfoRenderer.sharedTempFile(), "untouched");
+		renderer.writeDocument("<html>Core Rulebook</html>");
+		Files.writeString(renderer.documentFile(), "untouched");
 
-		SourceInfoRenderer.writeDocument("<html>Core Rulebook</html>");
+		renderer.writeDocument("<html>Core Rulebook</html>");
 
 		assertEquals("untouched", contents(), "an identical document must not be written again");
 	}
@@ -94,10 +117,10 @@ class SourceInfoDocumentWriteTest
 	@Test
 	void returningToADocumentAfterAnotherWritesItAgain() throws IOException
 	{
-		SourceInfoRenderer.writeDocument("<html>Core Rulebook</html>");
-		SourceInfoRenderer.writeDocument("<html>Bestiary</html>");
+		renderer.writeDocument("<html>Core Rulebook</html>");
+		renderer.writeDocument("<html>Bestiary</html>");
 
-		SourceInfoRenderer.writeDocument("<html>Core Rulebook</html>");
+		renderer.writeDocument("<html>Core Rulebook</html>");
 
 		assertEquals("<html>Core Rulebook</html>", contents(),
 				"only the document last written may be skipped");
@@ -107,7 +130,7 @@ class SourceInfoDocumentWriteTest
 	@Test
 	void nonAsciiTextSurvivesTheRoundTrip() throws IOException
 	{
-		SourceInfoRenderer.writeDocument("<html>Pathfinder – Bestiário ©</html>");
+		renderer.writeDocument("<html>Pathfinder – Bestiário ©</html>");
 
 		assertEquals("<html>Pathfinder – Bestiário ©</html>", contents());
 	}
@@ -115,9 +138,9 @@ class SourceInfoDocumentWriteTest
 	@Test
 	void anEmptyDocumentClearsTheFile() throws IOException
 	{
-		SourceInfoRenderer.writeDocument("<html>Core Rulebook</html>");
+		renderer.writeDocument("<html>Core Rulebook</html>");
 
-		SourceInfoRenderer.writeDocument("");
+		renderer.writeDocument("");
 
 		assertEquals("", contents());
 	}

@@ -72,7 +72,7 @@ public final class CampaignDependencyOrder
 		{
 			for (String required : requiredCampaignNames(candidate))
 			{
-				if (!required.equalsIgnoreCase(candidate.getDisplayName()))
+				if (!required.equalsIgnoreCase(candidate.getKeyName()))
 				{
 					demand.merge(key(required), 1, Integer::sum);
 				}
@@ -80,7 +80,7 @@ public final class CampaignDependencyOrder
 		}
 		return candidates.stream()
 				.sorted(Comparator.comparingInt(
-						(Campaign campaign) -> demand.getOrDefault(key(campaign.getDisplayName()), 0))
+						(Campaign campaign) -> demand.getOrDefault(key(campaign.getKeyName()), 0))
 						.reversed())
 				.toList();
 	}
@@ -125,10 +125,6 @@ public final class CampaignDependencyOrder
 			return null;
 		}
 		var key = prereq.getKey();
-		if (key == null)
-		{
-			return null;
-		}
 		if (key.startsWith(INCLUDES))
 		{
 			return key.substring(INCLUDES.length());

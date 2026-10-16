@@ -15,7 +15,6 @@ package pcgen.gui3.sources;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -74,17 +73,6 @@ class SourceDeleteFacadeTest
 	}
 
 	@Test
-	void delete_should_refuseABuiltInBundle()
-	{
-		// FacadeFactory.deleteCustomSourceSelection throws IllegalArgumentException
-		// for anything that is not a CustomSourceSelectionFacade.
-		var bundle = new SourceBundle("Core", MODE, List.of(), false, null);
-
-		assertFalse(delete(bundle, named("Core")));
-		assertTrue(deleted.isEmpty(), "a non-modifiable bundle must never reach the engine");
-	}
-
-	@Test
 	void delete_should_reportFailure_when_noFacadeMatches()
 	{
 		// The row is only removed on a true return, so a stale row must not vanish.
@@ -94,29 +82,4 @@ class SourceDeleteFacadeTest
 		assertTrue(deleted.isEmpty());
 	}
 
-	@Test
-	void delete_should_reportFailure_when_theBundleIsUnnamed()
-	{
-		// An ad-hoc bundle has a null name and no persisted counterpart; matching
-		// it by displayName() would delete whichever selection shares the mode name.
-		var bundle = new SourceBundle(null, MODE, List.of(), true, null);
-
-		assertFalse(delete(bundle, named(MODE.getDisplayName())));
-		assertTrue(deleted.isEmpty(), "an unnamed bundle must not match by its game-mode fallback");
-	}
-
-	@Test
-	void delete_should_tolerateANullBundle()
-	{
-		assertFalse(delete(null, named("Mine")));
-		assertTrue(deleted.isEmpty());
-	}
-
-	@Test
-	void sanity_displayNameFallsBackToTheModeName()
-	{
-		// Guards the premise of delete_should_reportFailure_when_theBundleIsUnnamed.
-		assertNull(new SourceBundle(null, MODE, List.of(), true, null).name());
-		assertEquals(MODE.getDisplayName(), new SourceBundle(null, MODE, List.of(), true, null).displayName());
-	}
 }

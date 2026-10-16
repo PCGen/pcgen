@@ -146,4 +146,31 @@ class CampaignDependencyOrderTest
 		assertEquals("Needed", names(ordered).get(0),
 				"a self-reference is not demand from another book");
 	}
+
+	@Test
+	void order_should_matchDependenciesByKey_when_displayNameDiffers() throws Exception
+	{
+		var unrelated = campaign("Unrelated");
+		var reduced = campaign("Bestiary 3 (Player Options Only)");
+		reduced.setKeyName("Bestiary 3 ~ Player Options Only");
+		var dependent = campaign("Monster Codex",
+				"PRECAMPAIGN:1,INCLUDES=Bestiary 3 ~ Player Options Only");
+
+		var ordered = CampaignDependencyOrder.mostDependedUponFirst(List.of(unrelated, reduced, dependent));
+
+		assertEquals(List.of("Bestiary 3 (Player Options Only)", "Unrelated", "Monster Codex"), names(ordered));
+	}
+
+	@Test
+	void order_should_ignoreSelfReferencesByKey_when_displayNameDiffers() throws Exception
+	{
+		var selfish = campaign("Selfish Label", "PRECAMPAIGN:1,INCLUDES=Selfish Key");
+		selfish.setKeyName("Selfish Key");
+		var needed = campaign("Needed");
+		var dependent = campaign("Dependent", "PRECAMPAIGN:1,INCLUDES=Needed");
+
+		var ordered = CampaignDependencyOrder.mostDependedUponFirst(List.of(selfish, needed, dependent));
+
+		assertEquals("Needed", names(ordered).getFirst());
+	}
 }

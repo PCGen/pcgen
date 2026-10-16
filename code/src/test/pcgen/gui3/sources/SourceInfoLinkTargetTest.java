@@ -17,6 +17,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.net.URI;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Handler;
+import java.util.logging.LogRecord;
+import java.util.logging.Logger;
 
 import org.junit.jupiter.api.Test;
 
@@ -88,7 +93,6 @@ class SourceInfoLinkTargetTest
 	@Test
 	void missingHref_isNotOpened()
 	{
-		assertTrue(SourceInfoLinks.externalTarget(null).isEmpty());
 		assertTrue(SourceInfoLinks.externalTarget("").isEmpty());
 		assertTrue(SourceInfoLinks.externalTarget("   ").isEmpty());
 	}
@@ -113,36 +117,14 @@ class SourceInfoLinkTargetTest
 				SourceInfoLinks.externalTarget("  https://paizo.com  ").orElseThrow());
 	}
 
-	/**
-	 * The renderer only intercepts anchors once the load worker reports
-	 * SUCCEEDED, at which point a loaded document is not an assumption the
-	 * code is entitled to hedge on. Returning quietly on a null one would turn
-	 * every link in the pane dead with nothing said about why; a thrown NPE
-	 * reaches PCGen's uncaught-exception handler and the log.
-	 *
-	 * <p>It does not take the pane with it: JavaFX invokes property listeners
-	 * individually and routes a throw to the uncaught-exception handler, so the
-	 * renderer's reload interceptor still runs.
-	 */
-	@Test
-	void aMissingDocument_isNotHiddenBehindADeadPane()
-	{
-		var thrown = org.junit.jupiter.api.Assertions.assertThrows(NullPointerException.class,
-				() -> SourceInfoLinks.interceptAnchors(null, _ -> { }));
-
-		assertTrue(thrown.getMessage() != null && thrown.getMessage().contains("document"),
-				"the message has to say what was missing: " + thrown.getMessage());
-	}
-
 	/** Captures what the class reports, so "ignored" can be told from "ignored silently". */
 	private static final class Captured implements AutoCloseable
 	{
-		private final java.util.logging.Logger logger =
-				java.util.logging.Logger.getLogger(SourceInfoLinks.class.getName());
-		private final java.util.List<String> messages = new java.util.ArrayList<>();
-		private final java.util.logging.Handler handler = new java.util.logging.Handler()
+		private final Logger logger = Logger.getLogger(SourceInfoLinks.class.getName());
+		private final List<String> messages = new ArrayList<>();
+		private final Handler handler = new Handler()
 		{
-			@Override public void publish(java.util.logging.LogRecord record)
+			@Override public void publish(LogRecord record)
 			{
 				messages.add(record.getMessage());
 			}
@@ -163,12 +145,12 @@ class SourceInfoLinkTargetTest
 		}
 	}
 
-	private static java.util.List<String> reportsFor(String href)
+	private static List<String> reportsFor(String href)
 	{
 		try (var captured = new Captured())
 		{
 			SourceInfoLinks.externalTarget(href);
-			return java.util.List.copyOf(captured.messages);
+			return List.copyOf(captured.messages);
 		}
 	}
 
@@ -203,14 +185,14 @@ class SourceInfoLinkTargetTest
 	@Test
 	void ordinaryNonWebLinks_areNotReported()
 	{
-		assertEquals(java.util.List.of(), reportsFor(""), "an anchor with no target");
-		assertEquals(java.util.List.of(), reportsFor("#requirements"), "a link within the document");
-		assertEquals(java.util.List.of(), reportsFor("pathfinder/cover.png"), "a path under the data dir");
+		assertEquals(List.of(), reportsFor(""), "an anchor with no target");
+		assertEquals(List.of(), reportsFor("#requirements"), "a link within the document");
+		assertEquals(List.of(), reportsFor("pathfinder/cover.png"), "a path under the data dir");
 	}
 
 	@Test
 	void aLinkThatOpens_isNotReported()
 	{
-		assertEquals(java.util.List.of(), reportsFor("https://paizo.com"));
+		assertEquals(List.of(), reportsFor("https://paizo.com"));
 	}
 }

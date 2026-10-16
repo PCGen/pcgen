@@ -32,6 +32,7 @@ import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
 import javafx.beans.property.ReadOnlyObjectWrapper;
+import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
@@ -71,10 +72,11 @@ import pcgen.core.campaign.CampaignRejectionDiagnosis;
 import pcgen.core.campaign.CampaignDependencyOrder;
 import pcgen.core.GameMode;
 import pcgen.gui2.UIPropertyContext;
+import pcgen.gui2.tools.Icons;
 import pcgen.system.FacadeFactory;
 import pcgen.system.LanguageBundle;
 
-public class AdvancedSourceSelectionController
+public class AdvancedSourceSelectionController implements AutoCloseable
 {
 	private static final UIPropertyContext CONTEXT =
 			UIPropertyContext.createContext("advancedSourceSelectionPanel"); //$NON-NLS-1$
@@ -131,6 +133,8 @@ public class AdvancedSourceSelectionController
 	@FXML
 	private WebView infoPane;
 
+	private SourceInfoRenderer infoRenderer;
+
 	/**
 	 * The campaigns chosen on this tab. Backed by {@link #model} once
 	 * {@link #setModel} runs; an empty standalone list until then, so the
@@ -140,21 +144,21 @@ public class AdvancedSourceSelectionController
 
 	private SourceSelectionModel model;
 
-	private Runnable onUnloadAllRequested = () -> { };
+	private Runnable onUnloadAllRequested;
 	/** Title shared by the Save prompt and both of its outcomes. */
 	private static final String SAVE_TITLE = "in_src_saveTitle";
 
-	private Consumer<SourceBundle> onSaveRequested = _ -> { };
+	private Consumer<SourceBundle> onSaveRequested;
 
 	/** The sources already on offer, for deciding whether a Save name is free. */
-	private Supplier<List<SourceBundle>> existingSources = List::of;
+	private Supplier<List<SourceBundle>> existingSources;
 
 	/** Asks the user what to call the selection. Replaceable so tests raise no modal. */
-	private Function<String, Optional<String>> namePrompt = AdvancedSourceSelectionController::promptForName;
+	private Function<String, Optional<String>> namePrompt = this::promptForName;
 
 	/** Asks before replacing a saved selection. Replaceable so tests raise no modal. */
 	private Predicate<SourceSaveDecision> saveConfirmation =
-			AdvancedSourceSelectionController::confirmOverwrite;
+			this::confirmOverwrite;
 
 	/**
 	 * How each offered campaign stands against the current selection, for the
@@ -176,13 +180,15 @@ public class AdvancedSourceSelectionController
 	protected void initialize()
 	{
 		LOG.fine("Initialize AdvancedSourceSelectionController");
-		btnFilterClear.setGraphic(new ImageView(pcgen.gui2.tools.Icons.CloseX9.asJavaFX()));
+		infoRenderer = new SourceInfoRenderer(infoPane.getEngine());
+		btnFilterClear.setGraphic(new ImageView(Icons.CloseX9.asJavaFX()));
 		cmbGameMode.setCellFactory(new GameModeCellFactory());
 
 		treeAvailable.setColumnResizePolicy(TreeTableView.CONSTRAINED_RESIZE_POLICY_ALL_COLUMNS);
 		treeSelected.setColumnResizePolicy(TreeTableView.CONSTRAINED_RESIZE_POLICY_ALL_COLUMNS);
 		treeAvailable.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 		treeSelected.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+		btnSave.disableProperty().bind(Bindings.isEmpty(selectedCampaigns));
 
 		bindAvailableColumns();
 		bindSelectedColumns();
@@ -245,7 +251,7 @@ public class AdvancedSourceSelectionController
 		colAvailableName.setCellValueFactory(v ->
 				new ReadOnlyObjectWrapper<>(v.getValue().getValue().displayLabel()));
 		colAvailableName.setCellFactory(_ ->
-				new SourceAvailabilityCell(() -> availability, availabilityReasons::get));
+				new SourceAvailabilityCell(() -> availability, campaign -> availabilityReasons.get(campaign)));
 		colAvailableBookType.setCellValueFactory(v ->
 				new ReadOnlyObjectWrapper<>(campaignOf(v.getValue())
 						.map(c -> c.getListAsString(ListKey.BOOK_TYPE)).orElse("")));
@@ -375,20 +381,25 @@ public class AdvancedSourceSelectionController
 	 */
 	private Window ownerWindow()
 	{
-		var scene = treeAvailable == null ? null : treeAvailable.getScene();
-		return scene == null ? null : scene.getWindow();
+		return treeAvailable.getScene().getWindow();
 	}
 
 	private void showInfoFor(TreeItem<SourceTreeNode> item)
 	{
 		if (item == null)
 		{
-			SourceInfoRenderer.clear(infoPane.getEngine());
+			infoRenderer.clear();
 			return;
 		}
 		campaignOf(item).ifPresentOrElse(
-				c -> SourceInfoRenderer.renderCampaign(infoPane.getEngine(), c),
-				() -> SourceInfoRenderer.clear(infoPane.getEngine()));
+				infoRenderer::renderCampaign, infoRenderer::clear);
+	}
+
+	/** Releases the preview's document channel when the source dialog closes. */
+	@Override
+	public void close()
+	{
+		infoRenderer.close();
 	}
 
 	/**
@@ -398,7 +409,7 @@ public class AdvancedSourceSelectionController
 	 */
 	public void setOnUnloadAllRequested(Runnable handler)
 	{
-		this.onUnloadAllRequested = handler == null ? () -> { } : handler;
+		this.onUnloadAllRequested = handler;
 	}
 
 	/**
@@ -407,7 +418,7 @@ public class AdvancedSourceSelectionController
 	 */
 	public void setOnSaveRequested(Consumer<SourceBundle> handler)
 	{
-		this.onSaveRequested = handler == null ? _ -> { } : handler;
+		this.onSaveRequested = handler;
 	}
 
 	/**
@@ -417,7 +428,7 @@ public class AdvancedSourceSelectionController
 	 */
 	public void setExistingSources(Supplier<List<SourceBundle>> sources)
 	{
-		this.existingSources = sources == null ? List::of : sources;
+		this.existingSources = sources;
 	}
 
 	/** Overrides the name prompt, so tests need not raise a modal. */
@@ -502,7 +513,7 @@ public class AdvancedSourceSelectionController
 			return "";
 		}
 		return existing.stream()
-				.filter(bundle -> bundle.modifiable() && bundle.name() != null)
+				.filter(SourceBundle::modifiable)
 				.filter(bundle -> bundle.campaigns().equals(selected))
 				.map(SourceBundle::name)
 				.findFirst()
@@ -520,23 +531,38 @@ public class AdvancedSourceSelectionController
 	}
 
 	/** Default prompt: a single text field, pre-filled and pre-selected. */
-	private static Optional<String> promptForName(String suggested)
+	private Optional<String> promptForName(String suggested)
+	{
+		return buildNamePrompt(suggested).showAndWait();
+	}
+
+	/**
+	 * Builds the name prompt, accepting only nonblank user input.
+	 *
+	 * @param suggested the proposed name
+	 * @return the prompt ready to show
+	 */
+	TextInputDialog buildNamePrompt(String suggested)
 	{
 		var dialog = new TextInputDialog(suggested);
 		dialog.setTitle(LanguageBundle.getString(SAVE_TITLE));
 		dialog.setHeaderText(null);
 		dialog.setContentText(LanguageBundle.getString("in_src_savePrompt"));
-		return dialog.showAndWait();
+		dialog.initOwner(ownerWindow());
+		dialog.getDialogPane().lookupButton(ButtonType.OK).disableProperty()
+				.bind(dialog.getEditor().textProperty().map(String::isBlank));
+		return dialog;
 	}
 
 	/** Default confirmation: overwriting discards whatever was stored before. */
-	private static boolean confirmOverwrite(SourceSaveDecision decision)
+	private boolean confirmOverwrite(SourceSaveDecision decision)
 	{
 		var alert = new Alert(Alert.AlertType.CONFIRMATION);
 		alert.setTitle(LanguageBundle.getString(SAVE_TITLE));
 		alert.setHeaderText(decision.message().orElse(null));
 		var save = new ButtonType(LanguageBundle.getString("in_save"), ButtonData.OK_DONE);
 		alert.getButtonTypes().setAll(save, ButtonType.CANCEL);
+		alert.initOwner(ownerWindow());
 		return alert.showAndWait()
 				.filter(button -> button.getButtonData() == ButtonData.OK_DONE)
 				.isPresent();
@@ -593,10 +619,6 @@ public class AdvancedSourceSelectionController
 	public void commitSelection(SourceBundle loaded)
 	{
 		GameMode mode = loaded.gameMode();
-		if (mode == null)
-		{
-			return;
-		}
 		CONTEXT.setProperty(PROP_SELECTED_GAME, mode.getName());
 		String names = loaded.campaigns().stream()
 				.map(Campaign::toString)
@@ -624,8 +646,9 @@ public class AdvancedSourceSelectionController
 	 */
 	public void setModel(SourceSelectionModel sourceModel)
 	{
-		this.model = Objects.requireNonNull(sourceModel);
+		this.model = sourceModel;
 		this.selectedCampaigns = sourceModel.getSelectedCampaigns();
+		btnSave.disableProperty().bind(Bindings.isEmpty(selectedCampaigns));
 
 		// Selected list changes drive the right-side tree rebuild.
 		selectedCampaigns.addListener((ListChangeListener<Campaign>) _ -> {
@@ -657,6 +680,7 @@ public class AdvancedSourceSelectionController
 		// Swap the selected campaigns to the new mode's remembered set when the
 		// user switches mode (persistence of the choice happens only on Load/OK).
 		model.gameModeProperty().addListener((_, _, mode) -> onGameModeChanged(mode));
+		onGameModeChanged(model.getGameMode());
 
 		// Reflect the initial mode into the tree once.
 		refreshAvailability();
@@ -678,7 +702,7 @@ public class AdvancedSourceSelectionController
 				List.copyOf(model.getAvailableCampaigns()),
 				selected,
 				Campaign::getSubCampaigns,
-				FacadeFactory::passesPrereqs);
+				FacadeFactory::findUnqualified);
 		var marked = availability.entrySet().stream()
 				.filter(entry -> entry.getValue() != CampaignAvailability.Status.ADDABLE)
 				.map(Map.Entry::getKey)

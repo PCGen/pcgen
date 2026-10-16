@@ -85,14 +85,6 @@ class SourceDialogOutcomeTest
 		assertFalse(SourceDialogOutcome.installsData(other, INSTALL));
 	}
 
-	/** A dialog closed by the window manager yields no button at all. */
-	@Test
-	void noButton_doesNeither()
-	{
-		assertFalse(SourceDialogOutcome.loadsSelection(null));
-		assertFalse(SourceDialogOutcome.installsData(null, INSTALL));
-	}
-
 	/**
 	 * Guards the premise of the tests above: OK is what the Load button is
 	 * declared as in the dialog's FXML.

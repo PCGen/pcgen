@@ -25,7 +25,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.function.Function;
-import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 import pcgen.core.Campaign;
@@ -69,8 +68,8 @@ class CampaignAvailabilityTest
 		}
 	}
 
-	/** A stand-in for {@code FacadeFactory.passesPrereqs}, with whole-set semantics. */
-	private static final class FakePrereqs implements Predicate<List<Campaign>>
+	/** A stand-in for {@code FacadeFactory.findUnqualified}, with whole-set semantics. */
+	private static final class FakePrereqs implements Function<List<Campaign>, List<Campaign>>
 	{
 		private final Map<String, Set<String>> exclusions = new HashMap<>();
 		private final Set<String> alwaysUnqualified = new HashSet<>();
@@ -87,15 +86,15 @@ class CampaignAvailabilityTest
 		}
 
 		@Override
-		public boolean test(List<Campaign> campaigns)
+		public List<Campaign> apply(List<Campaign> campaigns)
 		{
 			calls.add(List.copyOf(campaigns));
 			var present = campaigns.stream().map(Campaign::getDisplayName).collect(Collectors.toSet());
-			return campaigns.stream().noneMatch(c -> {
+			return campaigns.stream().filter(c -> {
 				var name = c.getDisplayName();
 				return alwaysUnqualified.contains(name)
 						|| exclusions.getOrDefault(name, Set.of()).stream().anyMatch(present::contains);
-			});
+			}).toList();
 		}
 	}
 
@@ -174,6 +173,37 @@ class CampaignAvailabilityTest
 				List.of(book), List.of(broken), new FakeContents(), prereqs);
 
 		assertEquals(CampaignAvailability.Status.ADDABLE, status.get(book));
+	}
+
+	@Test
+	void unqualifiedCandidate_isBlockedEvenWhenTheSelectionIsAlreadyBroken()
+	{
+		var broken = campaign("Already Broken");
+		var book = campaign("Missing Requirements");
+		var prereqs = new FakePrereqs();
+		prereqs.neverQualifies("Already Broken");
+		prereqs.neverQualifies("Missing Requirements");
+
+		var status = CampaignAvailability.classify(
+				List.of(book), List.of(broken), new FakeContents(), prereqs);
+
+		assertEquals(CampaignAvailability.Status.BLOCKED, status.get(book));
+	}
+
+	@Test
+	void candidateThatBreaksAnotherSelectedBook_isBlockedDespiteAnExistingFailure()
+	{
+		var broken = campaign("Already Broken");
+		var selected = campaign("Selected");
+		var book = campaign("Excluded");
+		var prereqs = new FakePrereqs();
+		prereqs.neverQualifies("Already Broken");
+		prereqs.exclude("Selected", "Excluded");
+
+		var status = CampaignAvailability.classify(
+				List.of(book), List.of(broken, selected), new FakeContents(), prereqs);
+
+		assertEquals(CampaignAvailability.Status.BLOCKED, status.get(book));
 	}
 
 	@Test

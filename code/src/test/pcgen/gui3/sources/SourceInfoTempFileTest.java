@@ -17,6 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.testfx.util.WaitForAsyncUtils.asyncFx;
 
 import java.io.IOException;
 import java.nio.file.FileSystems;
@@ -25,9 +26,15 @@ import java.nio.file.Path;
 import java.nio.file.attribute.PosixFilePermission;
 import java.nio.file.attribute.PosixFilePermissions;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
+import javafx.scene.web.WebEngine;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Assumptions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.testfx.framework.junit5.ApplicationExtension;
 
 /**
  * The source-info pane renders its HTML through a temp file rather than
@@ -47,8 +54,24 @@ import org.junit.jupiter.api.Test;
  * lets an attacker replace the file outright, which no permission on the file
  * itself prevents.
  */
+@ExtendWith(ApplicationExtension.class)
 class SourceInfoTempFileTest
 {
+	private SourceInfoRenderer renderer;
+
+	@BeforeEach
+	void createRenderer() throws Exception
+	{
+		renderer = asyncFx(() -> new SourceInfoRenderer(new WebEngine()))
+				.get(5, TimeUnit.SECONDS);
+	}
+
+	@AfterEach
+	void closeRenderer() throws Exception
+	{
+		asyncFx(renderer::close).get(5, TimeUnit.SECONDS);
+	}
+
 	private static void assumePosix()
 	{
 		Assumptions.assumeTrue(FileSystems.getDefault().supportedFileAttributeViews().contains("posix"),
@@ -90,7 +113,7 @@ class SourceInfoTempFileTest
 	{
 		assumePosix();
 
-		Path file = SourceInfoRenderer.sharedTempFile();
+		Path file = renderer.documentFile();
 
 		assertEquals(PosixFilePermissions.fromString("rwx------"),
 				Files.getPosixFilePermissions(file.getParent()),
@@ -112,7 +135,7 @@ class SourceInfoTempFileTest
 	{
 		Path shared = Path.of(System.getProperty("java.io.tmpdir")).toRealPath();
 
-		Path parent = SourceInfoRenderer.sharedTempFile().toRealPath().getParent();
+		Path parent = renderer.documentFile().toRealPath().getParent();
 
 		assertNotEquals(shared, parent,
 				"the document must live in a directory this process made, not one anybody may write to");
@@ -121,14 +144,14 @@ class SourceInfoTempFileTest
 	@Test
 	void renderedDocument_isReusedBetweenRenders() throws IOException
 	{
-		assertSame(SourceInfoRenderer.sharedTempFile(), SourceInfoRenderer.sharedTempFile(),
+		assertSame(renderer.documentFile(), renderer.documentFile(),
 				"a new file per render would leak one temp directory per click");
 	}
 
 	@Test
 	void renderedDocument_isWritable() throws IOException
 	{
-		Path file = SourceInfoRenderer.sharedTempFile();
+		Path file = renderer.documentFile();
 
 		Files.writeString(file, "<html></html>");
 

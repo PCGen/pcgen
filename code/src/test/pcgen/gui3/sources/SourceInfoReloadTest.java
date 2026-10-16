@@ -14,7 +14,14 @@
 package pcgen.gui3.sources;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.testfx.util.WaitForAsyncUtils.asyncFx;
+import static org.testfx.util.WaitForAsyncUtils.sleep;
+import static org.testfx.util.WaitForAsyncUtils.waitForFxEvents;
 
+import java.net.URI;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -23,12 +30,14 @@ import javafx.concurrent.Worker;
 import javafx.scene.web.WebEngine;
 
 import pcgen.core.Campaign;
+import pcgen.cdom.content.CampaignURL;
+import pcgen.cdom.enumeration.ListKey;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.testfx.framework.junit5.ApplicationExtension;
-import org.testfx.util.WaitForAsyncUtils;
 
 /**
  * Showing a source's info writes an HTML file and loads it into a WebView, and
@@ -47,13 +56,18 @@ import org.testfx.util.WaitForAsyncUtils;
 class SourceInfoReloadTest
 {
 	private WebEngine engine;
+	private SourceInfoRenderer renderer;
 	private final AtomicInteger loadsScheduled = new AtomicInteger();
+	private final List<URI> openedLinks = new ArrayList<>();
 
 	private static Campaign campaign(String name)
 	{
 		var campaign = new Campaign();
 		campaign.setName(name);
-		campaign.setSourceURI(java.net.URI.create("file:/data/test/" + name.replace(' ', '_') + ".pcc"));
+		String key = name.replace(' ', '_');
+		campaign.setSourceURI(URI.create("file:/data/test/" + key + ".pcc"));
+		campaign.addToListFor(ListKey.CAMPAIGN_URL, new CampaignURL(CampaignURL.URLKind.WEBSITE,
+				"Website", URI.create("https://example.org/" + key), "Website"));
 		return campaign;
 	}
 
@@ -62,6 +76,7 @@ class SourceInfoReloadTest
 	{
 		Callable<WebEngine> build = () -> {
 			var newEngine = new WebEngine();
+			renderer = new SourceInfoRenderer(newEngine, openedLinks::add);
 			newEngine.getLoadWorker().stateProperty().addListener((_, _, state) -> {
 				if (state == Worker.State.SCHEDULED)
 				{
@@ -70,12 +85,18 @@ class SourceInfoReloadTest
 			});
 			return newEngine;
 		};
-		engine = WaitForAsyncUtils.asyncFx(build).get(5, TimeUnit.SECONDS);
+		engine = asyncFx(build).get(5, TimeUnit.SECONDS);
+	}
+
+	@AfterEach
+	void closeRenderer() throws Exception
+	{
+		asyncFx(renderer::close).get(5, TimeUnit.SECONDS);
 	}
 
 	private void render(Campaign campaign) throws Exception
 	{
-		WaitForAsyncUtils.asyncFx(() -> SourceInfoRenderer.renderCampaign(engine, campaign))
+		asyncFx(() -> renderer.renderCampaign(campaign))
 				.get(5, TimeUnit.SECONDS);
 		settle();
 	}
@@ -83,9 +104,9 @@ class SourceInfoReloadTest
 	/** Lets any deferred regeneration run, so a second load would be counted. */
 	private static void settle()
 	{
-		WaitForAsyncUtils.waitForFxEvents();
-		WaitForAsyncUtils.sleep(300, TimeUnit.MILLISECONDS);
-		WaitForAsyncUtils.waitForFxEvents();
+		waitForFxEvents();
+		sleep(300, TimeUnit.MILLISECONDS);
+		waitForFxEvents();
 	}
 
 	@Test
@@ -123,10 +144,42 @@ class SourceInfoReloadTest
 		render(campaign("Core Rulebook"));
 		loadsScheduled.set(0);
 
-		WaitForAsyncUtils.asyncFx(() -> SourceInfoRenderer.renderCampaign(engine, null))
+		asyncFx(renderer::clear)
 				.get(5, TimeUnit.SECONDS);
 		settle();
 
 		assertEquals(1, loadsScheduled.get(), "clearing must not be taken for a reload either");
+	}
+
+	@Test
+	void alternatingPreviews_should_notInstallAnotherReloadListener() throws Exception
+	{
+		var other = asyncFx((Callable<SourceInfoRenderer>)
+				() -> new SourceInfoRenderer(new WebEngine()))
+				.get(5, TimeUnit.SECONDS);
+		render(campaign("Core Rulebook"));
+		try
+		{
+			asyncFx(() -> other.renderCampaign(campaign("Bestiary")))
+					.get(5, TimeUnit.SECONDS);
+			settle();
+			render(campaign("Advanced Players Guide"));
+
+			assertEquals(2, loadsScheduled.get(), "returning to a preview must not multiply its own loads");
+			asyncFx(() -> engine.executeScript("document.querySelector('a').click()"))
+					.get(5, TimeUnit.SECONDS);
+			assertEquals(List.of(URI.create("https://example.org/Advanced_Players_Guide")), openedLinks,
+					"a link must reach the browser once, without navigating the preview");
+
+			asyncFx(engine::reload).get(5, TimeUnit.SECONDS);
+			settle();
+			String text = asyncFx(
+					() -> engine.executeScript("document.body.textContent").toString()).get(5, TimeUnit.SECONDS);
+			assertTrue(text.contains("Advanced Players Guide"), text);
+		}
+		finally
+		{
+			asyncFx(other::close).get(5, TimeUnit.SECONDS);
+		}
 	}
 }

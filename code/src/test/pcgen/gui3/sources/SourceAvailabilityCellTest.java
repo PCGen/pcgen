@@ -18,17 +18,24 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.testfx.util.WaitForAsyncUtils.asyncFx;
 
 import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Tab;
 import javafx.scene.control.TreeItem;
+import javafx.scene.control.TreeTableColumn;
 import javafx.scene.control.TreeTableRow;
 import javafx.scene.paint.Color;
 
 import pcgen.core.Campaign;
 import pcgen.core.campaign.CampaignAvailability.Status;
+import pcgen.gui2.UIPropertyContext;
+import pcgen.system.LanguageBundle;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -79,7 +86,7 @@ class SourceAvailabilityCellTest
 	{
 		var cell = cellShowing(campaign("Pathfinder RPG for Players"), Status.BLOCKED);
 
-		assertEquals(pcgen.gui2.UIPropertyContext.getNotQualifiedColor(), cell.getTextFill(),
+		assertEquals(UIPropertyContext.getNotQualifiedColor(), cell.getTextFill(),
 				"blocked rows use the colour the rest of PCGen uses for a failed prerequisite");
 	}
 
@@ -88,7 +95,7 @@ class SourceAvailabilityCellTest
 	{
 		var cell = cellShowing(campaign("Core Rulebook"), Status.ADDABLE);
 
-		assertEquals(pcgen.gui2.UIPropertyContext.getQualifiedColor(), cell.getTextFill());
+		assertEquals(UIPropertyContext.getQualifiedColor(), cell.getTextFill());
 	}
 
 	/**
@@ -100,8 +107,8 @@ class SourceAvailabilityCellTest
 	{
 		var cell = cellShowing(campaign("Advanced Player's Guide"), Status.ALREADY_INCLUDED);
 
-		assertNotEquals(pcgen.gui2.UIPropertyContext.getNotQualifiedColor(), cell.getTextFill());
-		assertNotEquals(pcgen.gui2.UIPropertyContext.getQualifiedColor(), cell.getTextFill(),
+		assertNotEquals(UIPropertyContext.getNotQualifiedColor(), cell.getTextFill());
+		assertNotEquals(UIPropertyContext.getQualifiedColor(), cell.getTextFill(),
 				"it must still be distinguishable from a source that can be added");
 	}
 
@@ -141,7 +148,7 @@ class SourceAvailabilityCellTest
 		var cell = new SourceAvailabilityCell(IdentityHashMap::new, c -> "why");
 		show(cell, new SourceTreeNode.Publisher("Paizo"), "Paizo");
 
-		assertEquals(pcgen.gui2.UIPropertyContext.getQualifiedColor(), cell.getTextFill());
+		assertEquals(UIPropertyContext.getQualifiedColor(), cell.getTextFill());
 		assertNull(cell.getTooltip());
 	}
 
@@ -185,7 +192,7 @@ class SourceAvailabilityCellTest
 		show(cell, new SourceTreeNode.Leaf(blocked), blocked.getDisplayName());
 		show(cell, new SourceTreeNode.Leaf(addable), addable.getDisplayName());
 
-		assertEquals(pcgen.gui2.UIPropertyContext.getQualifiedColor(), cell.getTextFill());
+		assertEquals(UIPropertyContext.getQualifiedColor(), cell.getTextFill());
 	}
 
 	@Test
@@ -235,7 +242,39 @@ class SourceAvailabilityCellTest
 		statuses.put(book, Status.BLOCKED);
 		cell.updateItem(book.getDisplayName(), false);
 
-		assertEquals(pcgen.gui2.UIPropertyContext.getNotQualifiedColor(), cell.getTextFill());
+		assertEquals(UIPropertyContext.getNotQualifiedColor(), cell.getTextFill());
+	}
+
+	@Test
+	void controllerCells_should_readTheCurrentExplanation_afterTheMapIsReplaced() throws Exception
+	{
+		asyncFx(() -> {
+			LanguageBundle.getString("");
+			var loader = new FXMLLoader(
+					AdvancedSourceSelectionController.class.getResource("AdvancedSourceSelection.fxml"),
+					LanguageBundle.getBundle());
+			Tab tab = loader.load();
+			AdvancedSourceSelectionController controller = loader.getController();
+			var book = campaign("Core Rulebook");
+			var reasons = AdvancedSourceSelectionController.class.getDeclaredField("availabilityReasons");
+			reasons.setAccessible(true);
+			reasons.set(controller, Map.of(book, "Before"));
+			var statuses = AdvancedSourceSelectionController.class.getDeclaredField("availability");
+			statuses.setAccessible(true);
+			statuses.set(controller, Map.of(book, Status.BLOCKED));
+			var columnField = AdvancedSourceSelectionController.class.getDeclaredField("colAvailableName");
+			columnField.setAccessible(true);
+			@SuppressWarnings("unchecked")
+			var column = (TreeTableColumn<SourceTreeNode, String>) columnField.get(controller);
+			var cell = (SourceAvailabilityCell) column.getCellFactory().call(column);
+			show(cell, new SourceTreeNode.Leaf(book), book.getDisplayName());
+
+			reasons.set(controller, Map.of(book, "After"));
+			cell.updateItem(book.getDisplayName(), false);
+
+			assertEquals("After", cell.getTooltip().getText());
+			return tab;
+		}).get(5, TimeUnit.SECONDS);
 	}
 
 	/** A campaign missing from the map, such as one filtered out, must not throw. */
@@ -245,7 +284,7 @@ class SourceAvailabilityCellTest
 		var cell = new SourceAvailabilityCell(IdentityHashMap::new, c -> "why");
 		show(cell, new SourceTreeNode.Leaf(campaign("Core Rulebook")), "Core Rulebook");
 
-		assertEquals(pcgen.gui2.UIPropertyContext.getQualifiedColor(), cell.getTextFill());
+		assertEquals(UIPropertyContext.getQualifiedColor(), cell.getTextFill());
 		assertNull(cell.getTooltip());
 	}
 
@@ -261,10 +300,10 @@ class SourceAvailabilityCellTest
 	@Test
 	void coloursComeFromThePreferences()
 	{
-		var original = pcgen.gui2.UIPropertyContext.getNotQualifiedColor();
+		var original = UIPropertyContext.getNotQualifiedColor();
 		try
 		{
-			pcgen.gui2.UIPropertyContext.setNotQualifiedColor(Color.MAGENTA);
+			UIPropertyContext.setNotQualifiedColor(Color.MAGENTA);
 
 			var cell = cellShowing(campaign("Pathfinder RPG for Players"), Status.BLOCKED);
 
@@ -272,7 +311,7 @@ class SourceAvailabilityCellTest
 		}
 		finally
 		{
-			pcgen.gui2.UIPropertyContext.setNotQualifiedColor(original);
+			UIPropertyContext.setNotQualifiedColor(original);
 		}
 	}
 }

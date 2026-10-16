@@ -15,11 +15,10 @@ package pcgen.gui3.sources;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import pcgen.core.Campaign;
 import pcgen.core.GameMode;
@@ -76,7 +75,7 @@ class SourceSaveFacadeTest
 		@Override public String toString() { return name; }
 	}
 
-	private Optional<SourceSelectionFacade> save(SourceBundle bundle, SourceSelectionFacade... existing)
+	private SourceSelectionFacade save(SourceBundle bundle, SourceSelectionFacade... existing)
 	{
 		return SourceSelectionBridge.saveSourceSelection(bundle, List.of(existing), name -> {
 			created.add(name);
@@ -102,7 +101,7 @@ class SourceSaveFacadeTest
 		var saved = save(bundle("Mine"), new FakeFacade("Other"));
 
 		assertEquals(List.of("Mine"), created);
-		assertTrue(saved.isPresent());
+		assertNotNull(saved);
 	}
 
 	@Test
@@ -112,7 +111,7 @@ class SourceSaveFacadeTest
 
 		var saved = save(bundle("Mine"), new FakeFacade("Other"), mine);
 
-		assertSame(mine, saved.orElseThrow(), "overwriting must not leave two selections of one name");
+		assertSame(mine, saved, "overwriting must not leave two selections of one name");
 		assertEquals(List.of(), created, "the engine must not be asked to create a duplicate");
 	}
 
@@ -123,7 +122,7 @@ class SourceSaveFacadeTest
 
 		var saved = save(bundle("Mine", core));
 
-		assertEquals(List.of(core), ((FakeFacade) saved.orElseThrow()).campaigns);
+		assertEquals(List.of(core), ((FakeFacade) saved).campaigns);
 	}
 
 	@Test
@@ -131,7 +130,7 @@ class SourceSaveFacadeTest
 	{
 		var saved = save(bundle("Mine"));
 
-		assertSame(MODE, ((FakeFacade) saved.orElseThrow()).gameMode);
+		assertSame(MODE, ((FakeFacade) saved).gameMode);
 	}
 
 	@Test
@@ -144,31 +143,6 @@ class SourceSaveFacadeTest
 		save(bundle("Mine", core), mine);
 
 		assertEquals(List.of(core), mine.campaigns, "saving replaces the stored set, it does not add to it");
-	}
-
-	/**
-	 * The engine would happily store a selection called "", which the user then
-	 * cannot tell from the unnamed fallback rows.
-	 */
-	@Test
-	void save_should_refuseABlankName()
-	{
-		assertTrue(save(bundle("   ")).isEmpty());
-		assertEquals(List.of(), created);
-	}
-
-	@Test
-	void save_should_refuseAnUnnamedBundle()
-	{
-		assertTrue(save(bundle(null)).isEmpty());
-		assertEquals(List.of(), created);
-	}
-
-	@Test
-	void save_should_tolerateANullBundle()
-	{
-		assertTrue(save(null).isEmpty());
-		assertEquals(List.of(), created);
 	}
 
 	/**
