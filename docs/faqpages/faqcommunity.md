@@ -16,7 +16,7 @@ The main website for PCGen is at [pcgen.org](http://pcgen.org).
 
 You are currently reading the documentation.
 
-The documentation is updated frequently. In case you are reading an old version of the documentation, you can find the latest documentation at the [SourceForge `autobuild`](http://pcgen.sourceforge.net/autobuilds/pcgen-docs/index.html).
+The documentation is updated frequently. In case you are reading an old version of the documentation, the latest sources live in the [GitHub repository](https://github.com/PCGen/pcgen/tree/master/docs).
 
 If you see any errors in the documentation, please [file a bug report](./faqsubmittingabugreport.html). If you would like to improve the documentation yourself, [GitHub pull requests](https://github.com/PCGen/pcgen) are welcome.
 
