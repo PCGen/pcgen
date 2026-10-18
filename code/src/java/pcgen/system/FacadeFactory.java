@@ -289,7 +289,9 @@ public final class FacadeFactory
 
 	public static ListFacade<Campaign> getSupportedCampaigns(GameMode gameMode)
 	{
-		if (!campaignListMap.containsKey(gameMode))
+		// Null until initialize() runs, which only the GUI startup path calls:
+		// an uninitialised factory supports no campaigns, like any unknown mode.
+		if (campaignListMap == null || !campaignListMap.containsKey(gameMode))
 		{
 			return ListFacades.emptyList();
 		}
