@@ -14,11 +14,10 @@
 package pcgen.core.campaign;
 
 import static java.util.stream.Collectors.partitioningBy;
-import static pcgen.core.campaign.CampaignSelection.identitySet;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Set;
 import java.util.function.UnaryOperator;
 
 import pcgen.core.Campaign;
@@ -42,10 +41,8 @@ import pcgen.core.Campaign;
  * because the data's many mutual exclusions would otherwise make a single
  * whole-set verdict refuse both sides of every conflict.
  *
- * <p>Campaigns are compared by identity rather than {@code equals}. They are
- * engine-wide singletons supplied by {@code FacadeFactory}, and identity is
- * both what the caller means and immune to whatever equality
- * {@code CDOMObject} happens to define.
+ * <p>Campaigns are compared using {@link Campaign#equals(Object)}, which
+ * matches campaign keys without regard to case.
  */
 public final class CampaignAdditionPlanner
 {
@@ -95,12 +92,11 @@ public final class CampaignAdditionPlanner
 	public static Plan plan(List<Campaign> alreadySelected, List<Campaign> candidates,
 			UnaryOperator<List<Campaign>> findUnqualified)
 	{
-		Set<Campaign> selected = identitySet(alreadySelected);
-		Set<Campaign> seen = identitySet(Collections.emptyList());
-		// Identity-based deduplication is stateful; keep this stream sequential.
+		List<Campaign> seen = new ArrayList<>();
+		// Deduplication is stateful; keep this stream sequential.
 		List<Campaign> toAdd = candidates.stream()
-				.filter(candidate -> !selected.contains(candidate))
-				.filter(seen::add)
+				.filter(candidate -> !alreadySelected.contains(candidate))
+				.filter(candidate -> !seen.contains(candidate) && seen.add(candidate))
 				.toList();
 		if (toAdd.isEmpty())
 		{
@@ -108,8 +104,8 @@ public final class CampaignAdditionPlanner
 		}
 
 		var selection = new CampaignSelection(alreadySelected, findUnqualified);
-		Set<Campaign> kept = identitySet(toAdd);
-		shrinkToSomethingValid(selection, toAdd, kept);
+		List<Campaign> kept = new ArrayList<>(toAdd);
+		shrinkToSomethingValid(selection, kept);
 		takeBackWhatFits(selection, toAdd, kept);
 
 		var partitioned = toAdd.stream().collect(partitioningBy(kept::contains));
@@ -125,13 +121,11 @@ public final class CampaignAdditionPlanner
 	 * all unqualified at once and all get dropped, which is what
 	 * {@link #takeBackWhatFits} then repairs.
 	 */
-	private static void shrinkToSomethingValid(CampaignSelection selection, List<Campaign> toAdd,
-			Set<Campaign> kept)
+	private static void shrinkToSomethingValid(CampaignSelection selection, List<Campaign> kept)
 	{
 		while (!kept.isEmpty())
 		{
-			List<Campaign> unqualified =
-					selection.newFailuresWith(keptInOrder(toAdd, kept));
+			List<Campaign> unqualified = selection.newFailuresWith(kept);
 			List<Campaign> offenders = unqualified.stream().filter(kept::contains).toList();
 			if (!offenders.isEmpty())
 			{
@@ -146,7 +140,7 @@ public final class CampaignAdditionPlanner
 				// The addition broke something the user already had, and the
 				// engine will not say which candidate did it. Give up the last
 				// one and ask again.
-				kept.remove(lastKept(toAdd, kept));
+				kept.removeLast();
 			}
 		}
 	}
@@ -161,7 +155,7 @@ public final class CampaignAdditionPlanner
 	 * candidate back can satisfy the requirements of one already tried.
 	 */
 	private static void takeBackWhatFits(CampaignSelection selection, List<Campaign> toAdd,
-			Set<Campaign> kept)
+			List<Campaign> kept)
 	{
 		boolean grew = true;
 		while (grew)
@@ -174,8 +168,8 @@ public final class CampaignAdditionPlanner
 					continue;
 				}
 				kept.add(candidate);
-				List<Campaign> unqualified =
-						selection.newFailuresWith(keptInOrder(toAdd, kept));
+				List<Campaign> additions = toAdd.stream().filter(kept::contains).toList();
+				List<Campaign> unqualified = selection.newFailuresWith(additions);
 				if (unqualified.isEmpty())
 				{
 					grew = true;
@@ -186,24 +180,5 @@ public final class CampaignAdditionPlanner
 				}
 			}
 		}
-	}
-
-	/** The surviving candidates in their original order, independent of set iteration order. */
-	private static List<Campaign> keptInOrder(List<Campaign> toAdd, Set<Campaign> kept)
-	{
-		return toAdd.stream().filter(kept::contains).toList();
-	}
-
-	private static Campaign lastKept(List<Campaign> toAdd, Set<Campaign> kept)
-	{
-		Campaign last = null;
-		for (Campaign candidate : toAdd)
-		{
-			if (kept.contains(candidate))
-			{
-				last = candidate;
-			}
-		}
-		return last;
 	}
 }

@@ -14,7 +14,7 @@
 package pcgen.core.campaign;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -53,17 +53,16 @@ class CampaignSelectionTest
 	}
 
 	@Test
-	void newFailuresWith_should_notTolerateAnotherObjectWithTheSameKey()
+	void newFailuresWith_should_tolerateAnExistingFailure_withTheSameKey()
 	{
 		var broken = campaign("Same Key");
-		var candidate = campaign("Same Key");
+		var candidate = campaign("same key");
 		var selection = new CampaignSelection(List.of(broken),
 				campaigns -> campaigns.size() == 1 ? List.of(broken) : List.of(broken, candidate));
 
 		var failures = selection.newFailuresWith(List.of(candidate));
 
-		assertEquals(1, failures.size());
-		assertSame(candidate, failures.getFirst());
+		assertTrue(failures.isEmpty(), "the same campaign key must count as the existing failure");
 	}
 
 	@Test

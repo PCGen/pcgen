@@ -157,6 +157,18 @@ class CampaignAvailabilityTest
 		assertEquals(CampaignAvailability.Status.ALREADY_INCLUDED, status.get(book));
 	}
 
+	@Test
+	void campaignWithAnAlreadySelectedKey_isAlreadyIncluded()
+	{
+		var selected = campaign("Core Rulebook");
+		var offered = campaign("core rulebook");
+
+		var status = CampaignAvailability.classify(
+				List.of(offered), List.of(selected), new FakeContents(), new FakePrereqs());
+
+		assertEquals(CampaignAvailability.Status.ALREADY_INCLUDED, status.get(offered));
+	}
+
 	/**
 	 * A selection that is already unqualified must not turn the whole tree red:
 	 * the candidate did not cause it and removing the candidate would not fix

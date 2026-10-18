@@ -14,11 +14,8 @@
 package pcgen.core.campaign;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
-import java.util.IdentityHashMap;
 import java.util.List;
-import java.util.Set;
 import java.util.function.UnaryOperator;
 
 import pcgen.core.Campaign;
@@ -27,8 +24,7 @@ import pcgen.core.Campaign;
 final class CampaignSelection
 {
 	private final List<Campaign> selected;
-	private final Set<Campaign> selectedIdentities;
-	private final Set<Campaign> alreadyUnqualified;
+	private final List<Campaign> alreadyUnqualified;
 	private final UnaryOperator<List<Campaign>> findUnqualified;
 
 	/**
@@ -40,23 +36,22 @@ final class CampaignSelection
 	CampaignSelection(List<Campaign> selected, UnaryOperator<List<Campaign>> findUnqualified)
 	{
 		this.selected = List.copyOf(selected);
-		this.selectedIdentities = identitySet(this.selected);
 		this.findUnqualified = findUnqualified;
-		alreadyUnqualified = identitySet(this.selected.isEmpty()
-				? Collections.emptyList() : findUnqualified.apply(this.selected));
+		alreadyUnqualified = this.selected.isEmpty()
+				? Collections.emptyList() : List.copyOf(findUnqualified.apply(this.selected));
 	}
 
-	/** Whether this exact campaign object is already selected. */
+	/** Whether a campaign with this key is already selected. */
 	boolean contains(Campaign campaign)
 	{
-		return selectedIdentities.contains(campaign);
+		return selected.contains(campaign);
 	}
 
 	/**
 	 * Finds failures introduced by adding campaigns to the original selection.
 	 *
 	 * @param additions the campaigns to add, in encounter order
-	 * @return newly failing campaigns in the engine's order, excluding baseline failures by identity
+	 * @return newly failing campaigns in the engine's order, excluding baseline failures by campaign key
 	 */
 	List<Campaign> newFailuresWith(List<Campaign> additions)
 	{
@@ -65,19 +60,5 @@ final class CampaignSelection
 		return findUnqualified.apply(combined).stream()
 				.filter(campaign -> !alreadyUnqualified.contains(campaign))
 				.toList();
-	}
-
-	/**
-	 * Creates a mutable identity-backed set for campaign membership and graph traversal.
-	 *
-	 * @param <T> the element type
-	 * @param elements the initial members
-	 * @return a set comparing its members by identity
-	 */
-	static <T> Set<T> identitySet(Collection<? extends T> elements)
-	{
-		Set<T> set = Collections.newSetFromMap(new IdentityHashMap<>());
-		set.addAll(elements);
-		return set;
 	}
 }

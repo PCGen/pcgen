@@ -46,9 +46,7 @@ import pcgen.core.Campaign;
  * <p>Anything else is a genuinely unmet requirement, where the engine's own
  * description is the best available answer and is kept.
  *
- * <p>Campaigns are compared by identity, as elsewhere in this package: they are
- * engine-wide singletons, and identity is immune to whatever equality
- * {@code CDOMObject} happens to define.
+ * <p>Campaigns are compared by their case-insensitive keys, as elsewhere in this package.
  */
 public final class CampaignRejectionDiagnosis
 {

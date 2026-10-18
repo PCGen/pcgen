@@ -13,11 +13,9 @@
  */
 package pcgen.core.campaign;
 
-import static pcgen.core.campaign.CampaignSelection.identitySet;
-
 import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 import java.util.function.Function;
 
 import pcgen.core.Campaign;
@@ -32,7 +30,7 @@ import pcgen.core.Campaign;
  * Options Only" edition -- so a book two levels down is just as loaded as one
  * named directly, and the walk has to go all the way down.
  *
- * <p>Campaigns are compared by identity, as elsewhere in this package.
+ * <p>Campaigns are compared by their case-insensitive keys, as elsewhere in this package.
  */
 public final class CampaignContainment
 {
@@ -71,17 +69,18 @@ public final class CampaignContainment
 	{
 		// Data is authored by hand and a collection may name itself, or a
 		// sibling that names it back, so the walk has to tolerate cycles.
-		Set<Campaign> visited = identitySet(List.of(container));
+		List<Campaign> visited = new ArrayList<>(List.of(container));
 		var pending = new ArrayDeque<>(contentsOf.apply(container));
 		while (!pending.isEmpty())
 		{
 			Campaign next = pending.pop();
-			if (next == sought)
+			if (next.equals(sought))
 			{
 				return true;
 			}
-			if (visited.add(next))
+			if (!visited.contains(next))
 			{
+				visited.add(next);
 				pending.addAll(contentsOf.apply(next));
 			}
 		}

@@ -74,6 +74,18 @@ class CampaignContainmentTest
 	}
 
 	@Test
+	void campaignWithTheSameKeyAsALoadedBook_isFound()
+	{
+		var bundle = campaign("Collection");
+		var book = campaign("Core Rulebook");
+		var sought = campaign("core rulebook");
+		var contents = new FakeContents();
+		contents.contains(bundle, book);
+
+		assertEquals(bundle, CampaignContainment.containerOf(sought, List.of(bundle), contents));
+	}
+
+	@Test
 	void campaignLoadedThroughAnotherCollection_namesTheSelectedOne()
 	{
 		var bundle = campaign("Pathfinder RPG for Game Masters");

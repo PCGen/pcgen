@@ -164,20 +164,32 @@ class CampaignAdditionPlannerTest
 	}
 
 	@Test
-	void plan_should_deduplicateByIdentity_withoutDiscardingEqualCampaigns()
+	void plan_should_ignoreCandidate_withAnAlreadySelectedKey()
 	{
 		var selected = campaign("Same Key");
-		var first = campaign("Same Key");
-		var second = campaign("Same Key");
+		var candidate = campaign("same key");
 		var other = campaign("Other");
 
 		var plan = CampaignAdditionPlanner.plan(List.of(selected),
+				List.of(candidate, other), _ -> Collections.emptyList());
+
+		assertEquals(List.of(other), plan.accepted());
+		assertTrue(plan.rejected().isEmpty());
+	}
+
+	@Test
+	void plan_should_keepTheFirstCandidate_when_campaignKeysAreEqual()
+	{
+		var first = campaign("Same Key");
+		var second = campaign("same key");
+		var other = campaign("Other");
+
+		var plan = CampaignAdditionPlanner.plan(Collections.emptyList(),
 				List.of(first, second, first, other, second), _ -> Collections.emptyList());
 
-		assertEquals(3, plan.accepted().size());
+		assertEquals(2, plan.accepted().size());
 		assertSame(first, plan.accepted().get(0));
-		assertSame(second, plan.accepted().get(1));
-		assertSame(other, plan.accepted().get(2));
+		assertSame(other, plan.accepted().get(1));
 		assertTrue(plan.rejected().isEmpty());
 	}
 
