@@ -13,9 +13,9 @@
  */
 package pcgen.core.campaign;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.IdentityHashMap;
+import static java.util.stream.Collectors.partitioningBy;
+import static pcgen.core.campaign.CampaignSelection.identitySet;
+
 import java.util.List;
 import java.util.Set;
 import java.util.function.UnaryOperator;
@@ -106,30 +106,13 @@ public final class CampaignAdditionPlanner
 			return new Plan(List.of(), List.of());
 		}
 
-		// Whatever is already wrong with the existing selection is not this
-		// addition's doing, and must not be allowed to veto every candidate.
-		Set<Campaign> tolerated = identitySet(alreadySelected.isEmpty()
-				? List.of()
-				: findUnqualified.apply(List.copyOf(alreadySelected)));
-
+		var selection = new CampaignSelection(alreadySelected, findUnqualified);
 		Set<Campaign> kept = identitySet(toAdd);
-		shrinkToSomethingValid(alreadySelected, toAdd, kept, tolerated, findUnqualified);
-		takeBackWhatFits(alreadySelected, toAdd, kept, tolerated, findUnqualified);
+		shrinkToSomethingValid(selection, toAdd, kept);
+		takeBackWhatFits(selection, toAdd, kept);
 
-		List<Campaign> accepted = new ArrayList<>();
-		List<Campaign> rejected = new ArrayList<>();
-		for (Campaign candidate : toAdd)
-		{
-			if (kept.contains(candidate))
-			{
-				accepted.add(candidate);
-			}
-			else
-			{
-				rejected.add(candidate);
-			}
-		}
-		return new Plan(List.copyOf(accepted), List.copyOf(rejected));
+		var partitioned = toAdd.stream().collect(partitioningBy(kept::contains));
+		return new Plan(List.copyOf(partitioned.get(true)), List.copyOf(partitioned.get(false)));
 	}
 
 	/**
@@ -141,20 +124,19 @@ public final class CampaignAdditionPlanner
 	 * all unqualified at once and all get dropped, which is what
 	 * {@link #takeBackWhatFits} then repairs.
 	 */
-	private static void shrinkToSomethingValid(List<Campaign> alreadySelected, List<Campaign> toAdd,
-			Set<Campaign> kept, Set<Campaign> tolerated,
-			UnaryOperator<List<Campaign>> findUnqualified)
+	private static void shrinkToSomethingValid(CampaignSelection selection, List<Campaign> toAdd,
+			Set<Campaign> kept)
 	{
 		while (!kept.isEmpty())
 		{
 			List<Campaign> unqualified =
-					findUnqualified.apply(wholeSet(alreadySelected, toAdd, kept));
+					selection.newFailuresWith(keptInOrder(toAdd, kept));
 			List<Campaign> offenders = unqualified.stream().filter(kept::contains).toList();
 			if (!offenders.isEmpty())
 			{
 				offenders.forEach(kept::remove);
 			}
-			else if (unqualified.stream().allMatch(tolerated::contains))
+			else if (unqualified.isEmpty())
 			{
 				return;
 			}
@@ -177,9 +159,8 @@ public final class CampaignAdditionPlanner
 	 * one would have allowed more books in. Passes are repeated because taking a
 	 * candidate back can satisfy the requirements of one already tried.
 	 */
-	private static void takeBackWhatFits(List<Campaign> alreadySelected, List<Campaign> toAdd,
-			Set<Campaign> kept, Set<Campaign> tolerated,
-			UnaryOperator<List<Campaign>> findUnqualified)
+	private static void takeBackWhatFits(CampaignSelection selection, List<Campaign> toAdd,
+			Set<Campaign> kept)
 	{
 		boolean grew = true;
 		while (grew)
@@ -193,8 +174,8 @@ public final class CampaignAdditionPlanner
 				}
 				kept.add(candidate);
 				List<Campaign> unqualified =
-						findUnqualified.apply(wholeSet(alreadySelected, toAdd, kept));
-				if (unqualified.stream().allMatch(tolerated::contains))
+						selection.newFailuresWith(keptInOrder(toAdd, kept));
+				if (unqualified.isEmpty())
 				{
 					grew = true;
 				}
@@ -206,13 +187,10 @@ public final class CampaignAdditionPlanner
 		}
 	}
 
-	/** The set to validate: the existing selection plus the surviving candidates, in display order. */
-	private static List<Campaign> wholeSet(List<Campaign> alreadySelected, List<Campaign> toAdd,
-			Set<Campaign> kept)
+	/** The surviving candidates in their original order, independent of set iteration order. */
+	private static List<Campaign> keptInOrder(List<Campaign> toAdd, Set<Campaign> kept)
 	{
-		List<Campaign> whole = new ArrayList<>(alreadySelected);
-		toAdd.stream().filter(kept::contains).forEach(whole::add);
-		return whole;
+		return toAdd.stream().filter(kept::contains).toList();
 	}
 
 	private static Campaign lastKept(List<Campaign> toAdd, Set<Campaign> kept)
@@ -226,12 +204,5 @@ public final class CampaignAdditionPlanner
 			}
 		}
 		return last;
-	}
-
-	private static Set<Campaign> identitySet(List<Campaign> campaigns)
-	{
-		Set<Campaign> set = Collections.newSetFromMap(new IdentityHashMap<>());
-		set.addAll(campaigns);
-		return set;
 	}
 }

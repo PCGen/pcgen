@@ -13,11 +13,7 @@
  */
 package pcgen.core.campaign;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.IdentityHashMap;
 import java.util.List;
-import java.util.Set;
 import java.util.function.Function;
 import java.util.function.UnaryOperator;
 
@@ -123,58 +119,27 @@ public final class CampaignRejectionDiagnosis
 		{
 			return List.of();
 		}
-		// Whatever was already wrong with the selection is not the candidate's
-		// doing, and must not be reported as though it were.
-		Set<Campaign> alreadyBroken = identitySet(selected.isEmpty()
-				? List.of()
-				: findUnqualified.apply(List.copyOf(selected)));
-
-		List<Diagnosis> diagnoses = new ArrayList<>(rejected.size());
-		for (Campaign campaign : rejected)
-		{
-			diagnoses.add(new Diagnosis(campaign,
-					reasonFor(campaign, selected, alreadyBroken, contentsOf, findUnqualified)));
-		}
-		return List.copyOf(diagnoses);
+		var selection = new CampaignSelection(selected, findUnqualified);
+		return rejected.stream()
+				.map(campaign -> new Diagnosis(campaign, reasonFor(campaign, selected, selection, contentsOf)))
+				.toList();
 	}
 
 	private static Reason reasonFor(Campaign campaign, List<Campaign> selected,
-			Set<Campaign> alreadyBroken, Function<Campaign, List<Campaign>> contentsOf,
-			UnaryOperator<List<Campaign>> findUnqualified)
+			CampaignSelection selection, Function<Campaign, List<Campaign>> contentsOf)
 	{
 		Campaign container = CampaignContainment.containerOf(campaign, selected, contentsOf);
 		if (container != null)
 		{
 			return new AlreadyIncluded(container);
 		}
-		List<Campaign> blockers = brokenByAdding(campaign, selected, alreadyBroken, findUnqualified);
-		return blockers.isEmpty() ? new Unmet() : new ConflictsWith(blockers);
-	}
-
-	/**
-	 * The selected campaigns that adding {@code campaign} would stop
-	 * qualifying.
-	 */
-	private static List<Campaign> brokenByAdding(Campaign campaign, List<Campaign> selected,
-			Set<Campaign> alreadyBroken, UnaryOperator<List<Campaign>> findUnqualified)
-	{
 		if (selected.isEmpty())
 		{
-			return List.of();
+			return new Unmet();
 		}
-		List<Campaign> withCandidate = new ArrayList<>(selected);
-		withCandidate.add(campaign);
-		Set<Campaign> stillSelected = identitySet(selected);
-		return findUnqualified.apply(withCandidate).stream()
-				.filter(stillSelected::contains)
-				.filter(broken -> !alreadyBroken.contains(broken))
+		List<Campaign> blockers = selection.newFailuresWith(List.of(campaign)).stream()
+				.filter(selection::contains)
 				.toList();
-	}
-
-	private static Set<Campaign> identitySet(List<Campaign> campaigns)
-	{
-		Set<Campaign> set = Collections.newSetFromMap(new IdentityHashMap<>());
-		set.addAll(campaigns);
-		return set;
+		return blockers.isEmpty() ? new Unmet() : new ConflictsWith(blockers);
 	}
 }

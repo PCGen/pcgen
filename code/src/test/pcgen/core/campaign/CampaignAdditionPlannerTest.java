@@ -14,6 +14,7 @@
 package pcgen.core.campaign;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
@@ -158,6 +159,24 @@ class CampaignAdditionPlannerTest
 				List.of(alpha), List.of(alpha, campaign("Beta")), new FakePrereqs());
 
 		assertEquals(List.of("Beta"), names(plan.accepted()));
+		assertTrue(plan.rejected().isEmpty());
+	}
+
+	@Test
+	void plan_should_deduplicateByIdentity_withoutDiscardingEqualCampaigns()
+	{
+		var selected = campaign("Same Key");
+		var first = campaign("Same Key");
+		var second = campaign("Same Key");
+		var other = campaign("Other");
+
+		var plan = CampaignAdditionPlanner.plan(List.of(selected),
+				List.of(first, second, first, other, second), _ -> List.of());
+
+		assertEquals(3, plan.accepted().size());
+		assertSame(first, plan.accepted().get(0));
+		assertSame(second, plan.accepted().get(1));
+		assertSame(other, plan.accepted().get(2));
 		assertTrue(plan.rejected().isEmpty());
 	}
 

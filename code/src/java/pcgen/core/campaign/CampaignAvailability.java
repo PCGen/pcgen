@@ -13,12 +13,10 @@
  */
 package pcgen.core.campaign;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.function.Function;
 
 import pcgen.core.Campaign;
@@ -93,36 +91,24 @@ public final class CampaignAvailability
 		{
 			return Collections.unmodifiableMap(statuses);
 		}
-		Set<Campaign> alreadyUnqualified = Collections.newSetFromMap(new IdentityHashMap<>());
-		if (!selected.isEmpty())
-		{
-			alreadyUnqualified.addAll(findUnqualified.apply(List.copyOf(selected)));
-		}
+		var selection = new CampaignSelection(selected, findUnqualified::apply);
 		for (Campaign campaign : offered)
 		{
 			statuses.put(campaign,
-					statusOf(campaign, selected, alreadyUnqualified, contentsOf, findUnqualified));
+					statusOf(campaign, selected, selection, contentsOf));
 		}
 		return Collections.unmodifiableMap(statuses);
 	}
 
 	private static Status statusOf(Campaign campaign, List<Campaign> selected,
-			Set<Campaign> alreadyUnqualified, Function<Campaign, List<Campaign>> contentsOf,
-			Function<List<Campaign>, List<Campaign>> findUnqualified)
+			CampaignSelection selection, Function<Campaign, List<Campaign>> contentsOf)
 	{
-		if (isSelected(campaign, selected)
+		if (selection.contains(campaign)
 				|| CampaignContainment.containerOf(campaign, selected, contentsOf) != null)
 		{
 			return Status.ALREADY_INCLUDED;
 		}
-		List<Campaign> withCandidate = new ArrayList<>(selected);
-		withCandidate.add(campaign);
-		return findUnqualified.apply(withCandidate).stream().allMatch(alreadyUnqualified::contains)
+		return selection.newFailuresWith(List.of(campaign)).isEmpty()
 				? Status.ADDABLE : Status.BLOCKED;
-	}
-
-	private static boolean isSelected(Campaign campaign, List<Campaign> selected)
-	{
-		return selected.stream().anyMatch(chosen -> chosen == campaign);
 	}
 }

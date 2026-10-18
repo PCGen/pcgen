@@ -13,9 +13,9 @@
  */
 package pcgen.core.campaign;
 
+import static pcgen.core.campaign.CampaignSelection.identitySet;
+
 import java.util.ArrayDeque;
-import java.util.Collections;
-import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Set;
 import java.util.function.Function;
@@ -71,8 +71,7 @@ public final class CampaignContainment
 	{
 		// Data is authored by hand and a collection may name itself, or a
 		// sibling that names it back, so the walk has to tolerate cycles.
-		Set<Campaign> visited = Collections.newSetFromMap(new IdentityHashMap<>());
-		visited.add(container);
+		Set<Campaign> visited = identitySet(List.of(container));
 		var pending = new ArrayDeque<>(contentsOf.apply(container));
 		while (!pending.isEmpty())
 		{
