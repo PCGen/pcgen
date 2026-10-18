@@ -16,6 +16,7 @@ package pcgen.core.campaign;
 import static java.util.stream.Collectors.partitioningBy;
 import static pcgen.core.campaign.CampaignSelection.identitySet;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import java.util.function.UnaryOperator;
@@ -95,7 +96,7 @@ public final class CampaignAdditionPlanner
 			UnaryOperator<List<Campaign>> findUnqualified)
 	{
 		Set<Campaign> selected = identitySet(alreadySelected);
-		Set<Campaign> seen = identitySet(List.of());
+		Set<Campaign> seen = identitySet(Collections.emptyList());
 		// Identity-based deduplication is stateful; keep this stream sequential.
 		List<Campaign> toAdd = candidates.stream()
 				.filter(candidate -> !selected.contains(candidate))
@@ -103,7 +104,7 @@ public final class CampaignAdditionPlanner
 				.toList();
 		if (toAdd.isEmpty())
 		{
-			return new Plan(List.of(), List.of());
+			return new Plan(Collections.emptyList(), Collections.emptyList());
 		}
 
 		var selection = new CampaignSelection(alreadySelected, findUnqualified);

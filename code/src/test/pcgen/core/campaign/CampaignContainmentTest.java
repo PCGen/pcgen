@@ -16,6 +16,7 @@ package pcgen.core.campaign;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
+import java.util.Collections;
 import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Map;
@@ -57,7 +58,7 @@ class CampaignContainmentTest
 		@Override
 		public List<Campaign> apply(Campaign campaign)
 		{
-			return contents.getOrDefault(campaign, List.of());
+			return contents.getOrDefault(campaign, Collections.emptyList());
 		}
 	}
 

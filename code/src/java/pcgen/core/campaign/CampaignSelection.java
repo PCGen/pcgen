@@ -43,7 +43,7 @@ final class CampaignSelection
 		this.selectedIdentities = identitySet(this.selected);
 		this.findUnqualified = findUnqualified;
 		alreadyUnqualified = identitySet(this.selected.isEmpty()
-				? List.of() : findUnqualified.apply(this.selected));
+				? Collections.emptyList() : findUnqualified.apply(this.selected));
 	}
 
 	/** Whether this exact campaign object is already selected. */

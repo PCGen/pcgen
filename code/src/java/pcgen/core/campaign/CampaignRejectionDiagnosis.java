@@ -13,6 +13,7 @@
  */
 package pcgen.core.campaign;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.function.Function;
 import java.util.function.UnaryOperator;
@@ -117,7 +118,7 @@ public final class CampaignRejectionDiagnosis
 	{
 		if (rejected.isEmpty())
 		{
-			return List.of();
+			return Collections.emptyList();
 		}
 		var selection = new CampaignSelection(selected, findUnqualified);
 		return rejected.stream()

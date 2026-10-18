@@ -17,6 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import pcgen.core.Campaign;
@@ -70,7 +71,7 @@ class CampaignSelectionTest
 	{
 		var candidate = campaign("New Book");
 		var calls = new ArrayList<List<Campaign>>();
-		var selection = new CampaignSelection(List.of(), campaigns -> {
+		var selection = new CampaignSelection(Collections.emptyList(), campaigns -> {
 			calls.add(List.copyOf(campaigns));
 			return List.of(candidate);
 		});

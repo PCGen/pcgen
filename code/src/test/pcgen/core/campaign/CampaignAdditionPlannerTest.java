@@ -18,6 +18,7 @@ import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -97,7 +98,7 @@ class CampaignAdditionPlannerTest
 	void plan_should_acceptEveryCandidate_whenTheWholeSetQualifies()
 	{
 		var plan = CampaignAdditionPlanner.plan(
-				List.of(), List.of(campaign("Alpha"), campaign("Beta")), new FakePrereqs());
+				Collections.emptyList(), List.of(campaign("Alpha"), campaign("Beta")), new FakePrereqs());
 
 		assertEquals(List.of("Alpha", "Beta"), names(plan.accepted()));
 		assertTrue(plan.rejected().isEmpty());
@@ -114,7 +115,7 @@ class CampaignAdditionPlannerTest
 		prereqs.require("Book of Arcane Magic", "DSP - Psionics Unleashed");
 
 		var plan = CampaignAdditionPlanner.plan(
-				List.of(),
+				Collections.emptyList(),
 				List.of(campaign("Book of Arcane Magic"), campaign("DSP - Psionics Unleashed")),
 				prereqs);
 
@@ -129,7 +130,7 @@ class CampaignAdditionPlannerTest
 		prereqs.require("Book of Arcane Magic", "Never Selected");
 
 		var plan = CampaignAdditionPlanner.plan(
-				List.of(), List.of(campaign("Book of Arcane Magic"), campaign("Beta")), prereqs);
+				Collections.emptyList(), List.of(campaign("Book of Arcane Magic"), campaign("Beta")), prereqs);
 
 		assertEquals(List.of("Beta"), names(plan.accepted()));
 		assertEquals(List.of("Book of Arcane Magic"), names(plan.rejected()));
@@ -171,7 +172,7 @@ class CampaignAdditionPlannerTest
 		var other = campaign("Other");
 
 		var plan = CampaignAdditionPlanner.plan(List.of(selected),
-				List.of(first, second, first, other, second), _ -> List.of());
+				List.of(first, second, first, other, second), _ -> Collections.emptyList());
 
 		assertEquals(3, plan.accepted().size());
 		assertSame(first, plan.accepted().get(0));
@@ -203,7 +204,7 @@ class CampaignAdditionPlannerTest
 	{
 		var prereqs = new FakePrereqs();
 
-		var plan = CampaignAdditionPlanner.plan(List.of(campaign("Alpha")), List.of(), prereqs);
+		var plan = CampaignAdditionPlanner.plan(List.of(campaign("Alpha")), Collections.emptyList(), prereqs);
 
 		assertTrue(plan.accepted().isEmpty());
 		assertTrue(plan.rejected().isEmpty());
@@ -218,7 +219,7 @@ class CampaignAdditionPlannerTest
 		prereqs.require("Delta", "Never Selected");
 
 		var plan = CampaignAdditionPlanner.plan(
-				List.of(),
+				Collections.emptyList(),
 				List.of(campaign("Alpha"), campaign("Beta"), campaign("Gamma"), campaign("Delta")),
 				prereqs);
 
@@ -241,7 +242,7 @@ class CampaignAdditionPlannerTest
 		prereqs.exclude("Bestiary", "Bestiary ~ Player Options Only");
 		prereqs.exclude("Bestiary ~ Player Options Only", "Bestiary");
 
-		var plan = CampaignAdditionPlanner.plan(List.of(),
+		var plan = CampaignAdditionPlanner.plan(Collections.emptyList(),
 				List.of(campaign("Bestiary"), campaign("Bestiary ~ Player Options Only")), prereqs);
 
 		assertEquals(List.of("Bestiary"), names(plan.accepted()),
@@ -265,7 +266,7 @@ class CampaignAdditionPlannerTest
 		prereqs.exclude("Bestiary", "Core Supplements");
 		prereqs.exclude("Ultimate Magic", "Core Supplements");
 
-		var plan = CampaignAdditionPlanner.plan(List.of(),
+		var plan = CampaignAdditionPlanner.plan(Collections.emptyList(),
 				List.of(campaign("APG"), campaign("Bestiary"), campaign("Core Supplements"),
 						campaign("Ultimate Magic")),
 				prereqs);
@@ -287,7 +288,7 @@ class CampaignAdditionPlannerTest
 		prereqs.exclude("Zulu", "Alpha");
 		prereqs.exclude("Alpha", "Zulu");
 
-		var plan = CampaignAdditionPlanner.plan(List.of(),
+		var plan = CampaignAdditionPlanner.plan(Collections.emptyList(),
 				List.of(campaign("Zulu"), campaign("Alpha")), prereqs);
 
 		assertEquals(List.of("Zulu"), names(plan.accepted()),
@@ -309,7 +310,7 @@ class CampaignAdditionPlannerTest
 		prereqs.exclude("Standalone", "Bundle");
 		prereqs.require("Expansion", "Standalone");
 
-		var plan = CampaignAdditionPlanner.plan(List.of(),
+		var plan = CampaignAdditionPlanner.plan(Collections.emptyList(),
 				List.of(campaign("Expansion"), campaign("Standalone"), campaign("Bundle")), prereqs);
 
 		assertEquals(List.of("Expansion", "Standalone"), names(plan.accepted()),

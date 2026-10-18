@@ -18,6 +18,7 @@ import static org.junit.jupiter.api.Assertions.assertInstanceOf;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.IdentityHashMap;
 import java.util.List;
@@ -65,7 +66,7 @@ class CampaignRejectionDiagnosisTest
 		@Override
 		public List<Campaign> apply(Campaign campaign)
 		{
-			return contents.getOrDefault(campaign, List.of());
+			return contents.getOrDefault(campaign, Collections.emptyList());
 		}
 	}
 
@@ -214,7 +215,7 @@ class CampaignRejectionDiagnosisTest
 		var prereqs = new FakePrereqs();
 
 		var diagnoses = CampaignRejectionDiagnosis.diagnose(
-				List.of(), List.of(campaign("Core Rulebook")), new FakeContents(), prereqs);
+				Collections.emptyList(), List.of(campaign("Core Rulebook")), new FakeContents(), prereqs);
 
 		assertTrue(diagnoses.isEmpty());
 		assertTrue(prereqs.calls.isEmpty(), "diagnosis is an error path and must cost nothing otherwise");

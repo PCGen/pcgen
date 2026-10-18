@@ -18,6 +18,7 @@ import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.IdentityHashMap;
@@ -64,7 +65,7 @@ class CampaignAvailabilityTest
 		@Override
 		public List<Campaign> apply(Campaign campaign)
 		{
-			return contents.getOrDefault(campaign, List.of());
+			return contents.getOrDefault(campaign, Collections.emptyList());
 		}
 	}
 
@@ -104,7 +105,7 @@ class CampaignAvailabilityTest
 		var book = campaign("Core Rulebook");
 
 		var status = CampaignAvailability.classify(
-				List.of(book), List.of(), new FakeContents(), new FakePrereqs());
+				List.of(book), Collections.emptyList(), new FakeContents(), new FakePrereqs());
 
 		assertEquals(CampaignAvailability.Status.ADDABLE, status.get(book));
 	}
@@ -213,7 +214,7 @@ class CampaignAvailabilityTest
 		var second = campaign("Bonus Bestiary");
 
 		var status = CampaignAvailability.classify(
-				List.of(first, second), List.of(), new FakeContents(), new FakePrereqs());
+				List.of(first, second), Collections.emptyList(), new FakeContents(), new FakePrereqs());
 
 		assertEquals(2, status.size());
 		assertTrue(status.containsKey(first));
@@ -232,7 +233,7 @@ class CampaignAvailabilityTest
 		var twin = campaign("Core Rulebook");
 
 		var status = CampaignAvailability.classify(
-				List.of(book), List.of(), new FakeContents(), new FakePrereqs());
+				List.of(book), Collections.emptyList(), new FakeContents(), new FakePrereqs());
 
 		assertSame(null, status.get(twin), "a different campaign object is a different campaign");
 	}
@@ -243,7 +244,7 @@ class CampaignAvailabilityTest
 		var prereqs = new FakePrereqs();
 
 		var status = CampaignAvailability.classify(
-				List.of(), List.of(campaign("Core Rulebook")), new FakeContents(), prereqs);
+				Collections.emptyList(), List.of(campaign("Core Rulebook")), new FakeContents(), prereqs);
 
 		assertTrue(status.isEmpty());
 		assertTrue(prereqs.calls.isEmpty());
@@ -259,7 +260,7 @@ class CampaignAvailabilityTest
 		var prereqs = new FakePrereqs();
 		var books = List.of(campaign("A"), campaign("B"), campaign("C"));
 
-		CampaignAvailability.classify(books, List.of(), new FakeContents(), prereqs);
+		CampaignAvailability.classify(books, Collections.emptyList(), new FakeContents(), prereqs);
 
 		assertEquals(3, prereqs.calls.size());
 	}
