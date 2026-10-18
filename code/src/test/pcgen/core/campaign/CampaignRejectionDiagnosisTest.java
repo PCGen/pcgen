@@ -24,6 +24,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.function.Function;
+import java.util.function.UnaryOperator;
 import java.util.stream.Collectors;
 
 import pcgen.core.Campaign;
@@ -72,7 +73,7 @@ class CampaignRejectionDiagnosisTest
 	 * A stand-in for the engine's prerequisite check, using the same whole-set
 	 * semantics as {@code FacadeFactory.findUnqualified}.
 	 */
-	private static final class FakePrereqs implements Function<List<Campaign>, List<Campaign>>
+	private static final class FakePrereqs implements UnaryOperator<List<Campaign>>
 	{
 		private final Map<String, Set<String>> exclusions = new HashMap<>();
 		private final Set<String> alwaysUnqualified = new java.util.HashSet<>();

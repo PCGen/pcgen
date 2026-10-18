@@ -18,7 +18,7 @@ import java.util.Collections;
 import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Set;
-import java.util.function.Function;
+import java.util.function.UnaryOperator;
 
 import pcgen.core.Campaign;
 
@@ -92,18 +92,15 @@ public final class CampaignAdditionPlanner
 	 * @return the accepted and rejected candidates
 	 */
 	public static Plan plan(List<Campaign> alreadySelected, List<Campaign> candidates,
-			Function<List<Campaign>, List<Campaign>> findUnqualified)
+			UnaryOperator<List<Campaign>> findUnqualified)
 	{
 		Set<Campaign> selected = identitySet(alreadySelected);
 		Set<Campaign> seen = identitySet(List.of());
-		List<Campaign> toAdd = new ArrayList<>();
-		for (Campaign candidate : candidates)
-		{
-			if (!selected.contains(candidate) && seen.add(candidate))
-			{
-				toAdd.add(candidate);
-			}
-		}
+		// Identity-based deduplication is stateful; keep this stream sequential.
+		List<Campaign> toAdd = candidates.stream()
+				.filter(candidate -> !selected.contains(candidate))
+				.filter(seen::add)
+				.toList();
 		if (toAdd.isEmpty())
 		{
 			return new Plan(List.of(), List.of());
@@ -111,9 +108,9 @@ public final class CampaignAdditionPlanner
 
 		// Whatever is already wrong with the existing selection is not this
 		// addition's doing, and must not be allowed to veto every candidate.
-		Set<Campaign> tolerated = alreadySelected.isEmpty()
-				? identitySet(List.of())
-				: identitySet(findUnqualified.apply(List.copyOf(alreadySelected)));
+		Set<Campaign> tolerated = identitySet(alreadySelected.isEmpty()
+				? List.of()
+				: findUnqualified.apply(List.copyOf(alreadySelected)));
 
 		Set<Campaign> kept = identitySet(toAdd);
 		shrinkToSomethingValid(alreadySelected, toAdd, kept, tolerated, findUnqualified);
@@ -146,7 +143,7 @@ public final class CampaignAdditionPlanner
 	 */
 	private static void shrinkToSomethingValid(List<Campaign> alreadySelected, List<Campaign> toAdd,
 			Set<Campaign> kept, Set<Campaign> tolerated,
-			Function<List<Campaign>, List<Campaign>> findUnqualified)
+			UnaryOperator<List<Campaign>> findUnqualified)
 	{
 		while (!kept.isEmpty())
 		{
@@ -182,7 +179,7 @@ public final class CampaignAdditionPlanner
 	 */
 	private static void takeBackWhatFits(List<Campaign> alreadySelected, List<Campaign> toAdd,
 			Set<Campaign> kept, Set<Campaign> tolerated,
-			Function<List<Campaign>, List<Campaign>> findUnqualified)
+			UnaryOperator<List<Campaign>> findUnqualified)
 	{
 		boolean grew = true;
 		while (grew)

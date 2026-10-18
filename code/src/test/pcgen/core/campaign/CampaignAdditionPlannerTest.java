@@ -21,7 +21,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.function.Function;
+import java.util.function.UnaryOperator;
 import java.util.stream.Collectors;
 
 import pcgen.core.Campaign;
@@ -52,7 +52,7 @@ class CampaignAdditionPlannerTest
 	 * when any campaign it requires is absent from the set under test, which is
 	 * the same whole-set semantics {@code FacadeFactory.passesPrereqs} uses.
 	 */
-	private static final class FakePrereqs implements Function<List<Campaign>, List<Campaign>>
+	private static final class FakePrereqs implements UnaryOperator<List<Campaign>>
 	{
 		private final Map<String, Set<String>> requirements = new HashMap<>();
 		private final Map<String, Set<String>> exclusions = new HashMap<>();

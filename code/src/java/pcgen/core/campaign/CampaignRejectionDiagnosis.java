@@ -19,6 +19,7 @@ import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Set;
 import java.util.function.Function;
+import java.util.function.UnaryOperator;
 
 import pcgen.core.Campaign;
 
@@ -116,7 +117,7 @@ public final class CampaignRejectionDiagnosis
 	 */
 	public static List<Diagnosis> diagnose(List<Campaign> rejected, List<Campaign> selected,
 			Function<Campaign, List<Campaign>> contentsOf,
-			Function<List<Campaign>, List<Campaign>> findUnqualified)
+			UnaryOperator<List<Campaign>> findUnqualified)
 	{
 		if (rejected.isEmpty())
 		{
@@ -124,9 +125,9 @@ public final class CampaignRejectionDiagnosis
 		}
 		// Whatever was already wrong with the selection is not the candidate's
 		// doing, and must not be reported as though it were.
-		Set<Campaign> alreadyBroken = selected.isEmpty()
-				? identitySet(List.of())
-				: identitySet(findUnqualified.apply(List.copyOf(selected)));
+		Set<Campaign> alreadyBroken = identitySet(selected.isEmpty()
+				? List.of()
+				: findUnqualified.apply(List.copyOf(selected)));
 
 		List<Diagnosis> diagnoses = new ArrayList<>(rejected.size());
 		for (Campaign campaign : rejected)
@@ -139,7 +140,7 @@ public final class CampaignRejectionDiagnosis
 
 	private static Reason reasonFor(Campaign campaign, List<Campaign> selected,
 			Set<Campaign> alreadyBroken, Function<Campaign, List<Campaign>> contentsOf,
-			Function<List<Campaign>, List<Campaign>> findUnqualified)
+			UnaryOperator<List<Campaign>> findUnqualified)
 	{
 		Campaign container = CampaignContainment.containerOf(campaign, selected, contentsOf);
 		if (container != null)
@@ -155,7 +156,7 @@ public final class CampaignRejectionDiagnosis
 	 * qualifying.
 	 */
 	private static List<Campaign> brokenByAdding(Campaign campaign, List<Campaign> selected,
-			Set<Campaign> alreadyBroken, Function<List<Campaign>, List<Campaign>> findUnqualified)
+			Set<Campaign> alreadyBroken, UnaryOperator<List<Campaign>> findUnqualified)
 	{
 		if (selected.isEmpty())
 		{
