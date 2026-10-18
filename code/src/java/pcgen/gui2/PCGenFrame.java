@@ -42,7 +42,6 @@ import javax.swing.ActionMap;
 import javax.swing.InputMap;
 import javax.swing.JCheckBox;
 import javax.swing.JComponent;
-import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -83,7 +82,6 @@ import pcgen.gui2.dialog.EquipCustomizerDialog;
 import pcgen.gui2.dialog.PostLevelUpDialog;
 import pcgen.gui2.dialog.RadioChooserDialog;
 import pcgen.gui2.dialog.SpellChoiceDialog;
-import pcgen.gui2.sources.SourceSelectionDialog;
 import pcgen.gui2.tabs.InfoTabbedPane;
 import pcgen.gui2.tools.CharacterSelectionListener;
 import pcgen.gui2.tools.Icons;
@@ -97,6 +95,7 @@ import pcgen.gui3.dialog.AboutDialog;
 import pcgen.gui3.dialog.RememberingChoiceDialog;
 import pcgen.gui3.dialog.TipOfTheDayController;
 import pcgen.gui2.dialog.DataInstaller;
+import pcgen.gui3.sources.AdvancedSourceSelectionController;
 import pcgen.gui3.sources.SourceBundle;
 import pcgen.gui3.sources.SourceDialogOutcome;
 import pcgen.gui3.sources.SourceTabPreference;
@@ -148,7 +147,6 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 	private final DefaultReferenceFacade<CharacterFacade> currentCharacterRef;
 	private final DefaultReferenceFacade<DataSetFacade> currentDataSetRef;
 	private final FilenameListener filenameListener;
-	private JDialog sourceSelectionDialog;
 	private SourceLoadWorker sourceLoader;
 	private String section15;
 	private String lastCharacterPath;
@@ -260,7 +258,8 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 						Platform.runLater(PCGenFrame::showTipsOfTheDay);
 					}
 					SwingUtilities.invokeLater(() -> {
-						if (!SourceSelectionDialog.skipSourceSelection())
+						if (!UIPropertyContext.getInstance()
+								.initBoolean(UIPropertyContext.SKIP_SOURCE_SELECTION, false))
 						{
 							showSourceSelectionDialog();
 						}
@@ -1101,11 +1100,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 			}
 			else if (loadSourceSelection(sources))
 			{
-				if (sourceSelectionDialog == null)
-				{
-					sourceSelectionDialog = new SourceSelectionDialog(this, uiContext);
-				}
-				((SourceSelectionDialog) sourceSelectionDialog).setAdvancedSources(sources);
+				rememberAdvancedSelection(sources);
 				currentSourceSelection.set(sources);
 				loadSourcesThenCharacter(pcgFile);
 			}
@@ -1362,7 +1357,8 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 						s.getGameMode().get(),
 						ListFacades.wrap(s.getCampaigns()),
 						s.isModifiable(),
-						s.getLoadingState()))
+						s.getLoadingState(),
+						s.getLoadingErrorMessage()))
 				.toList();
 
 		Platform.runLater(() -> {
@@ -1422,14 +1418,6 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 				});
 			}
 		);
-
-
-		if (sourceSelectionDialog == null)
-		{
-			sourceSelectionDialog = new SourceSelectionDialog(this, uiContext);
-		}
-		sourceSelectionDialog.setLocationRelativeTo(this);
-		sourceSelectionDialog.setVisible(true);
 	}
 
 	/**
@@ -1464,6 +1452,26 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 				Logging.errorPrint("No custom source selection found to delete for: " + bundle.displayName());
 			}
 		});
+	}
+
+	/**
+	 * Remembers a character's sources as the Advanced tab's selection, so
+	 * reopening the dialog offers what the character used.
+	 *
+	 * <p>A selection with no game mode is skipped rather than loaded: this is
+	 * best-effort memory for next time, and a character file naming a mode
+	 * PCGen no longer has is a state the loader has to survive, not a broken
+	 * assumption worth failing on. The legacy panel guarded the same case.
+	 */
+	private static void rememberAdvancedSelection(SourceSelectionFacade sources)
+	{
+		GameMode mode = sources.getGameMode() == null ? null : sources.getGameMode().get();
+		if (mode == null)
+		{
+			Logging.errorPrint("Invalid source selection " + sources + " - not remembering it.");
+			return;
+		}
+		AdvancedSourceSelectionController.rememberSelection(mode, ListFacades.wrap(sources.getCampaigns()));
 	}
 
 	/** Opens the data installer, as the legacy source dialog's Install Data does. */

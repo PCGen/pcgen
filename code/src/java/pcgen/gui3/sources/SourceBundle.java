@@ -33,18 +33,38 @@ import pcgen.facade.core.LoadableFacade.LoadingState;
  * @param modifiable whether the user can rename or delete this bundle.
  * @param loadingState last-known loading state — null until the bundle has
  *                    actually been attempted.
+ * @param loadingErrorMessage why it did not load cleanly, or null when it did.
  */
 public record SourceBundle(
 		String name,
 		GameMode gameMode,
 		List<Campaign> campaigns,
 		boolean modifiable,
-		LoadingState loadingState)
+		LoadingState loadingState,
+		String loadingErrorMessage)
 {
 	public SourceBundle
 	{
 		Objects.requireNonNull(gameMode, "gameMode");
 		campaigns = List.copyOf(campaigns);
+	}
+
+	/**
+	 * A bundle with nothing to report about its loading.
+	 *
+	 * <p>Only a saved selection naming campaigns that are no longer installed
+	 * carries a message, so most callers have none to give.
+	 *
+	 * @param name display name
+	 * @param gameMode the game mode the bundle targets; never null
+	 * @param campaigns the campaigns to load
+	 * @param modifiable whether the user can rename or delete this bundle
+	 * @param loadingState last-known loading state
+	 */
+	public SourceBundle(String name, GameMode gameMode, List<Campaign> campaigns, boolean modifiable,
+			LoadingState loadingState)
+	{
+		this(name, gameMode, campaigns, modifiable, loadingState, null);
 	}
 
 	/**

@@ -613,14 +613,33 @@ public class AdvancedSourceSelectionController implements AutoCloseable
 	 * being loaded (not {@code null}) — browsing then cancelling, or loading from
 	 * the Basic tab, must not overwrite the Advanced memory.
 	 *
-	 * <p>Keys/values use {@link GameMode#getName()} and {@link Campaign#toString()}
-	 * for interoperability with the legacy Swing dialog.
+	 * @param loaded the bundle being loaded
+	 * @see #rememberSelection(GameMode, List)
 	 */
 	public void commitSelection(SourceBundle loaded)
 	{
-		GameMode mode = loaded.gameMode();
+		rememberSelection(loaded.gameMode(), loaded.campaigns());
+	}
+
+	/**
+	 * Records {@code campaigns} as the Advanced tab's selection for
+	 * {@code mode}, so the tab restores them next time it is opened there.
+	 *
+	 * <p>Static because the sources of a character being opened have to be
+	 * remembered without a dialog existing to remember them -- the legacy
+	 * dialog did this by holding an instance alive between showings.
+	 *
+	 * <p>Keys and values use {@link GameMode#getName()} and
+	 * {@link Campaign#toString()}, which is what the settings file has always
+	 * held and what the legacy dialog wrote.
+	 *
+	 * @param mode the game mode the campaigns belong to
+	 * @param campaigns the campaigns to remember
+	 */
+	public static void rememberSelection(GameMode mode, List<Campaign> campaigns)
+	{
 		CONTEXT.setProperty(PROP_SELECTED_GAME, mode.getName());
-		String names = loaded.campaigns().stream()
+		String names = campaigns.stream()
 				.map(Campaign::toString)
 				.collect(Collectors.joining("|")); //$NON-NLS-1$
 		CONTEXT.setProperty(PROP_SELECTED_SOURCES + mode.getName(), names);

@@ -13,10 +13,14 @@
  */
 package pcgen.gui3.sources;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.testfx.util.WaitForAsyncUtils.waitForAsyncFx;
 
 import java.util.List;
 import java.util.Optional;
@@ -24,13 +28,18 @@ import java.util.Optional;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.paint.Color;
 
 import pcgen.core.GameMode;
+import pcgen.facade.core.LoadableFacade.LoadingState;
+import pcgen.gui2.UIPropertyContext;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import org.testfx.framework.junit5.ApplicationExtension;
-import org.testfx.util.WaitForAsyncUtils;
 
 /**
  * Delete is a property of a single row, not of the tab: only a user-saved
@@ -74,7 +83,7 @@ class SourceBundleListCellTest
 	@Test
 	void cell_should_showTrashIcon_when_bundleIsModifiable()
 	{
-		var cell = WaitForAsyncUtils.waitForAsyncFx(5000, () -> {
+		var cell = waitForAsyncFx(5000, () -> {
 			var created = newCell();
 			created.updateItem(CUSTOM, false);
 			return created;
@@ -86,7 +95,7 @@ class SourceBundleListCellTest
 	@Test
 	void cell_should_hideTrashIcon_when_bundleIsNotModifiable()
 	{
-		var cell = WaitForAsyncUtils.waitForAsyncFx(5000, () -> {
+		var cell = waitForAsyncFx(5000, () -> {
 			var created = newCell();
 			created.updateItem(BUNDLED, false);
 			return created;
@@ -98,7 +107,7 @@ class SourceBundleListCellTest
 	@Test
 	void cell_should_dropTrashIcon_when_recycledOntoABuiltInBundle()
 	{
-		var cell = WaitForAsyncUtils.waitForAsyncFx(5000, () -> {
+		var cell = waitForAsyncFx(5000, () -> {
 			var created = newCell();
 			created.updateItem(CUSTOM, false);
 			created.updateItem(BUNDLED, false);
@@ -111,7 +120,7 @@ class SourceBundleListCellTest
 	@Test
 	void cell_should_clearGraphic_when_becomingEmpty()
 	{
-		var cell = WaitForAsyncUtils.waitForAsyncFx(5000, () -> {
+		var cell = waitForAsyncFx(5000, () -> {
 			var created = newCell();
 			created.updateItem(CUSTOM, false);
 			created.updateItem(null, true);
@@ -124,7 +133,7 @@ class SourceBundleListCellTest
 	@Test
 	void cell_should_requestDeleteOfItsOwnBundle_when_trashIsClicked()
 	{
-		WaitForAsyncUtils.waitForAsyncFx(5000, () -> {
+		waitForAsyncFx(5000, () -> {
 			var cell = newCell();
 			cell.updateItem(CUSTOM, false);
 			trashOf(cell).orElseThrow().fire();
@@ -136,7 +145,7 @@ class SourceBundleListCellTest
 	@Test
 	void trashIcon_should_notBeFocusTraversable()
 	{
-		var cell = WaitForAsyncUtils.waitForAsyncFx(5000, () -> {
+		var cell = waitForAsyncFx(5000, () -> {
 			var created = newCell();
 			created.updateItem(CUSTOM, false);
 			return created;
@@ -144,5 +153,138 @@ class SourceBundleListCellTest
 
 		assertFalse(trashOf(cell).orElseThrow().isFocusTraversable(),
 				"a button inside a list row would otherwise trap keyboard traversal in the list");
+	}
+
+	private static final SourceBundle BROKEN = new SourceBundle("Broken", MODE, List.of(), true,
+			LoadingState.LOADED_WITH_ERRORS, "Some campaigns are missing");
+
+	private static Label labelOf(SourceBundleListCell cell)
+	{
+		return (Label) ((Parent) cell.getGraphic()).getChildrenUnmodifiable().stream()
+				.filter(Label.class::isInstance)
+				.findFirst()
+				.orElseThrow();
+	}
+
+	/**
+	 * A saved selection whose campaigns are no longer installed loads short of
+	 * what it names. Shown as though it were intact, the user picks it, and
+	 * sources vanish with no explanation -- so it is greyed, as the legacy list
+	 * greys it.
+	 */
+	@Test
+	void cell_should_greyABundleThatCannotLoadCompletely()
+	{
+		var original = UIPropertyContext.getQualifiedColor();
+		try
+		{
+			UIPropertyContext.setQualifiedColor(Color.MAGENTA);
+			waitForAsyncFx(5000, () -> {
+				var cell = cellShowing(BROKEN);
+				assertNotEquals(Color.MAGENTA, labelOf(cell).getTextFill(),
+						"a selection that cannot load must not look like one that can");
+			});
+		}
+		finally
+		{
+			UIPropertyContext.setQualifiedColor(original);
+		}
+	}
+
+	@Test
+	void cell_should_explainWhyInATooltip()
+	{
+		waitForAsyncFx(5000, () -> {
+			var cell = cellShowing(BROKEN);
+			var tooltip = labelOf(cell).getTooltip();
+			assertNotNull(tooltip, "greying it without saying why leaves the user guessing");
+			assertTrue(tooltip.getText().contains("missing"), tooltip.getText());
+		});
+	}
+
+	@Test
+	void cell_should_leaveAHealthyBundleUnmarked()
+	{
+		waitForAsyncFx(5000, () ->
+				assertNull(labelOf(cellShowing(CUSTOM)).getTooltip()));
+	}
+
+	/**
+	 * A broken selection is one the user is most likely to want rid of, so the
+	 * marking must not cost them the way to delete it.
+	 */
+	@Test
+	void cell_should_stillOfferTheTrashIcon_whenTheBundleIsBroken()
+	{
+		waitForAsyncFx(5000, () -> assertTrue(trashOf(cellShowing(BROKEN)).isPresent()));
+	}
+
+	/** Cells are recycled, so a healthy row must not inherit a broken one's marking. */
+	@Test
+	void recycledCell_should_forgetTheMarkingOfABrokenBundle()
+	{
+		var original = UIPropertyContext.getQualifiedColor();
+		try
+		{
+			UIPropertyContext.setQualifiedColor(Color.MAGENTA);
+			waitForAsyncFx(5000, () -> {
+				var cell = cellShowing(BROKEN);
+				cell.updateItem(CUSTOM, false);
+
+				assertNull(labelOf(cell).getTooltip());
+				assertEquals(Color.MAGENTA, labelOf(cell).getTextFill());
+			});
+		}
+		finally
+		{
+			UIPropertyContext.setQualifiedColor(original);
+		}
+	}
+
+	private SourceBundleListCell cellShowing(SourceBundle bundle)
+	{
+		var cell = newCell();
+		cell.updateItem(bundle, false);
+		return cell;
+	}
+
+	/**
+	 * A {@code Labeled}'s text fill is bound to the fill of the {@code Text}
+	 * its skin draws, and a {@code Text} with a null fill paints nothing — so
+	 * clearing the marking by setting null would not restore the default, it
+	 * would make the row's name vanish. That is how the source tree's headings
+	 * once went blank, and nothing in this file would have caught it.
+	 */
+	@Test
+	void everyRowWithAName_hasAFillToPaintItWith()
+	{
+		waitForAsyncFx(5000, () -> {
+			for (SourceBundle bundle : List.of(BUNDLED, CUSTOM, BROKEN))
+			{
+				var cell = cellShowing(bundle);
+
+				assertNotNull(labelOf(cell).getTextFill(),
+						() -> "a null fill makes " + bundle.displayName() + " invisible");
+			}
+		});
+	}
+
+	/** The unmarked colour is the user's, configured in Preferences, not a hardcoded black. */
+	@ParameterizedTest
+	@ValueSource(strings = {"black", "white", "gray", "magenta"})
+	void healthyRow_usesTheConfiguredTextColour(String colourName)
+	{
+		var original = UIPropertyContext.getQualifiedColor();
+		try
+		{
+			var colour = Color.valueOf(colourName);
+			UIPropertyContext.setQualifiedColor(colour);
+			waitForAsyncFx(5000, () ->
+					assertEquals(colour, labelOf(cellShowing(CUSTOM)).getTextFill()));
+		}
+		finally
+		{
+			UIPropertyContext.setQualifiedColor(original);
+		}
 	}
 }

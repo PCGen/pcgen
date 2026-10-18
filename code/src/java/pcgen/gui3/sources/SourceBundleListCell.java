@@ -27,7 +27,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
+import javafx.scene.paint.Color;
 
+import pcgen.facade.core.LoadableFacade.LoadingState;
+import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.tools.Icons;
 import pcgen.system.LanguageBundle;
 
@@ -46,6 +49,12 @@ import pcgen.system.LanguageBundle;
  */
 final class SourceBundleListCell extends ListCell<SourceBundle>
 {
+	/**
+	 * Reads as "this one is not all there". The only fill this cell chooses --
+	 * everything else defers to the user's configured text colour.
+	 */
+	private static final Color INCOMPLETE_COLOR = Color.GRAY;
+
 	private final Label name = new Label();
 	private final Region spacer = new Region();
 	private final Button delete = new Button();
@@ -74,6 +83,40 @@ final class SourceBundleListCell extends ListCell<SourceBundle>
 		row.setMaxWidth(Double.MAX_VALUE);
 	}
 
+	/**
+	 * Marks a selection that cannot load everything it names.
+	 *
+	 * <p>A saved selection whose campaigns are no longer installed loads short
+	 * of what it says, and shown as though it were intact the user picks it and
+	 * sources quietly go missing. The legacy list greyed it and explained
+	 * itself in a tooltip; so does this.
+	 *
+	 * <p>Both the colour and the tooltip are set on every path, including the
+	 * one that clears them: cells are recycled, and a healthy row must not
+	 * inherit the previous occupant's marking.
+	 *
+	 * <p>Clearing the colour means restoring the user's configured text
+	 * colour, never setting {@code null}. A {@code Labeled}'s fill is bound to
+	 * the fill of the {@code Text} its skin draws, and a {@code Text} with a
+	 * null fill paints nothing -- the name would vanish rather than revert.
+	 * Hardcoding black would be no better: it is readable only under a light
+	 * theme, and the colour is the user's to choose.
+	 */
+	private void markLoadingState(SourceBundle bundle)
+	{
+		boolean incomplete = bundle.loadingState() == LoadingState.LOADED_WITH_ERRORS;
+		name.setTextFill(incomplete ? INCOMPLETE_COLOR : UIPropertyContext.getQualifiedColor());
+		name.setTooltip(incomplete ? new Tooltip(loadingMessageOf(bundle)) : null);
+	}
+
+	/** The engine's explanation, or a general one when it offered none. */
+	private static String loadingMessageOf(SourceBundle bundle)
+	{
+		return bundle.loadingErrorMessage() == null || bundle.loadingErrorMessage().isBlank()
+				? LanguageBundle.getString("in_src_incompleteSelection")
+				: bundle.loadingErrorMessage();
+	}
+
 	@Override
 	public void updateItem(SourceBundle bundle, boolean empty)
 	{
@@ -85,6 +128,7 @@ final class SourceBundleListCell extends ListCell<SourceBundle>
 			return;
 		}
 		name.setText(bundle.displayName());
+		markLoadingState(bundle);
 		row.getChildren().setAll(bundle.modifiable()
 				? List.of(name, spacer, delete)
 				: List.of(name, spacer));
