@@ -212,7 +212,7 @@ public final class Main
 		String country = ConfigurationSettings.getCountry();
 		if (StringUtils.isNotEmpty(language) && StringUtils.isNotEmpty(country))
 		{
-			Locale.setDefault(new Locale(language, country));
+			Locale.setDefault(Locale.of(language, country));
 		}
 		LanguageBundle.init();
 	}
