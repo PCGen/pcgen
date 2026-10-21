@@ -34,8 +34,10 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Observer;
 import java.util.Optional;
+import java.util.OptionalInt;
 import java.util.concurrent.ExecutionException;
 import java.util.logging.LogRecord;
+import java.util.stream.IntStream;
 import java.util.stream.StreamSupport;
 import javax.swing.Action;
 import javax.swing.ActionMap;
@@ -1511,31 +1513,20 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 				{
 					return;
 				}
-				int existing = indexOfSourceNamed(sourceItems, bundle.name());
-				if (existing < 0)
-				{
-					sourceItems.add(bundle);
-				}
-				else
-				{
-					sourceItems.set(existing, bundle);
-				}
+				indexOfSourceNamed(sourceItems, bundle.name()).ifPresentOrElse(
+						existing -> sourceItems.set(existing, bundle),
+						() -> sourceItems.add(bundle));
 				pane.selectSource(bundle);
 			});
 		});
 	}
 
-	/** The row holding the selection called {@code name}, or -1. */
-	private static int indexOfSourceNamed(ObservableList<SourceBundle> sourceItems, String name)
+	/** The row holding the selection called {@code name}, or empty if none does. */
+	private static OptionalInt indexOfSourceNamed(ObservableList<SourceBundle> sourceItems, String name)
 	{
-		for (int index = 0; index < sourceItems.size(); index++)
-		{
-			if (name.equals(sourceItems.get(index).name()))
-			{
-				return index;
-			}
-		}
-		return -1;
+		return IntStream.range(0, sourceItems.size())
+				.filter(index -> name.equals(sourceItems.get(index).name()))
+				.findFirst();
 	}
 
 	/**
@@ -1549,8 +1540,8 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 		if (!FacadeFactory.passesPrereqs(bundle.campaigns()))
 		{
 			JOptionPane.showMessageDialog(this,
-					"Some sources have unfulfilled prereqs",
-					"Cannot Load Selected Sources",
+					LanguageBundle.getString("in_src_cannotLoadMessage"), //$NON-NLS-1$
+					LanguageBundle.getString("in_src_cannotLoadTitle"), //$NON-NLS-1$
 					JOptionPane.INFORMATION_MESSAGE);
 			return;
 		}
