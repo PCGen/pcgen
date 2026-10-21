@@ -63,10 +63,7 @@ public final class CampaignAdditionPlanner
 	/**
 	 * Plans the addition of {@code candidates} to {@code alreadySelected}.
 	 *
-	 * <p>Candidates already selected, and duplicates within {@code candidates},
-	 * are ignored. Campaigns in {@code alreadySelected} are never reported as
-	 * rejected: the user did not ask to add them, so neither dropping them nor
-	 * blaming them in a warning would be honest.
+	 * <p>Selected candidates are silently ignored. No warnings are reported.
 	 *
 	 * <p>Rejected candidates are dropped from the set before the rest are
 	 * judged, so a campaign that only qualifies once some other candidate is
@@ -78,9 +75,9 @@ public final class CampaignAdditionPlanner
 	 * complete set once would refuse the bundle <em>and</em> every book it
 	 * covers.
 	 *
-	 * <p>Where two candidates genuinely exclude one another, the one the user
-	 * sees first wins. That is predictable, but it is not guaranteed to produce
-	 * the largest possible selection -- finding that is a set-cover problem.
+	 * <p>Conflicts are resolved in candidate order. The planner does not
+	 * search all combinations, so it may accept fewer campaigns than
+	 * another ordering would allow.
 	 *
 	 * @param alreadySelected campaigns already in the selected list
 	 * @param candidates campaigns the user asked to add, in display order

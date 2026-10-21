@@ -14,12 +14,12 @@
 package pcgen.core.campaign;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
 
 import java.util.Collections;
 import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.function.Function;
 
 import pcgen.core.Campaign;
@@ -70,7 +70,7 @@ class CampaignContainmentTest
 		var contents = new FakeContents();
 		contents.contains(bundle, book);
 
-		assertEquals(bundle, CampaignContainment.containerOf(book, List.of(bundle), contents));
+		assertEquals(Optional.of(bundle), CampaignContainment.containerOf(book, List.of(bundle), contents));
 	}
 
 	@Test
@@ -82,7 +82,7 @@ class CampaignContainmentTest
 		var contents = new FakeContents();
 		contents.contains(bundle, book);
 
-		assertEquals(bundle, CampaignContainment.containerOf(sought, List.of(bundle), contents));
+		assertEquals(Optional.of(bundle), CampaignContainment.containerOf(sought, List.of(bundle), contents));
 	}
 
 	@Test
@@ -95,7 +95,7 @@ class CampaignContainmentTest
 		contents.contains(bundle, bestiary);
 		contents.contains(bestiary, reduced);
 
-		assertEquals(bundle, CampaignContainment.containerOf(reduced, List.of(bundle), contents),
+		assertEquals(Optional.of(bundle), CampaignContainment.containerOf(reduced, List.of(bundle), contents),
 				"the collection the user selected is the one they can act on");
 	}
 
@@ -105,7 +105,7 @@ class CampaignContainmentTest
 		var bundle = campaign("Pathfinder RPG for Game Masters");
 		var book = campaign("Bonus Bestiary");
 
-		assertNull(CampaignContainment.containerOf(book, List.of(bundle), new FakeContents()));
+		assertEquals(Optional.empty(), CampaignContainment.containerOf(book, List.of(bundle), new FakeContents()));
 	}
 
 	@Test
@@ -113,7 +113,7 @@ class CampaignContainmentTest
 	{
 		var book = campaign("Core Rulebook");
 
-		assertNull(CampaignContainment.containerOf(book, List.of(book), new FakeContents()),
+		assertEquals(Optional.empty(), CampaignContainment.containerOf(book, List.of(book), new FakeContents()),
 				"a selected book is not loaded through anything, it is simply selected");
 	}
 
@@ -126,7 +126,7 @@ class CampaignContainmentTest
 		var contents = new FakeContents();
 		contents.contains(bundle, bundle);
 
-		assertNull(CampaignContainment.containerOf(book, List.of(bundle), contents));
+		assertEquals(Optional.empty(), CampaignContainment.containerOf(book, List.of(bundle), contents));
 	}
 
 	@Test
@@ -139,6 +139,6 @@ class CampaignContainmentTest
 		contents.contains(first, second);
 		contents.contains(second, first);
 
-		assertNull(CampaignContainment.containerOf(book, List.of(first), contents));
+		assertEquals(Optional.empty(), CampaignContainment.containerOf(book, List.of(first), contents));
 	}
 }

@@ -127,10 +127,10 @@ public final class CampaignRejectionDiagnosis
 	private static Reason reasonFor(Campaign campaign, List<Campaign> selected,
 			CampaignSelection selection, Function<Campaign, List<Campaign>> contentsOf)
 	{
-		Campaign container = CampaignContainment.containerOf(campaign, selected, contentsOf);
-		if (container != null)
+		var container = CampaignContainment.containerOf(campaign, selected, contentsOf);
+		if (container.isPresent())
 		{
-			return new AlreadyIncluded(container);
+			return new AlreadyIncluded(container.get());
 		}
 		if (selected.isEmpty())
 		{

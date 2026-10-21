@@ -18,6 +18,7 @@ import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
+import java.util.function.UnaryOperator;
 
 import pcgen.core.Campaign;
 
@@ -84,14 +85,14 @@ public final class CampaignAvailability
 	 */
 	public static Map<Campaign, Status> classify(List<Campaign> offered, List<Campaign> selected,
 			Function<Campaign, List<Campaign>> contentsOf,
-			Function<List<Campaign>, List<Campaign>> findUnqualified)
+			UnaryOperator<List<Campaign>> findUnqualified)
 	{
 		Map<Campaign, Status> statuses = new IdentityHashMap<>();
 		if (offered.isEmpty())
 		{
 			return Collections.unmodifiableMap(statuses);
 		}
-		var selection = new CampaignSelection(selected, findUnqualified::apply);
+		var selection = new CampaignSelection(selected, findUnqualified);
 		for (Campaign campaign : offered)
 		{
 			statuses.put(campaign,
@@ -100,11 +101,20 @@ public final class CampaignAvailability
 		return Collections.unmodifiableMap(statuses);
 	}
 
+	/**
+	 * Classifies one campaign, checking whether it is already included before evaluating prerequisites.
+	 *
+	 * @param campaign the offered campaign
+	 * @param selected the selected campaigns used to resolve containment
+	 * @param selection the selection snapshot and its existing prerequisite failures
+	 * @param contentsOf the campaigns loaded by each campaign
+	 * @return whether the campaign is already included, addable or blocked by a new failure
+	 */
 	private static Status statusOf(Campaign campaign, List<Campaign> selected,
 			CampaignSelection selection, Function<Campaign, List<Campaign>> contentsOf)
 	{
 		if (selection.contains(campaign)
-				|| CampaignContainment.containerOf(campaign, selected, contentsOf) != null)
+				|| CampaignContainment.containerOf(campaign, selected, contentsOf).isPresent())
 		{
 			return Status.ALREADY_INCLUDED;
 		}

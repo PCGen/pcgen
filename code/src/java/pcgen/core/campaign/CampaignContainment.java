@@ -16,6 +16,7 @@ package pcgen.core.campaign;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.function.Function;
 
 import pcgen.core.Campaign;
@@ -48,19 +49,14 @@ public final class CampaignContainment
 	 * @param selected the campaigns the user has selected
 	 * @param contentsOf the campaigns a campaign loads, normally
 	 *                   {@code Campaign::getSubCampaigns}
-	 * @return the selected campaign loading it, or {@code null} if none does
+	 * @return the first selected campaign loading it, or empty if none does
 	 */
-	public static Campaign containerOf(Campaign campaign, List<Campaign> selected,
+	public static Optional<Campaign> containerOf(Campaign campaign, List<Campaign> selected,
 			Function<Campaign, List<Campaign>> contentsOf)
 	{
-		for (Campaign candidate : selected)
-		{
-			if (loads(candidate, campaign, contentsOf))
-			{
-				return candidate;
-			}
-		}
-		return null;
+		return selected.stream()
+				.filter(candidate -> loads(candidate, campaign, contentsOf))
+				.findFirst();
 	}
 
 	/** Whether {@code container} loads {@code sought}, at any depth. */
