@@ -86,8 +86,10 @@ public final class CampaignDependencyOrder
 	}
 
 	/**
-	 * The campaigns this one requires by name, counted once each however many
-	 * times they are mentioned.
+	 * Collects named campaign references used to score this campaign's dependency demand.
+	 *
+	 * @param campaign the campaign whose prerequisites are inspected
+	 * @return distinct referenced names in encounter order, without resolving them to campaign objects
 	 */
 	private static Set<String> requiredCampaignNames(Campaign campaign)
 	{
@@ -96,13 +98,21 @@ public final class CampaignDependencyOrder
 		return names;
 	}
 
+	/**
+	 * Adds named campaign references from a prerequisite and its descendants to the supplied set.
+	 *
+	 * <p>Bare campaign names and {@code INCLUDES=} references contribute names;
+	 * book-type conditions do not identify an individual campaign. Negated
+	 * subtrees are skipped so exclusions do not count as dependency demand.
+	 * This only inspects the prerequisite structure; it does not evaluate qualification.
+	 *
+	 * @param prereq the root of the prerequisite subtree to inspect
+	 * @param names the destination for collected campaign names, modified in place
+	 */
 	private static void collectRequired(Prerequisite prereq, Set<String> names)
 	{
 		if (isNegated(prereq.getOperator()))
 		{
-			// An exclusion names a campaign in order to refuse it. Crediting
-			// that as demand would give an alternate edition exactly the
-			// standing of the book it replaces -- the tie being broken here.
 			return;
 		}
 		var name = requiredName(prereq);
@@ -117,6 +127,9 @@ public final class CampaignDependencyOrder
 	 * The campaign named by a prerequisite, or {@code null} if it names none.
 	 * {@code BOOKTYPE=} and {@code INCLUDESBOOKTYPE=} ask for any book of a
 	 * type, so they credit no individual campaign.
+	 *
+	 * @param prereq the prerequisite whose kind and key are inspected
+	 * @return the bare campaign name or the value after {@code INCLUDES=}, or null for other conditions
 	 */
 	private static String requiredName(Prerequisite prereq)
 	{
@@ -132,6 +145,12 @@ public final class CampaignDependencyOrder
 		return key.contains("=") ? null : key;
 	}
 
+	/**
+	 * Identifies comparison operators representing exclusions rather than positive dependency demand.
+	 *
+	 * @param operator the parsed prerequisite comparison operator
+	 * @return true for {@code LT}, {@code LTEQ} or {@code NEQ}
+	 */
 	private static boolean isNegated(PrerequisiteOperator operator)
 	{
 		return operator == PrerequisiteOperator.LT
@@ -139,6 +158,12 @@ public final class CampaignDependencyOrder
 				|| operator == PrerequisiteOperator.NEQ;
 	}
 
+	/**
+	 * Normalizes a campaign key for case-insensitive dependency-count lookups.
+	 *
+	 * @param campaignName the referenced or declared campaign key
+	 * @return the lowercase lookup key, independent of the default locale
+	 */
 	private static String key(String campaignName)
 	{
 		return campaignName.toLowerCase(Locale.ROOT);

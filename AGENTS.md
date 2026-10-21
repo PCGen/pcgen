@@ -119,6 +119,7 @@ JavaFX testing gotchas:
 - Aggregate quality task: `./gradlew allReports` (runs checkstyleMain, pmdMain, spotbugsMain)
 
 Conventions/gotchas observed:
+- Document nontrivial private helpers with Javadoc explaining their purpose, excluded cases and any mutation of supplied arguments; a name such as `collectRequired` does not explain traversal or counting rules on its own.
 - Use `GracefulExit.exit` instead of `System.exit` (Checkstyle enforces via RegexpMultiline).
 - Logging goes through `pcgen.util.Logging`; `Logging.errorPrint(...)` is the idiom for SEVERE (`Logging.ERROR == Level.SEVERE`), not `Logging.log(Level.SEVERE, ...)`.
 - `logging.properties` (repo root) configures java.util.logging and is what wires up `SourceLogFormatter` and the `LoggingRecorder`.
