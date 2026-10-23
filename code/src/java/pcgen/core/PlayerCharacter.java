@@ -873,8 +873,12 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 					eq.setIsEquipped(false, this);
 				}
 
-				// Adding this type to be correctly treated by Merge
-				eq.addType(Type.TEMPORARY);
+				// Adding this type to be correctly treated by Merge. The items in
+				// tempBonusItemList are reused on every rebuild, so only add it once.
+				if (!eq.containsInList(ListKey.TYPE, Type.TEMPORARY))
+				{
+					eq.addType(Type.TEMPORARY);
+				}
 				addLocalEquipment(eq);
 			}
 		}
