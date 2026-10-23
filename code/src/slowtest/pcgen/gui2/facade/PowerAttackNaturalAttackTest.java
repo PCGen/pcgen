@@ -241,6 +241,21 @@ class PowerAttackNaturalAttackTest
 	}
 
 	@Test
+	void powerAttackLowersCombatManeuverChecks()
+	{
+		// The penalty applies to combat maneuver checks as well as attack rolls (CRB p.131)
+		PlayerCharacter pc = createSerpentineEidolonWithPowerAttack("pa-cmb", false).getTheCharacter();
+		int cmb = pc.getVariableValue("CMB", "").intValue();
+		int grapple = pc.getVariableValue("CMB_Grapple", "").intValue();
+
+		assertNotNull(TempBonusHelper.applyBonusToCharacter(feat("Power Attack"), pc), "Power Attack on the character");
+		pc.calcActiveBonuses();
+
+		assertEquals(cmb - 2, pc.getVariableValue("CMB", "").intValue(), "CMB");
+		assertEquals(grapple - 2, pc.getVariableValue("CMB_Grapple", "").intValue(), "grapple");
+	}
+
+	@Test
 	void switchedOffTemporaryBonusItemIsLeftOutOfTheEquipment()
 	{
 		CharacterFacadeImpl eidolon = createSerpentineEidolonWithPowerAttack("pa-switch", false);
