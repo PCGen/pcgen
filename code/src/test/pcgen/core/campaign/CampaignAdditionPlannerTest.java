@@ -16,17 +16,13 @@ package pcgen.core.campaign;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static pcgen.core.campaign.CampaignFakes.campaign;
 
-import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.function.UnaryOperator;
-import java.util.stream.Collectors;
 
 import pcgen.core.Campaign;
+import pcgen.core.campaign.CampaignFakes.FakePrereqs;
 
 import org.junit.jupiter.api.Test;
 
@@ -42,53 +38,6 @@ import org.junit.jupiter.api.Test;
  */
 class CampaignAdditionPlannerTest
 {
-	private static Campaign campaign(String name)
-	{
-		var campaign = new Campaign();
-		campaign.setName(name);
-		return campaign;
-	}
-
-	/**
-	 * A stand-in for the engine's prerequisite check. A campaign is unqualified
-	 * when any campaign it requires is absent from the set under test, which is
-	 * the same whole-set semantics {@code FacadeFactory.passesPrereqs} uses.
-	 */
-	private static final class FakePrereqs implements UnaryOperator<List<Campaign>>
-	{
-		private final Map<String, Set<String>> requirements = new HashMap<>();
-		private final Map<String, Set<String>> exclusions = new HashMap<>();
-		private final List<List<Campaign>> calls = new ArrayList<>();
-
-		void require(String campaign, String... required)
-		{
-			requirements.put(campaign, Set.of(required));
-		}
-
-		/** Models {@code !PRECAMPAIGN}: {@code campaign} is refused if any of these is present. */
-		void exclude(String campaign, String... excluded)
-		{
-			exclusions.put(campaign, Set.of(excluded));
-		}
-
-		@Override
-		public List<Campaign> apply(List<Campaign> candidates)
-		{
-			calls.add(List.copyOf(candidates));
-			var present = candidates.stream().map(Campaign::getDisplayName).collect(Collectors.toSet());
-			return candidates.stream()
-					.filter(c -> {
-						var name = c.getDisplayName();
-						var missingRequirement = !present.containsAll(
-								requirements.getOrDefault(name, Set.of()));
-						var blocked = exclusions.getOrDefault(name, Set.of()).stream()
-								.anyMatch(present::contains);
-						return missingRequirement || blocked;
-					})
-					.toList();
-		}
-	}
-
 	private static List<String> names(List<Campaign> campaigns)
 	{
 		return campaigns.stream().map(Campaign::getDisplayName).toList();

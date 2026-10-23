@@ -22,11 +22,7 @@ import java.util.List;
 
 import pcgen.core.Campaign;
 import pcgen.core.GameMode;
-import pcgen.facade.core.LoadableFacade.LoadingState;
 import pcgen.facade.core.SourceSelectionFacade;
-import pcgen.facade.util.ListFacade;
-import pcgen.facade.util.ListFacades;
-import pcgen.facade.util.ReferenceFacade;
 
 import org.junit.jupiter.api.Test;
 
@@ -46,40 +42,11 @@ class SourceSaveFacadeTest
 
 	private final List<String> created = new ArrayList<>();
 
-	/** Records what the engine was asked to store, as the real facade does. */
-	private static final class FakeFacade implements SourceSelectionFacade
-	{
-		private final String name;
-		private List<Campaign> campaigns;
-		private GameMode gameMode;
-
-		FakeFacade(String name)
-		{
-			this.name = name;
-		}
-
-		@Override public ListFacade<Campaign> getCampaigns() { return ListFacades.emptyList(); }
-
-		@Override public void setCampaigns(List<Campaign> campaigns) { this.campaigns = campaigns; }
-
-		@Override public ReferenceFacade<GameMode> getGameMode() { return null; }
-
-		@Override public void setGameMode(GameMode gameMode) { this.gameMode = gameMode; }
-
-		@Override public boolean isModifiable() { return true; }
-
-		@Override public LoadingState getLoadingState() { return null; }
-
-		@Override public String getLoadingErrorMessage() { return null; }
-
-		@Override public String toString() { return name; }
-	}
-
 	private SourceSelectionFacade save(SourceBundle bundle, SourceSelectionFacade... existing)
 	{
 		return SourceSelectionBridge.saveSourceSelection(bundle, List.of(existing), name -> {
 			created.add(name);
-			return new FakeFacade(name);
+			return new FakeSourceSelectionFacade(name);
 		});
 	}
 
@@ -98,7 +65,7 @@ class SourceSaveFacadeTest
 	@Test
 	void save_should_createAFacade_when_theNameIsUnused()
 	{
-		var saved = save(bundle("Mine"), new FakeFacade("Other"));
+		var saved = save(bundle("Mine"), new FakeSourceSelectionFacade("Other"));
 
 		assertEquals(List.of("Mine"), created);
 		assertNotNull(saved);
@@ -107,9 +74,9 @@ class SourceSaveFacadeTest
 	@Test
 	void save_should_reuseTheExistingFacade_when_theNameIsTaken()
 	{
-		var mine = new FakeFacade("Mine");
+		var mine = new FakeSourceSelectionFacade("Mine");
 
-		var saved = save(bundle("Mine"), new FakeFacade("Other"), mine);
+		var saved = save(bundle("Mine"), new FakeSourceSelectionFacade("Other"), mine);
 
 		assertSame(mine, saved, "overwriting must not leave two selections of one name");
 		assertEquals(List.of(), created, "the engine must not be asked to create a duplicate");
@@ -122,7 +89,7 @@ class SourceSaveFacadeTest
 
 		var saved = save(bundle("Mine", core));
 
-		assertEquals(List.of(core), ((FakeFacade) saved).campaigns);
+		assertEquals(List.of(core), ((FakeSourceSelectionFacade) saved).campaigns);
 	}
 
 	@Test
@@ -130,13 +97,13 @@ class SourceSaveFacadeTest
 	{
 		var saved = save(bundle("Mine"));
 
-		assertSame(MODE, ((FakeFacade) saved).gameMode);
+		assertSame(MODE, ((FakeSourceSelectionFacade) saved).gameMode);
 	}
 
 	@Test
 	void save_should_overwriteTheCampaignsOfAnExistingSelection()
 	{
-		var mine = new FakeFacade("Mine");
+		var mine = new FakeSourceSelectionFacade("Mine");
 		mine.setCampaigns(List.of(campaign("Old")));
 		var core = campaign("Core Rulebook");
 
@@ -153,7 +120,7 @@ class SourceSaveFacadeTest
 	@Test
 	void save_should_matchNamesExactly()
 	{
-		save(bundle("mine"), new FakeFacade("Mine"));
+		save(bundle("mine"), new FakeSourceSelectionFacade("Mine"));
 
 		assertEquals(List.of("mine"), created, "a differently cased name is a different selection");
 	}

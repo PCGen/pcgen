@@ -21,13 +21,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.util.ArrayList;
 import java.util.List;
 
-import pcgen.core.Campaign;
 import pcgen.core.GameMode;
-import pcgen.facade.core.LoadableFacade.LoadingState;
 import pcgen.facade.core.SourceSelectionFacade;
-import pcgen.facade.util.ListFacade;
-import pcgen.facade.util.ListFacades;
-import pcgen.facade.util.ReferenceFacade;
 
 import org.junit.jupiter.api.Test;
 
@@ -43,17 +38,7 @@ class SourceDeleteFacadeTest
 
 	private static SourceSelectionFacade named(String name)
 	{
-		return new SourceSelectionFacade()
-		{
-			@Override public ListFacade<Campaign> getCampaigns() { return ListFacades.emptyList(); }
-			@Override public void setCampaigns(List<Campaign> c) { }
-			@Override public ReferenceFacade<GameMode> getGameMode() { return null; }
-			@Override public void setGameMode(GameMode g) { }
-			@Override public boolean isModifiable() { return true; }
-			@Override public LoadingState getLoadingState() { return null; }
-			@Override public String getLoadingErrorMessage() { return null; }
-			@Override public String toString() { return name; }
-		};
+		return FakeSourceSelectionFacade.named(name);
 	}
 
 	private boolean delete(SourceBundle bundle, SourceSelectionFacade... candidates)

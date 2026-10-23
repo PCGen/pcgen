@@ -16,20 +16,13 @@ package pcgen.core.campaign;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static pcgen.core.campaign.CampaignFakes.campaign;
 
-import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.IdentityHashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.function.Function;
-import java.util.function.UnaryOperator;
-import java.util.stream.Collectors;
 
-import pcgen.core.Campaign;
+import pcgen.core.campaign.CampaignFakes.FakeContents;
+import pcgen.core.campaign.CampaignFakes.FakePrereqs;
 
 import org.junit.jupiter.api.Test;
 
@@ -46,60 +39,6 @@ import org.junit.jupiter.api.Test;
  */
 class CampaignAvailabilityTest
 {
-	private static Campaign campaign(String name)
-	{
-		var campaign = new Campaign();
-		campaign.setName(name);
-		return campaign;
-	}
-
-	/** Models the {@code PCC:} lines of a collection, without touching {@code Globals}. */
-	private static final class FakeContents implements Function<Campaign, List<Campaign>>
-	{
-		private final Map<Campaign, List<Campaign>> contents = new IdentityHashMap<>();
-
-		void contains(Campaign container, Campaign... contained)
-		{
-			contents.put(container, List.of(contained));
-		}
-
-		@Override
-		public List<Campaign> apply(Campaign campaign)
-		{
-			return contents.getOrDefault(campaign, Collections.emptyList());
-		}
-	}
-
-	/** A stand-in for {@code FacadeFactory.findUnqualified}, with whole-set semantics. */
-	private static final class FakePrereqs implements UnaryOperator<List<Campaign>>
-	{
-		private final Map<String, Set<String>> exclusions = new HashMap<>();
-		private final Set<String> alwaysUnqualified = new HashSet<>();
-		private final List<List<Campaign>> calls = new ArrayList<>();
-
-		void exclude(String campaign, String... excluded)
-		{
-			exclusions.put(campaign, Set.of(excluded));
-		}
-
-		void neverQualifies(String campaign)
-		{
-			alwaysUnqualified.add(campaign);
-		}
-
-		@Override
-		public List<Campaign> apply(List<Campaign> campaigns)
-		{
-			calls.add(List.copyOf(campaigns));
-			var present = campaigns.stream().map(Campaign::getDisplayName).collect(Collectors.toSet());
-			return campaigns.stream().filter(c -> {
-				var name = c.getDisplayName();
-				return alwaysUnqualified.contains(name)
-						|| exclusions.getOrDefault(name, Set.of()).stream().anyMatch(present::contains);
-			}).toList();
-		}
-	}
-
 	@Test
 	void campaignThatCanBeAdded_isAddable()
 	{

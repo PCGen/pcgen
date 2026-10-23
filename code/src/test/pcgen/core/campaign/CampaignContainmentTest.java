@@ -14,15 +14,12 @@
 package pcgen.core.campaign;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static pcgen.core.campaign.CampaignFakes.campaign;
 
-import java.util.Collections;
-import java.util.IdentityHashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
-import java.util.function.Function;
 
-import pcgen.core.Campaign;
+import pcgen.core.campaign.CampaignFakes.FakeContents;
 
 import org.junit.jupiter.api.Test;
 
@@ -38,30 +35,6 @@ import org.junit.jupiter.api.Test;
  */
 class CampaignContainmentTest
 {
-	private static Campaign campaign(String name)
-	{
-		var campaign = new Campaign();
-		campaign.setName(name);
-		return campaign;
-	}
-
-	/** Models the {@code PCC:} lines of a collection, without touching {@code Globals}. */
-	private static final class FakeContents implements Function<Campaign, List<Campaign>>
-	{
-		private final Map<Campaign, List<Campaign>> contents = new IdentityHashMap<>();
-
-		void contains(Campaign container, Campaign... contained)
-		{
-			contents.put(container, List.of(contained));
-		}
-
-		@Override
-		public List<Campaign> apply(Campaign campaign)
-		{
-			return contents.getOrDefault(campaign, Collections.emptyList());
-		}
-	}
-
 	@Test
 	void campaignLoadedDirectly_isFound()
 	{
