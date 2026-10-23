@@ -13,11 +13,12 @@
  */
 package pcgen.core.campaign;
 
+import java.net.URI;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 
@@ -57,10 +58,22 @@ public final class CampaignDependencyOrder
 	}
 
 	/**
+	 * A reference whose spelling differs only in case from a declared campaign key.
+	 *
+	 * @param source the PCC file containing the prerequisite
+	 * @param reference the referenced key as written in the prerequisite
+	 * @param declaredKey the spelling declared by the referenced campaign
+	 */
+	public record CaseMismatch(URI source, String reference, String declaredKey)
+	{
+	}
+
+	/**
 	 * Orders candidates by how many of them depend on each, most first.
 	 *
 	 * <p>The sort is stable, so campaigns that nothing distinguishes keep the
-	 * order the user sees them in.
+	 * order the user sees them in. References must match declared campaign keys
+	 * exactly, including case, to contribute demand.
 	 *
 	 * @param candidates the campaigns on offer, in display order
 	 * @return the same campaigns, most depended upon first
@@ -72,17 +85,49 @@ public final class CampaignDependencyOrder
 		{
 			for (String required : requiredCampaignNames(candidate))
 			{
-				if (!required.equalsIgnoreCase(candidate.getKeyName()))
+				if (!required.equals(candidate.getKeyName()))
 				{
-					demand.merge(key(required), 1, Integer::sum);
+					demand.merge(required, 1, Integer::sum);
 				}
 			}
 		}
 		return candidates.stream()
 				.sorted(Comparator.comparingInt(
-						(Campaign campaign) -> demand.getOrDefault(key(campaign.getKeyName()), 0))
+						(Campaign campaign) -> demand.getOrDefault(campaign.getKeyName(), 0))
 						.reversed())
 				.toList();
+	}
+
+	/**
+	 * Finds positive named dependencies that strict scoring ignores because their case differs.
+	 *
+	 * <p>Call after all campaign metadata is loaded so forward references can
+	 * resolve. Repeated references in one source are reported once. Unresolved
+	 * names, exclusions and book-type conditions are not case mismatches in
+	 * dependency scoring and are left to their existing validation paths.
+	 *
+	 * @param campaigns all loaded campaigns, used as both sources and reference targets
+	 * @return the mismatches and their source locations, without changing data or logging
+	 */
+	public static List<CaseMismatch> caseMismatches(List<Campaign> campaigns)
+	{
+		List<String> declaredKeys = campaigns.stream().map(Campaign::getKeyName).toList();
+		List<CaseMismatch> mismatches = new ArrayList<>();
+		for (Campaign source : campaigns)
+		{
+			for (String reference : requiredCampaignNames(source))
+			{
+				if (!declaredKeys.contains(reference))
+				{
+					declaredKeys.stream()
+							.filter(reference::equalsIgnoreCase)
+							.findFirst()
+							.ifPresent(declaredKey -> mismatches.add(
+									new CaseMismatch(source.getSourceURI(), reference, declaredKey)));
+				}
+			}
+		}
+		return List.copyOf(mismatches);
 	}
 
 	/**
@@ -156,16 +201,5 @@ public final class CampaignDependencyOrder
 		return operator == PrerequisiteOperator.LT
 				|| operator == PrerequisiteOperator.LTEQ
 				|| operator == PrerequisiteOperator.NEQ;
-	}
-
-	/**
-	 * Normalizes a campaign key for case-insensitive dependency-count lookups.
-	 *
-	 * @param campaignName the referenced or declared campaign key
-	 * @return the lowercase lookup key, independent of the default locale
-	 */
-	private static String key(String campaignName)
-	{
-		return campaignName.toLowerCase(Locale.ROOT);
 	}
 }

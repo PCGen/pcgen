@@ -19,11 +19,17 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.IOException;
+import java.net.URI;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Handler;
+import java.util.logging.Level;
+import java.util.logging.LogRecord;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
@@ -36,6 +42,7 @@ import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SystemCollections;
+import pcgen.persistence.CampaignFileLoader;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.FacadeFactory;
 import pcgen.system.Main;
@@ -97,6 +104,75 @@ class SourceSelectionDataTest
 		PCGenSettings.OPTIONS_CONTEXT.setBoolean(PCGenSettings.OPTION_ALLOW_OVERRIDE_DUPLICATES, true);
 		Main.loadProperties(false);
 		Main.runBootstrapTasks();
+	}
+
+	@Test
+	void loadingCampaignMetadata_should_warnOnceAboutCaseOnlyReferences() throws Exception
+	{
+		Path folder = Files.createDirectory(tempDir.resolve("case-warning")).toRealPath();
+		Files.writeString(folder.resolve("source.pcc"),
+				"CAMPAIGN:Case Warning Source\nGAMEMODE:Pathfinder_RPG\n"
+						+ "PRECAMPAIGN:1,INCLUDES=case warning target\n"
+						+ "PRECAMPAIGN:1,INCLUDES=case warning target\n");
+		Files.writeString(folder.resolve("target.pcc"),
+				"CAMPAIGN:Case Warning Target Display\nKEY:Case Warning Target\nGAMEMODE:Pathfinder_RPG\n");
+
+		var field = Globals.class.getDeclaredField("CAMPAIGN_MAP");
+		field.setAccessible(true);
+		@SuppressWarnings("unchecked")
+		var campaigns = (Map<URI, Campaign>) field.get(null);
+		var previousCampaigns = new HashMap<>(campaigns);
+		List<LogRecord> warnings = new ArrayList<>();
+		var handler = new Handler()
+		{
+			@Override
+			public void publish(LogRecord record)
+			{
+				if (record.getLevel().equals(Logging.LST_WARNING))
+				{
+					warnings.add(record);
+				}
+			}
+
+			@Override
+			public void flush()
+			{
+			}
+
+			@Override
+			public void close()
+			{
+			}
+		};
+		Logger logger = Logger.getLogger(CampaignFileLoader.class.getName());
+		Level previousLevel = logger.getLevel();
+		logger.setLevel(Level.ALL);
+		logger.addHandler(handler);
+		try
+		{
+			campaigns.clear();
+			var loader = new CampaignFileLoader();
+			loader.setAlternateSourceFolder(folder.toFile());
+			loader.run();
+			assertEquals(2, Globals.getCampaignList().size(), "both fixture PCC files must load");
+			assertTrue(FacadeFactory.findUnqualified(Globals.getCampaignList()).isEmpty(),
+					"case-only spelling differences remain valid for prerequisite evaluation");
+			CampaignDependencyOrder.mostDependedUponFirst(Globals.getCampaignList());
+			CampaignDependencyOrder.mostDependedUponFirst(Globals.getCampaignList());
+		}
+		finally
+		{
+			logger.removeHandler(handler);
+			logger.setLevel(previousLevel);
+			campaigns.clear();
+			campaigns.putAll(previousCampaigns);
+		}
+
+		assertEquals(1, warnings.size(), "report once per source/reference, not during repeated ordering");
+		String message = warnings.getFirst().getMessage();
+		assertTrue(message.contains("case warning target"), message);
+		assertTrue(message.contains("Case Warning Target"), message);
+		assertTrue(message.contains("source.pcc"), message);
 	}
 
 	/**

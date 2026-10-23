@@ -14,7 +14,9 @@
 package pcgen.core.campaign;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.net.URI;
 import java.util.List;
 
 import pcgen.core.Campaign;
@@ -23,6 +25,8 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreCampaignParser;
 import plugin.pretokens.parser.PreMultParser;
@@ -172,5 +176,75 @@ class CampaignDependencyOrderTest
 		var ordered = CampaignDependencyOrder.mostDependedUponFirst(List.of(selfish, needed, dependent));
 
 		assertEquals("Needed", names(ordered).getFirst());
+	}
+
+	@Test
+	void order_should_notCreditAReference_whoseCaseDoesNotMatchTheCampaignKey() throws Exception
+	{
+		var unrelated = campaign("Unrelated");
+		var core = campaign("Core Rulebook");
+		var dependent = campaign("Supplement", "PRECAMPAIGN:1,INCLUDES=core rulebook");
+
+		var ordered = CampaignDependencyOrder.mostDependedUponFirst(List.of(unrelated, core, dependent));
+
+		assertEquals(List.of("Unrelated", "Core Rulebook", "Supplement"), names(ordered),
+				"only an exact campaign-key reference contributes dependency demand");
+	}
+
+	@Test
+	void caseMismatches_should_reportNestedReferences_usingTheDeclaredKeyAndSource() throws Exception
+	{
+		var source = campaign("Supplement",
+				"PREMULT:1,[PRECAMPAIGN:1,INCLUDES=core rulebook],[PRECAMPAIGN:1,BOOKTYPE=Core Rules]");
+		source.setSourceURI(URI.create("file:/homebrew/supplement.pcc"));
+		var core = campaign("Core Display Name");
+		core.setKeyName("Core Rulebook");
+
+		var mismatches = CampaignDependencyOrder.caseMismatches(List.of(source, core));
+
+		assertEquals(List.of(new CampaignDependencyOrder.CaseMismatch(
+				URI.create("file:/homebrew/supplement.pcc"), "core rulebook", "Core Rulebook")), mismatches);
+	}
+
+	@Test
+	void caseMismatches_should_reportARepeatedReferenceOnlyOncePerSource() throws Exception
+	{
+		var source = campaign("Supplement",
+				"PRECAMPAIGN:1,INCLUDES=core rulebook", "PRECAMPAIGN:1,core rulebook");
+		source.setSourceURI(URI.create("file:/homebrew/supplement.pcc"));
+
+		var mismatches = CampaignDependencyOrder.caseMismatches(List.of(source, campaign("Core Rulebook")));
+
+		assertEquals(1, mismatches.size());
+	}
+
+	@Test
+	void caseMismatches_should_notWarnWhenAnExactKeyExistsAlongsideACaseVariant() throws Exception
+	{
+		var source = campaign("Supplement", "PRECAMPAIGN:1,INCLUDES=core rulebook");
+		source.setSourceURI(URI.create("file:/homebrew/supplement.pcc"));
+
+		var mismatches = CampaignDependencyOrder.caseMismatches(
+				List.of(source, campaign("Core Rulebook"), campaign("core rulebook")));
+
+		assertTrue(mismatches.isEmpty(), "a reference that already receives strict dependency credit is not a mismatch");
+	}
+
+	@ParameterizedTest
+	@ValueSource(strings = {
+			"PRECAMPAIGN:1,INCLUDES=Core Rulebook",
+			"PRECAMPAIGN:1,Core Rulebook",
+			"PRECAMPAIGN:1,INCLUDES=Not Installed",
+			"PRECAMPAIGN:1,BOOKTYPE=core rulebook",
+			"PRECAMPAIGN:1,INCLUDESBOOKTYPE=core rulebook",
+			"!PRECAMPAIGN:1,INCLUDES=core rulebook"
+	})
+	void caseMismatches_should_onlyReportCaseDifferencesAffectingNamedDependencies(String prerequisite)
+			throws Exception
+	{
+		var source = campaign("Supplement", prerequisite);
+		source.setSourceURI(URI.create("file:/homebrew/supplement.pcc"));
+
+		assertTrue(CampaignDependencyOrder.caseMismatches(List.of(source, campaign("Core Rulebook"))).isEmpty());
 	}
 }

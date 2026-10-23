@@ -26,6 +26,7 @@ import java.util.LinkedList;
 import java.util.List;
 import pcgen.core.Campaign;
 import pcgen.core.Globals;
+import pcgen.core.campaign.CampaignDependencyOrder;
 import pcgen.persistence.lst.CampaignLoader;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.LanguageBundle;
@@ -64,6 +65,11 @@ public class CampaignFileLoader extends PCGenTask
 		setMaximum(campaignFiles.size());
 		loadCampaigns(campaignFiles);
 		CampaignFileLoader.initCampaigns();
+		for (var mismatch : CampaignDependencyOrder.caseMismatches(Globals.getCampaignList()))
+		{
+			Logging.log(Logging.LST_WARNING, LanguageBundle.getFormattedString(
+					"Warnings.CampaignReferenceCase", mismatch.reference(), mismatch.declaredKey(), mismatch.source()));
+		}
 	}
 
 	/**
