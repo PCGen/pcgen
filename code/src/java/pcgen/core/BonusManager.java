@@ -1012,6 +1012,30 @@ public class BonusManager
 		return tempBonusFilters;
 	}
 
+	/**
+	 * Identify if a temporary bonus applied to the target is active, i.e. not switched off
+	 * on the character sheet.
+	 *
+	 * @param target The object the bonuses were applied to, e.g. a temporary bonus item.
+	 * @return true if any bonus applied to the target is active, or if none were applied to it.
+	 */
+	public boolean hasActiveTempBonusOn(Object target)
+	{
+		boolean applied = false;
+		for (TempBonusInfo ti : tempBonusBySource.values())
+		{
+			if (ti.target == target)
+			{
+				if (!tempBonusFilters.contains(BonusDisplay.getBonusDisplayName(ti)))
+				{
+					return true;
+				}
+				applied = true;
+			}
+		}
+		return !applied;
+	}
+
 	public void addTempBonusFilter(String bonusStr)
 	{
 		tempBonusFilters.add(bonusStr);

@@ -832,6 +832,12 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		{
 			for (Equipment eq : tempBonusItemList)
 			{
+				// leave out items whose bonuses are all switched off on the character sheet
+				if (!hasActiveTempBonusOn(eq))
+				{
+					continue;
+				}
+
 				// make sure that this EquipSet is the one
 				// this temporary bonus item comes from
 				// to make sure we keep them together
@@ -2084,6 +2090,17 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	{
 		bonusManager.removeTempBonusFilter(aBonusStr);
 		calcActiveBonuses();
+	}
+
+	/**
+	 * Identify if a temporary bonus applied to the target is active, i.e. not filtered.
+	 *
+	 * @param target The object the bonuses were applied to, e.g. a temporary bonus item.
+	 * @return true if any bonus applied to the target is active, or if none were applied to it.
+	 */
+	public boolean hasActiveTempBonusOn(Object target)
+	{
+		return bonusManager.hasActiveTempBonusOn(target);
 	}
 
 	/**
