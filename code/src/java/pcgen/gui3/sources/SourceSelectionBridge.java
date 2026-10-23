@@ -14,6 +14,7 @@
 package pcgen.gui3.sources;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Consumer;
 import java.util.function.Function;
@@ -113,13 +114,10 @@ public final class SourceSelectionBridge
 	 */
 	static NameClass classifyName(String name, List<SourceBundle> sources)
 	{
-		for (SourceBundle bundle : sources)
-		{
-			if (bundle.name().equals(name))
-			{
-				return bundle.modifiable() ? NameClass.OVERWRITE_CUSTOM : NameClass.BLOCK_BUILTIN;
-			}
-		}
-		return NameClass.NEW;
+		return sources.stream()
+				.filter(bundle -> Objects.equals(bundle.name(), name))
+				.findFirst()
+				.map(bundle -> bundle.modifiable() ? NameClass.OVERWRITE_CUSTOM : NameClass.BLOCK_BUILTIN)
+				.orElse(NameClass.NEW);
 	}
 }

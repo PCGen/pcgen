@@ -273,7 +273,7 @@ final class ModernHtmlInfoBuilder
 	{
 		List<Campaign> subCampaigns = aCamp.getSubCampaigns();
 		List<CampaignSourceEntry> notFound = aCamp.getNotFoundSubCampaigns();
-		if (subCampaigns == null || notFound == null || (subCampaigns.isEmpty() && notFound.isEmpty()))
+		if (subCampaigns.isEmpty() && notFound.isEmpty())
 		{
 			return;
 		}
