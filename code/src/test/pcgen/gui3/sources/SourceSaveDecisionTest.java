@@ -191,15 +191,6 @@ class SourceSaveDecisionTest
 		assertEquals("", suggestion);
 	}
 
-	@Test
-	void suggestedName_isEmpty_whenNothingIsSelected()
-	{
-		var suggestion = AdvancedSourceSelectionController.suggestedSaveName(
-				List.of(), List.of(saved("Mine", campaign("Core Rulebook"))));
-
-		assertEquals("", suggestion, "an empty selection must not match a saved one by accident");
-	}
-
 	private final List<String> reported = new ArrayList<>();
 
 	private Optional<SourceBundle> plan(String typed, boolean confirmed, List<SourceBundle> existing)

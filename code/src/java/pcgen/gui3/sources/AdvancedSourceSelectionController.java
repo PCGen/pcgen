@@ -76,6 +76,7 @@ import pcgen.gui2.tools.Icons;
 import pcgen.system.FacadeFactory;
 import pcgen.system.LanguageBundle;
 
+/** Controls the Advanced source-selection tab, its campaign trees, preview and save actions. */
 public class AdvancedSourceSelectionController implements AutoCloseable
 {
 	private static final UIPropertyContext CONTEXT =
@@ -176,6 +177,7 @@ public class AdvancedSourceSelectionController implements AutoCloseable
 	 */
 	private Map<Campaign, String> availabilityReasons = Map.of();
 
+	/** Initializes the FXML controls, source preview and row-activation handlers. */
 	@FXML
 	protected void initialize()
 	{
@@ -224,7 +226,7 @@ public class AdvancedSourceSelectionController implements AutoCloseable
 	 * dialog closing or not depending on where the highlight sat.
 	 *
 	 * <p>Escape and every other key are left alone, so the dialog can still be
-	 * cancelled from here.
+	 * canceled from here.
 	 *
 	 * @param control the list or tree whose rows are to be actionable
 	 * @param action what to do with the selected rows
@@ -246,10 +248,14 @@ public class AdvancedSourceSelectionController implements AutoCloseable
 		});
 	}
 
+	/** Configures available-source column values and cached availability markings. */
 	private void bindAvailableColumns()
 	{
-		colAvailableName.setCellValueFactory(v ->
-				new ReadOnlyObjectWrapper<>(v.getValue().getValue().displayLabel()));
+		colAvailableName.setCellValueFactory(cellData -> {
+			var treeItem = cellData.getValue();
+			var sourceNode = treeItem.getValue();
+			return new ReadOnlyObjectWrapper<>(sourceNode.displayLabel());
+		});
 		colAvailableName.setCellFactory(_ ->
 				new SourceAvailabilityCell(() -> availability, campaign -> availabilityReasons.get(campaign)));
 		colAvailableBookType.setCellValueFactory(v ->
@@ -262,12 +268,21 @@ public class AdvancedSourceSelectionController implements AutoCloseable
 				new ReadOnlyObjectWrapper<>(campaignOf(v.getValue()).isPresent() ? "Loaded" : "Not loaded"));
 	}
 
+	/** Configures the selected-source name column. */
 	private void bindSelectedColumns()
 	{
-		colSelectedName.setCellValueFactory(v ->
-				new ReadOnlyObjectWrapper<>(v.getValue().getValue().displayLabel()));
+		colSelectedName.setCellValueFactory(cellData -> {
+			var treeItem = cellData.getValue();
+			var sourceNode = treeItem.getValue();
+			return new ReadOnlyObjectWrapper<>(sourceNode.displayLabel());
+		});
 	}
 
+	/**
+	 * Clears the search text so all campaigns for the current game mode are offered again.
+	 *
+	 * @param actionEvent the clear-button action event
+	 */
 	@FXML
 	protected void onFilterClearAction(ActionEvent actionEvent)
 	{
@@ -284,8 +299,10 @@ public class AdvancedSourceSelectionController implements AutoCloseable
 	 * refused is reported once, together, rather than one modal per campaign.
 	 *
 	 * <p>Candidates are offered most-depended-upon first so that any conflict
-	 * between mutually exclusive books is settled in favour of the one other
+	 * between mutually exclusive books is settled in favor of the one other
 	 * books need, rather than the one that happens to come first in the tree.
+	 *
+	 * @param event the button action event, or null when invoked by a tree gesture
 	 */
 	@FXML
 	protected void onAddSelectedAction(ActionEvent event)
@@ -298,12 +315,26 @@ public class AdvancedSourceSelectionController implements AutoCloseable
 		warnBadCombo(plan.rejected());
 	}
 
+	/**
+	 * Removes the selected campaign rows from this tab's selection without unloading sources.
+	 *
+	 * <p>Publisher and setting rows are ignored.
+	 *
+	 * @param event the button action event, or null when invoked by a tree gesture
+	 */
 	@FXML
 	protected void onRemoveSelectedAction(ActionEvent event)
 	{
 		selectedLeavesIn(treeSelected).toList().forEach(selectedCampaigns::remove);
 	}
 
+	/**
+	 * Invokes the source-unload callback, then clears this tab's campaign selection.
+	 *
+	 * <p>The callback handles unloading through the engine; this controller only clears the selection.
+	 *
+	 * @param event the button action event
+	 */
 	@FXML
 	protected void onUnloadAllAction(ActionEvent event)
 	{
@@ -326,6 +357,8 @@ public class AdvancedSourceSelectionController implements AutoCloseable
 	 * <p>Requirements are still described against the selection as it now
 	 * stands, so they answer "what is missing from what you have" rather than
 	 * from some intermediate set the user never saw.
+	 *
+	 * @param rejected the campaigns refused by the completed addition plan
 	 */
 	private void warnBadCombo(List<Campaign> rejected)
 	{
@@ -363,6 +396,11 @@ public class AdvancedSourceSelectionController implements AutoCloseable
 	 * the other campaign's {@code !PRECAMPAIGN}. Anything else falls back to
 	 * the engine's description, which for a genuinely unmet requirement is the
 	 * best answer available.
+	 *
+	 * @param reason the diagnosed cause of rejection
+	 * @param campaign the rejected campaign
+	 * @param context the current campaign selection
+	 * @return the HTML explanation to show in the rejection dialog
 	 */
 	private static String explain(CampaignRejectionDiagnosis.Reason reason, Campaign campaign,
 			List<Campaign> context)
@@ -378,12 +416,19 @@ public class AdvancedSourceSelectionController implements AutoCloseable
 	/**
 	 * The window this panel lives in, so dialogs raised from it open over it
 	 * rather than wherever the window manager decides.
+	 *
+	 * @return the window containing the available-source tree
 	 */
 	private Window ownerWindow()
 	{
 		return treeAvailable.getScene().getWindow();
 	}
 
+	/**
+	 * Shows the highlighted campaign's preview, or clears it for a grouping row or no selection.
+	 *
+	 * @param item the highlighted tree item, or null when the selection is cleared
+	 */
 	private void showInfoFor(TreeItem<SourceTreeNode> item)
 	{
 		if (item == null)
@@ -403,9 +448,9 @@ public class AdvancedSourceSelectionController implements AutoCloseable
 	}
 
 	/**
-	 * Registers the action to invoke for Unload All — typically
-	 * {@code PCGenFrame.unloadSources()}. The selected list is cleared
-	 * unconditionally afterwards on this side.
+	 * Registers the Unload All callback, invoked before this tab clears its selection.
+	 *
+	 * @param handler the action responsible for unloading sources through the engine
 	 */
 	public void setOnUnloadAllRequested(Runnable handler)
 	{
@@ -415,6 +460,8 @@ public class AdvancedSourceSelectionController implements AutoCloseable
 	/**
 	 * Registers the action to invoke for Save Source Selection — persisting this
 	 * tab's campaign set as a named custom selection.
+	 *
+	 * @param handler the action that persists the validated selection
 	 */
 	public void setOnSaveRequested(Consumer<SourceBundle> handler)
 	{
@@ -425,19 +472,29 @@ public class AdvancedSourceSelectionController implements AutoCloseable
 	 * Supplies the selections already on offer, so a Save name can be checked
 	 * against them. Without this every name looks free and the dialog would
 	 * shadow a bundled selection or silently duplicate a saved one.
+	 *
+	 * @param sources supplies the current saved and bundled selections
 	 */
 	public void setExistingSources(Supplier<List<SourceBundle>> sources)
 	{
 		this.existingSources = sources;
 	}
 
-	/** Overrides the name prompt, so tests need not raise a modal. */
+	/**
+	 * Replaces the name prompt without requiring a modal dialog.
+	 *
+	 * @param prompt receives the suggested name and returns the chosen name, or empty on cancellation
+	 */
 	void setNamePrompt(Function<String, Optional<String>> prompt)
 	{
 		this.namePrompt = prompt;
 	}
 
-	/** Overrides the overwrite confirmation, so tests need not raise a modal. */
+	/**
+	 * Replaces the overwrite confirmation without requiring a modal dialog.
+	 *
+	 * @param confirmation decides whether an existing selection may be overwritten
+	 */
 	void setSaveConfirmation(Predicate<SourceSaveDecision> confirmation)
 	{
 		this.saveConfirmation = confirmation;
@@ -450,6 +507,8 @@ public class AdvancedSourceSelectionController implements AutoCloseable
 	 * how the user overwrites one -- the Swing dialog listed the saved
 	 * selections and copied whichever was clicked into its name field, to the
 	 * same end.
+	 *
+	 * @param event the Save button's action event
 	 */
 	@FXML
 	protected void onSaveAction(ActionEvent event)
@@ -498,20 +557,15 @@ public class AdvancedSourceSelectionController implements AutoCloseable
 	 * retype.
 	 *
 	 * <p>Bundled selections are skipped: they cannot be saved over, so offering
-	 * one's name would walk the user into a refusal. An empty selection matches
-	 * nothing, or it would offer the name of any saved selection that happens
-	 * to be empty.
+	 * one's name would walk the user into a refusal. Save is disabled when no
+	 * campaigns are selected.
 	 *
-	 * @param selected the campaigns about to be saved
+	 * @param selected the nonempty list of campaigns about to be saved
 	 * @param existing the selections already on offer
 	 * @return the name to pre-fill, or an empty string
 	 */
 	static String suggestedSaveName(List<Campaign> selected, List<SourceBundle> existing)
 	{
-		if (selected.isEmpty())
-		{
-			return "";
-		}
 		return existing.stream()
 				.filter(SourceBundle::modifiable)
 				.filter(bundle -> bundle.campaigns().equals(selected))
@@ -520,17 +574,26 @@ public class AdvancedSourceSelectionController implements AutoCloseable
 				.orElse("");
 	}
 
+	/**
+	 * Shows a modal warning over the source-selection window explaining why saving was refused.
+	 *
+	 * @param message the localized explanation to display
+	 */
 	private void reportSaveRefused(String message)
 	{
-		var alert = new Alert(Alert.AlertType.WARNING);
+		var alert = new Alert(Alert.AlertType.WARNING, message);
 		alert.setTitle(LanguageBundle.getString(SAVE_TITLE));
 		alert.setHeaderText(null);
-		alert.setContentText(message);
 		alert.initOwner(ownerWindow());
 		alert.showAndWait();
 	}
 
-	/** Default prompt: a single text field, pre-filled and pre-selected. */
+	/**
+	 * Prompts for a selection name with the suggested text pre-filled.
+	 *
+	 * @param suggested the name offered to the user
+	 * @return the entered name, or empty if the prompt is canceled
+	 */
 	private Optional<String> promptForName(String suggested)
 	{
 		return buildNamePrompt(suggested).showAndWait();
@@ -554,21 +617,29 @@ public class AdvancedSourceSelectionController implements AutoCloseable
 		return dialog;
 	}
 
-	/** Default confirmation: overwriting discards whatever was stored before. */
+	/**
+	 * Asks whether the existing saved selection may be replaced.
+	 *
+	 * @param decision the overwrite decision and its explanatory message
+	 * @return true only when the user confirms saving
+	 */
 	private boolean confirmOverwrite(SourceSaveDecision decision)
 	{
-		var alert = new Alert(Alert.AlertType.CONFIRMATION);
+		var save = new ButtonType(LanguageBundle.getString("in_save"), ButtonData.OK_DONE);
+		var alert = new Alert(Alert.AlertType.CONFIRMATION, "", save, ButtonType.CANCEL);
 		alert.setTitle(LanguageBundle.getString(SAVE_TITLE));
 		alert.setHeaderText(decision.message().orElse(null));
-		var save = new ButtonType(LanguageBundle.getString("in_save"), ButtonData.OK_DONE);
-		alert.getButtonTypes().setAll(save, ButtonType.CANCEL);
 		alert.initOwner(ownerWindow());
 		return alert.showAndWait()
 				.filter(button -> button.getButtonData() == ButtonData.OK_DONE)
 				.isPresent();
 	}
 
-	/** Whether the user asked for the Advanced tab to be the default on reopen. */
+	/**
+	 * Reports whether the Advanced tab should be the default on reopen.
+	 *
+	 * @return whether the Always Advanced check box is selected
+	 */
 	public boolean isAlwaysAdvanced()
 	{
 		return chkAlwaysAdvanced.isSelected();
@@ -585,10 +656,9 @@ public class AdvancedSourceSelectionController implements AutoCloseable
 	}
 
 	/**
-	 * Builds the {@link SourceBundle} the user has chosen on this tab.
-	 * Prefers the explicit Selected list when non-empty; falls back to the
-	 * single focused leaf in the available tree so single-click + Load still
-	 * works without an Add round-trip.
+	 * Builds the bundle from the selected campaigns, falling back to the first selected available campaign.
+	 *
+	 * @return the bundle to load, or empty when no game mode or campaign is selected
 	 */
 	public Optional<SourceBundle> getSelectedSource()
 	{
@@ -610,7 +680,7 @@ public class AdvancedSourceSelectionController implements AutoCloseable
 	 * Persists the committed choice as the remembered defaults: the game mode and,
 	 * keyed by that mode, the campaign names actually loaded. Call only when the
 	 * user commits the dialog with Load/OK on the Advanced tab, passing the bundle
-	 * being loaded (not {@code null}) — browsing then cancelling, or loading from
+	 * being loaded (not {@code null}) — browsing then canceling, or loading from
 	 * the Basic tab, must not overwrite the Advanced memory.
 	 *
 	 * @param loaded the bundle being loaded
@@ -645,6 +715,12 @@ public class AdvancedSourceSelectionController implements AutoCloseable
 		CONTEXT.setProperty(PROP_SELECTED_SOURCES + mode.getName(), names);
 	}
 
+	/**
+	 * Extracts selected campaign leaves while ignoring grouping rows and absent items.
+	 *
+	 * @param tree the available or selected campaign tree
+	 * @return the selected campaigns in the selection model's encounter order
+	 */
 	private static Stream<Campaign> selectedLeavesIn(TreeTableView<SourceTreeNode> tree)
 	{
 		return tree.getSelectionModel().getSelectedItems().stream()
@@ -652,6 +728,12 @@ public class AdvancedSourceSelectionController implements AutoCloseable
 				.flatMap(item -> campaignOf(item).stream());
 	}
 
+	/**
+	 * Extracts the campaign represented by a tree item.
+	 *
+	 * @param item the tree item to inspect
+	 * @return its campaign, or empty for a publisher or setting row
+	 */
 	private static Optional<Campaign> campaignOf(TreeItem<SourceTreeNode> item)
 	{
 		return item.getValue() instanceof SourceTreeNode.Leaf(Campaign campaign) ? Optional.of(campaign) : Optional.empty();
@@ -662,6 +744,8 @@ public class AdvancedSourceSelectionController implements AutoCloseable
 	 * tree now reflects the model's campaign list, and the available tree
 	 * follows the model's game mode. The Basic tab projects onto the same model,
 	 * so a Basic selection lands here through this binding.
+	 *
+	 * @param sourceModel the shared source-selection state
 	 */
 	public void setModel(SourceSelectionModel sourceModel)
 	{
@@ -736,6 +820,10 @@ public class AdvancedSourceSelectionController implements AutoCloseable
 	 * <p>These are the same diagnoses the warning dialog gives, so the tree and
 	 * the dialog cannot contradict each other -- the tree simply says it before
 	 * the user clicks Add rather than after.
+	 *
+	 * @param marked the campaigns marked blocked or already included
+	 * @param selected the current campaign selection
+	 * @return the cached tooltip explanation for each marked campaign
 	 */
 	private static Map<Campaign, String> describeAll(List<Campaign> marked, List<Campaign> selected)
 	{
@@ -746,7 +834,12 @@ public class AdvancedSourceSelectionController implements AutoCloseable
 		return Collections.unmodifiableMap(reasons);
 	}
 
-	/** The tooltip text for a diagnosis. Plain text: a Tooltip renders no markup. */
+	/**
+	 * Formats a rejection diagnosis as plain text suitable for a tooltip.
+	 *
+	 * @param reason the diagnosed rejection or inclusion reason
+	 * @return the localized explanation without HTML markup
+	 */
 	private static String tipFor(CampaignRejectionDiagnosis.Reason reason)
 	{
 		return switch (reason)
@@ -768,6 +861,8 @@ public class AdvancedSourceSelectionController implements AutoCloseable
 	 * to the old mode) with the new mode's remembered set. The Basic projection
 	 * sets the mode then replaces campaigns, so its {@code setAll} runs after this
 	 * and wins (see {@link SourceSelectionDialogPane#project}).
+	 *
+	 * @param mode the newly selected game mode, or null to clear the selection
 	 */
 	private void onGameModeChanged(GameMode mode)
 	{
@@ -779,6 +874,9 @@ public class AdvancedSourceSelectionController implements AutoCloseable
 	 * {@link #PROP_SELECTED_SOURCES} for this mode, or the mode's default data set
 	 * when nothing is remembered. Names that no longer resolve to a supported
 	 * campaign are skipped with a warning — a stale config must never be fatal.
+	 *
+	 * @param mode the game mode whose sources should be restored, or null for none
+	 * @return the remembered or default campaigns, or an empty list when no mode is selected
 	 */
 	private List<Campaign> rememberedCampaignsFor(GameMode mode)
 	{
@@ -802,6 +900,10 @@ public class AdvancedSourceSelectionController implements AutoCloseable
 	 * reads and writes). A name that no longer resolves is skipped with a warning
 	 * rather than failing — a stale config must never be fatal. Package-private
 	 * for unit testing.
+	 *
+	 * @param names the remembered campaign names
+	 * @param available the campaigns supported by the game mode
+	 * @return the available matches in remembered-name order
 	 */
 	static List<Campaign> resolveCampaigns(List<String> names, List<Campaign> available)
 	{
@@ -829,6 +931,8 @@ public class AdvancedSourceSelectionController implements AutoCloseable
 	 * Supplies the combo's game-mode choices. The combo's value is bound to the
 	 * model in {@link #setModel}; selection changes flow through that binding, so
 	 * there is no listener to install here.
+	 *
+	 * @param gameModes the game modes offered in the combo box
 	 */
 	public void setGameModeSource(ObservableList<GameMode> gameModes)
 	{
@@ -839,6 +943,8 @@ public class AdvancedSourceSelectionController implements AutoCloseable
 	 * Resolves the last-used game mode saved under {@link #PROP_SELECTED_GAME}
 	 * against the combo's current items, falling back to the first item. Requires
 	 * {@link #setGameModeSource} to have populated the items first.
+	 *
+	 * @return the remembered or first available mode, or null when no modes are available
 	 */
 	private GameMode resolveDefaultGameMode()
 	{
@@ -859,6 +965,9 @@ public class AdvancedSourceSelectionController implements AutoCloseable
 	 * campaigns. Campaigns without a CAMPAIGN_SETTING attach as direct
 	 * publisher children; those with a setting are grouped under a setting node.
 	 * Package-private for unit testing.
+	 *
+	 * @param campaigns the campaigns to group
+	 * @return the root of the publisher and setting hierarchy
 	 */
 	static TreeItem<SourceTreeNode> buildTree(List<Campaign> campaigns)
 	{
@@ -875,13 +984,20 @@ public class AdvancedSourceSelectionController implements AutoCloseable
 		return root;
 	}
 
+	/**
+	 * Groups a publisher's campaigns into settings followed by directly listed books.
+	 *
+	 * @param publisher the publisher's display label
+	 * @param children the campaigns belonging to the publisher
+	 * @return an expanded publisher node with alphabetically sorted groups and books
+	 */
 	private static TreeItem<SourceTreeNode> buildPublisherNode(String publisher, List<Campaign> children)
 	{
 		var node = new TreeItem<SourceTreeNode>(new SourceTreeNode.Publisher(publisher));
 		node.setExpanded(true);
 
 		// Campaigns within a publisher group either have a setting (folder) or
-		// not (direct child). Settings are alphabetised; direct campaigns sort
+		// not (direct child). Settings are alphabetized; direct campaigns sort
 		// after their setting siblings, both groups by display name.
 		Map<Optional<String>, List<Campaign>> bySetting = children.stream()
 				.collect(Collectors.groupingBy(c -> Optional.ofNullable(c.get(StringKey.CAMPAIGN_SETTING)),
@@ -899,6 +1015,14 @@ public class AdvancedSourceSelectionController implements AutoCloseable
 		return node;
 	}
 
+	/**
+	 * Builds an expanded setting node with campaigns sorted by display name.
+	 *
+	 * @param publisher the publisher owning the setting
+	 * @param setting the setting's display label
+	 * @param children the campaigns belonging to the setting
+	 * @return the setting node and its campaign leaves
+	 */
 	private static TreeItem<SourceTreeNode> buildSettingNode(String publisher, String setting, List<Campaign> children)
 	{
 		var node = new TreeItem<SourceTreeNode>(new SourceTreeNode.Setting(publisher, setting));
@@ -909,20 +1033,26 @@ public class AdvancedSourceSelectionController implements AutoCloseable
 		return node;
 	}
 
+	/** Creates combo-box cells displaying game-mode names. */
 	private static class GameModeCellFactory implements Callback<ListView<GameMode>, ListCell<GameMode>>
 	{
 		/**
-		 * Creates a custom ListCell for displaying a GameMode object.
-		 * Overrides the updateItem method to handle displaying the game mode's display name.
+		 * Creates a cell that displays a game mode's display name.
 		 *
-		 * @param param The ListView object that this ListCell is being used in.
-		 * @return ListCell<GameMode> The custom ListCell object.
+		 * @param param the list view requesting the cell
+		 * @return a reusable game-mode cell
 		 */
 		@Override
 		public ListCell<GameMode> call(ListView<GameMode> param)
 		{
 			return new ListCell<>()
 			{
+				/**
+				 * Displays the game-mode name or clears the recycled cell when empty.
+				 *
+				 * @param gameMode the mode to display, or null for no item
+				 * @param empty whether the cell has no item to display
+				 */
 				@Override
 				public void updateItem(GameMode gameMode, boolean empty)
 				{
