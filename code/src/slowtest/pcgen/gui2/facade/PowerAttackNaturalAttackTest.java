@@ -39,11 +39,13 @@ import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
+import pcgen.core.SettingsHandler;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.DataSetFacade;
 import pcgen.facade.core.InfoFacade;
 import pcgen.facade.core.UIDelegate;
 import pcgen.facade.util.DefaultListFacade;
+import pcgen.io.PCGVer2Creator;
 import pcgen.persistence.SourceFileLoader;
 import pcgen.system.CharacterManager;
 import pcgen.system.ConfigurationSettings;
@@ -188,6 +190,26 @@ class PowerAttackNaturalAttackTest
 		long temporaryCount = tempItem.getSafeListFor(ListKey.TYPE).stream()
 			.filter(Type.TEMPORARY::equals).count();
 		assertEquals(1, temporaryCount, "TEMPORARY type on the temporary bonus item");
+	}
+
+	@Test
+	void savingKeepsTheSameToHitBonusOnEachNaturalWeapon()
+	{
+		// Both variants share the identical "WEAPON|TOHIT|-PowerAttackModifier" bonus text;
+		// the save used to keep only one of them, so one weapon lost its -2 on reload.
+		CharacterFacadeImpl eidolon = createSerpentineEidolonWithPowerAttack("pa-save", false);
+		PlayerCharacter pc = eidolon.getTheCharacter();
+		applyPowerAttack(pc, PA_PRIMARY, "Bite");
+		applyPowerAttack(pc, PA_SECONDARY, "Tail Slap");
+
+		String pcg = new PCGVer2Creator(pc, SettingsHandler.getGameAsProperty().get(), List.of()).createPCGString();
+		for (String paKey : List.of(PA_PRIMARY, PA_SECONDARY))
+		{
+			String line = pcg.lines().filter(l -> l.startsWith("TEMPBONUS:FEAT=" + paKey + "|")).findFirst()
+				.orElseThrow(() -> new AssertionError("no saved temporary bonus for " + paKey));
+			assertTrue(line.contains("TBBONUS:WEAPON&pipe;TOHIT"), paKey + " to hit saved: " + line);
+			assertTrue(line.contains("TBBONUS:WEAPON&pipe;DAMAGE"), paKey + " damage saved: " + line);
+		}
 	}
 
 	private static void assertPowerAttack(PlayerCharacter pc, String paKey, String weaponName, int toHit, int damage)
