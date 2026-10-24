@@ -1,7 +1,6 @@
 package pcgen.io;
 
 import freemarker.template.Configuration;
-import static freemarker.template.Configuration.VERSION_2_3_20;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 import java.io.BufferedWriter;
@@ -62,7 +61,7 @@ public class FreeMarkerExportHandler extends ExportHandler
 		try
 		{
 			// Set Directory for templates
-			Configuration cfg = new Configuration(VERSION_2_3_20);
+			Configuration cfg = new Configuration(Configuration.VERSION_2_3_35);
 			cfg.setDirectoryForTemplateLoading(getTemplateFile().getParentFile());
 
 			// load template
@@ -88,25 +87,14 @@ public class FreeMarkerExportHandler extends ExportHandler
 
 			// Process the template
 			template.process(input, outputWriter);
+			// Flush here so a failure is propagated to the caller.
+			outputWriter.flush();
 		}
 		catch (IOException | TemplateException exc)
 		{
 			String message = "Error exporting character using template " + getTemplateFile();
 			Logging.errorPrint(message, exc);
 			throw new ExportException(message + " : " + exc.getLocalizedMessage(), exc);
-		}
-		finally
-		{
-			if (outputWriter != null)
-			{
-				try
-				{
-					outputWriter.flush();
-				}
-				catch (IOException ignored)
-				{
-				}
-			}
 		}
 	}
 

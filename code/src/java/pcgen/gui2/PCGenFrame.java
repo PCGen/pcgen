@@ -34,14 +34,16 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Observer;
 import java.util.Optional;
+import java.util.OptionalInt;
 import java.util.concurrent.ExecutionException;
 import java.util.logging.LogRecord;
+import java.util.stream.IntStream;
+import java.util.stream.StreamSupport;
 import javax.swing.Action;
 import javax.swing.ActionMap;
 import javax.swing.InputMap;
 import javax.swing.JCheckBox;
 import javax.swing.JComponent;
-import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -51,6 +53,12 @@ import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 import javax.swing.SwingWorker;
 import javax.swing.WindowConstants;
+
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Dialog;
+import javafx.scene.control.TextInputDialog;
+import javafx.scene.control.ToolBar;
 import org.apache.commons.lang3.StringUtils;
 import pcgen.cdom.base.Constants;
 import pcgen.core.Campaign;
@@ -63,12 +71,14 @@ import pcgen.facade.core.ChooserFacade;
 import pcgen.facade.core.CompanionFacade;
 import pcgen.facade.core.DataSetFacade;
 import pcgen.facade.core.EquipmentBuilderFacade;
+import pcgen.facade.core.GameModeDisplayFacade;
 import pcgen.facade.core.PartyFacade;
 import pcgen.facade.core.SourceSelectionFacade;
 import pcgen.facade.core.SpellBuilderFacade;
 import pcgen.facade.core.UIDelegate;
 import pcgen.facade.util.DefaultReferenceFacade;
 import pcgen.facade.util.ListFacade;
+import pcgen.facade.util.ListFacades;
 import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;
@@ -77,7 +87,6 @@ import pcgen.gui2.dialog.EquipCustomizerDialog;
 import pcgen.gui2.dialog.PostLevelUpDialog;
 import pcgen.gui2.dialog.RadioChooserDialog;
 import pcgen.gui2.dialog.SpellChoiceDialog;
-import pcgen.gui2.sources.SourceSelectionDialog;
 import pcgen.gui2.tabs.InfoTabbedPane;
 import pcgen.gui2.tools.CharacterSelectionListener;
 import pcgen.gui2.tools.Icons;
@@ -90,6 +99,13 @@ import pcgen.gui3.component.PCGenToolBar;
 import pcgen.gui3.dialog.AboutDialog;
 import pcgen.gui3.dialog.RememberingChoiceDialog;
 import pcgen.gui3.dialog.TipOfTheDayController;
+import pcgen.gui2.dialog.DataInstaller;
+import pcgen.gui3.sources.AdvancedSourceSelectionController;
+import pcgen.gui3.sources.SourceBundle;
+import pcgen.gui3.sources.SourceDialogOutcome;
+import pcgen.gui3.sources.SourceTabPreference;
+import pcgen.gui3.sources.SourceSelectionBridge;
+import pcgen.gui3.sources.SourceSelectionDialogPane;
 import pcgen.io.PCGFile;
 import pcgen.persistence.SourceFileLoader;
 import pcgen.system.CharacterManager;
@@ -101,18 +117,18 @@ import pcgen.system.PCGenPropBundle;
 import pcgen.system.PCGenSettings;
 import pcgen.system.PropertyContext;
 import pcgen.system.PropertyContextFactory;
+import pcgen.util.Comparators;
 import pcgen.util.Logging;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.RandomChooser;
 
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.embed.swing.JFXPanel;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.TextInputDialog;
-import javafx.scene.control.ToolBar;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 
 import static javax.swing.JOptionPane.CLOSED_OPTION;
 
@@ -137,7 +153,6 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 	private final DefaultReferenceFacade<CharacterFacade> currentCharacterRef;
 	private final DefaultReferenceFacade<DataSetFacade> currentDataSetRef;
 	private final FilenameListener filenameListener;
-	private JDialog sourceSelectionDialog;
 	private SourceLoadWorker sourceLoader;
 	private String section15;
 	private String lastCharacterPath;
@@ -147,6 +162,8 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 	private Stage javaFXStage;
 
 	private AboutDialog javaFXAboutDialog;
+
+	private boolean sourceSelectionDialogOpen;
 
 	public PCGenFrame(UIContext uiContext)
 	{
@@ -249,7 +266,8 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 						Platform.runLater(PCGenFrame::showTipsOfTheDay);
 					}
 					SwingUtilities.invokeLater(() -> {
-						if (!SourceSelectionDialog.skipSourceSelection())
+						if (!UIPropertyContext.getInstance()
+								.initBoolean(UIPropertyContext.SKIP_SOURCE_SELECTION, false))
 						{
 							showSourceSelectionDialog();
 						}
@@ -1090,11 +1108,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 			}
 			else if (loadSourceSelection(sources))
 			{
-				if (sourceSelectionDialog == null)
-				{
-					sourceSelectionDialog = new SourceSelectionDialog(this, uiContext);
-				}
-				((SourceSelectionDialog) sourceSelectionDialog).setAdvancedSources(sources);
+				rememberAdvancedSelection(sources);
 				currentSourceSelection.set(sources);
 				loadSourcesThenCharacter(pcgFile);
 			}
@@ -1335,12 +1349,224 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 	 */
 	public void showSourceSelectionDialog()
 	{
-		if (sourceSelectionDialog == null)
+		GuiAssertions.assertIsSwingThread();
+		if (sourceSelectionDialogOpen)
 		{
-			sourceSelectionDialog = new SourceSelectionDialog(this, uiContext);
+			return;
 		}
-		sourceSelectionDialog.setLocationRelativeTo(this);
-		sourceSelectionDialog.setVisible(true);
+		// Build the gui3-side data once, on the EDT, then drop into the FX thread
+		// for the dialog. Conversion from facades to gui3 records lives here so
+		// the dialog itself never sees the facade types.
+		var gameModes = StreamSupport
+				.stream(FacadeFactory.getGameModeDisplays().spliterator(), false)
+				.map(GameModeDisplayFacade::getGameMode)
+				.toList();
+
+		var bundles = StreamSupport
+				.stream(FacadeFactory.getDisplayedSourceSelections().spliterator(), false)
+				.sorted(Comparators.toStringIgnoreCaseCollator())
+				.map(s -> new SourceBundle(
+						s.toString(),
+						s.getGameMode().get(),
+						ListFacades.wrap(s.getCampaigns()),
+						s.isModifiable(),
+						s.getLoadingState(),
+						s.getLoadingErrorMessage()))
+				.toList();
+
+		var ownerBounds = getBounds();
+		sourceSelectionDialogOpen = true;
+		setEnabled(false);
+		Platform.runLater(() -> {
+			Optional<SourceBundle> toLoad = Optional.empty();
+			boolean installData = false;
+			try
+			{
+				// Mutable: deleting a source removes its row in place, so the list
+				// cannot be a fixed view over the snapshot above.
+				var sourceItems = FXCollections.observableArrayList(bundles);
+
+				var pane = new SourceSelectionDialogPane(
+						sourceItems,
+						FXCollections.observableList(gameModes));
+
+				pane.applyTabPreference(SourceTabPreference.fromStored(UIPropertyContext.getInstance()
+						.initBoolean(UIPropertyContext.SOURCE_USE_BASIC_KEY, true)));
+
+				pane.setOnDeleteRequested(bundle -> deleteSourceSelection(bundle, sourceItems, pane));
+				pane.setOnSaveRequested(bundle -> saveSourceSelection(bundle, sourceItems, pane));
+
+				var dialog = new Dialog<ButtonType>();
+				dialog.setTitle(LanguageBundle.getString("in_mnuSourcesLoadSelect"));
+				dialog.setResizable(true);
+				dialog.setDialogPane(pane);
+				dialog.setOnShown(_ -> {
+					dialog.setX(ownerBounds.getCenterX() - dialog.getWidth() / 2);
+					dialog.setY(ownerBounds.getCenterY() - dialog.getHeight() / 2);
+				});
+
+				pane.setLoadValidator(bundle -> canLoadSourceSelection(bundle, pane.getScene().getWindow()));
+
+				// Unload All has to hop back to the Swing EDT — it touches
+				// CharacterManager and global Globals state.
+				pane.setOnUnloadAllRequested(() -> SwingUtilities.invokeLater(this::unloadSources));
+
+				// Remembered whatever the dialog was closed with, as the legacy
+				// dialog does on hide -- cancelling still keeps the preference.
+				dialog.setOnHidden(_ -> {
+					pane.close();
+					UIPropertyContext.getInstance().setBoolean(
+							UIPropertyContext.SOURCE_USE_BASIC_KEY, pane.getTabPreference().storedUseBasic());
+				});
+
+				var result = dialog.showAndWait();
+				installData = result.filter(button ->
+						SourceDialogOutcome.installsData(button, pane.getInstallDataButton())).isPresent();
+				if (result.filter(SourceDialogOutcome::loadsSelection).isPresent())
+				{
+					toLoad = pane.getSelectedSource();
+					toLoad.ifPresent(pane::commitSelection);
+				}
+			}
+			finally
+			{
+				SwingUtilities.invokeLater(() -> {
+					sourceSelectionDialogOpen = false;
+					setEnabled(true);
+				});
+			}
+			if (installData)
+			{
+				SwingUtilities.invokeLater(PCGenFrame::showDataInstaller);
+			}
+			toLoad.ifPresent(bundle -> SwingUtilities.invokeLater(() -> loadSourceSelection(
+					FacadeFactory.createSourceSelection(bundle.gameMode(), bundle.campaigns()))));
+		});
+	}
+
+	/**
+	 * Deletes the custom source selection behind {@code bundle} and, only if the
+	 * engine accepted it, drops its row from {@code sourceItems}.
+	 * <p>
+	 * Two thread hops are unavoidable: {@code FacadeFactory} mutates
+	 * {@code DefaultListFacade}s that Swing list models observe, so the delete
+	 * runs on the EDT, while the row removal has to go back to the FX thread.
+	 * Removing the row only on success keeps the dialog honest if the selection
+	 * has already gone (e.g. deleted from the legacy dialog).
+	 */
+	private void deleteSourceSelection(SourceBundle bundle, ObservableList<SourceBundle> sourceItems,
+			SourceSelectionDialogPane pane)
+	{
+		SwingUtilities.invokeLater(() -> {
+			var deleted = SourceSelectionBridge.deleteSourceSelection(
+					bundle,
+					ListFacades.wrap(FacadeFactory.getCustomSourceSelections()),
+					FacadeFactory::deleteCustomSourceSelection);
+			if (deleted)
+			{
+				Platform.runLater(() -> {
+					if (pane.getScene().getWindow().isShowing())
+					{
+						sourceItems.remove(bundle);
+					}
+				});
+			}
+			else
+			{
+				Logging.errorPrint("No custom source selection found to delete for: " + bundle.displayName());
+			}
+		});
+	}
+
+	/**
+	 * Remembers a character's sources as the Advanced tab's selection, so
+	 * reopening the dialog offers what the character used.
+	 *
+	 * <p>A selection with no game mode is skipped rather than loaded: this is
+	 * best-effort memory for next time, and a character file naming a mode
+	 * PCGen no longer has is a state the loader has to survive, not a broken
+	 * assumption worth failing on. The legacy panel guarded the same case.
+	 */
+	private static void rememberAdvancedSelection(SourceSelectionFacade sources)
+	{
+		GameMode mode = sources.getGameMode() == null ? null : sources.getGameMode().get();
+		if (mode == null)
+		{
+			Logging.errorPrint("Invalid source selection " + sources + " - not remembering it.");
+			return;
+		}
+		AdvancedSourceSelectionController.rememberSelection(mode, ListFacades.wrap(sources.getCampaigns()));
+	}
+
+	/** Opens the data installer, as the legacy source dialog's Install Data does. */
+	private static void showDataInstaller()
+	{
+		var installer = new DataInstaller();
+		installer.setVisible(true);
+	}
+
+	/**
+	 * Stores {@code bundle} as a custom source selection and reflects it in the
+	 * dialog's list.
+	 * <p>
+	 * The thread hops mirror {@link #deleteSourceSelection}: {@code FacadeFactory}
+	 * mutates {@code DefaultListFacade}s that Swing list models observe, so the
+	 * write runs on the EDT, and the row has to be added back on the FX thread.
+	 * <p>
+	 * An existing row is replaced rather than appended to, because saving over
+	 * a selection reuses its facade -- appending would show the same selection
+	 * twice. The saved row is then selected in the Basic list, so the user can
+	 * see the save landed without being moved off the tab they are working in.
+	 */
+	private void saveSourceSelection(SourceBundle bundle, ObservableList<SourceBundle> sourceItems,
+			SourceSelectionDialogPane pane)
+	{
+		SwingUtilities.invokeLater(() -> {
+			SourceSelectionBridge.saveSourceSelection(
+					bundle,
+					ListFacades.wrap(FacadeFactory.getCustomSourceSelections()),
+					FacadeFactory::createCustomSourceSelection);
+			Platform.runLater(() -> {
+				if (!pane.getScene().getWindow().isShowing())
+				{
+					return;
+				}
+				indexOfSourceNamed(sourceItems, bundle.name()).ifPresentOrElse(
+						existing -> sourceItems.set(existing, bundle),
+						() -> sourceItems.add(bundle));
+				pane.selectSource(bundle);
+			});
+		});
+	}
+
+	/** The row holding the selection called {@code name}, or empty if none does. */
+	private static OptionalInt indexOfSourceNamed(ObservableList<SourceBundle> sourceItems, String name)
+	{
+		return IntStream.range(0, sourceItems.size())
+				.filter(index -> name.equals(sourceItems.get(index).name()))
+				.findFirst();
+	}
+
+	/**
+	 * Validates a Load request while the selection dialog is still open.
+	 *
+	 * @param bundle the proposed selection
+	 * @param owner the source dialog's window
+	 * @return whether all campaigns qualify
+	 */
+	private static boolean canLoadSourceSelection(SourceBundle bundle, Window owner)
+	{
+		if (!FacadeFactory.passesPrereqs(bundle.campaigns()))
+		{
+			var alert = new Alert(Alert.AlertType.INFORMATION,
+					LanguageBundle.getString("in_src_cannotLoadMessage"));
+			alert.setTitle(LanguageBundle.getString("in_src_cannotLoadTitle"));
+			alert.setHeaderText(null);
+			alert.initOwner(owner);
+			alert.showAndWait();
+			return false;
+		}
+		return true;
 	}
 
 	//TODO: This should be in a utility class.

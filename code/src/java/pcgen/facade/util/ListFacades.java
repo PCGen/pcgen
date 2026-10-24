@@ -1,20 +1,20 @@
 /*
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
- * 
+ *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- * 
+ *
  */
 package pcgen.facade.util;
 
@@ -33,11 +33,15 @@ public final class ListFacades
 		//Do not instantiate Utility Class
 	}
 
-	private static final ListFacade EMPTY_LIST = new EmptyList();
-
+	/**
+	 * An immutable, empty {@link ListFacade}.
+	 *
+	 * @param <T> the element type
+	 * @return an empty list facade
+	 */
 	public static <T> ListFacade<T> emptyList()
 	{
-		return EMPTY_LIST;
+		return new EmptyList<>();
 	}
 
 	public static <T> List<T> wrap(final ListFacade<T> list)
@@ -60,19 +64,17 @@ public final class ListFacades
 		};
 	}
 
-	private static class EmptyList implements ListFacade<Object>
+	private static final class EmptyList<E> implements ListFacade<E>
 	{
 
-		private static final Iterator<Object> ITERATOR = Collections.emptyIterator();
-
 		@Override
-		public void addListListener(ListListener<? super Object> listener)
+		public void addListListener(ListListener<? super E> listener)
 		{
 			//This list never changes so there's no point in listening to it
 		}
 
 		@Override
-		public Object getElementAt(int index)
+		public E getElementAt(int index)
 		{
 			throw new IndexOutOfBoundsException(index);
 		}
@@ -84,15 +86,15 @@ public final class ListFacades
 		}
 
 		@Override
-		public void removeListListener(ListListener<? super Object> listener)
+		public void removeListListener(ListListener<? super E> listener)
 		{
 			//This list never changes so there's no point in listening to it
 		}
 
 		@Override
-		public Iterator<Object> iterator()
+		public Iterator<E> iterator()
 		{
-			return ITERATOR;
+			return Collections.emptyIterator();
 		}
 
 		@Override
@@ -102,11 +104,9 @@ public final class ListFacades
 		}
 
 		@Override
-		public boolean containsElement(Object element)
+		public boolean containsElement(E element)
 		{
 			return false;
 		}
-
 	}
-
 }

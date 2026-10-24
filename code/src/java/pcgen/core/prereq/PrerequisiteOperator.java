@@ -180,7 +180,7 @@ public enum PrerequisiteOperator
 		{
 			return valueOf(operatorName.toUpperCase());
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException _)
 		{
 			/*
 			 * TODO Should we deprecate this behavior?

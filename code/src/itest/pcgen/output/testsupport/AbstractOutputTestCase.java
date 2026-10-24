@@ -59,7 +59,7 @@ public abstract class AbstractOutputTestCase
 	{
 		try
 		{
-			Configuration c = new Configuration(Configuration.VERSION_2_3_32);
+			Configuration c = new Configuration(Configuration.VERSION_2_3_35);
 			Template t = new Template("test", testString, c);
 			StringWriter sw = new StringWriter();
 			BufferedWriter bw = new BufferedWriter(sw);
