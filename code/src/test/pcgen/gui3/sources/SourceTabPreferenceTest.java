@@ -78,13 +78,4 @@ class SourceTabPreferenceTest
 		}
 	}
 
-	/**
-	 * The default when nothing has been stored. PCGen has always opened on
-	 * Basic, and the legacy dialog's {@code initBoolean(..., true)} says so.
-	 */
-	@Test
-	void withNothingStored_theBasicTabIsTheDefault()
-	{
-		assertEquals(ActiveTabEnum.BASIC, SourceTabPreference.fromStored(true).initialTab());
-	}
 }

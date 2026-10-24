@@ -7,13 +7,11 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 <?import javafx.scene.web.WebView?>
-<Tab text="Basic" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1"
+<Tab text="%in_basic" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1"
      fx:controller="pcgen.gui3.sources.BasicSourceSelectionController">
     <VBox>
         <TextFlow>
-            <Text text="Select a predefined source below to load, or use the "/>
-            <Text styleClass="advanced-link" text="Advanced"/>
-            <Text text=" tab to select from our huge list of supported sources."/>
+            <Text text="%in_qsrc_introText"/>
         </TextFlow>
         <SplitPane fx:id="splitPane" dividerPositions="0.35" VBox.vgrow="ALWAYS">
             <ListView fx:id="sourceList" SplitPane.resizableWithParent="false"/>

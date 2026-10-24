@@ -18,6 +18,8 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.testfx.util.WaitForAsyncUtils.waitForAsyncFx;
+import static org.testfx.util.WaitForAsyncUtils.waitForFxEvents;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,14 +39,14 @@ import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 import pcgen.core.GameMode;
+import pcgen.gui2.UIPropertyContext;
 import pcgen.system.LanguageBundle;
 
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.testfx.framework.junit5.ApplicationExtension;
 import org.testfx.framework.junit5.Start;
-import org.testfx.util.WaitForAsyncUtils;
 
 /**
  * Deleting a source is destructive and, since the trash icon sits on the row
@@ -60,10 +62,12 @@ class BasicSourceSelectionDeleteTest
 	private static final GameMode MODE = new GameMode("test");
 	private static final SourceBundle BUNDLED = new SourceBundle("Bundled", MODE, List.of(), false, null);
 	private static final SourceBundle CUSTOM = new SourceBundle("Custom", MODE, List.of(), true, null);
+	private static final UIPropertyContext CONTEXT = UIPropertyContext.createContext("SourceSelectionDialog");
 
 	private BasicSourceSelectionController controller;
 	private Tab tab;
 	private Stage stage;
+	private String previousSource;
 
 	/** The bundle the controller asked to delete, or null if it never asked. */
 	private SourceBundle deleted;
@@ -76,11 +80,11 @@ class BasicSourceSelectionDeleteTest
 		this.stage = primaryStage;
 	}
 
-	@BeforeEach
-	void loadTab()
+	private void loadTab()
 	{
 		deleted = null;
-		WaitForAsyncUtils.waitForAsyncFx(5000, () -> {
+		previousSource = CONTEXT.getProperty("selectedSource", null);
+		waitForAsyncFx(5000, () -> {
 			var loader = new FXMLLoader(
 					BasicSourceSelectionController.class.getResource("BasicSourceSelection.fxml"),
 					LanguageBundle.getBundle());
@@ -100,26 +104,41 @@ class BasicSourceSelectionDeleteTest
 			stage.setScene(new Scene((Parent) tab.getContent()));
 			stage.show();
 		});
-		WaitForAsyncUtils.waitForFxEvents();
+		waitForFxEvents();
+	}
+
+	@AfterEach
+	void closeTab()
+	{
+		if (controller != null)
+		{
+			try
+			{
+				waitForAsyncFx(5000, controller::close);
+			}
+			finally
+			{
+				CONTEXT.setProperty("selectedSource", previousSource);
+			}
+		}
 	}
 
 	@SuppressWarnings("unchecked")
 	private ListView<SourceBundle> sourceList()
 	{
-		return WaitForAsyncUtils.waitForAsyncFx(5000,
-				() -> (ListView<SourceBundle>) tab.getContent().lookup("#sourceList"));
+		return (ListView<SourceBundle>) tab.getContent().lookup("#sourceList");
 	}
 
 	/** Clicks the trash icon on a freshly built row for {@code bundle}. */
 	private void clickTrash(SourceBundle bundle)
 	{
-		WaitForAsyncUtils.waitForAsyncFx(5000, () -> {
+		waitForAsyncFx(5000, () -> {
 			var list = sourceList();
 			var cell = (SourceBundleListCell) list.getCellFactory().call(list);
 			cell.updateItem(bundle, false);
-			((javafx.scene.Parent) cell.getGraphic()).getChildrenUnmodifiable().stream()
-					.filter(javafx.scene.control.Button.class::isInstance)
-					.map(javafx.scene.control.Button.class::cast)
+			((Parent) cell.getGraphic()).getChildrenUnmodifiable().stream()
+					.filter(Button.class::isInstance)
+					.map(Button.class::cast)
 					.findFirst()
 					.orElseThrow()
 					.fire();
@@ -128,7 +147,7 @@ class BasicSourceSelectionDeleteTest
 
 	private void pressDelete(SourceBundle selection)
 	{
-		WaitForAsyncUtils.waitForAsyncFx(5000, () -> {
+		waitForAsyncFx(5000, () -> {
 			var list = sourceList();
 			list.getSelectionModel().select(selection);
 			list.fireEvent(new KeyEvent(KeyEvent.KEY_PRESSED, "", "", KeyCode.DELETE,
@@ -139,6 +158,7 @@ class BasicSourceSelectionDeleteTest
 	@Test
 	void delete_should_forwardTheBundle_when_confirmationIsAccepted()
 	{
+		loadTab();
 		controller.setDeleteConfirmation(bundle -> true);
 
 		clickTrash(CUSTOM);
@@ -149,6 +169,7 @@ class BasicSourceSelectionDeleteTest
 	@Test
 	void delete_should_doNothing_when_confirmationIsDeclined()
 	{
+		loadTab();
 		controller.setDeleteConfirmation(bundle -> false);
 
 		clickTrash(CUSTOM);
@@ -159,6 +180,7 @@ class BasicSourceSelectionDeleteTest
 	@Test
 	void deleteKey_should_requestDelete_when_selectionIsModifiable()
 	{
+		loadTab();
 		controller.setDeleteConfirmation(bundle -> true);
 
 		pressDelete(CUSTOM);
@@ -169,6 +191,7 @@ class BasicSourceSelectionDeleteTest
 	@Test
 	void deleteKey_should_doNothing_when_selectionIsNotModifiable()
 	{
+		loadTab();
 		controller.setDeleteConfirmation(bundle -> true);
 
 		pressDelete(BUNDLED);
@@ -178,7 +201,7 @@ class BasicSourceSelectionDeleteTest
 
 	private Alert confirmationFor(SourceBundle bundle)
 	{
-		return WaitForAsyncUtils.waitForAsyncFx(5000,
+		return waitForAsyncFx(5000,
 				() -> BasicSourceSelectionController.buildDeleteConfirmation(bundle));
 	}
 
@@ -246,7 +269,7 @@ class BasicSourceSelectionDeleteTest
 	/** Lays the alert out off-screen and reads its buttons left to right. */
 	private List<String> renderedButtonLabels(Alert alert)
 	{
-		return WaitForAsyncUtils.waitForAsyncFx(5000, () -> {
+		return waitForAsyncFx(5000, () -> {
 			var pane = alert.getDialogPane();
 			pane.applyCss();
 			pane.layout();
@@ -275,7 +298,8 @@ class BasicSourceSelectionDeleteTest
 	@Test
 	void basicTab_should_notCarryATabWideDeleteButton()
 	{
-		assertNull(WaitForAsyncUtils.waitForAsyncFx(5000, () -> tab.getContent().lookup("#btnDelete")),
+		loadTab();
+		assertNull(waitForAsyncFx(5000, () -> tab.getContent().lookup("#btnDelete")),
 				"Delete belongs to the row that owns it, not to the tab");
 	}
 }

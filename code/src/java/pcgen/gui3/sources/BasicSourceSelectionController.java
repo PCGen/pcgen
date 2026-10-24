@@ -77,10 +77,7 @@ public class BasicSourceSelectionController implements AutoCloseable
 				return;
 			}
 			CONTEXT.setProperty(PROP_SELECTED_SOURCE, selected.displayName());
-			// Use the first campaign as the info source. If the bundle
-			// holds several, the info covers only the leader; renderer can be
-			// expanded later to summarise the whole bundle.
-			infoRenderer.renderCampaign(selected.campaigns().getFirst());
+			infoRenderer.renderBundle(selected);
 		});
 		// The trash icon is mouse-only, so give the list a keyboard equivalent.
 		sourceList.setOnKeyPressed(event -> {

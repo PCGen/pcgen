@@ -80,7 +80,6 @@ import pcgen.facade.util.DefaultReferenceFacade;
 import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.ListFacades;
 import pcgen.facade.util.ReferenceFacade;
-import pcgen.facade.util.SortedListFacade;
 import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;
 import pcgen.gui2.dialog.ChooserDialog;
@@ -129,6 +128,7 @@ import javafx.collections.ObservableList;
 import javafx.embed.swing.JFXPanel;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 
 import static javax.swing.JOptionPane.CLOSED_OPTION;
 
@@ -162,6 +162,8 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 	private Stage javaFXStage;
 
 	private AboutDialog javaFXAboutDialog;
+
+	private boolean sourceSelectionDialogOpen;
 
 	public PCGenFrame(UIContext uiContext)
 	{
@@ -1347,6 +1349,11 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 	 */
 	public void showSourceSelectionDialog()
 	{
+		GuiAssertions.assertIsSwingThread();
+		if (sourceSelectionDialogOpen)
+		{
+			return;
+		}
 		// Build the gui3-side data once, on the EDT, then drop into the FX thread
 		// for the dialog. Conversion from facades to gui3 records lives here so
 		// the dialog itself never sees the facade types.
@@ -1356,8 +1363,8 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 				.toList();
 
 		var bundles = StreamSupport
-				.stream(new SortedListFacade<>(Comparators.toStringIgnoreCaseCollator(),
-						FacadeFactory.getDisplayedSourceSelections()).spliterator(), false)
+				.stream(FacadeFactory.getDisplayedSourceSelections().spliterator(), false)
+				.sorted(Comparators.toStringIgnoreCaseCollator())
 				.map(s -> new SourceBundle(
 						s.toString(),
 						s.getGameMode().get(),
@@ -1367,7 +1374,14 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 						s.getLoadingErrorMessage()))
 				.toList();
 
+		var ownerBounds = getBounds();
+		sourceSelectionDialogOpen = true;
+		setEnabled(false);
 		Platform.runLater(() -> {
+			Optional<SourceBundle> toLoad = Optional.empty();
+			boolean installData = false;
+			try
+			{
 				// Mutable: deleting a source removes its row in place, so the list
 				// cannot be a fixed view over the snapshot above.
 				var sourceItems = FXCollections.observableArrayList(bundles);
@@ -1383,14 +1397,15 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 				pane.setOnSaveRequested(bundle -> saveSourceSelection(bundle, sourceItems, pane));
 
 				var dialog = new Dialog<ButtonType>();
-				dialog.setTitle("Select Sources");
+				dialog.setTitle(LanguageBundle.getString("in_mnuSourcesLoadSelect"));
 				dialog.setResizable(true);
 				dialog.setDialogPane(pane);
+				dialog.setOnShown(_ -> {
+					dialog.setX(ownerBounds.getCenterX() - dialog.getWidth() / 2);
+					dialog.setY(ownerBounds.getCenterY() - dialog.getHeight() / 2);
+				});
 
-				// Double-click on a list/tree row triggers the same path as
-				// pressing the OK button: close with OK_DONE so the result
-				// handler below loads the selected bundle.
-				pane.setOnLoadRequested(() -> dialog.setResult(ButtonType.OK));
+				pane.setLoadValidator(bundle -> canLoadSourceSelection(bundle, pane.getScene().getWindow()));
 
 				// Unload All has to hop back to the Swing EDT — it touches
 				// CharacterManager and global Globals state.
@@ -1404,26 +1419,29 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 							UIPropertyContext.SOURCE_USE_BASIC_KEY, pane.getTabPreference().storedUseBasic());
 				});
 
-				dialog.showAndWait().ifPresent(button -> {
-					if (SourceDialogOutcome.installsData(button, pane.getInstallDataButton()))
-					{
-						// The installer is Swing, and rewrites the data the
-						// dialog was just listing, so it opens on the EDT after
-						// this dialog has gone.
-						SwingUtilities.invokeLater(PCGenFrame::showDataInstaller);
-						return;
-					}
-					if (!SourceDialogOutcome.loadsSelection(button))
-					{
-						return;
-					}
-					pane.getSelectedSource().ifPresent(bundle -> {
-						pane.commitSelection(bundle);
-						SwingUtilities.invokeLater(() -> handleSourceLoadRequest(bundle));
-					});
+				var result = dialog.showAndWait();
+				installData = result.filter(button ->
+						SourceDialogOutcome.installsData(button, pane.getInstallDataButton())).isPresent();
+				if (result.filter(SourceDialogOutcome::loadsSelection).isPresent())
+				{
+					toLoad = pane.getSelectedSource();
+					toLoad.ifPresent(pane::commitSelection);
+				}
+			}
+			finally
+			{
+				SwingUtilities.invokeLater(() -> {
+					sourceSelectionDialogOpen = false;
+					setEnabled(true);
 				});
 			}
-		);
+			if (installData)
+			{
+				SwingUtilities.invokeLater(PCGenFrame::showDataInstaller);
+			}
+			toLoad.ifPresent(bundle -> SwingUtilities.invokeLater(() -> loadSourceSelection(
+					FacadeFactory.createSourceSelection(bundle.gameMode(), bundle.campaigns()))));
+		});
 	}
 
 	/**
@@ -1530,22 +1548,25 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 	}
 
 	/**
-	 * Loads the campaigns described by {@code bundle} after a prereq check.
-	 * Mirrors the legacy {@code SourceSelectionDialog.fireSourceLoad} path:
-	 * if any source is missing a prereq we tell the user and stay put,
-	 * otherwise we hand off to {@link #loadSourceSelection}.
+	 * Validates a Load request while the selection dialog is still open.
+	 *
+	 * @param bundle the proposed selection
+	 * @param owner the source dialog's window
+	 * @return whether all campaigns qualify
 	 */
-	private void handleSourceLoadRequest(SourceBundle bundle)
+	private static boolean canLoadSourceSelection(SourceBundle bundle, Window owner)
 	{
 		if (!FacadeFactory.passesPrereqs(bundle.campaigns()))
 		{
-			JOptionPane.showMessageDialog(this,
-					LanguageBundle.getString("in_src_cannotLoadMessage"), //$NON-NLS-1$
-					LanguageBundle.getString("in_src_cannotLoadTitle"), //$NON-NLS-1$
-					JOptionPane.INFORMATION_MESSAGE);
-			return;
+			var alert = new Alert(Alert.AlertType.INFORMATION,
+					LanguageBundle.getString("in_src_cannotLoadMessage"));
+			alert.setTitle(LanguageBundle.getString("in_src_cannotLoadTitle"));
+			alert.setHeaderText(null);
+			alert.initOwner(owner);
+			alert.showAndWait();
+			return false;
 		}
-		loadSourceSelection(FacadeFactory.createSourceSelection(bundle.gameMode(), bundle.campaigns()));
+		return true;
 	}
 
 	//TODO: This should be in a utility class.

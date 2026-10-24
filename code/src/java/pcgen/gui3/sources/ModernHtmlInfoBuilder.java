@@ -123,7 +123,25 @@ final class ModernHtmlInfoBuilder
 	 */
 	static String forCampaign(Campaign campaign, Path dataDir) throws IOException
 	{
-		Map<String, Object> model = buildModel(campaign, dataDir);
+		return forCampaigns(campaign.getDisplayName(), List.of(campaign), dataDir);
+	}
+
+	/**
+	 * Renders all campaigns in a selection under its title.
+	 *
+	 * @param title the page title
+	 * @param campaigns the campaigns in display order
+	 * @param dataDir the image base directory
+	 * @return a complete HTML document
+	 * @throws IOException if the template cannot be loaded or rendered
+	 */
+	static String forCampaigns(String title, List<Campaign> campaigns, Path dataDir) throws IOException
+	{
+		Map<String, Object> model = Map.of(
+				"baseHref", dataDir.toUri().toString(),
+				"maxImagePx", MAX_IMAGE_PX,
+				"title", title,
+				"campaigns", campaigns.stream().map(campaign -> buildModel(campaign, dataDir)).toList());
 		try
 		{
 			Template template = CONFIG.getTemplate(TEMPLATE_NAME);
@@ -140,8 +158,6 @@ final class ModernHtmlInfoBuilder
 	private static Map<String, Object> buildModel(Campaign aCamp, Path dataDir)
 	{
 		Map<String, Object> model = new LinkedHashMap<>();
-		model.put("baseHref", dataDir.toUri().toString());
-		model.put("maxImagePx", MAX_IMAGE_PX);
 		model.put("title", aCamp.getDisplayName());
 		model.put("images", buildImages(aCamp, dataDir));
 		model.put("status", buildStatus(aCamp));

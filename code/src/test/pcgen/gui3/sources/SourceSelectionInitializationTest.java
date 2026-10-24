@@ -14,16 +14,27 @@
 package pcgen.gui3.sources;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.testfx.util.WaitForAsyncUtils.asyncFx;
 import static org.testfx.util.WaitForAsyncUtils.waitForFxEvents;
 
 import java.lang.reflect.Field;
 import java.net.URI;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import javafx.collections.FXCollections;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Dialog;
+import javafx.scene.control.TabPane;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 
 import pcgen.core.Campaign;
 import pcgen.core.GameMode;
@@ -94,14 +105,20 @@ class SourceSelectionInitializationTest
 	private List<Campaign> openWith(boolean alwaysAdvanced) throws Exception
 	{
 		return asyncFx(() -> {
-			try (var pane = new SourceSelectionDialogPane(
-					FXCollections.observableArrayList(new SourceBundle("Basic", mode, List.of(basic), false, null)),
-					FXCollections.observableArrayList(mode)))
+			try (var pane = newPane(alwaysAdvanced))
 			{
-				pane.applyTabPreference(new SourceTabPreference(alwaysAdvanced));
 				return pane.getSelectedSource().orElseThrow().campaigns();
 			}
 		}).get(5, TimeUnit.SECONDS);
+	}
+
+	private SourceSelectionDialogPane newPane(boolean alwaysAdvanced)
+	{
+		var pane = new SourceSelectionDialogPane(
+				FXCollections.observableArrayList(new SourceBundle("Basic", mode, List.of(basic), false, null)),
+				FXCollections.observableArrayList(mode));
+		pane.applyTabPreference(new SourceTabPreference(alwaysAdvanced));
+		return pane;
 	}
 
 	@Test
@@ -114,5 +131,142 @@ class SourceSelectionInitializationTest
 	void openingBasic_should_useTheBasicBundle() throws Exception
 	{
 		assertEquals(List.of(basic), openWith(false));
+	}
+
+	@Test
+	void unloadRequest_should_preserveTheEditedSelection() throws Exception
+	{
+		asyncFx(() -> {
+			try (var pane = newPane(true))
+			{
+				int[] requests = {0};
+				pane.setOnUnloadAllRequested(() -> requests[0]++);
+				var dialog = showDialog(pane);
+				try
+				{
+					((Button) pane.lookup("#btnUnloadAll")).fire();
+					assertEquals(1, requests[0]);
+					assertEquals(List.of(advanced), pane.getSelectedSource().orElseThrow().campaigns());
+				}
+				finally
+				{
+					dialog.close();
+				}
+			}
+		}).get(5, TimeUnit.SECONDS);
+	}
+
+	@Test
+	void invalidLoad_should_leaveTheDialogOpen() throws Exception
+	{
+		asyncFx(() -> {
+			try (var pane = newPane(true))
+			{
+				pane.setLoadValidator(bundle -> false);
+				var dialog = showDialog(pane);
+				try
+				{
+					loadButton(pane).fire();
+					assertTrue(dialog.isShowing());
+					assertEquals(List.of(advanced), pane.getSelectedSource().orElseThrow().campaigns());
+				}
+				finally
+				{
+					dialog.close();
+				}
+			}
+		}).get(5, TimeUnit.SECONDS);
+	}
+
+	@Test
+	void validLoad_should_closeWithTheLoadResult() throws Exception
+	{
+		asyncFx(() -> {
+			try (var pane = newPane(true))
+			{
+				pane.setLoadValidator(bundle -> bundle.campaigns().equals(List.of(advanced)));
+				var dialog = showDialog(pane);
+				try
+				{
+					loadButton(pane).fire();
+					assertFalse(dialog.isShowing());
+					assertTrue(SourceDialogOutcome.loadsSelection(dialog.getResult()));
+				}
+				finally
+				{
+					dialog.close();
+				}
+			}
+		}).get(5, TimeUnit.SECONDS);
+	}
+
+	@Test
+	void basicDoubleClick_should_notBypassLoadValidation() throws Exception
+	{
+		asyncFx(() -> {
+			try (var pane = newPane(false))
+			{
+				pane.setLoadValidator(bundle -> false);
+				var dialog = showDialog(pane);
+				try
+				{
+					pane.lookup("#sourceList").fireEvent(new MouseEvent(
+							MouseEvent.MOUSE_CLICKED, 0, 0, 0, 0, MouseButton.PRIMARY, 2,
+							false, false, false, false, false, false, false, false, false, false, null));
+					assertTrue(dialog.isShowing());
+				}
+				finally
+				{
+					dialog.close();
+				}
+			}
+		}).get(5, TimeUnit.SECONDS);
+	}
+
+	@Test
+	void dialogControls_should_useTheSelectedLocale() throws Exception
+	{
+		Locale previous = Locale.getDefault();
+		try
+		{
+			Locale.setDefault(Locale.FRENCH);
+			LanguageBundle.reload();
+			LanguageBundle.getString("");
+			asyncFx(() -> {
+				try (var pane = newPane(false))
+				{
+					var tabs = (TabPane) pane.getContent();
+					assertEquals("Base", tabs.getTabs().getFirst().getText());
+					assertEquals("Avanc\u00e9", tabs.getTabs().get(1).getText());
+					assertEquals("Charger", loadButton(pane).getText());
+					assertEquals("Installer des donn\u00e9es", pane.getInstallDataButton().getText());
+					var introduction = (TextFlow) tabs.getTabs().getFirst().getContent().lookup("TextFlow");
+					String text = ((Text) introduction.getChildren().getFirst()).getText();
+					assertTrue(text.startsWith("S\u00e9lectionner un ensemble"), text);
+				}
+			}).get(5, TimeUnit.SECONDS);
+		}
+		finally
+		{
+			Locale.setDefault(previous);
+			LanguageBundle.reload();
+			LanguageBundle.getString("");
+		}
+	}
+
+	private static Button loadButton(SourceSelectionDialogPane pane)
+	{
+		ButtonType load = pane.getButtonTypes().stream().filter(SourceDialogOutcome::loadsSelection)
+				.findFirst().orElseThrow();
+		return (Button) pane.lookupButton(load);
+	}
+
+	private static Dialog<ButtonType> showDialog(SourceSelectionDialogPane pane)
+	{
+		var dialog = new Dialog<ButtonType>();
+		dialog.setDialogPane(pane);
+		dialog.show();
+		pane.applyCss();
+		return dialog;
 	}
 }

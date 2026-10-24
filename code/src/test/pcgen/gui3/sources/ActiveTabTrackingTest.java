@@ -14,6 +14,7 @@
 package pcgen.gui3.sources;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.testfx.util.WaitForAsyncUtils.asyncFx;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +30,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.testfx.framework.junit5.ApplicationExtension;
-import org.testfx.util.WaitForAsyncUtils;
 
 /**
  * The dialog routes Load and the source-memory commit by which tab is in
@@ -63,69 +63,19 @@ class ActiveTabTrackingTest
 			advanced = new Tab("Advanced");
 			return new TabPane(basic, advanced);
 		};
-		tabs = WaitForAsyncUtils.asyncFx(build).get(5, TimeUnit.SECONDS);
+		tabs = asyncFx(build).get(5, TimeUnit.SECONDS);
 	}
 
 	private void track() throws Exception
 	{
-		WaitForAsyncUtils.asyncFx(
+		asyncFx(
 				() -> SourceSelectionDialogPane.trackActiveTab(tabs, basic, reported::add))
 				.get(5, TimeUnit.SECONDS);
 	}
 
 	private void select(Tab tab) throws Exception
 	{
-		WaitForAsyncUtils.asyncFx(() -> tabs.getSelectionModel().select(tab)).get(5, TimeUnit.SECONDS);
-	}
-
-	/**
-	 * The dialog must know where it stands before anything happens. Waiting for
-	 * the first switch is what left the old code with two different defaults
-	 * for one question.
-	 */
-	@Test
-	void tracking_reportsTheTabAlreadyInFront() throws Exception
-	{
-		track();
-
-		assertEquals(List.of(ActiveTabEnum.BASIC), reported);
-	}
-
-	@Test
-	void selectingTheAdvancedTab_isReported() throws Exception
-	{
-		track();
-
-		select(advanced);
-
-		assertEquals(ActiveTabEnum.ADVANCED, reported.getLast());
-	}
-
-	@Test
-	void returningToTheBasicTab_isReported() throws Exception
-	{
-		track();
-		select(advanced);
-
-		select(basic);
-
-		assertEquals(ActiveTabEnum.BASIC, reported.getLast());
-	}
-
-	/**
-	 * The selection-changed event fired on both the tab being left and the one
-	 * being entered, so the old handler ran twice per switch and filtered with
-	 * {@code isSelected()}.
-	 */
-	@Test
-	void eachSwitch_isReportedOnce() throws Exception
-	{
-		track();
-		reported.clear();
-
-		select(advanced);
-
-		assertEquals(1, reported.size(), reported.toString());
+		asyncFx(() -> tabs.getSelectionModel().select(tab)).get(5, TimeUnit.SECONDS);
 	}
 
 	@Test

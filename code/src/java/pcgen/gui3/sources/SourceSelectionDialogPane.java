@@ -18,12 +18,15 @@ import java.io.UncheckedIOException;
 import java.util.Optional;
 import java.util.List;
 import java.util.function.Consumer;
+import java.util.function.Predicate;
 
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.ButtonBar;
+import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.DialogPane;
 import javafx.scene.control.Tab;
@@ -69,13 +72,10 @@ public class SourceSelectionDialogPane extends DialogPane implements AutoCloseab
 	@FXML
 	private ButtonType btnInstallData;
 
-	/**
-	 * Which tab is in front. A plain field, not an observable property: nothing
-	 * binds to it or observes it, and the lazy-property idiom it used to follow
-	 * left two different answers for one question -- null meant BASIC, while an
-	 * instantiated-but-unset property meant INITIAL, so merely calling the
-	 * accessor changed what the getter reported.
-	 */
+	@FXML
+	private ButtonType btnLoad;
+
+	/** The currently selected tab. */
 	private ActiveTabEnum activeTab = ActiveTabEnum.BASIC;
 
 	private final SourceSelectionModel model = new SourceSelectionModel();
@@ -143,6 +143,23 @@ public class SourceSelectionDialogPane extends DialogPane implements AutoCloseab
 	public void setOnLoadRequested(Runnable handler)
 	{
 		basicTabController.setOnLoadRequested(handler);
+	}
+
+	/**
+	 * Keeps Load and Basic-row activation open until the selection is accepted.
+	 *
+	 * @param validator checks the selection and reports any loading problem
+	 */
+	public void setLoadValidator(Predicate<SourceBundle> validator)
+	{
+		var load = (Button) lookupButton(btnLoad);
+		load.addEventFilter(ActionEvent.ACTION, event -> {
+			if (getSelectedSource().filter(validator).isEmpty())
+			{
+				event.consume();
+			}
+		});
+		setOnLoadRequested(load::fire);
 	}
 
 	/** Releases both previews when the dialog closes. */
@@ -287,18 +304,7 @@ public class SourceSelectionDialogPane extends DialogPane implements AutoCloseab
 	/**
 	 * Reports which tab is in front, now and on every change.
 	 *
-	 * <p>Taken from the selection model rather than from a selection-changed
-	 * event. {@code Event.getTarget()} is typed only as {@code EventTarget} --
-	 * {@code Node}, {@code Window}, {@code Scene}, {@code MenuItem} and
-	 * {@code TreeItem} all implement it -- so reading the tab out of the event
-	 * needed a cast whose correctness rested on an FXML attribute staying
-	 * attached to a {@code Tab}, with nothing to check it until it threw. The
-	 * event also fired for the tab being left as well as the one being
-	 * entered, so the handler ran twice per switch and filtered the other out
-	 * by hand.
-	 *
-	 * <p>The current tab is reported immediately, so no caller has to cope with
-	 * a period before the first switch when the answer is unknown.
+	 * <p>Reports the current selection immediately, then once per change.
 	 *
 	 * @param tabs the tab pane to follow
 	 * @param basicTab the tab that counts as {@link ActiveTabEnum#BASIC}

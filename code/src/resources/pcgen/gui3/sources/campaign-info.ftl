@@ -1,9 +1,11 @@
 <#ftl output_format="HTML">
 <#--
   Campaign source-info card for the JavaFX source-selection WebView.
-  Model (built by ModernHtmlInfoBuilder):
+  Page model (built by ModernHtmlInfoBuilder):
     baseHref     - file: URL of the data dir, for the <base> tag (resolves relative image src)
     maxImagePx   - max rendered cover/logo edge, so large art cannot blow out the layout
+    title        - campaign or selection display name (plain text)
+    campaigns    - campaign models, each with the fields below
     title        - campaign display name (plain text)
     images       - list of { src, alt } cover/logo images (src already resolved)
     status       - { label, color } for the status pill (color is #RRGGBB)
@@ -86,6 +88,14 @@
           color: var(--muted);
           text-transform: uppercase;
           letter-spacing: 0.05em;
+      }
+
+      .campaign-title {
+          padding: 0 16px;
+          color: var(--ink);
+          font-size: 1.2em;
+          text-transform: none;
+          letter-spacing: normal;
       }
 
       a {
@@ -196,21 +206,25 @@
 </head>
 <body>
 <h1>${title}</h1>
+<#list campaigns as campaign>
+<#if campaigns?size gt 1>
+<h2 class="campaign-title">${campaign.title}</h2>
+</#if>
 <div class="wrap">
-<#if images?has_content || status?? || facts?has_content>
+<#if campaign.images?has_content || campaign.status?? || campaign.facts?has_content>
   <div class="card">
-      <#if images?has_content>
+      <#if campaign.images?has_content>
       <div class="hero">
-          <#list images as img><img src="${img.src}" alt="${img.alt}"></#list>
+          <#list campaign.images as img><img src="${img.src}" alt="${img.alt}"></#list>
       </div>
       </#if>
       <div class="card-body">
-          <#if status??>
-          <div><span class="pill" style="color:${status.color}; border-color:${status.color}; background:${status.color}22;">${status.label}</span></div>
+          <#if campaign.status??>
+          <div><span class="pill" style="color:${campaign.status.color}; border-color:${campaign.status.color}; background:${campaign.status.color}22;">${campaign.status.label}</span></div>
           </#if>
-          <#if facts?has_content>
+          <#if campaign.facts?has_content>
           <dl class="facts">
-              <#list facts as f>
+              <#list campaign.facts as f>
               <dt>${f.label}</dt>
               <dd>${f.valueHtml?no_esc}</dd>
               </#list>
@@ -219,16 +233,16 @@
       </div>
   </div>
 </#if>
-<#if description??>
-  <div class="description">${description}</div>
+<#if campaign.description??>
+  <div class="description">${campaign.description}</div>
 </#if>
-<#if requirements??>
-  <div class="requirements">${requirements?no_esc}</div>
+<#if campaign.requirements??>
+  <div class="requirements">${campaign.requirements?no_esc}</div>
 </#if>
-<#if allow??>
-  <div class="requirements"><b>${allow.label}:</b>&nbsp;${allow.valueHtml?no_esc}</div>
+<#if campaign.allow??>
+  <div class="requirements"><b>${campaign.allow.label}:</b>&nbsp;${campaign.allow.valueHtml?no_esc}</div>
 </#if>
-<#list sections as s>
+<#list campaign.sections as s>
   <h2>${s.heading}</h2>
   <div class="section-body<#if s.muted> muted</#if><#if s.columns> columns</#if>">
       <#list s.lines as line>${line?no_esc}<br>
@@ -236,6 +250,7 @@
   </div>
 </#list>
 </div>
-<div class="pccpath">${pccLabel}: ${pccPath}</div>
+<div class="pccpath">${campaign.pccLabel}: ${campaign.pccPath}</div>
+</#list>
 </body>
 </html>

@@ -16,11 +16,16 @@ package pcgen.gui3.sources;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 
+import java.lang.reflect.Field;
 import java.util.List;
+import java.util.Map;
 
 import pcgen.core.Campaign;
 import pcgen.core.GameMode;
+import pcgen.system.FacadeFactory;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -31,9 +36,34 @@ import org.junit.jupiter.api.Test;
  */
 class SourceSelectionProjectionTest
 {
+	private Field campaignListMap;
+	private Object previousCampaigns;
+
+	@BeforeEach
+	void initializeCampaigns() throws Exception
+	{
+		campaignListMap = FacadeFactory.class.getDeclaredField("campaignListMap");
+		campaignListMap.setAccessible(true);
+		previousCampaigns = campaignListMap.get(null);
+		campaignListMap.set(null, Map.of());
+	}
+
+	@AfterEach
+	void restoreCampaigns() throws Exception
+	{
+		campaignListMap.set(null, previousCampaigns);
+	}
+
 	private static SourceBundle bundle(GameMode mode, Campaign... campaigns)
 	{
 		return new SourceBundle(null, mode, List.of(campaigns), false, null);
+	}
+
+	private static Campaign campaign(String name)
+	{
+		var campaign = new Campaign();
+		campaign.setName(name);
+		return campaign;
 	}
 
 	@Test
@@ -41,12 +71,13 @@ class SourceSelectionProjectionTest
 	{
 		var model = new SourceSelectionModel();
 		var mode = new GameMode("Pathfinder");
-		var campaign = new Campaign();
+		var campaign = campaign("Core");
 
 		SourceSelectionDialogPane.project(model, bundle(mode, campaign));
 
 		assertSame(mode, model.getGameMode());
 		assertEquals(List.of(campaign), model.getSelectedCampaigns());
+		assertSame(campaign, model.getSelectedCampaigns().getFirst());
 	}
 
 	@Test
@@ -54,8 +85,8 @@ class SourceSelectionProjectionTest
 	{
 		var model = new SourceSelectionModel();
 		var mode = new GameMode("Pathfinder");
-		var first = new Campaign();
-		var second = new Campaign();
+		var first = campaign("First");
+		var second = campaign("Second");
 
 		SourceSelectionDialogPane.project(model, bundle(mode, first));
 		SourceSelectionDialogPane.project(model, bundle(mode, second));
@@ -63,6 +94,7 @@ class SourceSelectionProjectionTest
 		// Same mode must not short-circuit the campaign refresh.
 		assertSame(mode, model.getGameMode());
 		assertEquals(List.of(second), model.getSelectedCampaigns());
+		assertSame(second, model.getSelectedCampaigns().getFirst());
 	}
 
 	@Test
@@ -71,14 +103,15 @@ class SourceSelectionProjectionTest
 		var model = new SourceSelectionModel();
 		var pathfinder = new GameMode("Pathfinder");
 		var starfinder = new GameMode("Starfinder");
-		var first = new Campaign();
-		var second = new Campaign();
+		var first = campaign("Pathfinder Core");
+		var second = campaign("Starfinder Core");
 
 		SourceSelectionDialogPane.project(model, bundle(pathfinder, first));
 		SourceSelectionDialogPane.project(model, bundle(starfinder, second));
 
 		assertSame(starfinder, model.getGameMode());
 		assertEquals(List.of(second), model.getSelectedCampaigns());
+		assertSame(second, model.getSelectedCampaigns().getFirst());
 	}
 
 	@Test
@@ -86,7 +119,7 @@ class SourceSelectionProjectionTest
 	{
 		var model = new SourceSelectionModel();
 		var mode = new GameMode("Pathfinder");
-		var campaign = new Campaign();
+		var campaign = campaign("Core");
 		SourceSelectionDialogPane.project(model, bundle(mode, campaign));
 
 		SourceSelectionDialogPane.project(model, null);
@@ -100,7 +133,7 @@ class SourceSelectionProjectionTest
 	{
 		var model = new SourceSelectionModel();
 		var mode = new GameMode("Pathfinder");
-		SourceSelectionDialogPane.project(model, bundle(mode, new Campaign()));
+		SourceSelectionDialogPane.project(model, bundle(mode, campaign("Core")));
 
 		SourceSelectionDialogPane.project(model, bundle(mode));
 

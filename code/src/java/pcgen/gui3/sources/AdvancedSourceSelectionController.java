@@ -329,9 +329,9 @@ public class AdvancedSourceSelectionController implements AutoCloseable
 	}
 
 	/**
-	 * Invokes the source-unload callback, then clears this tab's campaign selection.
+	 * Requests an unload without discarding this tab's edited selection.
 	 *
-	 * <p>The callback handles unloading through the engine; this controller only clears the selection.
+	 * <p>The engine callback may be canceled while closing a character.
 	 *
 	 * @param event the button action event
 	 */
@@ -339,7 +339,6 @@ public class AdvancedSourceSelectionController implements AutoCloseable
 	protected void onUnloadAllAction(ActionEvent event)
 	{
 		onUnloadAllRequested.run();
-		selectedCampaigns.clear();
 	}
 
 	/**
@@ -448,7 +447,7 @@ public class AdvancedSourceSelectionController implements AutoCloseable
 	}
 
 	/**
-	 * Registers the Unload All callback, invoked before this tab clears its selection.
+	 * Registers the Unload All callback without changing the edited selection.
 	 *
 	 * @param handler the action responsible for unloading sources through the engine
 	 */
@@ -844,6 +843,8 @@ public class AdvancedSourceSelectionController implements AutoCloseable
 	{
 		return switch (reason)
 		{
+			case CampaignRejectionDiagnosis.AlreadySelected _ ->
+					LanguageBundle.getString("in_src_tipAlreadySelected");
 			case CampaignRejectionDiagnosis.AlreadyIncluded(Campaign container) ->
 					LanguageBundle.getFormattedString(
 							"in_src_tipAlreadyIncluded", container.getDisplayName());

@@ -41,6 +41,43 @@ import org.junit.jupiter.api.Test;
 class CampaignRejectionDiagnosisTest
 {
 	@Test
+	void directlySelectedCampaign_isReportedAsAlreadySelected()
+	{
+		var book = campaign("Core Rulebook");
+
+		var diagnoses = CampaignRejectionDiagnosis.diagnose(
+				List.of(book), List.of(book), new FakeContents(), new FakePrereqs());
+
+		assertInstanceOf(CampaignRejectionDiagnosis.AlreadySelected.class, diagnoses.getFirst().reason());
+	}
+
+	@Test
+	void directlySelectedCampaignWithDifferentKeyCase_isReportedAsAlreadySelected()
+	{
+		var selected = campaign("Core Rulebook");
+		var book = campaign("CORE RULEBOOK");
+
+		var diagnoses = CampaignRejectionDiagnosis.diagnose(
+				List.of(book), List.of(selected), new FakeContents(), new FakePrereqs());
+
+		assertInstanceOf(CampaignRejectionDiagnosis.AlreadySelected.class, diagnoses.getFirst().reason());
+	}
+
+	@Test
+	void directlySelectedCampaignInsideASelectedBundle_isReportedAsAlreadySelected()
+	{
+		var bundle = campaign("Pathfinder RPG for Game Masters");
+		var book = campaign("Core Rulebook");
+		var contents = new FakeContents();
+		contents.contains(bundle, book);
+
+		var diagnoses = CampaignRejectionDiagnosis.diagnose(
+				List.of(book), List.of(bundle, book), contents, new FakePrereqs());
+
+		assertInstanceOf(CampaignRejectionDiagnosis.AlreadySelected.class, diagnoses.getFirst().reason());
+	}
+
+	@Test
 	void campaignListedInsideASelectedBundle_isReportedAsAlreadyIncluded()
 	{
 		var bundle = campaign("Pathfinder RPG for Game Masters");

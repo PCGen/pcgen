@@ -19,11 +19,13 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.testfx.util.WaitForAsyncUtils.asyncFx;
+import static org.testfx.util.WaitForAsyncUtils.waitForAsyncFx;
 
 import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicReference;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Tab;
@@ -67,9 +69,11 @@ class SourceAvailabilityCellTest
 	{
 		Map<Campaign, Status> statuses = new IdentityHashMap<>();
 		statuses.put(campaign, status);
-		var cell = new SourceAvailabilityCell(() -> statuses, c -> "why " + c.getDisplayName());
-		show(cell, new SourceTreeNode.Leaf(campaign), campaign.getDisplayName());
-		return cell;
+		return waitForAsyncFx(5000, () -> {
+			var cell = new SourceAvailabilityCell(() -> statuses, c -> "why " + c.getDisplayName());
+			show(cell, new SourceTreeNode.Leaf(campaign), campaign.getDisplayName());
+			return cell;
+		});
 	}
 
 	/** Puts the cell on a row showing {@code node}, as the tree does when it lays out. */
@@ -145,11 +149,13 @@ class SourceAvailabilityCellTest
 	@Test
 	void groupingRow_isNotMarked()
 	{
-		var cell = new SourceAvailabilityCell(IdentityHashMap::new, c -> "why");
-		show(cell, new SourceTreeNode.Publisher("Paizo"), "Paizo");
+		waitForAsyncFx(5000, () -> {
+			var cell = new SourceAvailabilityCell(IdentityHashMap::new, c -> "why");
+			show(cell, new SourceTreeNode.Publisher("Paizo"), "Paizo");
 
-		assertEquals(UIPropertyContext.getQualifiedColor(), cell.getTextFill());
-		assertNull(cell.getTooltip());
+			assertEquals(UIPropertyContext.getQualifiedColor(), cell.getTextFill());
+			assertNull(cell.getTooltip());
+		});
 	}
 
 	/**
@@ -165,18 +171,20 @@ class SourceAvailabilityCellTest
 		var book = campaign("Core Rulebook");
 		Map<Campaign, Status> statuses = new IdentityHashMap<>();
 		statuses.put(book, Status.ADDABLE);
-		var cell = new SourceAvailabilityCell(() -> statuses, c -> "why");
-
-		for (SourceTreeNode node : List.of(new SourceTreeNode.Publisher("Paizo"),
+		var nodes = List.of(new SourceTreeNode.Publisher("Paizo"),
 				new SourceTreeNode.Setting("Paizo", "Golarion"),
 				new SourceTreeNode.Leaf(book),
-				new SourceTreeNode.Leaf(campaign("Not Offered"))))
-		{
-			show(cell, node, node.displayLabel());
+				new SourceTreeNode.Leaf(campaign("Not Offered")));
+		waitForAsyncFx(5000, () -> {
+			var cell = new SourceAvailabilityCell(() -> statuses, c -> "why");
+			for (SourceTreeNode node : nodes)
+			{
+				show(cell, node, node.displayLabel());
 
-			assertNotNull(cell.getTextFill(), () -> "a null fill makes " + node.displayLabel()
-					+ " invisible, leaving an empty row behind");
-		}
+				assertNotNull(cell.getTextFill(), () -> "a null fill makes " + node.displayLabel()
+						+ " invisible, leaving an empty row behind");
+			}
+		});
 	}
 
 	@Test
@@ -187,12 +195,13 @@ class SourceAvailabilityCellTest
 		statuses.put(blocked, Status.BLOCKED);
 		var addable = campaign("Core Rulebook");
 		statuses.put(addable, Status.ADDABLE);
-		var cell = new SourceAvailabilityCell(() -> statuses, c -> "why");
+		waitForAsyncFx(5000, () -> {
+			var cell = new SourceAvailabilityCell(() -> statuses, c -> "why");
+			show(cell, new SourceTreeNode.Leaf(blocked), blocked.getDisplayName());
+			show(cell, new SourceTreeNode.Leaf(addable), addable.getDisplayName());
 
-		show(cell, new SourceTreeNode.Leaf(blocked), blocked.getDisplayName());
-		show(cell, new SourceTreeNode.Leaf(addable), addable.getDisplayName());
-
-		assertEquals(UIPropertyContext.getQualifiedColor(), cell.getTextFill());
+			assertEquals(UIPropertyContext.getQualifiedColor(), cell.getTextFill());
+		});
 	}
 
 	@Test
@@ -203,12 +212,13 @@ class SourceAvailabilityCellTest
 		statuses.put(blocked, Status.BLOCKED);
 		var addable = campaign("Core Rulebook");
 		statuses.put(addable, Status.ADDABLE);
-		var cell = new SourceAvailabilityCell(() -> statuses, c -> "why");
+		waitForAsyncFx(5000, () -> {
+			var cell = new SourceAvailabilityCell(() -> statuses, c -> "why");
+			show(cell, new SourceTreeNode.Leaf(blocked), blocked.getDisplayName());
+			show(cell, new SourceTreeNode.Leaf(addable), addable.getDisplayName());
 
-		show(cell, new SourceTreeNode.Leaf(blocked), blocked.getDisplayName());
-		show(cell, new SourceTreeNode.Leaf(addable), addable.getDisplayName());
-
-		assertNull(cell.getTooltip());
+			assertNull(cell.getTooltip());
+		});
 	}
 
 	@Test
@@ -217,13 +227,14 @@ class SourceAvailabilityCellTest
 		var blocked = campaign("Pathfinder RPG for Players");
 		Map<Campaign, Status> statuses = new IdentityHashMap<>();
 		statuses.put(blocked, Status.BLOCKED);
-		var cell = new SourceAvailabilityCell(() -> statuses, c -> "why");
+		waitForAsyncFx(5000, () -> {
+			var cell = new SourceAvailabilityCell(() -> statuses, c -> "why");
+			show(cell, new SourceTreeNode.Leaf(blocked), blocked.getDisplayName());
+			cell.updateItem(null, true);
 
-		show(cell, new SourceTreeNode.Leaf(blocked), blocked.getDisplayName());
-		cell.updateItem(null, true);
-
-		assertNull(cell.getText());
-		assertNull(cell.getTooltip());
+			assertNull(cell.getText());
+			assertNull(cell.getTooltip());
+		});
 	}
 
 	/**
@@ -234,20 +245,23 @@ class SourceAvailabilityCellTest
 	void cellReadsTheStatusMapEveryTime_soASelectionChangeTakesEffect()
 	{
 		var book = campaign("Core Rulebook");
-		Map<Campaign, Status> statuses = new IdentityHashMap<>();
-		statuses.put(book, Status.ADDABLE);
-		var cell = new SourceAvailabilityCell(() -> statuses, c -> "why");
-		show(cell, new SourceTreeNode.Leaf(book), book.getDisplayName());
+		var statuses = new AtomicReference<>(Map.of(book, Status.ADDABLE));
+		waitForAsyncFx(5000, () -> {
+			var cell = new SourceAvailabilityCell(statuses::get, c -> "why");
+			show(cell, new SourceTreeNode.Leaf(book), book.getDisplayName());
+			assertEquals(UIPropertyContext.getQualifiedColor(), cell.getTextFill());
 
-		statuses.put(book, Status.BLOCKED);
-		cell.updateItem(book.getDisplayName(), false);
+			statuses.set(Map.of(book, Status.BLOCKED));
+			cell.updateItem(book.getDisplayName(), false);
 
-		assertEquals(UIPropertyContext.getNotQualifiedColor(), cell.getTextFill());
+			assertEquals(UIPropertyContext.getNotQualifiedColor(), cell.getTextFill());
+		});
 	}
 
 	@Test
 	void controllerCells_should_readTheCurrentExplanation_afterTheMapIsReplaced() throws Exception
 	{
+		var book = campaign("Core Rulebook");
 		asyncFx(() -> {
 			LanguageBundle.getString("");
 			var loader = new FXMLLoader(
@@ -255,7 +269,6 @@ class SourceAvailabilityCellTest
 					LanguageBundle.getBundle());
 			Tab tab = loader.load();
 			AdvancedSourceSelectionController controller = loader.getController();
-			var book = campaign("Core Rulebook");
 			var reasons = AdvancedSourceSelectionController.class.getDeclaredField("availabilityReasons");
 			reasons.setAccessible(true);
 			reasons.set(controller, Map.of(book, "Before"));
@@ -281,11 +294,14 @@ class SourceAvailabilityCellTest
 	@Test
 	void sourceWithNoKnownStatus_isNotMarked()
 	{
-		var cell = new SourceAvailabilityCell(IdentityHashMap::new, c -> "why");
-		show(cell, new SourceTreeNode.Leaf(campaign("Core Rulebook")), "Core Rulebook");
+		var book = campaign("Core Rulebook");
+		waitForAsyncFx(5000, () -> {
+			var cell = new SourceAvailabilityCell(IdentityHashMap::new, c -> "why");
+			show(cell, new SourceTreeNode.Leaf(book), "Core Rulebook");
 
-		assertEquals(UIPropertyContext.getQualifiedColor(), cell.getTextFill());
-		assertNull(cell.getTooltip());
+			assertEquals(UIPropertyContext.getQualifiedColor(), cell.getTextFill());
+			assertNull(cell.getTooltip());
+		});
 	}
 
 	@Test

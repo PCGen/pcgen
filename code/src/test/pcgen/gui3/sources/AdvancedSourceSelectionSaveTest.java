@@ -16,19 +16,20 @@ package pcgen.gui3.sources;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertInstanceOf;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.testfx.util.WaitForAsyncUtils.asyncFx;
 import static org.testfx.util.WaitForAsyncUtils.waitForAsyncFx;
 import static org.testfx.util.WaitForAsyncUtils.waitForFxEvents;
 
+import java.lang.reflect.Field;
+import java.net.URI;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicReference;
 
-import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -40,8 +41,12 @@ import javafx.scene.control.Tab;
 import javafx.stage.Stage;
 
 import pcgen.core.Campaign;
+import pcgen.core.GameMode;
+import pcgen.facade.util.DefaultListFacade;
+import pcgen.system.FacadeFactory;
 import pcgen.system.LanguageBundle;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -58,9 +63,22 @@ import org.testfx.framework.junit5.Start;
 @ExtendWith(ApplicationExtension.class)
 class AdvancedSourceSelectionSaveTest
 {
+	private final GameMode mode = new GameMode("AdvancedSourceSelectionSaveTest");
+	private final Campaign core = campaign();
+	private final SourceSelectionModel model = new SourceSelectionModel();
 	private AdvancedSourceSelectionController controller;
 	private Tab tab;
 	private Stage stage;
+	private Field campaignListMap;
+	private Object previousCampaigns;
+
+	private static Campaign campaign()
+	{
+		var campaign = new Campaign();
+		campaign.setName("Core Rulebook");
+		campaign.setSourceURI(URI.create("file:/test/core.pcc"));
+		return campaign;
+	}
 
 	@Start
 	private void start(Stage primaryStage)
@@ -71,8 +89,13 @@ class AdvancedSourceSelectionSaveTest
 	}
 
 	@BeforeEach
-	void loadTab()
+	void loadTab() throws Exception
 	{
+		campaignListMap = FacadeFactory.class.getDeclaredField("campaignListMap");
+		campaignListMap.setAccessible(true);
+		previousCampaigns = campaignListMap.get(null);
+		campaignListMap.set(null, Map.of(mode, new DefaultListFacade<>(List.of(core))));
+		model.setGameMode(mode);
 		waitForAsyncFx(5000, () -> {
 			var loader = new FXMLLoader(
 					AdvancedSourceSelectionController.class.getResource("AdvancedSourceSelection.fxml"),
@@ -87,12 +110,26 @@ class AdvancedSourceSelectionSaveTest
 			}
 			controller = loader.getController();
 			controller.setExistingSources(List::of);
+			controller.setModel(model);
 			// Showing the tab's content builds the control skins, without which
 			// nodes nested in SplitPanes are not yet lookup-able.
 			stage.setScene(new Scene((Parent) tab.getContent()));
 			stage.show();
 		});
 		waitForFxEvents();
+	}
+
+	@AfterEach
+	void closeTabAndRestoreCampaigns() throws Exception
+	{
+		try
+		{
+			waitForAsyncFx(5000, controller::close);
+		}
+		finally
+		{
+			campaignListMap.set(null, previousCampaigns);
+		}
 	}
 
 	private Node lookup(String selector)
@@ -129,12 +166,6 @@ class AdvancedSourceSelectionSaveTest
 	}
 
 	@Test
-	void advancedTab_should_hostSaveButton()
-	{
-		assertNotNull(lookup("#btnSave"));
-	}
-
-	@Test
 	void advancedTab_should_hostAlwaysAdvancedCheckBox()
 	{
 		assertInstanceOf(CheckBox.class, lookup("#chkAlwaysAdvanced"));
@@ -144,7 +175,7 @@ class AdvancedSourceSelectionSaveTest
 	void save_should_beDisabled_when_noCampaignsAreSelected()
 	{
 		assertTrue(waitForAsyncFx(5000,
-				() -> ((Button) lookup("#btnSave")).isDisabled()));
+				() -> saveButton().isDisabled()));
 	}
 
 	@Test
@@ -169,55 +200,59 @@ class AdvancedSourceSelectionSaveTest
 	 * prompt must not have anything stored.
 	 */
 	@Test
-	void save_should_storeNothing_when_theNamePromptIsCancelled()
-			throws Exception
+	void save_should_askForANameButStoreNothing_when_thePromptIsCancelled()
 	{
 		selectCampaign();
+		var asked = new AtomicInteger();
 		var fired = new AtomicInteger();
-		controller.setOnSaveRequested(_ -> fired.incrementAndGet());
-		controller.setNamePrompt(_ -> Optional.empty());
+		waitForAsyncFx(5000, () -> {
+			controller.setOnSaveRequested(_ -> fired.incrementAndGet());
+			controller.setNamePrompt(_ -> {
+				asked.incrementAndGet();
+				return Optional.empty();
+			});
+			saveButton().fire();
+		});
 
-		waitForAsyncFx(5000, () -> ((Button) lookup("#btnSave")).fire());
-
+		assertEquals(1, asked.get(), "the button must reach the save flow");
 		assertEquals(0, fired.get());
 	}
 
 	@Test
-	void save_should_askForANameWhenFired()
-			throws Exception
+	void save_should_forwardTheCampaignsAndMode_when_thePromptIsAccepted()
 	{
 		selectCampaign();
-		var asked = new AtomicInteger();
-		controller.setNamePrompt(_ -> {
-			asked.incrementAndGet();
-			return Optional.empty();
+		var saved = new AtomicReference<SourceBundle>();
+		waitForAsyncFx(5000, () -> {
+			controller.setOnSaveRequested(saved::set);
+			controller.setNamePrompt(_ -> Optional.of("My Sources"));
+			saveButton().fire();
 		});
 
-		waitForAsyncFx(5000, () -> ((Button) lookup("#btnSave")).fire());
-
-		assertEquals(1, asked.get(), "the button must reach the save flow");
+		assertEquals("My Sources", saved.get().name());
+		assertEquals(List.of(core), saved.get().campaigns());
+		assertSame(core, saved.get().campaigns().getFirst());
+		assertSame(mode, saved.get().gameMode());
 	}
 
-	private void selectCampaign() throws Exception
+	private Button saveButton()
 	{
-		asyncFx(() -> {
-			var field = AdvancedSourceSelectionController.class.getDeclaredField("selectedCampaigns");
-			field.setAccessible(true);
-			@SuppressWarnings("unchecked")
-			var selected = (ObservableList<Campaign>) field.get(controller);
-			var campaign = new Campaign();
-			campaign.setName("Core Rulebook");
-			selected.add(campaign);
-			assertFalse(((Button) lookup("#btnSave")).isDisabled());
-			return null;
-		}).get(5, TimeUnit.SECONDS);
+		return (Button) tab.getContent().lookup("#btnSave");
+	}
+
+	private void selectCampaign()
+	{
+		waitForAsyncFx(5000, () -> {
+			model.getSelectedCampaigns().setAll(core);
+			assertFalse(saveButton().isDisabled());
+		});
 	}
 
 	@Test
 	void alwaysAdvanced_should_exposeItsSelectedState()
 	{
 		waitForAsyncFx(5000,
-				() -> ((CheckBox) lookup("#chkAlwaysAdvanced")).setSelected(true));
+				() -> ((CheckBox) tab.getContent().lookup("#chkAlwaysAdvanced")).setSelected(true));
 
 		assertTrue(waitForAsyncFx(5000, () -> controller.isAlwaysAdvanced()));
 	}

@@ -13,7 +13,6 @@
  */
 package pcgen.gui3.sources;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -85,13 +84,4 @@ class SourceDialogOutcomeTest
 		assertFalse(SourceDialogOutcome.installsData(other, INSTALL));
 	}
 
-	/**
-	 * Guards the premise of the tests above: OK is what the Load button is
-	 * declared as in the dialog's FXML.
-	 */
-	@Test
-	void sanity_loadIsAnOkDoneButton()
-	{
-		assertEquals(ButtonData.OK_DONE, ButtonType.OK.getButtonData());
-	}
 }

@@ -14,9 +14,10 @@
 package pcgen.gui3.sources;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.testfx.util.WaitForAsyncUtils.asyncFx;
-import static org.testfx.util.WaitForAsyncUtils.sleep;
+import static org.testfx.util.WaitForAsyncUtils.waitFor;
 import static org.testfx.util.WaitForAsyncUtils.waitForFxEvents;
 
 import java.net.URI;
@@ -32,6 +33,7 @@ import javafx.scene.web.WebEngine;
 import pcgen.core.Campaign;
 import pcgen.cdom.content.CampaignURL;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.StringKey;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.AfterEach;
@@ -98,14 +100,15 @@ class SourceInfoReloadTest
 	{
 		asyncFx(() -> renderer.renderCampaign(campaign))
 				.get(5, TimeUnit.SECONDS);
-		settle();
+		awaitLoaded(engine);
 	}
 
-	/** Lets any deferred regeneration run, so a second load would be counted. */
-	private static void settle()
+	/** Includes regenerations queued from the renderer's SCHEDULED listener. */
+	private static void awaitLoaded(WebEngine preview) throws Exception
 	{
 		waitForFxEvents();
-		sleep(300, TimeUnit.MILLISECONDS);
+		waitFor(15, TimeUnit.SECONDS, () -> asyncFx(
+				() -> preview.getLoadWorker().getState() == Worker.State.SUCCEEDED).get(5, TimeUnit.SECONDS));
 		waitForFxEvents();
 	}
 
@@ -146,7 +149,7 @@ class SourceInfoReloadTest
 
 		asyncFx(renderer::clear)
 				.get(5, TimeUnit.SECONDS);
-		settle();
+		awaitLoaded(engine);
 
 		assertEquals(1, loadsScheduled.get(), "clearing must not be taken for a reload either");
 	}
@@ -154,16 +157,19 @@ class SourceInfoReloadTest
 	@Test
 	void alternatingPreviews_should_notInstallAnotherReloadListener() throws Exception
 	{
-		var other = asyncFx((Callable<SourceInfoRenderer>)
-				() -> new SourceInfoRenderer(new WebEngine()))
+		var bestiary = campaign("Bestiary");
+		var advanced = campaign("Advanced Players Guide");
+		advanced.put(StringKey.DESCRIPTION, "Original preview description");
+		var otherEngine = asyncFx((Callable<WebEngine>) WebEngine::new).get(5, TimeUnit.SECONDS);
+		var other = asyncFx((Callable<SourceInfoRenderer>) () -> new SourceInfoRenderer(otherEngine))
 				.get(5, TimeUnit.SECONDS);
 		render(campaign("Core Rulebook"));
 		try
 		{
-			asyncFx(() -> other.renderCampaign(campaign("Bestiary")))
+			asyncFx(() -> other.renderCampaign(bestiary))
 					.get(5, TimeUnit.SECONDS);
-			settle();
-			render(campaign("Advanced Players Guide"));
+			awaitLoaded(otherEngine);
+			render(advanced);
 
 			assertEquals(2, loadsScheduled.get(), "returning to a preview must not multiply its own loads");
 			asyncFx(() -> engine.executeScript("document.querySelector('a').click()"))
@@ -171,11 +177,14 @@ class SourceInfoReloadTest
 			assertEquals(List.of(URI.create("https://example.org/Advanced_Players_Guide")), openedLinks,
 					"a link must reach the browser once, without navigating the preview");
 
+			advanced.put(StringKey.DESCRIPTION, "Refreshed preview description");
 			asyncFx(engine::reload).get(5, TimeUnit.SECONDS);
-			settle();
+			awaitLoaded(engine);
 			String text = asyncFx(
 					() -> engine.executeScript("document.body.textContent").toString()).get(5, TimeUnit.SECONDS);
-			assertTrue(text.contains("Advanced Players Guide"), text);
+			assertTrue(text.contains("Refreshed preview description"), text);
+			assertFalse(text.contains("Original preview description"), text);
+			assertEquals(4, loadsScheduled.get(), "Reload schedules itself and one deferred regeneration");
 		}
 		finally
 		{

@@ -192,11 +192,12 @@ class SourceSaveDecisionTest
 	}
 
 	private final List<String> reported = new ArrayList<>();
+	private final Campaign core = campaign("Core Rulebook");
 
 	private Optional<SourceBundle> plan(String typed, boolean confirmed, List<SourceBundle> existing)
 	{
 		return AdvancedSourceSelectionController.plannedSave(typed, existing, MODE,
-				List.of(campaign("Core Rulebook")), _ -> confirmed, reported::add);
+				List.of(core), _ -> confirmed, reported::add);
 	}
 
 	@Test
@@ -213,7 +214,8 @@ class SourceSaveDecisionTest
 	{
 		var planned = plan("Fresh", false, SOURCES).orElseThrow();
 
-		assertEquals(List.of(campaign("Core Rulebook")).size(), planned.campaigns().size());
+		assertEquals(List.of(core), planned.campaigns());
+		assertSame(core, planned.campaigns().getFirst());
 		assertSame(MODE, planned.gameMode());
 	}
 

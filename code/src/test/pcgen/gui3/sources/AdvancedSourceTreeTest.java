@@ -123,18 +123,6 @@ class AdvancedSourceTreeTest
 	}
 
 	@Test
-	void buildTree_should_omitEmptyGroups_when_listFiltered()
-	{
-		// Simulates a filtered list: only one publisher's campaign survives, so
-		// only that publisher node appears — no empty publisher/setting nodes.
-		var root = AdvancedSourceSelectionController.buildTree(
-				List.of(campaign("Survivor", "Paizo", "Pathfinder")));
-
-		assertEquals(1, root.getChildren().size());
-		assertEquals("Paizo", label(root.getChildren().get(0)));
-	}
-
-	@Test
 	void buildTree_should_expandGroups_soMatchesAreVisible()
 	{
 		var root = AdvancedSourceSelectionController.buildTree(

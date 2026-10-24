@@ -17,9 +17,17 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 
+import java.lang.reflect.Field;
+import java.util.List;
+import java.util.Map;
+
 import pcgen.core.Campaign;
 import pcgen.core.GameMode;
+import pcgen.facade.util.DefaultListFacade;
+import pcgen.system.FacadeFactory;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -29,6 +37,38 @@ import org.junit.jupiter.api.Test;
  */
 class SourceSelectionModelTest
 {
+	private final GameMode pathfinder = new GameMode("Model Pathfinder");
+	private final GameMode starfinder = new GameMode("Model Starfinder");
+	private final Campaign alpha = campaign("Alpha Core");
+	private final Campaign beta = campaign("Beta Bestiary");
+	private final Campaign starfinderCore = campaign("Starfinder Core");
+	private Field campaignListMap;
+	private Object previousCampaigns;
+
+	@BeforeEach
+	void supplyCampaigns() throws Exception
+	{
+		campaignListMap = FacadeFactory.class.getDeclaredField("campaignListMap");
+		campaignListMap.setAccessible(true);
+		previousCampaigns = campaignListMap.get(null);
+		campaignListMap.set(null, Map.of(
+				pathfinder, new DefaultListFacade<>(List.of(alpha, beta)),
+				starfinder, new DefaultListFacade<>(List.of(starfinderCore))));
+	}
+
+	@AfterEach
+	void restoreCampaigns() throws Exception
+	{
+		campaignListMap.set(null, previousCampaigns);
+	}
+
+	private static Campaign campaign(String name)
+	{
+		var campaign = new Campaign();
+		campaign.setName(name);
+		return campaign;
+	}
+
 	@Test
 	void gameMode_should_startNull_when_fresh()
 	{
@@ -57,14 +97,11 @@ class SourceSelectionModelTest
 	void selectedCampaigns_should_replaceContents_when_setAll()
 	{
 		var model = new SourceSelectionModel();
-		var first = new Campaign();
-		var second = new Campaign();
-
-		model.getSelectedCampaigns().setAll(first);
-		model.getSelectedCampaigns().setAll(second);
+		model.getSelectedCampaigns().setAll(alpha);
+		model.getSelectedCampaigns().setAll(beta);
 
 		assertEquals(1, model.getSelectedCampaigns().size());
-		assertSame(second, model.getSelectedCampaigns().getFirst());
+		assertSame(beta, model.getSelectedCampaigns().getFirst());
 	}
 
 	@Test
@@ -77,21 +114,34 @@ class SourceSelectionModelTest
 	void availableCampaigns_should_recompute_when_gameModeChanges()
 	{
 		var model = new SourceSelectionModel();
-		// A fresh (unknown) game mode has no supported campaigns; the model must
-		// re-run its derivation and maintain the list (empty, not stale/erroring)
-		// — proving availableCampaigns is actively maintained, not lazy.
-		model.setGameMode(new GameMode("Fresh"));
-		assertEquals(0, model.getAvailableCampaigns().size());
+		model.setGameMode(pathfinder);
+		assertEquals(List.of(alpha, beta), model.getAvailableCampaigns());
+
+		model.setGameMode(starfinder);
+		assertEquals(List.of(starfinderCore), model.getAvailableCampaigns());
+		assertSame(starfinderCore, model.getAvailableCampaigns().getFirst());
+
+		model.setGameMode(pathfinder);
+		assertEquals(List.of(alpha, beta), model.getAvailableCampaigns());
 	}
 
 	@Test
 	void availableCampaigns_should_recompute_when_searchQueryChanges()
 	{
 		var model = new SourceSelectionModel();
+		model.setGameMode(pathfinder);
+		assertEquals(List.of(alpha, beta), model.getAvailableCampaigns());
+
 		model.searchQueryProperty().set("alpha");
-		// No throw and a maintained (possibly empty) list — the search-query
-		// dependency is wired into the derivation.
-		assertEquals(0, model.getAvailableCampaigns().stream()
-				.filter(c -> !c.toString().toLowerCase().contains("alpha")).count());
+		assertEquals(List.of(alpha), model.getAvailableCampaigns());
+
+		model.searchQueryProperty().set("bestiary");
+		assertEquals(List.of(beta), model.getAvailableCampaigns());
+
+		model.searchQueryProperty().set("no matching campaign");
+		assertEquals(List.of(), model.getAvailableCampaigns());
+
+		model.searchQueryProperty().set("");
+		assertEquals(List.of(alpha, beta), model.getAvailableCampaigns());
 	}
 }

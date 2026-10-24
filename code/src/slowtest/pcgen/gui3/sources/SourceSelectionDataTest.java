@@ -13,6 +13,7 @@
  */
 package pcgen.gui3.sources;
 
+import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -56,11 +57,10 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 
 /**
- * End-to-end tests for the Advanced tab's "add selected" action, run against
- * the real published campaign data.
+ * Tests for the Advanced tab's selection rules against real published campaign data.
  *
- * <p>These exercise the production path exactly as
- * {@code AdvancedSourceSelectionController.onAddSelectedAction} does:
+ * <p>These exercise the planning sequence used by
+ * {@code AdvancedSourceSelectionController.onAddSelectedAction}, without constructing its controls:
  * {@link CampaignDependencyOrder} decides what to offer first, then
  * {@link CampaignAdditionPlanner} judges the set with the engine's own
  * {@code FacadeFactory.findUnqualified}.
@@ -221,78 +221,35 @@ class SourceSelectionDataTest
 	 * matters is which side of each conflict survives.
 	 */
 	@Test
-	void addingEveryBook_should_keepTheCoreRulebook()
+	void addingEveryBook_should_keepRequiredBooksAndDiagnoseOnlyDeliberateExclusions()
 	{
 		var plan = planSelectingEverything();
+		var accepted = keys(plan.accepted());
+		var rejected = keys(plan.rejected()).stream().sorted().toList();
+		var unqualified = FacadeFactory.findUnqualified(plan.accepted());
+		var diagnoses = CampaignRejectionDiagnosis.diagnose(plan.rejected(), plan.accepted(),
+				Campaign::getSubCampaigns, FacadeFactory::findUnqualified);
 
-		assertTrue(keys(plan.accepted()).contains("Core Rulebook"),
-				() -> "Core Rulebook must survive: a dozen books require it, and the alternate "
-						+ "PFS edition requires nothing. Rejected: " + keys(plan.rejected()));
-	}
-
-	/**
-	 * The consequence of keeping the Core Rulebook: the supplements that need
-	 * nothing but it must come in too. These were collateral damage of losing
-	 * the tie-break, not genuine conflicts.
-	 */
-	@Test
-	void addingEveryBook_should_keepTheSupplementsThatOnlyNeedTheCoreRulebook()
-	{
-		var plan = planSelectingEverything();
-
-		assertTrue(keys(plan.accepted()).contains("Advanced Player's Guide"),
-				() -> "Advanced Player's Guide requires only the Core Rulebook. Rejected: "
-						+ keys(plan.rejected()));
-		assertTrue(keys(plan.accepted()).contains("Bestiary"),
-				() -> "Bestiary requires only the Core Rulebook. Rejected: " + keys(plan.rejected()));
-	}
-
-	/**
-	 * A book may only be refused because it genuinely conflicts with something
-	 * that was accepted. Without this the tests above could be satisfied by a
-	 * planner that accepted everything regardless of the prerequisites.
-	 */
-	@Test
-	void addingEveryBook_should_produceASelectionTheEngineAccepts()
-	{
-		var plan = planSelectingEverything();
-
-		assertTrue(FacadeFactory.findUnqualified(plan.accepted()).isEmpty(),
-				() -> "the accepted set must itself qualify, but these do not: "
-						+ keys(FacadeFactory.findUnqualified(plan.accepted())));
-	}
-
-	/**
-	 * Pins down exactly which books may be refused, because the tests above
-	 * would also pass for a planner that refused far too much. Every entry here
-	 * is a deliberate mutual exclusion in the published data:
-	 *
-	 * <ul>
-	 * <li>the three {@code BOOKTYPE:MultiSet} bundles repackage the individual
-	 * books and exclude every Core Rules book and each other;</li>
-	 * <li>each "Player Options Only" edition is a cut-down version of the full
-	 * Bestiary it excludes;</li>
-	 * <li>"Bonus Bestiary" is superseded by, and excludes, Bestiary 3;</li>
-	 * <li>"DSP - Ultimate Psionics" replaces the two separate DSP psionics
-	 * books and excludes them.</li>
-	 * </ul>
-	 *
-	 * <p>Nothing else may be refused: anything more means a conflict was
-	 * settled against the book that other books depend on.
-	 */
-	@Test
-	void addingEveryBook_should_refuseNothingButTheDeliberateExclusions()
-	{
-		var plan = planSelectingEverything();
-
-		assertEquals(
-				List.of("Bestiary 2 ~ Player Options Only", "Bestiary 3 ~ Player Options Only",
-						"Bestiary 4 ~ Player Options Only", "Bestiary ~ Player Options Only",
-						"Bonus Bestiary", "DSP - Ultimate Psionics",
-						"Pathfinder RPG Core Supplements", "Pathfinder RPG for Game Masters",
-						"Pathfinder RPG for Players"),
-				keys(plan.rejected()).stream().sorted().toList(),
-				"only the data's deliberate mutual exclusions may be refused");
+		assertAll(
+				() -> assertTrue(accepted.contains("Core Rulebook"),
+						() -> "Core Rulebook must survive because other books require it. Rejected: " + rejected),
+				() -> assertTrue(accepted.contains("Advanced Player's Guide"),
+						() -> "Advanced Player's Guide requires only Core Rulebook. Rejected: " + rejected),
+				() -> assertTrue(accepted.contains("Bestiary"),
+						() -> "Bestiary requires only Core Rulebook. Rejected: " + rejected),
+				() -> assertTrue(unqualified.isEmpty(),
+						() -> "the accepted set must itself qualify: " + keys(unqualified)),
+				() -> assertEquals(
+						List.of("Bestiary 2 ~ Player Options Only", "Bestiary 3 ~ Player Options Only",
+								"Bestiary 4 ~ Player Options Only", "Bestiary ~ Player Options Only",
+								"Bonus Bestiary", "DSP - Ultimate Psionics",
+								"Pathfinder RPG Core Supplements", "Pathfinder RPG for Game Masters",
+								"Pathfinder RPG for Players"),
+						rejected, "only the data's deliberate mutual exclusions may be refused"),
+				() -> assertEquals(List.of("Bestiary 2 ~ Player Options Only", "Bestiary 3 ~ Player Options Only",
+								"Bestiary 4 ~ Player Options Only", "Bestiary ~ Player Options Only"),
+						keysDiagnosedAs(diagnoses, CampaignRejectionDiagnosis.AlreadyIncluded.class),
+						() -> "newly accepted Bestiaries load the reduced editions: " + describe(diagnoses)));
 	}
 
 
@@ -352,70 +309,31 @@ class SourceSelectionDataTest
 	 * deeper, because each full Bestiary loads its own reduced edition.
 	 */
 	@Test
-	void addingEveryBook_whileACollectionIsSelected_should_reportItsOwnBooksAsAlreadyIncluded()
+	void addingEveryBook_whileACollectionIsSelected_should_distinguishIncludedConflictingAndUnmet()
 	{
 		var diagnoses = diagnoseAddingEverythingWith(GM_COLLECTION);
 
-		assertEquals(
-				List.of("Advanced Class Guide", "Advanced Player's Guide", "Bestiary", "Bestiary 2",
-						"Bestiary 2 ~ Player Options Only", "Bestiary 3",
-						"Bestiary 3 ~ Player Options Only", "Bestiary 4 ~ Player Options Only",
-						"Bestiary ~ Player Options Only", "Core Rulebook"),
-				keysDiagnosedAs(diagnoses, CampaignRejectionDiagnosis.AlreadyIncluded.class),
-				() -> "every book the selected collection loads must be reported as already included, "
-						+ "not as a failure. Diagnosed: " + describe(diagnoses));
-	}
-
-	/**
-	 * The rival collections conflict with the selected one, even when accepted
-	 * additions introduce further blockers. Every MultiSet excludes the others.
-	 */
-	@Test
-	void addingEveryBook_whileACollectionIsSelected_should_nameItAmongTheBlockers_forRivalCollections()
-	{
-		var diagnoses = diagnoseAddingEverythingWith(GM_COLLECTION);
-
-		assertEquals(List.of("Pathfinder RPG Core Supplements", "Pathfinder RPG for Players"),
-				keysDiagnosedAs(diagnoses, CampaignRejectionDiagnosis.ConflictsWith.class),
-				() -> "Diagnosed: " + describe(diagnoses));
-		diagnoses.stream()
-				.filter(diagnosis -> diagnosis.reason() instanceof CampaignRejectionDiagnosis.ConflictsWith)
-				.forEach(diagnosis -> assertTrue(
-						((CampaignRejectionDiagnosis.ConflictsWith) diagnosis.reason()).blockers().stream()
-								.map(Campaign::getKeyName).toList().contains(GM_COLLECTION),
-						() -> "the selected collection is the obstacle for "
-								+ diagnosis.campaign().getKeyName()));
-	}
-
-	/**
-	 * What is left are the data's deliberate exclusions, which stand whatever
-	 * the user has selected: a Bonus Bestiary superseded by Bestiary 3, and a
-	 * Psionics edition that supersedes two others. Neither is the selected
-	 * collection's doing, and neither may be blamed on it.
-	 */
-	@Test
-	void addingEveryBook_whileACollectionIsSelected_should_leaveTheDataExclusionsUnmet()
-	{
-		var diagnoses = diagnoseAddingEverythingWith(GM_COLLECTION);
-
-		assertEquals(List.of("Bonus Bestiary", "DSP - Ultimate Psionics"),
-				keysDiagnosedAs(diagnoses, CampaignRejectionDiagnosis.Unmet.class),
-				() -> "Diagnosed: " + describe(diagnoses));
-	}
-
-	/** Newly accepted books form the context for diagnosing the remaining refusals. */
-	@Test
-	void addingEveryBook_fromAnEmptySelection_should_reportTheReducedEditionsAsAlreadyIncluded()
-	{
-		var plan = planSelectingEverything();
-
-		var diagnoses = CampaignRejectionDiagnosis.diagnose(plan.rejected(), plan.accepted(),
-				Campaign::getSubCampaigns, FacadeFactory::findUnqualified);
-
-		assertEquals(List.of("Bestiary 2 ~ Player Options Only", "Bestiary 3 ~ Player Options Only",
-						"Bestiary 4 ~ Player Options Only", "Bestiary ~ Player Options Only"),
-				keysDiagnosedAs(diagnoses, CampaignRejectionDiagnosis.AlreadyIncluded.class),
-				() -> "Diagnosed: " + describe(diagnoses));
+		assertAll(
+				() -> assertEquals(
+						List.of("Advanced Class Guide", "Advanced Player's Guide", "Bestiary", "Bestiary 2",
+								"Bestiary 2 ~ Player Options Only", "Bestiary 3",
+								"Bestiary 3 ~ Player Options Only", "Bestiary 4 ~ Player Options Only",
+								"Bestiary ~ Player Options Only", "Core Rulebook"),
+						keysDiagnosedAs(diagnoses, CampaignRejectionDiagnosis.AlreadyIncluded.class),
+						() -> "the collection's books are loaded, not failures: " + describe(diagnoses)),
+				() -> assertEquals(List.of("Pathfinder RPG Core Supplements", "Pathfinder RPG for Players"),
+						keysDiagnosedAs(diagnoses, CampaignRejectionDiagnosis.ConflictsWith.class),
+						() -> "Diagnosed: " + describe(diagnoses)),
+				() -> diagnoses.stream()
+						.filter(diagnosis -> diagnosis.reason() instanceof CampaignRejectionDiagnosis.ConflictsWith)
+						.forEach(diagnosis -> assertTrue(
+								((CampaignRejectionDiagnosis.ConflictsWith) diagnosis.reason()).blockers().stream()
+										.map(Campaign::getKeyName).toList().contains(GM_COLLECTION),
+								() -> "the selected collection is an obstacle for "
+										+ diagnosis.campaign().getKeyName())),
+				() -> assertEquals(List.of("Bonus Bestiary", "DSP - Ultimate Psionics"),
+						keysDiagnosedAs(diagnoses, CampaignRejectionDiagnosis.Unmet.class),
+						() -> "the data exclusions are not the selected collection's doing: " + describe(diagnoses)));
 	}
 
 	private static String describe(List<CampaignRejectionDiagnosis.Diagnosis> diagnoses)
@@ -472,50 +390,12 @@ class SourceSelectionDataTest
 	 * the whole reason this is not simply Swing's single red colour.
 	 */
 	@Test
-	void withACollectionSelected_itsOwnBooksAreOfferedAsAlreadyIncluded()
-	{
-		var byStatus = availabilityWith(GM_COLLECTION);
-
-		assertTrue(byStatus.get(CampaignAvailability.Status.ALREADY_INCLUDED)
-						.containsAll(List.of("Advanced Player's Guide", "Bestiary", "Core Rulebook",
-								"Bestiary ~ Player Options Only")),
-				() -> "Already included: " + byStatus.get(CampaignAvailability.Status.ALREADY_INCLUDED));
-		assertTrue(byStatus.get(CampaignAvailability.Status.ALREADY_INCLUDED).contains(GM_COLLECTION),
-				"the collection itself is selected, so it is loaded too");
-	}
-
-	/**
-	 * The rival collections are the ones genuinely in the way, and the only
-	 * ones that should carry the failure colour from this selection.
-	 */
-	@Test
-	void withACollectionSelected_rivalCollectionsAreOfferedAsBlocked()
-	{
-		var byStatus = availabilityWith(GM_COLLECTION);
-
-		assertTrue(byStatus.get(CampaignAvailability.Status.BLOCKED)
-						.containsAll(List.of("Pathfinder RPG Core Supplements", "Pathfinder RPG for Players")),
-				() -> "Blocked: " + byStatus.get(CampaignAvailability.Status.BLOCKED));
-	}
-
-	/**
-	 * Swing marked every book it could not add with one colour. Showing the
-	 * books a selected collection already loads in that colour is what this
-	 * replaces, so the two counts must genuinely differ.
-	 */
-	@Test
-	void withACollectionSelected_fewerBooksAreBlockedThanSwingWouldHaveMarked()
+	void withACollectionSelected_should_distinguishLoadedBooksFromBlockedRivals()
 	{
 		var byStatus = availabilityWith(GM_COLLECTION);
 		int blocked = byStatus.getOrDefault(CampaignAvailability.Status.BLOCKED, List.of()).size();
 		int alreadyIncluded =
 				byStatus.getOrDefault(CampaignAvailability.Status.ALREADY_INCLUDED, List.of()).size();
-
-		assertTrue(alreadyIncluded > 0 && blocked > 0,
-				() -> "blocked=" + blocked + " alreadyIncluded=" + alreadyIncluded);
-		assertTrue(alreadyIncluded >= 10,
-				() -> "the collection loads at least ten of the offered books; alreadyIncluded="
-						+ alreadyIncluded);
 		List<Campaign> available = everyPathfinderBook();
 		Campaign collection = available.stream()
 				.filter(campaign -> GM_COLLECTION.equals(campaign.getKeyName()))
@@ -523,7 +403,19 @@ class SourceSelectionDataTest
 		long swingBlocked = available.stream()
 				.filter(campaign -> !FacadeFactory.passesPrereqs(List.of(collection, campaign)))
 				.count();
-		assertTrue(blocked < swingBlocked,
-				() -> "gui3 blocked=" + blocked + ", Swing marked=" + swingBlocked);
+		assertAll(
+				() -> assertTrue(byStatus.get(CampaignAvailability.Status.ALREADY_INCLUDED)
+								.containsAll(List.of("Advanced Player's Guide", "Bestiary", "Core Rulebook",
+										"Bestiary ~ Player Options Only", GM_COLLECTION)),
+						() -> "the collection and its books are loaded: "
+								+ byStatus.get(CampaignAvailability.Status.ALREADY_INCLUDED)),
+				() -> assertTrue(byStatus.get(CampaignAvailability.Status.BLOCKED)
+								.containsAll(List.of("Pathfinder RPG Core Supplements", "Pathfinder RPG for Players")),
+						() -> "rival collections are blocked: " + byStatus.get(CampaignAvailability.Status.BLOCKED)),
+				() -> assertTrue(blocked > 0, () -> "blocked=" + blocked),
+				() -> assertTrue(alreadyIncluded >= 10,
+						() -> "the collection loads at least ten offered books; alreadyIncluded=" + alreadyIncluded),
+				() -> assertTrue(blocked < swingBlocked,
+						() -> "gui3 blocked=" + blocked + ", Swing marked=" + swingBlocked));
 	}
 }

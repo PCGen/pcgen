@@ -18,6 +18,9 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertInstanceOf;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.testfx.util.WaitForAsyncUtils.asyncFx;
+import static org.testfx.util.WaitForAsyncUtils.waitFor;
+import static org.testfx.util.WaitForAsyncUtils.waitForFxEvents;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,14 +32,15 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.layout.StackPane;
 import javafx.scene.web.WebView;
+import javafx.stage.Stage;
 
 import pcgen.system.LanguageBundle;
 
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.testfx.framework.junit5.ApplicationExtension;
 import org.testfx.framework.junit5.Start;
-import org.testfx.util.WaitForAsyncUtils;
 
 /**
  * The prerequisite warning is built from markup: the message pattern in the
@@ -50,34 +54,14 @@ import org.testfx.util.WaitForAsyncUtils;
  * {@link WebView} rather than a label, and the markup handed to it is the
  * engine's, unescaped.
  */
-@ExtendWith(ApplicationExtension.class)
 class BadComboAlertTest
 {
 	private static final String RED_ITALIC =
 			"<font color=\"#ff0000\"><i>DSP - Psionics Unleashed</i></font>";
 
-	private javafx.stage.Stage stage;
-
-	/**
-	 * A WebView only lays out, and so only renders anything measurable, once it
-	 * is in a scene attached to a shown window.
-	 */
-	@Start
-	void onStart(javafx.stage.Stage primaryStage)
-	{
-		stage = primaryStage;
-	}
-
 	private static BadComboAlert.Rejection rejection(String name, String requirements)
 	{
 		return new BadComboAlert.Rejection(name, requirements);
-	}
-
-	/** Dialogs own a Stage, which may only be constructed on the FX thread. */
-	private static Alert buildOnFxThread(BadComboAlert.Rejection... rejections)
-			throws InterruptedException, ExecutionException
-	{
-		return WaitForAsyncUtils.asyncFx(() -> BadComboAlert.build(List.of(rejections))).get();
 	}
 
 	/**
@@ -283,82 +267,6 @@ class BadComboAlertTest
 	}
 
 	/**
-	 * The regression test for the reported bug: a {@code Label} would show the
-	 * tags as text.
-	 */
-	@Test
-	void build_should_renderTheMessageInAWebView_notALabel() throws Exception
-	{
-		var alert = buildOnFxThread(rejection("Book of Arcane Magic", RED_ITALIC));
-
-		assertInstanceOf(WebView.class, alert.getDialogPane().getContent(),
-				"HTML content needs a WebView; a Label shows the markup verbatim");
-	}
-
-	@Test
-	void build_should_useTheTranslatedTitle() throws Exception
-	{
-		var alert = buildOnFxThread(rejection("Book of Arcane Magic", RED_ITALIC));
-
-		assertEquals(LanguageBundle.getString("in_src_badComboTitle"), alert.getTitle());
-	}
-
-	/**
-	 * The header defaults to the alert type's own text ("Information"), which
-	 * would sit above the real message and say nothing.
-	 */
-	@Test
-	void build_should_notShowADefaultHeader() throws Exception
-	{
-		var alert = buildOnFxThread(rejection("Book of Arcane Magic", RED_ITALIC));
-
-		assertNull(alert.getHeaderText());
-	}
-
-	@Test
-	void build_should_offerOnlyAnAcknowledgement() throws Exception
-	{
-		var alert = buildOnFxThread(rejection("Book of Arcane Magic", RED_ITALIC));
-
-		assertEquals(1, alert.getButtonTypes().size(), "an informational warning needs one way out");
-		assertEquals(Alert.AlertType.INFORMATION, alert.getAlertType());
-	}
-
-	/**
-	 * A WebView has no preferred size of its own, so the dialog is only as tall
-	 * as whatever the view is told to be. Measuring is the hard part: WebKit
-	 * stretches the document to the viewport, so the usual
-	 * {@code scrollHeight}/{@code offsetHeight} report the view's own height
-	 * and the dialog never shrinks to its message. The view is deliberately
-	 * given a 600px viewport here, which is what those properties would return.
-	 */
-	@Test
-	void measureContentHeight_should_measureTheContent_notTheViewport() throws Exception
-	{
-		var html = BadComboAlert.buildHtml(List.of(rejection("Book of Arcane Magic", RED_ITALIC)));
-		var view = WaitForAsyncUtils.asyncFx(() -> {
-			var created = new WebView();
-			created.setPrefSize(480, 600);
-			stage.setScene(new Scene(new StackPane(created), 520, 600));
-			stage.show();
-			created.getEngine().loadContent(html);
-			return created;
-		}).get();
-
-		WaitForAsyncUtils.waitFor(15, TimeUnit.SECONDS,
-				() -> WaitForAsyncUtils.asyncFx(
-						() -> view.getEngine().getLoadWorker().getState() == Worker.State.SUCCEEDED).get());
-		WaitForAsyncUtils.waitForFxEvents();
-
-		var height = WaitForAsyncUtils.asyncFx(
-				() -> BadComboAlert.measureContentHeight(view.getEngine())).get();
-
-		assertTrue(height > 0, "the message must have a measurable height, but was " + height);
-		assertTrue(height < 300,
-				"a three-line message must measure its content, not the 600px viewport, but was " + height);
-	}
-
-	/**
 	 * Rejecting every book in a large collection produces a list far taller
 	 * than any screen, and a dialog taller than the screen cannot be dismissed:
 	 * its button bar is off the bottom edge.
@@ -391,69 +299,142 @@ class BadComboAlertTest
 		assertTrue(height > 0, "the view must keep a usable height, but got " + height);
 	}
 
-	/**
-	 * Capping the height hides content unless the user can reach it. WebView
-	 * scrolls its own document, so the check is that the document really does
-	 * move when asked.
-	 */
-	@Test
-	void cappedView_should_scrollToReachTheHiddenContent() throws Exception
+	/** Only actual dialog and WebView tests need a toolkit and a Stage. */
+	@Nested
+	@ExtendWith(ApplicationExtension.class)
+	class Rendering
 	{
-		var many = new ArrayList<BadComboAlert.Rejection>();
-		for (int i = 0; i < 40; i++)
+		private Stage stage;
+
+		@Start
+		void onStart(Stage primaryStage)
 		{
-			many.add(rejection("Book " + i, RED_ITALIC));
+			stage = primaryStage;
 		}
-		var html = BadComboAlert.buildHtml(many);
-		var view = WaitForAsyncUtils.asyncFx(() -> {
-			var created = new WebView();
-			created.setPrefSize(480, 150);
-			stage.setScene(new Scene(new StackPane(created), 520, 150));
-			stage.show();
-			created.getEngine().loadContent(html);
-			return created;
-		}).get();
-		WaitForAsyncUtils.waitFor(15, TimeUnit.SECONDS,
-				() -> WaitForAsyncUtils.asyncFx(
-						() -> view.getEngine().getLoadWorker().getState() == Worker.State.SUCCEEDED).get());
-		WaitForAsyncUtils.waitForFxEvents();
 
-		var offset = WaitForAsyncUtils.asyncFx(() -> {
-			view.getEngine().executeScript("window.scrollTo(0, 10000)");
-			return ((Number) view.getEngine().executeScript("window.pageYOffset")).doubleValue();
-		}).get();
+		/** Dialogs own a Stage, which may only be constructed on the FX thread. */
+		private static Alert buildOnFxThread(BadComboAlert.Rejection... rejections)
+				throws InterruptedException, ExecutionException
+		{
+			return asyncFx(() -> BadComboAlert.build(List.of(rejections))).get();
+		}
 
-		assertTrue(offset > 0,
-				"a list taller than the view must scroll to reveal the rest, but stayed at " + offset);
-	}
+		@Test
+		void build_should_renderTheMessageInAWebView_notALabel() throws Exception
+		{
+			var alert = buildOnFxThread(rejection("Book of Arcane Magic", RED_ITALIC));
 
-	/**
-	 * Once the height is capped the user may well want to see more at once, so
-	 * the window has to be draggable larger.
-	 */
-	@Test
-	void build_should_letTheUserResizeTheDialog() throws Exception
-	{
-		var alert = buildOnFxThread(rejection("Book of Arcane Magic", RED_ITALIC));
+			assertInstanceOf(WebView.class, alert.getDialogPane().getContent(),
+					"HTML content needs a WebView; a Label shows the markup verbatim");
+		}
 
-		assertTrue(alert.isResizable(), "a dialog with a capped, scrolling list must be resizable");
-	}
+		@Test
+		void build_should_useTheTranslatedTitle() throws Exception
+		{
+			var alert = buildOnFxThread(rejection("Book of Arcane Magic", RED_ITALIC));
 
-	/**
-	 * An unowned dialog is placed by the window manager, which on a multi-monitor
-	 * desktop can be nowhere near the window it belongs to. JavaFX centres a
-	 * dialog over its owner.
-	 */
-	@Test
-	void build_should_centreOnItsOwner() throws Exception
-	{
-		var alert = WaitForAsyncUtils.asyncFx(() -> {
-			stage.setScene(new Scene(new StackPane(), 520, 400));
-			stage.show();
-			return BadComboAlert.build(List.of(rejection("Book of Arcane Magic", RED_ITALIC)), List.of(), stage);
-		}).get();
+			assertEquals(LanguageBundle.getString("in_src_badComboTitle"), alert.getTitle());
+		}
 
-		assertEquals(stage, alert.getOwner(),
-				"the warning must belong to the window that raised it, so it opens over it");
+		/** An alert type's default header ("Information") adds no useful message. */
+		@Test
+		void build_should_notShowADefaultHeader() throws Exception
+		{
+			var alert = buildOnFxThread(rejection("Book of Arcane Magic", RED_ITALIC));
+
+			assertNull(alert.getHeaderText());
+		}
+
+		@Test
+		void build_should_offerOnlyAnAcknowledgement() throws Exception
+		{
+			var alert = buildOnFxThread(rejection("Book of Arcane Magic", RED_ITALIC));
+
+			assertEquals(1, alert.getButtonTypes().size(), "an informational warning needs one way out");
+			assertEquals(Alert.AlertType.INFORMATION, alert.getAlertType());
+		}
+
+		/**
+		 * WebKit stretches the document to the viewport, so scrollHeight and
+		 * offsetHeight would incorrectly return this view's 600px height.
+		 */
+		@Test
+		void measureContentHeight_should_measureTheContent_notTheViewport() throws Exception
+		{
+			var html = BadComboAlert.buildHtml(List.of(rejection("Book of Arcane Magic", RED_ITALIC)));
+			var view = asyncFx(() -> {
+				var created = new WebView();
+				created.setPrefSize(480, 600);
+				stage.setScene(new Scene(new StackPane(created), 520, 600));
+				stage.show();
+				created.getEngine().loadContent(html);
+				return created;
+			}).get();
+
+			waitFor(15, TimeUnit.SECONDS,
+					() -> asyncFx(
+							() -> view.getEngine().getLoadWorker().getState() == Worker.State.SUCCEEDED).get());
+			waitForFxEvents();
+
+			var height = asyncFx(() -> BadComboAlert.measureContentHeight(view.getEngine())).get();
+
+			assertTrue(height > 0, "the message must have a measurable height, but was " + height);
+			assertTrue(height < 300,
+					"a three-line message must measure its content, not the 600px viewport, but was " + height);
+		}
+
+		/** The capped WebView must scroll so the user can reach the hidden content. */
+		@Test
+		void cappedView_should_scrollToReachTheHiddenContent() throws Exception
+		{
+			var many = new ArrayList<BadComboAlert.Rejection>();
+			for (int i = 0; i < 40; i++)
+			{
+				many.add(rejection("Book " + i, RED_ITALIC));
+			}
+			var html = BadComboAlert.buildHtml(many);
+			var view = asyncFx(() -> {
+				var created = new WebView();
+				created.setPrefSize(480, 150);
+				stage.setScene(new Scene(new StackPane(created), 520, 150));
+				stage.show();
+				created.getEngine().loadContent(html);
+				return created;
+			}).get();
+			waitFor(15, TimeUnit.SECONDS,
+					() -> asyncFx(
+							() -> view.getEngine().getLoadWorker().getState() == Worker.State.SUCCEEDED).get());
+			waitForFxEvents();
+
+			var offset = asyncFx(() -> {
+				view.getEngine().executeScript("window.scrollTo(0, 10000)");
+				return ((Number) view.getEngine().executeScript("window.pageYOffset")).doubleValue();
+			}).get();
+
+			assertTrue(offset > 0,
+					"a list taller than the view must scroll to reveal the rest, but stayed at " + offset);
+		}
+
+		@Test
+		void build_should_letTheUserResizeTheDialog() throws Exception
+		{
+			var alert = buildOnFxThread(rejection("Book of Arcane Magic", RED_ITALIC));
+
+			assertTrue(alert.isResizable(), "a dialog with a capped, scrolling list must be resizable");
+		}
+
+		/** An owner centres the dialog over its parent rather than an arbitrary monitor. */
+		@Test
+		void build_should_centreOnItsOwner() throws Exception
+		{
+			var alert = asyncFx(() -> {
+				stage.setScene(new Scene(new StackPane(), 520, 400));
+				stage.show();
+				return BadComboAlert.build(List.of(rejection("Book of Arcane Magic", RED_ITALIC)), List.of(), stage);
+			}).get();
+
+			assertEquals(stage, alert.getOwner(),
+					"the warning must belong to the window that raised it, so it opens over it");
+		}
 	}
 }

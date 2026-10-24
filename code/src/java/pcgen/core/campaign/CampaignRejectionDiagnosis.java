@@ -21,32 +21,19 @@ import java.util.function.UnaryOperator;
 import pcgen.core.Campaign;
 
 /**
- * Explains why campaigns the user asked to add were refused.
+ * Explains why campaigns are already loaded or cannot be added.
  *
- * <p>{@link CampaignAdditionPlanner} decides <em>what</em> cannot be added; it
- * cannot say <em>why</em>, because the engine answers only "this set does not
- * qualify". Quoting each campaign's own prerequisite expression, as the dialog
- * used to, describes the rule rather than the situation, and so is least
- * helpful exactly when the situation is surprising.
- *
- * <p>Two of the three answers are far more useful than the raw expression:
+ * <p>Planner refusals and availability tooltips share these reasons:
  *
  * <ul>
- * <li>The campaign is <em>already included</em> in a selected one. PCGen's data
- * ships MultiSet bundles -- "Pathfinder RPG for Game Masters" lists the Core
- * Rulebook, the Bestiaries and the Advanced Player's Guide among its
- * {@code PCC:} files -- and each bundle carries a {@code !PRECAMPAIGN} against
- * the books it repackages, to stop them being loaded twice. Asking for such a
- * book is not a failure at all: it is already loaded, through the bundle.</li>
- * <li>The campaign <em>conflicts with</em> something selected. The planner
- * never drops a campaign the user already chose, so a selected bundle silently
- * vetoes every book it excludes. Naming it turns a dead end into an action.</li>
+ * <li>{@link AlreadySelected}: the campaign is selected directly.</li>
+ * <li>{@link AlreadyIncluded}: a selected campaign loads it, possibly through nested campaigns.</li>
+ * <li>{@link ConflictsWith}: adding it would introduce failures in selected campaigns.</li>
+ * <li>{@link Unmet}: its requirements are not met for another reason.</li>
  * </ul>
  *
- * <p>Anything else is a genuinely unmet requirement, where the engine's own
- * description is the best available answer and is kept.
- *
- * <p>Campaigns are compared by their case-insensitive keys, as elsewhere in this package.
+ * <p>Selection and containment take precedence over conflicts. Campaigns are
+ * compared by their case-insensitive keys.
  */
 public final class CampaignRejectionDiagnosis
 {
@@ -54,8 +41,13 @@ public final class CampaignRejectionDiagnosis
 	{
 	}
 
-	/** Why a campaign was refused. */
-	public sealed interface Reason permits AlreadyIncluded, ConflictsWith, Unmet
+	/** Why a campaign is already loaded or cannot be added. */
+	public sealed interface Reason permits AlreadySelected, AlreadyIncluded, ConflictsWith, Unmet
+	{
+	}
+
+	/** The campaign is already selected directly. */
+	public record AlreadySelected() implements Reason
 	{
 	}
 
@@ -83,32 +75,30 @@ public final class CampaignRejectionDiagnosis
 	}
 
 	/**
-	 * A refused campaign and the reason for it.
+	 * A campaign and the reason it is already loaded or cannot be added.
 	 *
-	 * @param campaign the campaign that was refused
-	 * @param reason why it was refused
+	 * @param campaign the campaign being diagnosed
+	 * @param reason why it is already loaded or cannot be added
 	 */
 	public record Diagnosis(Campaign campaign, Reason reason)
 	{
 	}
 
 	/**
-	 * Explains each rejection.
+	 * Explains why each campaign is already loaded or cannot be added.
 	 *
-	 * <p>"Already included" is tested first. A bundle both contains and
-	 * excludes its own books, so a book inside a selected bundle is also a
-	 * conflict in the engine's eyes -- but telling the user to remove the
-	 * bundle to gain a book the bundle already gives them would be absurd.
+	 * <p>Checks direct selection, recursive containment, and conflicts, in that
+	 * order. Conflicts name only selected campaigns that would newly fail;
+	 * existing failures are not blamed on the candidate. Remaining cases have
+	 * unmet requirements.
 	 *
-	 * <p>This is an error path: nothing here runs unless something was refused.
-	 *
-	 * @param rejected the campaigns the planner refused, in display order
+	 * @param rejected the campaigns to diagnose, in display order
 	 * @param selected the campaigns already selected
 	 * @param contentsOf the campaigns a campaign loads, normally
 	 *                   {@code Campaign::getSubCampaigns}
 	 * @param findUnqualified returns the members of a set that do not qualify
 	 *                        given that set
-	 * @return a diagnosis per rejection, in the order given
+	 * @return a diagnosis per campaign, in the order given
 	 */
 	public static List<Diagnosis> diagnose(List<Campaign> rejected, List<Campaign> selected,
 			Function<Campaign, List<Campaign>> contentsOf,
@@ -127,6 +117,10 @@ public final class CampaignRejectionDiagnosis
 	private static Reason reasonFor(Campaign campaign, List<Campaign> selected,
 			CampaignSelection selection, Function<Campaign, List<Campaign>> contentsOf)
 	{
+		if (selection.contains(campaign))
+		{
+			return new AlreadySelected();
+		}
 		var container = CampaignContainment.containerOf(campaign, selected, contentsOf);
 		if (container.isPresent())
 		{

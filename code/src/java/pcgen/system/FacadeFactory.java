@@ -289,9 +289,7 @@ public final class FacadeFactory
 
 	public static ListFacade<Campaign> getSupportedCampaigns(GameMode gameMode)
 	{
-		// Null until initialize() runs, which only the GUI startup path calls:
-		// an uninitialised factory supports no campaigns, like any unknown mode.
-		if (campaignListMap == null || !campaignListMap.containsKey(gameMode))
+		if (!campaignListMap.containsKey(gameMode))
 		{
 			return ListFacades.emptyList();
 		}
@@ -329,7 +327,7 @@ public final class FacadeFactory
 	public static List<Campaign> findUnqualified(List<Campaign> campaigns)
 	{
 		PersistenceManager pman = PersistenceManager.getInstance();
-		List<URI> oldList = pman.getChosenCampaignSourcefiles();
+		List<URI> oldList = new ArrayList<>(pman.getChosenCampaignSourcefiles());
 		List<URI> uris = new ArrayList<>();
 		for (Campaign campaign : campaigns)
 		{
