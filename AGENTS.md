@@ -56,6 +56,8 @@ see `PcgenFtlTestCase` for working examples.
 
 - Follow existing formatting and localization. Use American English in new Javadoc.
   Document nontrivial helpers and FXML handlers with concise contracts, not line-by-line explanations.
+- Reuse `pcgen.util.Html` for escaping HTML text and double-quoted attribute values;
+  element-text escaping is not sufficient for attributes, URLs, JavaScript, or CSS.
 - Validate user input at the UI boundary; trust established internal contracts.
   Keep checks for real cancellation, missing data, lifecycle states, and demonstrated cost.
 - Use `pcgen.util.Logging`; `Logging.errorPrint` reports severe errors.
@@ -126,8 +128,6 @@ see `PcgenFtlTestCase` for working examples.
   directory, not directly in a shared temp directory. Register directory deletion before file deletion.
   Reused channels must truncate before rewriting; skip identical documents.
 - Intercept source-info links before WebView navigation, and hand only `http`/`https` URLs to the browser.
-- WebView document dimensions can reflect the viewport rather than content. Use the measurement pattern
-  in `BadComboAlert` and cap dialogs to the screen's visual bounds so their buttons remain reachable.
 
 ## Testing
 

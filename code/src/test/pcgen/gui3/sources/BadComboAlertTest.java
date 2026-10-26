@@ -26,8 +26,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicReference;
 
 import javafx.concurrent.Worker;
+import javafx.geometry.Dimension2D;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.layout.StackPane;
@@ -124,7 +126,7 @@ class BadComboAlertTest
 				rejection("Trouble <b>Maker</b>", RED_ITALIC),
 				rejection("Path of Iron", "<i>Something Else</i>")));
 
-		assertTrue(html.contains("Trouble &lt;b&gt;Maker&lt;/b&gt;"), html);
+		assertTrue(html.contains("Trouble &lt;b>Maker&lt;/b>"), html);
 		assertFalse(html.contains("Trouble <b>Maker</b>"), html);
 	}
 
@@ -197,8 +199,8 @@ class BadComboAlertTest
 		var html = BadComboAlert.buildHtml(List.of(),
 				List.of(covered("Trouble <b>Maker</b>", "Bundle <i>X</i>")));
 
-		assertTrue(html.contains("Trouble &lt;b&gt;Maker&lt;/b&gt;"), html);
-		assertTrue(html.contains("Bundle &lt;i&gt;X&lt;/i&gt;"), html);
+		assertTrue(html.contains("Trouble &lt;b>Maker&lt;/b>"), html);
+		assertTrue(html.contains("Bundle &lt;i>X&lt;/i>"), html);
 	}
 
 	/**
@@ -240,7 +242,7 @@ class BadComboAlertTest
 	{
 		var html = BadComboAlert.blockedBySelected(List.of("Trouble <b>Maker</b>"));
 
-		assertTrue(html.contains("Trouble &lt;b&gt;Maker&lt;/b&gt;"), html);
+		assertTrue(html.contains("Trouble &lt;b>Maker&lt;/b>"), html);
 		assertFalse(html.contains("Trouble <b>Maker</b>"), html);
 	}
 
@@ -264,39 +266,6 @@ class BadComboAlertTest
 
 		assertFalse(html.contains(LanguageBundle.getFormattedString("in_src_badComboMsg", RED_ITALIC)),
 				"the singular pattern describes the whole dialog and cannot be reused here: " + html);
-	}
-
-	/**
-	 * Rejecting every book in a large collection produces a list far taller
-	 * than any screen, and a dialog taller than the screen cannot be dismissed:
-	 * its button bar is off the bottom edge.
-	 */
-	@Test
-	void viewHeightFor_should_capAtThreeQuartersOfTheScreen()
-	{
-		var height = BadComboAlert.viewHeightFor(4000, 1000);
-
-		assertTrue(height <= 750,
-				"a dialog must not exceed three quarters of a 1000px screen, but asked for " + height);
-	}
-
-	/** Content that fits must still be shown whole -- the cap is a ceiling, not a size. */
-	@Test
-	void viewHeightFor_should_leaveContentThatFitsAlone()
-	{
-		var height = BadComboAlert.viewHeightFor(120, 1000);
-
-		assertTrue(height >= 120, "content of 120px must not be clipped, but got " + height);
-		assertTrue(height < 300, "a short message must not be padded out to the cap, but got " + height);
-	}
-
-	/** A cramped screen must still leave something readable rather than collapsing. */
-	@Test
-	void viewHeightFor_should_stayUsable_onASmallScreen()
-	{
-		var height = BadComboAlert.viewHeightFor(4000, 200);
-
-		assertTrue(height > 0, "the view must keep a usable height, but got " + height);
 	}
 
 	/** Only actual dialog and WebView tests need a toolkit and a Stage. */
@@ -354,73 +323,103 @@ class BadComboAlertTest
 			assertEquals(Alert.AlertType.INFORMATION, alert.getAlertType());
 		}
 
-		/**
-		 * WebKit stretches the document to the viewport, so scrollHeight and
-		 * offsetHeight would incorrectly return this view's 600px height.
-		 */
+		/** Long reports keep the same initial size and scroll to reveal the rest. */
 		@Test
-		void measureContentHeight_should_measureTheContent_notTheViewport() throws Exception
-		{
-			var html = BadComboAlert.buildHtml(List.of(rejection("Book of Arcane Magic", RED_ITALIC)));
-			var view = asyncFx(() -> {
-				var created = new WebView();
-				created.setPrefSize(480, 600);
-				stage.setScene(new Scene(new StackPane(created), 520, 600));
-				stage.show();
-				created.getEngine().loadContent(html);
-				return created;
-			}).get();
-
-			waitFor(15, TimeUnit.SECONDS,
-					() -> asyncFx(
-							() -> view.getEngine().getLoadWorker().getState() == Worker.State.SUCCEEDED).get());
-			waitForFxEvents();
-
-			var height = asyncFx(() -> BadComboAlert.measureContentHeight(view.getEngine())).get();
-
-			assertTrue(height > 0, "the message must have a measurable height, but was " + height);
-			assertTrue(height < 300,
-					"a three-line message must measure its content, not the 600px viewport, but was " + height);
-		}
-
-		/** The capped WebView must scroll so the user can reach the hidden content. */
-		@Test
-		void cappedView_should_scrollToReachTheHiddenContent() throws Exception
+		void longMessage_should_scrollWithoutChangingTheInitialSize() throws Exception
 		{
 			var many = new ArrayList<BadComboAlert.Rejection>();
 			for (int i = 0; i < 40; i++)
 			{
 				many.add(rejection("Book " + i, RED_ITALIC));
 			}
-			var html = BadComboAlert.buildHtml(many);
-			var view = asyncFx(() -> {
-				var created = new WebView();
-				created.setPrefSize(480, 150);
-				stage.setScene(new Scene(new StackPane(created), 520, 150));
-				stage.show();
-				created.getEngine().loadContent(html);
+			var initialHeight = new AtomicReference<Double>();
+			var alert = asyncFx(() -> {
+				var created = BadComboAlert.build(many);
+				initialHeight.set(((WebView) created.getDialogPane().getContent()).getPrefHeight());
 				return created;
+			}).get();
+			try
+			{
+				var view = showAndLoad(alert);
+				assertEquals(initialHeight.get(), asyncFx(view::getHeight).get(), 1,
+						"message length must not change the initial viewport height");
+				var offset = asyncFx(() -> {
+					view.getEngine().executeScript("window.scrollTo(0, 10000)");
+					return ((Number) view.getEngine().executeScript("window.pageYOffset")).doubleValue();
+				}).get();
+				assertTrue(offset > 0, "long reports must scroll to reveal the hidden content");
+			}
+			finally
+			{
+				asyncFx(alert::close).get();
+			}
+		}
+
+		@Test
+		void resizing_should_resizeAndReflowTheMessage() throws Exception
+		{
+			var alert = buildOnFxThread(
+					rejection("Book of Arcane Magic", RED_ITALIC),
+					rejection("Another Book", RED_ITALIC));
+			try
+			{
+				var view = showAndLoad(alert);
+				assertTrue(alert.isResizable());
+
+				var wide = resize(alert, view, 900, 600);
+				double wideText = bodyWidth(view);
+				var narrow = resize(alert, view, 650, 350);
+				double narrowText = bodyWidth(view);
+
+				assertTrue(wide.getWidth() > narrow.getWidth() + 100, wide + " -> " + narrow);
+				assertTrue(wide.getHeight() > narrow.getHeight() + 100, wide + " -> " + narrow);
+				assertTrue(wideText > narrowText + 100,
+						"message width must follow the resized viewport: " + wideText + " -> " + narrowText);
+				assertEquals(narrow.getWidth(), narrowText, 20, "message must fill the available width");
+				asyncFx(() -> {
+					var engine = view.getEngine();
+					double top = ((Number) engine.executeScript(
+							"document.body.firstElementChild.getBoundingClientRect().top")).doubleValue();
+					double right = ((Number) engine.executeScript(
+							"document.documentElement.clientWidth"
+									+ " - document.body.firstElementChild.getBoundingClientRect().right")).doubleValue();
+					assertTrue(top >= 16 && right >= 16,
+							"message needs space at the top and right: top=" + top + ", right=" + right);
+				}).get();
+			}
+			finally
+			{
+				asyncFx(alert::close).get();
+			}
+		}
+
+		private static WebView showAndLoad(Alert alert) throws Exception
+		{
+			var view = asyncFx(() -> {
+				alert.show();
+				return (WebView) alert.getDialogPane().getContent();
 			}).get();
 			waitFor(15, TimeUnit.SECONDS,
 					() -> asyncFx(
 							() -> view.getEngine().getLoadWorker().getState() == Worker.State.SUCCEEDED).get());
 			waitForFxEvents();
-
-			var offset = asyncFx(() -> {
-				view.getEngine().executeScript("window.scrollTo(0, 10000)");
-				return ((Number) view.getEngine().executeScript("window.pageYOffset")).doubleValue();
-			}).get();
-
-			assertTrue(offset > 0,
-					"a list taller than the view must scroll to reveal the rest, but stayed at " + offset);
+			return view;
 		}
 
-		@Test
-		void build_should_letTheUserResizeTheDialog() throws Exception
+		private static Dimension2D resize(Alert alert, WebView view, double width, double height) throws Exception
 		{
-			var alert = buildOnFxThread(rejection("Book of Arcane Magic", RED_ITALIC));
+			asyncFx(() -> {
+				alert.setWidth(width);
+				alert.setHeight(height);
+			}).get();
+			waitForFxEvents();
+			return asyncFx(() -> new Dimension2D(view.getWidth(), view.getHeight())).get();
+		}
 
-			assertTrue(alert.isResizable(), "a dialog with a capped, scrolling list must be resizable");
+		private static double bodyWidth(WebView view) throws Exception
+		{
+			return asyncFx(() -> ((Number) view.getEngine()
+					.executeScript("document.body.getBoundingClientRect().width")).doubleValue()).get();
 		}
 
 		/** An owner centres the dialog over its parent rather than an arbitrary monitor. */

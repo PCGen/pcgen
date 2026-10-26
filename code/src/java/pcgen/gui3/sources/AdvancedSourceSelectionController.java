@@ -384,7 +384,7 @@ public class AdvancedSourceSelectionController implements AutoCloseable
 						campaign.getDisplayName(), explain(diagnosis.reason(), campaign, context)));
 			}
 		}
-		BadComboAlert.show(List.copyOf(problems), List.copyOf(covered), ownerWindow());
+		BadComboAlert.build(List.copyOf(problems), List.copyOf(covered), ownerWindow()).showAndWait();
 	}
 
 	/**

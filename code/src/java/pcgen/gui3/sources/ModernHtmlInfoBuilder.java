@@ -40,6 +40,7 @@ import pcgen.core.Campaign;
 import pcgen.core.prereq.PrerequisiteUtilities;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.system.LanguageBundle;
+import pcgen.util.Html;
 import pcgen.base.lang.StringUtil;
 import pcgen.gui3.utilty.ColorUtilty;
 
@@ -219,18 +220,18 @@ final class ModernHtmlInfoBuilder
 		}
 		// in_infByPub is an HTML pattern ("<b> by</b> {0}") appended after the SOURCE value.
 		facts.add(fact(LanguageBundle.getString("in_sumSource"),
-				escape(source) + LanguageBundle.getFormattedString("in_infByPub", escape(aCamp.getSafe(StringKey.PUB_NAME_LONG)))));
+				Html.escape(source) + LanguageBundle.getFormattedString("in_infByPub", Html.escape(aCamp.getSafe(StringKey.PUB_NAME_LONG)))));
 
 		if (!aCamp.getType().isEmpty())
 		{
-			facts.add(fact(LanguageBundle.getString("in_infType"), escape(aCamp.getType())));
+			facts.add(fact(LanguageBundle.getString("in_infType"), Html.escape(aCamp.getType())));
 		}
 		facts.add(fact(LanguageBundle.getString("in_infRank"),
-				escape(String.valueOf(aCamp.getSafe(IntegerKey.CAMPAIGN_RANK)))));
+				Html.escape(String.valueOf(aCamp.getSafe(IntegerKey.CAMPAIGN_RANK)))));
 		String gameModes = StringUtil.join(aCamp.getSafeListFor(ListKey.GAME_MODE), ", ");
 		if (!gameModes.isEmpty())
 		{
-			facts.add(fact(LanguageBundle.getString("in_infGame"), escape(gameModes)));
+			facts.add(fact(LanguageBundle.getString("in_infGame"), Html.escape(gameModes)));
 		}
 
 		urlFact(aCamp, URLKind.WEBSITE, "in_infWebsite").ifPresent(facts::add);
@@ -282,7 +283,7 @@ final class ModernHtmlInfoBuilder
 		{
 			return;
 		}
-		sections.add(section(heading, lines.stream().map(ModernHtmlInfoBuilder::escape).toList(), muted, false));
+		sections.add(section(heading, lines.stream().map(Html::escape).toList(), muted, false));
 	}
 
 	private static void addSubCampaignSection(List<Map<String, Object>> sections, Campaign aCamp)
@@ -294,9 +295,9 @@ final class ModernHtmlInfoBuilder
 			return;
 		}
 		List<String> lines = new ArrayList<>();
-		subCampaigns.forEach(sub -> lines.add(escape(sub.getDisplayName())));
+		subCampaigns.forEach(sub -> lines.add(Html.escape(sub.getDisplayName())));
 		notFound.forEach(sub ->
-				lines.add(escape(LanguageBundle.getFormattedString("in_infMissingCampaign", sub.getURI()))));
+				lines.add(Html.escape(LanguageBundle.getFormattedString("in_infMissingCampaign", sub.getURI()))));
 		sections.add(section(LanguageBundle.getString("in_infIncludedCampaigns"), lines, false, true));
 	}
 
@@ -310,7 +311,7 @@ final class ModernHtmlInfoBuilder
 			return Optional.empty();
 		}
 		String anchors = urls.stream()
-				.map(u -> "<a href=\"" + escapeAttr(u.getUri().toString()) + "\">" + escape(u.getUrlDesc()) + "</a>")
+				.map(u -> "<a href=\"" + Html.escapeAttr(u.getUri().toString()) + "\">" + Html.escape(u.getUrlDesc()) + "</a>")
 				.collect(Collectors.joining(" | "));
 		return Optional.of(fact(LanguageBundle.getString(i18nKey), anchors));
 	}
@@ -375,19 +376,5 @@ final class ModernHtmlInfoBuilder
 		{
 			return fileUri.toString();
 		}
-	}
-
-	static String escape(String text)
-	{
-		if (text == null)
-		{
-			return "";
-		}
-		return text.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;");
-	}
-
-	private static String escapeAttr(String text)
-	{
-		return escape(text).replace("\"", "&quot;");
 	}
 }

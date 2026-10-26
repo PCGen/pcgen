@@ -32,10 +32,7 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 
-/**
- * Unit tests for {@link ModernHtmlInfoBuilder}'s pure helpers: {@code imageSrc}
- * (the {@code <img src>} path-resolution logic) and {@code escape}.
- */
+/** Tests source-info rendering and image path resolution. */
 class ModernHtmlInfoBuilderTest
 {
 	@Test
@@ -79,26 +76,6 @@ class ModernHtmlInfoBuilderTest
 		// A sibling of dataDir is not under it, so the absolute file: URL is kept.
 		URI outside = dataDir.getParent().resolve("vendor-cover.png").toUri();
 		assertEquals(outside.toString(), ModernHtmlInfoBuilder.imageSrc(outside, dataDir));
-	}
-
-	@Test
-	void escape_should_returnEmpty_when_null()
-	{
-		assertEquals("", ModernHtmlInfoBuilder.escape(null));
-	}
-
-	@Test
-	void escape_should_escapeHtmlMetacharacters()
-	{
-		assertEquals("Swords &amp; Sorcery &lt;b&gt;bold&lt;/b&gt;",
-				ModernHtmlInfoBuilder.escape("Swords & Sorcery <b>bold</b>"));
-	}
-
-	@Test
-	void escape_should_leaveOrdinaryTextUnchanged()
-	{
-		assertEquals("Pathfinder for Game Masters",
-				ModernHtmlInfoBuilder.escape("Pathfinder for Game Masters"));
 	}
 
 	/**
