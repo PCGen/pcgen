@@ -21,7 +21,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-import pcgen.util.Logging;
 
 public final class PjepPool
 {

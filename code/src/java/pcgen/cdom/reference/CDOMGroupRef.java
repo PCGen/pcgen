@@ -18,7 +18,6 @@
  */
 package pcgen.cdom.reference;
 
-import pcgen.base.util.ObjectContainer;
 import pcgen.cdom.base.CDOMReference;
 
 /**

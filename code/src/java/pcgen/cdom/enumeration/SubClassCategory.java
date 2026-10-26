@@ -22,7 +22,6 @@ import java.util.Collections;
 
 import pcgen.base.enumeration.TypeSafeConstant;
 import pcgen.base.util.CaseInsensitiveMap;
-import pcgen.cdom.base.Category;
 import pcgen.cdom.inst.AbstractCategory;
 import pcgen.core.SubClass;
 

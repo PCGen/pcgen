@@ -56,7 +56,6 @@ import pcgen.facade.core.EquipmentListFacade;
 import pcgen.facade.core.EquipmentSetFacade;
 import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.event.ReferenceEvent;
-import pcgen.facade.util.event.ReferenceListener;
 import pcgen.gui2.facade.EquipNode;
 import pcgen.gui2.filter.DisplayableFilter;
 import pcgen.gui2.filter.FilterHandler;

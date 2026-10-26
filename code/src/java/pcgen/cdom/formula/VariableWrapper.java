@@ -20,7 +20,6 @@ import java.util.Objects;
 import pcgen.base.formula.base.VariableID;
 import pcgen.base.solver.SolverManager;
 import pcgen.facade.util.AbstractReferenceFacade;
-import pcgen.facade.util.ReferenceFacade;
 
 /**
  * A VariableWrapper provides a common mechanism for reading from a variable by a system
