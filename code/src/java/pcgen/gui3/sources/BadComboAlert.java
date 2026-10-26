@@ -13,10 +13,14 @@
  */
 package pcgen.gui3.sources;
 
+import java.io.IOException;
+import java.io.StringWriter;
 import java.nio.charset.StandardCharsets;
-import java.util.Base64;
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Map;
+
+import freemarker.template.Configuration;
+import freemarker.template.TemplateException;
 
 import javafx.scene.control.Alert;
 import javafx.scene.paint.Color;
@@ -25,30 +29,12 @@ import javafx.scene.web.WebView;
 import javafx.stage.Window;
 
 import pcgen.system.LanguageBundle;
-import pcgen.util.Html;
 
 /**
- * The warning shown when campaigns the user asked to add would not satisfy
- * their prerequisites.
+ * Renders a localized source-selection report through {@code bad-combo.ftl}.
  *
- * <p>Both halves of this message are markup: the patterns in the language
- * bundle are HTML, and the engine's requirements string carries its own
- * {@code <font color>} and {@code <i>} emphasis from
- * {@code PrerequisiteUtilities}. The legacy Swing panel passed that straight to
- * {@code JOptionPane}, whose {@code JLabel} renders HTML. A JavaFX
- * {@code Alert} puts its content in a {@code Label}, which does not, so the
- * same string was displayed as raw tags.
- *
- * <p>The content is therefore a {@link WebView}, which is also how the rest of
- * gui3 renders engine HTML (see {@code SourceInfoRenderer}). Stripping the tags
- * instead was rejected: the requirements string is an arbitrary prerequisite
- * expression, not a list of names, so a plain-text rendering would have to
- * re-implement the engine's formatting to stay correct.
- *
- * <p>Note that {@code LanguageBundle.getFormattedString} runs the pattern
- * through {@code MessageFormat}, which treats a single quote as an escape
- * character and silently drops it. Patterns here use double quotes for HTML
- * attributes for that reason.
+ * <p>The template escapes plain names and preserves the engine's requirements
+ * markup. HTML and CSS belong to the template, not to the Java data model.
  */
 final class BadComboAlert
 {
@@ -58,19 +44,26 @@ final class BadComboAlert
 	/** Initial message height; longer reports scroll until the user resizes. */
 	private static final int INITIAL_HEIGHT = 150;
 
+	private static final Configuration CONFIG = createConfiguration();
+
 	private BadComboAlert()
 	{
 	}
 
 	/**
-	 * A campaign that could not be added, with the engine's description of what
-	 * it needs.
+	 * A refused campaign, described by engine markup or selected blockers.
 	 *
 	 * @param campaignName the campaign's display name, as plain text
 	 * @param requirementsHtml the engine's requirements markup, to be rendered
+	 * @param blockerNames the selected campaigns blocking it, or empty for engine requirements
 	 */
-	record Rejection(String campaignName, String requirementsHtml)
+	record Rejection(String campaignName, String requirementsHtml, List<String> blockerNames)
 	{
+		/** Describes an unmet requirement using the engine's existing markup. */
+		Rejection(String campaignName, String requirementsHtml)
+		{
+			this(campaignName, requirementsHtml, List.of());
+		}
 	}
 
 	/**
@@ -97,16 +90,9 @@ final class BadComboAlert
 	/**
 	 * Builds the message document.
 	 *
-	 * <p>A single rejection and nothing else reuses the pattern the Swing
-	 * dialog has always used, so that case stays identical -- and already
-	 * translated. Anything more needs the plural pattern and has to name the
-	 * campaigns, since the requirements alone would not say which book they
-	 * belong to.
-	 *
-	 * <p>Campaigns already loaded through a selected collection get their own
-	 * section, below the failures and without their wording: nothing failed for
-	 * them, and asking the user to resolve a requirement that is already
-	 * satisfied would send them looking for a problem that does not exist.
+	 * <p>Names are passed as plain text; only engine requirements are trusted HTML.
+	 * The template selects the localized single/plural wording and separate
+	 * already-included section.
 	 *
 	 * @param rejections the campaigns that were refused
 	 * @param covered the campaigns a selected collection already loads
@@ -118,62 +104,39 @@ final class BadComboAlert
 		{
 			return "";
 		}
-		if (covered.isEmpty() && rejections.size() == 1)
+		String title = LanguageBundle.getString("in_src_badComboTitle");
+		var font = Font.getDefault();
+		Map<String, Object> model = Map.of(
+				"title", title,
+				"messages", LanguageBundle.getBundle(),
+				"fontFamily", font.getFamily(),
+				"fontSize", Math.round(font.getSize()),
+				"rejections", rejections.stream().map(rejection -> Map.of(
+						"campaignName", rejection.campaignName(),
+						"requirementsHtml", rejection.requirementsHtml(),
+						"blockerNames", rejection.blockerNames())).toList(),
+				"covered", covered.stream().map(entry -> Map.of(
+						"campaignName", entry.campaignName(),
+						"containerName", entry.containerName())).toList());
+		try
 		{
-			return LanguageBundle.getFormattedString(
-					"in_src_badComboMsg", rejections.getFirst().requirementsHtml());
+			var writer = new StringWriter();
+			CONFIG.getTemplate("bad-combo.ftl").process(model, writer);
+			return writer.toString();
 		}
-		var body = new StringBuilder();
-		if (!rejections.isEmpty())
+		catch (IOException | TemplateException exception)
 		{
-			body.append(LanguageBundle.getFormattedString(
-					"in_src_badComboMsgMultiBody", rejectionList(rejections)));
+			throw new IllegalStateException("Unable to render the source-selection report", exception);
 		}
-		if (!covered.isEmpty())
-		{
-			body.append(LanguageBundle.getFormattedString(
-					"in_src_alreadyIncludedMsg", coveredList(covered)));
-		}
-		return LanguageBundle.getFormattedString("in_src_badComboMsgWrapper", body.toString());
 	}
 
-	/**
-	 * Describes a campaign refused by campaigns the user has already selected.
-	 *
-	 * <p>This replaces the engine's requirements expression rather than
-	 * supplementing it, because the obstacle is not in the refused campaign's
-	 * requirements at all: it lives in the {@code !PRECAMPAIGN} of the selected
-	 * campaign that excludes it. The expression could therefore be read in full
-	 * without ever learning what to do.
-	 *
-	 * @param blockerNames the selected campaigns in the way, as plain text
-	 * @return the markup describing the obstacle
-	 */
-	static String blockedBySelected(List<String> blockerNames)
+	/** Loads the alert's classpath template with one reusable configuration. */
+	private static Configuration createConfiguration()
 	{
-		var names = blockerNames.stream()
-				.map(Html::escape)
-				.map(name -> "<b>" + name + "</b>")
-				.collect(Collectors.joining(", "));
-		return LanguageBundle.getFormattedString(
-				blockerNames.size() == 1 ? "in_src_blockedBySelected" : "in_src_blockedBySelectedMulti",
-				names);
-	}
-
-	private static String rejectionList(List<Rejection> rejections)
-	{
-		return rejections.stream()
-				.map(rejection -> "<li><b>" + Html.escape(rejection.campaignName()) + "</b><br>"
-						+ rejection.requirementsHtml() + "</li>")
-				.collect(Collectors.joining("", "<ul>", "</ul>"));
-	}
-
-	private static String coveredList(List<Covered> covered)
-	{
-		return covered.stream()
-				.map(entry -> LanguageBundle.getFormattedString("in_src_alreadyIncludedEntry",
-						Html.escape(entry.campaignName()), Html.escape(entry.containerName())))
-				.collect(Collectors.joining("", "<ul>", "</ul>"));
+		var config = new Configuration(Configuration.VERSION_2_3_35);
+		config.setDefaultEncoding(StandardCharsets.UTF_8.name());
+		config.setClassForTemplateLoading(BadComboAlert.class, "");
+		return config;
 	}
 
 	/**
@@ -225,20 +188,10 @@ final class BadComboAlert
 		// A web page's default serif font and white backdrop would read as a
 		// foreign object dropped into the dialog.
 		view.setPageFill(Color.TRANSPARENT);
-		view.getEngine().setUserStyleSheetLocation(uiFontStyleSheet());
 		view.setContextMenuEnabled(false); // disable a meaningless Reload-context menu for an HTML string
 		view.setPrefSize(CONTENT_WIDTH, INITIAL_HEIGHT);
 		view.getEngine().loadContent(html);
 		return view;
 	}
 
-	/** Uses the UI font and overrides legacy messages' fixed inline body widths. */
-	private static String uiFontStyleSheet()
-	{
-		var font = Font.getDefault();
-		var css = "body { width: auto !important; font-family: \"" + font.getFamily() + "\", sans-serif; font-size: "
-				+ Math.round(font.getSize()) + "px; margin: 0; padding: 16px 16px 0 0; }";
-		return "data:text/css;base64,"
-				+ Base64.getEncoder().encodeToString(css.getBytes(StandardCharsets.UTF_8));
-	}
 }

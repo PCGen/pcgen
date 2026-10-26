@@ -380,36 +380,30 @@ public class AdvancedSourceSelectionController implements AutoCloseable
 			}
 			else
 			{
-				problems.add(new BadComboAlert.Rejection(
-						campaign.getDisplayName(), explain(diagnosis.reason(), campaign, context)));
+				problems.add(rejectionFor(diagnosis.reason(), campaign, context));
 			}
 		}
 		BadComboAlert.build(List.copyOf(problems), List.copyOf(covered), ownerWindow()).showAndWait();
 	}
 
 	/**
-	 * The markup describing why a campaign was refused.
-	 *
-	 * <p>A conflict with something already selected is named outright, because
-	 * the campaign's own requirements never mention it: the obstacle lives in
-	 * the other campaign's {@code !PRECAMPAIGN}. Anything else falls back to
-	 * the engine's description, which for a genuinely unmet requirement is the
-	 * best answer available.
+	 * Supplies raw blocker names or engine requirements for the alert template.
 	 *
 	 * @param reason the diagnosed cause of rejection
 	 * @param campaign the rejected campaign
 	 * @param context the current campaign selection
-	 * @return the HTML explanation to show in the rejection dialog
+	 * @return the refused campaign and the data describing its obstacle
 	 */
-	private static String explain(CampaignRejectionDiagnosis.Reason reason, Campaign campaign,
+	private static BadComboAlert.Rejection rejectionFor(CampaignRejectionDiagnosis.Reason reason, Campaign campaign,
 			List<Campaign> context)
 	{
 		if (reason instanceof CampaignRejectionDiagnosis.ConflictsWith(List<Campaign> blockers))
 		{
-			return BadComboAlert.blockedBySelected(
+			return new BadComboAlert.Rejection(campaign.getDisplayName(), "",
 					blockers.stream().map(Campaign::getDisplayName).toList());
 		}
-		return FacadeFactory.getCampaignInfoFactory().getRequirementsHTMLString(campaign, context);
+		return new BadComboAlert.Rejection(campaign.getDisplayName(),
+				FacadeFactory.getCampaignInfoFactory().getRequirementsHTMLString(campaign, context));
 	}
 
 	/**

@@ -13,6 +13,7 @@
  */
 package pcgen.gui3.sources;
 
+import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertInstanceOf;
@@ -24,6 +25,7 @@ import static org.testfx.util.WaitForAsyncUtils.waitForFxEvents;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
@@ -41,6 +43,8 @@ import pcgen.system.LanguageBundle;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import org.testfx.framework.junit5.ApplicationExtension;
 import org.testfx.framework.junit5.Start;
 
@@ -66,16 +70,17 @@ class BadComboAlertTest
 		return new BadComboAlert.Rejection(name, requirements);
 	}
 
-	/**
-	 * With a single rejection the user must see exactly what Swing showed, so
-	 * the existing translated pattern is used verbatim rather than a new one.
-	 */
+	/** Single-source wording remains localized inside the styled document. */
 	@Test
-	void buildHtml_should_matchTheLegacyMessage_forOneRejection()
+	void buildHtml_should_renderTheSingleMessage_inAStyledDocument()
 	{
 		var html = BadComboAlert.buildHtml(List.of(rejection("Book of Arcane Magic", RED_ITALIC)));
 
-		assertEquals(LanguageBundle.getFormattedString("in_src_badComboMsg", RED_ITALIC), html);
+		assertAll(
+				() -> assertTrue(html.startsWith("<!DOCTYPE html>"), html),
+				() -> assertTrue(html.contains("<style>"), html),
+				() -> assertTrue(html.contains(
+						LanguageBundle.getFormattedString("in_src_badComboMsg", RED_ITALIC)), html));
 	}
 
 	@Test
@@ -123,11 +128,12 @@ class BadComboAlertTest
 	void buildHtml_should_escapeCampaignNames()
 	{
 		var html = BadComboAlert.buildHtml(List.of(
-				rejection("Trouble <b>Maker</b>", RED_ITALIC),
+				rejection("Trouble <b>Maker</b> & \"friends\"", RED_ITALIC),
 				rejection("Path of Iron", "<i>Something Else</i>")));
 
-		assertTrue(html.contains("Trouble &lt;b>Maker&lt;/b>"), html);
+		assertTrue(html.contains("Trouble &lt;b&gt;Maker&lt;/b&gt; &amp; &quot;friends&quot;"), html);
 		assertFalse(html.contains("Trouble <b>Maker</b>"), html);
+		assertFalse(html.contains("&amp;lt;"), "plain text must be escaped exactly once: " + html);
 	}
 
 	@Test
@@ -139,6 +145,11 @@ class BadComboAlertTest
 	private static BadComboAlert.Covered covered(String name, String container)
 	{
 		return new BadComboAlert.Covered(name, container);
+	}
+
+	private static BadComboAlert.Rejection conflict(String... blockers)
+	{
+		return new BadComboAlert.Rejection("Conflicting Book", "", List.of(blockers));
 	}
 
 	/**
@@ -162,7 +173,7 @@ class BadComboAlertTest
 		var html = BadComboAlert.buildHtml(List.of(),
 				List.of(covered("Advanced Player's Guide", "Pathfinder RPG for Game Masters")));
 
-		assertTrue(html.contains("Advanced Player's Guide"), html);
+		assertTrue(html.contains("Advanced Player&#39;s Guide"), html);
 		assertTrue(html.contains("Pathfinder RPG for Game Masters"),
 				"the container is the whole point of the message: " + html);
 	}
@@ -175,7 +186,7 @@ class BadComboAlertTest
 				List.of(covered("Advanced Player's Guide", "Pathfinder RPG for Game Masters")));
 
 		assertTrue(html.contains("Bonus Bestiary"), html);
-		assertTrue(html.contains("Advanced Player's Guide"), html);
+		assertTrue(html.contains("Advanced Player&#39;s Guide"), html);
 		assertTrue(html.contains(RED_ITALIC), html);
 	}
 
@@ -190,7 +201,7 @@ class BadComboAlertTest
 				List.of(rejection("Bonus Bestiary", RED_ITALIC)),
 				List.of(covered("Advanced Player's Guide", "Pathfinder RPG for Game Masters")));
 
-		assertTrue(html.indexOf("Bonus Bestiary") < html.indexOf("Advanced Player's Guide"), html);
+		assertTrue(html.indexOf("Bonus Bestiary") < html.indexOf("Advanced Player&#39;s Guide"), html);
 	}
 
 	@Test
@@ -199,8 +210,8 @@ class BadComboAlertTest
 		var html = BadComboAlert.buildHtml(List.of(),
 				List.of(covered("Trouble <b>Maker</b>", "Bundle <i>X</i>")));
 
-		assertTrue(html.contains("Trouble &lt;b>Maker&lt;/b>"), html);
-		assertTrue(html.contains("Bundle &lt;i>X&lt;/i>"), html);
+		assertTrue(html.contains("Trouble &lt;b&gt;Maker&lt;/b&gt;"), html);
+		assertTrue(html.contains("Bundle &lt;i&gt;X&lt;/i&gt;"), html);
 	}
 
 	/**
@@ -208,10 +219,10 @@ class BadComboAlertTest
 	 * is both wrong and confusing about how many sources are in the way.
 	 */
 	@Test
-	void blockedBySelected_should_usePluralWording_forSeveralBlockers()
+	void buildHtml_should_usePluralConflictWording_forSeveralBlockers()
 	{
-		var html = BadComboAlert.blockedBySelected(
-				List.of("Pathfinder RPG for Game Masters", "Ultimate Magic"));
+		var html = BadComboAlert.buildHtml(List.of(
+				conflict("Pathfinder RPG for Game Masters", "Ultimate Magic")));
 
 		assertFalse(html.contains("which is already selected"),
 				"two blockers are not an \"is\": " + html);
@@ -219,18 +230,18 @@ class BadComboAlertTest
 	}
 
 	@Test
-	void blockedBySelected_should_useSingularWording_forOneBlocker()
+	void buildHtml_should_useSingularConflictWording_forOneBlocker()
 	{
-		var html = BadComboAlert.blockedBySelected(List.of("Pathfinder RPG for Game Masters"));
+		var html = BadComboAlert.buildHtml(List.of(conflict("Pathfinder RPG for Game Masters")));
 
 		assertTrue(html.contains("which is already selected"), html);
 		assertTrue(html.contains("Remove it"), html);
 	}
 
 	@Test
-	void blockedBySelected_should_nameEveryBlocker()
+	void buildHtml_should_nameEveryBlocker()
 	{
-		var html = BadComboAlert.blockedBySelected(List.of("Ultimate Magic", "Ultimate Combat"));
+		var html = BadComboAlert.buildHtml(List.of(conflict("Ultimate Magic", "Ultimate Combat")));
 
 		assertTrue(html.contains("Ultimate Magic"), html);
 		assertTrue(html.contains("Ultimate Combat"), html);
@@ -238,12 +249,13 @@ class BadComboAlertTest
 
 	/** Blocker names come from data files and must not be able to restyle the document. */
 	@Test
-	void blockedBySelected_should_escapeBlockerNames()
+	void buildHtml_should_escapeBlockerNames()
 	{
-		var html = BadComboAlert.blockedBySelected(List.of("Trouble <b>Maker</b>"));
+		var html = BadComboAlert.buildHtml(List.of(conflict("Trouble <b>Maker</b> & \"friends\"")));
 
-		assertTrue(html.contains("Trouble &lt;b>Maker&lt;/b>"), html);
+		assertTrue(html.contains("Trouble &lt;b&gt;Maker&lt;/b&gt; &amp; &quot;friends&quot;"), html);
 		assertFalse(html.contains("Trouble <b>Maker</b>"), html);
+		assertFalse(html.contains("&amp;lt;"), html);
 	}
 
 	@Test
@@ -266,6 +278,30 @@ class BadComboAlertTest
 
 		assertFalse(html.contains(LanguageBundle.getFormattedString("in_src_badComboMsg", RED_ITALIC)),
 				"the singular pattern describes the whole dialog and cannot be reused here: " + html);
+	}
+
+	@ParameterizedTest
+	@ValueSource(strings = {"fr", "es", "it"})
+	void buildHtml_should_preserveLocalizedMessages_withoutNestedDocuments(String language)
+	{
+		Locale previous = Locale.getDefault();
+		try
+		{
+			Locale.setDefault(Locale.of(language));
+			LanguageBundle.reload();
+			var html = BadComboAlert.buildHtml(List.of(rejection("Book", RED_ITALIC)));
+			assertAll(
+					() -> assertTrue(html.contains(
+							LanguageBundle.getFormattedString("in_src_badComboMsg", RED_ITALIC)), html),
+					() -> assertEquals(html.indexOf("<html>"), html.lastIndexOf("<html>"), html),
+					() -> assertEquals(html.indexOf("<body>"), html.lastIndexOf("<body>"), html));
+		}
+		finally
+		{
+			Locale.setDefault(previous);
+			LanguageBundle.reload();
+			LanguageBundle.getString("in_src_badComboTitle");
+		}
 	}
 
 	/** Only actual dialog and WebView tests need a toolkit and a Stage. */

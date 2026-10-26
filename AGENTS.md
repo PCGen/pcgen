@@ -88,6 +88,8 @@ see `PcgenFtlTestCase` for working examples.
 - Language-bundle HTML requires an HTML-capable view, not `Alert.setContentText`.
   Preserve meaningful prerequisite markup. Use plain-text sibling keys for plain-text controls;
   HTML attributes in `MessageFormat` patterns need double quotes.
+- Source-info and alert HTML/CSS live in FreeMarker templates. Pass plain text unescaped and let HTML
+  auto-escaping handle it; reserve `?no_esc` for intentional HTML fragments. The i18n scanner also scans `.ftl` files.
 - Recycled cells must reset text, graphics, colors, and tooltips. Restore configured qualified colors,
   never `setTextFill(null)`. Read replaceable maps through the current field or supplier, not a captured map.
 
