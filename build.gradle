@@ -232,7 +232,7 @@ dependencies {
     implementation 'org.springframework:spring-beans'
     implementation 'org.springframework:spring-core'
     implementation 'org.apache.commons:commons-lang3:3.21.0'
-    implementation('org.apache.xmlgraphics:fop:2.11') {
+    implementation('org.apache.xmlgraphics:fop:2.12') {
         exclude group: 'xml-apis', module: 'xml-apis'
         exclude group: 'xalan', module: 'xalan'
         exclude group: 'xalan', module: 'serializer'
