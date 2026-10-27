@@ -1,0 +1,48 @@
+.tab-pane .tab
+{
+    -fx-pref-width: 150.0;
+    -fx-alignment: CENTER;
+
+}
+
+.tab-pane > .tab-header-area > .headers-region > .tab > .tab-container > .tab-label {
+    -fx-alignment: CENTER;
+}
+
+.field-label {
+    -fx-padding: 0 5 0 5;
+}
+
+.button-row {
+    -fx-padding: 5 0 5 0;
+    -fx-spacing: 5;
+}
+
+/* The per-row Delete on the Basic tab. A normal button's chrome and padding
+   would make custom rows visibly taller than built-in ones, so render the icon
+   flat and let it pick up the row background. */
+.row-delete {
+    -fx-padding: 0;
+    -fx-background-color: transparent;
+    -fx-background-radius: 3;
+    -fx-cursor: hand;
+}
+
+.row-delete:hover {
+    -fx-background-color: -fx-outer-border;
+}
+
+/* The nested SplitPanes on the Advanced tab each draw a 1px border, which
+   shows as a stray vertical line along the content edge (the Basic tab has a
+   single SplitPane so it is not visible). Drop the SplitPane chrome. */
+.split-pane {
+    -fx-padding: 0;
+    -fx-background-insets: 0;
+    -fx-background-color: transparent;
+}
+
+/* Inset the Advanced tab's panes from the content edge so the tree and its
+   button row (Unload All / Add / Remove) don't sit flush against it. */
+.pane-inset {
+    -fx-padding: 0 5 0 5;
+}

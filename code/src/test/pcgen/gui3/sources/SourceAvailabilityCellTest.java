@@ -1,0 +1,296 @@
+/*
+ * Copyright 2026 (C) Vest <Vest@users.noreply.github.com>
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ */
+package pcgen.gui3.sources;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.testfx.util.WaitForAsyncUtils.asyncFx;
+import static org.testfx.util.WaitForAsyncUtils.waitForAsyncFx;
+
+import java.util.IdentityHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicReference;
+
+import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TreeItem;
+import javafx.scene.control.TreeTableColumn;
+import javafx.scene.control.TreeTableRow;
+import javafx.scene.paint.Color;
+
+import pcgen.core.Campaign;
+import pcgen.core.campaign.CampaignAvailability.Status;
+import pcgen.gui2.UIPropertyContext;
+import pcgen.system.LanguageBundle;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.testfx.framework.junit5.ApplicationExtension;
+
+/**
+ * The available-sources tree marks each row with how it stands against the
+ * current selection, so the user learns a source cannot be added without
+ * having to click Add and read a dialog. The legacy Swing panel did this with
+ * a single "not qualified" colour; this cell distinguishes a source that is
+ * genuinely blocked from one that is already loaded through a selected
+ * collection, which is not a problem at all.
+ *
+ * <p>Cells are recycled as the tree scrolls, so the tests below care as much
+ * about what a cell forgets as about what it shows: a stale colour or tooltip
+ * left on a reused cell would mislabel an unrelated row.
+ */
+@ExtendWith(ApplicationExtension.class)
+class SourceAvailabilityCellTest
+{
+	private static Campaign campaign(String name)
+	{
+		var campaign = new Campaign();
+		campaign.setName(name);
+		return campaign;
+	}
+
+	private static SourceAvailabilityCell cellShowing(Campaign campaign, Status status)
+	{
+		Map<Campaign, Status> statuses = new IdentityHashMap<>();
+		statuses.put(campaign, status);
+		return waitForAsyncFx(5000, () -> {
+			var cell = new SourceAvailabilityCell(() -> statuses, c -> "why " + c.getDisplayName());
+			show(cell, new SourceTreeNode.Leaf(campaign), campaign.getDisplayName());
+			return cell;
+		});
+	}
+
+	/** Puts the cell on a row showing {@code node}, as the tree does when it lays out. */
+	private static void show(SourceAvailabilityCell cell, SourceTreeNode node, String text)
+	{
+		var row = new TreeTableRow<SourceTreeNode>();
+		row.updateTreeItem(new TreeItem<>(node));
+		cell.updateTreeTableRow(row);
+		cell.updateItem(text, false);
+	}
+
+	@Test
+	void blockedSource_isMarkedAndExplained()
+	{
+		var cell = cellShowing(campaign("Pathfinder RPG for Players"), Status.BLOCKED);
+
+		assertEquals(UIPropertyContext.getNotQualifiedColor(), cell.getTextFill(),
+				"blocked rows use the colour the rest of PCGen uses for a failed prerequisite");
+		assertNotNull(cell.getTooltip());
+		assertTrue(cell.getTooltip().getText().contains("Pathfinder RPG for Players"),
+				cell.getTooltip().getText());
+	}
+
+	@Test
+	void addableSource_usesTheQualifiedColourWithoutATooltip()
+	{
+		var cell = cellShowing(campaign("Core Rulebook"), Status.ADDABLE);
+
+		assertEquals(UIPropertyContext.getQualifiedColor(), cell.getTextFill());
+		assertNull(cell.getTooltip(), "a tooltip on every row would be noise");
+	}
+
+	/**
+	 * A book inside a selected collection is loaded, not broken. Giving it the
+	 * failure colour is what the warning dialog was just changed to stop doing.
+	 */
+	@Test
+	void alreadyIncludedSource_isDistinctAndExplained()
+	{
+		var cell = cellShowing(campaign("Advanced Player's Guide"), Status.ALREADY_INCLUDED);
+
+		assertNotEquals(UIPropertyContext.getNotQualifiedColor(), cell.getTextFill());
+		assertNotEquals(UIPropertyContext.getQualifiedColor(), cell.getTextFill(),
+				"it must still be distinguishable from a source that can be added");
+		assertNotNull(cell.getTooltip());
+	}
+
+	/**
+	 * Publisher and setting rows group the books; they are not sources and
+	 * cannot be added, so they carry no marking and nothing to explain.
+	 */
+	@Test
+	void groupingRow_isNotMarked()
+	{
+		waitForAsyncFx(5000, () -> {
+			var cell = new SourceAvailabilityCell(IdentityHashMap::new, c -> "why");
+			show(cell, new SourceTreeNode.Publisher("Paizo"), "Paizo");
+
+			assertEquals(UIPropertyContext.getQualifiedColor(), cell.getTextFill());
+			assertNull(cell.getTooltip());
+		});
+	}
+
+	/**
+	 * A {@code Labeled}'s text fill is bound to the fill of the {@code Text}
+	 * node its skin draws, and a {@code Text} with a null fill paints nothing.
+	 * Leaving it unset therefore does not mean "use the default", it means the
+	 * row's label disappears while its disclosure arrow stays -- which is how
+	 * every publisher and setting heading went blank.
+	 */
+	@Test
+	void everyRowWithText_hasAFillToPaintItWith()
+	{
+		var book = campaign("Core Rulebook");
+		Map<Campaign, Status> statuses = new IdentityHashMap<>();
+		statuses.put(book, Status.ADDABLE);
+		var nodes = List.of(new SourceTreeNode.Publisher("Paizo"),
+				new SourceTreeNode.Setting("Paizo", "Golarion"),
+				new SourceTreeNode.Leaf(book),
+				new SourceTreeNode.Leaf(campaign("Not Offered")));
+		waitForAsyncFx(5000, () -> {
+			var cell = new SourceAvailabilityCell(() -> statuses, c -> "why");
+			for (SourceTreeNode node : nodes)
+			{
+				show(cell, node, node.displayLabel());
+
+				assertNotNull(cell.getTextFill(), () -> "a null fill makes " + node.displayLabel()
+						+ " invisible, leaving an empty row behind");
+			}
+		});
+	}
+
+	@Test
+	void recycledCell_forgetsTheColourAndTooltipOfThePreviousRow()
+	{
+		var blocked = campaign("Pathfinder RPG for Players");
+		Map<Campaign, Status> statuses = new IdentityHashMap<>();
+		statuses.put(blocked, Status.BLOCKED);
+		var addable = campaign("Core Rulebook");
+		statuses.put(addable, Status.ADDABLE);
+		waitForAsyncFx(5000, () -> {
+			var cell = new SourceAvailabilityCell(() -> statuses, c -> "why");
+			show(cell, new SourceTreeNode.Leaf(blocked), blocked.getDisplayName());
+			show(cell, new SourceTreeNode.Leaf(addable), addable.getDisplayName());
+
+			assertEquals(UIPropertyContext.getQualifiedColor(), cell.getTextFill());
+			assertNull(cell.getTooltip());
+		});
+	}
+
+	@Test
+	void emptyCell_showsNothingAtAll()
+	{
+		var blocked = campaign("Pathfinder RPG for Players");
+		Map<Campaign, Status> statuses = new IdentityHashMap<>();
+		statuses.put(blocked, Status.BLOCKED);
+		waitForAsyncFx(5000, () -> {
+			var cell = new SourceAvailabilityCell(() -> statuses, c -> "why");
+			show(cell, new SourceTreeNode.Leaf(blocked), blocked.getDisplayName());
+			cell.updateItem(null, true);
+
+			assertNull(cell.getText());
+			assertNull(cell.getTooltip());
+		});
+	}
+
+	/**
+	 * The status map is rebuilt whenever the selection changes. A cell that
+	 * captured the old map would keep showing the previous answer.
+	 */
+	@Test
+	void cellReadsTheStatusMapEveryTime_soASelectionChangeTakesEffect()
+	{
+		var book = campaign("Core Rulebook");
+		var statuses = new AtomicReference<>(Map.of(book, Status.ADDABLE));
+		waitForAsyncFx(5000, () -> {
+			var cell = new SourceAvailabilityCell(statuses::get, c -> "why");
+			show(cell, new SourceTreeNode.Leaf(book), book.getDisplayName());
+			assertEquals(UIPropertyContext.getQualifiedColor(), cell.getTextFill());
+
+			statuses.set(Map.of(book, Status.BLOCKED));
+			cell.updateItem(book.getDisplayName(), false);
+
+			assertEquals(UIPropertyContext.getNotQualifiedColor(), cell.getTextFill());
+		});
+	}
+
+	@Test
+	void controllerCells_should_readTheCurrentExplanation_afterTheMapIsReplaced() throws Exception
+	{
+		var book = campaign("Core Rulebook");
+		asyncFx(() -> {
+			LanguageBundle.getString("");
+			var loader = new FXMLLoader(
+					AdvancedSourceSelectionController.class.getResource("AdvancedSourceSelection.fxml"),
+					LanguageBundle.getBundle());
+			Tab tab = loader.load();
+			AdvancedSourceSelectionController controller = loader.getController();
+			var reasons = AdvancedSourceSelectionController.class.getDeclaredField("availabilityReasons");
+			reasons.setAccessible(true);
+			reasons.set(controller, Map.of(book, "Before"));
+			var statuses = AdvancedSourceSelectionController.class.getDeclaredField("availability");
+			statuses.setAccessible(true);
+			statuses.set(controller, Map.of(book, Status.BLOCKED));
+			var columnField = AdvancedSourceSelectionController.class.getDeclaredField("colAvailableName");
+			columnField.setAccessible(true);
+			@SuppressWarnings("unchecked")
+			var column = (TreeTableColumn<SourceTreeNode, String>) columnField.get(controller);
+			var cell = (SourceAvailabilityCell) column.getCellFactory().call(column);
+			show(cell, new SourceTreeNode.Leaf(book), book.getDisplayName());
+
+			reasons.set(controller, Map.of(book, "After"));
+			cell.updateItem(book.getDisplayName(), false);
+
+			assertEquals("After", cell.getTooltip().getText());
+			return tab;
+		}).get(5, TimeUnit.SECONDS);
+	}
+
+	/** A campaign missing from the map, such as one filtered out, must not throw. */
+	@Test
+	void sourceWithNoKnownStatus_isNotMarked()
+	{
+		var book = campaign("Core Rulebook");
+		waitForAsyncFx(5000, () -> {
+			var cell = new SourceAvailabilityCell(IdentityHashMap::new, c -> "why");
+			show(cell, new SourceTreeNode.Leaf(book), "Core Rulebook");
+
+			assertEquals(UIPropertyContext.getQualifiedColor(), cell.getTextFill());
+			assertNull(cell.getTooltip());
+		});
+	}
+
+	@Test
+	void cellAlwaysShowsItsText()
+	{
+		var cell = cellShowing(campaign("Core Rulebook"), Status.ADDABLE);
+
+		assertEquals("Core Rulebook", cell.getText());
+	}
+
+	/** The colours are the user's, configured in Preferences, not hard-coded here. */
+	@Test
+	void coloursComeFromThePreferences()
+	{
+		var original = UIPropertyContext.getNotQualifiedColor();
+		try
+		{
+			UIPropertyContext.setNotQualifiedColor(Color.MAGENTA);
+
+			var cell = cellShowing(campaign("Pathfinder RPG for Players"), Status.BLOCKED);
+
+			assertEquals(Color.MAGENTA, cell.getTextFill());
+		}
+		finally
+		{
+			UIPropertyContext.setNotQualifiedColor(original);
+		}
+	}
+}

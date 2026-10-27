@@ -11,10 +11,17 @@ sourceSets {
     jmh {
         java {
             srcDirs = ['code/src/jmh']
+            // Generated JMH companions live under build/ (set below), not here.
+            exclude 'generated/**'
         }
         compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
         runtimeClasspath += sourceSets.main.output + sourceSets.main.runtimeClasspath
     }
+}
+
+// Emit the JMH annotation processor's sources into build/, not the source tree.
+tasks.named('compileJmhJava') {
+    options.generatedSourceOutputDirectory.set(layout.buildDirectory.dir('generated/sources/jmh'))
 }
 
 // Declaring the jmh source set above auto-creates these configurations.

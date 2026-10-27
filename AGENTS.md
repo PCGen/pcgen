@@ -1,257 +1,182 @@
-# AGENTS — Working Effectively in this Repository
+# Working in PCGen
 
-This document captures the concrete commands, structure, conventions, and gotchas observed in this codebase so future agents can work productively without guesswork.
+Update this guide when build commands, architecture, or non-obvious constraints change.
+Keep it concise: method signatures, implementation history, and routine edits belong in code or Git history.
 
-> **⚠️ IMPORTANT: Keep this file up to date!**
-> Any time LLM-based development (Copilot, ChatGPT, Claude, or any AI coding assistant) is used to make changes to this repository, the developer (or the LLM agent itself) **must** update this file to reflect any relevant changes. This includes but is not limited to: new build commands, dependency changes, structural changes, new CI workflows, convention changes, new source sets, or anything else that would help a future agent work effectively. Treat this file as living documentation that evolves with the codebase.
+## Project and layout
 
-## Project Overview
+PCGen is a Java desktop character generator. Use the Gradle wrapper and Java 25 (Temurin);
+JavaFX must match the configured Java version. The entry point is `pcgen.system.Main`.
 
-- Project: PCGen — Java desktop application to create/manage RPG player characters
-- Build tool: Gradle 9.5.0 (via wrapper `./gradlew`)
-- Java toolchain: Java 25 (Eclipse Temurin)
-- UI: JavaFX (OpenJFX, version matched to Java 25); headless testing uses TestFX/Monocle
-- Packaging: jlink (org.beryx.jlink 4.0.0) / jpackage with custom runtimes and native installers
-- Current version: defined in `gradle.properties` (e.g. `6.09.08.RC1`)
-- Configuration cache: enabled (`org.gradle.configuration-cache=true` in gradle.properties)
+| Path | Purpose |
+|---|---|
+| `code/src/java` | Production Java, including `pcgen.gui2` (Swing) and `pcgen.gui3` (JavaFX) |
+| `code/src/resources` | FXML, templates, language bundles, and application resources |
+| `code/src/test` | Fast unit tests |
+| `code/src/itest` | Integration tests |
+| `code/src/slowtest` | Data/bootstrap and character integration tests |
+| `code/src/testcommon`, `code/src/testResources` | Shared test support and resources |
+| `code/gradle` | Distribution, release, plugin, reporting, and benchmark tasks |
+| `code/standards` | Checkstyle, PMD, and SpotBugs configuration |
+| `PCGen-base`, `PCGen-Formula` | Separate builds used as module dependencies |
+| `data`, `system`, `outputsheets`, `preview`, `vendordata`, `homebrewdata` | Runtime assets; preserve their distribution layout |
+| `docs`, `installers`, `.github/workflows` | User documentation, packaging assets, and CI |
 
-Key entry point: `pcgen.system.Main` (code/src/java/pcgen/system/Main.java)
+## Commands
 
-## Repository Layout
+Always use `./gradlew`. Use a leading colon for targeted root-project tests;
+otherwise Gradle also selects subproject test tasks, which can fail with "No tests found."
 
-- code/
-  - src/java … main Java sources (pcgen.* packages)
-  - src/test … unit tests (fast, run by `test` task)
-  - src/slowtest … slow tests (run by `slowtest` task)
-  - src/itest … integration tests (run by `itest` task)
-  - src/testcommon … shared test utilities (compiled once, consumed by test/itest/slowtest)
-  - src/testResources … shared test resources
-  - src/resources … main resources (includes pcgen/system/prop/PCGenProp.properties)
-  - gradle/ … build logic split across .gradle files (reporting, distribution, autobuild, release, plugins)
-  - standards/ … checkstyle.xml, ruleset.xml (PMD), spotbugs_ignore.xml
-  - LICENSE
-  - scripts: pcgen.sh, pcgen.bat
-- plugins/ … plugin jars built from compiled classes at build time
-- data/, outputsheets/, system/, preview/, vendordata/, homebrewdata/ … runtime datasets and assets
-- docs/ … user documentation (Jekyll site, FAQs, listfile docs)
-- installers/ … installer assets (mac/win/linux), release notes
-- PCGen-base/, PCGen-Formula/ … separate Gradle builds for base/formula modules (consumed as Maven dependencies)
-- Root Gradle files: build.gradle, settings.gradle, gradle.properties, gradlew*
-- CI: `.github/workflows/gradle-test.yml`, `gradle-nightly.yml`, `gradle-release.yml`, `gradle-release-manual.yml`, `codeql-analysis.yml`
+| Command | Purpose |
+|---|---|
+| `./gradlew build` | Compile and run unit tests |
+| `./gradlew :test --tests 'pcgen.gui3.sources.*'` | Targeted unit tests |
+| `./gradlew :itest` | Integration tests |
+| `./gradlew :slowtest` | Slow tests; also depends on integration tests |
+| `./gradlew :slowtest --tests 'pcgen.gui3.sources.SourceSelectionDataTest' -x :itest` | Published-data selection scenarios only |
+| `./gradlew datatest` | Data loading, UTF-8 checks, and validation |
+| `./gradlew pfinttest` | Pathfinder character integration tests |
+| `./gradlew inttest` | All character integration variants |
+| `./gradlew testCoverage` | JaCoCo report under `build/reports/jacoco/testCoverage/html` |
+| `./gradlew allReports` | Checkstyle, PMD, and SpotBugs |
+| `./gradlew run` | Run with the required JavaFX modules |
+| `./gradlew run --args="--name-generator"` | Run the name generator |
+| `./gradlew qbuild` | Development distribution under `output` |
+| `./gradlew buildDist` | Distribution archives |
+| `./gradlew fullJpackage` | Host-platform app image and installer |
 
-## Essential Commands
+Per-game integration tasks include `sfinttest`, `rsrdinttest`, `srdinttest`, and `msrdinttest`.
+`clean` also removes generated plugins, output, downloaded JDKs/modules, and master sheets.
 
-Always use the wrapper (`./gradlew`). Java 25 (Temurin) is required; Gradle will fetch dependencies and JavaFX modules as part of tasks.
+CLI options and validation live in `code/src/java/pcgen/system/CommandLineArguments.java`.
+Batch export accepts `--character`, `--exportsheet`, `--outputfile`, and `--configfilename`;
+see `PcgenFtlTestCase` for working examples.
 
-| Task                                                     | Description                                                                                  |
-|----------------------------------------------------------|----------------------------------------------------------------------------------------------|
-| `./gradlew build`                                        | Compile + unit tests (includes `test` task)                                                  |
-| `./gradlew test`                                         | Unit tests only (JUnit 6 Jupiter + JUnit 4 vintage; headless JavaFX)                         |
-| `./gradlew itest`                                        | Integration tests                                                                            |
-| `./gradlew slowtest`                                     | Slow/long-running tests (depends on itest)                                                   |
-| `./gradlew datatest`                                     | Data loading/validation tests                                                                |
-| `./gradlew pfinttest`                                    | Pathfinder integration tests                                                                 |
-| `./gradlew inttest`                                      | All character integration tests                                                              |
-| `./gradlew sfinttest rsrdinttest srdinttest msrdinttest` | Per-game-mode integration test variants                                                      |
-| `./gradlew testCoverage`                                 | Jacoco coverage report (build/reports/jacoco/testCoverage/html)                              |
-| `./gradlew allReports`                                   | Checkstyle + PMD + SpotBugs reports                                                          |
-| `./gradlew buildDist`                                    | Assemble distribution zips (data/docs/program/libs + runtime)                                |
-| `./gradlew qbuild`                                       | Quick dev binary to output/                                                                  |
-| `./gradlew run`                                          | Run the app (JavaFX modules configured automatically)                                        |
-| `./gradlew fullJpackage`                                 | Create native app image/installer via jpackage                                               |
-| `./gradlew clean`                                        | Clean all (also triggers cleanPlugins, cleanOutput, cleanJdks, cleanMods, cleanMasterSheets) |
-| `./gradlew tasks`                                        | List all available tasks                                                                     |
+## Coding conventions
 
-Notes
-- jlink/jpackage build only the host platform. The download/extract tasks (downloadJdk, extractJdk, downloadJfxMods, extractJfxMods) target the host OS/arch automatically; the host SDK helper for local dev is downloadJavaFXLocal/extractJavaFXLocal. CI caches build/jre and build/libs.
-- Runtime bundles expect assets in data/, system/, outputsheets/, preview/, vendordata/, homebrewdata/.
-- Test tasks use parallel forks: `Runtime.runtime.availableProcessors().intdiv(2) ?: 1` for test/itest; `forkEvery = 1` for slowtest/inttest variants.
+- Follow existing formatting and localization. Use American English in new Javadoc.
+  Document nontrivial helpers and FXML handlers with concise contracts, not line-by-line explanations.
+- Reuse `pcgen.util.Html` for escaping HTML text and double-quoted attribute values;
+  element-text escaping is not sufficient for attributes, URLs, JavaScript, or CSS.
+- Validate user input at the UI boundary; trust established internal contracts.
+  Keep checks for real cancellation, missing data, lifecycle states, and demonstrated cost.
+- Use `pcgen.util.Logging`; `Logging.errorPrint` reports severe errors.
+  Do not swallow failures or replace mandatory callbacks with no-ops.
+- Use `GracefulExit.exit`, not `System.exit`. Tests can save and restore its exit function.
+- Create directory trees with `Files.createDirectories` or `mkdirs`.
+  User-facing paths use `PCGenSettings.USER_DIR_NAME`; the default character directory also honors
+  Linux's configured documents directory.
+- Gradle configuration caching is enabled. Incompatible tasks must declare
+  `notCompatibleWithConfigurationCache(...)`.
+- Do not introduce split packages with PCGen-base or PCGen-Formula: those jars are separate modules.
+  Other dependencies are merged into the application module for jlink.
+- Some dependency repositories require `allowInsecureProtocol`; do not change them incidentally.
 
-## Running From Source
+## Swing and JavaFX integration
 
-- Entry point: application plugin sets main class to `pcgen.system.Main`.
-- `./gradlew run` sets module-path and add-modules for JavaFX automatically.
+- Construct and mutate JavaFX controls, dialogs, and windows on the FX thread.
+  Facade mutations observed by Swing models run on the EDT; observable FX rows update back on the FX thread.
+- Use `PanelFromResource` for standalone FXML stages and `JFXPanelFromResource` for Swing embedding.
+  Never move a `JFXPanel`'s scene onto a standalone stage; this corrupts the embedded peer on macOS HiDPI.
+- JavaFX modality does not disable Swing windows. The source selector blocks its Swing owner and duplicate
+  launches until it closes, restoring the owner even if dialog initialization fails.
+- Give nested dialogs an FX owner. Keep tab-specific actions outside `DialogPane`'s button bar:
+  buttons created there dismiss the dialog unless their action is consumed.
+  Load validation must happen before dismissal, including Basic-row double-clicks.
+- Use `ButtonData` for platform placement and default/cancel semantics, and `SourceDialogOutcome` to
+  distinguish dialog results. Install Data is identified by its own button instance.
+  Tests should verify those semantics without fixing a platform's visual button order.
+- Attach double-click actions to populated campaign rows so headers and empty space cannot activate
+  a previous selection. Batch selection edits to avoid repeating full availability calculations.
+- Language-bundle HTML requires an HTML-capable view, not `Alert.setContentText`.
+  Preserve meaningful prerequisite markup. Use plain-text sibling keys for plain-text controls;
+  HTML attributes in `MessageFormat` patterns need double quotes.
+- Source-info and alert HTML/CSS live in FreeMarker templates. Pass plain text unescaped and let HTML
+  auto-escaping handle it; reserve `?no_esc` for intentional HTML fragments. The i18n scanner also scans `.ftl` files.
+- Recycled cells must reset text, graphics, colors, and tooltips. Restore configured qualified colors,
+  never `setTextFill(null)`. Read replaceable maps through the current field or supplier, not a captured map.
 
-Command-line flags (see code/src/java/pcgen/system/CommandLineArguments.java; tests in code/src/test/pcgen/system/CommandLineArgumentsTest.java):
-- --verbose | -v (counted, interpreted as boolean)
-- --version | -V
-- --name-generator
-- --tab | -D <name>
-- --settingsdir | -s <dir> (must exist and be readable)
-- --configfilename | -S <file>
-- --campaignmode | -m <name>
-- --exportsheet | -E <file> (must exist/readable)
-- --outputfile | -o <file> (new or writable file)
-- --character | -c <file> (must exist)
-- --party | -p <file> (must exist)
+## Campaign and source selection
 
-Batch export path exists in Main.startupWithoutGUI(). Tests demonstrate usage in PcgenFtlTestCase.
+- Selection rules belong in `pcgen.core.campaign`, independent of JavaFX and global startup state.
+  Qualification is a whole-set operation: dependent books must be evaluated with their prerequisites.
+- `CampaignSelection` compares new failures against the existing baseline. Preserve selected campaigns;
+  existing failures must not hide a candidate's additional failure.
+- `Campaign.equals` compares keys case-insensitively, but `PObject` lacks a matching key-based hash code.
+  Membership and deduplication therefore use ordinary lists, not hash sets or `distinct()`.
+  Preserve encounter order and the first candidate for each key; the planner's stateful stream is sequential.
+- Use `Collections.emptyList()` with a regular import for empty lists in the campaign package and tests;
+  populated `List.of(...)` is fine.
+- Qualification temporarily replaces the persistence manager's chosen URIs. Its getter exposes a live list:
+  snapshot it before installing a trial selection, and restore it in `finally`.
+- Dependency priority uses exact campaign keys, not display names or lowercase normalization.
+  Qualification remains case-insensitive; case-only positive references are warned about after metadata loading,
+  not during rendering or qualification.
+- Sub-campaigns can nest and cycle. Check direct selection and transitive inclusion before reporting conflicts.
+  Bundles and alternate editions deliberately exclude books, so accepting every published source is not possible.
+- Compute availability and explanations once per selection change, not from cell rendering.
+  Keep the empty-offered early return: it avoids expensive baseline qualification.
+- Saving validates nonempty campaigns and nonblank names at the UI boundary.
+  Existing custom names reuse their facade; bundled names cannot be overwritten.
+  Match persistence names exactly, not display-name fallbacks, and update rows only after successful persistence.
+- Advanced selection memory is per mode in the `advancedSourceSelectionPanel` UI context.
+  Opening Basic projects its row; opening Advanced restores its own memory.
+  `SOURCE_USE_BASIC_KEY` is the inverse of "always use advanced."
+  Unload cancellation must not erase the edited selection.
 
-## Testing Approach
+## Source previews
 
-- JUnit 6 (BOM 6.0.3) with Jupiter, JUnit 4 legacy tests via vintage engine (~870 tests still use JUnit 4).
-- xmlunit 2.11.0 for XML comparisons, TestFX 4.0.18 + Monocle 21.0.2 for JavaFX UI components.
-- Source sets:
-  - test: code/src/test + testcommon (fast unit tests)
-  - itest: code/src/itest + testcommon (integration tests)
-  - slowtest: code/src/slowtest + testcommon (slow/character integration tests)
-- CI runs: `build` → `itest datatest slowtest` → `testCoverage` (coverage report posted to PR).
-- Headless settings applied to all Test tasks:
-  - `-Djava.awt.headless=true`, `-Djavafx.macosx.embedded=true`
-  - `--module-path mods/lib --add-modules javafx.controls,javafx.web,javafx.swing,javafx.fxml,javafx.graphics`
-  - `--enable-native-access=javafx.graphics`
-  - Assertions enabled; 1024m heap; maxParallelForks=1 (global default, overridden for test/itest)
-- Unit test task additionally sets: `-Dtestfx.robot=glass`, `-Dtestfx.headless=true`, `-Dprism.order=sw`
+- Each Basic/Advanced preview owns one `SourceInfoRenderer` and closes it when the dialog hides.
+  Basic selections can contain multiple independent campaigns; render and reload the entire bundle.
+  Late persistence callbacks must not reopen a disposed preview.
+- Source HTML uses a real `file:` origin for local images. Cache its document inside a private NIO temp
+  directory, not directly in a shared temp directory. Register directory deletion before file deletion.
+  Reused channels must truncate before rewriting; skip identical documents.
+- Intercept source-info links before WebView navigation, and hand only `http`/`https` URLs to the browser.
 
-## Code Quality and Style
+## Testing
 
-- **Checkstyle**: config at code/standards/checkstyle.xml; toolVersion 13.2.0. Newline at EOF; 201 char line length; prohibits `System.exit` (use `pcgen.util.GracefulExit.exit`).
-- **PMD**: ruleset at code/standards/ruleset.xml; toolVersion 7.21.0; dependencies pmd-java 7.24.0 and pmd-ant 7.24.0. Incremental analysis enabled; ignoreFailures true.
-- **SpotBugs**: plugin 6.5.4; toolVersion 4.9.8; exclude filter code/standards/spotbugs_ignore.xml; omitVisitors: Naming, CrossSiteScripting, DontUseEnum, DoInsideDoPrivileged; ignoreFailures true; extra findsecbugs plugin 1.14.0.
-- **Jacoco**: toolVersion 0.8.14.
-- Aggregate quality task: `./gradlew allReports` (runs checkstyleMain, pmdMain, spotbugsMain)
+- Use the repository's source sets, not Maven-standard paths. JUnit Jupiter and legacy Vintage coexist.
+  Existing TestFX/Monocle settings provide headless JavaFX; do not add a second toolkit.
+- `ApplicationExtension` does not run test methods on the FX thread. Use statically imported `asyncFx`
+  helpers for UI work. Keep cold domain initialization outside tightly timed FX callbacks.
+- A WebView must belong to a shown window for meaningful layout measurements.
+  Wait for load completion and the expected regenerated document, not a fixed sleep.
+  Snapshot the content node without reparenting a dialog pane.
+- Assert observable behavior with discriminating fixtures: distinct campaign keys, contrasting configured
+  colors, populated search results, and replacement maps. Test event propagation at the parent;
+  dispatch may copy events, so the original event's `isConsumed()` is not reliable evidence.
+- Initialize and restore `FacadeFactory` campaign maps when testing real controllers outside GUI startup.
+  Restore game modes, preferences, and persistence state changed by tests.
+- `SourceSelectionDataTest` tests published-data helpers with the real prerequisite engine, not controller actions.
+  Keep these scenarios: simplified fakes do not reproduce book-type counting and self-exclusions.
+  Share one planning result per expensive scenario rather than repeating the same work for each assertion.
+- `DataEncodingTest` checks every `.lst` and `.pcc` under `data` and `system`; keep these files as inputs
+  to `datatest` and `slowtest` so data-only edits trigger validation.
 
-Conventions/gotchas observed:
-- Use `GracefulExit.exit` instead of `System.exit` (Checkstyle enforces via RegexpMultiline).
-- Logging goes through `pcgen.util.Logging`; `Logging.errorPrint(...)` is the idiom for SEVERE (`Logging.ERROR == Level.SEVERE`), not `Logging.log(Level.SEVERE, ...)`.
-- `logging.properties` (repo root) configures java.util.logging and is what wires up `SourceLogFormatter` and the `LoggingRecorder`.
-- `SourceLogFormatter` takes its timestamp from `record.getInstant()` (local time with offset) and prints the originating thread as `name#id`.
-- `Main.shutdown(boolean)` isolates every cleanup step via `runCleanupStep` and calls `GracefulExit.exit` from a `finally`. Keep it that way: the main window is already disposed when it runs, so an escaping exception leaves a windowless JVM alive with settings unsaved. Inside `shutdown`, pass **lambdas** rather than method references — a bound method reference dereferences its receiver, and a static one resolves its class, at reference-creation time, i.e. outside the guard.
-- `GracefulExit.getExitFunction()` pairs with `registerExitFunction` so callers/tests can save and restore the exit behaviour.
-- User-facing paths use the single `PCGenSettings.USER_DIR_NAME` constant (`"PCGen"`); don't re-spell the folder name inline. Note the codebase still has unrelated `~/.pcgen` and `~/Library/Preferences/pcgen` locations in `Globals`. New character saves honour the freedesktop documents folder on Linux (`PCGenSettings.defaultCharactersDir` reads `XDG_DOCUMENTS_DIR` / `user-dirs.dirs`); other application data is not XDG-base-dir compliant.
-- Create directory trees with `Files.createDirectories`/`mkdirs`, not `mkdir` — the default character save dir is two levels deep (`<home>/PCGen/characters`) and its parent is absent on a first run.
-- Java version and JavaFX are tightly coupled to `project.ext.javaVersion` (25). Tests and run tasks add the needed JavaFX modules explicitly.
-- Source sets are nonstandard (itest, slowtest, testcommon); when adding new tests, place them in the correct source set to be picked up by the corresponding Gradle task.
-- Plugins are built from compiled classes into plugin jars via tasks in code/gradle/plugins.gradle; main jar depends on `jarAllPlugins`.
-- Some ivy/maven repos are over HTTP (`allowInsecureProtocol true`). Do not change without coordinating with maintainers.
-- Gradle configuration cache is enabled — tasks that are not compatible should declare `notCompatibleWithConfigurationCache(...)`.
-- `./gradlew run` puts the **exploded** `build/classes/java/main` on the classpath, not a jar. Renaming, cleaning or rebuilding the project directory while the app is running yanks not-yet-loaded classes out from under the live JVM, surfacing as a puzzling `NoClassDefFoundError` for whichever class happens to load next. Not a code bug — don't chase it as one.
+## Build and release constraints
 
-## Build/Release Flow
+- `gradle.properties` defines the application version. Release tags must match it exactly.
+  Java/JavaFX changes must stay consistent across compilation, tests, run tasks, jlink, packaging, and CI.
+- Plugin jars are assembled from compiled classes by `code/gradle/plugins.gradle`.
+  Distribution layout is controlled by `code/gradle/distribution.gradle`.
+- `code/gradle/release.gradle` and `releaseUtils.groovy` implement release preparation and version bumps.
+  Native installers copied to `build/release` use `pcgen-<version>-<hostOs>-<hostArch>.<ext>`;
+  jpackage's internal version remains numeric.
+- Runtime/JDK/JavaFX downloads target the host platform. CI builds Linux x64/ARM, macOS, and Windows.
+- `.github/workflows/gradle-test.yml` runs build, integration/data/slow tests, then coverage.
+  The tag-release workflow validates tags; the manual-release workflow commits the release version,
+  builds, then bumps to the next snapshot only after success.
+- The nightly workflow skips unchanged master, otherwise publishes a dated prerelease and retains seven nightlies.
+  CI patches version/date resources during builds without committing them.
 
-- For releases, see `code/gradle/release.gradle` and CI workflows:
-  - `.github/workflows/gradle-release.yml` — triggered on tag push `v*.*.*` or manual dispatch with existing tag (validates tag vs `gradle.properties`).
-  - `.github/workflows/gradle-release-manual.yml` — manual dispatch that takes a release version, commits the bump to `gradle.properties` on the dispatched branch, tags + builds across all platforms, then commits the next `-SNAPSHOT` dev version back to the same branch on success.
-  - `.github/workflows/gradle-nightly.yml` — scheduled daily; skips if no commits to `master` in the last 24h; otherwise publishes a pre-release tagged `v<base>-NIGHTLY.<YYYYMMDD>` with all four platform builds and prunes nightlies older than the most recent 7.
-- Release tasks:
-  - `prepareRelease` (build; version handling via `releaseUtils.groovy`)
-  - `pcgenRelease` (prepareRelease + assembleArtifacts + checksum)
-  - `pcgenReleaseOfficial` (pcgenRelease + updateVersionRelease)
-  - `updateVersionToNext` (Groovy helper in `releaseUtils.groovy` that bumps the trailing numeric segment by 1, zero-padded to two digits, and appends `-SNAPSHOT`; used by the manual release workflow's post-build bump step).
-- Artifacts collected into build/release; jpackage produces platform installers under build/jpackage.
-- **Artifact filename convention**: `assembleArtifacts` (`code/gradle/release.gradle`) renames the native installers it copies into `build/release` to mirror the portable zip — `pcgen-<version>-<hostOs>-<hostArch>.<ext>` (e.g. `pcgen-6.09.08.RC1-NIGHTLY.20260624-mac-aarch64.dmg`, `pcgen-6.09.08-windows-x64.exe`, `pcgen-6.09.08-linux-x64.deb`). This is a **filename-only** change: jpackage's *internal* `appVersion` is still the sanitised numeric version (`build.gradle:353`, e.g. `6.09.08`) because dmg/exe/deb require a strictly numeric version. The rename relies on `project.ext.hostOs`/`project.ext.hostArch` published in `build.gradle` (the local `def`s aren't visible to the separately-applied `release.gradle`). Workflows upload `build/release/*` (wildcard), so no workflow changes are needed when this convention changes.
-- Release CI builds on: ubuntu-latest (x64), ubuntu-24.04-arm, macos-latest, windows-latest.
-- CI updates `PCGenProp.properties` with version number and release date at build time (per-platform, in-memory, never committed).
+## Other non-obvious constraints
 
-## Data and Outputsheets
+- `Main.shutdown` must isolate cleanup steps and exit from `finally`.
+  Use lambdas inside its guards: bound method references can fail before entering the guard.
+- `ConfigurationSettings.findInstallRoot` only checks bounded ancestors and their `app` subdirectory.
+  Do not scan unrelated child directories while searching for an installation.
+- `./gradlew run` uses exploded classes under `build/classes/java/main`.
+  Do not clean, rename, or rebuild the checkout underneath a running application.
 
-- Distribution zips combine program, data, docs, libs; copy specs in code/gradle/distribution.gradle control inclusion/exclusion.
-- copyMasterSheets/cleanMasterSheets manage templated outputsheets across genre folders (historical, horror, sciencefiction, western).
-
-## CI Details
-
-- **gradle-test.yml** (runs on pull_request):
-  - Java 25 (temurin), Gradle cache via `gradle/actions/setup-gradle@v4`
-  - `./gradlew build`
-  - `./gradlew itest datatest slowtest`
-  - `./gradlew testCoverage`
-  - Publishes test results via `EnricoMi/publish-unit-test-result-action@v2`
-  - Coverage report uploaded as artifact and posted to PR via `madrapps/jacoco-report@v1.7.2`
-- **codeql-analysis.yml** (push/PR to master + weekly schedule):
-  - Analyzes Java via CodeQL autobuild
-- **gradle-release.yml** (tag push `v*.*.*` or workflow_dispatch with existing tag):
-  - Validates tag vs gradle.properties version
-  - Creates GitHub release, builds on 4 platforms, attaches artifacts
-- **gradle-release-manual.yml** (workflow_dispatch — full release pipeline with version management):
-  - Inputs: `release_version` (e.g. `6.09.08`; no `v` prefix, no `-SNAPSHOT`) and `prerelease` boolean.
-  - `prepare_release`: validates the version, ensures the tag is free, commits `version=<release_version>` to `gradle.properties` on the dispatched branch via `github-actions[bot]`, tags the commit, and creates the GitHub Release.
-  - `build_release`: 4-platform matrix mirroring `gradle-release.yml`; checks out the new tag and runs `./gradlew build compileSlowtest datatest pfinttest pcgenRelease`, uploading artifacts to the Release.
-  - `bump_to_next_dev` (only if every matrix job passed): runs `./gradlew --no-daemon --no-configuration-cache updateVersionToNext` and commits the new `-SNAPSHOT` version back to the dispatched branch so the source tree is ready for further development.
-  - Concurrency: `manual-release-${{ github.ref }}`, no cancel-in-progress (avoid partial publish).
-- **gradle-nightly.yml** (schedule `0 2 * * *` + workflow_dispatch):
-  - `check_changes`: counts commits on `master` in the last 24h via `git rev-list --count --since='24 hours ago' HEAD`; on zero commits, the workflow short-circuits and the build/cleanup jobs are skipped.
-  - When changes are present, derives `<base>` from `gradle.properties` (stripping any `-SNAPSHOT`), computes `nightly_version=<base>-NIGHTLY.<YYYYMMDD>` (UTC), and treats the tag `v<nightly_version>` as the release identifier.
-  - `create_release`: creates and pushes the tag, then creates a GitHub pre-release at that tag.
-  - `build_release`: 4-platform matrix; checks out the tag, in-memory patches `gradle.properties` and `PCGenProp.properties` to the nightly version, runs the same full build + tests as the manual release, and attaches artifacts to the pre-release.
-  - `cleanup_old_nightlies`: keeps the most recent 7 nightly pre-releases (`v*-NIGHTLY.*` matching) and deletes older ones together with their git tags via `gh release delete <tag> --yes --cleanup-tag`. Failures are warnings, not workflow-fatal.
-  - Concurrency: group `nightly`, no cancel-in-progress.
-
-## How to Add/Modify Code
-
-- Place production code under code/src/java/pcgen/... matching existing packages.
-- Ensure tests accompany new behavior:
-  - Fast unit tests → code/src/test
-  - Integration tests → code/src/itest
-  - Slow/long-running → code/src/slowtest
-- Run: `./gradlew test itest slowtest` locally; fix failing tests before PRs.
-- Follow style checks; do not use `System.exit` directly — use `pcgen.util.GracefulExit.exit`.
-- Run `./gradlew allReports` to check Checkstyle/PMD/SpotBugs before submitting.
-- JavaFX/FXML dialogs:
-  - For **standalone Stage dialogs** (loaded from FXML and shown as a top-level window via `showAsStage(title)` or modally via `showAndBlock(title)`), use `pcgen.gui3.PanelFromResource<T>`. Both methods are thread-safe (`showAsStage` auto-dispatches to the FX thread; `showAndBlock` must be called off the FX thread and blocks the caller until the dialog closes).
-  - For **embedding FXML scenes inside Swing** containers, use `pcgen.gui3.JFXPanelFromResource<T>` (it extends `JFXPanel`). Do **not** re-use it for standalone dialogs — re-parenting its embedded `Scene` onto a real `Stage` corrupts the quantum peer and triggers an NPE in `com.sun.javafx.tk.quantum.GlassScene#updateSceneState` on macOS HiDPI displays.
-
-## Useful Paths
-
-| Purpose                         | Path                                                        |
-|---------------------------------|-------------------------------------------------------------|
-| Main entry point                | code/src/java/pcgen/system/Main.java                        |
-| Main/shutdown tests             | code/src/test/pcgen/system/MainTest.java                    |
-| CLI parsing                     | code/src/java/pcgen/system/CommandLineArguments.java        |
-| CLI tests                       | code/src/test/pcgen/system/CommandLineArgumentsTest.java    |
-| GracefulExit                    | code/src/java/pcgen/util/GracefulExit.java                  |
-| FTL export test base            | code/src/slowtest/pcgen/inttest/PcgenFtlTestCase.java       |
-| Standalone Stage dialogs (FXML) | code/src/java/pcgen/gui3/PanelFromResource.java             |
-| Swing-embedded FXML panels      | code/src/java/pcgen/gui3/JFXPanelFromResource.java          |
-| Thread assertions for UI code   | code/src/java/pcgen/gui3/GuiAssertions.java                 |
-| Build config                    | build.gradle                                                |
-| Version                         | gradle.properties                                           |
-| Checkstyle rules                | code/standards/checkstyle.xml                               |
-| PMD ruleset                     | code/standards/ruleset.xml                                  |
-| SpotBugs exclusions             | code/standards/spotbugs_ignore.xml                          |
-| Release logic                   | code/gradle/release.gradle, code/gradle/releaseUtils.groovy |
-| Distribution logic              | code/gradle/distribution.gradle                             |
-| Plugin jar building             | code/gradle/plugins.gradle                                  |
-| Reporting (quality)             | code/gradle/reporting.gradle                                |
-| CI test workflow                | .github/workflows/gradle-test.yml                           |
-| CI release workflow (tag)       | .github/workflows/gradle-release.yml                        |
-| CI release workflow (manual)    | .github/workflows/gradle-release-manual.yml                 |
-| CI nightly workflow             | .github/workflows/gradle-nightly.yml                        |
-
-## Local Run Examples
-
-- Launch GUI:
-  - `./gradlew run`
-- Run name generator directly:
-  - `./gradlew run --args="--name-generator"`
-- Export a character to XML (batch mode example from tests):
-  - `java -jar build/libs/pcgen-<version>.jar --character /path/to/char.pcg --exportsheet code/testsuite/base-xml.ftl --outputfile /tmp/char.xml --configfilename config.ini.junit`
-  - Or via Gradle: `./gradlew run --args="--character ... --exportsheet ... --outputfile ... --configfilename ..."`
-
-## Security/Defensive Notes
-
-- CodeQL workflow is enabled (runs on push/PR to master + weekly schedule).
-- SpotBugs runs with findsecbugs 1.14.0; some visitors are omitted; failures ignored in reporting task (manual review advised).
-- Avoid introducing insecure HTTP endpoints unless required by existing build constraints noted in build.gradle.
-- Java security manager is disallowed in tests (`-Djava.security.manager=disallow`).
-
-## Project-Specific "Don't Break" Items
-
-- Java version and JavaFX module handling are intertwined across build.gradle and distribution tasks — changing one often requires adjusting tasks (run, test, JavaCompile, runtime/jpackage) and CI.
-- The distribution relies on file layout in data/, outputsheets/, system/, preview/ — deletions or renames will break runtime validation in Main.validateEnvironment().
-- GracefulExit should be used for controlled termination (tests hook the exit function).
-- Module compilation: PCGen-base and PCGen-Formula jars are placed on `--module-path` while all other dependencies are merged into the pcgen module via `--patch-module` (jlink `forceMerge`). This means **no source file in the pcgen module may share a package with classes in PCGen-base or PCGen-Formula jars** (Java forbids split packages across modules). Currently conflicting packages (`pcgen.base.util`, `pcgen.base.format`) have been relocated to `pcgen.util` and `pcgen.format` respectively. If adding new classes whose package exists in either jar, place them in a non-overlapping package.
-- Gradle configuration cache is enabled — ensure new tasks are compatible or explicitly opt out.
-- The `testcommon` source set extends test configurations — changes to test dependencies are automatically available there.
-- Release tag must match `gradle.properties` version exactly (CI validates this).
-- Never re-attach a `Scene` loaded into a `JFXPanel` onto a standalone `Stage`. The embedded scene peer stays bound to the JFXPanel's host and the orphaned `EmbeddedScene` will eventually fire `setPixelScaleFactors` against a null `sceneState`, throwing an NPE in `GlassScene#updateSceneState` on macOS HiDPI displays. Use `PanelFromResource` for top-level dialogs and reserve `JFXPanelFromResource` for Swing embedding only.
-- `ConfigurationSettings.findInstallRoot` must only accept an ancestor or its `app` subdirectory (the jpackage layout), with a bounded climb. Do not widen it to scan every child of every ancestor — that walked to `/` and let a stray `data`+`system` directory (e.g. a checkout under `/tmp`) hijack the install root. See the method Javadoc.
-
-## Maintainer/Issue Tracking Context
-
-- Primary docs: README.md (development setup, essential Gradle tasks)
-- Issue tracker: Jira at https://pcgenorg.atlassian.net (CODE/DATA/etc.) as referenced in README and docs/faqpages/faqsubmittingabugreport.md
-- Community: Discord (https://discord.gg/M7GH5BS), Slack (by invitation)
-
----
-
-_This file documents observed behavior and commands present in this repository as of the current state. It should be updated whenever significant changes are made — especially during LLM-assisted development sessions._
+See `README.md` for general development setup and community links.

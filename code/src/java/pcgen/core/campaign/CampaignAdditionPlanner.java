@@ -1,0 +1,181 @@
+/*
+ * Copyright 2026 (C) Vest <Vest@users.noreply.github.com>
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ */
+package pcgen.core.campaign;
+
+import static java.util.stream.Collectors.partitioningBy;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.function.UnaryOperator;
+
+import pcgen.core.Campaign;
+
+/**
+ * Decides which of the campaigns a user asked to add can actually be added.
+ *
+ * <p>Campaign prerequisites are a property of the <em>whole</em> loaded set --
+ * {@code FacadeFactory.passesPrereqs} sets the chosen source files to the
+ * entire list before asking each campaign whether it qualifies. Validating
+ * candidates one at a time against a growing set therefore asks the wrong
+ * question: a campaign whose prerequisite happens to sort later in the tree is
+ * judged against a set that does not contain it yet, and is rejected even
+ * though the user selected both. Selecting every book made this unmissable,
+ * because the first book alphabetically is the one most likely to depend on
+ * something further down.
+ *
+ * <p>This planner asks the question once, about the set that would result from
+ * the addition, so the outcome no longer depends on tree order. It then drops
+ * what does not qualify and takes back everything the remainder can carry,
+ * because the data's many mutual exclusions would otherwise make a single
+ * whole-set verdict refuse both sides of every conflict.
+ *
+ * <p>Campaigns are compared using {@link Campaign#equals(Object)}, which
+ * matches campaign keys without regard to case.
+ */
+public final class CampaignAdditionPlanner
+{
+	private CampaignAdditionPlanner()
+	{
+	}
+
+	/**
+	 * The outcome of planning an addition.
+	 *
+	 * @param accepted candidates that may be added, in the order requested
+	 * @param rejected candidates that would not qualify, in the order requested
+	 */
+	public record Plan(List<Campaign> accepted, List<Campaign> rejected)
+	{
+	}
+
+	/**
+	 * Plans the addition of {@code candidates} to {@code alreadySelected}.
+	 *
+	 * <p>Selected candidates are silently ignored. No warnings are reported.
+	 *
+	 * <p>Rejected candidates are dropped from the set before the rest are
+	 * judged, so a campaign that only qualifies once some other candidate is
+	 * gone is still added. This matters because PCGen's data is full of
+	 * deliberate exclusions: a MultiSet such as "Pathfinder RPG Core
+	 * Supplements" repackages a dozen individual books and carries a
+	 * {@code !PRECAMPAIGN} against each of them, and reduced editions such as
+	 * "Bestiary ~ Player Options Only" exclude the full book. Judging the
+	 * complete set once would refuse the bundle <em>and</em> every book it
+	 * covers.
+	 *
+	 * <p>Conflicts are resolved in candidate order. The planner does not
+	 * search all combinations, so it may accept fewer campaigns than
+	 * another ordering would allow.
+	 *
+	 * @param alreadySelected campaigns already in the selected list
+	 * @param candidates campaigns the user asked to add, in display order
+	 * @param findUnqualified returns the members of a set that do not qualify
+	 *                        given that set; not called when nothing is to be
+	 *                        added
+	 * @return the accepted and rejected candidates
+	 */
+	public static Plan plan(List<Campaign> alreadySelected, List<Campaign> candidates,
+			UnaryOperator<List<Campaign>> findUnqualified)
+	{
+		List<Campaign> seen = new ArrayList<>();
+		// Deduplication is stateful; keep this stream sequential.
+		List<Campaign> toAdd = candidates.stream()
+				.filter(candidate -> !alreadySelected.contains(candidate))
+				.filter(candidate -> !seen.contains(candidate) && seen.add(candidate))
+				.toList();
+		if (toAdd.isEmpty())
+		{
+			return new Plan(Collections.emptyList(), Collections.emptyList());
+		}
+
+		var selection = new CampaignSelection(alreadySelected, findUnqualified);
+		List<Campaign> kept = new ArrayList<>(toAdd);
+		shrinkToSomethingValid(selection, kept);
+		takeBackWhatFits(selection, toAdd, kept);
+
+		var partitioned = toAdd.stream().collect(partitioningBy(kept::contains));
+		return new Plan(List.copyOf(partitioned.get(true)), List.copyOf(partitioned.get(false)));
+	}
+
+	/**
+	 * Drops candidates until the set is valid.
+	 *
+	 * <p>This starts from the complete set rather than building up, so a
+	 * candidate whose prerequisite is another candidate is judged with that
+	 * other candidate present. It over-shoots: mutually exclusive candidates are
+	 * all unqualified at once and all get dropped, which is what
+	 * {@link #takeBackWhatFits} then repairs.
+	 */
+	private static void shrinkToSomethingValid(CampaignSelection selection, List<Campaign> kept)
+	{
+		while (!kept.isEmpty())
+		{
+			List<Campaign> unqualified = selection.newFailuresWith(kept);
+			List<Campaign> offenders = unqualified.stream().filter(kept::contains).toList();
+			if (!offenders.isEmpty())
+			{
+				offenders.forEach(kept::remove);
+			}
+			else if (unqualified.isEmpty())
+			{
+				return;
+			}
+			else
+			{
+				// The addition broke something the user already had, and the
+				// engine will not say which candidate did it. Give up the last
+				// one and ask again.
+				kept.removeLast();
+			}
+		}
+	}
+
+	/**
+	 * Takes back every dropped candidate that the remaining set can carry.
+	 *
+	 * <p>Conflicts are resolved in favour of the candidate the user sees first,
+	 * which is predictable but does not promise the largest possible set: where
+	 * two candidates exclude each other, the earlier one wins even if the later
+	 * one would have allowed more books in. Passes are repeated because taking a
+	 * candidate back can satisfy the requirements of one already tried.
+	 */
+	private static void takeBackWhatFits(CampaignSelection selection, List<Campaign> toAdd,
+			List<Campaign> kept)
+	{
+		boolean grew = true;
+		while (grew)
+		{
+			grew = false;
+			for (Campaign candidate : toAdd)
+			{
+				if (kept.contains(candidate))
+				{
+					continue;
+				}
+				kept.add(candidate);
+				List<Campaign> additions = toAdd.stream().filter(kept::contains).toList();
+				List<Campaign> unqualified = selection.newFailuresWith(additions);
+				if (unqualified.isEmpty())
+				{
+					grew = true;
+				}
+				else
+				{
+					kept.remove(candidate);
+				}
+			}
+		}
+	}
+}

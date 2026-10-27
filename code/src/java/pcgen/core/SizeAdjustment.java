@@ -21,7 +21,6 @@ package pcgen.core;
 import java.util.List;
 import java.util.Optional;
 
-import pcgen.base.formula.base.VarScoped;
 import pcgen.core.analysis.BonusActivation;
 import pcgen.core.bonus.BonusObj;
 

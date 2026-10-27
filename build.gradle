@@ -746,6 +746,19 @@ tasks.register("datatest", Test) {
     classpath = sourceSets.slowtest.runtimeClasspath
     include 'pcgen/persistence/lst/DataTest.class'
     include 'pcgen/persistence/lst/DataLoadTest.class'
+    include 'pcgen/persistence/lst/DataEncodingTest.class'
+}
+
+// Data-only changes must invalidate validation even when compiled tests are unchanged.
+def sourceDataFiles = files(['data', 'system'].collect { directory ->
+    fileTree(directory) { include '**/*.lst', '**/*.pcc' }
+})
+['datatest', 'slowtest'].each { taskName ->
+    tasks.named(taskName, Test) {
+        inputs.files(sourceDataFiles)
+                .withPropertyName('sourceDataFiles')
+                .withPathSensitivity(PathSensitivity.RELATIVE)
+    }
 }
 
 tasks.register("inttest", Test) {

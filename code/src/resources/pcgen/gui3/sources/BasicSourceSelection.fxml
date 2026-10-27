@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
+<?import javafx.scene.web.WebView?>
+<Tab text="%in_basic" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1"
+     fx:controller="pcgen.gui3.sources.BasicSourceSelectionController">
+    <VBox>
+        <TextFlow>
+            <Text text="%in_qsrc_introText"/>
+        </TextFlow>
+        <SplitPane fx:id="splitPane" dividerPositions="0.35" VBox.vgrow="ALWAYS">
+            <ListView fx:id="sourceList" SplitPane.resizableWithParent="false"/>
+            <WebView fx:id="infoPane"/>
+        </SplitPane>
+    </VBox>
+</Tab>

@@ -29,7 +29,7 @@ Wooden Shield								PROFICIENCY:SHIELD|Shield	TYPE:Shield.StandardShield.Wood	C
 Steel Shield								PROFICIENCY:SHIELD|Shield	TYPE:Shield.StandardShield.Metal	COST:2	WT:1								BONUS:COMBAT|AC|2|TYPE=Shield	BONUS:VAR|Bulk|1																QUALITY:Bulk|1	QUALITY:Hardness|5	QUALITY:HP|20
 Tower shield								PROFICIENCY:SHIELD|Shield	TYPE:Shield.Tower.Wood			COST:10	WT:4								BONUS:COMBAT|AC|2|TYPE=Shield	BONUS:VAR|Bulk|4																QUALITY:Bulk|4	QUALITY:Hardness|5	QUALITY:HP|6	SPROP:Gain additional +2 AC while using Take Cover action.
 
-# TABLE 6â€"18: BARDING
+# TABLE 6â€“18: BARDING
 Light Barding (Small)	PROFICIENCY:ARMOR|Barding (Light)						TYPE:Barding.Mount			COST:10	WT:2		ACCHECK:-2		MAXDEX:5		BONUS:COMBAT|AC|1|TYPE=Armor	BONUS:VAR|SpeedPenalty_Armor|if(STR>=3,0,-5)	BONUS:VAR|Bulk|2	BONUS:EQMARMOR|ACCHECK|if(STR>=3,2,0)	QUALITY:Bulk|2
 Light Barding (Medium)	PROFICIENCY:ARMOR|Barding (Light)						TYPE:Barding.Mount			COST:10	WT:2		ACCHECK:-2		MAXDEX:5		BONUS:COMBAT|AC|1|TYPE=Armor	BONUS:VAR|SpeedPenalty_Armor|if(STR>=3,0,-5)	BONUS:VAR|Bulk|2	BONUS:EQMARMOR|ACCHECK|if(STR>=3,2,0)	QUALITY:Bulk|2
 Light Barding (Large)	PROFICIENCY:ARMOR|Barding (Light)						TYPE:Barding.Mount			COST:5	WT:4		ACCHECK:-2		MAXDEX:5		BONUS:COMBAT|AC|1|TYPE=Armor	BONUS:VAR|SpeedPenalty_Armor|if(STR>=3,0,-5)	BONUS:VAR|Bulk|4	BONUS:EQMARMOR|ACCHECK|if(STR>=3,2,0)	QUALITY:Bulk|4

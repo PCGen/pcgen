@@ -19,7 +19,6 @@ package pcgen.core;
 
 import java.util.Optional;
 
-import pcgen.base.formula.base.VarScoped;
 import pcgen.cdom.base.NonInteractive;
 import pcgen.cdom.base.SortKeyRequired;
 import pcgen.cdom.enumeration.StringKey;

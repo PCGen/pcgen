@@ -17,6 +17,8 @@
  */
 package pcgen.gui2;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.Test;
 import pcgen.system.ConfigurationSettings;
 
@@ -65,10 +67,22 @@ class ScanForUnusedIl8nKeysTest
 
 	private static final Logger LOG = Logger.getLogger("slowtest");
 
+	@Test
+	void scan_should_keepKeysUsedByFreemarkerTemplates() throws IOException
+	{
+		Set<String> keys = Set.of("in_src_badComboMsg", "in_src_alreadyIncludedMsg", "unused_test_key");
+		Set<String> found = buildFileList().stream()
+				.filter(file -> file.getName().endsWith(".ftl"))
+				.flatMap(file -> scanFilesForMissingKeys(file, keys).stream())
+				.collect(Collectors.toSet());
+
+		assertEquals(Set.of("in_src_badComboMsg", "in_src_alreadyIncludedMsg"), found);
+	}
+
 	/*
-	 * Current test case loads all keys from LanguageBundle.properties file and searches for them in *.java and *.fxml
+	 * Current test case loads all keys from LanguageBundle.properties file and searches for them in *.java, *.fxml and *.ftl
 	 * files, whether they exist or not.
-	 * Java uses "key" syntax, and FXML uses "%key" syntax.
+	 * Java and FreeMarker use "key" syntax, and FXML uses "%key" syntax.
 	 */
 	@Test
 	void scanForUnusedKeys() throws IOException
@@ -125,32 +139,32 @@ class ScanForUnusedIl8nKeysTest
 
 	/**
 	 * The function scans a file and searches there for a key from {@code keys} set.
-	 * Java files must contain a localization property using syntax "key" (with double quotes). Other patterns are not
+	 * Java and FreeMarker files must contain a localization property using syntax "key" (with double quotes). Other patterns are not
 	 * supported.
 	 * FXML files must use "%key" syntax
 	 * @param file a current file that will be scanned
 	 * @param keys a set of keys that will be used for searching
-	 * @return unused  keys that will be later removed from the initial {@code unusedKey} set
+	 * @return the referenced keys to remove from the unused-key set
 	 */
 	private static Set<String> scanFilesForMissingKeys(File file, Set<String> keys)
 	{
 		try (var reader = new BufferedReader(new FileReader(file, StandardCharsets.UTF_8)))
 		{
-			var javaFile = reader.lines().collect(Collectors.joining("\n"));
-			if (file.getName().endsWith(".java"))
+			var contents = reader.lines().collect(Collectors.joining("\n"));
+			if (file.getName().endsWith(".java") || file.getName().endsWith(".ftl"))
 			{
 				return keys.stream()
-						.filter(key -> javaFile.contains("\"%s\"".formatted(key)))
+						.filter(key -> contents.contains("\"%s\"".formatted(key)))
 						.collect(Collectors.toSet());
 			} else if (file.getName().endsWith(".fxml"))
 			{
 				return keys.stream()
-						.filter(key -> javaFile.contains("\"%%%s\"".formatted(key)))
+						.filter(key -> contents.contains("\"%%%s\"".formatted(key)))
 						.collect(Collectors.toSet());
 			} else
 			{
 				LOG.warning(
-						"Unknown file extension: %s. This file will be ignored, because only .java and .fxml are supported"
+						"Unknown file extension: %s. This file will be ignored, because only .java, .fxml and .ftl are supported"
 								.formatted(file.getAbsolutePath()));
 			}
 		} catch (IOException e)
@@ -162,7 +176,7 @@ class ScanForUnusedIl8nKeysTest
 
 	/**
 	 * Creates a file "unused.properties" containing all key from a language bundle that are used neither in *.java,
-	 * nor in *.fxml files.
+	 * nor in *.fxml or *.ftl files.
 	 * Adds an empty line at the end of file.
 	 * @param inputPropsFile a input file containing all language bundle properties
 	 * @param cleanPropsFile an output file "unused.properties" with the final result
@@ -186,7 +200,7 @@ class ScanForUnusedIl8nKeysTest
 
 	/**
 	 * Creates a file "cleaned.properties" containing all key from a language bundle that are used either in *.java,
-	 * nor in *.fxml files. The code also replaces two continuous empty lines with one.
+	 * *.fxml or *.ftl files. The code also replaces two continuous empty lines with one.
 	 * Adds an empty line at the end of file.
 	 * @param inputPropsFile a input file containing all language bundle properties
 	 * @param unusedPropsFile an output file "cleaned.properties" with the final result
@@ -213,7 +227,7 @@ class ScanForUnusedIl8nKeysTest
 	}
 
 	/**
-	 * Recursively gets a list of *.java and *.fxml files from project's directories.
+	 * Recursively gets Java, FXML and FreeMarker files from the project's directories.
 	 * @return A list of files that will be scanned for i18n labels
 	 * @throws IOException if an I/O error is thrown when accessing the starting file.
 	 */
@@ -232,12 +246,12 @@ class ScanForUnusedIl8nKeysTest
 					.toList();
 			allFiles.addAll(javaFiles);
 
-			List<File> fxmlFiles = resourcesWalk
+			List<File> resourceFiles = resourcesWalk
 					.filter(Files::isRegularFile)
-					.filter(e -> e.toString().endsWith(".fxml"))
+					.filter(e -> e.toString().endsWith(".fxml") || e.toString().endsWith(".ftl"))
 					.map(Path::toFile)
 					.toList();
-			allFiles.addAll(fxmlFiles);
+			allFiles.addAll(resourceFiles);
 		}
 
 		LOG.info("The size of found files is %d, that will be scanned.".formatted(allFiles.size()));
