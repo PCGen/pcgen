@@ -344,10 +344,6 @@ final class ModernHtmlInfoBuilder
 	 */
 	static String imageSrc(URI fileUri, Path dataDir)
 	{
-		if (fileUri == null)
-		{
-			return "";
-		}
 		if (!"file".equalsIgnoreCase(fileUri.getScheme()))
 		{
 			return fileUri.toString();

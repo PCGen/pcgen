@@ -325,38 +325,17 @@ class BadComboAlertTest
 		}
 
 		@Test
-		void build_should_renderTheMessageInAWebView_notALabel() throws Exception
+		void build_should_configureAnHtmlAcknowledgement() throws Exception
 		{
-			var alert = buildOnFxThread(rejection("Book of Arcane Magic", RED_ITALIC));
-
-			assertInstanceOf(WebView.class, alert.getDialogPane().getContent(),
-					"HTML content needs a WebView; a Label shows the markup verbatim");
-		}
-
-		@Test
-		void build_should_useTheTranslatedTitle() throws Exception
-		{
-			var alert = buildOnFxThread(rejection("Book of Arcane Magic", RED_ITALIC));
-
-			assertEquals(LanguageBundle.getString("in_src_badComboTitle"), alert.getTitle());
-		}
-
-		/** An alert type's default header ("Information") adds no useful message. */
-		@Test
-		void build_should_notShowADefaultHeader() throws Exception
-		{
-			var alert = buildOnFxThread(rejection("Book of Arcane Magic", RED_ITALIC));
-
-			assertNull(alert.getHeaderText());
-		}
-
-		@Test
-		void build_should_offerOnlyAnAcknowledgement() throws Exception
-		{
-			var alert = buildOnFxThread(rejection("Book of Arcane Magic", RED_ITALIC));
-
-			assertEquals(1, alert.getButtonTypes().size(), "an informational warning needs one way out");
-			assertEquals(Alert.AlertType.INFORMATION, alert.getAlertType());
+			asyncFx(() -> {
+				var alert = BadComboAlert.build(List.of(rejection("Book of Arcane Magic", RED_ITALIC)));
+				assertAll(
+						() -> assertInstanceOf(WebView.class, alert.getDialogPane().getContent()),
+						() -> assertEquals(LanguageBundle.getString("in_src_badComboTitle"), alert.getTitle()),
+						() -> assertNull(alert.getHeaderText()),
+						() -> assertEquals(1, alert.getButtonTypes().size()),
+						() -> assertEquals(Alert.AlertType.INFORMATION, alert.getAlertType()));
+			}).get();
 		}
 
 		/** Long reports keep the same initial size and scroll to reveal the rest. */

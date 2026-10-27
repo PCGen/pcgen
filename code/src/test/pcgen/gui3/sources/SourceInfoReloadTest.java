@@ -122,12 +122,16 @@ class SourceInfoReloadTest
 	}
 
 	@Test
-	void showingTwoSourcesInTurn_loadsTheDocumentTwice() throws Exception
+	void showingTwoSourcesInTurn_reusesTheFileAndLoadsEachDocumentOnce() throws Exception
 	{
 		render(campaign("Core Rulebook"));
+		var document = asyncFx(renderer::documentFile).get(5, TimeUnit.SECONDS);
+
 		render(campaign("Bestiary"));
 
 		assertEquals(2, loadsScheduled.get());
+		assertEquals(document, asyncFx(renderer::documentFile).get(5, TimeUnit.SECONDS),
+				"changing the preview must reuse its document file");
 	}
 
 	@Test

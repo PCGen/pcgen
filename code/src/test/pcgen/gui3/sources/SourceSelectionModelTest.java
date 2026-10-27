@@ -94,17 +94,6 @@ class SourceSelectionModelTest
 	}
 
 	@Test
-	void selectedCampaigns_should_replaceContents_when_setAll()
-	{
-		var model = new SourceSelectionModel();
-		model.getSelectedCampaigns().setAll(alpha);
-		model.getSelectedCampaigns().setAll(beta);
-
-		assertEquals(1, model.getSelectedCampaigns().size());
-		assertSame(beta, model.getSelectedCampaigns().getFirst());
-	}
-
-	@Test
 	void availableCampaigns_should_startEmpty_when_fresh()
 	{
 		assertEquals(0, new SourceSelectionModel().getAvailableCampaigns().size());

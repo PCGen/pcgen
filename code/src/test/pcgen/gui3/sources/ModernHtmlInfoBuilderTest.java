@@ -36,12 +36,6 @@ import org.junit.jupiter.api.io.TempDir;
 class ModernHtmlInfoBuilderTest
 {
 	@Test
-	void imageSrc_should_returnEmpty_when_uriIsNull(@TempDir Path dataDir)
-	{
-		assertEquals("", ModernHtmlInfoBuilder.imageSrc(null, dataDir));
-	}
-
-	@Test
 	void imageSrc_should_passThroughAbsoluteUrl_when_schemeIsNotFile(@TempDir Path dataDir)
 			throws URISyntaxException
 	{

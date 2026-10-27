@@ -86,20 +86,24 @@ class SourceAvailabilityCellTest
 	}
 
 	@Test
-	void blockedSource_isMarkedWithTheNotQualifiedColour()
+	void blockedSource_isMarkedAndExplained()
 	{
 		var cell = cellShowing(campaign("Pathfinder RPG for Players"), Status.BLOCKED);
 
 		assertEquals(UIPropertyContext.getNotQualifiedColor(), cell.getTextFill(),
 				"blocked rows use the colour the rest of PCGen uses for a failed prerequisite");
+		assertNotNull(cell.getTooltip());
+		assertTrue(cell.getTooltip().getText().contains("Pathfinder RPG for Players"),
+				cell.getTooltip().getText());
 	}
 
 	@Test
-	void addableSource_isMarkedWithTheQualifiedColour()
+	void addableSource_usesTheQualifiedColourWithoutATooltip()
 	{
 		var cell = cellShowing(campaign("Core Rulebook"), Status.ADDABLE);
 
 		assertEquals(UIPropertyContext.getQualifiedColor(), cell.getTextFill());
+		assertNull(cell.getTooltip(), "a tooltip on every row would be noise");
 	}
 
 	/**
@@ -107,39 +111,14 @@ class SourceAvailabilityCellTest
 	 * failure colour is what the warning dialog was just changed to stop doing.
 	 */
 	@Test
-	void alreadyIncludedSource_isNotMarkedAsAFailure()
+	void alreadyIncludedSource_isDistinctAndExplained()
 	{
 		var cell = cellShowing(campaign("Advanced Player's Guide"), Status.ALREADY_INCLUDED);
 
 		assertNotEquals(UIPropertyContext.getNotQualifiedColor(), cell.getTextFill());
 		assertNotEquals(UIPropertyContext.getQualifiedColor(), cell.getTextFill(),
 				"it must still be distinguishable from a source that can be added");
-	}
-
-	@Test
-	void blockedSource_explainsItselfInATooltip()
-	{
-		var cell = cellShowing(campaign("Pathfinder RPG for Players"), Status.BLOCKED);
-
 		assertNotNull(cell.getTooltip());
-		assertTrue(cell.getTooltip().getText().contains("Pathfinder RPG for Players"),
-				cell.getTooltip().getText());
-	}
-
-	@Test
-	void alreadyIncludedSource_explainsItselfInATooltip()
-	{
-		var cell = cellShowing(campaign("Advanced Player's Guide"), Status.ALREADY_INCLUDED);
-
-		assertNotNull(cell.getTooltip());
-	}
-
-	@Test
-	void addableSource_hasNothingToExplain()
-	{
-		var cell = cellShowing(campaign("Core Rulebook"), Status.ADDABLE);
-
-		assertNull(cell.getTooltip(), "a tooltip on every row would be noise");
 	}
 
 	/**
@@ -188,7 +167,7 @@ class SourceAvailabilityCellTest
 	}
 
 	@Test
-	void recycledCell_forgetsTheColourOfTheRowItUsedToShow()
+	void recycledCell_forgetsTheColourAndTooltipOfThePreviousRow()
 	{
 		var blocked = campaign("Pathfinder RPG for Players");
 		Map<Campaign, Status> statuses = new IdentityHashMap<>();
@@ -201,22 +180,6 @@ class SourceAvailabilityCellTest
 			show(cell, new SourceTreeNode.Leaf(addable), addable.getDisplayName());
 
 			assertEquals(UIPropertyContext.getQualifiedColor(), cell.getTextFill());
-		});
-	}
-
-	@Test
-	void recycledCell_forgetsTheTooltipOfTheRowItUsedToShow()
-	{
-		var blocked = campaign("Pathfinder RPG for Players");
-		Map<Campaign, Status> statuses = new IdentityHashMap<>();
-		statuses.put(blocked, Status.BLOCKED);
-		var addable = campaign("Core Rulebook");
-		statuses.put(addable, Status.ADDABLE);
-		waitForAsyncFx(5000, () -> {
-			var cell = new SourceAvailabilityCell(() -> statuses, c -> "why");
-			show(cell, new SourceTreeNode.Leaf(blocked), blocked.getDisplayName());
-			show(cell, new SourceTreeNode.Leaf(addable), addable.getDisplayName());
-
 			assertNull(cell.getTooltip());
 		});
 	}
