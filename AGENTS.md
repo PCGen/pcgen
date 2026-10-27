@@ -140,6 +140,11 @@ see `PcgenFtlTestCase` for working examples.
   independently of the UI. Plans list nonstandard entries and overwrites so callers can confirm or omit them.
 - Validate archive paths against their canonical destination roots, including nonstandard entries and directories.
   Create file parents during extraction; ZIPs need not contain explicit directory entries.
+- `gui3.install.DataInstallerDialog` owns the FXML workflow. Archive reading, planning, and extraction run
+  on a worker; prompts and task completion run on FX. It owns and closes its `SourceInfoRenderer` preview.
+  Nonstandard entries resolve against `ConfigurationSettings.getInstallRoot()`, never the process directory.
+- Real-manifest tests need built token plugins. In a fresh checkout, use
+  `./gradlew :jarAllPlugins :test --tests 'pcgen.gui3.install.*'` before running them in isolation.
 
 ## Testing
 
