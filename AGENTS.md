@@ -134,6 +134,13 @@ see `PcgenFtlTestCase` for working examples.
   Reused channels must truncate before rewriting; skip identical documents.
 - Intercept source-info links before WebView navigation, and hand only `http`/`https` URLs to the browser.
 
+## Data packages
+
+- `pcgen.persistence.install.DataPackageInstaller` handles ZIP inspection, destination planning, and extraction
+  independently of the UI. Plans list nonstandard entries and overwrites so callers can confirm or omit them.
+- Validate archive paths against their canonical destination roots, including nonstandard entries and directories.
+  Create file parents during extraction; ZIPs need not contain explicit directory entries.
+
 ## Testing
 
 - Use the repository's source sets, not Maven-standard paths. JUnit Jupiter and legacy Vintage coexist.
