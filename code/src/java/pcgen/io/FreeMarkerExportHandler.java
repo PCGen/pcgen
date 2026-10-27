@@ -87,8 +87,6 @@ public class FreeMarkerExportHandler extends ExportHandler
 
 			// Process the template
 			template.process(input, outputWriter);
-			// Flush here so a failure is propagated to the caller.
-			outputWriter.flush();
 		}
 		catch (IOException | TemplateException exc)
 		{

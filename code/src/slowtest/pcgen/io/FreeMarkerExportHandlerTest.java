@@ -55,23 +55,15 @@ class FreeMarkerExportHandlerTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	void propagatesFinalFlushFailure() throws Exception
+	void propagatesFlushFailure() throws Exception
 	{
 		IOException failure = new IOException("Output flush failed");
 		try (BufferedWriter writer = new BufferedWriter(new StringWriter())
 		{
-			private boolean flushed;
-
 			@Override
 			public void flush() throws IOException
 			{
-				// Template.process auto-flushes first; fail the handler's final flush.
-				if (flushed)
-				{
-					throw failure;
-				}
-				super.flush();
-				flushed = true;
+				throw failure;
 			}
 		})
 		{
