@@ -121,20 +121,20 @@ class CampaignDependencyOrderTest
 		assertEquals(List.of("Gamma", "Alpha", "Beta"), names(ordered));
 	}
 
-	/**
-	 * {@code BOOKTYPE=} asks for any book of a type rather than a named one, so
-	 * it cannot be credited to a particular campaign.
-	 */
-	@Test
-	void order_should_ignoreRequirementsOnABookTypeRatherThanABook() throws Exception
+	/** Neither the book-type name nor its full prerequisite key identifies a campaign dependency. */
+	@ParameterizedTest
+	@ValueSource(strings = {"BOOKTYPE=", "INCLUDESBOOKTYPE="})
+	void order_should_ignoreRequirementsOnABookTypeRatherThanABook(String prefix) throws Exception
 	{
-		var core = campaign("Core Rulebook");
-		var psionics = campaign("Ultimate Psionics", "PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules");
+		var key = prefix + "Core Rules";
+		var source = campaign("Supplement", "PRECAMPAIGN:1," + key);
+		var namedLikeType = campaign("Core Rules");
+		var namedLikeKey = campaign(key);
+		var candidates = List.of(source, namedLikeType, namedLikeKey);
 
-		var ordered = CampaignDependencyOrder.mostDependedUponFirst(List.of(core, psionics));
+		var ordered = CampaignDependencyOrder.mostDependedUponFirst(candidates);
 
-		assertEquals(List.of("Core Rulebook", "Ultimate Psionics"), names(ordered),
-				"a book-type requirement credits no individual book, so display order stands");
+		assertEquals(candidates, ordered, "book-type requirements must not promote either matching campaign key");
 	}
 
 	/** A campaign naming itself must not inflate its own standing. */

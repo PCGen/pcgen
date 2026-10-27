@@ -14,13 +14,15 @@
 package plugin.pretokens.test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
+import pcgen.system.LanguageBundle;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 /**
  * Tests the text {@link PreCampaignTester} shows for a source prerequisite.
@@ -73,48 +75,27 @@ class PreCampaignTesterHtmlTest
 		assertEquals("Core Rulebook", html);
 	}
 
-	@Test
-	void bookTypePrefix_isNotShownToTheUser()
+	@ParameterizedTest
+	@ValueSource(strings = {"BOOKTYPE=Core Rules", "INCLUDESBOOKTYPE=Core Rules"})
+	void bookType_isDescribedAsAKindOfBook(String key)
 	{
-		var html = TESTER.toHtmlString(requirementFor("BOOKTYPE=Core Rules"));
+		var html = TESTER.toHtmlString(requirementFor(key));
 
-		assertFalse(html.contains("BOOKTYPE"), html);
-		assertTrue(html.contains("Core Rules"), html);
+		assertEquals(LanguageBundle.getFormattedString("PreCampaign.bookType", "Core Rules"), html);
 	}
 
-	@Test
-	void includesBookTypePrefix_isNotShownToTheUser()
-	{
-		var html = TESTER.toHtmlString(requirementFor("INCLUDESBOOKTYPE=Core Rules"));
-
-		assertFalse(html.contains("BOOKTYPE"), html);
-		assertTrue(html.contains("Core Rules"), html);
-	}
-
-	/**
-	 * A book type is not a book, and saying "Core Rules" alone would read as
-	 * the name of one.
-	 */
-	@Test
-	void bookType_readsAsAKindOfBook_notAsABookName()
-	{
-		var html = TESTER.toHtmlString(requirementFor("BOOKTYPE=Core Rules"));
-
-		assertFalse("Core Rules".equalsIgnoreCase(html),
-				() -> "a book type must not read as a book name, but was " + html);
-	}
-
-	/** The counted form keeps its phrasing, but must not expose the key either. */
-	@Test
-	void countedRequirement_alsoHidesTheKeySyntax()
+	@ParameterizedTest
+	@CsvSource({"GTEQ, 2", "LT, 1"})
+	void countedRequirement_includesOperatorAndCount(PrerequisiteOperator operator, String count)
 	{
 		var prereq = requirementFor("INCLUDES=Core Rulebook");
-		prereq.setOperand("2");
+		prereq.setOperator(operator);
+		prereq.setOperand(count);
 
 		var html = TESTER.toHtmlString(prereq);
 
-		assertFalse(html.contains("INCLUDES="), html);
-		assertTrue(html.contains("Core Rulebook"), html);
+		assertEquals(LanguageBundle.getFormattedString("PreCampaign.toHtml",
+				operator.toDisplayString(), count, "Core Rulebook"), html);
 	}
 
 	/** A key whose name merely begins with a prefix word must not be mangled. */
@@ -123,6 +104,6 @@ class PreCampaignTesterHtmlTest
 	{
 		var html = TESTER.toHtmlString(requirementFor("INCLUDESOMETHING Press Guide"));
 
-		assertTrue(html.contains("INCLUDESOMETHING Press Guide"), html);
+		assertEquals("INCLUDESOMETHING Press Guide", html);
 	}
 }

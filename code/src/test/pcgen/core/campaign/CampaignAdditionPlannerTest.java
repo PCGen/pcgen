@@ -189,29 +189,6 @@ class CampaignAdditionPlannerTest
 	}
 
 	/**
-	 * PCGen's data is full of deliberate mutual exclusions: {@code Bestiary}
-	 * and {@code Bestiary ~ Player Options Only} each carry a
-	 * {@code !PRECAMPAIGN} naming the other, because the second is a cut-down
-	 * edition of the first. Validating the set as a whole sees both as
-	 * unqualified and would refuse both, leaving the user with neither. One of
-	 * them can plainly be added, so one of them must be.
-	 */
-	@Test
-	void plan_should_keepOneOfAMutuallyExclusivePair()
-	{
-		var prereqs = new FakePrereqs();
-		prereqs.exclude("Bestiary", "Bestiary ~ Player Options Only");
-		prereqs.exclude("Bestiary ~ Player Options Only", "Bestiary");
-
-		var plan = CampaignAdditionPlanner.plan(Collections.emptyList(),
-				List.of(campaign("Bestiary"), campaign("Bestiary ~ Player Options Only")), prereqs);
-
-		assertEquals(List.of("Bestiary"), names(plan.accepted()),
-				"one of an exclusive pair must still be added");
-		assertEquals(List.of("Bestiary ~ Player Options Only"), names(plan.rejected()));
-	}
-
-	/**
 	 * A MultiSet such as {@code Pathfinder RPG Core Supplements} repackages the
 	 * individual books, so it and each of them exclude one another. Refusing
 	 * the whole set because the bundle is in it throws away every book the
@@ -237,11 +214,7 @@ class CampaignAdditionPlannerTest
 		assertEquals(List.of("Core Supplements"), names(plan.rejected()));
 	}
 
-	/**
-	 * Resolving an exclusion means choosing a winner, and the choice has to be
-	 * predictable: the same selection must always produce the same result. The
-	 * candidate the user sees first wins.
-	 */
+	/** A mutually exclusive pair keeps its first candidate, even when it sorts last alphabetically. */
 	@Test
 	void plan_should_resolveAConflictInFavourOfTheEarlierCandidate()
 	{
@@ -254,6 +227,7 @@ class CampaignAdditionPlannerTest
 
 		assertEquals(List.of("Zulu"), names(plan.accepted()),
 				"the first candidate offered must win the conflict");
+		assertEquals(List.of("Alpha"), names(plan.rejected()));
 	}
 
 	/**

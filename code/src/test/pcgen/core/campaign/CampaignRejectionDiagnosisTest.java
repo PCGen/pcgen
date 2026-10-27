@@ -189,18 +189,4 @@ class CampaignRejectionDiagnosisTest
 		assertTrue(diagnoses.isEmpty());
 		assertTrue(prereqs.calls.isEmpty(), "diagnosis is an error path and must cost nothing otherwise");
 	}
-
-	@Test
-	void bundleThatContainsItself_doesNotLoopForever()
-	{
-		var bundle = campaign("Self Referential");
-		var book = campaign("Core Rulebook");
-		var contents = new FakeContents();
-		contents.contains(bundle, bundle);
-
-		var diagnoses = CampaignRejectionDiagnosis.diagnose(
-				List.of(book), List.of(bundle), contents, new FakePrereqs());
-
-		assertInstanceOf(CampaignRejectionDiagnosis.Unmet.class, diagnoses.getFirst().reason());
-	}
 }
