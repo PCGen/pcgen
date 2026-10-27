@@ -34,7 +34,7 @@ otherwise Gradle also selects subproject test tasks, which can fail with "No tes
 | `./gradlew :itest` | Integration tests |
 | `./gradlew :slowtest` | Slow tests; also depends on integration tests |
 | `./gradlew :slowtest --tests 'pcgen.gui3.sources.SourceSelectionDataTest' -x :itest` | Published-data selection scenarios only |
-| `./gradlew datatest` | Data loading and validation |
+| `./gradlew datatest` | Data loading, UTF-8 checks, and validation |
 | `./gradlew pfinttest` | Pathfinder character integration tests |
 | `./gradlew inttest` | All character integration variants |
 | `./gradlew testCoverage` | JaCoCo report under `build/reports/jacoco/testCoverage/html` |
@@ -151,6 +151,8 @@ see `PcgenFtlTestCase` for working examples.
 - `SourceSelectionDataTest` tests published-data helpers with the real prerequisite engine, not controller actions.
   Keep these scenarios: simplified fakes do not reproduce book-type counting and self-exclusions.
   Share one planning result per expensive scenario rather than repeating the same work for each assertion.
+- `DataEncodingTest` checks every `.lst` and `.pcc` under `data` and `system`; keep these files as inputs
+  to `datatest` and `slowtest` so data-only edits trigger validation.
 
 ## Build and release constraints
 
