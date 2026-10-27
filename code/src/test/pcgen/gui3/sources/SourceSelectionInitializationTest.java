@@ -21,6 +21,7 @@ import static org.testfx.util.WaitForAsyncUtils.waitForFxEvents;
 
 import java.lang.reflect.Field;
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -30,7 +31,9 @@ import javafx.collections.FXCollections;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
+import javafx.scene.control.ListCell;
 import javafx.scene.control.TabPane;
+import javafx.scene.control.TreeTableView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
@@ -48,6 +51,8 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import org.testfx.framework.junit5.ApplicationExtension;
 
 /** Exercises preferred-tab restoration through both real FXML controllers. */
@@ -200,19 +205,50 @@ class SourceSelectionInitializationTest
 		}).get(5, TimeUnit.SECONDS);
 	}
 
-	@Test
-	void basicDoubleClick_should_notBypassLoadValidation() throws Exception
+	@ParameterizedTest
+	@ValueSource(booleans = {false, true})
+	void basicDoubleClick_should_validateTheSelectedBundle(boolean accepted) throws Exception
 	{
 		asyncFx(() -> {
 			try (var pane = newPane(false))
 			{
-				pane.setLoadValidator(bundle -> false);
+				var requests = new ArrayList<SourceBundle>();
+				var selected = pane.getSelectedSource().orElseThrow();
+				pane.setLoadValidator(bundle -> {
+					requests.add(bundle);
+					return accepted;
+				});
 				var dialog = showDialog(pane);
 				try
 				{
-					pane.lookup("#sourceList").fireEvent(new MouseEvent(
-							MouseEvent.MOUSE_CLICKED, 0, 0, 0, 0, MouseButton.PRIMARY, 2,
-							false, false, false, false, false, false, false, false, false, false, null));
+					basicCell(pane, false).fireEvent(doubleClick());
+					assertEquals(List.of(selected), requests);
+					assertEquals(!accepted, dialog.isShowing());
+				}
+				finally
+				{
+					dialog.close();
+				}
+			}
+		}).get(5, TimeUnit.SECONDS);
+	}
+
+	@Test
+	void basicEmptySpace_should_notLoadThePreviousSelection() throws Exception
+	{
+		asyncFx(() -> {
+			try (var pane = newPane(false))
+			{
+				var requests = new ArrayList<SourceBundle>();
+				pane.setLoadValidator(bundle -> {
+					requests.add(bundle);
+					return true;
+				});
+				var dialog = showDialog(pane);
+				try
+				{
+					basicCell(pane, true).fireEvent(doubleClick());
+					assertTrue(requests.isEmpty());
 					assertTrue(dialog.isShowing());
 				}
 				finally
@@ -221,6 +257,48 @@ class SourceSelectionInitializationTest
 				}
 			}
 		}).get(5, TimeUnit.SECONDS);
+	}
+
+	@Test
+	void removingMultipleCampaigns_should_refreshTheTreeOnce() throws Exception
+	{
+		CONTEXT.setProperty(SOURCES_KEY, basic + "|" + advanced);
+		asyncFx(() -> {
+			try (var pane = newPane(true))
+			{
+				var dialog = showDialog(pane);
+				try
+				{
+					var tree = (TreeTableView<?>) pane.lookup("#treeSelected");
+					tree.getSelectionModel().selectAll();
+					int[] refreshes = {0};
+					tree.rootProperty().addListener((_, _, _) -> refreshes[0]++);
+
+					((Button) pane.lookup("#btnRemoveSelected")).fire();
+
+					assertTrue(tree.getRoot().getChildren().isEmpty());
+					assertEquals(1, refreshes[0]);
+				}
+				finally
+				{
+					dialog.close();
+				}
+			}
+		}).get(5, TimeUnit.SECONDS);
+	}
+
+	private static ListCell<?> basicCell(SourceSelectionDialogPane pane, boolean empty)
+	{
+		return pane.lookup("#sourceList").lookupAll(".list-cell").stream()
+				.map(node -> (ListCell<?>) node)
+				.filter(cell -> cell.isEmpty() == empty)
+				.findFirst().orElseThrow();
+	}
+
+	private static MouseEvent doubleClick()
+	{
+		return new MouseEvent(MouseEvent.MOUSE_CLICKED, 0, 0, 0, 0, MouseButton.PRIMARY, 2,
+				false, false, false, false, false, false, false, false, false, false, null);
 	}
 
 	@Test
@@ -267,6 +345,7 @@ class SourceSelectionInitializationTest
 		dialog.setDialogPane(pane);
 		dialog.show();
 		pane.applyCss();
+		pane.layout();
 		return dialog;
 	}
 }

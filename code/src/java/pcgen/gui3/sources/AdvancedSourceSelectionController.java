@@ -42,7 +42,6 @@ import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Control;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
@@ -52,12 +51,12 @@ import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
+import javafx.scene.control.TreeTableRow;
 import javafx.scene.control.TreeTableView;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseButton;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.web.WebView;
 import javafx.stage.Window;
 import javafx.util.Callback;
@@ -215,23 +214,15 @@ public class AdvancedSourceSelectionController implements AutoCloseable
 	}
 
 	/**
-	 * Makes Enter and a double-click act on the rows of {@code control}.
+	 * Makes Enter and double-clicks on campaign rows act on the selection.
+	 * Empty rows, group headings and column headers do not activate campaigns.
+	 * Enter is always consumed to keep it from reaching the dialog's default Load
+	 * button; other keys, including Escape, propagate normally.
 	 *
-	 * <p>Enter is swallowed whether or not it had anything to act on. The
-	 * dialog's Load button is {@code ButtonData.OK_DONE}, which
-	 * {@code DialogPane.createButton} makes the scene's default button, so any
-	 * Enter that escapes a control commits the whole selection and closes the
-	 * dialog -- which is not what Enter means with a source highlighted.
-	 * Consuming it only when a row happened to be selected would leave the
-	 * dialog closing or not depending on where the highlight sat.
-	 *
-	 * <p>Escape and every other key are left alone, so the dialog can still be
-	 * canceled from here.
-	 *
-	 * @param control the list or tree whose rows are to be actionable
+	 * @param control the tree whose rows are to be actionable
 	 * @param action what to do with the selected rows
 	 */
-	static void activateRowsWith(Control control, Runnable action)
+	static void activateRowsWith(TreeTableView<SourceTreeNode> control, Runnable action)
 	{
 		control.addEventHandler(KeyEvent.KEY_PRESSED, event -> {
 			if (event.getCode() == KeyCode.ENTER)
@@ -240,11 +231,16 @@ public class AdvancedSourceSelectionController implements AutoCloseable
 				action.run();
 			}
 		});
-		control.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
-			if (event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 2)
-			{
-				action.run();
-			}
+		control.setRowFactory(_ -> {
+			var row = new TreeTableRow<SourceTreeNode>();
+			row.setOnMouseClicked(event -> {
+				if (event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 2
+						&& row.getItem() instanceof SourceTreeNode.Leaf)
+				{
+					action.run();
+				}
+			});
+			return row;
 		});
 	}
 
@@ -325,7 +321,7 @@ public class AdvancedSourceSelectionController implements AutoCloseable
 	@FXML
 	protected void onRemoveSelectedAction(ActionEvent event)
 	{
-		selectedLeavesIn(treeSelected).toList().forEach(selectedCampaigns::remove);
+		selectedCampaigns.removeAll(selectedLeavesIn(treeSelected).toList());
 	}
 
 	/**

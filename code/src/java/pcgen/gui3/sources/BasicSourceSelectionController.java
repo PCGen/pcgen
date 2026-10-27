@@ -69,7 +69,16 @@ public class BasicSourceSelectionController implements AutoCloseable
 	protected void initialize()
 	{
 		infoRenderer = new SourceInfoRenderer(infoPane.getEngine());
-		sourceList.setCellFactory(list -> new SourceBundleListCell(this::requestDelete));
+		sourceList.setCellFactory(_ -> {
+			var cell = new SourceBundleListCell(this::requestDelete);
+			cell.setOnMouseClicked(event -> {
+				if (event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 2 && !cell.isEmpty())
+				{
+					onLoadRequested.run();
+				}
+			});
+			return cell;
+		});
 		sourceList.getSelectionModel().selectedItemProperty().addListener((obs, old, selected) -> {
 			if (selected == null || selected.campaigns().isEmpty())
 			{
@@ -85,13 +94,6 @@ public class BasicSourceSelectionController implements AutoCloseable
 			{
 				requestDelete(sourceList.getSelectionModel().getSelectedItem());
 				event.consume();
-			}
-		});
-		sourceList.setOnMouseClicked(event -> {
-			if (event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 2
-					&& sourceList.getSelectionModel().getSelectedItem() != null)
-			{
-				onLoadRequested.run();
 			}
 		});
 	}
@@ -221,11 +223,7 @@ public class BasicSourceSelectionController implements AutoCloseable
 
 		var delete = new ButtonType(LanguageBundle.getString("in_delete"), ButtonData.OK_DONE);
 		alert.getButtonTypes().setAll(delete, ButtonType.CANCEL);
-		// OK_DONE is what JavaFX keys both placement and default status off:
-		// ButtonBar sorts it into the trailing group (after CANCEL_CLOSE) and
-		// DialogPane.createButton calls setDefaultButton(ButtonData#isDefaultButton).
-		// Nothing further to set -- doing it by hand is how the odd leading
-		// Delete button crept in.
+		// ButtonData supplies native platform ordering and default/cancel semantics.
 		return alert;
 	}
 

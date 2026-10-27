@@ -85,6 +85,9 @@ see `PcgenFtlTestCase` for working examples.
   Load validation must happen before dismissal, including Basic-row double-clicks.
 - Use `ButtonData` for platform placement and default/cancel semantics, and `SourceDialogOutcome` to
   distinguish dialog results. Install Data is identified by its own button instance.
+  Tests should verify those semantics without fixing a platform's visual button order.
+- Attach double-click actions to populated campaign rows so headers and empty space cannot activate
+  a previous selection. Batch selection edits to avoid repeating full availability calculations.
 - Language-bundle HTML requires an HTML-capable view, not `Alert.setContentText`.
   Preserve meaningful prerequisite markup. Use plain-text sibling keys for plain-text controls;
   HTML attributes in `MessageFormat` patterns need double quotes.

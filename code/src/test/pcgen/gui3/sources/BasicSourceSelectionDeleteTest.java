@@ -13,6 +13,7 @@
  */
 package pcgen.gui3.sources;
 
+import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNull;
@@ -21,14 +22,12 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.testfx.util.WaitForAsyncUtils.waitForAsyncFx;
 import static org.testfx.util.WaitForAsyncUtils.waitForFxEvents;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javafx.collections.FXCollections;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
@@ -199,100 +198,26 @@ class BasicSourceSelectionDeleteTest
 		assertNull(deleted, "a built-in bundle cannot be deleted by any route");
 	}
 
-	private Alert confirmationFor(SourceBundle bundle)
-	{
-		return waitForAsyncFx(5000,
-				() -> BasicSourceSelectionController.buildDeleteConfirmation(bundle));
-	}
-
 	@Test
-	void confirmation_should_quoteTheSourceNameInItsHeader()
+	void confirmation_should_nameTheSourceAndOfferDeleteWithCancel()
 	{
-		// The header is rendered larger and heavier than the body, so putting the
-		// name there emphasises it without needing rich text.
-		assertEquals("Delete \"Custom\"?", confirmationFor(CUSTOM).getHeaderText());
-	}
-
-	@Test
-	void confirmation_should_offerDeleteAndCancel_ratherThanYesAndNo()
-	{
-		var labels = confirmationFor(CUSTOM).getButtonTypes().stream().map(ButtonType::getText).toList();
-
-		assertEquals(List.of("Delete", "Cancel"), labels,
-				"a verb names the consequence; Yes forces the user to re-read the question");
-	}
-
-	@Test
-	void confirmation_should_renderDeleteToTheRightOfCancel()
-	{
-		// ButtonBar reorders by ButtonData, so the rendered order is the only
-		// honest assertion here -- getButtonTypes() keeps insertion order.
-		assertEquals(List.of("Cancel", "Delete"), renderedButtonLabels(confirmationFor(CUSTOM)),
-				"the action belongs in the trailing position; a leading Delete reads as a label");
-	}
-
-	@Test
-	void confirmation_should_makeDeleteTheDefaultButton()
-	{
-		var alert = confirmationFor(CUSTOM);
-		var cancel = (Button) alert.getDialogPane().lookupButton(ButtonType.CANCEL);
-		var delete = (Button) alert.getDialogPane().lookupButton(deleteButtonType(alert));
-
-		assertTrue(delete.isDefaultButton(), "Enter must confirm the action the dialog is named after");
-		assertFalse(cancel.isDefaultButton(), "two default buttons would fight over Enter");
-	}
-
-	@Test
-	void confirmation_should_keepCancelOnEscape()
-	{
-		var cancel = (Button) confirmationFor(CUSTOM).getDialogPane().lookupButton(ButtonType.CANCEL);
-
-		assertTrue(cancel.isCancelButton(), "Escape must always back out of a destructive prompt");
-	}
-
-	@Test
-	void confirmationResult_should_beDrivenByButtonData_notListPosition()
-	{
-		// confirmDelete() has to recognise the confirming button. Keying off
-		// OK_DONE keeps it correct if the ButtonTypes are ever reordered.
-		assertEquals(ButtonBar.ButtonData.OK_DONE, deleteButtonType(confirmationFor(CUSTOM)).getButtonData());
-	}
-
-	private static ButtonType deleteButtonType(Alert alert)
-	{
-		return alert.getButtonTypes().stream()
-				.filter(b -> b.getButtonData() != ButtonBar.ButtonData.CANCEL_CLOSE)
-				.findFirst()
-				.orElseThrow();
-	}
-
-	/** Lays the alert out off-screen and reads its buttons left to right. */
-	private List<String> renderedButtonLabels(Alert alert)
-	{
-		return waitForAsyncFx(5000, () -> {
+		waitForAsyncFx(5000, () -> {
+			var alert = BasicSourceSelectionController.buildDeleteConfirmation(CUSTOM);
 			var pane = alert.getDialogPane();
-			pane.applyCss();
-			pane.layout();
-			var bar = (ButtonBar) pane.lookup(".button-bar");
-			var labels = new ArrayList<String>();
-			collectButtonText(bar, labels);
-			return labels;
-		});
-	}
+			var deleteType = alert.getButtonTypes().stream()
+					.filter(button -> button != ButtonType.CANCEL).findFirst().orElseThrow();
+			var delete = (Button) pane.lookupButton(deleteType);
+			var cancel = (Button) pane.lookupButton(ButtonType.CANCEL);
 
-	private static void collectButtonText(Parent parent, List<String> into)
-	{
-		for (var child : parent.getChildrenUnmodifiable())
-		{
-			if (child instanceof Button button)
-			{
-				into.add(button.getText());
-			}
-			else if (child instanceof Parent nested)
-			{
-				collectButtonText(nested, into);
-			}
-		}
+			assertAll(
+					() -> assertEquals("Delete \"Custom\"?", alert.getHeaderText()),
+					() -> assertEquals(List.of("Delete", "Cancel"),
+							alert.getButtonTypes().stream().map(ButtonType::getText).toList()),
+					() -> assertEquals(ButtonBar.ButtonData.OK_DONE, deleteType.getButtonData()),
+					() -> assertTrue(delete.isDefaultButton(), "Enter confirms deletion"),
+					() -> assertFalse(cancel.isDefaultButton()),
+					() -> assertTrue(cancel.isCancelButton(), "Escape cancels deletion"));
+		});
 	}
 
 	@Test

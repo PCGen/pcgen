@@ -14,195 +14,126 @@
 package pcgen.gui3.sources;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.testfx.util.WaitForAsyncUtils.asyncFx;
 
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicInteger;
+import java.util.function.Predicate;
 
-import javafx.event.Event;
+import javafx.beans.property.ReadOnlyStringWrapper;
+import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.TreeItem;
+import javafx.scene.control.TreeTableColumn;
+import javafx.scene.control.TreeTableRow;
 import javafx.scene.control.TreeTableView;
-import javafx.scene.layout.StackPane;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
+
+import pcgen.core.Campaign;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.testfx.framework.junit5.ApplicationExtension;
-import org.testfx.util.WaitForAsyncUtils;
+import org.testfx.framework.junit5.Start;
 
-/**
- * The source dialog's Load button is {@code ButtonData.OK_DONE}, which makes
- * it the scene's default button, so any Enter that reaches the dialog commits
- * the whole selection and closes it. That is not what Enter means with a row
- * selected in a list of sources, where it should act on the row.
- *
- * <p>These tests cover the gesture wiring shared by both Advanced trees: which
- * gestures activate a row, and -- just as importantly -- that Enter is
- * swallowed so it can never reach the default button.
- */
+/** Exercises activation and key propagation through real tree rows and headers. */
 @ExtendWith(ApplicationExtension.class)
 class SourceTreeActivationTest
 {
-	private final AtomicInteger activations = new AtomicInteger();
+	private Stage stage;
 	private TreeTableView<SourceTreeNode> tree;
+	private int activations;
+	private int escaped;
 
-	/** Events that got past the tree to its parent, as one would to the dialog. */
-	private final AtomicInteger escaped = new AtomicInteger();
+	@Start
+	void start(Stage window)
+	{
+		stage = window;
+	}
 
-	/**
-	 * A control may only be built on the FX thread; the test methods run on the
-	 * "Test worker" thread, so construction cannot go in a field initialiser.
-	 *
-	 * <p>The tree is given a parent that counts what reaches it. Asserting on
-	 * the fired event's own {@code isConsumed()} would prove nothing: event
-	 * dispatch copies the event, so the copy is what gets consumed.
-	 */
 	@BeforeEach
 	void buildTree() throws Exception
 	{
-		java.util.concurrent.Callable<TreeTableView<SourceTreeNode>> build = () -> {
-			var control = new TreeTableView<SourceTreeNode>();
-			var parent = new StackPane(control);
-			new Scene(parent);
-			parent.addEventHandler(KeyEvent.KEY_PRESSED, _ -> escaped.incrementAndGet());
-			return control;
-		};
-		tree = WaitForAsyncUtils.asyncFx(build).get(5, TimeUnit.SECONDS);
+		var campaign = new Campaign();
+		campaign.setName("Campaign");
+		asyncFx(() -> {
+			var root = new TreeItem<SourceTreeNode>();
+			var publisher = new TreeItem<SourceTreeNode>(new SourceTreeNode.Publisher("Publisher"));
+			var leaf = new TreeItem<SourceTreeNode>(new SourceTreeNode.Leaf(campaign));
+			publisher.getChildren().add(leaf);
+			publisher.setExpanded(true);
+			root.getChildren().add(publisher);
+			tree = new TreeTableView<>(root);
+			tree.setShowRoot(false);
+			var column = new TreeTableColumn<SourceTreeNode, String>("Name");
+			column.setCellValueFactory(cell -> new ReadOnlyStringWrapper(cell.getValue().getValue().displayLabel()));
+			tree.getColumns().add(column);
+			AdvancedSourceSelectionController.activateRowsWith(tree, () -> {
+				if (!tree.getSelectionModel().isEmpty())
+				{
+					activations++;
+				}
+			});
+			tree.getSelectionModel().select(leaf);
+			var parent = new StackPane(tree);
+			parent.addEventHandler(KeyEvent.KEY_PRESSED, _ -> escaped++);
+			stage.setScene(new Scene(parent, 400, 300));
+			stage.show();
+			parent.applyCss();
+			parent.layout();
+		}).get(5, TimeUnit.SECONDS);
 	}
 
-	private void install()
+	@ParameterizedTest
+	@CsvSource({"ENTER, true, 1, 0", "ENTER, false, 0, 0", "A, true, 0, 1", "ESCAPE, true, 0, 1"})
+	void keys_should_activateOrPropagate(KeyCode key, boolean selected, int expectedActivations,
+			int expectedEscaped) throws Exception
 	{
-		install(activations::incrementAndGet);
+		asyncFx(() -> {
+			if (!selected)
+			{
+				tree.getSelectionModel().clearSelection();
+			}
+			tree.fireEvent(new KeyEvent(KeyEvent.KEY_PRESSED, "", "", key, false, false, false, false));
+			assertEquals(expectedActivations, activations);
+			assertEquals(expectedEscaped, escaped);
+		}).get(5, TimeUnit.SECONDS);
 	}
 
-	private void install(Runnable action)
+	@ParameterizedTest
+	@CsvSource({
+		"campaign, PRIMARY, 2, 1", "campaign, PRIMARY, 1, 0", "campaign, SECONDARY, 2, 0",
+		"publisher, PRIMARY, 2, 0", "empty, PRIMARY, 2, 0", "header, PRIMARY, 2, 0"
+	})
+	void clicks_should_activateOnlyCampaignRows(String target, MouseButton button, int count,
+			int expected) throws Exception
 	{
-		AdvancedSourceSelectionController.activateRowsWith(tree, action);
+		asyncFx(() -> {
+			Node clicked = switch (target)
+			{
+				case "campaign" -> rowMatching(row -> row.getItem() instanceof SourceTreeNode.Leaf);
+				case "publisher" -> rowMatching(row -> row.getItem() instanceof SourceTreeNode.Publisher);
+				case "empty" -> rowMatching(TreeTableRow::isEmpty);
+				case "header" -> tree.lookup(".column-header");
+				default -> throw new IllegalArgumentException(target);
+			};
+			clicked.fireEvent(new MouseEvent(MouseEvent.MOUSE_CLICKED, 0, 0, 0, 0, button, count,
+					false, false, false, false, false, false, false, false, false, false, null));
+			assertEquals(expected, activations);
+		}).get(5, TimeUnit.SECONDS);
 	}
 
-	/** Events are delivered on the FX thread, as they are in a running dialog. */
-	private void fire(Event event) throws Exception
+	private TreeTableRow<?> rowMatching(Predicate<TreeTableRow<?>> predicate)
 	{
-		WaitForAsyncUtils.asyncFx(() -> Event.fireEvent(tree, event)).get(5, TimeUnit.SECONDS);
-	}
-
-	private static KeyEvent keyPress(KeyCode code)
-	{
-		return new KeyEvent(KeyEvent.KEY_PRESSED, "", "", code, false, false, false, false);
-	}
-
-	private static MouseEvent click(MouseButton button, int count)
-	{
-		return new MouseEvent(MouseEvent.MOUSE_CLICKED, 0, 0, 0, 0, button, count,
-				false, false, false, false, button == MouseButton.PRIMARY, false, false,
-				false, false, true, null);
-	}
-
-	@Test
-	void enter_activatesTheRow() throws Exception
-	{
-		install();
-
-		fire(keyPress(KeyCode.ENTER));
-
-		assertEquals(1, activations.get());
-	}
-
-	/**
-	 * The regression this exists for: an Enter that bubbles out of the tree
-	 * reaches the default Load button and dismisses the dialog.
-	 */
-	@Test
-	void enter_isSwallowed_soItCannotReachTheDefaultButton() throws Exception
-	{
-		install();
-
-		fire(keyPress(KeyCode.ENTER));
-
-		assertEquals(0, escaped.get(), "Enter must not escape the tree to the dialog's Load button");
-	}
-
-	/**
-	 * Enter is swallowed whether or not it had anything to act on. Consuming
-	 * it only when a row is selected would make the dialog close depending on
-	 * where the highlight happens to be.
-	 */
-	@Test
-	void enter_isSwallowedEvenWithNothingToActOn() throws Exception
-	{
-		install(() -> { });
-
-		fire(keyPress(KeyCode.ENTER));
-
-		assertEquals(0, escaped.get());
-	}
-
-	@Test
-	void otherKeys_areLeftAlone() throws Exception
-	{
-		install();
-
-		fire(keyPress(KeyCode.A));
-
-		assertEquals(0, activations.get());
-		assertEquals(1, escaped.get(), "only Enter is ours to swallow");
-	}
-
-	/**
-	 * Escape must keep reaching the dialog, or the tree becomes a place the
-	 * user cannot cancel from.
-	 */
-	@Test
-	void escape_isLeftAlone() throws Exception
-	{
-		install();
-
-		fire(keyPress(KeyCode.ESCAPE));
-
-		assertEquals(1, escaped.get(), "Escape must still reach the dialog, or this tree cannot be left");
-	}
-
-	@Test
-	void doubleClick_activatesTheRow() throws Exception
-	{
-		install();
-
-		fire(click(MouseButton.PRIMARY, 2));
-
-		assertEquals(1, activations.get());
-	}
-
-	@Test
-	void singleClick_doesNotActivateTheRow() throws Exception
-	{
-		install();
-
-		fire(click(MouseButton.PRIMARY, 1));
-
-		assertEquals(0, activations.get());
-	}
-
-	@Test
-	void rightDoubleClick_doesNotActivateTheRow() throws Exception
-	{
-		install();
-
-		fire(click(MouseButton.SECONDARY, 2));
-
-		assertEquals(0, activations.get());
-	}
-
-	@Test
-	void eachGesture_activatesOnce() throws Exception
-	{
-		install();
-
-		fire(keyPress(KeyCode.ENTER));
-		fire(click(MouseButton.PRIMARY, 2));
-
-		assertEquals(2, activations.get());
+		return tree.lookupAll(".tree-table-row-cell").stream()
+				.map(node -> (TreeTableRow<?>) node)
+				.filter(predicate)
+				.findFirst().orElseThrow();
 	}
 }
