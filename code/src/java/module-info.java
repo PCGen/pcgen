@@ -30,7 +30,7 @@ module pcgen {
     requires org.apache.xmlgraphics.commons;
     requires spring.beans;
     requires spring.core;
-    requires Saxon.HE;
+    requires net.sf.saxon;
     requires jep;
 
     requires static org.jetbrains.annotations;
