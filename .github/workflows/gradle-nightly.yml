@@ -1,9 +1,9 @@
 name: Nightly Build
 
 # Runs daily at 02:00 UTC. Skips the build entirely if master has not moved
-# since the last published nightly (comparing HEAD against the most recent
-# v<base>-NIGHTLY.<date> tag, so dropped or delayed scheduled runs never lose
-# commits). When master has advanced, builds full release artifacts for all
+# since the last successful nightly (recorded by the nightly-last-success
+# tag only after all platforms finish uploading). Failed builds remain
+# retryable even after delayed or dropped runs. Builds release artifacts for all
 # four supported platforms and publishes them as a GitHub pre-release tagged
 # v<base>-NIGHTLY.<YYYYMMDD>.
 #
@@ -56,24 +56,17 @@ jobs:
           SHORT_SHA=$(git rev-parse --short HEAD)
           echo "HEAD: ${COMMIT_SHA} (${SHORT_SHA})"
 
-          # Decide whether to build by comparing HEAD against the commit the
-          # most recent nightly was built from, rather than a wall-clock
-          # window. Scheduled runs fire late or get dropped entirely, so a
-          # "commits in the last 24h" check silently skips days and loses
-          # commits; comparing against the last built tag is immune to that.
-          LAST_NIGHTLY_TAG=$(git ls-remote --tags --refs --sort='-v:refname' origin 'refs/tags/v*-NIGHTLY.*' \
-            | head -1 | sed 's#.*refs/tags/##')
-
-          if [ -z "${LAST_NIGHTLY_TAG}" ]; then
-            echo "No existing nightly tag found; treating HEAD as new."
-          else
-            LAST_NIGHTLY_SHA=$(git rev-parse "${LAST_NIGHTLY_TAG}^{commit}" 2>/dev/null || echo "")
-            echo "Last nightly tag:  ${LAST_NIGHTLY_TAG} (${LAST_NIGHTLY_SHA:-unknown commit})"
-            if [ -n "${LAST_NIGHTLY_SHA}" ] && [ "${LAST_NIGHTLY_SHA}" = "${COMMIT_SHA}" ]; then
-              echo "::notice::master is unchanged since the last nightly (${LAST_NIGHTLY_TAG}), skipping nightly build."
+          # Checkout fetched all tags. Dated tags are created before building,
+          # so only the marker written after all uploads proves success.
+          if LAST_SUCCESS_SHA=$(git rev-parse --verify --quiet 'refs/tags/nightly-last-success^{commit}'); then
+            echo "Last successful nightly commit: ${LAST_SUCCESS_SHA}"
+            if [ "${LAST_SUCCESS_SHA}" = "${COMMIT_SHA}" ]; then
+              echo "::notice::master is unchanged since the last successful nightly, skipping nightly build."
               echo "should_build=false" >> "${GITHUB_OUTPUT}"
               exit 0
             fi
+          else
+            echo "No successful nightly marker found; treating HEAD as new."
           fi
 
           BASE_VERSION=$(grep '^version=' gradle.properties | head -1 | cut -d'=' -f2 | tr -d '[:space:]')
@@ -86,13 +79,16 @@ jobs:
           echo "Nightly version: ${NIGHTLY_VERSION}"
           echo "Tag name:        ${TAG_NAME}"
 
-          # Safety net: a nightly for today's date already exists (e.g. a
-          # second run on the same calendar day). The tag name is date-based,
-          # so publishing again would collide; skip.
-          if git ls-remote --exit-code --tags origin "refs/tags/${TAG_NAME}" > /dev/null 2>&1; then
-            echo "::warning::Tag '${TAG_NAME}' already exists on the remote, skipping nightly build."
-            echo "should_build=false" >> "${GITHUB_OUTPUT}"
-            exit 0
+          # Retry an incomplete nightly at the same commit, but never replace
+          # a dated release with a different commit on the same day.
+          if git show-ref --verify --quiet "refs/tags/${TAG_NAME}"; then
+            TAG_SHA=$(git rev-parse "refs/tags/${TAG_NAME}^{commit}")
+            if [ "${TAG_SHA}" != "${COMMIT_SHA}" ]; then
+              echo "::notice::Tag '${TAG_NAME}' already points to another commit; deferring changes to the next nightly."
+              echo "should_build=false" >> "${GITHUB_OUTPUT}"
+              exit 0
+            fi
+            echo "Retrying nightly at existing tag '${TAG_NAME}'."
           fi
 
           {
@@ -119,6 +115,15 @@ jobs:
           COMMIT_SHA: ${{ needs.check_changes.outputs.commit_sha }}
         run: |
           set -euo pipefail
+          if git show-ref --verify --quiet "refs/tags/${TAG_NAME}"; then
+            TAG_SHA=$(git rev-parse "refs/tags/${TAG_NAME}^{commit}")
+            if [ "${TAG_SHA}" != "${COMMIT_SHA}" ]; then
+              echo "::error::Tag '${TAG_NAME}' points to a different commit."
+              exit 1
+            fi
+            echo "Reusing nightly tag '${TAG_NAME}' for ${COMMIT_SHA}."
+            exit 0
+          fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git tag -a "${TAG_NAME}" -m "Nightly build of ${COMMIT_SHA}"
@@ -234,6 +239,7 @@ jobs:
           name: ${{ matrix.release_suffix }}-nightly
           path: ${{ github.workspace }}/build/release/*
           if-no-files-found: error
+          overwrite: true
 
       - name: Attach nightly artifacts to GitHub pre-release
         uses: softprops/action-gh-release@v3
@@ -243,12 +249,24 @@ jobs:
           fail_on_unmatched_files: true
 
   cleanup_old_nightlies:
-    name: Cleanup old nightlies
-    needs: build_release
+    name: Record successful nightly and clean up
+    needs: [check_changes, build_release]
     if: needs.build_release.result == 'success'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
+        with:
+          ref: ${{ needs.check_changes.outputs.commit_sha }}
+
+      - name: Record successful nightly commit
+        env:
+          COMMIT_SHA: ${{ needs.check_changes.outputs.commit_sha }}
+        run: |
+          set -euo pipefail
+          # Only this moving marker is replaced; dated release tags stay fixed.
+          # Its name does not match the tag-release workflow's v*.*.* trigger.
+          git tag --force nightly-last-success "${COMMIT_SHA}"
+          git push --force origin refs/tags/nightly-last-success
 
       - name: Delete nightly releases older than the most recent 7
         env:
