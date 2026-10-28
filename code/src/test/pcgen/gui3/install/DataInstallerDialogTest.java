@@ -137,7 +137,7 @@ class DataInstallerDialogTest
 	@Test
 	void choose_should_preserveTheSelectionWhenTheChooserIsCancelled() throws Exception
 	{
-		select(writePackage("book.zip", "CAMPAIGN:Book\nMINVER:1.0.0\nDEST:DATA\n", Map.of()));
+		select(writePackage("book.zip", "CAMPAIGN:Book\r\nMINVER:1.0.0\r\nDEST:DATA\r\n", Map.of()));
 		runNext();
 		asyncFx(() -> {
 			dialog.setChooser(() -> null);
@@ -192,7 +192,7 @@ class DataInstallerDialogTest
 	{
 		String[] version = PCGenPropBundle.getVersionNumber().split("\\.");
 		String minimum = version[0] + "." + version[1] + ".999999";
-		select(writePackage("newer.pcz", "CAMPAIGN:Newer\nMINVER:1.0.0\nMINDEVVER:" + minimum + "\nDEST:DATA\n",
+		select(writePackage("newer.pcz", "CAMPAIGN:Newer\r\nMINVER:1.0.0\r\nMINDEVVER:" + minimum + "\r\nDEST:DATA\r\n",
 				Map.of()));
 		runNext();
 		asyncFx(() -> assertTrue(button("install").isDisabled())).get();

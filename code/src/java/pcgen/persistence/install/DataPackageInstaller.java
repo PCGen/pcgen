@@ -137,7 +137,8 @@ public final class DataPackageInstaller
 				reader.transferTo(text);
 			}
 			var entries = zip.stream().filter(entry -> !entry.getName().equalsIgnoreCase("install.lst"))
-					.map(entry -> new ArchiveEntry(entry.getName(), entry.isDirectory())).toList();
+					.map(entry -> new ArchiveEntry(entry.getName(), entry.getName().replace('\\', '/').endsWith("/")))
+					.toList();
 			return new DataPackage(archive, text.toString(), entries);
 		}
 	}

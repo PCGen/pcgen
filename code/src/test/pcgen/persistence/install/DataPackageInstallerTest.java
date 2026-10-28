@@ -107,6 +107,7 @@ class DataPackageInstallerTest
 	void install_should_normalizeWindowsSeparatorsAndContainedParentSegments() throws IOException
 	{
 		var contents = DataPackageInstaller.read(writePackage(Map.of(
+				"data\\publisher\\", "",
 				"data\\publisher\\book.lst", "windows",
 				"data/sub/../normalized.lst", "normalized")));
 		DataPackageInstaller.install(DataPackageInstaller.plan(contents, data, sheets, application), _ -> { });
