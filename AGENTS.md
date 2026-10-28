@@ -167,7 +167,9 @@ see `PcgenFtlTestCase` for working examples.
 - `.github/workflows/gradle-test.yml` runs build, integration/data/slow tests, then coverage.
   The tag-release workflow validates tags; the manual-release workflow commits the release version,
   builds, then bumps to the next snapshot only after success.
-- The nightly workflow skips unchanged master, otherwise publishes a dated prerelease and retains seven nightlies.
+- The nightly workflow compares master with the moving `nightly-last-success` tag, updated only after
+  all platforms build and upload successfully. Dated tags alone do not prove success. Same-commit retries
+  reuse the dated tag; different commits wait until the next day. It retains seven nightly releases.
   CI patches version/date resources during builds without committing them.
 
 ## Other non-obvious constraints
