@@ -24,7 +24,7 @@ jobs:
     name: Create Release
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
         with:
           ref: ${{ inputs.tag_name || github.ref }}
 
@@ -97,7 +97,7 @@ jobs:
           # windows-arm removed - no GitHub-hosted runner available yet
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
         with:
           ref: ${{ inputs.tag_name || github.ref }}
 
