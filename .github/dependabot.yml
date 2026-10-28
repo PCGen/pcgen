@@ -11,3 +11,9 @@ updates:
   - dependency-name: jep:jep
     versions:
     - "> 2.4.1"
+- package-ecosystem: github-actions
+  directory: "/"
+  schedule:
+    interval: weekly
+  reviewers:
+  - grimreaper
