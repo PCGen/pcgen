@@ -41,6 +41,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.core.ChooserFacade;
 import pcgen.facade.core.DataSetFacade;
 import pcgen.facade.core.InfoFacade;
 import pcgen.facade.core.UIDelegate;
@@ -62,8 +63,8 @@ import org.junit.jupiter.api.io.TempDir;
  * Power Attack on natural attacks, using the real Pathfinder data and the same code path as the
  * Temporary Bonuses tab. A 7th-level summoner's eidolon has BAB +6, so Power Attack is -2 to hit
  * and +4 damage: +6 (x1.5) on a primary natural attack that adds 1-1/2 times Strength (the eidolon
- * Improved Bite evolution, or a creature's only natural attack such as the wolf's bite) and +2 (halved)
- * on a secondary natural attack.
+ * Improved Bite evolution, a dragon disciple's Dragon Bite, or a creature's only natural attack such as the
+ * wolf's bite) and +2 (halved) on a secondary natural attack.
  */
 class PowerAttackNaturalAttackTest
 {
@@ -86,6 +87,23 @@ class PowerAttackNaturalAttackTest
 		public boolean showWarningConfirm(String title, String message)
 		{
 			return true;
+		}
+
+		@Override
+		public boolean showGeneralChooser(ChooserFacade chooser)
+		{
+			// The dragon disciple needs the Draconic bloodline; any other chooser takes the first choice.
+			for (int i = 0; i < chooser.getAvailableList().getSize(); i++)
+			{
+				InfoFacade item = chooser.getAvailableList().getElementAt(i);
+				if (item.toString().startsWith("Draconic"))
+				{
+					chooser.addSelected(item);
+					chooser.commit();
+					return true;
+				}
+			}
+			return super.showGeneralChooser(chooser);
 		}
 	};
 
@@ -162,6 +180,35 @@ class PowerAttackNaturalAttackTest
 
 		assertTrue(hasAbility(pc, PA_PRIMARY_STR), "1.5x Str variant granted for a single natural attack");
 		assertPowerAttack(pc, PA_PRIMARY, "Bite", -1, 2);
+		assertPowerAttack(pc, PA_PRIMARY_STR, "Bite", -1, 3);
+	}
+
+	@Test
+	void dragonDiscipleBiteGetsOneAndAHalfDamage()
+	{
+		// Dragon Bite adds 1-1/2 times Strength although it comes with the Draconic bloodline's two claws.
+		// Sorcerer 1 (claws) + Dragon Disciple 2 (bite) has BAB +1, so Power Attack is -1 to hit and +3.
+		CharacterFacadeImpl disciple = (CharacterFacadeImpl) CharacterManager.createNewCharacter(UI, dataset);
+		disciple.getTheCharacter().setFileName("pa-dragon-disciple.pcg");
+		disciple.setRace(find(Race.class, "Human"));
+		disciple.setScoreBase(find(PCStat.class, "STR"), 14);
+		PlayerCharacter pc = disciple.getTheCharacter();
+		// Levels are added directly: class requirements (e.g. Dragon Disciple's Draconic and 5 ranks of
+		// Knowledge (Arcana)) are not under test.
+		pc.incrementClassLevel(1, find(PCClass.class, "Sorcerer"), true, true);
+		// The bloodline pick opens a chooser, which UI answers with the Draconic bloodline.
+		disciple.addAbility(find(AbilityCategory.class, "Bloodline"),
+			internalAbility("Sorcerer ~ Standard Bloodline Selection"));
+		pc.incrementClassLevel(2, find(PCClass.class, "Dragon Disciple"), true, true);
+		disciple.addAbility(AbilityCategory.FEAT, feat("Power Attack"));
+		pc.calcActiveBonuses();
+		assertTrue(hasAbility(pc, "Power Attack"), "Power Attack taken");
+		assertTrue(hasAbility(pc, "Draconic Bloodline ~ Claws"), "Draconic bloodline claws");
+		assertTrue(hasAbility(pc, "Dragon Disciple ~ Dragon Bite"), "Dragon Disciple bite");
+		assertEquals(3, pc.getVariableValue("NaturalAttacks", "").intValue(), "a bite and two claws");
+		assertEquals(1, pc.baseAttackBonus(), "Sorcerer 1 / Dragon Disciple 2 BAB");
+
+		assertTrue(hasAbility(pc, PA_PRIMARY_STR), "1.5x Str variant granted for Dragon Bite");
 		assertPowerAttack(pc, PA_PRIMARY_STR, "Bite", -1, 3);
 	}
 
