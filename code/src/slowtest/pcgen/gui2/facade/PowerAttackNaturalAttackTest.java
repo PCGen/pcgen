@@ -240,7 +240,7 @@ class PowerAttackNaturalAttackTest
 	}
 
 	@Test
-	void savingKeepsTheSameToHitBonusOnEachNaturalWeapon()
+	void saveAndReloadKeepsPowerAttackOnEachNaturalWeapon() throws Exception
 	{
 		// Both variants share the identical "WEAPON|TOHIT|-PowerAttackModifier" bonus text;
 		// the save used to keep only one of them, so one weapon lost its -2 on reload.
@@ -248,15 +248,17 @@ class PowerAttackNaturalAttackTest
 		PlayerCharacter pc = eidolon.getTheCharacter();
 		applyPowerAttack(pc, PA_PRIMARY, "Bite");
 		applyPowerAttack(pc, PA_SECONDARY, "Tail Slap");
+		assertAppliedPowerAttack(pc, PA_PRIMARY, "Bite", -2, 4);
+		assertAppliedPowerAttack(pc, PA_SECONDARY, "Tail Slap", -2, 2);
 
-		String pcg = new PCGVer2Creator(pc, SettingsHandler.getGameAsProperty().get(), List.of()).createPCGString();
-		for (String paKey : List.of(PA_PRIMARY, PA_SECONDARY))
-		{
-			String line = pcg.lines().filter(l -> l.startsWith("TEMPBONUS:FEAT=" + paKey + "|")).findFirst()
-				.orElseThrow(() -> new AssertionError("no saved temporary bonus for " + paKey));
-			assertTrue(line.contains("TBBONUS:WEAPON&pipe;TOHIT"), paKey + " to hit saved: " + line);
-			assertTrue(line.contains("TBBONUS:WEAPON&pipe;DAMAGE"), paKey + " damage saved: " + line);
-		}
+		Path file = tempDir.resolve("pa-save-reloaded.pcg");
+		Files.writeString(file,
+			new PCGVer2Creator(pc, SettingsHandler.getGameAsProperty().get(), List.of()).createPCGString());
+		PlayerCharacter reloaded = CharacterManager.openPlayerCharacter(file.toFile(), UI, dataset, true);
+		assertNotNull(reloaded, "reloaded character");
+
+		assertAppliedPowerAttack(reloaded, PA_PRIMARY, "Bite", -2, 4);
+		assertAppliedPowerAttack(reloaded, PA_SECONDARY, "Tail Slap", -2, 2);
 	}
 
 	private static void assertPowerAttack(PlayerCharacter pc, String paKey, String weaponName, int toHit, int damage)
@@ -267,6 +269,35 @@ class PowerAttackNaturalAttackTest
 		Equipment tempItem = applyPowerAttack(pc, paKey, weaponName);
 		assertEquals(toHit, tempItem.getBonusToHit(pc, true) - baseHit, paKey + " to hit on " + weaponName);
 		assertEquals(damage, tempItem.getBonusToDamage(pc, true) - baseDamage, paKey + " damage on " + weaponName);
+	}
+
+	/** Check the bonus item an already applied Power Attack variant made, e.g. "Bite [Power Attack (Natural Primary)]". */
+	private static void assertAppliedPowerAttack(PlayerCharacter pc, String paKey, String weaponName, int toHit,
+		int damage)
+	{
+		pc.setCalcEquipmentList(true);
+		Equipment weapon = null;
+		Equipment tempItem = null;
+		for (Equipment eq : pc.getDisplay().getEquipmentSet())
+		{
+			if (weaponName.equals(eq.getBaseItemName()) && eq.isNatural())
+			{
+				if (eq.getAppliedName().isEmpty())
+				{
+					weapon = eq;
+				}
+				else if (eq.getAppliedName().equals(" [" + paKey + "]"))
+				{
+					tempItem = eq;
+				}
+			}
+		}
+		assertNotNull(weapon, "No natural weapon " + weaponName);
+		assertNotNull(tempItem, paKey + " not applied to " + weaponName);
+		assertEquals(toHit, tempItem.getBonusToHit(pc, true) - weapon.getBonusToHit(pc, true),
+			paKey + " to hit on " + weaponName);
+		assertEquals(damage, tempItem.getBonusToDamage(pc, true) - weapon.getBonusToDamage(pc, true),
+			paKey + " damage on " + weaponName);
 	}
 
 	/** Apply a Power Attack variant to a natural weapon the way the Temporary Bonuses tab does. */
