@@ -62,7 +62,7 @@ jobs:
       tag_name: ${{ steps.tag.outputs.tag_name }}
       release_sha: ${{ steps.tag.outputs.release_sha }}
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
 
@@ -177,7 +177,7 @@ jobs:
           # windows-arm removed - no GitHub-hosted runner available yet
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
         with:
           ref: ${{ needs.prepare_release.outputs.tag_name }}
 
@@ -254,7 +254,7 @@ jobs:
     if: success()
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
           ref: ${{ github.ref_name }}
