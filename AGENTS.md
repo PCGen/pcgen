@@ -78,8 +78,8 @@ see `PcgenFtlTestCase` for working examples.
   Facade mutations observed by Swing models run on the EDT; observable FX rows update back on the FX thread.
 - Use `PanelFromResource` for standalone FXML stages and `JFXPanelFromResource` for Swing embedding.
   Never move a `JFXPanel`'s scene onto a standalone stage; this corrupts the embedded peer on macOS HiDPI.
-- JavaFX modality does not disable Swing windows. The source selector blocks its Swing owner and duplicate
-  launches until it closes, restoring the owner even if dialog initialization fails.
+- JavaFX modality does not disable Swing windows. Source selection and data installation share an EDT-owned
+  launch flag and block their Swing owner until they close, restoring it even if dialog initialization fails.
 - Give nested dialogs an FX owner. Keep tab-specific actions outside `DialogPane`'s button bar:
   buttons created there dismiss the dialog unless their action is consumed.
   Load validation must happen before dismissal, including Basic-row double-clicks.
@@ -145,6 +145,8 @@ see `PcgenFtlTestCase` for working examples.
   Nonstandard entries resolve against `ConfigurationSettings.getInstallRoot()`, never the process directory.
 - Real-manifest tests need built token plugins. In a fresh checkout, use
   `./gradlew :jarAllPlugins :test --tests 'pcgen.gui3.install.*'` before running them in isolation.
+- Both the Sources menu and source selector launch through `PCGenFrame.showDataInstaller`.
+  Installing files does not refresh the loaded campaign catalog.
 
 ## Testing
 

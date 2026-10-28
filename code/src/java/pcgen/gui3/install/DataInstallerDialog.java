@@ -261,8 +261,8 @@ public final class DataInstallerDialog extends Dialog<Void>
 	private void confirmAndInstall(Plan plan, String name)
 	{
 		busy.set(true);
-		var confirmed = confirmEntries(plan, plan.nonstandard(), "in_diNonStandardFilesPlain")
-				.flatMap(remaining -> confirmEntries(remaining, remaining.overwrites(), "in_diOverwriteFilesPlain"));
+		var confirmed = confirmEntries(plan, plan.nonstandard(), "in_diNonStandardFiles")
+				.flatMap(remaining -> confirmEntries(remaining, remaining.overwrites(), "in_diOverwriteFiles"));
 		if (confirmed.isEmpty())
 		{
 			busy.set(false);
