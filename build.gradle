@@ -396,25 +396,31 @@ jlink {
         appVersion = appVersionStr
         def opts = ["--license-file", licenseFile.asFile.absolutePath]
 
+        // Embed runtime assets via --app-content so jpackage builds and signs the whole image.
+        def imgOpts = ['--app-content', jpackageStageDir.get().asFile.absolutePath]
+
         if (hostOs == "mac") {
             opts += ["--mac-package-identifier", "PcGen", "--mac-package-name", "PcGen"]
+            // macOS takes its icon from PcGen.icns in resourceDir by app-name convention.
             resourceDir = layout.projectDirectory.dir("installers/mac-installer").asFile
             installerType = "dmg"
         }
         else if (hostOs == "linux") {
             opts += ['--linux-shortcut']
+            // jpackage wants a .png icon on Linux; without it the launcher falls back to the Java default.
+            imgOpts += ['--icon', layout.projectDirectory.file("code/src/images/PCGenApp.png").asFile.absolutePath]
             installerType = "deb"
         }
         else if (hostOs == "windows") {
             opts += ['--win-shortcut', '--win-menu']
+            // Reuse the gold Vitruvian-man icon from the legacy Windows desktop shortcut.
+            imgOpts += ['--icon', layout.projectDirectory.file("installers/win-installer/Local/PCGen2.ico").asFile.absolutePath]
             installerType = "exe"
         }
 
         installerOptions = opts
         imageName = "PcGen"
-
-        // Embed runtime assets via --app-content so jpackage builds and signs the whole image.
-        imageOptions = ['--app-content', jpackageStageDir.get().asFile.absolutePath]
+        imageOptions = imgOpts
     }
 }
 
