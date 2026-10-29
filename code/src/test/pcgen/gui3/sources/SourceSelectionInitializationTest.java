@@ -140,6 +140,26 @@ class SourceSelectionInitializationTest
 		assertEquals(List.of(basic), openWith(false));
 	}
 
+	@ParameterizedTest
+	@ValueSource(booleans = {false, true})
+	void openingAdvanced_should_preserveTheRememberedSetAfterThePreferredTab(boolean alwaysAdvanced) throws Exception
+	{
+		var prerequisite = campaign("Prerequisite");
+		var supplement = campaign("Supplement");
+		var remembered = List.of(prerequisite, advanced, supplement);
+		campaignListMap.set(null, Map.of(mode,
+				new DefaultListFacade<>(List.of(basic, prerequisite, advanced, supplement))));
+		CONTEXT.setProperty(SOURCES_KEY, "Prerequisite|Advanced|Supplement");
+		var selected = asyncFx(() -> {
+			try (var pane = newPane(alwaysAdvanced))
+			{
+				((TabPane) pane.lookup("#tabSources")).getSelectionModel().select(1);
+				return pane.getSelectedSource().orElseThrow().campaigns();
+			}
+		}).get(5, TimeUnit.SECONDS);
+		assertEquals(remembered, selected);
+	}
+
 	@Test
 	void availableGroups_should_expandOnlyWhileSearching() throws Exception
 	{

@@ -122,7 +122,7 @@ see `PcgenFtlTestCase` for working examples.
   Existing custom names reuse their facade; bundled names cannot be overwritten.
   Match persistence names exactly, not display-name fallbacks, and update rows only after successful persistence.
 - Advanced selection memory is per mode in the `advancedSourceSelectionPanel` UI context.
-  Opening Basic projects its row; opening Advanced restores its own memory.
+  Restoring Basic's highlight must not replace Advanced's remembered list; later Basic selections still project.
   `SOURCE_USE_BASIC_KEY` is the inverse of "always use advanced."
   Unload cancellation must not erase the edited selection.
 
@@ -180,6 +180,8 @@ see `PcgenFtlTestCase` for working examples.
   Use lambdas inside its guards: bound method references can fail before entering the guard.
 - `ConfigurationSettings.findInstallRoot` only checks bounded ancestors and their `app` subdirectory.
   Do not scan unrelated child directories while searching for an installation.
+- Relative `INFOSHEET` paths are installation-root-relative, not working-directory-relative.
+  `HtmlSheetSupport` resolves them through `ConfigurationSettings.getInstallRoot()`; absolute custom sheets stay absolute.
 - `./gradlew run` uses exploded classes under `build/classes/java/main`.
   Do not clean, rename, or rebuild the checkout underneath a running application.
 

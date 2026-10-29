@@ -23,6 +23,7 @@ import java.io.File;
 import java.io.StringWriter;
 import java.lang.ref.WeakReference;
 import java.lang.reflect.InvocationTargetException;
+import java.nio.file.Path;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
@@ -37,6 +38,7 @@ import pcgen.facade.core.CharacterFacade;
 import pcgen.gui3.JFXPanelFromResource;
 import pcgen.gui3.SimpleHtmlPanelController;
 import pcgen.io.ExportHandler;
+import pcgen.system.ConfigurationSettings;
 import pcgen.util.Logging;
 
 import org.apache.commons.lang3.StringUtils;
@@ -63,13 +65,24 @@ public class HtmlSheetSupport
 	{
 		if (!StringUtils.isEmpty(infoSheetFile))
 		{
-			templateFile = new File(infoSheetFile);
+			templateFile = resolveTemplateFile(infoSheetFile);
 		}
 		else
 		{
 			templateFile = null;
 		}
 		this.htmlPane = htmlPane;
+	}
+
+	/**
+	 * Resolves relative info sheets against the installation, preserving absolute custom sheets.
+	 *
+	 * @param infoSheetFile the game-mode or custom template path
+	 * @return the template file to export
+	 */
+	static File resolveTemplateFile(String infoSheetFile)
+	{
+		return Path.of(ConfigurationSettings.getInstallRoot()).resolve(infoSheetFile).toFile();
 	}
 
 	public HtmlSheetSupport(CharacterFacade character, JFXPanelFromResource<SimpleHtmlPanelController> htmlPane, String infoSheetFile)
