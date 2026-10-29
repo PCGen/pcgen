@@ -188,8 +188,10 @@ public final class ConfigurationSettings extends PropertyContext
 	 * The directory PCGen's bundled data (@data, @plugins, …) is resolved against,
 	 * found via {@link #findInstallRoot} from java.home rather than the process
 	 * working directory (a packaged/Finder launch gives user.dir=/).
+	 *
+	 * @return the application installation directory
 	 */
-	private static String getInstallRoot()
+	public static String getInstallRoot()
 	{
 		return installRootPath().toString();
 	}
