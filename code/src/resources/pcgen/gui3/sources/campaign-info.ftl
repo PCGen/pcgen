@@ -3,11 +3,10 @@
   Campaign source-info card for the JavaFX source-selection WebView.
   Page model (built by ModernHtmlInfoBuilder):
     baseHref     - file: URL of the data dir, for the <base> tag (resolves relative image src)
-    maxImagePx   - max rendered cover/logo edge, so large art cannot blow out the layout
     title        - campaign or selection display name (plain text)
     campaigns    - campaign models, each with the fields below
     title        - campaign display name (plain text)
-    images       - list of { src, alt } cover/logo images (src already resolved)
+    images       - list of { src, alt, kind } cover/logo images (src already resolved; kind is "cover"/"logo")
     status       - { label, color } for the status pill (color is #RRGGBB)
     facts        - ordered list of { label, valueHtml } short metadata (label plain, value trusted HTML)
     description  - prose blurb (plain text), or missing
@@ -107,36 +106,52 @@
           text-decoration: underline;
       }
 
-      /* Identity card (hero + status + facts). Breaks out of .wrap's side padding
-         to sit flush against the pane edges; top/bottom borders only. */
+      /* Identity card (cover + status + facts). Breaks out of .wrap's side padding
+         to sit flush against the pane edges; top/bottom borders only. The cover
+         floats left and the status pill + facts wrap to its right, so the short
+         metadata is visible without scrolling past the art. */
       .card {
           border-top: 1px solid var(--rule);
           border-bottom: 1px solid var(--rule);
           background: var(--surface);
-          overflow: hidden;
           margin: 0 -16px 14px -16px;
+          padding: 12px 14px;
       }
 
-      .hero {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 16px;
-          align-items: center;
-          padding: 10px 14px;
-          background: var(--faint);
-          border-bottom: 1px solid var(--rule);
+      /* Clear the floated cover so the card wraps its full height. */
+      .card::after {
+          content: "";
+          display: block;
+          clear: both;
       }
 
-      .hero img {
-          max-width: ${maxImagePx}px;
-          max-height: 56px;
+      .cover {
+          float: left;
+          margin: 0 16px 8px 0;
+          max-width: 180px;
+          max-height: 240px;
           width: auto;
           height: auto;
           object-fit: contain;
+          border: 1px solid var(--rule);
       }
 
-      .card-body {
-          padding: 12px 14px;
+      /* Reserve room for readable metadata when the preview splitter is narrowed. */
+      @media (max-width: 480px) {
+          .cover {
+              max-width: 25%;
+              margin-right: 10px;
+          }
+      }
+
+      .logo {
+          display: block;
+          margin: 8px 0 0 0;
+          max-width: 120px;
+          max-height: 48px;
+          width: auto;
+          height: auto;
+          object-fit: contain;
       }
 
       .pill {
@@ -213,24 +228,19 @@
 <div class="wrap">
 <#if campaign.images?has_content || campaign.status?? || campaign.facts?has_content>
   <div class="card">
-      <#if campaign.images?has_content>
-      <div class="hero">
-          <#list campaign.images as img><img src="${img.src}" alt="${img.alt}"></#list>
-      </div>
+      <#list campaign.images as img><#if img.kind == "cover"><img class="cover" src="${img.src}" alt="${img.alt}"></#if></#list>
+      <#if campaign.status??>
+      <div><span class="pill" style="color:${campaign.status.color}; border-color:${campaign.status.color}; background:${campaign.status.color}22;">${campaign.status.label}</span></div>
       </#if>
-      <div class="card-body">
-          <#if campaign.status??>
-          <div><span class="pill" style="color:${campaign.status.color}; border-color:${campaign.status.color}; background:${campaign.status.color}22;">${campaign.status.label}</span></div>
-          </#if>
-          <#if campaign.facts?has_content>
-          <dl class="facts">
-              <#list campaign.facts as f>
-              <dt>${f.label}</dt>
-              <dd>${f.valueHtml?no_esc}</dd>
-              </#list>
-          </dl>
-          </#if>
-      </div>
+      <#if campaign.facts?has_content>
+      <dl class="facts">
+          <#list campaign.facts as f>
+          <dt>${f.label}</dt>
+          <dd>${f.valueHtml?no_esc}</dd>
+          </#list>
+      </dl>
+      </#if>
+      <#list campaign.images as img><#if img.kind == "logo"><img class="logo" src="${img.src}" alt="${img.alt}"></#if></#list>
   </div>
 </#if>
 <#if campaign.description??>

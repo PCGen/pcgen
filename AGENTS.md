@@ -116,6 +116,8 @@ see `PcgenFtlTestCase` for working examples.
   Bundles and alternate editions deliberately exclude books, so accepting every published source is not possible.
 - Compute availability and explanations once per selection change, not from cell rendering.
   Keep the empty-offered early return: it avoids expensive baseline qualification.
+- Available publisher/setting groups start collapsed. Expand search results and selected-source groups
+  so matching and chosen books remain visible; clearing the search restores the collapsed catalog.
 - Saving validates nonempty campaigns and nonblank names at the UI boundary.
   Existing custom names reuse their facade; bundled names cannot be overwritten.
   Match persistence names exactly, not display-name fallbacks, and update rows only after successful persistence.

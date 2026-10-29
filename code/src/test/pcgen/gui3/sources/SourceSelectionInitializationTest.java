@@ -33,12 +33,14 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.TabPane;
+import javafx.scene.control.TextField;
 import javafx.scene.control.TreeTableView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Campaign;
 import pcgen.core.GameMode;
 import pcgen.core.SettingsHandler;
@@ -136,6 +138,56 @@ class SourceSelectionInitializationTest
 	void openingBasic_should_useTheBasicBundle() throws Exception
 	{
 		assertEquals(List.of(basic), openWith(false));
+	}
+
+	@Test
+	void availableGroups_should_expandOnlyWhileSearching() throws Exception
+	{
+		for (Campaign campaign : List.of(basic, advanced))
+		{
+			campaign.put(StringKey.DATA_PRODUCER, "Publisher");
+			campaign.put(StringKey.CAMPAIGN_SETTING, "Setting");
+		}
+		asyncFx(() -> {
+			try (var pane = newPane(true))
+			{
+				var dialog = showDialog(pane);
+				try
+				{
+					var available = (TreeTableView<?>) pane.lookup("#treeAvailable");
+					var selected = (TreeTableView<?>) pane.lookup("#treeSelected");
+					var search = (TextField) pane.lookup("#fldSearch");
+					assertGroupsExpanded(available, false);
+					assertGroupsExpanded(selected, true);
+
+					search.setText("Basic");
+					assertGroupsExpanded(available, true);
+					assertEquals(1, available.getRoot().getChildren().getFirst()
+							.getChildren().getFirst().getChildren().size());
+					search.clear();
+					assertGroupsExpanded(available, false);
+
+					// Both books contain 'a': expansion must change even if every book still matches.
+					search.setText("a");
+					assertGroupsExpanded(available, true);
+					search.setText(" ");
+					assertGroupsExpanded(available, false);
+					assertGroupsExpanded(selected, true);
+				}
+				finally
+				{
+					dialog.close();
+				}
+			}
+		}).get(5, TimeUnit.SECONDS);
+	}
+
+	/** Checks both grouping levels in the populated publisher/setting fixture. */
+	private static void assertGroupsExpanded(TreeTableView<?> tree, boolean expanded)
+	{
+		var publisher = tree.getRoot().getChildren().getFirst();
+		assertEquals(expanded, publisher.isExpanded());
+		assertEquals(expanded, publisher.getChildren().getFirst().isExpanded());
 	}
 
 	@Test

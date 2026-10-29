@@ -15,7 +15,6 @@ package pcgen.gui3.sources;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertInstanceOf;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.List;
 
@@ -24,6 +23,8 @@ import pcgen.core.Campaign;
 
 import javafx.scene.control.TreeItem;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 /**
  * Unit tests for the Advanced tab's available-tree construction
@@ -122,14 +123,15 @@ class AdvancedSourceTreeTest
 		assertEquals("Loose", label(children.get(1)));
 	}
 
-	@Test
-	void buildTree_should_expandGroups_soMatchesAreVisible()
+	@ParameterizedTest
+	@ValueSource(booleans = {false, true})
+	void buildTree_should_applyExpansionToPublishersAndSettings(boolean expanded)
 	{
 		var root = AdvancedSourceSelectionController.buildTree(
-				List.of(campaign("Core", "Paizo", "Pathfinder")));
+				List.of(campaign("Core", "Paizo", "Pathfinder")), expanded);
 
 		var publisher = root.getChildren().get(0);
-		assertTrue(publisher.isExpanded());
-		assertTrue(publisher.getChildren().get(0).isExpanded());
+		assertEquals(expanded, publisher.isExpanded());
+		assertEquals(expanded, publisher.getChildren().get(0).isExpanded());
 	}
 }
