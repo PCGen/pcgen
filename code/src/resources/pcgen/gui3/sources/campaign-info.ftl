@@ -3,11 +3,10 @@
   Campaign source-info card for the JavaFX source-selection WebView.
   Page model (built by ModernHtmlInfoBuilder):
     baseHref     - file: URL of the data dir, for the <base> tag (resolves relative image src)
-    maxImagePx   - max rendered cover/logo edge, so large art cannot blow out the layout
     title        - campaign or selection display name (plain text)
     campaigns    - campaign models, each with the fields below
     title        - campaign display name (plain text)
-    images       - list of { src, alt } cover/logo images (src already resolved)
+    images       - list of { src, alt, kind } cover/logo images (src already resolved; kind is "cover"/"logo")
     status       - { label, color } for the status pill (color is #RRGGBB)
     facts        - ordered list of { label, valueHtml } short metadata (label plain, value trusted HTML)
     description  - prose blurb (plain text), or missing
@@ -90,6 +89,41 @@
           letter-spacing: 0.05em;
       }
 
+      /* Collapsible text sections: the summary looks like the old h2 heading,
+         with a CSS disclosure triangle that rotates when open. */
+      details {
+          margin: 14px 0 0 0;
+          border-top: 1px solid var(--rule);
+      }
+
+      details > summary {
+          font-size: 0.85em;
+          font-weight: 600;
+          margin: 0;
+          padding: 8px 0 4px 0;
+          color: var(--muted);
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+          cursor: pointer;
+          list-style: none;
+      }
+
+      details > summary::-webkit-details-marker {
+          display: none;
+      }
+
+      details > summary::before {
+          content: "\25B8";
+          display: inline-block;
+          width: 1em;
+          color: var(--muted);
+          transition: transform 0.12s;
+      }
+
+      details[open] > summary::before {
+          transform: rotate(90deg);
+      }
+
       .campaign-title {
           padding: 0 16px;
           color: var(--ink);
@@ -107,36 +141,44 @@
           text-decoration: underline;
       }
 
-      /* Identity card (hero + status + facts). Breaks out of .wrap's side padding
-         to sit flush against the pane edges; top/bottom borders only. */
+      /* Identity card (cover + status + facts). Breaks out of .wrap's side padding
+         to sit flush against the pane edges; top/bottom borders only. The cover
+         floats left and the status pill + facts wrap to its right, so the short
+         metadata is visible without scrolling past the art. */
       .card {
           border-top: 1px solid var(--rule);
           border-bottom: 1px solid var(--rule);
           background: var(--surface);
-          overflow: hidden;
           margin: 0 -16px 14px -16px;
+          padding: 12px 14px;
       }
 
-      .hero {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 16px;
-          align-items: center;
-          padding: 10px 14px;
-          background: var(--faint);
-          border-bottom: 1px solid var(--rule);
+      /* Clear the floated cover so the card wraps its full height. */
+      .card::after {
+          content: "";
+          display: block;
+          clear: both;
       }
 
-      .hero img {
-          max-width: ${maxImagePx}px;
-          max-height: 56px;
+      .cover {
+          float: left;
+          margin: 0 16px 8px 0;
+          max-width: 180px;
+          max-height: 240px;
           width: auto;
           height: auto;
           object-fit: contain;
+          border: 1px solid var(--rule);
       }
 
-      .card-body {
-          padding: 12px 14px;
+      .logo {
+          display: block;
+          margin: 8px 0 0 0;
+          max-width: 120px;
+          max-height: 48px;
+          width: auto;
+          height: auto;
+          object-fit: contain;
       }
 
       .pill {
@@ -213,24 +255,19 @@
 <div class="wrap">
 <#if campaign.images?has_content || campaign.status?? || campaign.facts?has_content>
   <div class="card">
-      <#if campaign.images?has_content>
-      <div class="hero">
-          <#list campaign.images as img><img src="${img.src}" alt="${img.alt}"></#list>
-      </div>
+      <#list campaign.images as img><#if img.kind == "cover"><img class="cover" src="${img.src}" alt="${img.alt}"></#if></#list>
+      <#if campaign.status??>
+      <div><span class="pill" style="color:${campaign.status.color}; border-color:${campaign.status.color}; background:${campaign.status.color}22;">${campaign.status.label}</span></div>
       </#if>
-      <div class="card-body">
-          <#if campaign.status??>
-          <div><span class="pill" style="color:${campaign.status.color}; border-color:${campaign.status.color}; background:${campaign.status.color}22;">${campaign.status.label}</span></div>
-          </#if>
-          <#if campaign.facts?has_content>
-          <dl class="facts">
-              <#list campaign.facts as f>
-              <dt>${f.label}</dt>
-              <dd>${f.valueHtml?no_esc}</dd>
-              </#list>
-          </dl>
-          </#if>
-      </div>
+      <#if campaign.facts?has_content>
+      <dl class="facts">
+          <#list campaign.facts as f>
+          <dt>${f.label}</dt>
+          <dd>${f.valueHtml?no_esc}</dd>
+          </#list>
+      </dl>
+      </#if>
+      <#list campaign.images as img><#if img.kind == "logo"><img class="logo" src="${img.src}" alt="${img.alt}"></#if></#list>
   </div>
 </#if>
 <#if campaign.description??>
@@ -243,11 +280,13 @@
   <div class="requirements"><b>${campaign.allow.label}:</b>&nbsp;${campaign.allow.valueHtml?no_esc}</div>
 </#if>
 <#list campaign.sections as s>
-  <h2>${s.heading}</h2>
-  <div class="section-body<#if s.muted> muted</#if><#if s.columns> columns</#if>">
-      <#list s.lines as line>${line?no_esc}<br>
-      </#list>
-  </div>
+  <details>
+      <summary>${s.heading}</summary>
+      <div class="section-body<#if s.muted> muted</#if><#if s.columns> columns</#if>">
+          <#list s.lines as line>${line?no_esc}<br>
+          </#list>
+      </div>
+  </details>
 </#list>
 </div>
 <div class="pccpath">${campaign.pccLabel}: ${campaign.pccPath}</div>

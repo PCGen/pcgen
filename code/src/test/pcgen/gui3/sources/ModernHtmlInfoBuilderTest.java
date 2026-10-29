@@ -23,10 +23,12 @@ import java.net.URISyntaxException;
 import java.nio.file.Path;
 
 import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Status;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Campaign;
+import pcgen.persistence.lst.CampaignSourceEntry;
 
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -141,6 +143,49 @@ class ModernHtmlInfoBuilderTest
 			String html = ModernHtmlInfoBuilder.forCampaign(campaign, dataDir);
 			assertTrue(html.contains("<h1>Bare</h1>"), "still renders the title");
 			assertFalse(html.contains("class=\"description\""), "no description block when unset");
+		}
+
+		@Test
+		void rendersByPublisherSuffix_when_publisherSet(@TempDir Path dataDir) throws IOException
+		{
+			Campaign campaign = minimalCampaign();
+			campaign.put(StringKey.PUB_NAME_LONG, "Acme Games");
+			String html = ModernHtmlInfoBuilder.forCampaign(campaign, dataDir);
+			assertTrue(html.contains("Acme Games"), "publisher name rendered");
+			assertTrue(html.contains("by</b> Acme Games") || html.contains("by</b>Acme Games"),
+					"the 'by <publisher>' suffix is present when a publisher is set");
+		}
+
+		@Test
+		void omitsByPublisherSuffix_when_publisherBlank(@TempDir Path dataDir) throws IOException
+		{
+			// minimalCampaign sets no PUB_NAME_LONG, so getSafe returns "".
+			String html = ModernHtmlInfoBuilder.forCampaign(minimalCampaign(), dataDir);
+			assertFalse(html.contains(" by</b>"), "no dangling bold ' by' when publisher is unset");
+		}
+
+		@Test
+		void rendersCoverImageWithCoverKind_when_coverSet(@TempDir Path dataDir) throws IOException
+		{
+			Campaign campaign = minimalCampaign();
+			URI coverUri = dataDir.resolve("cover.jpg").toUri();
+			campaign.addToListFor(ListKey.FILE_COVER, new CampaignSourceEntry(campaign, coverUri));
+			String html = ModernHtmlInfoBuilder.forCampaign(campaign, dataDir);
+			assertTrue(html.contains("class=\"cover\"") || html.contains("class=\"hero-cover\""),
+					"cover image is tagged so the template can float it");
+			assertTrue(html.contains("cover.jpg"), "cover image src rendered");
+		}
+
+		@Test
+		void sectionsAreCollapsibleAndClosedByDefault(@TempDir Path dataDir) throws IOException
+		{
+			Campaign campaign = minimalCampaign();
+			campaign.addToListFor(ListKey.INFO_TEXT, "Some information about this source.");
+			String html = ModernHtmlInfoBuilder.forCampaign(campaign, dataDir);
+			assertTrue(html.contains("<details>"), "sections use native <details> disclosure");
+			assertTrue(html.contains("<summary>"), "sections have a <summary> heading");
+			assertFalse(html.contains("<details open>") || html.contains("<details open "),
+					"sections are collapsed by default");
 		}
 	}
 }
