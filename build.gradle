@@ -413,8 +413,8 @@ jlink {
         }
         else if (hostOs == "windows") {
             opts += ['--win-shortcut', '--win-menu']
-            // jpackage wants a .ico icon on Windows; without it the shortcut falls back to the Java default.
-            imgOpts += ['--icon', layout.projectDirectory.file("code/src/images/PCGenIcon.ico").asFile.absolutePath]
+            // Reuse the gold Vitruvian-man icon from the legacy Windows desktop shortcut.
+            imgOpts += ['--icon', layout.projectDirectory.file("installers/win-installer/Local/PCGen2.ico").asFile.absolutePath]
             installerType = "exe"
         }
 
