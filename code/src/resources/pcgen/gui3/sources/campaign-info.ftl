@@ -89,41 +89,6 @@
           letter-spacing: 0.05em;
       }
 
-      /* Collapsible text sections: the summary looks like the old h2 heading,
-         with a CSS disclosure triangle that rotates when open. */
-      details {
-          margin: 14px 0 0 0;
-          border-top: 1px solid var(--rule);
-      }
-
-      details > summary {
-          font-size: 0.85em;
-          font-weight: 600;
-          margin: 0;
-          padding: 8px 0 4px 0;
-          color: var(--muted);
-          text-transform: uppercase;
-          letter-spacing: 0.05em;
-          cursor: pointer;
-          list-style: none;
-      }
-
-      details > summary::-webkit-details-marker {
-          display: none;
-      }
-
-      details > summary::before {
-          content: "\25B8";
-          display: inline-block;
-          width: 1em;
-          color: var(--muted);
-          transition: transform 0.12s;
-      }
-
-      details[open] > summary::before {
-          transform: rotate(90deg);
-      }
-
       .campaign-title {
           padding: 0 16px;
           color: var(--ink);
@@ -169,6 +134,14 @@
           height: auto;
           object-fit: contain;
           border: 1px solid var(--rule);
+      }
+
+      /* Reserve room for readable metadata when the preview splitter is narrowed. */
+      @media (max-width: 480px) {
+          .cover {
+              max-width: 25%;
+              margin-right: 10px;
+          }
       }
 
       .logo {
@@ -280,13 +253,11 @@
   <div class="requirements"><b>${campaign.allow.label}:</b>&nbsp;${campaign.allow.valueHtml?no_esc}</div>
 </#if>
 <#list campaign.sections as s>
-  <details>
-      <summary>${s.heading}</summary>
-      <div class="section-body<#if s.muted> muted</#if><#if s.columns> columns</#if>">
-          <#list s.lines as line>${line?no_esc}<br>
-          </#list>
-      </div>
-  </details>
+  <h2>${s.heading}</h2>
+  <div class="section-body<#if s.muted> muted</#if><#if s.columns> columns</#if>">
+      <#list s.lines as line>${line?no_esc}<br>
+      </#list>
+  </div>
 </#list>
 </div>
 <div class="pccpath">${campaign.pccLabel}: ${campaign.pccPath}</div>

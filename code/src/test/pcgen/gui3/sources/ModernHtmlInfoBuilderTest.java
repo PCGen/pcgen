@@ -177,15 +177,13 @@ class ModernHtmlInfoBuilderTest
 		}
 
 		@Test
-		void sectionsAreCollapsibleAndClosedByDefault(@TempDir Path dataDir) throws IOException
+		void informationRemainsVisibleWithoutExpandingSections(@TempDir Path dataDir) throws IOException
 		{
 			Campaign campaign = minimalCampaign();
 			campaign.addToListFor(ListKey.INFO_TEXT, "Some information about this source.");
 			String html = ModernHtmlInfoBuilder.forCampaign(campaign, dataDir);
-			assertTrue(html.contains("<details>"), "sections use native <details> disclosure");
-			assertTrue(html.contains("<summary>"), "sections have a <summary> heading");
-			assertFalse(html.contains("<details open>") || html.contains("<details open "),
-					"sections are collapsed by default");
+			assertTrue(html.contains("Some information about this source."));
+			assertFalse(html.contains("<details"), "preview information stays visible");
 		}
 	}
 }
