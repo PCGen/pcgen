@@ -2215,7 +2215,15 @@ public final class PCGVer2Creator
 				{
 					return keyA.getBonusInfo().compareTo(keyB.getBonusInfo());
 				}
-				return keyA.getPCCText().compareTo(keyB.getPCCText());
+				int byText = keyA.getPCCText().compareTo(keyB.getPCCText());
+				if (byText != 0)
+				{
+					return byText;
+				}
+				// The same bonus text can come from different sources or go to different targets
+				// (e.g. Power Attack's to-hit on two natural weapons); keep one entry for each.
+				return tempBonusName(a.getValue().source, a.getValue().target)
+					.compareTo(tempBonusName(b.getValue().source, b.getValue().target));
 			});
 		sortedbonus.addAll(thePC.getTempBonusMap().entrySet());
 
