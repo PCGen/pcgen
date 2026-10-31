@@ -52,7 +52,7 @@ import pcgen.system.ConfigurationSettings;
  * {@link ModernHtmlInfoBuilder}'s dev template loading, that lets a developer
  * edit {@code campaign-info.ftl} and see the change via Reload — no restart.
  */
-final class SourceInfoRenderer implements AutoCloseable
+public final class SourceInfoRenderer implements AutoCloseable
 {
 	private static final Logger LOG = Logger.getLogger(SourceInfoRenderer.class.getName());
 
@@ -84,7 +84,7 @@ final class SourceInfoRenderer implements AutoCloseable
 	 *
 	 * @param engine the preview engine
 	 */
-	SourceInfoRenderer(WebEngine engine)
+	public SourceInfoRenderer(WebEngine engine)
 	{
 		this(engine, SourceInfoRenderer::openInBrowser);
 	}
@@ -107,7 +107,7 @@ final class SourceInfoRenderer implements AutoCloseable
 	 *
 	 * @param campaign the campaign to display
 	 */
-	void renderCampaign(Campaign campaign)
+	public void renderCampaign(Campaign campaign)
 	{
 		render(campaign.getDisplayName(), List.of(campaign));
 	}
@@ -194,7 +194,7 @@ final class SourceInfoRenderer implements AutoCloseable
 	}
 
 	/** Clears the pane. An empty document needs no file access. */
-	void clear()
+	public void clear()
 	{
 		lastPreview = null;
 		ourLoad = true;

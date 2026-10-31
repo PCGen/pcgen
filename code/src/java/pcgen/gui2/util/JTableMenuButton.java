@@ -18,22 +18,25 @@
  */
 package pcgen.gui2.util;
 
+import java.awt.Insets;
+
+import javax.swing.JButton;
+import javax.swing.JPopupMenu;
+
 import pcgen.gui2.tools.Icons;
 
-import javafx.scene.control.Button;
-import javafx.scene.control.ContextMenu;
-import javafx.scene.image.ImageView;
-
 /**
- * This is the button that is displayed in the upper right corner of the
- * JTreeViewTable.
+ * Opens the tree-view and column menu in the corner of a Swing table.
+ * Keeping this control in Swing avoids disposing embedded JavaFX scenes during tab changes.
  */
-final class JTableMenuButton extends Button
+final class JTableMenuButton extends JButton
 {
-	JTableMenuButton(final ContextMenu contextMenu)
+	JTableMenuButton(final JPopupMenu popupMenu)
 	{
-		this.setGraphic(new ImageView(Icons.button_arrow_down.asJavaFX()));
-		this.setMaxSize(4, 4);
-		this.setContextMenu(contextMenu);
+		super(Icons.button_arrow_down.getImageIcon());
+		setMargin(new Insets(0, 0, 0, 0));
+		setComponentPopupMenu(popupMenu);
+		addActionListener(event -> popupMenu.show(this,
+			getWidth() - popupMenu.getPreferredSize().width, getHeight()));
 	}
 }

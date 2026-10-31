@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright 2026 the PCGen Project.
+  Distributed under the GNU Lesser General Public License, version 2.1 or later.
+-->
+
+<?import javafx.scene.Scene?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+
+<Scene xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1"
+       fx:controller="pcgen.gui3.preferences.LocationPreferencesPanelController">
+    <fx:define>
+        <ToggleGroup fx:id="groupFilesDir"/>
+    </fx:define>
+    <GridPane styleClass="location-preferences" stylesheets="@LocationPreferencesPanel.css">
+        <columnConstraints>
+            <ColumnConstraints maxWidth="220"/>
+            <ColumnConstraints hgrow="ALWAYS"/>
+            <ColumnConstraints/>
+        </columnConstraints>
+        <Label text="%in_Prefs_locationCharacterFiles" styleClass="section-heading, first-section"                               GridPane.rowIndex="0"  GridPane.columnSpan="3"/>
+        <TextField fx:id="pcgenCharacterDir"                                                                                     GridPane.rowIndex="1"  GridPane.columnIndex="1"/>
+        <Label text="%in_Prefs_pcgenCharacterDir" labelFor="$pcgenCharacterDir" wrapText="true"                                  GridPane.rowIndex="1"/>
+        <Button fx:id="pcgenCharacterDirButton" text="..." onAction="#prefsButtonHandler"                                        GridPane.rowIndex="1"  GridPane.columnIndex="2"/>
+        <TextField fx:id="pcgenPortraitsDir"                                                                                     GridPane.rowIndex="2"  GridPane.columnIndex="1"/>
+        <Label text="%in_Prefs_pcgenPortraitsDir" labelFor="$pcgenPortraitsDir" wrapText="true"                                  GridPane.rowIndex="2"/>
+        <Button fx:id="pcgenPortraitsDirButton" text="..." onAction="#prefsButtonHandler"                                        GridPane.rowIndex="2"  GridPane.columnIndex="2"/>
+        <CheckBox fx:id="pcgenCreateBackupCharacter" text="%in_Prefs_pcgenCreateBackupCharacter"                                 GridPane.rowIndex="3"  GridPane.columnIndex="1" GridPane.columnSpan="2"/>
+        <TextField fx:id="pcgenBackupCharacterDir"                                                                               GridPane.rowIndex="4"  GridPane.columnIndex="1"/>
+        <Label text="%in_Prefs_pcgenBackupCharacterDir" labelFor="$pcgenBackupCharacterDir" wrapText="true"                      GridPane.rowIndex="4"/>
+        <Button fx:id="pcgenBackupCharacterDirButton" text="..." onAction="#prefsButtonHandler"                                  GridPane.rowIndex="4"  GridPane.columnIndex="2"/>
+
+        <Label text="%in_Prefs_locationDataSources" styleClass="section-heading"                                                 GridPane.rowIndex="5"  GridPane.columnSpan="3"/>
+        <TextField fx:id="pcgenDataDir"                                                                                          GridPane.rowIndex="6"  GridPane.columnIndex="1"/>
+        <Label text="%in_Prefs_pcgenDataDir" labelFor="$pcgenDataDir" wrapText="true"                                            GridPane.rowIndex="6"/>
+        <Button fx:id="pcgenDataDirButton" text="..." onAction="#prefsButtonHandler"                                             GridPane.rowIndex="6"  GridPane.columnIndex="2"/>
+        <TextField fx:id="pcgenCustomDir"                                                                                        GridPane.rowIndex="7"  GridPane.columnIndex="1"/>
+        <Label text="%in_Prefs_pcgenCustomDir" labelFor="$pcgenCustomDir" wrapText="true"                                        GridPane.rowIndex="7"/>
+        <Button fx:id="pcgenCustomDirButton" text="..." onAction="#prefsButtonHandler"                                           GridPane.rowIndex="7"  GridPane.columnIndex="2"/>
+        <TextField fx:id="pcgenVendorDataDir"                                                                                    GridPane.rowIndex="8"  GridPane.columnIndex="1"/>
+        <Label text="%in_Prefs_pcgenVendorDataDir" labelFor="$pcgenVendorDataDir" wrapText="true"                                GridPane.rowIndex="8"/>
+        <Button fx:id="pcgenVendorDataDirButton" text="..." onAction="#prefsButtonHandler"                                       GridPane.rowIndex="8"  GridPane.columnIndex="2"/>
+        <TextField fx:id="pcgenHomebrewDataDir"                                                                                  GridPane.rowIndex="9"  GridPane.columnIndex="1"/>
+        <Label text="%in_Prefs_pcgenHomebrewDataDir" labelFor="$pcgenHomebrewDataDir" wrapText="true"                            GridPane.rowIndex="9"/>
+        <Button fx:id="pcgenHomebrewDataDirButton" text="..." onAction="#prefsButtonHandler"                                     GridPane.rowIndex="9"  GridPane.columnIndex="2"/>
+
+        <Label text="%in_Prefs_locationApplicationFiles" styleClass="section-heading"                                            GridPane.rowIndex="10" GridPane.columnSpan="3"/>
+        <TextField fx:id="pcgenDocsDir"                                                                                          GridPane.rowIndex="11" GridPane.columnIndex="1"/>
+        <Label text="%in_Prefs_pcgenDocsDir" labelFor="$pcgenDocsDir" wrapText="true"                                            GridPane.rowIndex="11"/>
+        <Button fx:id="pcgenDocsDirButton" text="..." onAction="#prefsButtonHandler"                                             GridPane.rowIndex="11" GridPane.columnIndex="2"/>
+        <TextField fx:id="pcgenSystemDir"                                                                                        GridPane.rowIndex="12" GridPane.columnIndex="1"/>
+        <Label text="%in_Prefs_pcgenSystemDir" labelFor="$pcgenSystemDir" wrapText="true"                                        GridPane.rowIndex="12"/>
+        <Button fx:id="pcgenSystemDirButton" text="..." onAction="#prefsButtonHandler"                                           GridPane.rowIndex="12" GridPane.columnIndex="2"/>
+        <TextField fx:id="pcgenOutputSheetDir"                                                                                   GridPane.rowIndex="13" GridPane.columnIndex="1"/>
+        <Label text="%in_Prefs_pcgenOutputSheetDir" labelFor="$pcgenOutputSheetDir" wrapText="true"                              GridPane.rowIndex="13"/>
+        <Button fx:id="pcgenOutputSheetDirButton" text="..." onAction="#prefsButtonHandler"                                      GridPane.rowIndex="13" GridPane.columnIndex="2"/>
+        <TextField fx:id="pcgenPreviewDir"                                                                                       GridPane.rowIndex="14" GridPane.columnIndex="1"/>
+        <Label text="%in_Prefs_pcgenPreviewDir" labelFor="$pcgenPreviewDir" wrapText="true"                                      GridPane.rowIndex="14"/>
+        <Button fx:id="pcgenPreviewDirButton" text="..." onAction="#prefsButtonHandler"                                          GridPane.rowIndex="14" GridPane.columnIndex="2"/>
+
+        <Label text="%in_Prefs_locationSettings" styleClass="section-heading"                                                    GridPane.rowIndex="15" GridPane.columnSpan="3"/>
+        <HBox styleClass="settings-choices"                                                                                      GridPane.rowIndex="16" GridPane.columnSpan="3">
+            <RadioButton fx:id="pcgenFilesDirRadio" toggleGroup="$groupFilesDir" onAction="#selectProgramSettings"/>
+            <RadioButton fx:id="usersFilesDirRadio" text="%in_Prefs_homeDir" toggleGroup="$groupFilesDir" onAction="#selectUserSettings"/>
+            <RadioButton fx:id="selectFilesDirRadio" text="%in_Prefs_selectDir" toggleGroup="$groupFilesDir" onAction="#selectCustomSettings"/>
+        </HBox>
+        <TextField fx:id="pcgenFilesDir"                                                                                         GridPane.rowIndex="17" GridPane.columnIndex="1"/>
+        <Label text="%in_Prefs_pcgenFilesDir" labelFor="$pcgenFilesDir" wrapText="true"                                          GridPane.rowIndex="17"/>
+        <Button fx:id="pcgenFilesDirButton" text="..." onAction="#prefsButtonHandler" disable="${!selectFilesDirRadio.selected}" GridPane.rowIndex="17" GridPane.columnIndex="2"/>
+    </GridPane>
+</Scene>

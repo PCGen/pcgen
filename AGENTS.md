@@ -76,10 +76,13 @@ see `PcgenFtlTestCase` for working examples.
 
 - Construct and mutate JavaFX controls, dialogs, and windows on the FX thread.
   Facade mutations observed by Swing models run on the EDT; observable FX rows update back on the FX thread.
+- Embedded preference forms must fill their Swing container: use `BorderLayout`, not the default centered `FlowLayout`.
+  `LocationPanelTest` measures the real Swing/FX bridge and skips headless runs because `JFXPanel` needs an AWT display.
+- Location directories share aligned label/path/browse rows; keep path fields resizable and punctuation in the bundle.
 - Use `PanelFromResource` for standalone FXML stages and `JFXPanelFromResource` for Swing embedding.
   Never move a `JFXPanel`'s scene onto a standalone stage; this corrupts the embedded peer on macOS HiDPI.
-- JavaFX modality does not disable Swing windows. The source selector blocks its Swing owner and duplicate
-  launches until it closes, restoring the owner even if dialog initialization fails.
+- JavaFX modality does not disable Swing windows. Source selection and data installation share an EDT-owned
+  launch flag and block their Swing owner until they close, restoring it even if dialog initialization fails.
 - Give nested dialogs an FX owner. Keep tab-specific actions outside `DialogPane`'s button bar:
   buttons created there dismiss the dialog unless their action is consumed.
   Load validation must happen before dismissal, including Basic-row double-clicks.
@@ -128,6 +131,7 @@ see `PcgenFtlTestCase` for working examples.
 
 ## Source previews
 
+- Keep preview information visible by default; covers must leave readable metadata space in narrow panes.
 - Each Basic/Advanced preview owns one `SourceInfoRenderer` and closes it when the dialog hides.
   Basic selections can contain multiple independent campaigns; render and reload the entire bundle.
   Late persistence callbacks must not reopen a disposed preview.
@@ -135,6 +139,21 @@ see `PcgenFtlTestCase` for working examples.
   directory, not directly in a shared temp directory. Register directory deletion before file deletion.
   Reused channels must truncate before rewriting; skip identical documents.
 - Intercept source-info links before WebView navigation, and hand only `http`/`https` URLs to the browser.
+
+## Data packages
+
+- `pcgen.persistence.install.DataPackageInstaller` handles ZIP inspection, destination planning, and extraction
+  independently of the UI. Plans list nonstandard entries and overwrites so callers can confirm or omit them.
+- Validate archive paths against their canonical destination roots, including nonstandard entries and directories.
+  Create file parents during extraction; ZIPs need not contain explicit directory entries.
+- Normalize backslashes before recognizing ZIP directories: `ZipEntry.isDirectory()` only recognizes `/`.
+- `gui3.install.DataInstallerDialog` owns the FXML workflow. Archive reading, planning, and extraction run
+  on a worker; prompts and task completion run on FX. It owns and closes its `SourceInfoRenderer` preview.
+  Nonstandard entries resolve against `ConfigurationSettings.getInstallRoot()`, never the process directory.
+- Installer workflow tests register and restore only their required `InstallLstToken` handlers.
+  Avoid global plugin bootstrap here: it pollutes formula-function tests sharing the JVM.
+- Both the Sources menu and source selector launch through `PCGenFrame.showDataInstaller`.
+  Installing files does not refresh the loaded campaign catalog.
 
 ## Testing
 

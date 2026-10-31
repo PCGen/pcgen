@@ -1410,6 +1410,6 @@ public abstract class CDOMObject extends ConcretePrereqObject
 	public final boolean isUnselected()
 	{
 		return getSafeListFor(ListKey.GROUP).stream()
-			.filter("Unselected"::equalsIgnoreCase).findFirst().isPresent();
+			.anyMatch("Unselected"::equalsIgnoreCase);
 	}
 }

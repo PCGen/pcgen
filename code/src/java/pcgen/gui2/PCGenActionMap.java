@@ -32,7 +32,6 @@ import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;
 import pcgen.gui2.coreview.CoreViewFrame;
-import pcgen.gui2.dialog.DataInstaller;
 import pcgen.gui2.dialog.KitSelectionDialog;
 import pcgen.gui3.dialog.PrintPreviewController;
 import pcgen.gui2.solverview.SolverViewFrame;
@@ -319,7 +318,7 @@ public final class PCGenActionMap extends ActionMap
 	/**
 	 * The tools menu action to open the install data dialog.
 	 */
-	private static final class InstallDataAction extends PCGenAction
+	private final class InstallDataAction extends PCGenAction
 	{
 
 		private InstallDataAction()
@@ -330,8 +329,7 @@ public final class PCGenActionMap extends ActionMap
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			DataInstaller di = new DataInstaller();
-			di.setVisible(true);
+			frame.showDataInstaller();
 		}
 
 	}
