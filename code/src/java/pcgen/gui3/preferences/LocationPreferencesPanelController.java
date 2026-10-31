@@ -27,9 +27,7 @@ import pcgen.system.ConfigurationSettings.SettingsFilesPath;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
@@ -47,31 +45,6 @@ public final class LocationPreferencesPanelController implements ResettableContr
 	private RadioButton usersFilesDirRadio;
 	@FXML
 	private CheckBox pcgenCreateBackupCharacter;
-
-	@FXML
-	private Button pcgenCharacterDirButton;
-	@FXML
-	private Button pcgenCustomDirButton;
-	@FXML
-	private Button pcgenVendorDataDirButton;
-	@FXML
-	private Button pcgenHomebrewDataDirButton;
-	@FXML
-	private Button pcgenDataDirButton;
-	@FXML
-	private Button pcgenDocsDirButton;
-	@FXML
-	private Button pcgenFilesDirButton;
-	@FXML
-	private Button pcgenOutputSheetDirButton;
-	@FXML
-	private Button pcgenPreviewDirButton;
-	@FXML
-	private Button pcgenPortraitsDirButton;
-	@FXML
-	private Button pcgenSystemDirButton;
-	@FXML
-	private Button pcgenBackupCharacterDirButton;
 
 	@FXML
 	private TextField pcgenCharacterDir;
@@ -215,121 +188,107 @@ public final class LocationPreferencesPanelController implements ResettableContr
 		ConfigurationSettings.setSystemProperty(ConfigurationSettings.PREVIEW_DIR, pcgenPreviewDir.getText());
 	}
 
-
-	/** Opens the directory chooser associated with the activated browse button. */
+	/** Chooses the directory for character files. */
 	@FXML
-	private void prefsButtonHandler(final ActionEvent actionEvent)
+	private void chooseCharacterDirectory()
 	{
-		GuiAssertions.assertIsJavaFXThread();
-		Button source = (Button) actionEvent.getSource();
+		askForPath(PCGenSettings.getPcgDir(), "in_Prefs_pcgenCharacterDirTitle", pcgenCharacterDir);
+	}
 
-		if (source == pcgenCharacterDirButton)
-		{
-			final String dialogTitle = LanguageBundle.getString("in_Prefs_pcgenCharacterDirTitle");
-			final String currentPath = PCGenSettings.getPcgDir();
-			askForPath(currentPath, dialogTitle, pcgenCharacterDir);
-		}
-		else if (source == pcgenBackupCharacterDirButton)
-		{
-			final String dialogTitle = LanguageBundle.getString("in_Prefs_pcgenBackupCharacterDirTitle");
-			final String currentPath = PCGenSettings.getBackupPcgDir();
-			askForPath(currentPath, dialogTitle, pcgenBackupCharacterDir);
-		}
-		else if (source == pcgenPortraitsDirButton)
-		{
-			final String dialogTitle = LanguageBundle.getString("in_Prefs_pcgenPortraitDirTitle");
-			final String currentPath = PCGenSettings.getPortraitsDir();
-			askForPath(currentPath, dialogTitle, pcgenPortraitsDir);
-		}
-		else if (source == pcgenCustomDirButton)
-		{
-			final String dialogTitle = LanguageBundle.getString("in_Prefs_pcgenCustomDirTitle");
-			final String currentPath = PCGenSettings.getCustomDir();
-			askForPath(currentPath, dialogTitle, pcgenCustomDir);
-		}
-		else if (source == pcgenVendorDataDirButton)
-		{
-			final String dialogTitle = LanguageBundle.getString("in_Prefs_pcgenVendorDataDirTitle");
-			final String currentPath = PCGenSettings.getVendorDataDir();
-			askForPath(currentPath, dialogTitle, pcgenVendorDataDir);
-		}
-		else if (source == pcgenHomebrewDataDirButton)
-		{
-			final String dialogTitle = LanguageBundle.getString("in_Prefs_pcgenHomebrewDataDirTitle");
-			final String currentPath = PCGenSettings.getHomebrewDataDir();
-			askForPath(currentPath, dialogTitle, pcgenHomebrewDataDir);
-		}
-		else if (source == pcgenDataDirButton)
-		{
-			final String dialogTitle = LanguageBundle.getString("in_Prefs_pcgenDataDirTitle");
-			final String currentPath = ConfigurationSettings.getPccFilesDir();
-			askForPath(currentPath, dialogTitle, pcgenDataDir);
-		}
-		else if (source == pcgenDocsDirButton)
-		{
-			final String dialogTitle = LanguageBundle.getString("in_Prefs_pcgenDocsDirTitle");
-			final String currentPath = ConfigurationSettings.getDocsDir();
-			askForPath(currentPath, dialogTitle, pcgenDocsDir);
-		}
-		else if (source == pcgenSystemDirButton)
-		{
-			final String dialogTitle = LanguageBundle.getString("in_Prefs_pcgenSystemDirTitle");
-			final String currentPath = ConfigurationSettings.getSystemsDir();
-			askForPath(currentPath, dialogTitle, pcgenSystemDir);
-		}
-		else if (source == pcgenFilesDirButton)
-		{
-			final String dialogTitle = LanguageBundle.getString("in_Prefs_pcgenFilesDirTitle");
-			final String currentPath = ConfigurationSettings.getSettingsDir();
-			askForPath(currentPath, dialogTitle, pcgenFilesDir);
-		}
-		else if (source == pcgenOutputSheetDirButton)
-		{
-			final String dialogTitle = LanguageBundle.getString("in_Prefs_pcgenOutputSheetDirTitle");
-			final String currentPath = ConfigurationSettings.getOutputSheetsDir();
-			askForPath(currentPath, dialogTitle, pcgenOutputSheetDir);
-		}
-		else if (source == pcgenPreviewDirButton)
-		{
-			final String dialogTitle = LanguageBundle.getString("in_Prefs_pcgenPreviewDirTitle");
-			final String currentPath = ConfigurationSettings.getPreviewDir();
-			askForPath(currentPath, dialogTitle, pcgenPreviewDir);
-		}
-		else
-		{
-			throw new IllegalStateException("illegal source in location panel" + source);
-		}
+	/** Chooses the directory for character backups. */
+	@FXML
+	private void chooseBackupDirectory()
+	{
+		askForPath(PCGenSettings.getBackupPcgDir(), "in_Prefs_pcgenBackupCharacterDirTitle", pcgenBackupCharacterDir);
+	}
 
+	/** Chooses the directory for portraits. */
+	@FXML
+	private void choosePortraitsDirectory()
+	{
+		askForPath(PCGenSettings.getPortraitsDir(), "in_Prefs_pcgenPortraitDirTitle", pcgenPortraitsDir);
+	}
+
+	/** Chooses the directory for custom data. */
+	@FXML
+	private void chooseCustomDataDirectory()
+	{
+		askForPath(PCGenSettings.getCustomDir(), "in_Prefs_pcgenCustomDirTitle", pcgenCustomDir);
+	}
+
+	/** Chooses the directory for vendor data. */
+	@FXML
+	private void chooseVendorDataDirectory()
+	{
+		askForPath(PCGenSettings.getVendorDataDir(), "in_Prefs_pcgenVendorDataDirTitle", pcgenVendorDataDir);
+	}
+
+	/** Chooses the directory for homebrew data. */
+	@FXML
+	private void chooseHomebrewDataDirectory()
+	{
+		askForPath(PCGenSettings.getHomebrewDataDir(), "in_Prefs_pcgenHomebrewDataDirTitle", pcgenHomebrewDataDir);
+	}
+
+	/** Chooses the directory for campaign data. */
+	@FXML
+	private void chooseDataDirectory()
+	{
+		askForPath(ConfigurationSettings.getPccFilesDir(), "in_Prefs_pcgenDataDirTitle", pcgenDataDir);
+	}
+
+	/** Chooses the directory for documentation. */
+	@FXML
+	private void chooseDocsDirectory()
+	{
+		askForPath(ConfigurationSettings.getDocsDir(), "in_Prefs_pcgenDocsDirTitle", pcgenDocsDir);
+	}
+
+	/** Chooses the directory for system files. */
+	@FXML
+	private void chooseSystemDirectory()
+	{
+		askForPath(ConfigurationSettings.getSystemsDir(), "in_Prefs_pcgenSystemDirTitle", pcgenSystemDir);
+	}
+
+	/** Chooses the directory for settings files. */
+	@FXML
+	private void chooseSettingsDirectory()
+	{
+		askForPath(ConfigurationSettings.getSettingsDir(), "in_Prefs_pcgenFilesDirTitle", pcgenFilesDir);
+	}
+
+	/** Chooses the directory for output sheets. */
+	@FXML
+	private void chooseOutputSheetDirectory()
+	{
+		askForPath(ConfigurationSettings.getOutputSheetsDir(), "in_Prefs_pcgenOutputSheetDirTitle", pcgenOutputSheetDir);
+	}
+
+	/** Chooses the directory for preview sheets. */
+	@FXML
+	private void choosePreviewDirectory()
+	{
+		askForPath(ConfigurationSettings.getPreviewDir(), "in_Prefs_pcgenPreviewDirTitle", pcgenPreviewDir);
 	}
 
 	/**
-	 * Ask for a path, and return it (possibly return the currentPath.)
-	 * @param currentPath when entering the method
-	 * @param dialogTitle to show
-	 * @param textField to update with the path information
+	 * Opens a directory chooser and updates the field, using the current path if canceled.
+	 * @param currentPath the saved directory to browse initially
+	 * @param titleKey the language-bundle key for the chooser title
+	 * @param textField the field to receive the selected path
 	 */
-	private static void askForPath(final String currentPath, final String dialogTitle, final TextField textField)
+	private static void askForPath(final String currentPath, final String titleKey, final TextField textField)
 	{
 		GuiAssertions.assertIsJavaFXThread();
-		askForPath(new File(currentPath), dialogTitle, textField);
-	}
-
-	/**
-	 * Ask for a path, and return it (possibly return the currentPath.)
-	 * @param currentPath when entering the method
-	 * @param dialogTitle to show
-	 * @param textField to update with the path information
-	 */
-	private static void askForPath(final File currentPath, final String dialogTitle, final TextField textField)
-	{
-		GuiAssertions.assertIsJavaFXThread();
+		File currentDirectory = new File(currentPath);
 		DirectoryChooser directoryChooser = new DirectoryChooser();
-		directoryChooser.setInitialDirectory(currentPath);
-		directoryChooser.setTitle(dialogTitle);
+		directoryChooser.setInitialDirectory(currentDirectory);
+		directoryChooser.setTitle(LanguageBundle.getString(titleKey));
 		File returnFile = directoryChooser.showDialog(null);
 		if (returnFile == null)
 		{
-			returnFile = currentPath;
+			returnFile = currentDirectory;
 		}
 
 		textField.setText(returnFile.toString());
