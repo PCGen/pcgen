@@ -83,10 +83,6 @@ see `PcgenFtlTestCase` for working examples.
   Never move a `JFXPanel`'s scene onto a standalone stage; this corrupts the embedded peer on macOS HiDPI.
 - JavaFX modality does not disable Swing windows. Source selection and data installation share an EDT-owned
   launch flag and block their Swing owner until they close, restoring it even if dialog initialization fails.
-- Keep Swing table corner menus in Swing; tab reparenting can dispose embedded JavaFX scenes before
-  queued scale updates run.
-- Tab model restoration and cancellation belong to the EDT; invalidate queued updates when detaching
-  a character, and detach only models that were actually installed.
 - Give nested dialogs an FX owner. Keep tab-specific actions outside `DialogPane`'s button bar:
   buttons created there dismiss the dialog unless their action is consumed.
   Load validation must happen before dismissal, including Basic-row double-clicks.
