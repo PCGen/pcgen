@@ -175,5 +175,17 @@ class ModernHtmlInfoBuilderTest
 					"cover image is tagged so the template can float it");
 			assertTrue(html.contains("cover.jpg"), "cover image src rendered");
 		}
+
+		@Test
+		void sectionsAreCollapsibleAndClosedByDefault(@TempDir Path dataDir) throws IOException
+		{
+			Campaign campaign = minimalCampaign();
+			campaign.addToListFor(ListKey.INFO_TEXT, "Some information about this source.");
+			String html = ModernHtmlInfoBuilder.forCampaign(campaign, dataDir);
+			assertTrue(html.contains("<details>"), "sections use native <details> disclosure");
+			assertTrue(html.contains("<summary>"), "sections have a <summary> heading");
+			assertFalse(html.contains("<details open>") || html.contains("<details open "),
+					"sections are collapsed by default");
+		}
 	}
 }

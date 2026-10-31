@@ -38,6 +38,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Control;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 
 import pcgen.cdom.enumeration.Destination;
@@ -214,19 +215,40 @@ class DataInstallerDialogTest
 		assertTrue(work.isEmpty());
 	}
 
+	/**
+	 * Verifies that HTML-like characters in package metadata remain literal text.
+	 * Reads DOM text so escaping is checked even while the Information section is collapsed.
+	 */
 	@Test
-	void choose_should_previewPackageMetadataWithoutInterpretingItsMarkup() throws Exception
+	void choose_should_renderPackageMetadataAsText() throws Exception
 	{
-		select(writePackage("book.pcz", "CAMPAIGN:Book <edition> & more\nMINVER:1.0.0\n"
-				+ "INFOTEXT:Useful <b>text</b> & details\nDEST:DATA\n", Map.of()));
-		runNext();
-		var engine = asyncFx(() -> ((WebView) dialog.getDialogPane().lookup("#information")).getEngine()).get();
-		waitFor(10, TimeUnit.SECONDS, () -> asyncFx(() ->
-				engine.getLoadWorker().getState() == Worker.State.SUCCEEDED
-						&& ((String) engine.executeScript("document.body.innerText")).contains("Book <edition> & more"))
-				.get());
-		String text = asyncFx(() -> (String) engine.executeScript("document.body.innerText")).get();
-		assertTrue(text.contains("Useful <b>text</b> & details"), text);
+		String title = "Book <edition> & more";
+		String information = "Useful <b>text</b> & details";
+		WebEngine preview = previewPackage(title, information);
+
+		asyncFx(() -> assertAll(
+				() -> assertEquals(title, preview.executeScript("document.querySelector('h1').textContent")),
+				() -> assertEquals(information,
+						preview.executeScript("document.querySelector('.section-body').textContent.trim()"))
+		)).get();
+	}
+
+	/**
+	 * Verifies that package information starts hidden and becomes visible when its heading is activated.
+	 */
+	@Test
+	void choose_should_expandPackageInformation() throws Exception
+	{
+		String information = "Details about the package.";
+		WebEngine preview = previewPackage("Book with information", information);
+
+		asyncFx(() -> {
+			assertFalse(((String) preview.executeScript("document.body.innerText")).contains(information),
+					"Information starts collapsed");
+			preview.executeScript("document.querySelector('details > summary').click()");
+			assertTrue(((String) preview.executeScript("document.body.innerText")).contains(information),
+					"Activating the heading reveals the package information");
+		}).get();
 	}
 
 	@ParameterizedTest
@@ -361,6 +383,24 @@ class DataInstallerDialogTest
 		assertEquals(AlertType.ERROR, notices.getFirst().type());
 		assertEquals("created later", Files.readString(destinations.get(Destination.DATA).resolve("new.lst")));
 		asyncFx(() -> assertFalse(button("install").isDisabled())).get();
+	}
+
+	/** Loads a package and waits for its preview, rather than an earlier or blank document. */
+	private WebEngine previewPackage(String title, String information) throws Exception
+	{
+		String manifest = """
+				CAMPAIGN:%s
+				MINVER:1.0.0
+				INFOTEXT:%s
+				DEST:DATA
+				""".formatted(title, information);
+		select(writePackage("book.pcz", manifest, Map.of()));
+		runNext();
+		WebEngine preview = asyncFx(() -> ((WebView) dialog.getDialogPane().lookup("#information")).getEngine()).get();
+		waitFor(10, TimeUnit.SECONDS, () -> asyncFx(() ->
+				preview.getLoadWorker().getState() == Worker.State.SUCCEEDED
+						&& title.equals(preview.executeScript("document.querySelector('h1')?.textContent"))).get());
+		return preview;
 	}
 
 	private void assertBusyAndCannotClose() throws Exception
