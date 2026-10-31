@@ -17,6 +17,7 @@
  */
 package pcgen.gui2.prefs;
 
+import java.awt.BorderLayout;
 import java.io.File;
 
 import pcgen.cdom.base.Constants;
@@ -28,13 +29,17 @@ import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
 
 import javafx.event.ActionEvent;
+import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
-import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
+import javafx.scene.layout.ColumnConstraints;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
 import javafx.stage.DirectoryChooser;
 import org.apache.commons.lang3.SystemUtils;
 
@@ -87,114 +92,52 @@ public final class LocationPanel extends PCGenPrefsPanel
 	public LocationPanel()
 	{
 		GuiAssertions.assertIsNotJavaFXThread();
-		VBox vBox = new VBox();
-		// todo: make a custom component that combines a label, textfield, and browse button
+		setLayout(new BorderLayout());
+		GridPane form = new GridPane();
+		form.setPadding(new Insets(16));
+		form.setHgap(12);
+		form.setVgap(8);
+		ColumnConstraints labels = new ColumnConstraints();
+		labels.setMaxWidth(220);
+		ColumnConstraints paths = new ColumnConstraints();
+		paths.setHgrow(Priority.ALWAYS);
+		form.getColumnConstraints().addAll(labels, paths, new ColumnConstraints());
 
-		Text in_prefs_pcgenCharacterDir = new Text(LanguageBundle.getString("in_Prefs_pcgenCharacterDir") + ": ");
-		vBox.getChildren().add(in_prefs_pcgenCharacterDir);
+		int row = 0;
+		addSection(form, row++, "in_Prefs_locationCharacterFiles");
 		pcgenCharacterDir = new TextField(String.valueOf(PCGenSettings.getPcgDir()));
-
-		vBox.getChildren().add(pcgenCharacterDir);
-		pcgenCharacterDirButton = new Button(IN_CHOOSE);
-		vBox.getChildren().add(pcgenCharacterDirButton);
-		pcgenCharacterDirButton.setOnAction(this::prefsButtonHandler);
-
-		in_prefs_pcgenCharacterDir = new Text(LanguageBundle.getString("in_Prefs_pcgenPortraitsDir"));
-		vBox.getChildren().add(in_prefs_pcgenCharacterDir);
+		pcgenCharacterDirButton = addDirectoryRow(form, row++, "in_Prefs_pcgenCharacterDir", pcgenCharacterDir);
 		pcgenPortraitsDir = new TextField(String.valueOf(PCGenSettings.getPortraitsDir()));
+		pcgenPortraitsDirButton = addDirectoryRow(form, row++, "in_Prefs_pcgenPortraitsDir", pcgenPortraitsDir);
 
-		vBox.getChildren().add(pcgenPortraitsDir);
-		pcgenPortraitsDirButton = new Button(IN_CHOOSE);
-		vBox.getChildren().add(pcgenPortraitsDirButton);
-		pcgenPortraitsDirButton.setOnAction(this::prefsButtonHandler);
-
-		in_prefs_pcgenCharacterDir = new Text(LanguageBundle.getString("in_Prefs_pcgenDataDir") + ": ");
-		vBox.getChildren().add(in_prefs_pcgenCharacterDir);
-		pcgenDataDir = new TextField(String.valueOf(ConfigurationSettings.getPccFilesDir()));
-
-		vBox.getChildren().add(pcgenDataDir);
-		pcgenDataDirButton = new Button(IN_CHOOSE);
-		vBox.getChildren().add(pcgenDataDirButton);
-		pcgenDataDirButton.setOnAction(this::prefsButtonHandler);
-
-		in_prefs_pcgenCharacterDir = new Text(LanguageBundle.getString("in_Prefs_pcgenCustomDir") + ": ");
-		vBox.getChildren().add(in_prefs_pcgenCharacterDir);
-		pcgenCustomDir = new TextField(String.valueOf(PCGenSettings.getCustomDir()));
-
-		vBox.getChildren().add(pcgenCustomDir);
-		pcgenCustomDirButton = new Button(IN_CHOOSE);
-		vBox.getChildren().add(pcgenCustomDirButton);
-		pcgenCustomDirButton.setOnAction(this::prefsButtonHandler);
-
-		in_prefs_pcgenCharacterDir = new Text(LanguageBundle.getString("in_Prefs_pcgenVendorDataDir") + ": ");
-		vBox.getChildren().add(in_prefs_pcgenCharacterDir);
-		pcgenVendorDataDir = new TextField(String.valueOf(PCGenSettings.getVendorDataDir()));
-
-		vBox.getChildren().add(pcgenVendorDataDir);
-		pcgenVendorDataDirButton = new Button(IN_CHOOSE);
-		vBox.getChildren().add(pcgenVendorDataDirButton);
-		pcgenVendorDataDirButton.setOnAction(this::prefsButtonHandler);
-
-		in_prefs_pcgenCharacterDir = new Text(LanguageBundle.getString("in_Prefs_pcgenHomebrewDataDir") + ": ");
-		vBox.getChildren().add(in_prefs_pcgenCharacterDir);
-		pcgenHomebrewDataDir = new TextField(String.valueOf(PCGenSettings.getHomebrewDataDir()));
-
-		vBox.getChildren().add(pcgenHomebrewDataDir);
-		pcgenHomebrewDataDirButton = new Button(IN_CHOOSE);
-		vBox.getChildren().add(pcgenHomebrewDataDirButton);
-		pcgenHomebrewDataDirButton.setOnAction(this::prefsButtonHandler);
-
-		in_prefs_pcgenCharacterDir = new Text(LanguageBundle.getString("in_Prefs_pcgenDocsDir") + ": ");
-		vBox.getChildren().add(in_prefs_pcgenCharacterDir);
-		pcgenDocsDir = new TextField(String.valueOf(ConfigurationSettings.getDocsDir()));
-
-		vBox.getChildren().add(pcgenDocsDir);
-		pcgenDocsDirButton = new Button(IN_CHOOSE);
-		vBox.getChildren().add(pcgenDocsDirButton);
-		pcgenDocsDirButton.setOnAction(this::prefsButtonHandler);
-
-		in_prefs_pcgenCharacterDir = new Text(LanguageBundle.getString("in_Prefs_pcgenSystemDir") + ": ");
-		vBox.getChildren().add(in_prefs_pcgenCharacterDir);
-		pcgenSystemDir = new TextField(String.valueOf(ConfigurationSettings.getSystemsDir()));
-
-		vBox.getChildren().add(pcgenSystemDir);
-		pcgenSystemDirButton = new Button(IN_CHOOSE);
-		vBox.getChildren().add(pcgenSystemDirButton);
-		pcgenSystemDirButton.setOnAction(this::prefsButtonHandler);
-
-		// Output Sheet directory
-		in_prefs_pcgenCharacterDir = new Text(LanguageBundle.getString("in_Prefs_pcgenOutputSheetDir") + ": ");
-		vBox.getChildren().add(in_prefs_pcgenCharacterDir);
-		pcgenOutputSheetDir = new TextField(String.valueOf(ConfigurationSettings.getOutputSheetsDir()));
-		vBox.getChildren().add(pcgenOutputSheetDir);
-		pcgenOutputSheetDirButton = new Button(IN_CHOOSE);
-		vBox.getChildren().add(pcgenOutputSheetDirButton);
-		pcgenOutputSheetDirButton.setOnAction(this::prefsButtonHandler);
-
-		in_prefs_pcgenCharacterDir = new Text(LanguageBundle.getString("in_Prefs_pcgenPreviewDir") + ": ");
-		vBox.getChildren().add(in_prefs_pcgenCharacterDir);
-		pcgenPreviewDir = new TextField(String.valueOf(ConfigurationSettings.getPreviewDir()));
-		vBox.getChildren().add(pcgenPreviewDir);
-		pcgenPreviewDirButton = new Button(IN_CHOOSE);
-		vBox.getChildren().add(pcgenPreviewDirButton);
-		pcgenPreviewDirButton.setOnAction(this::prefsButtonHandler);
-
-		in_prefs_pcgenCharacterDir = new Text(LanguageBundle.getString("in_Prefs_pcgenCreateBackupCharacter") + ": ");
-		vBox.getChildren().add(in_prefs_pcgenCharacterDir);
-		vBox.getChildren().add(pcgenCreateBackupCharacter);
-
-		in_prefs_pcgenCharacterDir = new Text(LanguageBundle.getString("in_Prefs_pcgenBackupCharacterDir") + ": ");
-		vBox.getChildren().add(in_prefs_pcgenCharacterDir);
+		pcgenCreateBackupCharacter.setText(LanguageBundle.getString("in_Prefs_pcgenCreateBackupCharacter"));
+		form.add(pcgenCreateBackupCharacter, 1, row++, 2, 1);
 		pcgenBackupCharacterDir = new TextField(String.valueOf(PCGenSettings.getBackupPcgDir()));
-		vBox.getChildren().add(pcgenBackupCharacterDir);
-		pcgenBackupCharacterDirButton = new Button(IN_CHOOSE);
-		vBox.getChildren().add(pcgenBackupCharacterDirButton);
-		pcgenBackupCharacterDirButton.setOnAction(this::prefsButtonHandler);
+		pcgenBackupCharacterDirButton =
+				addDirectoryRow(form, row++, "in_Prefs_pcgenBackupCharacterDir", pcgenBackupCharacterDir);
 
-		// Where to store options.ini file
-		in_prefs_pcgenCharacterDir = new Text(LanguageBundle.getString("in_Prefs_pcgenFilesDir") + ": ");
-		vBox.getChildren().add(in_prefs_pcgenCharacterDir);
+		addSection(form, row++, "in_Prefs_locationDataSources");
+		pcgenDataDir = new TextField(String.valueOf(ConfigurationSettings.getPccFilesDir()));
+		pcgenDataDirButton = addDirectoryRow(form, row++, "in_Prefs_pcgenDataDir", pcgenDataDir);
+		pcgenCustomDir = new TextField(String.valueOf(PCGenSettings.getCustomDir()));
+		pcgenCustomDirButton = addDirectoryRow(form, row++, "in_Prefs_pcgenCustomDir", pcgenCustomDir);
+		pcgenVendorDataDir = new TextField(String.valueOf(PCGenSettings.getVendorDataDir()));
+		pcgenVendorDataDirButton = addDirectoryRow(form, row++, "in_Prefs_pcgenVendorDataDir", pcgenVendorDataDir);
+		pcgenHomebrewDataDir = new TextField(String.valueOf(PCGenSettings.getHomebrewDataDir()));
+		pcgenHomebrewDataDirButton =
+				addDirectoryRow(form, row++, "in_Prefs_pcgenHomebrewDataDir", pcgenHomebrewDataDir);
 
+		addSection(form, row++, "in_Prefs_locationApplicationFiles");
+		pcgenDocsDir = new TextField(String.valueOf(ConfigurationSettings.getDocsDir()));
+		pcgenDocsDirButton = addDirectoryRow(form, row++, "in_Prefs_pcgenDocsDir", pcgenDocsDir);
+		pcgenSystemDir = new TextField(String.valueOf(ConfigurationSettings.getSystemsDir()));
+		pcgenSystemDirButton = addDirectoryRow(form, row++, "in_Prefs_pcgenSystemDir", pcgenSystemDir);
+		pcgenOutputSheetDir = new TextField(String.valueOf(ConfigurationSettings.getOutputSheetsDir()));
+		pcgenOutputSheetDirButton = addDirectoryRow(form, row++, "in_Prefs_pcgenOutputSheetDir", pcgenOutputSheetDir);
+		pcgenPreviewDir = new TextField(String.valueOf(ConfigurationSettings.getPreviewDir()));
+		pcgenPreviewDirButton = addDirectoryRow(form, row++, "in_Prefs_pcgenPreviewDir", pcgenPreviewDir);
+
+		addSection(form, row++, "in_Prefs_locationSettings");
 		pcgenFilesDirRadio = new RadioButton(LanguageBundle.getFormattedString("in_Prefs_progDir", Constants.APPLICATION_NAME));
 		usersFilesDirRadio = new RadioButton(LanguageBundle.getString("in_Prefs_homeDir"));
 		selectFilesDirRadio = new RadioButton(LanguageBundle.getString("in_Prefs_selectDir"));
@@ -224,14 +167,14 @@ public final class LocationPanel extends PCGenPrefsPanel
 			selectFilesDirRadio.setSelected(true);
 		}
 
-		vBox.getChildren().add(pcgenFilesDirRadio);
-		vBox.getChildren().add(usersFilesDirRadio);
-
 		groupFilesDir = new ToggleGroup();
 		pcgenFilesDirRadio.setToggleGroup(groupFilesDir);
 		usersFilesDirRadio.setToggleGroup(groupFilesDir);
 		selectFilesDirRadio.setToggleGroup(groupFilesDir);
 
+		form.add(new HBox(16, pcgenFilesDirRadio, usersFilesDirRadio, selectFilesDirRadio), 0, row++, 3, 1);
+		pcgenFilesDirButton = addDirectoryRow(form, row, "in_Prefs_pcgenFilesDir", pcgenFilesDir);
+		pcgenFilesDirButton.setDisable(!selectFilesDirRadio.isSelected());
 		pcgenFilesDirRadio.setOnAction(evt -> {
 			pcgenFilesDir.setText(SettingsFilesPath.pcgen.getSettingsDir());
 			pcgenFilesDirButton.setDisable(true);
@@ -245,14 +188,28 @@ public final class LocationPanel extends PCGenPrefsPanel
 			pcgenFilesDirButton.setDisable(false);
 		});
 
-		vBox.getChildren().add(selectFilesDirRadio);
-		vBox.getChildren().add(pcgenFilesDir);
-		pcgenFilesDirButton = new Button(IN_CHOOSE);
-		pcgenFilesDirButton.setDisable(!selectFilesDirRadio.isSelected());
-		vBox.getChildren().add(pcgenFilesDirButton);
-		pcgenFilesDirButton.setOnAction(this::prefsButtonHandler);
+		this.add(GuiUtility.wrapParentAsJFXPanel(form));
+	}
 
-		this.add(GuiUtility.wrapParentAsJFXPanel(vBox));
+	/** Adds a section heading without introducing another nested layout. */
+	private static void addSection(GridPane form, int row, String titleKey)
+	{
+		Label title = new Label(LanguageBundle.getString(titleKey));
+		title.setStyle("-fx-font-weight: bold;");
+		GridPane.setMargin(title, new Insets(row == 0 ? 0 : 12, 0, 4, 0));
+		form.add(title, 0, row, 3, 1);
+	}
+
+	/** Adds an accessible directory row and returns its browse button for the existing handler. */
+	private Button addDirectoryRow(GridPane form, int row, String labelKey, TextField field)
+	{
+		Label label = new Label(LanguageBundle.getString(labelKey));
+		label.setLabelFor(field);
+		label.setWrapText(true);
+		Button browse = new Button(IN_CHOOSE);
+		browse.setOnAction(this::prefsButtonHandler);
+		form.addRow(row, label, field, browse);
+		return browse;
 	}
 
 	@Override

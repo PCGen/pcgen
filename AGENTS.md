@@ -76,6 +76,9 @@ see `PcgenFtlTestCase` for working examples.
 
 - Construct and mutate JavaFX controls, dialogs, and windows on the FX thread.
   Facade mutations observed by Swing models run on the EDT; observable FX rows update back on the FX thread.
+- Embedded preference forms must fill their Swing container: use `BorderLayout`, not the default centered `FlowLayout`.
+  `LocationPanelTest` measures the real Swing/FX bridge and skips headless runs because `JFXPanel` needs an AWT display.
+- Location directories share aligned label/path/browse rows; keep path fields resizable and punctuation in the bundle.
 - Use `PanelFromResource` for standalone FXML stages and `JFXPanelFromResource` for Swing embedding.
   Never move a `JFXPanel`'s scene onto a standalone stage; this corrupts the embedded peer on macOS HiDPI.
 - JavaFX modality does not disable Swing windows. Source selection and data installation share an EDT-owned
