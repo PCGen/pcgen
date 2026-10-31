@@ -36,11 +36,11 @@ Performance			KEY:Special Quality ~ Performance				NAMEOPT:NOTHING	TYPE:SpecialW
 
 
 ### EQMODS Base Types
-Bone				KEY:Material ~ Bone						NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods			COST:0		VISIBLE:QUALIFY	ITYPE:Bone		SOURCEPAGE:p.146	PRETYPE:1,Metal,Wooden
+Bone				KEY:Material ~ Bone						NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods			COST:(BASECOST)*-0.5		VISIBLE:QUALIFY	ITYPE:Bone		SOURCEPAGE:p.146	PRETYPE:1,Metal,Wooden
 Bronze			KEY:Material ~ Bronze						NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods			COST:0		VISIBLE:QUALIFY	ITYPE:Bronze	SOURCEPAGE:p.146	PRETYPE:1,Metal
 Gold				KEY:Material ~ Gold						NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods			COST:(BASECOST)*9	VISIBLE:QUALIFY	ITYPE:Gold		SOURCEPAGE:p.147	PRETYPE:1,Metal
 Stone				KEY:Material ~ Stone						NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods			COST:0		VISIBLE:QUALIFY	ITYPE:Stone		SOURCEPAGE:p.147										!PRETYPE:1,EQMODTYPE=Mundane	!PRETYPE:1,Metal,Wooden
-Obsidian			KEY:Material ~ Obsidian						NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods			COST:0		VISIBLE:QUALIFY	ITYPE:Obsidian	SOURCEPAGE:p.147	PRETYPE:1,Wooden
+Obsidian			KEY:Material ~ Obsidian						NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods			COST:(BASECOST)*-0.5		VISIBLE:QUALIFY	ITYPE:Obsidian	SOURCEPAGE:p.147	PRETYPE:1,Wooden
 
 ###Block:
 # Modifier Name											Unique Key							Naming Option		Type		Cost		Visible		Source Page		Special Property

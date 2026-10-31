@@ -217,7 +217,7 @@ class DataInstallerDialogTest
 
 	/**
 	 * Verifies that HTML-like characters in package metadata remain literal text.
-	 * Reads DOM text so escaping is checked even while the Information section is collapsed.
+	 * Reads DOM text so escaping is checked independently of layout.
 	 */
 	@Test
 	void choose_should_renderPackageMetadataAsText() throws Exception
@@ -234,20 +234,17 @@ class DataInstallerDialogTest
 	}
 
 	/**
-	 * Verifies that package information starts hidden and becomes visible when its heading is activated.
+	 * Verifies that package information is visible as soon as its preview loads.
 	 */
 	@Test
-	void choose_should_expandPackageInformation() throws Exception
+	void choose_should_showPackageInformationImmediately() throws Exception
 	{
 		String information = "Details about the package.";
 		WebEngine preview = previewPackage("Book with information", information);
 
 		asyncFx(() -> {
-			assertFalse(((String) preview.executeScript("document.body.innerText")).contains(information),
-					"Information starts collapsed");
-			preview.executeScript("document.querySelector('details > summary').click()");
 			assertTrue(((String) preview.executeScript("document.body.innerText")).contains(information),
-					"Activating the heading reveals the package information");
+					"Package information must not require expanding a section");
 		}).get();
 	}
 

@@ -75,6 +75,8 @@ import pcgen.gui2.tools.Icons;
 import pcgen.system.FacadeFactory;
 import pcgen.system.LanguageBundle;
 
+import org.apache.commons.lang3.StringUtils;
+
 /** Controls the Advanced source-selection tab, its campaign trees, preview and save actions. */
 public class AdvancedSourceSelectionController implements AutoCloseable
 {
@@ -744,17 +746,17 @@ public class AdvancedSourceSelectionController implements AutoCloseable
 
 		// Selected list changes drive the right-side tree rebuild.
 		selectedCampaigns.addListener((ListChangeListener<Campaign>) _ -> {
-			treeSelected.setRoot(buildTree(selectedCampaigns));
+			treeSelected.setRoot(buildTree(selectedCampaigns, true));
 			refreshAvailability();
 		});
-		treeSelected.setRoot(buildTree(selectedCampaigns));
+		treeSelected.setRoot(buildTree(selectedCampaigns, true));
 
 		// The available tree mirrors the model's maintained availableCampaigns
 		// list (recomputed by the model on game-mode or search-query change).
 		var available = model.getAvailableCampaigns();
 		available.addListener((ListChangeListener<Campaign>) _ -> {
 			refreshAvailability();
-			treeAvailable.setRoot(buildTree(available));
+			refreshAvailableTree();
 		});
 
 		// Seed the model's game mode (unless already set, e.g. by a Basic
@@ -776,7 +778,14 @@ public class AdvancedSourceSelectionController implements AutoCloseable
 
 		// Reflect the initial mode into the tree once.
 		refreshAvailability();
-		treeAvailable.setRoot(buildTree(model.getAvailableCampaigns()));
+		refreshAvailableTree();
+	}
+
+	/** Collapses the available catalog by default and reveals matching books during a search. */
+	private void refreshAvailableTree()
+	{
+		treeAvailable.setRoot(buildTree(model.getAvailableCampaigns(),
+				StringUtils.isNotBlank(model.getSearchQuery())));
 	}
 
 	/**
@@ -952,7 +961,7 @@ public class AdvancedSourceSelectionController implements AutoCloseable
 	}
 
 	/**
-	 * Builds an expanded Publisher → Setting → Campaign tree from the supplied
+	 * Builds a collapsed Publisher → Setting → Campaign tree from the supplied
 	 * campaigns. Campaigns without a CAMPAIGN_SETTING attach as direct
 	 * publisher children; those with a setting are grouped under a setting node.
 	 * Package-private for unit testing.
@@ -961,6 +970,18 @@ public class AdvancedSourceSelectionController implements AutoCloseable
 	 * @return the root of the publisher and setting hierarchy
 	 */
 	static TreeItem<SourceTreeNode> buildTree(List<Campaign> campaigns)
+	{
+		return buildTree(campaigns, false);
+	}
+
+	/**
+	 * Groups campaigns with expanded folders for search results or the selected-source list.
+	 *
+	 * @param campaigns the campaigns to group
+	 * @param expanded whether publisher and setting groups initially show their children
+	 * @return the root of the publisher and setting hierarchy
+	 */
+	static TreeItem<SourceTreeNode> buildTree(List<Campaign> campaigns, boolean expanded)
 	{
 		var fallbackPublisher = LanguageBundle.getString("in_other");
 
@@ -971,7 +992,8 @@ public class AdvancedSourceSelectionController implements AutoCloseable
 		var root = new TreeItem<SourceTreeNode>();
 		byPublisher.entrySet().stream()
 				.sorted(Map.Entry.comparingByKey(String.CASE_INSENSITIVE_ORDER))
-				.forEach(pubEntry -> root.getChildren().add(buildPublisherNode(pubEntry.getKey(), pubEntry.getValue())));
+				.forEach(pubEntry -> root.getChildren().add(
+						buildPublisherNode(pubEntry.getKey(), pubEntry.getValue(), expanded)));
 		return root;
 	}
 
@@ -980,12 +1002,14 @@ public class AdvancedSourceSelectionController implements AutoCloseable
 	 *
 	 * @param publisher the publisher's display label
 	 * @param children the campaigns belonging to the publisher
-	 * @return an expanded publisher node with alphabetically sorted groups and books
+	 * @param expanded whether the publisher and its settings initially show their children
+	 * @return a publisher node with alphabetically sorted groups and books
 	 */
-	private static TreeItem<SourceTreeNode> buildPublisherNode(String publisher, List<Campaign> children)
+	private static TreeItem<SourceTreeNode> buildPublisherNode(String publisher, List<Campaign> children,
+			boolean expanded)
 	{
 		var node = new TreeItem<SourceTreeNode>(new SourceTreeNode.Publisher(publisher));
-		node.setExpanded(true);
+		node.setExpanded(expanded);
 
 		// Campaigns within a publisher group either have a setting (folder) or
 		// not (direct child). Settings are alphabetized; direct campaigns sort
@@ -997,7 +1021,8 @@ public class AdvancedSourceSelectionController implements AutoCloseable
 		bySetting.entrySet().stream()
 				.filter(e -> e.getKey().isPresent())
 				.sorted(Comparator.comparing(e -> e.getKey().get(), String.CASE_INSENSITIVE_ORDER))
-				.forEach(e -> node.getChildren().add(buildSettingNode(publisher, e.getKey().get(), e.getValue())));
+				.forEach(e -> node.getChildren().add(
+						buildSettingNode(publisher, e.getKey().get(), e.getValue(), expanded)));
 
 		bySetting.getOrDefault(Optional.empty(), List.of()).stream()
 				.sorted(Comparator.comparing(Campaign::getDisplayName, String.CASE_INSENSITIVE_ORDER))
@@ -1007,17 +1032,19 @@ public class AdvancedSourceSelectionController implements AutoCloseable
 	}
 
 	/**
-	 * Builds an expanded setting node with campaigns sorted by display name.
+	 * Builds a setting node with campaigns sorted by display name.
 	 *
 	 * @param publisher the publisher owning the setting
 	 * @param setting the setting's display label
 	 * @param children the campaigns belonging to the setting
+	 * @param expanded whether the setting initially shows its campaigns
 	 * @return the setting node and its campaign leaves
 	 */
-	private static TreeItem<SourceTreeNode> buildSettingNode(String publisher, String setting, List<Campaign> children)
+	private static TreeItem<SourceTreeNode> buildSettingNode(String publisher, String setting, List<Campaign> children,
+			boolean expanded)
 	{
 		var node = new TreeItem<SourceTreeNode>(new SourceTreeNode.Setting(publisher, setting));
-		node.setExpanded(true);
+		node.setExpanded(expanded);
 		children.stream()
 				.sorted(Comparator.comparing(Campaign::getDisplayName, String.CASE_INSENSITIVE_ORDER))
 				.forEach(c -> node.getChildren().add(new TreeItem<>(new SourceTreeNode.Leaf(c))));

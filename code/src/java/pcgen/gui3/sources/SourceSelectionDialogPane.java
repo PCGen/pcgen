@@ -214,10 +214,6 @@ public class SourceSelectionDialogPane extends DialogPane implements AutoCloseab
 	public void applyTabPreference(SourceTabPreference preference)
 	{
 		advancedTabController.setAlwaysAdvanced(preference.alwaysAdvanced());
-		if (!preference.alwaysAdvanced())
-		{
-			basicTabController.getSelectedSource().ifPresent(bundle -> project(model, bundle));
-		}
 		tabSources.getSelectionModel().select(
 				preference.initialTab() == ActiveTabEnum.ADVANCED ? advancedTab : basicTab);
 	}

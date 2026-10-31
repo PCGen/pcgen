@@ -119,16 +119,19 @@ see `PcgenFtlTestCase` for working examples.
   Bundles and alternate editions deliberately exclude books, so accepting every published source is not possible.
 - Compute availability and explanations once per selection change, not from cell rendering.
   Keep the empty-offered early return: it avoids expensive baseline qualification.
+- Available publisher/setting groups start collapsed. Expand search results and selected-source groups
+  so matching and chosen books remain visible; clearing the search restores the collapsed catalog.
 - Saving validates nonempty campaigns and nonblank names at the UI boundary.
   Existing custom names reuse their facade; bundled names cannot be overwritten.
   Match persistence names exactly, not display-name fallbacks, and update rows only after successful persistence.
 - Advanced selection memory is per mode in the `advancedSourceSelectionPanel` UI context.
-  Opening Basic projects its row; opening Advanced restores its own memory.
+  Restoring Basic's highlight must not replace Advanced's remembered list; later Basic selections still project.
   `SOURCE_USE_BASIC_KEY` is the inverse of "always use advanced."
   Unload cancellation must not erase the edited selection.
 
 ## Source previews
 
+- Keep preview information visible by default; covers must leave readable metadata space in narrow panes.
 - Each Basic/Advanced preview owns one `SourceInfoRenderer` and closes it when the dialog hides.
   Basic selections can contain multiple independent campaigns; render and reload the entire bundle.
   Late persistence callbacks must not reopen a disposed preview.
@@ -187,7 +190,9 @@ see `PcgenFtlTestCase` for working examples.
 - `.github/workflows/gradle-test.yml` runs build, integration/data/slow tests, then coverage.
   The tag-release workflow validates tags; the manual-release workflow commits the release version,
   builds, then bumps to the next snapshot only after success.
-- The nightly workflow skips unchanged master, otherwise publishes a dated prerelease and retains seven nightlies.
+- The nightly workflow compares master with the moving `nightly-last-success` tag, updated only after
+  all platforms build and upload successfully. Dated tags alone do not prove success. Same-commit retries
+  reuse the dated tag; different commits wait until the next day. It retains seven nightly releases.
   CI patches version/date resources during builds without committing them.
 
 ## Other non-obvious constraints
@@ -196,6 +201,8 @@ see `PcgenFtlTestCase` for working examples.
   Use lambdas inside its guards: bound method references can fail before entering the guard.
 - `ConfigurationSettings.findInstallRoot` only checks bounded ancestors and their `app` subdirectory.
   Do not scan unrelated child directories while searching for an installation.
+- Relative `INFOSHEET` paths are installation-root-relative, not working-directory-relative.
+  `HtmlSheetSupport` resolves them through `ConfigurationSettings.getInstallRoot()`; absolute custom sheets stay absolute.
 - `./gradlew run` uses exploded classes under `build/classes/java/main`.
   Do not clean, rename, or rebuild the checkout underneath a running application.
 
