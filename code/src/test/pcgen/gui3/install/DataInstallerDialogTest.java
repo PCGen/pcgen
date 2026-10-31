@@ -35,6 +35,7 @@ import javafx.application.Platform;
 import javafx.concurrent.Worker;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.Control;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.web.WebView;
@@ -58,6 +59,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.io.TempDir;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
 import org.testfx.framework.junit5.ApplicationExtension;
 
 /** Exercises the FXML workflow with real manifests and extraction, without opening native prompts. */
@@ -130,6 +132,47 @@ class DataInstallerDialogTest
 			tokens.clear();
 			tokens.putAll(previousInstallTokens);
 		}
+	}
+
+	@ParameterizedTest
+	@ValueSource(strings = {"archivePath", "choose"})
+	void datasetTooltip_should_explainTheExpectedArchive(String controlId) throws Exception
+	{
+		asyncFx(() -> {
+			var tooltip = ((Control) dialog.getDialogPane().lookup("#" + controlId)).getTooltip();
+			assertNotNull(tooltip);
+			assertEquals(LanguageBundle.getString("in_diDataSet_tip"), tooltip.getText());
+		}).get();
+	}
+
+	@ParameterizedTest
+	@CsvSource({"DATA,dataLocation,in_diData_tip", "VENDORDATA,vendorLocation,in_diVendorData_tip",
+			"HOMEBREWDATA,homebrewLocation,in_diHomebrewData_tip"})
+	void locationTooltip_should_includeTheConfiguredDirectory(Destination destination, String control, String description)
+			throws Exception
+	{
+		asyncFx(() -> {
+			String text = ((RadioButton) dialog.getDialogPane().lookup("#" + control)).getTooltip().getText();
+			assertAll(
+					() -> assertTrue(text.contains(LanguageBundle.getString(description)), text),
+					() -> assertTrue(text.contains(destinations.get(destination).toString()), text));
+		}).get();
+	}
+
+	@Test
+	void locationTooltip_should_preserveTheConfiguredParentSegments() throws Exception
+	{
+		asyncFx(() -> {
+			dialog.close();
+			Path configured = directory.resolve("linked-data/../homebrew");
+			dialog = new DataInstallerDialog(Map.of(
+					Destination.DATA, destinations.get(Destination.DATA),
+					Destination.VENDORDATA, destinations.get(Destination.VENDORDATA),
+					Destination.HOMEBREWDATA, configured), sheets, application, work::add);
+			dialog.show();
+			String tooltip = ((RadioButton) dialog.getDialogPane().lookup("#homebrewLocation")).getTooltip().getText();
+			assertTrue(tooltip.contains(configured.toString()), tooltip);
+		}).get();
 	}
 
 	@ParameterizedTest

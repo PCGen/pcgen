@@ -153,7 +153,11 @@ public final class DataInstallerDialog extends Dialog<Void>
 				Destination.HOMEBREWDATA, homebrewLocation);
 		preview = new SourceInfoRenderer(information.getEngine());
 		choose.disableProperty().bind(busy);
-		locationButtons.values().forEach(button -> button.disableProperty().bind(busy));
+		locationButtons.forEach((destination, button) -> {
+			button.disableProperty().bind(busy);
+			var tooltip = button.getTooltip();
+			tooltip.setText(tooltip.getText() + "\n\n" + destinations.get(destination).toAbsolutePath());
+		});
 		install.disableProperty().bind(busy.or(selection.isNull()).or(locations.selectedToggleProperty().isNull()));
 		progress.visibleProperty().bind(busy);
 		progress.managedProperty().bind(busy);

@@ -138,12 +138,14 @@ see `PcgenFtlTestCase` for working examples.
 
 - `pcgen.persistence.install.DataPackageInstaller` handles ZIP inspection, destination planning, and extraction
   independently of the UI. Plans list nonstandard entries and overwrites so callers can confirm or omit them.
+  Input help identifies `.pcz`/`.zip` archives and requires `install.lst` at their root.
 - Validate archive paths against their canonical destination roots, including nonstandard entries and directories.
   Create file parents during extraction; ZIPs need not contain explicit directory entries.
 - Normalize backslashes before recognizing ZIP directories: `ZipEntry.isDirectory()` only recognizes `/`.
 - `gui3.install.DataInstallerDialog` owns the FXML workflow. Archive reading, planning, and extraction run
   on a worker; prompts and task completion run on FX. It owns and closes its `SourceInfoRenderer` preview.
   Nonstandard entries resolve against `ConfigurationSettings.getInstallRoot()`, never the process directory.
+  Location tooltips show the same configured destination paths used for extraction, not hardcoded defaults.
 - Installer workflow tests register and restore only their required `InstallLstToken` handlers.
   Avoid global plugin bootstrap here: it pollutes formula-function tests sharing the JVM.
 - Both the Sources menu and source selector launch through `PCGenFrame.showDataInstaller`.

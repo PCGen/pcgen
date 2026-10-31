@@ -13,21 +13,23 @@
             <padding><Insets top="12" right="12" bottom="12" left="12"/></padding>
             <Label text="%in_diDataSet" labelFor="$archivePath"/>
             <HBox spacing="8" alignment="CENTER_LEFT">
-                <TextField fx:id="archivePath" editable="false" HBox.hgrow="ALWAYS"/>
+                <TextField fx:id="archivePath" editable="false" HBox.hgrow="ALWAYS">
+                    <tooltip><Tooltip text="%in_diDataSet_tip" wrapText="true" maxWidth="600"/></tooltip>
+                </TextField>
                 <Button fx:id="choose" text="%in_select" onAction="#onChoose">
-                    <tooltip><Tooltip text="%in_diChooserTitle"/></tooltip>
+                    <tooltip><Tooltip text="%in_diDataSet_tip" wrapText="true" maxWidth="600"/></tooltip>
                 </Button>
             </HBox>
             <Label text="%in_diLocation"/>
             <HBox spacing="18">
                 <RadioButton fx:id="dataLocation" text="%in_diData" toggleGroup="$locations">
-                    <tooltip><Tooltip text="%in_diData_tip"/></tooltip>
+                    <tooltip><Tooltip text="%in_diData_tip" wrapText="true" maxWidth="600"/></tooltip>
                 </RadioButton>
                 <RadioButton fx:id="vendorLocation" text="%in_diVendorData" toggleGroup="$locations">
-                    <tooltip><Tooltip text="%in_diVendorData_tip"/></tooltip>
+                    <tooltip><Tooltip text="%in_diVendorData_tip" wrapText="true" maxWidth="600"/></tooltip>
                 </RadioButton>
                 <RadioButton fx:id="homebrewLocation" text="%in_diHomebrewData" toggleGroup="$locations">
-                    <tooltip><Tooltip text="%in_diHomebrewData_tip"/></tooltip>
+                    <tooltip><Tooltip text="%in_diHomebrewData_tip" wrapText="true" maxWidth="600"/></tooltip>
                 </RadioButton>
             </HBox>
             <WebView fx:id="information" prefHeight="320" VBox.vgrow="ALWAYS"/>
