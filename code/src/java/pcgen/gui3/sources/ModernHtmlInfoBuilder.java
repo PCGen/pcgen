@@ -218,9 +218,16 @@ final class ModernHtmlInfoBuilder
 		{
 			source = SourceFormat.getFormattedString(aCamp, SourceFormat.LONG, true);
 		}
-		// in_infByPub is an HTML pattern ("<b> by</b> {0}") appended after the SOURCE value.
-		facts.add(fact(LanguageBundle.getString("in_sumSource"),
-				Html.escape(source) + LanguageBundle.getFormattedString("in_infByPub", Html.escape(aCamp.getSafe(StringKey.PUB_NAME_LONG)))));
+		// in_infByPub is an HTML pattern ("<b> by</b> {0}") appended after the SOURCE
+		// value; emit it only when there is a publisher, so a blank PUBNAMELONG does
+		// not leave a dangling bold " by".
+		String sourceValue = Html.escape(source);
+		String publisher = aCamp.getSafe(StringKey.PUB_NAME_LONG);
+		if (!publisher.isBlank())
+		{
+			sourceValue += LanguageBundle.getFormattedString("in_infByPub", Html.escape(publisher));
+		}
+		facts.add(fact(LanguageBundle.getString("in_sumSource"), sourceValue));
 
 		if (!aCamp.getType().isEmpty())
 		{

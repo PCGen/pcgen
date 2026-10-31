@@ -142,5 +142,24 @@ class ModernHtmlInfoBuilderTest
 			assertTrue(html.contains("<h1>Bare</h1>"), "still renders the title");
 			assertFalse(html.contains("class=\"description\""), "no description block when unset");
 		}
+
+		@Test
+		void rendersByPublisherSuffix_when_publisherSet(@TempDir Path dataDir) throws IOException
+		{
+			Campaign campaign = minimalCampaign();
+			campaign.put(StringKey.PUB_NAME_LONG, "Acme Games");
+			String html = ModernHtmlInfoBuilder.forCampaign(campaign, dataDir);
+			assertTrue(html.contains("Acme Games"), "publisher name rendered");
+			assertTrue(html.contains("by</b> Acme Games") || html.contains("by</b>Acme Games"),
+					"the 'by <publisher>' suffix is present when a publisher is set");
+		}
+
+		@Test
+		void omitsByPublisherSuffix_when_publisherBlank(@TempDir Path dataDir) throws IOException
+		{
+			// minimalCampaign sets no PUB_NAME_LONG, so getSafe returns "".
+			String html = ModernHtmlInfoBuilder.forCampaign(minimalCampaign(), dataDir);
+			assertFalse(html.contains(" by</b>"), "no dangling bold ' by' when publisher is unset");
+		}
 	}
 }
