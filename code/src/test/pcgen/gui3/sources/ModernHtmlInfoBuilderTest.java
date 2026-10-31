@@ -23,10 +23,12 @@ import java.net.URISyntaxException;
 import java.nio.file.Path;
 
 import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Status;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Campaign;
+import pcgen.persistence.lst.CampaignSourceEntry;
 
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -160,6 +162,18 @@ class ModernHtmlInfoBuilderTest
 			// minimalCampaign sets no PUB_NAME_LONG, so getSafe returns "".
 			String html = ModernHtmlInfoBuilder.forCampaign(minimalCampaign(), dataDir);
 			assertFalse(html.contains(" by</b>"), "no dangling bold ' by' when publisher is unset");
+		}
+
+		@Test
+		void rendersCoverImageWithCoverKind_when_coverSet(@TempDir Path dataDir) throws IOException
+		{
+			Campaign campaign = minimalCampaign();
+			URI coverUri = dataDir.resolve("cover.jpg").toUri();
+			campaign.addToListFor(ListKey.FILE_COVER, new CampaignSourceEntry(campaign, coverUri));
+			String html = ModernHtmlInfoBuilder.forCampaign(campaign, dataDir);
+			assertTrue(html.contains("class=\"cover\"") || html.contains("class=\"hero-cover\""),
+					"cover image is tagged so the template can float it");
+			assertTrue(html.contains("cover.jpg"), "cover image src rendered");
 		}
 	}
 }

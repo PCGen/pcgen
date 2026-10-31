@@ -69,9 +69,6 @@ import org.apache.commons.lang3.StringUtils;
  */
 final class ModernHtmlInfoBuilder
 {
-	/** Maximum rendered size (px) of a cover/logo image, so large art cannot blow out the layout. */
-	private static final int MAX_IMAGE_PX = 128;
-
 	private static final String TEMPLATE_NAME = "campaign-info.ftl";
 
 	/**
@@ -140,7 +137,6 @@ final class ModernHtmlInfoBuilder
 	{
 		Map<String, Object> model = Map.of(
 				"baseHref", dataDir.toUri().toString(),
-				"maxImagePx", MAX_IMAGE_PX,
 				"title", title,
 				"campaigns", campaigns.stream().map(campaign -> buildModel(campaign, dataDir)).toList());
 		try
@@ -177,19 +173,22 @@ final class ModernHtmlInfoBuilder
 	private static List<Map<String, Object>> buildImages(Campaign aCamp, Path dataDir)
 	{
 		List<Map<String, Object>> images = new ArrayList<>(2);
-		addImage(images, aCamp, ListKey.FILE_COVER, dataDir, aCamp.getDisplayName() + " cover");
-		addImage(images, aCamp, ListKey.FILE_LOGO, dataDir, aCamp.getDisplayName() + " logo");
+		addImage(images, aCamp, ListKey.FILE_COVER, dataDir, aCamp.getDisplayName() + " cover", "cover");
+		addImage(images, aCamp, ListKey.FILE_LOGO, dataDir, aCamp.getDisplayName() + " logo", "logo");
 		return images;
 	}
 
 	private static void addImage(List<Map<String, Object>> images, Campaign aCamp,
-			ListKey<CampaignSourceEntry> key, Path dataDir, String alt)
+			ListKey<CampaignSourceEntry> key, Path dataDir, String alt, String kind)
 	{
 		if (aCamp.getSizeOfListFor(key) > 0)
 		{
 			Map<String, Object> img = new LinkedHashMap<>();
 			img.put("src", imageSrc(aCamp.getSafeListFor(key).getFirst().getURI(), dataDir));
 			img.put("alt", alt);
+			// kind ("cover"/"logo") lets the template float and size the two differently
+			// without knowing about ListKeys or list order.
+			img.put("kind", kind);
 			images.add(img);
 		}
 	}
