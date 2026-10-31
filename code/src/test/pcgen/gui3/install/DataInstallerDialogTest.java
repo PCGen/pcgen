@@ -21,6 +21,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -39,9 +40,16 @@ import javafx.scene.control.TextField;
 import javafx.scene.web.WebView;
 
 import pcgen.cdom.enumeration.Destination;
+import pcgen.persistence.lst.InstallLstToken;
+import pcgen.persistence.lst.LstToken;
+import pcgen.persistence.lst.TokenStore;
 import pcgen.system.PCGenPropBundle;
 import pcgen.system.LanguageBundle;
-import pcgen.test.PCGenTestEnvironment;
+import plugin.lsttokens.campaign.CampaignToken;
+import plugin.lsttokens.campaign.InfotextToken;
+import plugin.lsttokens.campaign.installable.DestToken;
+import plugin.lsttokens.campaign.installable.MindevverToken;
+import plugin.lsttokens.campaign.installable.MinverToken;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -53,7 +61,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 import org.testfx.framework.junit5.ApplicationExtension;
 
 /** Exercises the FXML workflow with real manifests and extraction, without opening native prompts. */
-@ExtendWith({PCGenTestEnvironment.class, ApplicationExtension.class})
+@ExtendWith(ApplicationExtension.class)
 class DataInstallerDialogTest
 {
 	@TempDir
@@ -64,6 +72,7 @@ class DataInstallerDialogTest
 	private DataInstallerDialog dialog;
 	private final Queue<Runnable> work = new ConcurrentLinkedQueue<>();
 	private final List<Notice> notices = new ArrayList<>();
+	private Map<String, LstToken> previousInstallTokens;
 
 	private record Notice(AlertType type, String message)
 	{
@@ -72,6 +81,11 @@ class DataInstallerDialogTest
 	@BeforeEach
 	void setUp() throws Exception
 	{
+		var tokens = TokenStore.inst().getTokenMap(InstallLstToken.class);
+		previousInstallTokens = new HashMap<>(tokens);
+		List.<InstallLstToken>of(new CampaignToken(), new InfotextToken(), new DestToken(),
+				new MinverToken(), new MindevverToken())
+				.forEach(token -> tokens.put(token.getTokenName(), token));
 		destinations = Map.of(
 				Destination.DATA, Files.createDirectory(directory.resolve("data")),
 				Destination.VENDORDATA, Files.createDirectory(directory.resolve("vendor")),
@@ -94,18 +108,27 @@ class DataInstallerDialogTest
 	@AfterEach
 	void tearDown() throws Exception
 	{
-		while (!work.isEmpty())
+		try
 		{
-			runNext();
+			while (!work.isEmpty())
+			{
+				runNext();
+			}
+			if (dialog != null)
+			{
+				asyncFx(() -> {
+					if (dialog.isShowing())
+					{
+						dialog.getDialogPane().getScene().getWindow().hide();
+					}
+				}).get();
+			}
 		}
-		if (dialog != null)
+		finally
 		{
-			asyncFx(() -> {
-				if (dialog.isShowing())
-				{
-					dialog.getDialogPane().getScene().getWindow().hide();
-				}
-			}).get();
+			var tokens = TokenStore.inst().getTokenMap(InstallLstToken.class);
+			tokens.clear();
+			tokens.putAll(previousInstallTokens);
 		}
 	}
 

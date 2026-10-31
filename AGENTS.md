@@ -144,8 +144,8 @@ see `PcgenFtlTestCase` for working examples.
 - `gui3.install.DataInstallerDialog` owns the FXML workflow. Archive reading, planning, and extraction run
   on a worker; prompts and task completion run on FX. It owns and closes its `SourceInfoRenderer` preview.
   Nonstandard entries resolve against `ConfigurationSettings.getInstallRoot()`, never the process directory.
-- Real-manifest tests need built token plugins. In a fresh checkout, use
-  `./gradlew :jarAllPlugins :test --tests 'pcgen.gui3.install.*'` before running them in isolation.
+- Installer workflow tests register and restore only their required `InstallLstToken` handlers.
+  Avoid global plugin bootstrap here: it pollutes formula-function tests sharing the JVM.
 - Both the Sources menu and source selector launch through `PCGenFrame.showDataInstaller`.
   Installing files does not refresh the loaded campaign catalog.
 
