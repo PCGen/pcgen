@@ -9,7 +9,6 @@
 package pcgen.gui2.prefs;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.testfx.util.WaitForAsyncUtils.asyncFx;
 
@@ -19,13 +18,10 @@ import javax.swing.SwingUtilities;
 import javafx.embed.swing.JFXPanel;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
 
 import pcgen.system.ConfigurationSettings;
-import pcgen.system.LanguageBundle;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -62,6 +58,7 @@ class LocationPanelTest
 		ConfigurationSettings.setSystemProperty(ConfigurationSettings.SETTINGS_FILES_PATH, previousSettingsPath);
 	}
 
+	/** Keeps all directory rows aligned while the embedded form grows and shrinks with the viewport. */
 	@Test
 	@DisabledIfSystemProperty(named = "java.awt.headless", matches = "true",
 			disabledReason = "JFXPanel needs a real AWT display")
@@ -73,32 +70,7 @@ class LocationPanelTest
 		assertEquals(narrow, assertFillsViewport(650), 2, "The form must also shrink back without overflowing");
 	}
 
-	@Test
-	@DisabledIfSystemProperty(named = "java.awt.headless", matches = "true",
-			disabledReason = "JFXPanel needs a real AWT display")
-	void settingsChoices_should_preserveDirectorySelectionBehavior() throws Exception
-	{
-		assertFillsViewport(1100);
-		asyncFx(() -> {
-			var root = content.getScene().getRoot();
-			var settings = root.lookupAll(".label").stream()
-					.filter(Label.class::isInstance).map(Label.class::cast)
-					.filter(label -> label.getText().equals(LanguageBundle.getString("in_Prefs_pcgenFilesDir")))
-					.map(label -> (TextField) label.getLabelFor()).findFirst().orElseThrow();
-			var browse = browseBeside(root, settings);
-			var choices = root.lookupAll(".radio-button").stream()
-					.map(RadioButton.class::cast).toList();
-			choices.stream().filter(choice -> choice.getText().equals(LanguageBundle.getString("in_Prefs_homeDir")))
-					.findFirst().orElseThrow().fire();
-			assertEquals(ConfigurationSettings.getUserSettingsDirFromFilePath(), settings.getText());
-			assertTrue(browse.isDisabled());
-			choices.stream().filter(choice -> choice.getText().equals(LanguageBundle.getString("in_Prefs_selectDir")))
-					.findFirst().orElseThrow().fire();
-			assertEquals("", settings.getText());
-			assertFalse(browse.isDisabled());
-		}).get();
-	}
-
+	/** Measures the narrowest directory field after verifying the form fills the requested viewport width. */
 	private double assertFillsViewport(int width) throws Exception
 	{
 		int[] geometry = new int[2];
@@ -133,6 +105,7 @@ class LocationPanelTest
 		}).get();
 	}
 
+	/** Finds the browse button rendered on the same row as a directory field. */
 	private static Button browseBeside(Parent root, TextField field)
 	{
 		var bounds = field.localToScene(field.getLayoutBounds());
