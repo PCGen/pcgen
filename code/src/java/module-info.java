@@ -44,6 +44,7 @@ module pcgen {
     exports pcgen.pluginmgr;
     exports pcgen.system;
     exports pcgen.util;
+    exports pcgen.cdom.base to javafx.fxml;
 
     opens pcgen.cdom.base to pcgen.base;
 
