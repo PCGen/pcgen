@@ -149,11 +149,12 @@ public final class LocationPreferencesPanelController implements ResettableContr
 	public void apply()
 	{
 		GuiAssertions.assertIsJavaFXThread();
-		PCGenSettings.getInstance().setProperty(PCGenSettings.PCG_SAVE_PATH, pcgenCharacterDir.getText());
-		PCGenSettings.getInstance().setProperty(PCGenSettings.CHAR_PORTRAITS_PATH, pcgenPortraitsDir.getText());
-		PCGenSettings.getInstance().setProperty(PCGenSettings.CUSTOM_DATA_DIR, pcgenCustomDir.getText());
-		PCGenSettings.getInstance().setProperty(PCGenSettings.VENDOR_DATA_DIR, pcgenVendorDataDir.getText());
-		PCGenSettings.getInstance().setProperty(PCGenSettings.HOMEBREW_DATA_DIR, pcgenHomebrewDataDir.getText());
+		var settings = PCGenSettings.getInstance();
+		settings.setProperty(PCGenSettings.PCG_SAVE_PATH, pcgenCharacterDir.getText());
+		settings.setProperty(PCGenSettings.CHAR_PORTRAITS_PATH, pcgenPortraitsDir.getText());
+		settings.setProperty(PCGenSettings.CUSTOM_DATA_DIR, pcgenCustomDir.getText());
+		settings.setProperty(PCGenSettings.VENDOR_DATA_DIR, pcgenVendorDataDir.getText());
+		settings.setProperty(PCGenSettings.HOMEBREW_DATA_DIR, pcgenHomebrewDataDir.getText());
 		ConfigurationSettings.setSystemProperty(ConfigurationSettings.PCC_FILES_DIR, pcgenDataDir.getText());
 		ConfigurationSettings.setSystemProperty(ConfigurationSettings.DOCS_DIR, pcgenDocsDir.getText());
 		ConfigurationSettings.setSystemProperty(ConfigurationSettings.SYSTEMS_DIR, pcgenSystemDir.getText());
@@ -183,7 +184,7 @@ public final class LocationPreferencesPanelController implements ResettableContr
 		ConfigurationSettings.setSystemProperty(ConfigurationSettings.OUTPUT_SHEETS_DIR, pcgenOutputSheetDir.getText());
 		PCGenSettings.OPTIONS_CONTEXT.setBoolean(PCGenSettings.OPTION_CREATE_PCG_BACKUP,
 			pcgenCreateBackupCharacter.isSelected());
-		PCGenSettings.getInstance().setProperty(PCGenSettings.BACKUP_PCG_PATH, pcgenBackupCharacterDir.getText());
+		settings.setProperty(PCGenSettings.BACKUP_PCG_PATH, pcgenBackupCharacterDir.getText());
 
 		ConfigurationSettings.setSystemProperty(ConfigurationSettings.PREVIEW_DIR, pcgenPreviewDir.getText());
 	}
