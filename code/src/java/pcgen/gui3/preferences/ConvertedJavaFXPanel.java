@@ -18,55 +18,76 @@
 
 package pcgen.gui3.preferences;
 
+import java.awt.BorderLayout;
+
 import pcgen.gui2.prefs.PCGenPrefsPanel;
 import pcgen.gui3.GuiAssertions;
+import pcgen.gui3.GuiUtility;
 import pcgen.gui3.JFXPanelFromResource;
 import pcgen.gui3.ResettableController;
 import pcgen.system.LanguageBundle;
 
 import javafx.application.Platform;
 
+/**
+ * Embeds an FXML preferences form in Swing and runs its controller callbacks on FX.
+ * @param <T> the preferences controller type
+ */
 public final class ConvertedJavaFXPanel<T extends ResettableController> extends PCGenPrefsPanel
 {
-	private final String titleTextKey;
+	private final String title;
 	private final JFXPanelFromResource<T> panel;
 
+	/**
+	 * Creates a form that fills its Swing container and initializes localization before loading FXML.
+	 * @param klass the controller class used to locate the resource
+	 * @param resource the FXML resource relative to the controller class
+	 * @param titleTextKey the language-bundle key for the panel title
+	 */
 	public ConvertedJavaFXPanel(Class<T> klass, String resource, String titleTextKey)
 	{
-		this.titleTextKey = titleTextKey;
-		this.panel =
-				new JFXPanelFromResource<>(
-						klass,
-						resource
-				);
-		this.add(panel);
-
+		GuiAssertions.assertIsNotJavaFXThread();
+		title = LanguageBundle.getString(titleTextKey);
+		setLayout(new BorderLayout());
+		panel = new JFXPanelFromResource<>(klass, resource);
+		add(panel, BorderLayout.CENTER);
 	}
 
 	@Override
 	public String getTitle()
 	{
-		return LanguageBundle.getString(titleTextKey);
+		return title;
 	}
 
 	@Override
 	public void applyOptionValuesToControls()
 	{
-		GuiAssertions.assertIsNotJavaFXThread();
-		Platform.runLater(() ->
-			panel.getControllerFromJavaFXThread().reset()
-		);
+		Platform.runLater(() -> panel.getControllerFromJavaFXThread().reset());
 	}
 
 	@Override
 	public void setOptionsBasedOnControls()
 	{
-		panel.getController().apply();
+		if (Platform.isFxApplicationThread())
+		{
+			panel.getControllerFromJavaFXThread().apply();
+		}
+		else
+		{
+			GuiUtility.runOnJavaFXThreadNow(() -> {
+				panel.getControllerFromJavaFXThread().apply();
+				return null;
+			});
+		}
 	}
 
+	/**
+	 * Returns the loaded controller, waiting for FXML loading when called from Swing.
+	 * @return the controller whose UI methods must be called on FX
+	 */
 	public T getController()
 	{
-		return this.panel.getController();
+		return panel.getController();
 	}
 
 	@Override

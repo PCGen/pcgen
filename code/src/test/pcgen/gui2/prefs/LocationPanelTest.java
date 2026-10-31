@@ -21,6 +21,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
 
+import pcgen.gui3.preferences.ConvertedJavaFXPanel;
+import pcgen.gui3.preferences.LocationPreferencesPanelController;
 import pcgen.system.ConfigurationSettings;
 
 import org.junit.jupiter.api.AfterEach;
@@ -34,7 +36,7 @@ import org.testfx.framework.junit5.ApplicationExtension;
 @ExtendWith(ApplicationExtension.class)
 class LocationPanelTest
 {
-	private LocationPanel panel;
+	private ConvertedJavaFXPanel<LocationPreferencesPanelController> panel;
 	private JFXPanel content;
 	private JScrollPane scroll;
 	private String previousSettingsPath;
@@ -44,7 +46,8 @@ class LocationPanelTest
 	{
 		previousSettingsPath = ConfigurationSettings.getSystemProperty(ConfigurationSettings.SETTINGS_FILES_PATH);
 		SwingUtilities.invokeAndWait(() -> {
-			panel = new LocationPanel();
+			panel = new ConvertedJavaFXPanel<>(LocationPreferencesPanelController.class,
+				"LocationPreferencesPanel.fxml", "in_Prefs_location");
 			content = (JFXPanel) panel.getComponent(0);
 			scroll = new JScrollPane(panel);
 		});

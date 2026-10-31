@@ -22,7 +22,6 @@ import pcgen.cdom.base.Constants;
 import pcgen.gui2.prefs.CharacterStatsPanel;
 import pcgen.gui2.prefs.HouseRulesPanel;
 import pcgen.gui2.prefs.LanguagePanel;
-import pcgen.gui2.prefs.LocationPanel;
 import pcgen.gui2.prefs.OutputPanel;
 import pcgen.gui2.prefs.PCGenPrefsPanel;
 import pcgen.gui3.JFXPanelFromResource;
@@ -156,7 +155,10 @@ public final class PCGenPreferencesModel
 		pcGenNode.getChildren().add(new TreeItem<>(equipmentPanel));
 		PCGenPrefsPanel languagePanel = new LanguagePanel();
 		pcGenNode.getChildren().add(new TreeItem<>(languagePanel));
-		PCGenPrefsPanel locationPanel = new LocationPanel();
+		PCGenPrefsPanel locationPanel = new ConvertedJavaFXPanel<>(
+				LocationPreferencesPanelController.class,
+				"LocationPreferencesPanel.fxml",
+				"in_Prefs_location");
 
 		pcGenNode.getChildren().add(new TreeItem<>(locationPanel));
 		PCGenPrefsPanel inputPanel = new ConvertedJavaFXPanel<>(
