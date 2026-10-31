@@ -5,7 +5,6 @@
   Distributed under the GNU Lesser General Public License, version 2.1 or later.
 -->
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.Scene?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
@@ -22,20 +21,13 @@
     <fx:define>
         <ToggleGroup fx:id="groupFilesDir"/>
     </fx:define>
-    <GridPane hgap="12" vgap="8">
-        <padding>
-            <Insets top="16" right="16" bottom="16" left="16"/>
-        </padding>
+    <GridPane styleClass="location-preferences" stylesheets="@LocationPreferencesPanel.css">
         <columnConstraints>
             <ColumnConstraints maxWidth="220"/>
             <ColumnConstraints hgrow="ALWAYS"/>
             <ColumnConstraints/>
         </columnConstraints>
-        <Label text="%in_Prefs_locationCharacterFiles" style="-fx-font-weight: bold;"                                            GridPane.rowIndex="0"  GridPane.columnSpan="3">
-            <GridPane.margin>
-                <Insets top="0" bottom="4"/>
-            </GridPane.margin>
-        </Label>
+        <Label text="%in_Prefs_locationCharacterFiles" styleClass="section-heading, first-section"                               GridPane.rowIndex="0"  GridPane.columnSpan="3"/>
         <TextField fx:id="pcgenCharacterDir"                                                                                     GridPane.rowIndex="1"  GridPane.columnIndex="1"/>
         <Label text="%in_Prefs_pcgenCharacterDir" labelFor="$pcgenCharacterDir" wrapText="true"                                  GridPane.rowIndex="1"/>
         <Button fx:id="pcgenCharacterDirButton" text="..." onAction="#prefsButtonHandler"                                        GridPane.rowIndex="1"  GridPane.columnIndex="2"/>
@@ -47,11 +39,7 @@
         <Label text="%in_Prefs_pcgenBackupCharacterDir" labelFor="$pcgenBackupCharacterDir" wrapText="true"                      GridPane.rowIndex="4"/>
         <Button fx:id="pcgenBackupCharacterDirButton" text="..." onAction="#prefsButtonHandler"                                  GridPane.rowIndex="4"  GridPane.columnIndex="2"/>
 
-        <Label text="%in_Prefs_locationDataSources" style="-fx-font-weight: bold;"                                               GridPane.rowIndex="5"  GridPane.columnSpan="3">
-            <GridPane.margin>
-                <Insets top="12" bottom="4"/>
-            </GridPane.margin>
-        </Label>
+        <Label text="%in_Prefs_locationDataSources" styleClass="section-heading"                                                 GridPane.rowIndex="5"  GridPane.columnSpan="3"/>
         <TextField fx:id="pcgenDataDir"                                                                                          GridPane.rowIndex="6"  GridPane.columnIndex="1"/>
         <Label text="%in_Prefs_pcgenDataDir" labelFor="$pcgenDataDir" wrapText="true"                                            GridPane.rowIndex="6"/>
         <Button fx:id="pcgenDataDirButton" text="..." onAction="#prefsButtonHandler"                                             GridPane.rowIndex="6"  GridPane.columnIndex="2"/>
@@ -65,11 +53,7 @@
         <Label text="%in_Prefs_pcgenHomebrewDataDir" labelFor="$pcgenHomebrewDataDir" wrapText="true"                            GridPane.rowIndex="9"/>
         <Button fx:id="pcgenHomebrewDataDirButton" text="..." onAction="#prefsButtonHandler"                                     GridPane.rowIndex="9"  GridPane.columnIndex="2"/>
 
-        <Label text="%in_Prefs_locationApplicationFiles" style="-fx-font-weight: bold;"                                          GridPane.rowIndex="10" GridPane.columnSpan="3">
-            <GridPane.margin>
-                <Insets top="12" bottom="4"/>
-            </GridPane.margin>
-        </Label>
+        <Label text="%in_Prefs_locationApplicationFiles" styleClass="section-heading"                                            GridPane.rowIndex="10" GridPane.columnSpan="3"/>
         <TextField fx:id="pcgenDocsDir"                                                                                          GridPane.rowIndex="11" GridPane.columnIndex="1"/>
         <Label text="%in_Prefs_pcgenDocsDir" labelFor="$pcgenDocsDir" wrapText="true"                                            GridPane.rowIndex="11"/>
         <Button fx:id="pcgenDocsDirButton" text="..." onAction="#prefsButtonHandler"                                             GridPane.rowIndex="11" GridPane.columnIndex="2"/>
@@ -83,12 +67,8 @@
         <Label text="%in_Prefs_pcgenPreviewDir" labelFor="$pcgenPreviewDir" wrapText="true"                                      GridPane.rowIndex="14"/>
         <Button fx:id="pcgenPreviewDirButton" text="..." onAction="#prefsButtonHandler"                                          GridPane.rowIndex="14" GridPane.columnIndex="2"/>
 
-        <Label text="%in_Prefs_locationSettings" style="-fx-font-weight: bold;"                                                  GridPane.rowIndex="15" GridPane.columnSpan="3">
-            <GridPane.margin>
-                <Insets top="12" bottom="4"/>
-            </GridPane.margin>
-        </Label>
-        <HBox spacing="16"                                                                                                       GridPane.rowIndex="16" GridPane.columnSpan="3">
+        <Label text="%in_Prefs_locationSettings" styleClass="section-heading"                                                    GridPane.rowIndex="15" GridPane.columnSpan="3"/>
+        <HBox styleClass="settings-choices"                                                                                      GridPane.rowIndex="16" GridPane.columnSpan="3">
             <RadioButton fx:id="pcgenFilesDirRadio" toggleGroup="$groupFilesDir" onAction="#selectProgramSettings"/>
             <RadioButton fx:id="usersFilesDirRadio" text="%in_Prefs_homeDir" toggleGroup="$groupFilesDir" onAction="#selectUserSettings"/>
             <RadioButton fx:id="selectFilesDirRadio" text="%in_Prefs_selectDir" toggleGroup="$groupFilesDir" onAction="#selectCustomSettings"/>
