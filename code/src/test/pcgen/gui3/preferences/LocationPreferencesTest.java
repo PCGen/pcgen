@@ -13,9 +13,11 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.testfx.util.WaitForAsyncUtils.asyncFx;
 
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import pcgen.cdom.base.Constants;
 import pcgen.system.ConfigurationSettings;
@@ -37,6 +39,7 @@ import org.junit.jupiter.api.io.TempDir;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.NullAndEmptySource;
+import org.junit.jupiter.params.provider.ValueSource;
 import org.testfx.framework.junit5.ApplicationExtension;
 
 /** Verifies the real location FXML bindings and directory preference persistence without a Swing display. */
@@ -198,6 +201,68 @@ class LocationPreferencesTest
 			((RadioButton) loader.getNamespace().get("selectFilesDirRadio")).fire();
 			assertEquals("", settings.getText());
 			assertFalse(browse.isDisabled());
+		}).get();
+	}
+
+	/** Each FXML browse action opens at its edited directory and updates only its own field. */
+	@ParameterizedTest
+	@CsvSource({
+		"pcgenCharacterDir, in_Prefs_pcgenCharacterDirTitle",
+		"pcgenBackupCharacterDir, in_Prefs_pcgenBackupCharacterDirTitle",
+		"pcgenPortraitsDir, in_Prefs_pcgenPortraitDirTitle",
+		"pcgenCustomDir, in_Prefs_pcgenCustomDirTitle",
+		"pcgenVendorDataDir, in_Prefs_pcgenVendorDataDirTitle",
+		"pcgenHomebrewDataDir, in_Prefs_pcgenHomebrewDataDirTitle",
+		"pcgenDataDir, in_Prefs_pcgenDataDirTitle",
+		"pcgenDocsDir, in_Prefs_pcgenDocsDirTitle",
+		"pcgenSystemDir, in_Prefs_pcgenSystemDirTitle",
+		"pcgenFilesDir, in_Prefs_pcgenFilesDirTitle",
+		"pcgenOutputSheetDir, in_Prefs_pcgenOutputSheetDirTitle",
+		"pcgenPreviewDir, in_Prefs_pcgenPreviewDirTitle"})
+	void browse_should_useTheEditedPathAndUpdateItsField(String fieldId, String titleKey) throws Exception
+	{
+		var edited = Files.createDirectory(directories.resolve("edited")).toFile();
+		var selected = Files.createDirectory(directories.resolve("selected")).toFile();
+		asyncFx(() -> {
+			((RadioButton) loader.getNamespace().get("selectFilesDirRadio")).fire();
+			for (var preference : previousPaths.keySet())
+			{
+				((TextField) loader.getNamespace().get(preference.fieldId())).setText("pending-" + preference.fieldId());
+			}
+			((TextField) loader.getNamespace().get(fieldId)).setText(edited.toString());
+			controller.setChooser((dialog, owner) -> {
+				assertEquals(edited, dialog.getInitialDirectory());
+				assertEquals(LanguageBundle.getString(titleKey), dialog.getTitle());
+				return selected;
+			});
+			((Button) loader.getNamespace().get(fieldId + "Button")).fire();
+			for (var preference : previousPaths.keySet())
+			{
+				String expected = preference.fieldId().equals(fieldId) ? selected.toString() : "pending-" + preference.fieldId();
+				assertEquals(expected, ((TextField) loader.getNamespace().get(preference.fieldId())).getText());
+			}
+		}).get();
+	}
+
+	/** Canceling preserves the edit, and missing or empty directories use the native chooser's default. */
+	@ParameterizedTest
+	@ValueSource(strings = {"existing", "missing", ""})
+	void browse_should_preserveEditsWhenCanceled(String directory) throws Exception
+	{
+		var existing = Files.createDirectory(directories.resolve("existing")).toFile();
+		String edited = directory.isEmpty() ? "" : directories.resolve(directory).toString();
+		AtomicInteger choices = new AtomicInteger();
+		asyncFx(() -> {
+			var field = (TextField) loader.getNamespace().get("pcgenCharacterDir");
+			field.setText(edited);
+			controller.setChooser((dialog, owner) -> {
+				choices.incrementAndGet();
+				assertEquals(directory.equals("existing") ? existing : null, dialog.getInitialDirectory());
+				return null;
+			});
+			((Button) loader.getNamespace().get("pcgenCharacterDirButton")).fire();
+			assertEquals(1, choices.get());
+			assertEquals(edited, field.getText());
 		}).get();
 	}
 

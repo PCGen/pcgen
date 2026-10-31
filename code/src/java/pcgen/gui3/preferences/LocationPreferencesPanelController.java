@@ -18,6 +18,7 @@
 package pcgen.gui3.preferences;
 
 import java.io.File;
+import java.util.function.BiFunction;
 
 import pcgen.cdom.base.Constants;
 import pcgen.gui3.GuiAssertions;
@@ -32,12 +33,14 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.stage.DirectoryChooser;
+import javafx.stage.Window;
 
 /** Loads, edits, and saves the directory preferences displayed by the location FXML form. */
 public final class LocationPreferencesPanelController implements ResettableController
 {
 	// Preserve a saved home-directory convention until the user explicitly chooses the platform default.
 	private String userSettingsPath;
+	private BiFunction<DirectoryChooser, Window, File> chooser = DirectoryChooser::showDialog;
 
 	@FXML
 	private RadioButton pcgenFilesDirRadio;
@@ -194,105 +197,111 @@ public final class LocationPreferencesPanelController implements ResettableContr
 	@FXML
 	private void chooseCharacterDirectory()
 	{
-		askForPath(PCGenSettings.getPcgDir(), "in_Prefs_pcgenCharacterDirTitle", pcgenCharacterDir);
+		askForPath("in_Prefs_pcgenCharacterDirTitle", pcgenCharacterDir);
 	}
 
 	/** Chooses the directory for character backups. */
 	@FXML
 	private void chooseBackupDirectory()
 	{
-		askForPath(PCGenSettings.getBackupPcgDir(), "in_Prefs_pcgenBackupCharacterDirTitle", pcgenBackupCharacterDir);
+		askForPath("in_Prefs_pcgenBackupCharacterDirTitle", pcgenBackupCharacterDir);
 	}
 
 	/** Chooses the directory for portraits. */
 	@FXML
 	private void choosePortraitsDirectory()
 	{
-		askForPath(PCGenSettings.getPortraitsDir(), "in_Prefs_pcgenPortraitDirTitle", pcgenPortraitsDir);
+		askForPath("in_Prefs_pcgenPortraitDirTitle", pcgenPortraitsDir);
 	}
 
 	/** Chooses the directory for custom data. */
 	@FXML
 	private void chooseCustomDataDirectory()
 	{
-		askForPath(PCGenSettings.getCustomDir(), "in_Prefs_pcgenCustomDirTitle", pcgenCustomDir);
+		askForPath("in_Prefs_pcgenCustomDirTitle", pcgenCustomDir);
 	}
 
 	/** Chooses the directory for vendor data. */
 	@FXML
 	private void chooseVendorDataDirectory()
 	{
-		askForPath(PCGenSettings.getVendorDataDir(), "in_Prefs_pcgenVendorDataDirTitle", pcgenVendorDataDir);
+		askForPath("in_Prefs_pcgenVendorDataDirTitle", pcgenVendorDataDir);
 	}
 
 	/** Chooses the directory for homebrew data. */
 	@FXML
 	private void chooseHomebrewDataDirectory()
 	{
-		askForPath(PCGenSettings.getHomebrewDataDir(), "in_Prefs_pcgenHomebrewDataDirTitle", pcgenHomebrewDataDir);
+		askForPath("in_Prefs_pcgenHomebrewDataDirTitle", pcgenHomebrewDataDir);
 	}
 
 	/** Chooses the directory for campaign data. */
 	@FXML
 	private void chooseDataDirectory()
 	{
-		askForPath(ConfigurationSettings.getPccFilesDir(), "in_Prefs_pcgenDataDirTitle", pcgenDataDir);
+		askForPath("in_Prefs_pcgenDataDirTitle", pcgenDataDir);
 	}
 
 	/** Chooses the directory for documentation. */
 	@FXML
 	private void chooseDocsDirectory()
 	{
-		askForPath(ConfigurationSettings.getDocsDir(), "in_Prefs_pcgenDocsDirTitle", pcgenDocsDir);
+		askForPath("in_Prefs_pcgenDocsDirTitle", pcgenDocsDir);
 	}
 
 	/** Chooses the directory for system files. */
 	@FXML
 	private void chooseSystemDirectory()
 	{
-		askForPath(ConfigurationSettings.getSystemsDir(), "in_Prefs_pcgenSystemDirTitle", pcgenSystemDir);
+		askForPath("in_Prefs_pcgenSystemDirTitle", pcgenSystemDir);
 	}
 
 	/** Chooses the directory for settings files. */
 	@FXML
 	private void chooseSettingsDirectory()
 	{
-		askForPath(ConfigurationSettings.getSettingsDir(), "in_Prefs_pcgenFilesDirTitle", pcgenFilesDir);
+		askForPath("in_Prefs_pcgenFilesDirTitle", pcgenFilesDir);
 	}
 
 	/** Chooses the directory for output sheets. */
 	@FXML
 	private void chooseOutputSheetDirectory()
 	{
-		askForPath(ConfigurationSettings.getOutputSheetsDir(), "in_Prefs_pcgenOutputSheetDirTitle", pcgenOutputSheetDir);
+		askForPath("in_Prefs_pcgenOutputSheetDirTitle", pcgenOutputSheetDir);
 	}
 
 	/** Chooses the directory for preview sheets. */
 	@FXML
 	private void choosePreviewDirectory()
 	{
-		askForPath(ConfigurationSettings.getPreviewDir(), "in_Prefs_pcgenPreviewDirTitle", pcgenPreviewDir);
+		askForPath("in_Prefs_pcgenPreviewDirTitle", pcgenPreviewDir);
 	}
 
 	/**
-	 * Opens a directory chooser and updates the field, using the current path if canceled.
-	 * @param currentPath the saved directory to browse initially
+	 * Browses the edited directory and changes the field only when a directory is selected.
 	 * @param titleKey the language-bundle key for the chooser title
 	 * @param textField the field to receive the selected path
 	 */
-	private static void askForPath(final String currentPath, final String titleKey, final TextField textField)
+	private void askForPath(final String titleKey, final TextField textField)
 	{
 		GuiAssertions.assertIsJavaFXThread();
-		File currentDirectory = new File(currentPath);
+		File currentDirectory = new File(textField.getText());
 		DirectoryChooser directoryChooser = new DirectoryChooser();
-		directoryChooser.setInitialDirectory(currentDirectory);
-		directoryChooser.setTitle(LanguageBundle.getString(titleKey));
-		File returnFile = directoryChooser.showDialog(null);
-		if (returnFile == null)
+		if (!currentDirectory.getPath().isEmpty() && currentDirectory.isDirectory())
 		{
-			returnFile = currentDirectory;
+			directoryChooser.setInitialDirectory(currentDirectory);
 		}
+		directoryChooser.setTitle(LanguageBundle.getString(titleKey));
+		File returnFile = chooser.apply(directoryChooser, textField.getScene().getWindow());
+		if (returnFile != null)
+		{
+			textField.setText(returnFile.toString());
+		}
+	}
 
-		textField.setText(returnFile.toString());
+	/** Supplies a directory picker for embedded workflows or tests without native dialogs. */
+	void setChooser(BiFunction<DirectoryChooser, Window, File> chooser)
+	{
+		this.chooser = chooser;
 	}
 }
