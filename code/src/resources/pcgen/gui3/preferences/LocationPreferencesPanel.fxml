@@ -73,7 +73,7 @@
             <RadioButton fx:id="usersFilesDirRadio" text="%in_Prefs_homeDir" toggleGroup="$groupFilesDir" onAction="#selectUserSettings"/>
             <RadioButton fx:id="selectFilesDirRadio" text="%in_Prefs_selectDir" toggleGroup="$groupFilesDir" onAction="#selectCustomSettings"/>
         </HBox>
-        <TextField fx:id="pcgenFilesDir"                                                                                              GridPane.rowIndex="17" GridPane.columnIndex="1"/>
+        <TextField fx:id="pcgenFilesDir" editable="${selectFilesDirRadio.selected}"                                                   GridPane.rowIndex="17" GridPane.columnIndex="1"/>
         <Label text="%in_Prefs_pcgenFilesDir" labelFor="$pcgenFilesDir" wrapText="true"                                               GridPane.rowIndex="17"/>
         <Button fx:id="pcgenFilesDirButton" text="..." onAction="#chooseSettingsDirectory" disable="${!selectFilesDirRadio.selected}" GridPane.rowIndex="17" GridPane.columnIndex="2"/>
     </GridPane>

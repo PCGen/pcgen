@@ -36,6 +36,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.io.TempDir;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.NullAndEmptySource;
 import org.testfx.framework.junit5.ApplicationExtension;
 
 /** Verifies the real location FXML bindings and directory preference persistence without a Swing display. */
@@ -129,11 +130,11 @@ class LocationPreferencesTest
 		}).get();
 	}
 
-	/** Restores built-in and custom settings locations and enables browsing only for a custom choice. */
+	/** Preserves each saved location convention through applying and reopening the preferences. */
 	@ParameterizedTest
 	@CsvSource({"pcgen, pcgenFilesDirRadio", "user, usersFilesDirRadio", "mac_user, usersFilesDirRadio",
 		"FD_USER, usersFilesDirRadio", "custom, selectFilesDirRadio"})
-	void settingsChoice_should_matchTheSavedLocation(String savedLocation, String selectedId) throws Exception
+	void settingsChoice_should_roundTripTheSavedLocation(String savedLocation, String selectedId) throws Exception
 	{
 		ConfigurationSettings.setSystemProperty(ConfigurationSettings.SETTINGS_FILES_PATH, savedLocation);
 		asyncFx(() -> {
@@ -143,7 +144,39 @@ class LocationPreferencesTest
 				((TextField) loader.getNamespace().get("pcgenFilesDir")).getText());
 			assertEquals(!savedLocation.equals("custom"),
 				((Button) loader.getNamespace().get("pcgenFilesDirButton")).isDisabled());
+			controller.apply();
+			assertEquals(savedLocation, ConfigurationSettings.getSystemProperty(ConfigurationSettings.SETTINGS_FILES_PATH));
+			controller.reset();
+			assertTrue(((RadioButton) loader.getNamespace().get(selectedId)).isSelected());
+			assertEquals(savedLocation.equals("custom"),
+				((TextField) loader.getNamespace().get("pcgenFilesDir")).isEditable());
 		}).get();
+	}
+
+	/** Choosing the home location stores the current platform's convention, including XDG on Linux. */
+	@Test
+	void settingsChoice_should_saveThePlatformDefaultWhenHomeIsSelected() throws Exception
+	{
+		asyncFx(() -> {
+			((RadioButton) loader.getNamespace().get("usersFilesDirRadio")).fire();
+			controller.apply();
+			assertEquals(ConfigurationSettings.getDefaultSettingsFilesPath(),
+				ConfigurationSettings.getSystemProperty(ConfigurationSettings.SETTINGS_FILES_PATH));
+			controller.reset();
+			assertTrue(((RadioButton) loader.getNamespace().get("usersFilesDirRadio")).isSelected());
+			assertEquals(ConfigurationSettings.getUserSettingsDirFromFilePath(),
+				((TextField) loader.getNamespace().get("pcgenFilesDir")).getText());
+		}).get();
+	}
+
+	/** Displaying a default location does not save settings before the user applies the form. */
+	@ParameterizedTest
+	@NullAndEmptySource
+	void reset_should_leaveAnUnconfiguredSettingsLocationUnchanged(String savedLocation) throws Exception
+	{
+		ConfigurationSettings.setSystemProperty(ConfigurationSettings.SETTINGS_FILES_PATH, savedLocation);
+		asyncFx(controller::reset).get();
+		assertEquals(savedLocation, ConfigurationSettings.getSystemProperty(ConfigurationSettings.SETTINGS_FILES_PATH));
 	}
 
 	/** Exercises the FXML radio actions and their binding to the settings directory browse button. */

@@ -32,11 +32,13 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.stage.DirectoryChooser;
-import org.apache.commons.lang3.SystemUtils;
 
 /** Loads, edits, and saves the directory preferences displayed by the location FXML form. */
 public final class LocationPreferencesPanelController implements ResettableController
 {
+	// Preserve a saved home-directory convention until the user explicitly chooses the platform default.
+	private String userSettingsPath;
+
 	@FXML
 	private RadioButton pcgenFilesDirRadio;
 	@FXML
@@ -95,13 +97,21 @@ public final class LocationPreferencesPanelController implements ResettableContr
 		pcgenSystemDir.setText(String.valueOf(ConfigurationSettings.getSystemsDir()));
 		pcgenOutputSheetDir.setText(String.valueOf(ConfigurationSettings.getOutputSheetsDir()));
 		pcgenPreviewDir.setText(String.valueOf(ConfigurationSettings.getPreviewDir()));
+		restoreSettingsLocation();
+
+		pcgenCreateBackupCharacter
+			.setSelected(PCGenSettings.OPTIONS_CONTEXT.getBoolean(PCGenSettings.OPTION_CREATE_PCG_BACKUP));
+	}
+
+	/** Restores the saved convention and its resolved path without writing preferences. */
+	private void restoreSettingsLocation()
+	{
+		userSettingsPath = ConfigurationSettings.getDefaultSettingsFilesPath();
 		String fType = ConfigurationSettings.getSystemProperty(ConfigurationSettings.SETTINGS_FILES_PATH);
 
-		if ((fType == null) || (fType.length() < 1))
+		if ((fType == null) || fType.isEmpty())
 		{
-			// make sure we have a default
-			fType = ConfigurationSettings.getDefaultSettingsFilesPath();
-			ConfigurationSettings.setSystemProperty(ConfigurationSettings.SETTINGS_FILES_PATH, fType);
+			fType = userSettingsPath;
 		}
 
 		pcgenFilesDir.setText(ConfigurationSettings.getSettingsDir());
@@ -112,15 +122,27 @@ public final class LocationPreferencesPanelController implements ResettableContr
 		else if (fType.equals(SettingsFilesPath.user.name()) || fType.equals(SettingsFilesPath.mac_user.name())
 			|| fType.equals(SettingsFilesPath.FD_USER.name()))
 		{
+			userSettingsPath = fType;
 			usersFilesDirRadio.setSelected(true);
 		}
 		else
 		{
 			selectFilesDirRadio.setSelected(true);
 		}
+	}
 
-		pcgenCreateBackupCharacter
-			.setSelected(PCGenSettings.OPTIONS_CONTEXT.getBoolean(PCGenSettings.OPTION_CREATE_PCG_BACKUP));
+	/** Returns a built-in location token or the custom path selected by the user. */
+	private String selectedSettingsLocation()
+	{
+		if (pcgenFilesDirRadio.isSelected())
+		{
+			return SettingsFilesPath.pcgen.name();
+		}
+		if (usersFilesDirRadio.isSelected())
+		{
+			return userSettingsPath;
+		}
+		return pcgenFilesDir.getText();
 	}
 
 	/** Selects the settings directory inside the application installation. */
@@ -134,7 +156,8 @@ public final class LocationPreferencesPanelController implements ResettableContr
 	@FXML
 	private void selectUserSettings()
 	{
-		pcgenFilesDir.setText(ConfigurationSettings.getUserSettingsDirFromFilePath());
+		userSettingsPath = ConfigurationSettings.getDefaultSettingsFilesPath();
+		pcgenFilesDir.setText(ConfigurationSettings.getSettingsDirFromFilePath(userSettingsPath));
 	}
 
 	/** Clears the settings path so the user can choose a custom directory. */
@@ -158,29 +181,7 @@ public final class LocationPreferencesPanelController implements ResettableContr
 		ConfigurationSettings.setSystemProperty(ConfigurationSettings.PCC_FILES_DIR, pcgenDataDir.getText());
 		ConfigurationSettings.setSystemProperty(ConfigurationSettings.DOCS_DIR, pcgenDocsDir.getText());
 		ConfigurationSettings.setSystemProperty(ConfigurationSettings.SYSTEMS_DIR, pcgenSystemDir.getText());
-		if (pcgenFilesDirRadio.isSelected())
-		{
-			ConfigurationSettings.setSystemProperty(ConfigurationSettings.SETTINGS_FILES_PATH,
-				SettingsFilesPath.pcgen.name());
-		}
-		else if (usersFilesDirRadio.isSelected())
-		{
-			if (SystemUtils.IS_OS_MAC_OSX)
-			{
-				ConfigurationSettings.setSystemProperty(ConfigurationSettings.SETTINGS_FILES_PATH,
-					SettingsFilesPath.mac_user.name());
-			}
-			else
-			{
-				ConfigurationSettings.setSystemProperty(ConfigurationSettings.SETTINGS_FILES_PATH,
-					SettingsFilesPath.user.name());
-			}
-		}
-		else
-		{
-			ConfigurationSettings.setSystemProperty(ConfigurationSettings.SETTINGS_FILES_PATH, pcgenFilesDir.getText());
-		}
-		ConfigurationSettings.setSystemProperty(ConfigurationSettings.SETTINGS_FILES_PATH, pcgenFilesDir.getText());
+		ConfigurationSettings.setSystemProperty(ConfigurationSettings.SETTINGS_FILES_PATH, selectedSettingsLocation());
 		ConfigurationSettings.setSystemProperty(ConfigurationSettings.OUTPUT_SHEETS_DIR, pcgenOutputSheetDir.getText());
 		PCGenSettings.OPTIONS_CONTEXT.setBoolean(PCGenSettings.OPTION_CREATE_PCG_BACKUP,
 			pcgenCreateBackupCharacter.isSelected());
