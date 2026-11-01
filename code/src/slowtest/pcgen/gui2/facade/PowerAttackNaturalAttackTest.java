@@ -65,7 +65,7 @@ import org.junit.jupiter.api.io.TempDir;
  * Temporary Bonuses tab. A 7th-level summoner's eidolon has BAB +6, so Power Attack is -2 to hit
  * and +4 damage: +6 (x1.5) on a primary natural attack that adds 1-1/2 times Strength (the eidolon
  * Improved Bite evolution, a dragon disciple's Dragon Bite, or a creature's only natural attack such as the
- * wolf's bite) and +2 (halved) on a secondary natural attack.
+ * wolf's bite) and +2 (halved) on a secondary natural attack or an off-hand weapon.
  */
 class PowerAttackNaturalAttackTest
 {
@@ -256,6 +256,17 @@ class PowerAttackNaturalAttackTest
 	}
 
 	@Test
+	void offHandWeaponGetsHalfDamage()
+	{
+		// The damage bonus is halved with an off-hand weapon (CRB p.131), as with a secondary natural attack
+		PlayerCharacter pc = createSerpentineEidolonWithPowerAttack("pa-off-hand", false).getTheCharacter();
+		Equipment dagger = find(Equipment.class, "Dagger");
+
+		assertPowerAttack(pc, "Power Attack (Light)", dagger, -2, 4);
+		assertPowerAttack(pc, "Power Attack (Off-Hand)", dagger, -2, 2);
+	}
+
+	@Test
 	void switchedOffTemporaryBonusItemIsLeftOutOfTheEquipment()
 	{
 		CharacterFacadeImpl eidolon = createSerpentineEidolonWithPowerAttack("pa-switch", false);
@@ -299,12 +310,16 @@ class PowerAttackNaturalAttackTest
 
 	private static void assertPowerAttack(PlayerCharacter pc, String paKey, String weaponName, int toHit, int damage)
 	{
-		Equipment weapon = naturalWeapon(pc, weaponName);
+		assertPowerAttack(pc, paKey, naturalWeapon(pc, weaponName), toHit, damage);
+	}
+
+	private static void assertPowerAttack(PlayerCharacter pc, String paKey, Equipment weapon, int toHit, int damage)
+	{
 		int baseHit = weapon.getBonusToHit(pc, true);
 		int baseDamage = weapon.getBonusToDamage(pc, true);
-		Equipment tempItem = applyPowerAttack(pc, paKey, weaponName);
-		assertEquals(toHit, tempItem.getBonusToHit(pc, true) - baseHit, paKey + " to hit on " + weaponName);
-		assertEquals(damage, tempItem.getBonusToDamage(pc, true) - baseDamage, paKey + " damage on " + weaponName);
+		Equipment tempItem = applyPowerAttack(pc, paKey, weapon);
+		assertEquals(toHit, tempItem.getBonusToHit(pc, true) - baseHit, paKey + " to hit on " + weapon.getName());
+		assertEquals(damage, tempItem.getBonusToDamage(pc, true) - baseDamage, paKey + " damage on " + weapon.getName());
 	}
 
 	/** Check the bonus item an already applied Power Attack variant made, e.g. "Bite [Power Attack (Natural Primary)]". */
@@ -339,7 +354,13 @@ class PowerAttackNaturalAttackTest
 	/** Apply a Power Attack variant to a natural weapon the way the Temporary Bonuses tab does. */
 	private static Equipment applyPowerAttack(PlayerCharacter pc, String paKey, String weaponName)
 	{
-		Equipment tempItem = naturalWeapon(pc, weaponName).clone();
+		return applyPowerAttack(pc, paKey, naturalWeapon(pc, weaponName));
+	}
+
+	/** Apply a Power Attack variant to a weapon the way the Temporary Bonuses tab does. */
+	private static Equipment applyPowerAttack(PlayerCharacter pc, String paKey, Equipment weapon)
+	{
+		Equipment tempItem = weapon.clone();
 		tempItem.makeVirtual();
 		tempItem.setAppliedName(paKey);
 		assertNotNull(TempBonusHelper.applyBonusToCharacterEquipment(tempItem, feat(paKey), pc), paKey);
