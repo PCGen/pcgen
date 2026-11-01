@@ -45,6 +45,7 @@ import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.ChooserFacade;
 import pcgen.facade.core.DataSetFacade;
 import pcgen.facade.core.InfoFacade;
+import pcgen.facade.core.TempBonusFacade;
 import pcgen.facade.core.UIDelegate;
 import pcgen.facade.util.DefaultListFacade;
 import pcgen.io.PCGVer2Creator;
@@ -267,6 +268,80 @@ class PowerAttackNaturalAttackTest
 	}
 
 	@Test
+	void powerAttackGrantsItsWeaponVariants()
+	{
+		// The rows linked on the Temporary Bonuses tab (CharacterFacadeImpl)
+		Ability powerAttack = feat("Power Attack");
+		for (String variant : List.of(PA_PRIMARY, PA_PRIMARY_STR, PA_SECONDARY))
+		{
+			assertTrue(TempBonusHelper.grantsAbility(powerAttack, feat(variant)), variant);
+		}
+		assertFalse(TempBonusHelper.grantsAbility(feat(PA_PRIMARY), powerAttack), "variant does not grant Power Attack");
+		assertFalse(TempBonusHelper.grantsAbility(feat("Combat Expertise"), feat(PA_PRIMARY)), "unrelated feat");
+	}
+
+	@Test
+	void powerAttackRowsSwitchOnAndOffTogether()
+	{
+		// The Temporary Bonuses tab and character sheet flow; the chooser picks the first weapon,
+		// i.e. the bite for the primary variant and the tail slap for the secondary one.
+		CharacterFacadeImpl eidolon = createSerpentineEidolonWithPowerAttack("pa-switch-together", false);
+		PlayerCharacter pc = eidolon.getTheCharacter();
+		int cmb = cmb(pc);
+
+		eidolon.addTempBonus(availableTempBonus(eidolon, PA_PRIMARY));
+		TempBonusFacade maneuvers = appliedTempBonus(eidolon, "Power Attack");
+		TempBonusFacade bite = appliedTempBonus(eidolon, PA_PRIMARY);
+		assertEquals(cmb - 2, cmb(pc), "combat maneuver penalty added with the first weapon");
+		assertWeaponPowerAttack(pc, bite, "Bite", true, 4);
+
+		eidolon.addTempBonus(availableTempBonus(eidolon, PA_SECONDARY));
+		TempBonusFacade tailSlap = appliedTempBonus(eidolon, PA_SECONDARY);
+		assertEquals(3, eidolon.getTempBonuses().getSize(), "one combat maneuver penalty for both weapons");
+		assertPowerAttackState(pc, cmb, true, maneuvers, bite, tailSlap);
+
+		eidolon.setTempBonusActive(bite, false);
+		assertPowerAttackState(pc, cmb, false, maneuvers, bite, tailSlap);
+		eidolon.setTempBonusActive(tailSlap, true);
+		assertPowerAttackState(pc, cmb, true, maneuvers, bite, tailSlap);
+		eidolon.setTempBonusActive(maneuvers, false);
+		assertPowerAttackState(pc, cmb, false, maneuvers, bite, tailSlap);
+		eidolon.setTempBonusActive(maneuvers, true);
+		assertPowerAttackState(pc, cmb, true, maneuvers, bite, tailSlap);
+	}
+
+	@Test
+	void powerAttackRowsAreAddedAndRemovedTogether()
+	{
+		CharacterFacadeImpl eidolon = createSerpentineEidolonWithPowerAttack("pa-add-remove", false);
+		PlayerCharacter pc = eidolon.getTheCharacter();
+		int cmb = cmb(pc);
+
+		eidolon.addTempBonus(availableTempBonus(eidolon, PA_PRIMARY));
+		TempBonusFacade bite = appliedTempBonus(eidolon, PA_PRIMARY);
+		eidolon.setTempBonusActive(bite, false);
+		eidolon.addTempBonus(availableTempBonus(eidolon, PA_SECONDARY));
+		TempBonusFacade maneuvers = appliedTempBonus(eidolon, "Power Attack");
+		TempBonusFacade tailSlap = appliedTempBonus(eidolon, PA_SECONDARY);
+		assertPowerAttackState(pc, cmb, true, maneuvers, bite, tailSlap);
+
+		// Removing a weapon variant only removes that one, until the last one takes the penalty with it
+		eidolon.removeTempBonus(bite);
+		assertEquals(2, eidolon.getTempBonuses().getSize(), "combat maneuver penalty kept for the tail slap");
+		assertEquals(cmb - 2, cmb(pc), "CMB with Power Attack on the tail slap");
+		eidolon.removeTempBonus(tailSlap);
+		assertEquals(0, eidolon.getTempBonuses().getSize(), "combat maneuver penalty removed with the last weapon");
+		assertEquals(cmb, cmb(pc), "CMB after removing Power Attack");
+
+		// Removing the combat maneuver penalty removes Power Attack from every weapon
+		eidolon.addTempBonus(availableTempBonus(eidolon, PA_PRIMARY));
+		eidolon.addTempBonus(availableTempBonus(eidolon, PA_SECONDARY));
+		eidolon.removeTempBonus(appliedTempBonus(eidolon, "Power Attack"));
+		assertEquals(0, eidolon.getTempBonuses().getSize(), "weapon variants removed with the combat maneuver penalty");
+		assertEquals(cmb, cmb(pc), "CMB after removing Power Attack");
+	}
+
+	@Test
 	void switchedOffTemporaryBonusItemIsLeftOutOfTheEquipment()
 	{
 		CharacterFacadeImpl eidolon = createSerpentineEidolonWithPowerAttack("pa-switch", false);
@@ -368,6 +443,62 @@ class PowerAttackNaturalAttackTest
 		return tempItem;
 	}
 
+	/** Check Power Attack on the character sheet: CMB and the attack and damage rolls of both weapons. */
+	private static void assertPowerAttackState(PlayerCharacter pc, int baseCmb, boolean on, TempBonusFacade maneuvers,
+		TempBonusFacade bite, TempBonusFacade tailSlap)
+	{
+		assertEquals(on, maneuvers.isActive(), "combat maneuver penalty switched on");
+		assertEquals(on ? baseCmb - 2 : baseCmb, cmb(pc), "CMB");
+		assertWeaponPowerAttack(pc, bite, "Bite", on, 4);
+		assertWeaponPowerAttack(pc, tailSlap, "Tail Slap", on, 2);
+	}
+
+	/** Check a weapon's Power Attack line: shown with -2 to hit and the damage bonus while switched on, left out otherwise. */
+	private static void assertWeaponPowerAttack(PlayerCharacter pc, TempBonusFacade weaponBonus, String weaponName,
+		boolean on, int damage)
+	{
+		Equipment tempItem = (Equipment) ((TempBonusFacadeImpl) weaponBonus).getTarget();
+		assertEquals(on, weaponBonus.isActive(), "Power Attack switched on for " + weaponName);
+		assertEquals(on, pc.hasActiveTempBonusOn(tempItem), "Power Attack " + weaponName + " shown");
+		if (on)
+		{
+			Equipment weapon = naturalWeapon(pc, weaponName);
+			assertEquals(-2, tempItem.getBonusToHit(pc, true) - weapon.getBonusToHit(pc, true), "to hit on " + weaponName);
+			assertEquals(damage, tempItem.getBonusToDamage(pc, true) - weapon.getBonusToDamage(pc, true),
+				"damage on " + weaponName);
+		}
+	}
+
+	private static int cmb(PlayerCharacter pc)
+	{
+		pc.calcActiveBonuses();
+		return pc.getVariableValue("CMB", "").intValue();
+	}
+
+	private static TempBonusFacade availableTempBonus(CharacterFacadeImpl character, String key)
+	{
+		for (TempBonusFacade bonus : character.getAvailableTempBonuses())
+		{
+			if (key.equals(((TempBonusFacadeImpl) bonus).getOriginObj().getKeyName()))
+			{
+				return bonus;
+			}
+		}
+		throw new AssertionError("No temporary bonus " + key + " available");
+	}
+
+	private static TempBonusFacade appliedTempBonus(CharacterFacadeImpl character, String key)
+	{
+		for (TempBonusFacade bonus : character.getTempBonuses())
+		{
+			if (key.equals(((TempBonusFacadeImpl) bonus).getOriginObj().getKeyName()))
+			{
+				return bonus;
+			}
+		}
+		throw new AssertionError("No temporary bonus " + key + " applied");
+	}
+
 	private static List<String> targetNames(PlayerCharacter pc, String paKey)
 	{
 		List<String> names = new ArrayList<>();
@@ -380,9 +511,10 @@ class PowerAttackNaturalAttackTest
 
 	private static Equipment naturalWeapon(PlayerCharacter pc, String baseName)
 	{
+		// skip temporary bonus items, which the equipment set includes once the character is recalculated
 		for (Equipment eq : pc.getDisplay().getEquipmentSet())
 		{
-			if (baseName.equals(eq.getBaseItemName()) && eq.isNatural())
+			if (baseName.equals(eq.getBaseItemName()) && eq.isNatural() && eq.getAppliedName().isEmpty())
 			{
 				return eq;
 			}
