@@ -21,6 +21,7 @@ package pcgen.system;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.InvalidPathException;
 import java.nio.file.Path;
 import java.util.Objects;
 import java.util.Optional;
@@ -229,13 +230,26 @@ public final class ConfigurationSettings extends PropertyContext
 	}
 
 	/**
-	 * The nearest existing directory at or above {@code path}, or empty if none
-	 * exists up the chain. Lets a directory chooser start at a real directory
-	 * when the prefilled path does not exist yet.
+	 * Finds a starting directory for a chooser, walking up when the edited path does not exist yet.
+	 *
+	 * @param path the edited directory text, possibly absent or invalid
+	 * @return the nearest existing directory, or empty when the chooser should use its default
 	 */
 	public static Optional<Path> nearestExistingDir(String path)
 	{
-		Path dir = (path == null) ? null : Path.of(path);
+		if (path == null || path.isBlank())
+		{
+			return Optional.empty();
+		}
+		Path dir;
+		try
+		{
+			dir = Path.of(path);
+		}
+		catch (InvalidPathException exception)
+		{
+			return Optional.empty();
+		}
 		while ((dir != null) && !Files.isDirectory(dir))
 		{
 			dir = dir.getParent();

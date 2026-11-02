@@ -30,6 +30,9 @@ import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.NullAndEmptySource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 /**
  * Tests {@link ConfigurationSettings#findInstallRoot(String)} — how PCGen
@@ -242,9 +245,12 @@ class ConfigurationSettingsTest
 		assertEquals(Optional.of(parent), ConfigurationSettings.nearestExistingDir(deepMissing.toString()));
 	}
 
-	@Test
-	void nearestExistingDir_should_beEmpty_when_pathIsNull()
+	/** Unusable text leaves a directory chooser at its native default instead of throwing or selecting the work directory. */
+	@ParameterizedTest
+	@NullAndEmptySource
+	@ValueSource(strings = {" ", "\0"})
+	void nearestExistingDir_should_beEmpty_when_pathIsUnusable(String path)
 	{
-		assertTrue(ConfigurationSettings.nearestExistingDir(null).isEmpty());
+		assertTrue(ConfigurationSettings.nearestExistingDir(path).isEmpty());
 	}
 }
