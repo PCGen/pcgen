@@ -1453,8 +1453,18 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 			{
 				SwingUtilities.invokeLater(this::showDataInstaller);
 			}
-			toLoad.ifPresent(bundle -> SwingUtilities.invokeLater(() -> loadSourceSelection(
-					FacadeFactory.createSourceSelection(bundle.gameMode(), bundle.campaigns()))));
+			if (toLoad.isPresent())
+			{
+				SourceBundle bundle = toLoad.get();
+				SwingUtilities.invokeLater(() -> loadSourceSelection(
+						FacadeFactory.createSourceSelection(bundle.gameMode(), bundle.campaigns())));
+			}
+			else if (!installData)
+			{
+				// Cancel / skip / unload: no sources loading, so show the
+				// default tips now (gated on the tip preference).
+				maybeShowTipsOfTheDay();
+			}
 		});
 	}
 
@@ -1849,6 +1859,8 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 			}
 			currentDataSetRef.set(data);
 			updateTitle();
+			// Sources finished loading: now show tips (gated on the preference).
+			maybeShowTipsOfTheDay();
 		}
 
 		// TODO there are no examples with licenses. Either remove this or add a test.
