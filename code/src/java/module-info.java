@@ -44,6 +44,7 @@ module pcgen {
     exports pcgen.pluginmgr;
     exports pcgen.system;
     exports pcgen.util;
+    exports pcgen.cdom.base to javafx.fxml;
 
     opens pcgen.cdom.base to pcgen.base;
 
@@ -69,6 +70,7 @@ module pcgen {
     opens pcgen.gui3.component;
     opens pcgen.gui3.core;
     opens pcgen.gui3.dialog;
+    opens pcgen.gui3.install to javafx.fxml;
     opens pcgen.gui3.namegen;
     opens pcgen.gui3.preferences;
     opens pcgen.gui3.preloader;

@@ -99,7 +99,7 @@ import pcgen.gui3.component.PCGenToolBar;
 import pcgen.gui3.dialog.AboutDialog;
 import pcgen.gui3.dialog.RememberingChoiceDialog;
 import pcgen.gui3.dialog.TipOfTheDayController;
-import pcgen.gui2.dialog.DataInstaller;
+import pcgen.gui3.install.DataInstallerDialog;
 import pcgen.gui3.sources.AdvancedSourceSelectionController;
 import pcgen.gui3.sources.SourceBundle;
 import pcgen.gui3.sources.SourceDialogOutcome;
@@ -163,7 +163,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 
 	private AboutDialog javaFXAboutDialog;
 
-	private boolean sourceSelectionDialogOpen;
+	private boolean sourceDialogOpen;
 
 	public PCGenFrame(UIContext uiContext)
 	{
@@ -1350,7 +1350,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 	public void showSourceSelectionDialog()
 	{
 		GuiAssertions.assertIsSwingThread();
-		if (sourceSelectionDialogOpen)
+		if (sourceDialogOpen)
 		{
 			return;
 		}
@@ -1375,7 +1375,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 				.toList();
 
 		var ownerBounds = getBounds();
-		sourceSelectionDialogOpen = true;
+		sourceDialogOpen = true;
 		setEnabled(false);
 		Platform.runLater(() -> {
 			Optional<SourceBundle> toLoad = Optional.empty();
@@ -1431,13 +1431,13 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 			finally
 			{
 				SwingUtilities.invokeLater(() -> {
-					sourceSelectionDialogOpen = false;
+					sourceDialogOpen = false;
 					setEnabled(true);
 				});
 			}
 			if (installData)
 			{
-				SwingUtilities.invokeLater(PCGenFrame::showDataInstaller);
+				SwingUtilities.invokeLater(this::showDataInstaller);
 			}
 			toLoad.ifPresent(bundle -> SwingUtilities.invokeLater(() -> loadSourceSelection(
 					FacadeFactory.createSourceSelection(bundle.gameMode(), bundle.campaigns()))));
@@ -1498,11 +1498,35 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 		AdvancedSourceSelectionController.rememberSelection(mode, ListFacades.wrap(sources.getCampaigns()));
 	}
 
-	/** Opens the data installer, as the legacy source dialog's Install Data does. */
-	private static void showDataInstaller()
+	/** Opens one FX installer from the EDT and restores its Swing owner even if initialization fails. */
+	void showDataInstaller()
 	{
-		var installer = new DataInstaller();
-		installer.setVisible(true);
+		GuiAssertions.assertIsSwingThread();
+		if (sourceDialogOpen)
+		{
+			return;
+		}
+		var ownerBounds = getBounds();
+		sourceDialogOpen = true;
+		setEnabled(false);
+		Platform.runLater(() -> {
+			try
+			{
+				var installer = new DataInstallerDialog();
+				installer.setOnShown(_ -> {
+					installer.setX(ownerBounds.getCenterX() - installer.getWidth() / 2);
+					installer.setY(ownerBounds.getCenterY() - installer.getHeight() / 2);
+				});
+				installer.showAndWait();
+			}
+			finally
+			{
+				SwingUtilities.invokeLater(() -> {
+					sourceDialogOpen = false;
+					setEnabled(true);
+				});
+			}
+		});
 	}
 
 	/**

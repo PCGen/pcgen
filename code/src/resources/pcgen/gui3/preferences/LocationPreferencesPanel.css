@@ -1,0 +1,23 @@
+/*
+ * Copyright 2026 the PCGen Project.
+ * Distributed under the GNU Lesser General Public License, version 2.1 or later.
+ */
+
+.location-preferences {
+    -fx-padding: 16;
+    -fx-hgap: 12;
+    -fx-vgap: 8;
+}
+
+.location-preferences .section-heading {
+    -fx-font-weight: bold;
+    -fx-padding: 12 0 4 0;
+}
+
+.location-preferences .first-section {
+    -fx-padding: 0 0 4 0;
+}
+
+.location-preferences .settings-choices {
+    -fx-spacing: 16;
+}

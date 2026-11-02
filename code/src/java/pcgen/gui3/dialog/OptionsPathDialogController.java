@@ -138,15 +138,9 @@ public class OptionsPathDialogController
 	private void doChooser()
 	{
 		DirectoryChooser directoryChooser = new DirectoryChooser();
-		String modelDirectory = model.directoryProperty().getValue();
-		if ((modelDirectory != null) && !modelDirectory.isBlank())
-		{
-			// The prefilled path (e.g. <install>/settings) may not exist yet, and JavaFX's DirectoryChooser silently
-			// refuses to open when initialDirectory is missing.
-			ConfigurationSettings.nearestExistingDir(modelDirectory)
-					.map(Path::toFile)
-					.ifPresent(directoryChooser::setInitialDirectory);
-		}
+		ConfigurationSettings.nearestExistingDir(model.directoryProperty().getValue())
+				.map(Path::toFile)
+				.ifPresent(directoryChooser::setInitialDirectory);
 
 		File dir = directoryChooser.showDialog(optionsPathDialogScene.getWindow());
 

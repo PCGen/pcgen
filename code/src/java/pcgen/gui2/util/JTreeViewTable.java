@@ -19,13 +19,21 @@
 package pcgen.gui2.util;
 
 import java.awt.Container;
+import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.swing.AbstractAction;
 import javax.swing.BorderFactory;
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
+import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JLabel;
+import javax.swing.JMenuItem;
+import javax.swing.JPopupMenu;
+import javax.swing.JRadioButtonMenuItem;
 import javax.swing.JScrollPane;
 import javax.swing.JViewport;
 import javax.swing.ScrollPaneConstants;
@@ -48,21 +56,9 @@ import pcgen.gui2.util.treeview.DataViewColumn.Visibility;
 import pcgen.gui2.util.treeview.TreeView;
 import pcgen.gui2.util.treeview.TreeViewModel;
 import pcgen.gui2.util.treeview.TreeViewTableModel;
-import pcgen.gui3.GuiUtility;
 import pcgen.system.PropertyContext;
 import pcgen.util.CollectionMaps;
 import pcgen.util.ListMap;
-
-import javafx.embed.swing.JFXPanel;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckMenuItem;
-import javafx.scene.control.ContextMenu;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.RadioMenuItem;
-import javafx.scene.control.SeparatorMenuItem;
-import javafx.scene.control.ToggleGroup;
 
 /**
  * JTreeViewTable is a subclass of JTreeTable that uses a TreeViewModel instead
@@ -92,8 +88,7 @@ public class JTreeViewTable<T> extends JTreeTable
 	 */
 	private static final String VIEW_INDEX_PREFS_KEY = "viewIdx";
 
-	private final Button cornerButton;
-	private final JFXPanel wrappedCornerButton;
+	private final JButton cornerButton;
 	private DynamicTableColumnModel dynamicColumnModel;
 	protected TreeViewTableModel<T> treetableModel;
 	private TreeViewModel<T> viewModel;
@@ -109,7 +104,6 @@ public class JTreeViewTable<T> extends JTreeTable
 		setAutoCreateRowSorter(false);
 		getTree().setLargeModel(true);
 		this.cornerButton = new JTableMenuButton(cornerPopupMenu);
-		this.wrappedCornerButton = GuiUtility.wrapParentAsJFXPanel(this.cornerButton);
 	}
 
 	private <TM> TreeViewTableModel<TM> createDefaultTreeViewTableModel(DataView<TM> dataView)
@@ -117,14 +111,11 @@ public class JTreeViewTable<T> extends JTreeTable
 		return new TreeViewTableModel<>(dataView);
 	}
 
-	private CheckMenuItem createMenuItem(TableColumn column)
+	private JCheckBoxMenuItem createMenuItem(TableColumn column)
 	{
-		CheckMenuItem item = new CheckMenuItem();
 		boolean visible = dynamicColumnModel.isVisible(column);
-			item.setSelected(visible);
-		MenuAction menuAction = new MenuAction(column, visible);
-		item.setText(menuAction.getText());
-		item.setOnAction(menuAction);
+		JCheckBoxMenuItem item = new JCheckBoxMenuItem(new MenuAction(column, visible));
+		item.setSelected(visible);
 		return item;
 	}
 
@@ -209,7 +200,7 @@ public class JTreeViewTable<T> extends JTreeTable
 				}
 				scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 				scrollPane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER,
-						wrappedCornerButton);
+						cornerButton);
 			}
 		}
 	}
@@ -394,7 +385,7 @@ public class JTreeViewTable<T> extends JTreeTable
 	 * This is the popup menu for the CornerButton which allows selection of the
 	 * selected tree view as well as the visible columns for the table.
 	 */
-	protected class CornerButtonPopupMenu extends ContextMenu
+	protected class CornerButtonPopupMenu extends JPopupMenu
 			implements ListListener<TreeView<T>>, DynamicTableColumnModelListener
 	{
 
@@ -447,7 +438,7 @@ public class JTreeViewTable<T> extends JTreeTable
 			PropertyContext context = BASE_CONTEXT.createChildContext(viewModel.getDataView().getPrefsKey());
 			int viewIndex = context.initInt(VIEW_INDEX_PREFS_KEY, viewModel.getDefaultTreeViewIndex());
 
-			ToggleGroup group = new ToggleGroup();
+			ButtonGroup group = new ButtonGroup();
 			TreeView<? super T> startingView = views.getElementAt(viewIndex);
 			removeAll();
 			JLabel treeLabel = new JLabel("Tree Views");
@@ -455,46 +446,28 @@ public class JTreeViewTable<T> extends JTreeTable
 			add(treeLabel);
 			for (TreeView<T> treeview : views)
 			{
-				RadioMenuItem item = new RadioMenuItem();
-				ChangeViewAction changeViewAction = new ChangeViewAction(treeview);
-				item.setOnAction(changeViewAction);
-				item.setText(changeViewAction.getText());
+				JRadioButtonMenuItem item = new JRadioButtonMenuItem(new ChangeViewAction(treeview));
 				item.setSelected(startingView == treeview);
-				item.setDisable(!treeViewsEnabled);
-				item.setToggleGroup(group);
-				getItems().add(item);
+				item.setEnabled(treeViewsEnabled);
+				group.add(item);
+				add(item);
 			}
-			this.getItems().add(new SeparatorMenuItem());
+			addSeparator();
 			JLabel columnLabel = new JLabel("Columns");
 			columnLabel.setBorder(BorderFactory.createEmptyBorder(0, 4, 0, 0));
 			add(columnLabel);
 			List<TableColumn> columns = dynamicColumnModel.getAvailableColumns();
 			for (TableColumn column : columns)
 			{
-				MenuItem item = createMenuItem(column);
-				this.getItems().add(item);
+				JMenuItem item = createMenuItem(column);
+				add(item);
 			}
 			cornerButton.setVisible(!columns.isEmpty() || !views.isEmpty());
 		}
 
 	}
 
-	private abstract static class NamedAction implements EventHandler<ActionEvent>
-	{
-		private final String text;
-
-		NamedAction(String text)
-		{
-			this.text = text;
-		}
-
-		String getText()
-		{
-			return text;
-		}
-	}
-
-	private final class MenuAction extends NamedAction
+	private final class MenuAction extends AbstractAction
 	{
 
 		private boolean visible;
@@ -508,14 +481,14 @@ public class JTreeViewTable<T> extends JTreeTable
 		}
 
 		@Override
-		public void handle(ActionEvent e)
+		public void actionPerformed(ActionEvent e)
 		{
 			dynamicColumnModel.setVisible(column, visible = !visible);
 		}
 
 	}
 
-	private final class ChangeViewAction extends NamedAction
+	private final class ChangeViewAction extends AbstractAction
 	{
 
 		private final TreeView<? super T> view;
@@ -527,7 +500,7 @@ public class JTreeViewTable<T> extends JTreeTable
 		}
 
 		@Override
-		public void handle(ActionEvent e)
+		public void actionPerformed(ActionEvent e)
 		{
 			setTreeView(view);
 		}

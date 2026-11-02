@@ -187,7 +187,8 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		models.put(SkillTreeViewModel.class, new SkillTreeViewModel(character, listModel));
 		models.put(FilterHandler.class, new FilterHandler(character, listModel));
 		models.put(InfoHandler.class, new InfoHandler(character));
-		models.put(LevelSelectionHandler.class, new LevelSelectionHandler(character, listModel));
+		models.put(LevelSelectionHandler.class, new LevelSelectionHandler(character.getCharacterLevelsFacade(),
+			listModel, skillpointTable, skillTable::refreshModelData));
 		models.put(SkillRankSpinnerEditor.class, new SkillRankSpinnerEditor(character, listModel));
 
 		SkillSheetHandler skillSheetHandler = new SkillSheetHandler(character);
@@ -263,21 +264,31 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 
 	}
 
-	private class LevelSelectionHandler
+	/** Selects a level with unspent points while this character's skill models are installed. */
+	static class LevelSelectionHandler
 			implements ListListener<CharacterLevelFacade>, SkillPointListener, Runnable, ListSelectionListener
 	{
 
 		private final CharacterLevelsFacade levels;
 		private final ListSelectionModel model;
+		private final JTable skillpointTable;
+		private final Runnable refreshSkills;
+		private boolean installed;
+		private long generation;
 
-		LevelSelectionHandler(CharacterFacade character, ListSelectionModel model)
+		LevelSelectionHandler(CharacterLevelsFacade levels, ListSelectionModel model,
+			JTable skillpointTable, Runnable refreshSkills)
 		{
-			this.levels = character.getCharacterLevelsFacade();
+			this.levels = levels;
 			this.model = model;
+			this.skillpointTable = skillpointTable;
+			this.refreshSkills = refreshSkills;
 		}
 
 		void install()
 		{
+			installed = true;
+			generation++;
 			levels.addSkillPointListener(this);
 			levels.addListListener(this);
 			model.addListSelectionListener(this);
@@ -286,6 +297,8 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 
 		void uninstall()
 		{
+			installed = false;
+			generation++;
 			levels.removeSkillPointListener(this);
 			levels.removeListListener(this);
 			model.removeListSelectionListener(this);
@@ -294,6 +307,10 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		@Override
 		public void run()
 		{
+			if (!installed)
+			{
+				return;
+			}
 			for (int startIndex : new int[]{model.getMinSelectionIndex(), 0})
 			{
 				for (int i = startIndex; i < levels.getSize(); i++)
@@ -339,7 +356,13 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			/* Updating now would conflict with the JTable updating due to the same events.
 			 * So update the selection model after JTable has had its way with it.
 			 */
-			SwingUtilities.invokeLater(this);
+			long requestedGeneration = generation;
+			SwingUtilities.invokeLater(() -> {
+				if (requestedGeneration == generation)
+				{
+					run();
+				}
+			});
 		}
 
 		@Override
@@ -377,7 +400,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		@Override
 		public void valueChanged(ListSelectionEvent e)
 		{
-			skillTable.refreshModelData();
+			refreshSkills.run();
 		}
 
 	}
