@@ -261,13 +261,15 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 				if (!alternateStartup)
 				{
 					//Do a default startup
-					if (TipOfTheDayHandler.shouldShowTipOfTheDay())
-					{
-						Platform.runLater(PCGenFrame::showTipsOfTheDay);
-					}
 					SwingUtilities.invokeLater(() -> {
-						if (!UIPropertyContext.getInstance()
+						if (UIPropertyContext.getInstance()
 								.initBoolean(UIPropertyContext.SKIP_SOURCE_SELECTION, false))
+						{
+							// Source selection skipped: game mode is already known, so
+							// show tips now (gated on the tip preference).
+							maybeShowTipsOfTheDay();
+						}
+						else
 						{
 							showSourceSelectionDialog();
 						}
