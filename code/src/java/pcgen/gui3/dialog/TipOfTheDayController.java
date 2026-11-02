@@ -23,6 +23,7 @@ import pcgen.gui2.tools.TipOfTheDayHandler;
 import pcgen.gui3.GuiAssertions;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PropertyContext;
+import pcgen.util.Html;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -105,9 +106,12 @@ public class TipOfTheDayController
 
 	private String buildTipText(String tip)
 	{
+		// The tip number is plain data and is escaped via pcgen.util.Html.
+		// The tip body is authored HTML from the tips data files (e.g. <em>...</em>)
+		// and is deliberately passed through unescaped.
+		String tipNumber = Html.escape(Integer.toString(tipHandler.getLastNumber() + 1));
 		return String.format("%s%s%s", HTML_START,
-				LanguageBundle.getFormattedString("in_tod_tipDisplay",
-						Integer.toString(tipHandler.getLastNumber() + 1), tip),
+				LanguageBundle.getFormattedString("in_tod_tipDisplay", tipNumber, tip),
 				HTML_END);
 	}
 }

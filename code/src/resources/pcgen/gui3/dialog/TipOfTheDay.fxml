@@ -31,21 +31,31 @@
   * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
   -->
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.web.WebView?>
 <Scene xmlns="http://javafx.com/javafx/25.0.1" xmlns:fx="http://javafx.com/fxml" fx:controller="pcgen.gui3.dialog.TipOfTheDayController">
     <AnchorPane>
         <BorderPane>
-         <left>
-            <ImageView pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
-                <Image url="@TipOfTheDay24.gif" />
-            </ImageView>
-         </left>
+         <padding>
+            <Insets top="15" right="15" bottom="15" left="15" />
+         </padding>
          <top>
-            <Label id="didYouKnowLabel" text="%in_tod_didyouknow" BorderPane.alignment="CENTER" />
+            <HBox id="headerBox" alignment="CENTER_LEFT" spacing="8" BorderPane.alignment="CENTER_LEFT">
+               <padding>
+                  <Insets bottom="10" />
+               </padding>
+               <ImageView pickOnBounds="true" preserveRatio="true">
+                   <Image url="@TipOfTheDay24.gif" />
+               </ImageView>
+               <Label id="didYouKnowLabel" text="%in_tod_didyouknow" />
+            </HBox>
          </top>
          <bottom>
-             <HBox BorderPane.alignment="CENTER">
-                 <CheckBox fx:id="showTips" text="%in_tod_showTips" />
+             <HBox spacing="8" BorderPane.alignment="CENTER">
+                 <padding>
+                    <Insets top="12" />
+                 </padding>
+                 <CheckBox fx:id="showTips" text="%in_tod_showTips" alignment="CENTER_LEFT" HBox.hgrow="NEVER" />
                  <Region HBox.hgrow="ALWAYS" />
                  <Button text="%in_tod_prevTip" onAction="#onPrevTip" />
                  <Button text="%in_tod_nextTip" onAction="#onNextTip" />
