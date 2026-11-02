@@ -46,7 +46,7 @@ public class TipOfTheDayController
 	private CheckBox showTips;
 
 	private static final String HTML_START =
-			"<html><head><meta charset=\"UTF-8\"></head>"
+			"<!DOCTYPE html><html><head><meta charset=\"UTF-8\"></head>"
 					+ "<body style=\"margin-left: 5px;margin-right: 5px;margin-top: 5px\">";
 	private static final String HTML_END = "</body></html>";
 	private final TipOfTheDayHandler tipHandler = TipOfTheDayHandler.getInstance();

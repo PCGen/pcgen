@@ -226,6 +226,16 @@ class TipOfTheDayTest
 		assertTrue(tipText().contains("Café – 日本語 Zażółć"), tipText());
 	}
 
+	@ParameterizedTest
+	@ValueSource(strings = {"A tip", ""})
+	void tipDocument_usesStandardsMode(String tip) throws Exception
+	{
+		Files.writeString(tipsFile, tip);
+		openDialog();
+		assertEquals("CSS1Compat", asyncFx(() -> engine.executeScript("document.compatMode"))
+				.get(5, TimeUnit.SECONDS));
+	}
+
 	@Test
 	void reload_handlesRemovedTipsAndAnEmptyFile() throws Exception
 	{
