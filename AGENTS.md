@@ -24,15 +24,18 @@ Use Java 25 (Temurin) and `./gradlew`. Java and JavaFX versions are configured i
 | `./gradlew :test --tests 'pcgen.gui3.sources.*'` | Targeted root-project tests |
 | `./gradlew :itest` | Integration tests |
 | `./gradlew :slowtest` | Data/bootstrap and character tests; also runs `:itest` |
+| `./gradlew :slowtest --tests 'pcgen.gui3.sources.SourceSelectionDataTest' -x :itest` | Published-data selection scenarios only |
 | `./gradlew datatest` | Data loading, encoding, and validation |
+| `./gradlew testCoverage` | JaCoCo report under `build/reports/jacoco/testCoverage/html` |
 | `./gradlew allReports` | Checkstyle, PMD, and SpotBugs |
 | `./gradlew run` | Run with the required JavaFX modules |
+| `./gradlew run --args="--name-generator"` | Run the name generator |
 | `./gradlew qbuild` | Development distribution under `output` |
 | `./gradlew fullJpackage` | Host-platform app image and installer |
 
 Use a leading colon for targeted root-project tests; otherwise Gradle also selects subproject tasks
 and can fail with "No tests found." Add `-x :itest` when running an isolated slow-test scenario.
-Use `./gradlew tasks` for other coverage, packaging, and per-game integration tasks.
+Use `./gradlew tasks` for other packaging and per-game integration tasks.
 
 `clean` also removes generated plugins, output, downloaded JDKs/modules, and master sheets.
 Do not clean, rename, or rebuild a checkout while its application is running:
