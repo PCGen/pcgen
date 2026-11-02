@@ -28,6 +28,9 @@ code/build/
 code/comp-manifest
 code/manifest
 
+# JMH annotation-processor generated sources
+code/src/jmh/generated/
+
 # JVM Error log if Java craches
 hs_err_*.log
 

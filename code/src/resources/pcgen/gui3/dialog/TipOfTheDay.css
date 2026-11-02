@@ -17,9 +17,11 @@
  */
 
 #didYouKnowLabel {
-    -fx-font-size: 2em;
+    -fx-font-size: 1.6em;
+    -fx-font-weight: bold;
 }
 
-#browser {
-    -fx-max-height: 300px;
+#headerBox {
+    -fx-border-color: transparent transparent -fx-box-border transparent;
+    -fx-border-width: 0 0 1 0;
 }

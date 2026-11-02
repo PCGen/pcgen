@@ -136,6 +136,20 @@ public final class TipOfTheDayHandler
 		return (tipList != null) && (!tipList.isEmpty());
 	}
 
+	/**
+	 * Selects a tip after rereading the file, keeping subsequent navigation at that position.
+	 * The index is clamped if tips were removed; an empty file resets navigation.
+	 *
+	 * @param index the zero-based position the dialog was displaying
+	 * @return the selected tip, or an empty string when no tips are available
+	 */
+	public synchronized String getTip(int index)
+	{
+		lastNumber = hasTips() ? Math.clamp(index, 0, tipList.size() - 1) : -1;
+		PROPERTY_CONTEXT.setInt("lastTip", lastNumber);
+		return hasTips() ? tipList.get(lastNumber) : "";
+	}
+
 	public synchronized String getNextTip()
 	{
 		if (hasTips())

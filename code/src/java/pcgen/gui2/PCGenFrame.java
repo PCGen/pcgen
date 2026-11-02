@@ -90,7 +90,6 @@ import pcgen.gui2.dialog.SpellChoiceDialog;
 import pcgen.gui2.tabs.InfoTabbedPane;
 import pcgen.gui2.tools.CharacterSelectionListener;
 import pcgen.gui2.tools.Icons;
-import pcgen.gui2.tools.TipOfTheDayHandler;
 import pcgen.gui2.util.ShowMessageGuiObserver;
 import pcgen.gui3.GuiAssertions;
 import pcgen.gui3.GuiUtility;
@@ -143,6 +142,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 	private final CharacterTabs characterTabs;
 	private final PCGenStatusBar statusBar;
 	private final PCGenMenuBar pcGenMenuBar;
+	private final StartupTipOfTheDay startupTip = new StartupTipOfTheDay();
 
 	/**
 	 * The context indicating what items are currently loaded/being processed in the UI
@@ -261,13 +261,15 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 				if (!alternateStartup)
 				{
 					//Do a default startup
-					if (TipOfTheDayHandler.shouldShowTipOfTheDay())
-					{
-						Platform.runLater(PCGenFrame::showTipsOfTheDay);
-					}
 					SwingUtilities.invokeLater(() -> {
-						if (!UIPropertyContext.getInstance()
+						if (UIPropertyContext.getInstance()
 								.initBoolean(UIPropertyContext.SKIP_SOURCE_SELECTION, false))
+						{
+							// Source selection skipped: game mode is already known, so
+							// show tips now (gated on the tip preference).
+						startupTip.showIfEnabled();
+						}
+						else
 						{
 							showSourceSelectionDialog();
 						}
@@ -1439,8 +1441,18 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 			{
 				SwingUtilities.invokeLater(this::showDataInstaller);
 			}
-			toLoad.ifPresent(bundle -> SwingUtilities.invokeLater(() -> loadSourceSelection(
-					FacadeFactory.createSourceSelection(bundle.gameMode(), bundle.campaigns()))));
+			if (toLoad.isPresent())
+			{
+				SourceBundle bundle = toLoad.get();
+				SwingUtilities.invokeLater(() -> loadSourceSelection(
+						FacadeFactory.createSourceSelection(bundle.gameMode(), bundle.campaigns())));
+			}
+			else if (!installData)
+			{
+				// Cancel / skip / unload: no sources loading, so show the
+				// default tips now (gated on the tip preference).
+				startupTip.showIfEnabled();
+			}
 		});
 	}
 
@@ -1835,6 +1847,8 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 			}
 			currentDataSetRef.set(data);
 			updateTitle();
+			// Sources finished loading: now show tips (gated on the preference).
+			startupTip.showIfEnabled();
 		}
 
 		// TODO there are no examples with licenses. Either remove this or add a test.
