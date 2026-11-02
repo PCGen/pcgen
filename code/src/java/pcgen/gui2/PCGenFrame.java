@@ -1345,6 +1345,18 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 	}
 
 	/**
+	 * Shows the Tip of the Day dialog when the user has not disabled it,
+	 * always on the JavaFX thread. Safe to call from the Swing EDT or a worker.
+	 */
+	static void maybeShowTipsOfTheDay()
+	{
+		if (TipOfTheDayHandler.shouldShowTipOfTheDay())
+		{
+			Platform.runLater(PCGenFrame::showTipsOfTheDay);
+		}
+	}
+
+	/**
 	 * display the source selection dialog to the user
 	 */
 	public void showSourceSelectionDialog()
