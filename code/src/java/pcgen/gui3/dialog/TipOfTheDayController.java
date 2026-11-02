@@ -45,10 +45,15 @@ public class TipOfTheDayController
 	@FXML
 	private CheckBox showTips;
 
-	private static final String HTML_START =
-			"<!DOCTYPE html><html><head><meta charset=\"UTF-8\"></head>"
-					+ "<body style=\"margin-left: 5px;margin-right: 5px;margin-top: 5px\">";
-	private static final String HTML_END = "</body></html>";
+	private static final String HTML_TEMPLATE = """
+			<!DOCTYPE html>
+			<html>
+			<head>
+			    <meta charset="UTF-8">
+			</head>
+			<body style="margin-left: 5px; margin-right: 5px; margin-top: 5px">%s</body>
+			</html>
+			""";
 	private final TipOfTheDayHandler tipHandler = TipOfTheDayHandler.getInstance();
 	@FXML
 	private WebView browser;
@@ -129,16 +134,15 @@ public class TipOfTheDayController
 	/** Formats authored tip HTML, leaving an empty document reloadable when the file has no tips. */
 	private String buildTipText(String tip)
 	{
-		if (tip.isEmpty())
+		String content = "";
+		if (!tip.isEmpty())
 		{
-			return HTML_START + HTML_END;
+			// The tip number is plain data and is escaped via pcgen.util.Html.
+			// The tip body is authored HTML from the tips data files (e.g. <em>...</em>)
+			// and is deliberately passed through unescaped.
+			String tipNumber = Html.escape(Integer.toString(currentTipNumber + 1));
+			content = LanguageBundle.getFormattedString("in_tod_tipDisplay", tipNumber, tip);
 		}
-		// The tip number is plain data and is escaped via pcgen.util.Html.
-		// The tip body is authored HTML from the tips data files (e.g. <em>...</em>)
-		// and is deliberately passed through unescaped.
-		String tipNumber = Html.escape(Integer.toString(currentTipNumber + 1));
-		return String.format("%s%s%s", HTML_START,
-				LanguageBundle.getFormattedString("in_tod_tipDisplay", tipNumber, tip),
-				HTML_END);
+		return HTML_TEMPLATE.formatted(content);
 	}
 }
