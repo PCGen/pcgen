@@ -25,7 +25,3 @@
     -fx-border-color: transparent transparent -fx-box-border transparent;
     -fx-border-width: 0 0 1 0;
 }
-
-#browser {
-    -fx-max-height: 300px;
-}

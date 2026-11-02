@@ -33,9 +33,9 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.web.WebView?>
-<Scene xmlns="http://javafx.com/javafx/25.0.1" xmlns:fx="http://javafx.com/fxml" fx:controller="pcgen.gui3.dialog.TipOfTheDayController">
+<Scene xmlns="http://javafx.com/javafx/25.0.1" xmlns:fx="http://javafx.com/fxml" fx:id="tipScene" fx:controller="pcgen.gui3.dialog.TipOfTheDayController">
     <AnchorPane>
-        <BorderPane>
+        <BorderPane AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
          <padding>
             <Insets top="15" right="15" bottom="15" left="15" />
          </padding>
@@ -69,7 +69,7 @@
                 webview. In the event that either becomes more complex and shares config/code it
                 would be worth it.
              -->
-             <WebView fx:id="browser"/>
+             <WebView fx:id="browser" prefWidth="480" prefHeight="170"/>
          </center>
         </BorderPane>
         <stylesheets>

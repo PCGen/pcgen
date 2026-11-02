@@ -90,7 +90,6 @@ import pcgen.gui2.dialog.SpellChoiceDialog;
 import pcgen.gui2.tabs.InfoTabbedPane;
 import pcgen.gui2.tools.CharacterSelectionListener;
 import pcgen.gui2.tools.Icons;
-import pcgen.gui2.tools.TipOfTheDayHandler;
 import pcgen.gui2.util.ShowMessageGuiObserver;
 import pcgen.gui3.GuiAssertions;
 import pcgen.gui3.GuiUtility;
@@ -143,6 +142,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 	private final CharacterTabs characterTabs;
 	private final PCGenStatusBar statusBar;
 	private final PCGenMenuBar pcGenMenuBar;
+	private final StartupTipOfTheDay startupTip = new StartupTipOfTheDay();
 
 	/**
 	 * The context indicating what items are currently loaded/being processed in the UI
@@ -267,7 +267,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 						{
 							// Source selection skipped: game mode is already known, so
 							// show tips now (gated on the tip preference).
-							maybeShowTipsOfTheDay();
+						startupTip.showIfEnabled();
 						}
 						else
 						{
@@ -1347,18 +1347,6 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 	}
 
 	/**
-	 * Shows the Tip of the Day dialog when the user has not disabled it,
-	 * always on the JavaFX thread. Safe to call from the Swing EDT or a worker.
-	 */
-	static void maybeShowTipsOfTheDay()
-	{
-		if (TipOfTheDayHandler.shouldShowTipOfTheDay())
-		{
-			Platform.runLater(PCGenFrame::showTipsOfTheDay);
-		}
-	}
-
-	/**
 	 * display the source selection dialog to the user
 	 */
 	public void showSourceSelectionDialog()
@@ -1463,7 +1451,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 			{
 				// Cancel / skip / unload: no sources loading, so show the
 				// default tips now (gated on the tip preference).
-				maybeShowTipsOfTheDay();
+				startupTip.showIfEnabled();
 			}
 		});
 	}
@@ -1860,7 +1848,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 			currentDataSetRef.set(data);
 			updateTitle();
 			// Sources finished loading: now show tips (gated on the preference).
-			maybeShowTipsOfTheDay();
+			startupTip.showIfEnabled();
 		}
 
 		// TODO there are no examples with licenses. Either remove this or add a test.
