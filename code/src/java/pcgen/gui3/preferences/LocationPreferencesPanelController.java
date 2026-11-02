@@ -18,6 +18,7 @@
 package pcgen.gui3.preferences;
 
 import java.io.File;
+import java.nio.file.Path;
 import java.util.function.BiFunction;
 
 import pcgen.cdom.base.Constants;
@@ -278,19 +279,17 @@ public final class LocationPreferencesPanelController implements ResettableContr
 	}
 
 	/**
-	 * Browses the edited directory and changes the field only when a directory is selected.
+	 * Browses the edited directory or its nearest existing parent; cancellation preserves the edit.
 	 * @param titleKey the language-bundle key for the chooser title
 	 * @param textField the field to receive the selected path
 	 */
 	private void askForPath(final String titleKey, final TextField textField)
 	{
 		GuiAssertions.assertIsJavaFXThread();
-		File currentDirectory = new File(textField.getText());
 		DirectoryChooser directoryChooser = new DirectoryChooser();
-		if (!currentDirectory.getPath().isEmpty() && currentDirectory.isDirectory())
-		{
-			directoryChooser.setInitialDirectory(currentDirectory);
-		}
+		ConfigurationSettings.nearestExistingDir(textField.getText())
+				.map(Path::toFile)
+				.ifPresent(directoryChooser::setInitialDirectory);
 		directoryChooser.setTitle(LanguageBundle.getString(titleKey));
 		File returnFile = chooser.apply(directoryChooser, textField.getScene().getWindow());
 		if (returnFile != null)

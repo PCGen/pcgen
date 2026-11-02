@@ -244,20 +244,27 @@ class LocationPreferencesTest
 		}).get();
 	}
 
-	/** Canceling preserves the edit, and missing or empty directories use the native chooser's default. */
+	/** Browsing falls back to an existing parent, while canceling preserves the exact edited path. */
 	@ParameterizedTest
-	@ValueSource(strings = {"existing", "missing", ""})
+	@ValueSource(strings = {"existing", "missing", "missing/nested", "file.lst", ""})
 	void browse_should_preserveEditsWhenCanceled(String directory) throws Exception
 	{
 		var existing = Files.createDirectory(directories.resolve("existing")).toFile();
+		Files.writeString(directories.resolve("file.lst"), "not a directory");
 		String edited = directory.isEmpty() ? "" : directories.resolve(directory).toString();
+		var initialDirectory = switch (directory)
+		{
+			case "existing" -> existing;
+			case "" -> null;
+			default -> directories.toFile();
+		};
 		AtomicInteger choices = new AtomicInteger();
 		asyncFx(() -> {
 			var field = (TextField) loader.getNamespace().get("pcgenCharacterDir");
 			field.setText(edited);
 			controller.setChooser((dialog, owner) -> {
 				choices.incrementAndGet();
-				assertEquals(directory.equals("existing") ? existing : null, dialog.getInitialDirectory());
+				assertEquals(initialDirectory, dialog.getInitialDirectory());
 				return null;
 			});
 			((Button) loader.getNamespace().get("pcgenCharacterDirButton")).fire();
