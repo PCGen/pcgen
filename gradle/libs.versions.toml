@@ -1,0 +1,79 @@
+[versions]
+# Quality tools (consumed via libs.versions.<x>.get())
+checkstyle = "13.2.0"
+pmd = "7.28.0"            # PMD analysis engine, driven via reporting.gradle's toolVersion
+spotbugs-tool = "4.9.8"   # analysis engine toolVersion (distinct from the plugin and the annotations artifact)
+jacoco = "0.8.14"
+
+# Libraries
+commons-lang3 = "3.21.0"
+fop = "2.12"
+saxon = "13.1"
+jep = "2.4.2"
+freemarker = "2.3.35"
+argparse4j = "0.9.0"
+jetbrains-annotations = "26.1.0"
+spotbugs-annotations = "4.10.5"
+hamcrest = "3.0"
+testfx = "4.0.18"
+openjfx-monocle = "21.0.2"
+xmlunit = "2.14.0"
+findsecbugs = "1.14.0"
+jmh = "1.37"
+javacc = "7.0.13"
+
+# BOMs
+spring-bom = "7.0.10"
+junit-bom = "6.1.3"
+
+# Plugins
+spotbugs-plugin = "6.5.13"
+download = "5.7.0"
+task-tree = "4.0.2"
+jlink = "4.2.0"
+
+[libraries]
+spring-bom = { module = "org.springframework:spring-framework-bom", version.ref = "spring-bom" }
+junit-bom = { module = "org.junit:junit-bom", version.ref = "junit-bom" }
+
+# BOM-pinned - intentionally no version (the platform() BOM supplies it)
+spring-beans = { module = "org.springframework:spring-beans" }
+spring-core = { module = "org.springframework:spring-core" }
+junit-jupiter-api = { module = "org.junit.jupiter:junit-jupiter-api" }
+junit-jupiter-params = { module = "org.junit.jupiter:junit-jupiter-params" }
+junit-jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine" }
+junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher" }
+
+# Versioned libraries
+commons-lang3 = { module = "org.apache.commons:commons-lang3", version.ref = "commons-lang3" }
+fop = { module = "org.apache.xmlgraphics:fop", version.ref = "fop" }   # excludes stay in build.gradle (TOML cannot express them)
+saxon-he = { module = "net.sf.saxon:Saxon-HE", version.ref = "saxon" }
+jep = { module = "org.scijava:jep", version.ref = "jep" }
+freemarker = { module = "org.freemarker:freemarker", version.ref = "freemarker" }
+argparse4j = { module = "net.sourceforge.argparse4j:argparse4j", version.ref = "argparse4j" }
+jetbrains-annotations = { module = "org.jetbrains:annotations", version.ref = "jetbrains-annotations" }
+spotbugs-annotations = { module = "com.github.spotbugs:spotbugs-annotations", version.ref = "spotbugs-annotations" }
+hamcrest = { module = "org.hamcrest:hamcrest", version.ref = "hamcrest" }
+testfx-junit5 = { module = "org.testfx:testfx-junit5", version.ref = "testfx" }
+openjfx-monocle = { module = "org.testfx:openjfx-monocle", version.ref = "openjfx-monocle" }
+xmlunit-matchers = { module = "org.xmlunit:xmlunit-matchers", version.ref = "xmlunit" }
+xmlunit-core = { module = "org.xmlunit:xmlunit-core", version.ref = "xmlunit" }
+findsecbugs-plugin = { module = "com.h3xstream.findsecbugs:findsecbugs-plugin", version.ref = "findsecbugs" }
+# Used for dependabot as an anchor. "pmd" version will be updated by it.
+pmd-java = { module = "net.sourceforge.pmd:pmd-java", version.ref = "pmd" }
+jmh-core = { module = "org.openjdk.jmh:jmh-core", version.ref = "jmh" }
+jmh-generator-annprocess = { module = "org.openjdk.jmh:jmh-generator-annprocess", version.ref = "jmh" }
+javacc = { module = "net.java.dev.javacc:javacc", version.ref = "javacc" }
+
+[bundles]
+spring = ["spring-beans", "spring-core"]
+xmlunit = ["xmlunit-matchers", "xmlunit-core"]
+# No junit or jmh bundle on purpose: their members live on different configurations
+# (testImplementation vs testRuntimeOnly; jmhImplementation vs jmhAnnotationProcessor).
+# Reference those aliases individually to preserve the classpath split.
+
+[plugins]
+spotbugs = { id = "com.github.spotbugs", version.ref = "spotbugs-plugin" }
+download = { id = "de.undercouch.download", version.ref = "download" }
+task-tree = { id = "com.dorongold.task-tree", version.ref = "task-tree" }
+jlink = { id = "org.beryx.jlink", version.ref = "jlink" }

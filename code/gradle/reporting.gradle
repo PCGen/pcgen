@@ -9,7 +9,7 @@ checkstyle {
     configFile = new File('code/standards/checkstyle.xml')
     configProperties = [samedir: "${rootDir}/code/standards"]
     showViolations = true
-    toolVersion = '13.2.0'
+    toolVersion = rootProject.libs.versions.checkstyle.get()
     sourceSets = []
 }
 
@@ -23,7 +23,7 @@ pmd {
     ruleSetFiles = files('code/standards/ruleset.xml')
     consoleOutput = true
     sourceSets = []
-    toolVersion = "7.21.0"
+    toolVersion = rootProject.libs.versions.pmd.get()
     incrementalAnalysis = true
     ignoreFailures = true
 }
@@ -33,7 +33,7 @@ spotbugs {
     def Confidence = Class.forName("com.github.spotbugs.snom.Confidence",
             true, plugins["com.github.spotbugs"].class.classLoader)
 
-    toolVersion = '4.9.8'
+    toolVersion = rootProject.libs.versions.spotbugs.tool.get()
     excludeFilter = file("$rootProject.projectDir/code/standards/spotbugs_ignore.xml")
     omitVisitors = ['Naming', 'CrossSiteScripting', 'DontUseEnum', 'DoInsideDoPrivileged']
     reportLevel = Confidence.LOW
