@@ -18,7 +18,14 @@
 
 package pcgen.gui3;
 
+import java.io.IOException;
+import java.io.StringWriter;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
+import java.util.Map;
+
+import freemarker.template.Configuration;
+import freemarker.template.TemplateException;
 
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
@@ -41,6 +48,10 @@ import pcgen.system.LanguageBundle;
  */
 public final class InfoGuideController
 {
+	private static final Configuration TIP_CONFIG = createTipConfiguration();
+
+	private String currentTip;
+
 	@FXML
 	private Label gameModeBadge;
 
@@ -67,6 +78,8 @@ public final class InfoGuideController
 		openIcon.setImage(Icons.Open16.asJavaFX());
 		// Let the card's background and border show through the WebView.
 		tipBrowser.setPageFill(Color.TRANSPARENT);
+		sourcesHint.fontProperty().addListener((_, _, _) -> renderTip());
+		sourcesHint.textFillProperty().addListener((_, _, _) -> renderTip());
 	}
 
 	/**
@@ -137,19 +150,64 @@ public final class InfoGuideController
 	/**
 	 * Renders the current tip in the tip card's WebView. The raw tip may carry
 	 * simple author HTML ({@code <b>}, {@code <br>}, {@code <em>}, lists); it is
-	 * wrapped in a transparent document that inherits the application font so it
-	 * blends into the card. The "Did you know?" heading is drawn natively by the
-	 * card header, so it must not appear here.
+	 * rendered through {@code info-guide-tip.ftl} with the native body label's
+	 * resolved font and text color. Later CSS changes update that presentation.
+	 * The "Did you know?" heading is drawn natively by the card header.
 	 *
 	 * @param tip the raw tip markup from {@code TipOfTheDayHandler}
 	 */
 	public void setTip(String tip)
 	{
-		String document = """
-				<!DOCTYPE html><html><head><meta charset="utf-8"><style>\
-				html,body{margin:0;padding:0;background:transparent;\
-				font-family:sans-serif;font-size:13px;color:#222}\
-				</style></head><body>%s</body></html>""".formatted(tip);
-		Platform.runLater(() -> tipBrowser.getEngine().loadContent(document));
+		Platform.runLater(() -> {
+			sourcesHint.getScene().getRoot().applyCss();
+			currentTip = tip;
+			renderTip();
+		});
+	}
+
+	/** Renders the current author markup using resolved native presentation values. */
+	private void renderTip()
+	{
+		if (currentTip == null)
+		{
+			return;
+		}
+		if (!(sourcesHint.getTextFill() instanceof Color color))
+		{
+			throw new IllegalStateException("Guide tip text requires a solid color");
+		}
+		var font = sourcesHint.getFont();
+		var familyCss = new StringBuilder();
+		// CSS hexadecimal escapes prevent font names from breaking out of the style element.
+		font.getFamily().codePoints().forEach(value ->
+				familyCss.append('\\').append(Integer.toHexString(value)).append(' '));
+		Map<String, Object> model = Map.of(
+				"tipHtml", currentTip,
+				"systemFont", "System".equals(font.getFamily()),
+				"fontFamilyCss", familyCss.toString(),
+				"fontSize", font.getSize(),
+				"red", Math.round(color.getRed() * 255),
+				"green", Math.round(color.getGreen() * 255),
+				"blue", Math.round(color.getBlue() * 255),
+				"opacity", color.getOpacity());
+		try
+		{
+			var writer = new StringWriter();
+			TIP_CONFIG.getTemplate("info-guide-tip.ftl").process(model, writer);
+			tipBrowser.getEngine().loadContent(writer.toString());
+		}
+		catch (IOException | TemplateException exception)
+		{
+			throw new IllegalStateException("Unable to render the guide tip", exception);
+		}
+	}
+
+	/** Loads the tip's classpath template with a reusable UTF-8 configuration. */
+	private static Configuration createTipConfiguration()
+	{
+		var config = new Configuration(Configuration.VERSION_2_3_35);
+		config.setDefaultEncoding(StandardCharsets.UTF_8.name());
+		config.setClassForTemplateLoading(InfoGuideController.class, "");
+		return config;
 	}
 }
