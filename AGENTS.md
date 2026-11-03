@@ -16,7 +16,7 @@ Use Java 25 (Temurin) and `./gradlew`. Java and JavaFX versions are configured i
 | `code/src/test`, `code/src/itest`, `code/src/slowtest` | Unit, integration, and data/character tests |
 | `code/src/testcommon`, `code/src/testResources` | Shared test support and resources |
 | `code/gradle`, `code/standards` | Build tasks and static-analysis configuration |
-| `PCGen-base`, `PCGen-Formula` | Separate builds used as module dependencies |
+| `base`, `formula` | Separate builds used as module dependencies |
 
 | Command | Purpose |
 |---|---|
@@ -132,7 +132,7 @@ Do not clean, rename, or rebuild a checkout while its application is running:
 - Keep Java/JavaFX changes consistent across compilation, tests, run tasks, jlink, packaging, and CI.
 - Gradle configuration caching is enabled; incompatible tasks must declare
   `notCompatibleWithConfigurationCache(...)`. Do not change `allowInsecureProtocol` settings incidentally.
-- Avoid split packages with PCGen-base and PCGen-Formula: those jars are separate modules;
+- Avoid split packages with base and formula: those jars are separate modules;
   other dependencies are merged into the application module for jlink.
 - Preserve the runtime layout of `data`, `system`, `outputsheets`, `preview`, `vendordata`, and `homebrewdata`.
   See `code/gradle/distribution.gradle` for packaging and `code/gradle/plugins.gradle` for plugin assembly.
