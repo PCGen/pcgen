@@ -243,16 +243,45 @@ class PowerAttackNaturalAttackTest
 	@Test
 	void powerAttackLowersCombatManeuverChecks()
 	{
-		// The penalty applies to combat maneuver checks as well as attack rolls (CRB p.131)
-		PlayerCharacter pc = createSerpentineEidolonWithPowerAttack("pa-cmb", false).getTheCharacter();
-		int cmb = pc.getVariableValue("CMB", "").intValue();
-		int grapple = pc.getVariableValue("CMB_Grapple", "").intValue();
+		// The penalty applies to combat maneuver checks as well as attack rolls (CRB p.131): at BAB +6
+		// it is -floor(6/4 + 1) = -2. Applied, switched off and on, and removed on the Temporary Bonuses tab.
+		CharacterFacadeImpl eidolon = createSerpentineEidolonWithPowerAttack("pa-cmb", false);
+		PlayerCharacter pc = eidolon.getTheCharacter();
+		int cmb = variable(pc, "CMB");
+		int grapple = variable(pc, "CMB_Grapple");
 
-		assertNotNull(TempBonusHelper.applyBonusToCharacter(feat("Power Attack"), pc), "Power Attack on the character");
+		eidolon.addTempBonus(availableTempBonus(eidolon, "Power Attack"));
+		TempBonusFacade powerAttack = appliedTempBonus(eidolon, "Power Attack");
+		// Adding or removing a temporary bonus does not recalculate; the character sheet does before output.
 		pc.calcActiveBonuses();
+		assertEquals(cmb - 2, variable(pc, "CMB"), "applied: CMB");
+		assertEquals(grapple - 2, variable(pc, "CMB_Grapple"), "applied: grapple");
 
-		assertEquals(cmb - 2, pc.getVariableValue("CMB", "").intValue(), "CMB");
-		assertEquals(grapple - 2, pc.getVariableValue("CMB_Grapple", "").intValue(), "grapple");
+		eidolon.setTempBonusActive(powerAttack, false);
+		assertEquals(cmb, variable(pc, "CMB"), "switched off: CMB");
+
+		eidolon.setTempBonusActive(powerAttack, true);
+		assertEquals(cmb - 2, variable(pc, "CMB"), "switched on again: CMB");
+
+		eidolon.removeTempBonus(powerAttack);
+		pc.calcActiveBonuses();
+		assertEquals(cmb, variable(pc, "CMB"), "removed: CMB");
+	}
+
+	@Test
+	void takingPowerAttackLeavesCombatManeuverChecksUnchanged()
+	{
+		// Power Attack is chosen when attacking (CRB p.131): the feat alone changes nothing until applied.
+		// A guard: it passes without the fix too, and fails if the penalty becomes a permanent bonus.
+		CharacterFacadeImpl eidolon = createSerpentineEidolon("pa-cmb-feat", false);
+		PlayerCharacter pc = eidolon.getTheCharacter();
+		int cmb = variable(pc, "CMB");
+		int grapple = variable(pc, "CMB_Grapple");
+
+		takePowerAttack(eidolon);
+
+		assertEquals(cmb, variable(pc, "CMB"), "CMB");
+		assertEquals(grapple, variable(pc, "CMB_Grapple"), "grapple");
 	}
 
 	@Test
@@ -278,18 +307,38 @@ class PowerAttackNaturalAttackTest
 		Equipment tempItem = (Equipment) ((TempBonusFacadeImpl) bite).getTarget();
 
 		pc.setCalcEquipmentList(true);
-		assertTrue(pc.getDisplay().getEquipmentSet().stream().anyMatch(eq -> eq == tempItem), "active: Power Attack bite is listed");
+		assertTrue(isListed(pc, tempItem), "active: Power Attack bite is listed");
 
 		eidolon.setTempBonusActive(bite, false);
 		pc.setCalcEquipmentList(true);
-		assertFalse(pc.getDisplay().getEquipmentSet().stream().anyMatch(eq -> eq == tempItem),
-			"switched off: Power Attack bite is left out");
+		assertFalse(isListed(pc, tempItem), "switched off: Power Attack bite is left out");
 
 		eidolon.setTempBonusActive(bite, true);
 		pc.setCalcEquipmentList(true);
-		assertTrue(pc.getDisplay().getEquipmentSet().stream().anyMatch(eq -> eq == tempItem),
-			"switched on again: Power Attack bite is back");
+		assertTrue(isListed(pc, tempItem), "switched on again: Power Attack bite is back");
 		assertFalse(pc.areAllTempBonusesFilteredOn(naturalWeapon(pc, "Tail Slap")), "no temporary bonus: always listed");
+	}
+
+	@Test
+	void switchingOffOneWeaponLeavesTheOtherWeaponsTemporaryItemListed()
+	{
+		CharacterFacadeImpl eidolon = createSerpentineEidolonWithPowerAttack("pa-switch-one", false);
+		PlayerCharacter pc = eidolon.getTheCharacter();
+		eidolon.addTempBonus(availableTempBonus(eidolon, PA_PRIMARY));
+		eidolon.addTempBonus(availableTempBonus(eidolon, PA_SECONDARY));
+		TempBonusFacade bite = appliedTempBonus(eidolon, PA_PRIMARY);
+		Equipment biteItem = (Equipment) ((TempBonusFacadeImpl) bite).getTarget();
+		Equipment tailSlapItem =
+			(Equipment) ((TempBonusFacadeImpl) appliedTempBonus(eidolon, PA_SECONDARY)).getTarget();
+		pc.setCalcEquipmentList(true);
+		assertTrue(isListed(pc, biteItem), "active: Power Attack bite is listed");
+		assertTrue(isListed(pc, tailSlapItem), "active: Power Attack tail slap is listed");
+
+		eidolon.setTempBonusActive(bite, false);
+		pc.setCalcEquipmentList(true);
+
+		assertFalse(isListed(pc, biteItem), "switched off: Power Attack bite is left out");
+		assertTrue(isListed(pc, tailSlapItem), "still on: Power Attack tail slap is listed");
 	}
 
 	@Test
@@ -398,6 +447,17 @@ class PowerAttackNaturalAttackTest
 		throw new AssertionError("No temporary bonus " + key + " applied");
 	}
 
+	/** Checked by identity, as equipment equality does not tell every temporary copy from its original. */
+	private static boolean isListed(PlayerCharacter pc, Equipment item)
+	{
+		return pc.getDisplay().getEquipmentSet().stream().anyMatch(eq -> eq == item);
+	}
+
+	private static int variable(PlayerCharacter pc, String name)
+	{
+		return pc.getVariableValue(name, "").intValue();
+	}
+
 	private static List<String> targetNames(PlayerCharacter pc, String paKey)
 	{
 		List<String> names = new ArrayList<>();
@@ -435,6 +495,13 @@ class PowerAttackNaturalAttackTest
 
 	private static CharacterFacadeImpl createSerpentineEidolonWithPowerAttack(String name, boolean improvedBite)
 	{
+		CharacterFacadeImpl eidolon = createSerpentineEidolon(name, improvedBite);
+		takePowerAttack(eidolon);
+		return eidolon;
+	}
+
+	private static CharacterFacadeImpl createSerpentineEidolon(String name, boolean improvedBite)
+	{
 		CharacterFacadeImpl master = createSummoner(name + "-master");
 		levelSummonerTo(master, 7);
 		CharacterFacadeImpl eidolon = createEidolon(master, name + "-eidolon");
@@ -449,12 +516,18 @@ class PowerAttackNaturalAttackTest
 		}
 		// Power Attack needs Str 13
 		eidolon.setScoreBase(find(PCStat.class, "STR"), 14);
-		eidolon.addAbility(AbilityCategory.FEAT, feat("Power Attack"));
 		PlayerCharacter pc = eidolon.getTheCharacter();
 		pc.calcActiveBonuses();
-		assertTrue(hasAbility(pc, "Power Attack"), "Power Attack taken");
 		assertEquals(6, pc.baseAttackBonus(), "eidolon BAB at summoner level 7");
 		return eidolon;
+	}
+
+	private static void takePowerAttack(CharacterFacadeImpl character)
+	{
+		character.addAbility(AbilityCategory.FEAT, feat("Power Attack"));
+		PlayerCharacter pc = character.getTheCharacter();
+		pc.calcActiveBonuses();
+		assertTrue(hasAbility(pc, "Power Attack"), "Power Attack taken");
 	}
 
 	private static Ability internalAbility(String key)
