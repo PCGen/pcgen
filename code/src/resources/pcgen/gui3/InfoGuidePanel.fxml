@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Scene?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.web.WebView?>
+
+<!--
+  * Copyright 2026 (C) Vest <Vest@users.noreply.github.com>
+  *
+  * This library is free software; you can redistribute it and/or
+  * modify it under the terms of the GNU Lesser General Public
+  * License as published by the Free Software Foundation; either
+  * version 2.1 of the License, or (at your option) any later version.
+  *
+  * This library is distributed in the hope that it will be useful,
+  * but WITHOUT ANY WARRANTY; without even the implied warranty of
+  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.     See the GNU
+  * Lesser General Public License for more details.
+  *
+  * You should have received a copy of the GNU Lesser General Public
+  * License along with this library; if not, write to the Free Software
+  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+  -->
+
+<Scene xmlns="http://javafx.com/javafx/25.0.1" xmlns:fx="http://javafx.com/fxml"
+       fx:controller="pcgen.gui3.InfoGuideController"
+       stylesheets="@InfoGuidePanel.css">
+    <VBox styleClass="guide-root" spacing="12.0">
+        <Label styleClass="guide-title" text="%in_si_title_plain" wrapText="true"/>
+
+        <!-- Game mode card -->
+        <VBox styleClass="guide-card">
+            <HBox styleClass="card-header-row" alignment="CENTER_LEFT" spacing="8.0">
+                <Label styleClass="card-header" text="%in_si_gamemode"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label fx:id="gameModeBadge" styleClass="pill" text="%in_si_none_selected_plain"/>
+            </HBox>
+        </VBox>
+
+        <!-- Source materials card -->
+        <VBox styleClass="guide-card" spacing="6.0">
+            <Label styleClass="card-header" text="%in_si_sources"/>
+            <Label fx:id="sourcesHint" styleClass="card-hint" text="%in_si_nosources_plain" wrapText="true"/>
+            <ListView fx:id="sourcesList" styleClass="sources-list" managed="false" visible="false"
+                      prefHeight="120.0"/>
+        </VBox>
+
+        <!-- What next card -->
+        <VBox styleClass="guide-card" spacing="6.0">
+            <Label styleClass="card-header" text="%in_si_whatnext_title_plain"/>
+            <HBox styleClass="whatnext-row" alignment="CENTER_LEFT" spacing="8.0">
+                <ImageView fx:id="newIcon" fitWidth="16.0" fitHeight="16.0" preserveRatio="true"/>
+                <Label text="%in_si_whatnext_new_plain" wrapText="true"/>
+            </HBox>
+            <HBox styleClass="whatnext-row" alignment="CENTER_LEFT" spacing="8.0">
+                <ImageView fx:id="openIcon" fitWidth="16.0" fitHeight="16.0" preserveRatio="true"/>
+                <Label text="%in_si_whatnext_open_plain" wrapText="true"/>
+            </HBox>
+        </VBox>
+
+        <!-- Tip card (WebView: tips contain author HTML) -->
+        <VBox styleClass="guide-card, tip-card" spacing="6.0">
+            <Label styleClass="card-header" text="%in_si_tip_title_plain"/>
+            <WebView fx:id="tipBrowser" prefHeight="140.0"/>
+        </VBox>
+    </VBox>
+</Scene>
