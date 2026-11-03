@@ -25,14 +25,10 @@ import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.regex.Pattern;
 
-import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.StringKey;
-import pcgen.cdom.list.AbilityList;
-import pcgen.core.Ability;
 import pcgen.core.BonusManager;
 import pcgen.core.BonusManager.TempBonusInfo;
 import pcgen.core.Equipment;
@@ -501,42 +497,6 @@ public final class TempBonusHelper
 	static boolean hasTempBonus(CDOMObject obj)
 	{
 		return hasEquipmentTempBonus(obj) || hasAnyPCTempBonus(obj) || hasPCTempBonus(obj);
-	}
-
-	/**
-	 * Identify if the grantor's ABILITY token grants the given ability, e.g. Power Attack
-	 * grants Power Attack (Natural Primary).
-	 *
-	 * @param grantor The object that may grant the ability.
-	 * @param granted The object that may be granted.
-	 * @return true if the grantor grants the ability.
-	 */
-	@SuppressWarnings("unchecked")
-	static boolean grantsAbility(CDOMObject grantor, CDOMObject granted)
-	{
-		if (!(granted instanceof Ability))
-		{
-			return false;
-		}
-		for (CDOMReference<? extends CDOMList<?>> listRef : grantor.getModifiedLists())
-		{
-			for (CDOMList<?> list : listRef.getContainedObjects())
-			{
-				if (!(list instanceof AbilityList))
-				{
-					continue;
-				}
-				for (CDOMReference<Ability> abilityRef : grantor
-					.getListMods((CDOMReference<? extends CDOMList<Ability>>) listRef))
-				{
-					if (abilityRef.getContainedObjects().contains(granted))
-					{
-						return true;
-					}
-				}
-			}
-		}
-		return false;
 	}
 
 }

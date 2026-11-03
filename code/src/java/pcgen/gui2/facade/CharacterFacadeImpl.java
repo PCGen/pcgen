@@ -1147,9 +1147,6 @@ public class CharacterFacadeImpl
 		}
 
 		appliedTempBonuses.addElement(appliedTempBonus);
-		addGrantorTempBonuses(appliedTempBonus);
-		// applying a bonus switches the bonuses linked to it on as well
-		setLinkedTempBonusesActive(appliedTempBonus, true);
 		refreshStatScores();
 		postLevellingUpdates();
 	}
@@ -1162,15 +1159,6 @@ public class CharacterFacadeImpl
 			return;
 		}
 
-		List<TempBonusFacadeImpl> linked = linkedTempBonuses(tempBonus);
-		removeTempBonusFromCharacter(tempBonus);
-		removeLinkedTempBonuses(tempBonus, linked);
-		refreshStatScores();
-		postLevellingUpdates();
-	}
-
-	private void removeTempBonusFromCharacter(TempBonusFacadeImpl tempBonus)
-	{
 		Equipment aEq = null;
 		if (tempBonus.getTarget() instanceof Equipment)
 		{
@@ -1180,6 +1168,8 @@ public class CharacterFacadeImpl
 		TempBonusHelper.removeBonusFromCharacter(theCharacter, aEq, originObj);
 
 		appliedTempBonuses.removeElement(tempBonus);
+		refreshStatScores();
+		postLevellingUpdates();
 	}
 
 	@Override
@@ -1190,60 +1180,6 @@ public class CharacterFacadeImpl
 			return;
 		}
 
-		applyTempBonusActive(tempBonus, active);
-		setLinkedTempBonusesActive(tempBonus, active);
-		refreshStatScores();
-	}
-
-	/**
-	 * Find the applied temporary bonuses linked to the given one, which are switched on and off
-	 * together: the character-wide bonuses whose source grants the given bonus's ability (or the
-	 * given bonus itself if it is character-wide), plus the equipment bonuses of every ability
-	 * their sources grant. E.g. Power Attack's penalty to combat maneuver checks and the Power
-	 * Attack variants on each weapon. A bonus without such links is only linked to itself.
-	 *
-	 * @param tempBonus The temporary bonus to find the linked bonuses of.
-	 * @return The linked bonuses, including the given one if it is applied.
-	 */
-	private List<TempBonusFacadeImpl> linkedTempBonuses(TempBonusFacadeImpl tempBonus)
-	{
-		boolean onEquipment = tempBonus.getTarget() instanceof Equipment;
-		List<TempBonusFacadeImpl> grantors = new ArrayList<>();
-		for (TempBonusFacade facade : appliedTempBonuses)
-		{
-			if (facade instanceof TempBonusFacadeImpl applied && !(applied.getTarget() instanceof Equipment)
-				&& (applied.equals(tempBonus)
-					|| onEquipment && TempBonusHelper.grantsAbility(applied.getOriginObj(), tempBonus.getOriginObj())))
-			{
-				grantors.add(applied);
-			}
-		}
-		List<TempBonusFacadeImpl> linked = new ArrayList<>(grantors);
-		for (TempBonusFacade facade : appliedTempBonuses)
-		{
-			if (facade instanceof TempBonusFacadeImpl applied && applied.getTarget() instanceof Equipment
-				&& (applied.equals(tempBonus) || grantors.stream()
-					.anyMatch(grantor -> TempBonusHelper.grantsAbility(grantor.getOriginObj(), applied.getOriginObj()))))
-			{
-				linked.add(applied);
-			}
-		}
-		return linked;
-	}
-
-	private void setLinkedTempBonusesActive(TempBonusFacadeImpl tempBonus, boolean active)
-	{
-		for (TempBonusFacadeImpl linked : linkedTempBonuses(tempBonus))
-		{
-			if (linked.isActive() != active)
-			{
-				applyTempBonusActive(linked, active);
-			}
-		}
-	}
-
-	private void applyTempBonusActive(TempBonusFacadeImpl tempBonus, boolean active)
-	{
 		if (active)
 		{
 			theCharacter.unsetTempBonusFilter(tempBonus.toString());
@@ -1254,90 +1190,7 @@ public class CharacterFacadeImpl
 		}
 		tempBonus.setActive(active);
 		appliedTempBonuses.modifyElement(tempBonus);
-	}
-
-	/**
-	 * Apply the character-wide temporary bonus of an ability that grants the ability of a newly
-	 * applied equipment temporary bonus, unless it is applied already. E.g. applying a Power Attack
-	 * variant to a weapon also applies Power Attack's penalty to combat maneuver checks.
-	 *
-	 * @param equipBonus The temporary bonus that was just applied.
-	 */
-	private void addGrantorTempBonuses(TempBonusFacadeImpl equipBonus)
-	{
-		if (!(equipBonus.getTarget() instanceof Equipment))
-		{
-			return;
-		}
-		for (TempBonusFacade facade : availTempBonuses)
-		{
-			if (!(facade instanceof TempBonusFacadeImpl available))
-			{
-				continue;
-			}
-			CDOMObject grantor = available.getOriginObj();
-			if (!TempBonusHelper.hasCharacterTempBonus(grantor)
-				|| !TempBonusHelper.grantsAbility(grantor, equipBonus.getOriginObj())
-				|| findCharacterTempBonus(grantor) != null)
-			{
-				continue;
-			}
-			TempBonusFacadeImpl grantorBonus = TempBonusHelper.applyBonusToCharacter(grantor, theCharacter);
-			if (grantorBonus != null)
-			{
-				appliedTempBonuses.addElement(grantorBonus);
-			}
-		}
-	}
-
-	/**
-	 * Remove the temporary bonuses that were linked to a removed one and are left without a
-	 * counterpart: the equipment bonuses granted by a removed character-wide bonus's source, or a
-	 * character-wide bonus once none of the equipment bonuses its source grants is applied any
-	 * more. E.g. removing Power Attack's penalty to combat maneuver checks removes the Power Attack
-	 * variants from the weapons, and removing the last variant removes the penalty.
-	 *
-	 * @param removed The temporary bonus that was just removed.
-	 * @param linked The bonuses that were linked to it before it was removed.
-	 */
-	private void removeLinkedTempBonuses(TempBonusFacadeImpl removed, List<TempBonusFacadeImpl> linked)
-	{
-		boolean onEquipment = removed.getTarget() instanceof Equipment;
-		for (TempBonusFacadeImpl other : linked)
-		{
-			if (other.equals(removed)
-				|| onEquipment && (other.getTarget() instanceof Equipment || grantsAppliedEquipmentTempBonus(other)))
-			{
-				continue;
-			}
-			removeTempBonusFromCharacter(other);
-		}
-	}
-
-	private boolean grantsAppliedEquipmentTempBonus(TempBonusFacadeImpl grantorBonus)
-	{
-		for (TempBonusFacade facade : appliedTempBonuses)
-		{
-			if (facade instanceof TempBonusFacadeImpl applied && applied.getTarget() instanceof Equipment
-				&& TempBonusHelper.grantsAbility(grantorBonus.getOriginObj(), applied.getOriginObj()))
-			{
-				return true;
-			}
-		}
-		return false;
-	}
-
-	private TempBonusFacadeImpl findCharacterTempBonus(CDOMObject origin)
-	{
-		for (TempBonusFacade facade : appliedTempBonuses)
-		{
-			if (facade instanceof TempBonusFacadeImpl applied && applied.getOriginObj() == origin
-				&& !(applied.getTarget() instanceof Equipment))
-			{
-				return applied;
-			}
-		}
-		return null;
+		refreshStatScores();
 	}
 
 	@Override
