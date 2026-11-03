@@ -26,8 +26,8 @@ tasks.named('compileJmhJava') {
 
 // Declaring the jmh source set above auto-creates these configurations.
 dependencies {
-    jmhImplementation 'org.openjdk.jmh:jmh-core:1.37'
-    jmhAnnotationProcessor 'org.openjdk.jmh:jmh-generator-annprocess:1.37'
+    jmhImplementation rootProject.libs.jmh.core
+    jmhAnnotationProcessor rootProject.libs.jmh.generator.annprocess
 }
 
 tasks.register("benchmark", JavaExec) {

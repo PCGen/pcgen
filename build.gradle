@@ -26,17 +26,17 @@ plugins {
     id 'application'                                    // Creating application bundles
     id 'build-dashboard'                                // Produces a build report
     id 'checkstyle'                                     // Checkstyle for Java, configured further below
-    id 'com.github.spotbugs' version '6.5.13'            // Spotbugs for Java
+    alias(libs.plugins.spotbugs)                        // Spotbugs for Java
     id 'maven-publish'                                  // Publishing to Maven Central
     id 'pmd'                                            // PMD for Java, configured further below
-    id 'de.undercouch.download' version '5.7.0'         // Shows download percentage
-    id 'com.dorongold.task-tree' version '4.0.2'        // Prints the task dependency tree
-    id 'org.beryx.jlink' version '4.2.0'             // Creates custom runtimes with jlink
+    alias(libs.plugins.download)                        // Shows download percentage
+    alias(libs.plugins.task.tree)                       // Prints the task dependency tree
+    alias(libs.plugins.jlink)                           // Creates custom runtimes with jlink
     id 'jacoco'                                         // Code coverage
 }
 
 jacoco {
-    toolVersion = '0.8.14'
+    toolVersion = libs.versions.jacoco.get()
 }
 
 // Set the groupId as it helps with Maven
@@ -228,43 +228,38 @@ tasks.register("cleanMasterSheets", Delete) {
 dependencies {
     implementation fileTree(dir: 'mods/lib', include: ['javafx.*.jar'])
 
-    implementation platform('org.springframework:spring-framework-bom:7.0.10')
-    implementation 'org.springframework:spring-beans'
-    implementation 'org.springframework:spring-core'
-    implementation 'org.apache.commons:commons-lang3:3.21.0'
-    implementation('org.apache.xmlgraphics:fop:2.12') {
+    implementation platform(libs.spring.bom)
+    implementation libs.bundles.spring
+    implementation libs.commons.lang3
+    implementation(libs.fop) {
         exclude group: 'xml-apis', module: 'xml-apis'
         exclude group: 'xalan', module: 'xalan'
         exclude group: 'xalan', module: 'serializer'
     }
-    implementation 'net.sf.saxon:Saxon-HE:13.1'
-    implementation 'org.scijava:jep:2.4.2'
-    implementation 'org.freemarker:freemarker:2.3.35'
-    implementation 'net.sourceforge.argparse4j:argparse4j:0.9.0'
+    implementation libs.saxon.he
+    implementation libs.jep
+    implementation libs.freemarker
+    implementation libs.argparse4j
     implementation project(':base')
     implementation project(':formula')
 
-    compileOnly 'org.jetbrains:annotations:26.1.0'
-    compileOnly 'com.github.spotbugs:spotbugs-annotations:4.10.5'
+    compileOnly libs.jetbrains.annotations
+    compileOnly libs.spotbugs.annotations
 
-    testImplementation platform('org.junit:junit-bom:6.1.3')
-    testImplementation 'org.junit.platform:junit-platform-launcher'
-    testImplementation 'org.junit.jupiter:junit-jupiter-api'
-    testImplementation 'org.junit.jupiter:junit-jupiter-params'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
-    testImplementation 'org.hamcrest:hamcrest:3.0'
-    testImplementation 'org.testfx:testfx-junit5:4.0.18'
+    testImplementation platform(libs.junit.bom)
+    testImplementation libs.junit.platform.launcher
+    testImplementation libs.junit.jupiter.api
+    testImplementation libs.junit.jupiter.params
+    testRuntimeOnly libs.junit.jupiter.engine
+    testImplementation libs.hamcrest
+    testImplementation libs.testfx.junit5
 
     // 21.0.2 is the latest version. As of Nov 2025, we have moved to OpenJFX 25 so this may cause issues
-    testImplementation 'org.testfx:openjfx-monocle:21.0.2'
+    testImplementation libs.openjfx.monocle
 
-    testImplementation 'org.xmlunit:xmlunit-matchers:2.14.0'
-    testImplementation 'org.xmlunit:xmlunit-core:2.14.0'
+    testImplementation libs.bundles.xmlunit
 
-    spotbugsPlugins 'com.h3xstream.findsecbugs:findsecbugs-plugin:1.14.0'
-
-    pmd 'net.sourceforge.pmd:pmd-java:7.29.0'
-    pmd 'net.sourceforge.pmd:pmd-ant:7.29.0' // workaround: https://github.com/pmd/pmd/issues/4554
+    spotbugsPlugins libs.findsecbugs.plugin
 }
 
 jar {
