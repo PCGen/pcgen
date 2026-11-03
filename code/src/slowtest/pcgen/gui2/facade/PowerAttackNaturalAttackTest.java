@@ -289,7 +289,7 @@ class PowerAttackNaturalAttackTest
 		pc.setCalcEquipmentList(true);
 		assertTrue(pc.getDisplay().getEquipmentSet().stream().anyMatch(eq -> eq == tempItem),
 			"switched on again: Power Attack bite is back");
-		assertTrue(pc.hasActiveTempBonusOn(naturalWeapon(pc, "Tail Slap")), "no temporary bonus: always listed");
+		assertFalse(pc.areAllTempBonusesFilteredOn(naturalWeapon(pc, "Tail Slap")), "no temporary bonus: always listed");
 	}
 
 	@Test
