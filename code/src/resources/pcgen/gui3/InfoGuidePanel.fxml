@@ -64,9 +64,9 @@
         </VBox>
 
         <!-- Tip card (WebView: tips contain author HTML) -->
-        <VBox styleClass="guide-card tip-card" spacing="6.0" VBox.vgrow="ALWAYS">
+        <VBox styleClass="guide-card tip-card" spacing="6.0">
             <Label styleClass="card-header" text="%in_si_tip_title_plain"/>
-            <WebView fx:id="tipBrowser" prefHeight="120.0" VBox.vgrow="ALWAYS"/>
+            <WebView fx:id="tipBrowser" prefHeight="140.0"/>
         </VBox>
     </VBox>
 </Scene>
