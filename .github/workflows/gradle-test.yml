@@ -44,8 +44,8 @@ jobs:
           check_name: 'Unit Test Results'
           files: |
             build/test-results/test/**/*.xml
-            PCGen-base/build/test-results/**/*.xml
-            PCGen-Formula/build/test-results/**/*.xml
+            base/build/test-results/**/*.xml
+            formula/build/test-results/**/*.xml
 
       - name: Run Coverage
         run: ./gradlew testCoverage --stacktrace

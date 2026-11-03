@@ -241,8 +241,8 @@ dependencies {
     implementation 'org.scijava:jep:2.4.2'
     implementation 'org.freemarker:freemarker:2.3.35'
     implementation 'net.sourceforge.argparse4j:argparse4j:0.9.0'
-    implementation project(':PCGen-base')
-    implementation project(':PCGen-Formula')
+    implementation project(':base')
+    implementation project(':formula')
 
     compileOnly 'org.jetbrains:annotations:26.1.0'
     compileOnly 'com.github.spotbugs:spotbugs-annotations:4.10.5'
@@ -820,7 +820,7 @@ allprojects {
 }
 
 // Root-project tests need JavaFX on the module path. Subproject tests
-// (PCGen-base, PCGen-Formula) don't, and don't have a mods/lib dir.
+// (base, formula) don't, and don't have a mods/lib dir.
 tasks.withType(Test).configureEach {
     jvmArgs += [
             '-Djava.awt.headless=true',

@@ -33,7 +33,7 @@ configurations {
 }
 
 dependencies {
-    api project(':PCGen-base')
+    api project(':base')
 
     javacc 'net.java.dev.javacc:javacc:7.0.13'
 
