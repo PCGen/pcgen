@@ -1,0 +1,39 @@
+/* Native InfoGuidePane. 8px spacing grid, modern cards. */
+
+.guide-root {
+    -fx-padding: 16;
+}
+
+.guide-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-padding: 0 0 4 0;
+}
+
+.guide-card {
+    -fx-background-color: -fx-control-inner-background;
+    -fx-background-radius: 6;
+    -fx-border-color: -fx-outer-border;
+    -fx-border-radius: 6;
+    -fx-padding: 12;
+}
+
+.card-header {
+    -fx-font-weight: bold;
+}
+
+.card-hint {
+    -fx-text-fill: -fx-text-base-color;
+    -fx-opacity: 0.8;
+}
+
+.pill {
+    -fx-background-color: -fx-accent;
+    -fx-text-fill: white;
+    -fx-background-radius: 10;
+    -fx-padding: 2 10 2 10;
+}
+
+.tip-card {
+    -fx-border-color: -fx-accent;
+}
