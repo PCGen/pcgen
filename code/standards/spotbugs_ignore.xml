@@ -16,6 +16,12 @@
     </Not>
   </Match>
   <Match>
+    <!-- JMH generates benchmark harness classes (e.g. padding fields to
+         avoid false sharing) that are intentionally "unused"; they are a
+         build artifact, not hand-maintained code. -->
+    <Package name="~pcgen[.].*[.]jmh_generated.*"/>
+  </Match>
+  <Match>
     <!-- high number of false positive -->
     <Bug pattern="PSC_PRESIZE_COLLECTIONS,DM_CONVERT_CASE"/>
   </Match>
