@@ -40,11 +40,11 @@ import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
-import pcgen.core.display.BonusDisplay;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.ChooserFacade;
 import pcgen.facade.core.DataSetFacade;
 import pcgen.facade.core.InfoFacade;
+import pcgen.facade.core.TempBonusFacade;
 import pcgen.facade.core.UIDelegate;
 import pcgen.facade.util.DefaultListFacade;
 import pcgen.io.PCGVer2Creator;
@@ -269,20 +269,26 @@ class PowerAttackNaturalAttackTest
 	@Test
 	void switchedOffTemporaryBonusItemIsLeftOutOfTheEquipment()
 	{
+		// The Temporary Bonuses tab and character sheet flow; checked by identity, as equipment
+		// equality does not tell every temporary copy from its original.
 		CharacterFacadeImpl eidolon = createSerpentineEidolonWithPowerAttack("pa-switch", false);
 		PlayerCharacter pc = eidolon.getTheCharacter();
-		Equipment tempItem = applyPowerAttack(pc, PA_PRIMARY, "Bite");
-		String bonusName = BonusDisplay.getBonusDisplayName(feat(PA_PRIMARY), tempItem);
+		eidolon.addTempBonus(availableTempBonus(eidolon, PA_PRIMARY));
+		TempBonusFacade bite = appliedTempBonus(eidolon, PA_PRIMARY);
+		Equipment tempItem = (Equipment) ((TempBonusFacadeImpl) bite).getTarget();
 
-		// setCalcEquipmentList only adds temporary bonus items with an active bonus; this character
-		// has no calculation equipment set, so check the decision it makes for the item.
-		assertTrue(pc.hasActiveTempBonusOn(tempItem), "active: Power Attack bite is listed");
+		pc.setCalcEquipmentList(true);
+		assertTrue(pc.getDisplay().getEquipmentSet().stream().anyMatch(eq -> eq == tempItem), "active: Power Attack bite is listed");
 
-		pc.setTempBonusFilter(bonusName);
-		assertFalse(pc.hasActiveTempBonusOn(tempItem), "switched off: Power Attack bite is left out");
+		eidolon.setTempBonusActive(bite, false);
+		pc.setCalcEquipmentList(true);
+		assertFalse(pc.getDisplay().getEquipmentSet().stream().anyMatch(eq -> eq == tempItem),
+			"switched off: Power Attack bite is left out");
 
-		pc.unsetTempBonusFilter(bonusName);
-		assertTrue(pc.hasActiveTempBonusOn(tempItem), "switched on again: Power Attack bite is back");
+		eidolon.setTempBonusActive(bite, true);
+		pc.setCalcEquipmentList(true);
+		assertTrue(pc.getDisplay().getEquipmentSet().stream().anyMatch(eq -> eq == tempItem),
+			"switched on again: Power Attack bite is back");
 		assertTrue(pc.hasActiveTempBonusOn(naturalWeapon(pc, "Tail Slap")), "no temporary bonus: always listed");
 	}
 
@@ -366,6 +372,30 @@ class PowerAttackNaturalAttackTest
 		assertNotNull(TempBonusHelper.applyBonusToCharacterEquipment(tempItem, feat(paKey), pc), paKey);
 		pc.calcActiveBonuses();
 		return tempItem;
+	}
+
+	private static TempBonusFacade availableTempBonus(CharacterFacadeImpl character, String key)
+	{
+		for (TempBonusFacade bonus : character.getAvailableTempBonuses())
+		{
+			if (key.equals(((TempBonusFacadeImpl) bonus).getOriginObj().getKeyName()))
+			{
+				return bonus;
+			}
+		}
+		throw new AssertionError("No temporary bonus " + key + " available");
+	}
+
+	private static TempBonusFacade appliedTempBonus(CharacterFacadeImpl character, String key)
+	{
+		for (TempBonusFacade bonus : character.getTempBonuses())
+		{
+			if (key.equals(((TempBonusFacadeImpl) bonus).getOriginObj().getKeyName()))
+			{
+				return bonus;
+			}
+		}
+		throw new AssertionError("No temporary bonus " + key + " applied");
 	}
 
 	private static List<String> targetNames(PlayerCharacter pc, String paKey)
