@@ -30,6 +30,7 @@ import pcgen.core.Campaign;
 import pcgen.facade.core.SourceSelectionFacade;
 import pcgen.gui2.tools.TipOfTheDayHandler;
 import pcgen.gui3.InfoGuideController;
+import pcgen.gui3.GuiUtility;
 import pcgen.gui3.JFXPanelFromResource;
 
 /**
@@ -39,7 +40,7 @@ import pcgen.gui3.JFXPanelFromResource;
  * embedded in Swing. Implements {@link UIResource} so it can be a child of the
  * character {@code JTabbedPane} without becoming a tab.
  */
-class InfoGuidePane extends JComponent implements UIResource
+class InfoGuidePane extends JComponent implements UIResource, AutoCloseable
 {
 	private final UIContext uiContext;
 	private final PCGenFrame frame;
@@ -81,7 +82,17 @@ class InfoGuidePane extends JComponent implements UIResource
 
 	private void refreshTip()
 	{
-		panel.getController().setTip(TipOfTheDayHandler.getInstance().getNextTip());
+		panel.getController().showNextTip();
+	}
+
+	/** Releases the tip document before frame disposal can be followed by JVM exit. */
+	@Override
+	public void close()
+	{
+		GuiUtility.runOnJavaFXThreadNow(() -> {
+			panel.getController().close();
+			return null;
+		});
 	}
 
 	private void refreshDisplayedSources(SourceSelectionFacade sources)

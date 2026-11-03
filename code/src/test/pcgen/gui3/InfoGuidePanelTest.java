@@ -30,6 +30,7 @@ import javafx.stage.Stage;
 import pcgen.system.LanguageBundle;
 
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.testfx.framework.junit5.ApplicationExtension;
@@ -44,6 +45,12 @@ class InfoGuidePanelTest
 	private Label hint;
 	private ListView<?> sources;
 	private WebView browser;
+
+	@AfterEach
+	void closeGuide() throws Exception
+	{
+		asyncFx(controller::close).get(5, TimeUnit.SECONDS);
+	}
 
 	@BeforeAll
 	static void initializeLanguage()

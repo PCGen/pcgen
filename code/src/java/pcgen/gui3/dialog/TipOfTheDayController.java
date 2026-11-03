@@ -20,6 +20,7 @@ package pcgen.gui3.dialog;
 
 import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.tools.TipOfTheDayHandler;
+import pcgen.gui3.TipRenderer;
 import pcgen.gui3.GuiAssertions;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PropertyContext;

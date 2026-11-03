@@ -140,6 +140,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 
 	private final PCGenActionMap actionMap;
 	private final CharacterTabs characterTabs;
+	private InfoGuidePane infoGuidePane;
 	private final PCGenStatusBar statusBar;
 	private final PCGenMenuBar pcGenMenuBar;
 	private final StartupTipOfTheDay startupTip = new StartupTipOfTheDay();
@@ -190,6 +191,23 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 		);
 	}
 
+	/** Releases the guide's private tip document before disposing the Swing frame. */
+	@Override
+	public void dispose()
+	{
+		try
+		{
+			if (infoGuidePane != null)
+			{
+				infoGuidePane.close();
+			}
+		}
+		finally
+		{
+			super.dispose();
+		}
+	}
+
 	private void initComponents()
 	{
 		setLayout(new BorderLayout());
@@ -198,7 +216,8 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 		root.setActionMap(actionMap);
 		root.setInputMap(JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT, createInputMap(actionMap));
 
-		characterTabs.add(new InfoGuidePane(this, uiContext));
+		infoGuidePane = new InfoGuidePane(this, uiContext);
+		characterTabs.add(infoGuidePane);
 
 		setJMenuBar(pcGenMenuBar);
 		PCGenToolBar pcGenToolBar = new PCGenToolBar(this);

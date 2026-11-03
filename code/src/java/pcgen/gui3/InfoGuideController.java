@@ -37,6 +37,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.web.WebView;
 
 import pcgen.gui2.tools.Icons;
+import pcgen.gui2.tools.TipOfTheDayHandler;
 import pcgen.system.LanguageBundle;
 
 /**
@@ -46,11 +47,14 @@ import pcgen.system.LanguageBundle;
  * {@link JFXPanelFromResource}. All content methods are safe to call from any
  * thread; each hops to the FX thread before touching a control.
  */
-public final class InfoGuideController
+public final class InfoGuideController implements AutoCloseable
 {
 	private static final Configuration TIP_CONFIG = createTipConfiguration();
 
 	private String currentTip;
+	private int currentTipNumber = -1;
+	private TipRenderer tipRenderer;
+	private boolean closed;
 
 	@FXML
 	private Label gameModeBadge;
@@ -78,6 +82,7 @@ public final class InfoGuideController
 		openIcon.setImage(Icons.Open16.asJavaFX());
 		// Let the card's background and border show through the WebView.
 		tipBrowser.setPageFill(Color.TRANSPARENT);
+		tipRenderer = new TipRenderer(tipBrowser.getEngine(), this::reloadTip);
 		sourcesHint.fontProperty().addListener((_, _, _) -> renderTip());
 		sourcesHint.textFillProperty().addListener((_, _, _) -> renderTip());
 	}
@@ -159,19 +164,55 @@ public final class InfoGuideController
 	public void setTip(String tip)
 	{
 		Platform.runLater(() -> {
+			if (closed)
+			{
+				return;
+			}
 			sourcesHint.getScene().getRoot().applyCss();
 			currentTip = tip;
 			renderTip();
 		});
 	}
 
+	/** Displays the next shared tip and remembers this view's slot for Reload. Safe on any thread. */
+	public void showNextTip()
+	{
+		Platform.runLater(() -> {
+			if (closed)
+			{
+				return;
+			}
+			var handler = TipOfTheDayHandler.getInstance();
+			sourcesHint.getScene().getRoot().applyCss();
+			currentTip = handler.getNextTip();
+			currentTipNumber = handler.getLastNumber();
+			renderTip();
+		});
+	}
+
+	/** Rereads tips without letting another view's navigation change this view's slot. */
+	private String reloadTip()
+	{
+		var handler = TipOfTheDayHandler.getInstance();
+		handler.loadTips();
+		currentTip = handler.getTip(currentTipNumber);
+		currentTipNumber = handler.getLastNumber();
+		return buildTipDocument();
+	}
+
 	/** Renders the current author markup using resolved native presentation values. */
 	private void renderTip()
 	{
-		if (currentTip == null)
+		if (closed || currentTip == null)
 		{
 			return;
 		}
+		tipRenderer.render(buildTipDocument());
+	}
+
+	/** Builds the current tip document from resolved native typography and author markup. */
+	private String buildTipDocument()
+	{
 		if (!(sourcesHint.getTextFill() instanceof Color color))
 		{
 			throw new IllegalStateException("Guide tip text requires a solid color");
@@ -194,12 +235,25 @@ public final class InfoGuideController
 		{
 			var writer = new StringWriter();
 			TIP_CONFIG.getTemplate("info-guide-tip.ftl").process(model, writer);
-			tipBrowser.getEngine().loadContent(writer.toString());
+			return writer.toString();
 		}
 		catch (IOException | TemplateException exception)
 		{
 			throw new IllegalStateException("Unable to render the guide tip", exception);
 		}
+	}
+
+	/** Releases the private document on frame disposal; queued updates cannot reopen it. Safe on any thread. */
+	@Override
+	public void close()
+	{
+		if (!Platform.isFxApplicationThread())
+		{
+			Platform.runLater(this::close);
+			return;
+		}
+		closed = true;
+		tipRenderer.close();
 	}
 
 	/** Loads the tip's classpath template with a reusable UTF-8 configuration. */
