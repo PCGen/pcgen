@@ -30,7 +30,6 @@ import pcgen.facade.core.SourceSelectionFacade;
 import pcgen.gui2.tools.TipOfTheDayHandler;
 import pcgen.gui3.InfoGuideController;
 import pcgen.gui3.JFXPanelFromResource;
-import pcgen.system.LanguageBundle;
 
 /**
  * A first-time-user guide shown on the main frame when no character is loaded:
@@ -79,9 +78,7 @@ class InfoGuidePane extends JComponent implements UIResource
 
 	private void refreshTip()
 	{
-		panel.getController().setTip(
-				LanguageBundle.getFormattedString("in_si_tip",
-						TipOfTheDayHandler.getInstance().getNextTip()));
+		panel.getController().setTip(TipOfTheDayHandler.getInstance().getNextTip());
 	}
 
 	private void refreshDisplayedSources(SourceSelectionFacade sources)

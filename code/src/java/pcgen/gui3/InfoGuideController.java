@@ -26,6 +26,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
 import javafx.scene.web.WebView;
 
 import pcgen.gui2.tools.Icons;
@@ -64,6 +65,8 @@ public final class InfoGuideController
 	{
 		newIcon.setImage(Icons.New16.asJavaFX());
 		openIcon.setImage(Icons.Open16.asJavaFX());
+		// Let the card's background and border show through the WebView.
+		tipBrowser.setPageFill(Color.TRANSPARENT);
 	}
 
 	/**
@@ -132,12 +135,21 @@ public final class InfoGuideController
 	}
 
 	/**
-	 * Renders the current tip HTML in the tip card's WebView.
+	 * Renders the current tip in the tip card's WebView. The raw tip may carry
+	 * simple author HTML ({@code <b>}, {@code <br>}, {@code <em>}, lists); it is
+	 * wrapped in a transparent document that inherits the application font so it
+	 * blends into the card. The "Did you know?" heading is drawn natively by the
+	 * card header, so it must not appear here.
 	 *
-	 * @param tipHtml the tip markup from {@code TipOfTheDayHandler}
+	 * @param tip the raw tip markup from {@code TipOfTheDayHandler}
 	 */
-	public void setTip(String tipHtml)
+	public void setTip(String tip)
 	{
-		Platform.runLater(() -> tipBrowser.getEngine().loadContent(tipHtml));
+		String document = """
+				<!DOCTYPE html><html><head><meta charset="utf-8"><style>\
+				html,body{margin:0;padding:0;background:transparent;\
+				font-family:sans-serif;font-size:13px;color:#222}\
+				</style></head><body>%s</body></html>""".formatted(tip);
+		Platform.runLater(() -> tipBrowser.getEngine().loadContent(document));
 	}
 }
