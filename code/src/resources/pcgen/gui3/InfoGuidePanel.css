@@ -2,11 +2,12 @@
 
 .guide-root {
     -fx-padding: 16;
+    -fx-font-size: 13px;
 }
 
 .guide-title {
-    -fx-font-size: 16px;
-    -fx-font-weight: bold;
+    -fx-font-size: 18px;
+    -fx-font-weight: normal;
     -fx-padding: 0 0 4 0;
 }
 
@@ -19,7 +20,8 @@
 }
 
 .card-header {
-    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-font-weight: normal;
 }
 
 .card-hint {

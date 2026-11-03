@@ -22,6 +22,7 @@ import java.awt.BorderLayout;
 import java.util.Objects;
 import java.util.stream.StreamSupport;
 
+import javax.swing.BorderFactory;
 import javax.swing.JComponent;
 import javax.swing.plaf.UIResource;
 
@@ -57,6 +58,8 @@ class InfoGuidePane extends JComponent implements UIResource
 	private void initComponents()
 	{
 		setLayout(new BorderLayout());
+		// Leave Aqua's bottom tab-container border uncovered by the embedded scene.
+		setBorder(BorderFactory.createEmptyBorder(0, 0, 16, 0));
 		add(panel, BorderLayout.CENTER);
 		refreshDisplayedSources(null);
 		refreshTip();
