@@ -140,7 +140,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 
 	private final PCGenActionMap actionMap;
 	private final CharacterTabs characterTabs;
-	private InfoGuidePane infoGuidePane;
+	private final InfoGuidePane infoGuidePane;
 	private final PCGenStatusBar statusBar;
 	private final PCGenMenuBar pcGenMenuBar;
 	private final StartupTipOfTheDay startupTip = new StartupTipOfTheDay();
@@ -151,18 +151,18 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 	private final UIContext uiContext;
 
 	private final DefaultReferenceFacade<SourceSelectionFacade> currentSourceSelection;
-	private final DefaultReferenceFacade<CharacterFacade> currentCharacterRef;
-	private final DefaultReferenceFacade<DataSetFacade> currentDataSetRef;
-	private final FilenameListener filenameListener;
+	private final DefaultReferenceFacade<CharacterFacade> currentCharacterRef = new DefaultReferenceFacade<>();
+	private final DefaultReferenceFacade<DataSetFacade> currentDataSetRef = new DefaultReferenceFacade<>();
+	private final FilenameListener filenameListener = new FilenameListener();
 	private SourceLoadWorker sourceLoader;
 	private String section15;
 	private String lastCharacterPath;
 	/**
 	 * This is a bit of a hack until we're full on JavaFX for showing dialogs
 	 */
-	private Stage javaFXStage;
+	private transient Stage javaFXStage;
 
-	private AboutDialog javaFXAboutDialog;
+	private transient AboutDialog javaFXAboutDialog;
 
 	private boolean sourceDialogOpen;
 
@@ -171,16 +171,16 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 		this.uiContext = Objects.requireNonNull(uiContext);
 		Globals.setRootFrame(this);
 		this.currentSourceSelection = uiContext.getCurrentSourceSelectionRef();
-		this.currentCharacterRef = new DefaultReferenceFacade<>();
-		this.currentDataSetRef = new DefaultReferenceFacade<>();
 		this.actionMap = new PCGenActionMap(this, uiContext);
 		this.characterTabs = new CharacterTabs(this);
 		this.statusBar = new PCGenStatusBar(this);
-		this.filenameListener = new FilenameListener();
+		this.pcGenMenuBar = new PCGenMenuBar(this, uiContext);
+		this.infoGuidePane = new InfoGuidePane(this, uiContext);
+
 		Observer messageObserver = new ShowMessageGuiObserver(this);
 		ShowMessageDelegate.getInstance().addObserver(messageObserver);
 		ChooserFactory.setDelegate(this);
-		this.pcGenMenuBar = new PCGenMenuBar(this, uiContext);
+
 		initComponents();
 		pack();
 		initSettings();
@@ -197,10 +197,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 	{
 		try
 		{
-			if (infoGuidePane != null)
-			{
-				infoGuidePane.close();
-			}
+			infoGuidePane.close();
 		}
 		finally
 		{
@@ -216,7 +213,6 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 		root.setActionMap(actionMap);
 		root.setInputMap(JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT, createInputMap(actionMap));
 
-		infoGuidePane = new InfoGuidePane(this, uiContext);
 		characterTabs.add(infoGuidePane);
 
 		setJMenuBar(pcGenMenuBar);
