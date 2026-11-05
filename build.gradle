@@ -34,6 +34,14 @@ plugins {
     id 'org.beryx.jlink' version '4.1.1'             // Creates custom runtimes with jlink
     id 'jacoco'                                         // Code coverage
     id 'info.solidsoft.pitest' version '1.19.0'
+    id "org.sonarqube" version "7.5.0.8588"
+}
+
+sonar {
+    properties {
+        property "sonar.projectKey", "boblord14_code-analysis-pcgen"
+        property "sonar.organization", "boblord14"
+    }
 }
 
 pitest {
