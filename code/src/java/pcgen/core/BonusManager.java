@@ -1012,6 +1012,30 @@ public class BonusManager
 		return tempBonusFilters;
 	}
 
+	/**
+	 * Identify if every temporary bonus applied to the target is filtered, i.e. switched off
+	 * on the character sheet.
+	 *
+	 * @param target The object the bonuses were applied to, e.g. a temporary bonus item.
+	 * @return true if at least one bonus was applied to the target and all of them are filtered.
+	 */
+	public boolean areAllTempBonusesFilteredOn(Object target)
+	{
+		boolean applied = false;
+		for (TempBonusInfo ti : tempBonusBySource.values())
+		{
+			if (ti.target == target)
+			{
+				if (!tempBonusFilters.contains(BonusDisplay.getBonusDisplayName(ti)))
+				{
+					return false;
+				}
+				applied = true;
+			}
+		}
+		return applied;
+	}
+
 	public void addTempBonusFilter(String bonusStr)
 	{
 		tempBonusFilters.add(bonusStr);
