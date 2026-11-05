@@ -91,14 +91,6 @@ Anything `written like this` should be executed in a terminal.
 For Windows this means opening the start menu and typing cmd.exe or PowerShell. The latter is more modern if available.
 For Linux or Mac, whatever default terminal you have is fine.
 
-### Refreshing Tips While Running
-
-After editing the active game mode's tips file, right-click the tip WebView in the
-main info guide or Tip of the Day dialog and choose **Reload**. Each view rereads
-the file and keeps its displayed tip position, even if the other view has advanced
-to another tip. If the file has fewer tips, the position is clamped to the last tip;
-an empty file remains reloadable.
-
 ### Install Java
 Check the installed version with:
 
