@@ -32,6 +32,7 @@ import pcgen.core.GameMode;
 import pcgen.core.SettingsHandler;
 import pcgen.gui2.tools.TipOfTheDayHandler;
 import pcgen.gui3.dialog.TipOfTheDayController;
+import pcgen.gui3.InfoGuideController;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PropertyContext;
@@ -70,6 +71,7 @@ class TipOfTheDayTest
 	private List<Window> existingWindows;
 	private Stage stage;
 	private WebEngine engine;
+	private InfoGuideController guideController;
 	private PropertyContext context;
 	private final StartupTipOfTheDay startupTip = new StartupTipOfTheDay();
 
@@ -100,7 +102,13 @@ class TipOfTheDayTest
 	@AfterEach
 	void restoreState() throws Exception
 	{
-		asyncFx(() -> newWindows().forEach(Window::hide)).get(5, TimeUnit.SECONDS);
+		asyncFx(() -> {
+			if (guideController != null)
+			{
+				guideController.close();
+			}
+			newWindows().forEach(Window::hide);
+		}).get(5, TimeUnit.SECONDS);
 		waitForFxEvents();
 		instanceField.set(null, oldHandler);
 		SettingsHandler.getGameAsProperty().set(oldGame);
@@ -127,6 +135,70 @@ class TipOfTheDayTest
 			return null;
 		}).get(10, TimeUnit.SECONDS);
 		awaitLoaded();
+	}
+
+	/** Opens the actual guide scene and displays its next tip using the shared handler. */
+	private void openGuide() throws Exception
+	{
+		asyncFx(() -> {
+			var loader = new FXMLLoader(InfoGuideController.class.getResource("InfoGuidePanel.fxml"),
+					LanguageBundle.getBundle());
+			Scene scene = loader.load();
+			guideController = loader.getController();
+			stage = new Stage();
+			stage.setScene(scene);
+			stage.show();
+			engine = ((WebView) scene.lookup("#tipBrowser")).getEngine();
+			guideController.showNextTip();
+			return null;
+		}).get(10, TimeUnit.SECONDS);
+		awaitLoaded();
+	}
+
+	@Test
+	void guideReload_should_rereadItsOwnDisplayedSlotAndCleanUp() throws Exception
+	{
+		openGuide();
+		assertTrue(tipText().contains("First tip"));
+		Path document = asyncFx(() -> Path.of(URI.create(engine.getLocation()))).get(5, TimeUnit.SECONDS);
+		TipOfTheDayHandler.getInstance().getNextTip();
+		Files.writeString(tipsFile, "Edited <em>first</em>\nEdited second\n");
+		asyncFx(engine::reload).get(5, TimeUnit.SECONDS);
+		waitFor(10, TimeUnit.SECONDS, () -> tipText().contains("Edited first"));
+		assertEquals("first", asyncFx(() -> engine.executeScript("document.querySelector('em').textContent"))
+				.get(5, TimeUnit.SECONDS));
+		asyncFx(guideController::close).get(5, TimeUnit.SECONDS);
+		assertFalse(Files.exists(document));
+		assertFalse(Files.exists(document.getParent()));
+		guideController.showNextTip();
+		waitForFxEvents();
+		assertFalse(Files.exists(document), "Late updates must not reopen a disposed guide");
+	}
+
+	@Test
+	void guideReload_should_recoverAfterTipsBecomeEmpty() throws Exception
+	{
+		openGuide();
+		Files.writeString(tipsFile, "");
+		asyncFx(engine::reload).get(5, TimeUnit.SECONDS);
+		waitFor(10, TimeUnit.SECONDS, () -> tipText().isBlank());
+		Files.writeString(tipsFile, "Recovered tip\n");
+		asyncFx(engine::reload).get(5, TimeUnit.SECONDS);
+		waitFor(10, TimeUnit.SECONDS, () -> tipText().contains("Recovered tip"));
+	}
+
+	@Test
+	void guideReload_should_clampSlotWhenTipsAreRemoved() throws Exception
+	{
+		openGuide();
+		guideController.showNextTip();
+		waitFor(10, TimeUnit.SECONDS, () -> tipText().contains("Second tip"));
+		Files.writeString(tipsFile, "Only remaining tip\n");
+		asyncFx(engine::reload).get(5, TimeUnit.SECONDS);
+		waitFor(10, TimeUnit.SECONDS, () -> tipText().contains("Only remaining tip"));
+		Files.writeString(tipsFile, "Edited remaining tip\nAnother tip\n");
+		asyncFx(engine::reload).get(5, TimeUnit.SECONDS);
+		waitFor(10, TimeUnit.SECONDS, () -> tipText().contains("Edited remaining tip"));
 	}
 
 	private void awaitLoaded() throws Exception

@@ -11,7 +11,7 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Lesser General Public License for more details.
  */
-package pcgen.gui3.dialog;
+package pcgen.gui3;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -19,7 +19,6 @@ import java.nio.file.Path;
 import java.nio.file.attribute.PosixFilePermissions;
 import java.util.function.Supplier;
 
-import pcgen.gui3.GuiAssertions;
 import pcgen.util.Logging;
 
 import javafx.application.Platform;
@@ -27,10 +26,10 @@ import javafx.concurrent.Worker;
 import javafx.scene.web.WebEngine;
 
 /**
- * Owns one tip dialog's private HTML document. A file origin makes the native Reload action
+ * Owns one tip view's private HTML document. A file origin makes the native Reload action
  * available; its interceptor regenerates the document from the current tips file. Used only on FX.
  */
-final class TipRenderer implements AutoCloseable
+public final class TipRenderer implements AutoCloseable
 {
 	private final WebEngine engine;
 	private Path directory;
@@ -39,12 +38,12 @@ final class TipRenderer implements AutoCloseable
 	private boolean closed;
 
 	/**
-	 * Installs the reload interceptor for this dialog's engine.
+	 * Installs the reload interceptor for this view's engine.
 	 *
-	 * @param engine the dialog's WebView engine
+	 * @param engine the view's WebView engine
 	 * @param reload rereads tips and returns the current tip's updated HTML
 	 */
-	TipRenderer(WebEngine engine, Supplier<String> reload)
+	public TipRenderer(WebEngine engine, Supplier<String> reload)
 	{
 		GuiAssertions.assertIsJavaFXThread();
 		this.engine = engine;
@@ -64,11 +63,11 @@ final class TipRenderer implements AutoCloseable
 	}
 
 	/**
-	 * Writes and displays the tip; calls after the window is hidden are ignored.
+	 * Writes and displays the tip; calls after the renderer is closed are ignored.
 	 *
 	 * @param html the complete tip document
 	 */
-	void render(String html)
+	public void render(String html)
 	{
 		GuiAssertions.assertIsJavaFXThread();
 		if (closed)
