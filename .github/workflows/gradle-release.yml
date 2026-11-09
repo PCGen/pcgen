@@ -99,7 +99,12 @@ jobs:
     steps:
       - uses: actions/checkout@v7
         with:
+          fetch-depth: 0
           ref: ${{ inputs.tag_name || github.ref }}
+
+      - name: Set Windows installer build number
+        shell: bash
+        run: echo "ORG_GRADLE_PROJECT_windowsBuildNumber=$(git rev-list --count HEAD)" >> "$GITHUB_ENV"
 
       - name: Update PCGenProp.properties with release version and date
         run: |

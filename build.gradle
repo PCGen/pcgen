@@ -407,7 +407,10 @@ jlink {
             installerType = "deb"
         }
         else if (hostOs == "windows") {
-            opts += ['--win-shortcut', '--win-menu']
+            // MSI upgrades compare only major.minor.build; CI passes the commit count, local builds use 0.
+            def build = providers.gradleProperty('windowsBuildNumber').getOrElse('0')
+            appVersion = "${appVersionStr.tokenize('.').take(2).collect { it as int }.join('.')}.${build}".toString()
+            opts += ['--win-shortcut', '--win-menu', '--description', "PCGen ${version}".toString()]
             // Reuse the gold Vitruvian-man icon from the legacy Windows desktop shortcut.
             imgOpts += ['--icon', layout.projectDirectory.file("installers/win-installer/Local/PCGen2.ico").asFile.absolutePath]
             installerType = "exe"
