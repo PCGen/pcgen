@@ -138,6 +138,8 @@ Do not clean, rename, or rebuild a checkout while its application is running:
   See `code/gradle/distribution.gradle` for packaging and `code/gradle/plugins.gradle` for plugin assembly.
 - Release tags must match the version in `gradle.properties`. Installer filenames include the full
   application version, but jpackage's internal version must remain numeric.
+- Windows MSI versions use major/minor plus `windowsBuildNumber` (default 0). Release workflows pass
+  `git rev-list --count HEAD`, so build checkouts need `fetch-depth: 0`; rewriting `master` can lower it.
 - The nightly success marker advances only after all platforms succeed; a dated release tag alone
   does not prove success. CI patches version/date resources without committing them.
   Release implementation lives in `code/gradle/release.gradle` and `.github/workflows`.
