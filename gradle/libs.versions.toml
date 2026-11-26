@@ -6,7 +6,7 @@ spotbugs-tool = "4.9.8"   # analysis engine toolVersion (distinct from the plugi
 jacoco = "0.8.14"
 
 # Libraries
-commons-lang3 = "3.21.0"
+commons-lang3 = "3.22.0"
 fop = "2.12"
 saxon = "13.1"
 jep = "2.4.2"
