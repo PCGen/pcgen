@@ -466,15 +466,22 @@ public final class CharacterManager
 			+ " - " + charFile.getAbsolutePath()); //$NON-NLS-1$
 	}
 
+	/**
+	 * Closes every open character without saving it. Listeners see the party list
+	 * cleared before any character is closed, so views can detach while the
+	 * characters are still usable.
+	 */
 	public static void removeAllCharacters()
 	{
-		for (final CharacterFacade characterFacade : CHARACTERS)
+		List<CharacterFacade> closing = new ArrayList<>();
+		CHARACTERS.forEach(closing::add);
+		CHARACTERS.clearContents();
+		for (final CharacterFacade characterFacade : closing)
 		{
 			RECENT_CHARACTERS.addRecentFile(characterFacade.getFileRef().get());
 			// This advises the message handler also.
 			characterFacade.closeCharacter();
 		}
-		CHARACTERS.clearContents();
 		RECENT_PARTIES.addRecentFile(CHARACTERS.getFileRef().get());
 		CHARACTERS.setFile(null);
 		Logging.log(Logging.INFO, "Closed all characters"); //$NON-NLS-1$
