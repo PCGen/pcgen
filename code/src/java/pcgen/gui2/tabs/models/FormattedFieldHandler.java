@@ -55,7 +55,7 @@ public abstract class FormattedFieldHandler implements PropertyChangeListener,
 	public void install()
 	{
 		field.setValue(ref.get());
-		field.addPropertyChangeListener(this);
+		field.addPropertyChangeListener("value", this); //$NON-NLS-1$
 		ref.addReferenceListener(this);
 	}
 
@@ -66,7 +66,7 @@ public abstract class FormattedFieldHandler implements PropertyChangeListener,
 	@Override
 	public void uninstall()
 	{
-		field.removePropertyChangeListener(this);
+		field.removePropertyChangeListener("value", this); //$NON-NLS-1$
 		ref.removeReferenceListener(this);
 	}
 
